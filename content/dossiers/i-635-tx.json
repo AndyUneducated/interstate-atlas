@@ -1,0 +1,53 @@
+{
+  "id": "i-635-tx",
+  "name": { "en": "Interstate 635", "zh": "635 号州际公路" },
+  "tagline": { "en": "The LBJ Freeway — Dallas's north loop, rebuilt underneath itself", "zh": "LBJ 高速：达拉斯北环，在自己脚下重建" },
+  "officialMi": 36.97,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-635 is the Lyndon B. Johnson Freeway, an incomplete loop around the north and east sides of Dallas. It leaves I-35E near Farmers Branch, runs east across the northern suburbs past Dallas Love Field's northern approaches, the Galleria and US 75 at High Five, then turns south through Garland and Mesquite to rejoin I-20 at Balch Springs. The even hundreds digit says loop; the ring is not closed on the western and southern sides, where I-20 and I-35E do the job instead.",
+        "The northern thirteen miles are the part everyone means when they say the LBJ. That section carries the traffic of the Dallas suburbs in both directions plus a very large share of the region's through freight, and by the 2000s it was one of the most congested corridors in Texas with no room left to widen it — houses, offices and shopping centres sat directly against the right of way on both sides."
+      ],
+      "zh": [
+        "I-635 即林登·约翰逊高速，是达拉斯北侧与东侧一条不闭合的环线。它自农民支线附近离开 I-35E，向东横穿北郊，经达拉斯爱田机场北侧进近区、伽利略购物中心和 US 75 的「五层立交」，随后南折穿过加兰与梅斯基特，在巴尔奇斯普林斯接回 I-20。偶数百位意味着环线，但这个环在西侧与南侧并不闭合，那两边由 I-20 与 I-35E 代劳。",
+        "人们说「LBJ」时指的，通常就是北段那十三英里。这一段既承载达拉斯郊区双向的通勤流，也承担本区相当大比例的过境货运；到 2000 年代，它已是得州最拥堵的走廊之一，而且没有拓宽的余地——两侧的住宅、写字楼与购物中心紧贴着路权边线。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Texas solved that by selling the corridor's future toll revenue. TxDOT executed a comprehensive development agreement on 4 September 2009 with LBJ Infrastructure Group — a consortium led by the Spanish concessionaire Cintra with Meridiam and, unusually, the Dallas Police and Fire Pension System, the first US pension fund to invest directly in a major road project. The consortium designs, builds, finances, operates and maintains the road and keeps the toll revenue for 52 years.",
+        "The cost was about $2.6 billion for thirteen miles of I-635 plus a stretch of I-35E. The financing package included an $850 million federal TIFIA loan, $615 million of tax-exempt private activity bonds and $672 million of private equity. Construction started on 18 January 2011 and everything was open by September 2015. The engineering constraint shaped the result: rather than widen, the new managed lanes were dug in below the old roadway, so the rebuilt freeway occupies essentially the same footprint it did before."
+      ],
+      "zh": [
+        "得州的解法，是把这条走廊未来的通行费收入卖出去。2009 年 9 月 4 日，得州交通部与 LBJ Infrastructure Group 签署综合开发协议；该财团由西班牙特许经营商 Cintra 牵头，成员包括 Meridiam，以及颇为少见的达拉斯警察与消防退休基金——这是美国首个直接投资大型公路项目的退休基金。财团负责设计、建造、融资、运营与养护，并在 52 年内收取通行费。",
+        "十三英里的 I-635 加上一段 I-35E，造价约 26 亿美元。融资组合包括 8.5 亿美元的联邦 TIFIA 贷款、6.15 亿美元免税私人活动债券，以及 6.72 亿美元私人股权。工程于 2011 年 1 月 18 日开工，2015 年 9 月全部开放。工程条件决定了成果的形态：新增的管理车道不是向外拓宽，而是挖在原路面之下，因此重建后的高速占地与此前基本相同。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "36.97 miles in Texas", "zh": "得克萨斯州境内 36.97 英里" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Cost of the LBJ Express rebuild", "zh": "LBJ Express 重建造价" },
+      "value": { "en": "$2,645 million for 13 miles, under a 52-year concession", "zh": "13 英里共 26.45 亿美元，特许期 52 年" },
+      "source": "FHWA Center for Innovative Finance Support, LBJ Express project profile"
+    },
+    {
+      "label": { "en": "How it was financed", "zh": "融资构成" },
+      "value": { "en": "$850 million TIFIA loan, $615 million in private activity bonds and $672 million of private equity", "zh": "TIFIA 贷款 8.5 亿美元、私人活动债券 6.15 亿美元、私人股权 6.72 亿美元" },
+      "source": "US DOT Build America Bureau project record for the IH 635 managed lanes"
+    }
+  ],
+  "timeline": [
+    { "year": 2009, "en": "TxDOT signs a 52-year concession for the rebuilding of the LBJ Freeway.", "zh": "得州交通部就 LBJ 高速重建签署 52 年特许协议。" },
+    { "year": 2011, "en": "Construction begins on managed lanes dug in below the existing roadway.", "zh": "在既有路面之下开挖管理车道的工程开工。" },
+    { "year": 2015, "en": "All lanes open to traffic in September.", "zh": "9 月，全部车道开放通行。" }
+  ]
+}

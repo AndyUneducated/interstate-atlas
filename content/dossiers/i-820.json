@@ -1,0 +1,64 @@
+{
+  "id": "i-820",
+  "name": { "en": "Interstate 820", "zh": "820 号州际公路" },
+  "tagline": { "en": "Fort Worth's loop, rebuilt by a 52-year concession", "zh": "沃思堡环线：由 52 年特许经营重建" },
+  "officialMi": 35.42,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-820 is the loop around Fort Worth, the western half of the Dallas–Fort Worth metroplex. It runs clear of downtown in a broad arc through Benbrook, White Settlement, Lake Worth, Haltom City, North Richland Hills and Arlington, and it carries both suburban commuting and a heavy share of the region's freight. The federal log counts 35.42 miles, which is less than a full circle: the southern side of the loop is carried by I-20, and I-820 picks up again at each end of it.",
+        "The even hundreds digit marks it as a loop off I-20, and unlike many auxiliary Interstates it behaves like one. What distinguishes it now is the north-east quadrant, which since 2014 has been a managed-lane corridor: free general lanes, continuous frontage roads, and tolled express lanes in the median whose prices change with demand."
+      ],
+      "zh": [
+        "I-820 是围绕沃思堡的环线，沃思堡是达拉斯－沃思堡都会区的西半部。它以一道大弧绕开市中心，经本布鲁克、怀特塞特尔门特、莱克沃思、霍尔托姆城、北里奇兰希尔斯与阿灵顿，既承担郊区通勤，也分担该区域相当大比重的货运。联邦路线名录记 35.42 英里，不足一整圈：环线南侧由 I-20 承担，I-820 在 I-20 两端各自接续。",
+        "偶数百位说明它是从 I-20 分出的环线，而与许多辅助州际公路不同，它确实像个环线。如今它最特别的地方在东北象限：自 2014 年起，那里是一条管理车道走廊——免费的普通车道、连续的辅道，以及中央分隔带内按需求浮动收费的快速车道。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The corridor opened in the 1960s and traffic exceeded its design capacity soon afterwards. Planning for an expansion began in the late 1980s and ran through the 1990s, but the gas tax was the region's only transport revenue and TxDOT found it could fund nothing like the size of project needed. In January 2009 the Texas Transportation Commission voted 5–0 to hire a private consortium instead, and the comprehensive development agreement was signed on 23 June 2009 for a term of 52 years.",
+        "The result was the North Tarrant Express: 13.3 miles of I-820 and the SH 121/183 Airport Freeway completely rebuilt, at a cost of $2.12 billion, with four tolled express lanes added in the median and capacity roughly doubled. Federal support came as a $650 million TIFIA loan and an allocation of tax-exempt private activity bonds, both repaid from toll revenue. Construction began in October 2010 and the corridor opened on 4 October 2014, some eight to nine months ahead of schedule."
+      ],
+      "zh": [
+        "这条走廊在 1960 年代通车，此后不久交通量便超出设计通行能力。扩建规划于 1980 年代末启动，贯穿整个 1990 年代，但燃油税是该区域唯一的交通收入来源，德州交通部发现自己筹不到所需规模的资金。2009 年 1 月，德州交通委员会以 5 票赞成、0 票反对决定改聘私人联合体，同年 6 月 23 日签署了为期 52 年的综合开发协议。",
+        "成果就是「北塔兰特快速路」：I-820 与 SH 121/183 机场高速共 13.3 英里被彻底重建，造价 21.2 亿美元，中央分隔带内新增四条收费快速车道，通行能力大致翻倍。联邦方面提供 6.5 亿美元 TIFIA 贷款及一笔免税私人活动债券额度，二者均以通行费收入偿还。工程于 2010 年 10 月开工，走廊于 2014 年 10 月 4 日通车，比工期提前约八至九个月。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "35.42 miles, entirely in Texas", "zh": "35.42 英里，全线位于德克萨斯州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "North Tarrant Express cost", "zh": "北塔兰特快速路造价" },
+      "value": { "en": "$2.12 billion for 13.3 miles of I-820 and SH 121/183, opened October 2014", "zh": "I-820 与 SH 121/183 共 13.3 英里，造价 21.2 亿美元，2014 年 10 月通车" },
+      "source": "FHWA Center for Innovative Finance Support project profile, North Tarrant Express"
+    },
+    {
+      "label": { "en": "Federal credit assistance", "zh": "联邦信贷支持" },
+      "value": { "en": "A $650 million TIFIA loan plus tax-exempt private activity bonds, repaid from tolls", "zh": "6.5 亿美元 TIFIA 贷款及免税私人活动债券，以通行费偿还" },
+      "source": "US DOT Build America Bureau project highlight, North Tarrant Express Segments 1 and 2A"
+    },
+    {
+      "label": { "en": "Concession term", "zh": "特许经营期" },
+      "value": { "en": "52 years from the agreement signed on 23 June 2009", "zh": "自 2009 年 6 月 23 日签约起 52 年" },
+      "source": "FHWA Center for Innovative Finance Support project profile, North Tarrant Express"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Current daily traffic", "zh": "当前日交通量" },
+      "why": { "en": "TxDOT publishes counts by individual station rather than a corridor figure for I-820, and the concessionaire reports toll transactions rather than total traffic, so no single reliable daily volume could be verified.", "zh": "德州交通部按单个观测站发布交通量，而非 I-820 的走廊总量；特许经营方公布的是收费交易数而非总交通量，因此无法核实出单一可靠的日交通量数据。" }
+    }
+  ],
+  "timeline": [
+    { "year": 2009, "en": "Texas signs a 52-year concession for the rebuild of the north-east quadrant.", "zh": "德州签署为期 52 年的特许经营协议，重建东北象限。" },
+    { "year": 2010, "en": "Construction begins in October.", "zh": "工程于 10 月开工。" },
+    { "year": 2014, "en": "The $2.12 billion North Tarrant Express opens on 4 October, ahead of schedule.", "zh": "造价 21.2 亿美元的北塔兰特快速路于 10 月 4 日提前通车。" }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "tx-16",
+  "name": { "en": "Texas State Highway 16 — the state's longest state highway", "zh": "得克萨斯 16 号州道（得州最长的州道）" },
+  "tagline": { "en": "Zapata to Windthorst: the Rio Grande to the Red River country", "zh": "自萨帕塔至温德索斯特：从格兰德河到红河一带" },
+  "officialMi": 541.8,
+  "mileageSource": "TxDOT, State Highway, Loop, and Spur Facts",
+  "termini": {
+    "start": { "en": "US 83 in Zapata, on the Rio Grande", "zh": "格兰德河畔萨帕塔的 US 83" },
+    "end": { "en": "US 281 south of Wichita Falls, between Antelope and Windthorst", "zh": "威奇托福尔斯以南、羚羊镇与温德索斯特之间的 US 281" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "TxDOT records SH 16 as the longest state highway in Texas at 541.8 miles, running from Zapata in South Texas to a point about 30 miles south of Wichita Falls. The department is quick to add the qualifier that makes the fact interesting: even at more than 500 miles, SH 16 is only the ninth-longest highway of any classification in Texas.",
+        "It is a cross-section of the state rather than a corridor. It starts in the ranchlands above the Rio Grande, runs north through Hebbronville, Freer and Tilden, crosses San Antonio around the west side on I-410, and then climbs into the Hill Country through Bandera, Kerrville, Fredericksburg and Llano.",
+        "North of the Hill Country it flattens into ranch and farm land, crosses I-20 near Strawn, wraps around Possum Kingdom Lake and ends in North Texas without ceremony. Almost none of it is a road anyone would drive end to end; nearly all of it is somebody's way of getting to the next town."
+      ],
+      "zh": [
+        "得州交通部记载 SH 16 为该州最长的州道，全长 541.8 英里，自南得州的萨帕塔至威奇托福尔斯以南约 30 英里处。该部门还立刻补上一句，恰恰是这句让这个事实变得有趣：即便超过 500 英里，SH 16 在得州各类公路中也只排第九长。",
+        "它更像一条穿越全州的剖面，而不是一条运输走廊。起点在格兰德河上方的牧场地带，向北经赫布龙维尔、弗里尔和蒂尔登，沿 I-410 绕过圣安东尼奥西侧，随后经班德拉、克尔维尔、弗雷德里克斯堡与拉诺爬入山丘乡野。",
+        "出了山丘乡野，地势转为平坦的牧场与农田，在斯特朗附近跨过 I-20，绕过波森金德姆湖，最后在北得州毫无仪式地结束。几乎没有哪一段是有人会从头开到尾的；而几乎每一段，都是某个人前往下一个镇子的必经之路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The number is old, but the road it describes is not the one originally designated. TxDOT's route designation record shows SH 16 as a Hill Country highway for most of its early life, running from SH 254 between Graham and Mineral Wells south through Strawn, Comanche, San Saba, Llano, Fredericksburg, Kerrville, Medina and Bandera to San Antonio.",
+        "The southern half was bolted on later. SH 16 was extended from San Antonio to Zapata by absorbing SH 346 and portions of SH 173 and FM 496, taking the number through Poteet, Jourdanton, Tilden, Freer and Hebbronville. Later still it was extended north over cancelled portions of SH 254 and FM 61 to reach US 281.",
+        "This is how most long state highways become long: not by being planned at that length, but by having existing county and farm roads renumbered into them. SH 16's eighteen counties are the trace of that process rather than of any single project."
+      ],
+      "zh": [
+        "这个编号很老——始于 1920 年代中期——但它今天所指的道路并非当初划定的那一条。得州交通部的路线划定记录显示，SH 16 在其早期大部分时间里是一条山丘乡野公路，自格雷厄姆与矿泉井之间的 SH 254 向南，经斯特朗、科曼奇、圣萨巴、拉诺、弗雷德里克斯堡、克尔维尔、梅迪纳和班德拉至圣安东尼奥。",
+        "南半段是后来接上去的。SH 16 通过并入 SH 346 以及 SH 173 与 FM 496 的部分路段，自圣安东尼奥延伸至萨帕塔，把编号带过波蒂特、茹尔当顿、蒂尔登、弗里尔和赫布龙维尔。再后来，它又沿被撤销的 SH 254 与 FM 61 路段向北延伸，接上 US 281。",
+        "多数长途州道正是这样变长的：不是一开始就按这个长度规划，而是把既有的县道与农场路重新编号并入。SH 16 途经的十八个县，是这一过程的痕迹，而不是某个单一工程的成果。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The Hill Country stretch between Bandera, Medina and Kerrville is the part with a following. It is two-lane, winding, and crosses the Medina River repeatedly; motorcyclists use it and the adjacent ranch roads heavily, and Bandera advertises itself on the back of that traffic.",
+        "The South Texas half is the opposite experience. Between Zapata and the edge of San Antonio the route crosses brush country with very long gaps between towns, and Hebbronville, Freer and Tilden are the practical stops. There is no seasonal closure anywhere on the route, and no mountain pass on it.",
+        "Because the highway runs concurrently with I-410 around San Antonio and briefly shared alignments elsewhere, following the shield through the metropolitan area takes more attention than the rest of the road put together."
+      ],
+      "zh": [
+        "班德拉、梅迪纳与克尔维尔之间的山丘乡野路段最受追捧。它是双车道、弯道连绵，并多次跨越梅迪纳河；摩托车骑行者大量使用这一段及相邻的牧场公路，班德拉也正是借这股车流来宣传自己。",
+        "南得州那一半则是完全相反的体验。萨帕塔到圣安东尼奥城郊之间，路线穿过灌丛地带，镇与镇之间间隔极长，赫布龙维尔、弗里尔和蒂尔登是实际的落脚点。全线没有任何季节性封闭，也没有任何越岭路段。",
+        "由于这条公路在圣安东尼奥一带与 I-410 共线，别处也有短暂共线，在都会区内跟着路徽走所需的注意力，比其余全部路程加起来还多。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "里程" },
+      "value": { "en": "541.8 miles — the longest state highway in Texas, but only the ninth-longest highway of any classification in the state", "zh": "541.8 英里——得州最长的州道，但在该州各类公路中仅排第九" },
+      "source": "TxDOT, State Highway, Loop, and Spur Facts"
+    },
+    {
+      "label": { "en": "Counties traversed", "zh": "途经县份" },
+      "value": { "en": "Eighteen: Archer, Young, Palo Pinto, Eastland, Comanche, Mills, San Saba, Llano, Gillespie, Kerr, Bandera, Medina, Bexar, Atascosa, McMullen, Duval, Jim Hogg and Zapata", "zh": "十八个：阿彻、扬、帕洛平托、伊斯特兰、科曼奇、米尔斯、圣萨巴、拉诺、吉列斯皮、克尔、班德拉、梅迪纳、贝克萨、阿塔斯科萨、麦马伦、杜瓦尔、吉姆霍格与萨帕塔" },
+      "source": "TxDOT, State Highway No. 16 route designation record"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "建设成本" },
+      "why": { "en": "No total exists and none could. The route was assembled over decades by renumbering existing state, farm-to-market and county roads into a single designation; TxDOT keeps cost records by project, not by highway number.", "zh": "既无总数，也不可能有。本路线数十年间由既有州道、农市道路与县道重新编号拼合而成；得州交通部按项目而非按公路编号保存造价记录。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Annual average daily traffic", "zh": "年平均日交通量" },
+      "why": { "en": "TxDOT publishes counts by station, and this route runs from an urban loop in San Antonio to two-lane brush-country road in Duval and Jim Hogg counties. No route-level figure could be verified this session, and an average across that range would not describe any part of it.", "zh": "得州交通部按观测站发布交通量，而本路线既包含圣安东尼奥的城市环路，也包含杜瓦尔县与吉姆霍格县的双车道灌丛公路。本次查证未能取得全线数据，跨此区间的平均值也无法描述其中任何一段。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Surface and closures", "zh": "路面与封闭情况" },
+      "why": { "en": "TxDOT does not publish a surface or seasonal-closure summary per highway number. The route is paved throughout and has no scheduled closures, but no single citable agency statement covering all 541.8 miles was located.", "zh": "得州交通部并未按公路编号发布路面或季节性封闭汇总。本路线全线铺装、无计划性封闭，但未能找到覆盖全部 541.8 英里的单一可引用官方表述。" }
+    }
+  ]
+}

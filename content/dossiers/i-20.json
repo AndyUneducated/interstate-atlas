@@ -1,0 +1,216 @@
+{
+  "id": "i-20",
+  "name": {
+    "en": "Interstate 20",
+    "zh": "20 号州际公路"
+  },
+  "tagline": {
+    "en": "West Texas oilfields to the Carolina coastal plain",
+    "zh": "自西得州油田至卡罗来纳海岸平原"
+  },
+  "officialMi": 1409.82,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1957,
+  "termini": {
+    "start": {
+      "en": "Interstate 10 in Reeves County, Texas, east of Kent",
+      "zh": "得克萨斯州里夫斯县，肯特以东，与 I-10 相接"
+    },
+    "end": {
+      "en": "Interstate 95 at Florence, South Carolina",
+      "zh": "南卡罗来纳州佛罗伦斯，与 I-95 相接"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-20 is the southern tier's second east–west route, running below I-40 and above I-10. It begins in the middle of nowhere — a junction with I-10 in the West Texas desert, with no town at the interchange — and works east through the Permian Basin oilfields at Midland and Odessa, across the rolling country at Abilene, into the Dallas–Fort Worth metroplex, and on through the pine woods of East Texas.",
+        "East of the Mississippi it becomes a city-to-city road: Shreveport, Monroe, Vicksburg, Jackson, Meridian, Birmingham, Atlanta, Augusta, Columbia, Florence. Between Meridian and Birmingham it is not really a separate highway at all, running joined to I-59 for more than half its distance in Alabama; the exit numbers and mileposts on that stretch belong to I-59.",
+        "It ends the way it starts, at a junction rather than a destination: I-95 at Florence, South Carolina, on the coastal plain. The South Carolina section carries two honorary names, the J. Strom Thurmond Freeway and the John C. West Freeway."
+      ],
+      "zh": [
+        "I-20 是南部第二条东西向干线，位于 I-40 以南、I-10 以北。它的起点荒僻——西得州沙漠中与 I-10 相交的一处枢纽，立交附近没有城镇——随后向东穿过米德兰与敖德萨的二叠纪盆地油田，越过阿比林一带的起伏原野，进入达拉斯—沃思堡都会区，再穿行东得州的松林。",
+        "过了密西西比河，它变成一条城市连城市的公路：什里夫波特、门罗、维克斯堡、杰克逊、默里迪恩、伯明翰、亚特兰大、奥古斯塔、哥伦比亚、佛罗伦斯。在默里迪恩至伯明翰之间，它其实算不上一条独立的公路——在亚拉巴马州境内超过一半的距离都与 I-59 并线，而那一段的出口编号与里程桩都属于 I-59。",
+        "它的终点与起点一样是枢纽而非目的地：海岸平原上、南卡罗来纳州佛罗伦斯的 I-95。南卡路段有两个荣誉名称：斯特罗姆·瑟蒙德高速公路与约翰·C·韦斯特高速公路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The route was designated in 1957 in the first round of Interstate numbering, and Texas applied the number to its own portion in 1959, where it was to replace or parallel US 80. Construction there ran east to west and began with bypass loops around the larger cities; by 1967 the road was complete from the Louisiana line to the western edge of Fort Worth.",
+        "The most consequential change came on 2 December 1971, when Texas rerouted I-20 around the southern side of the Dallas–Fort Worth metroplex. The original alignment through downtown Dallas and downtown Fort Worth was redesignated I-30 — which is why I-20 today misses both city centres. Rerouting in the 1980s and 1990s shortened the Texas section from 647 to 636 miles, and in 1991 the concurrent US 80 designation was stripped from the stretch between the I-10 junction and Dallas.",
+        "At the eastern end, South Carolina built its section over about a decade. The first piece finished was the bridge over the Savannah River in 1965; the highway then grew eastward in short extensions through the early 1970s, reaching US 401 in 1975 and I-95 at Florence the following year, when exit numbers were installed."
+      ],
+      "zh": [
+        "这条路线在 1957 年首轮州际公路编号中确定，得克萨斯于 1959 年将该编号用于本州路段，计划取代或平行于 US 80。当地施工自东向西推进，先从各大城市的绕城环线开始；到 1967 年，自路易斯安那州界至沃思堡西缘已全线贯通。",
+        "影响最深远的变化发生在 1971 年 12 月 2 日：得克萨斯把 I-20 改线至达拉斯—沃思堡都会区南侧。原先经达拉斯与沃思堡两市中心的线位被改编为 I-30——这也是今日 I-20 绕开两处市中心的原因。1980 与 1990 年代的改线把得州段从 647 英里缩短到 636 英里；1991 年，自 I-10 枢纽至达拉斯之间的 US 80 并线编号被撤销。",
+        "在东端，南卡罗来纳花了约十年建成本州路段。最先完工的是 1965 年跨萨凡纳河的桥梁；此后公路在 1970 年代前期以一段段短距离向东延伸，1975 年通达 US 401，次年抵达佛罗伦斯的 I-95，并在同年安装出口编号。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The hardest piece of this route to maintain was the elevated viaduct carrying I-20 and I-59 over the Birmingham central business district. Built in the early 1970s for about 80,000 vehicles a day, it was carrying roughly double that when Alabama DOT concluded it had to be replaced for safety reasons, and the agency was spending around a million dollars a year patching it.",
+        "The replacement was unusual in method. Rather than stage the work around live traffic, ALDOT shut the corridor through downtown completely at the end of January 2019, detoured east–west traffic onto city streets and the I-459 belt, demolished the old structure and rebuilt it in precast segmental spans. The contract carried liquidated damages of $250,000 a day past the deadline and an equal daily bonus for finishing early, capped at $15 million.",
+        "The contractor earned the full bonus: the corridor reopened in January 2020, about two months ahead of schedule and after roughly a year of closure. The new structures added ten-foot shoulders and a long auxiliary lane between the I-65 interchange and the Red Mountain Expressway to remove a merge that had caused crashes for decades."
+      ],
+      "zh": [
+        "这条路线上最难维护的一段，是承载 I-20 与 I-59 跨越伯明翰中央商务区的高架桥。它建于 1970 年代前期，设计通行量约为每日 80,000 辆；当亚拉巴马州交通部认定必须出于安全原因重建时，实际车流已约为设计值的两倍，而该部门每年花在修补上的钱约为一百万美元。",
+        "重建的做法颇为特殊。亚拉巴马州交通部没有在通车状态下分阶段施工，而是在 2019 年 1 月底把穿过市中心的这段完全关闭，将东西向车流分流到城市街道与 I-459 环线上，拆除旧结构并以预制节段梁重建。合同约定逾期每日违约金 25 万美元，提前完工则每日奖励同等金额，上限 1,500 万美元。",
+        "承包商拿到了全额奖励：该路段在 2020 年 1 月重新开放，比计划提前约两个月，封闭时间约一年。新结构增设了十英尺路肩，并在 I-65 立交与红山高速之间增加一条长辅助车道，消除了数十年来引发事故的一处合流点。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$1.845 billion — Texas $710.4 million, Louisiana $326.6 million, Georgia $302.7 million, Alabama $237.1 million, Mississippi $155.3 million, South Carolina $112.7 million. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "18.45 亿美元——得克萨斯 7.104 亿、路易斯安那 3.266 亿、佐治亚 3.027 亿、亚拉巴马 2.371 亿、密西西比 1.553 亿、南卡罗来纳 1.127 亿美元。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "1,409.82 miles across Texas, Louisiana, Mississippi, Alabama, Georgia and South Carolina",
+        "zh": "1,409.82 英里，途经得克萨斯、路易斯安那、密西西比、亚拉巴马、佐治亚与南卡罗来纳六州"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Why the length is quoted two ways",
+        "zh": "为何里程有两种说法"
+      },
+      "value": {
+        "en": "The Route Log credits the 129.56 miles that I-20 and I-59 share in Alabama to I-59 only, so Alabama contributes 84.89 miles to the I-20 total. Counting the concurrency gives the commonly cited 1,539.38 miles",
+        "zh": "路线志把 I-20 与 I-59 在亚拉巴马州共线的 129.56 英里只计入 I-59，因此亚拉巴马只为 I-20 的总里程贡献 84.89 英里。若把共线段计入，就得到常见的 1,539.38 英里"
+      },
+      "source": "FHWA Route Log and Finder List, Tables 1 and 3"
+    },
+    {
+      "label": {
+        "en": "I-59/20 central business district replacement, Birmingham",
+        "zh": "伯明翰 I-59/20 中央商务区重建工程"
+      },
+      "value": {
+        "en": "About $700 million, funded by ALDOT, FHWA and the Birmingham metropolitan planning organisation; work started in 2015 and the rebuilt corridor opened in January 2020. Earlier bids had come in $150 million over the estimate and were rejected, pushing the projected total to $750 million before rebidding",
+        "zh": "约 7 亿美元，由亚拉巴马州交通部、联邦公路管理局与伯明翰大都会规划组织共同出资；2015 年动工，重建路段于 2020 年 1 月开放。此前的投标比估算高出 1.5 亿美元而被否决，重新招标前预计总额曾升至 7.5 亿美元"
+      },
+      "source": "Alabama DOT, reported by The Associated Press and al.com, January 2020; al.com, February 2017"
+    },
+    {
+      "label": {
+        "en": "Early-completion bonus",
+        "zh": "提前完工奖励"
+      },
+      "value": {
+        "en": "$250,000 for every day the bridges opened before 21 March 2020, capped at $15 million — the full amount was earned",
+        "zh": "桥梁每早于 2020 年 3 月 21 日开放一天奖励 25 万美元，上限 1,500 万美元——全额获得"
+      },
+      "source": "Alabama DOT, reported by al.com, January 2020; Engineering News-Record, March 2020"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Through downtown Birmingham",
+        "zh": "伯明翰市中心路段"
+      },
+      "value": {
+        "en": "Designed for 80,000 vehicles a day when built more than 45 years ago; ALDOT reported roughly double that volume before the replacement",
+        "zh": "四十五年多以前建成时的设计通行量为每日 80,000 辆；重建前亚拉巴马州交通部报告的实际车流约为该值的两倍"
+      },
+      "source": "Alabama DOT, reported by al.com, February 2017 and The Associated Press, January 2020"
+    },
+    {
+      "label": {
+        "en": "Route-wide traffic volume",
+        "zh": "全线交通量"
+      },
+      "why": {
+        "en": "Six state departments of transportation count their own segments, and the range on this route is enormous — the West Texas desert section and the Atlanta and Birmingham sections are not comparable. No agency publishes a combined figure.",
+        "zh": "六个州的交通部门各自统计本州路段，而本路线的差距极大——西得州沙漠段与亚特兰大、伯明翰路段不具可比性。没有机构发布合并数字。"
+      }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Length of viaduct replaced in Birmingham",
+        "zh": "伯明翰重建高架段长度"
+      },
+      "value": {
+        "en": "About 6,600 feet of deteriorating viaduct replaced with precast segmental structures, with ten-foot shoulders and a 4,000-foot auxiliary lane added between I-65 and the Red Mountain Expressway",
+        "zh": "约 6,600 英尺劣化高架桥被预制节段结构取代，并增设十英尺路肩，以及 I-65 与红山高速之间 4,000 英尺长的辅助车道"
+      },
+      "source": "Engineering News-Record, March 2020"
+    },
+    {
+      "label": {
+        "en": "Cost of patching the old structure",
+        "zh": "旧结构修补费用"
+      },
+      "value": {
+        "en": "ALDOT reported spending about $1 million a year on repairs to the deteriorating deck before it was replaced",
+        "zh": "亚拉巴马州交通部称，在重建之前每年花在这段劣化桥面修补上的费用约为一百万美元"
+      },
+      "source": "Alabama DOT, quoted in Engineering News-Record, March 2020"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1957,
+      "en": "The route is designated in the first round of Interstate numbering.",
+      "zh": "本路线在首轮州际公路编号中确定。"
+    },
+    {
+      "year": 1959,
+      "en": "Texas applies the I-20 number to its own section, to replace or parallel US 80.",
+      "zh": "得克萨斯将 I-20 编号用于本州路段，取代或平行于 US 80。"
+    },
+    {
+      "year": 1965,
+      "en": "South Carolina's first completed piece, the bridge over the Savannah River, opens.",
+      "zh": "南卡罗来纳最先完工的路段——跨萨凡纳河大桥——通车。"
+    },
+    {
+      "year": 1967,
+      "en": "Texas has the road complete from the Louisiana line to the west side of Fort Worth.",
+      "zh": "得克萨斯段自路易斯安那州界至沃思堡西侧建成。"
+    },
+    {
+      "year": 1971,
+      "en": "On 2 December I-20 is rerouted south of the Dallas–Fort Worth metroplex; the old downtown alignment becomes I-30.",
+      "zh": "12 月 2 日，I-20 改线至达拉斯—沃思堡都会区以南；原经市中心的线位改为 I-30。"
+    },
+    {
+      "year": 1976,
+      "en": "South Carolina completes its section to I-95 at Florence and installs exit numbers.",
+      "zh": "南卡罗来纳段建成通达佛罗伦斯的 I-95，并安装出口编号。"
+    },
+    {
+      "year": 1991,
+      "en": "The concurrent US 80 designation is removed between the I-10 junction and Dallas.",
+      "zh": "自 I-10 枢纽至达拉斯之间的 US 80 并线编号被撤销。"
+    },
+    {
+      "year": 2019,
+      "en": "The I-20/59 viaduct through downtown Birmingham is closed for a year and demolished.",
+      "zh": "经伯明翰市中心的 I-20/59 高架桥封闭一年并被拆除。"
+    },
+    {
+      "year": 2020,
+      "en": "The rebuilt Birmingham corridor reopens in January, about two months early.",
+      "zh": "重建后的伯明翰路段于 1 月重新开放，比计划提前约两个月。"
+    }
+  ]
+}

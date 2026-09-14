@@ -1,0 +1,101 @@
+{
+  "id": "ca-58",
+  "name": { "en": "California State Route 58 — the trans-Sierra freight route", "zh": "加利福尼亚 58 号州道（跨内华达山脉货运通道）" },
+  "tagline": { "en": "Bakersfield to Barstow over Tehachapi, and the trucks know it", "zh": "自贝克斯菲尔德越特哈查比至巴斯托，货车司机最清楚" },
+  "termini": {
+    "start": { "en": "US 101 in San Luis Obispo County", "zh": "圣路易斯奥比斯波县境内的 US 101" },
+    "end": { "en": "Barstow, San Bernardino County", "zh": "圣贝纳迪诺县巴斯托" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "CA 58 is a freight road that happens to be a state highway. It leaves the coast ranges in San Luis Obispo County, crosses the south end of the Central Valley at Bakersfield, climbs the Tehachapi Mountains, drops into the Mojave and runs east across the desert through Kramer Junction to Barstow.",
+        "Its importance comes from geography. The California Transportation Commission describes it as the only year-round, all-weather trans-Sierra route connecting Interstate 40 to Interstate 5, which makes it the practical link between the Central Valley's agriculture and the national freight network to the east — and a resilience route when higher crossings close.",
+        "The result is a corridor that does not feel like a tourist highway at any point. It is a road of climbing lanes, truck stops, rail crossings, solar fields and the long straight desert miles between them."
+      ],
+      "zh": [
+        "CA 58 本质上是一条货运通道，只是恰好被编为州道。它自圣路易斯奥比斯波县的海岸山脉出发，在贝克斯菲尔德横穿中央谷地南端，爬上特哈查比山脉，下到莫哈韦沙漠，再向东经克雷默枢纽至巴斯托。",
+        "它的重要性来自地理。加州交通委员会将其描述为连接 40 号与 5 号州际公路的唯一全年、全天候跨内华达山脉通道，这使它成为中央谷地农业与东部全国货运网络之间的实际纽带——并在更高海拔的越岭通道封闭时充当韧性备用线路。",
+        "结果是一条任何路段都不像旅游公路的走廊。它是一条由爬坡车道、卡车服务站、铁路平交道口、太阳能电场，以及它们之间漫长笔直的沙漠里程构成的路。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "The Commission's project documentation puts a number on the route's freight role: CA 58 handles 24 per cent more trucks than Interstate 80 over Donner Pass. That comparison, rather than any raw count, is the clearest statement of what the road does.",
+        "On the interregional corridor as a whole, Caltrans reports that commercial trucks make up more than a third of total traffic volume. In the steeper sections through the Tehachapis, truck speeds frequently drop 30 mph or more below the posted limit, which pulls down speeds for all eastbound traffic behind them.",
+        "That is the problem the current work addresses. Caltrans is building a 12-foot eastbound truck climbing lane through the most critical Tehachapi grade, together with wider shoulders, rumble strips, drainage work, culverts improved for wildlife connectivity, and removal of the at-grade intersection at Bena Road."
+      ],
+      "zh": [
+        "交通委员会的项目文件给出了一个能量化其货运地位的数字：CA 58 承担的货车量比越过唐纳山口的 80 号州际公路多 24%。相比任何原始计数，这一对比最清楚地说明了这条路的作用。",
+        "就整条跨区域走廊而言，加州交通局报告称商用货车占总交通量的三分之一以上。在穿越特哈查比山脉的较陡路段，货车车速常常比限速低 30 英里／小时以上，也把它们后方所有东行车流的速度一并拖慢。",
+        "这正是当前工程要解决的问题。加州交通局正在特哈查比最关键的坡段修建一条 12 英尺宽的东行货车爬坡车道，同时加宽路肩、铺设震动带、整治排水、改造涵洞以改善野生动物连通性，并取消贝纳路的平面交叉口。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Two large projects account for most of the recent spending, and both are about removing bottlenecks rather than adding scenery. The Kramer Junction Expressway project closed the last gap in a continuous four-lane expressway from US 101 to Barstow: Caltrans put the estimate at $191 million, awarded the work to Kiewit Infrastructure West under a construction manager–general contractor arrangement, and scheduled it to open in 2021. It realigned the road, widened the median, built a new interchange at US 395 and grade-separated the railway crossing.",
+        "The other is the Centennial Corridor in Bakersfield, which extends CA 58 west beyond CA 99. It was awarded $330 million under the National Corridor Infrastructure Improvement Program created by SAFETEA-LU in 2005, after earlier studies had repeatedly selected alternatives too expensive to build.",
+        "The last piece is the missing ramp from southbound CA 99 to westbound CA 58. The seventh movement at that interchange was funded with $30 million in regional and local money and the eighth with a further $29 million; construction is scheduled to begin in summer 2027 and finish in spring 2030."
+      ],
+      "zh": [
+        "近期支出主要由两个大型项目构成，二者都是为了消除瓶颈，而非增添景致。克雷默枢纽快速路项目补上了自 US 101 至巴斯托连续四车道快速路的最后一处缺口：加州交通局给出的估算为 1.91 亿美元，工程以「施工管理—总承包」方式发包给 Kiewit Infrastructure West，计划 2021 年通车。项目对道路进行改线、加宽中央分隔带、在 US 395 新建互通立交，并将铁路平交道口改为立体交叉。",
+        "另一个是贝克斯菲尔德的百年走廊工程，将 CA 58 自 CA 99 以西延伸。该项目依据 2005 年《SAFETEA-LU》设立的国家走廊基础设施改善计划获得 3.3 亿美元资助；此前多轮研究反复选出的方案，造价都高到无法实施。",
+        "最后一块是自 CA 99 南行至 CA 58 西行的缺失匝道。该互通立交的第七个转向以 3,000 万美元区域与地方资金落实，第八个再增 2,900 万美元；施工计划于 2027 年夏季开工、2030 年春季完工。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Kramer Junction Expressway cost", "zh": "克雷默枢纽快速路造价" },
+      "value": { "en": "Estimated $191 million, closing the last four-lane expressway gap between US 101 and Barstow", "zh": "估算 1.91 亿美元，补上 US 101 至巴斯托之间最后一处四车道快速路缺口" },
+      "source": "Caltrans District 8 news release, 2018"
+    },
+    {
+      "label": { "en": "Centennial Corridor federal award", "zh": "百年走廊联邦拨款" },
+      "value": { "en": "$330 million under the National Corridor Infrastructure Improvement Program", "zh": "依据国家走廊基础设施改善计划获得 3.3 亿美元" },
+      "source": "Caltrans District 6, Centennial Corridor project page"
+    },
+    {
+      "label": { "en": "SR 99 to SR 58 connector funding", "zh": "SR 99 至 SR 58 连接匝道资金" },
+      "value": { "en": "$30 million for the seventh interchange movement and a further $29 million for the eighth", "zh": "第七个转向 3,000 万美元，第八个再增 2,900 万美元" },
+      "source": "California Transportation Commission, TCEP project fact sheet, 2024"
+    },
+    {
+      "label": { "en": "Total route length", "zh": "全线里程" },
+      "why": { "en": "No length for CA 58 could be verified from Caltrans this session. The route is also being physically extended westward in Bakersfield under the Centennial Corridor, so any figure would need a date attached.", "zh": "本次查证未能从加州交通局取得 CA 58 的里程数据。此外，该路线正因百年走廊工程在贝克斯菲尔德向西实际延伸，任何数字都须附注日期。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Truck volume relative to Donner Pass", "zh": "与唐纳山口的货车量对比" },
+      "value": { "en": "24% more trucks than Interstate 80 over Donner Pass", "zh": "比越过唐纳山口的 80 号州际公路多 24% 的货车" },
+      "source": "California Transportation Commission, TCEP project fact sheet, 2024"
+    },
+    {
+      "label": { "en": "Truck share of traffic", "zh": "货车占比" },
+      "value": { "en": "More than one third of total traffic volume along the interregional corridor", "zh": "占跨区域走廊总交通量的三分之一以上" },
+      "source": "Caltrans District 9, State Route 58 Truck Climbing Lane project page"
+    },
+    {
+      "label": { "en": "Truck speed loss on grade", "zh": "坡道上的货车减速" },
+      "value": { "en": "Truck speeds frequently drop 30 mph or more below the posted limit in the steeper Tehachapi sections", "zh": "在特哈查比较陡路段，货车车速常比限速低 30 英里／小时以上" },
+      "source": "Caltrans District 9, State Route 58 Truck Climbing Lane project page"
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "All-weather status", "zh": "全天候通行能力" },
+      "value": { "en": "The only year-round, all-weather trans-Sierra route connecting Interstate 40 to Interstate 5", "zh": "连接 40 号与 5 号州际公路的唯一全年、全天候跨内华达山脉通道" },
+      "source": "California Transportation Commission, TCEP project fact sheet, 2024"
+    }
+  ],
+  "timeline": [
+    { "year": 2005, "en": "SAFETEA-LU creates the programme under which the Centennial Corridor receives $330 million.", "zh": "《SAFETEA-LU》设立相关计划，百年走廊据此获得 3.3 亿美元。" },
+    { "year": 2018, "en": "Caltrans starts the Kramer Junction Expressway project, the last four-lane gap on the route.", "zh": "加州交通局启动克雷默枢纽快速路项目，即本路线最后一处四车道缺口。" },
+    { "year": 2027, "en": "Construction is scheduled to begin on the final SR 99 to SR 58 connector ramp in Bakersfield.", "zh": "贝克斯菲尔德 SR 99 至 SR 58 最后一条连接匝道计划开工。" },
+    { "year": 2030, "en": "That connector, and with it the Centennial Corridor, is scheduled for completion.", "zh": "该连接匝道及整个百年走廊工程计划完工。" }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "i-480-oh",
+  "name": { "en": "Interstate 480", "zh": "480 号州际公路" },
+  "tagline": { "en": "Cleveland's Outerbelt South and its three-deck river crossing", "zh": "克利夫兰南外环与三联跨河大桥" },
+  "officialMi": 44.45,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "I-80, the Ohio Turnpike, in Lorain County west of Cleveland", "zh": "克利夫兰以西洛雷恩县，与俄亥俄收费高速 I-80 相接" },
+    "end": { "en": "I-80, the Ohio Turnpike, near Streetsboro", "zh": "斯特里茨伯勒附近，与俄亥俄收费高速 I-80 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-480 is the Outerbelt South Freeway, the southern arc of Cleveland's outer ring. Both ends are on I-80, the Ohio Turnpike, which is what the even hundreds digit promises, and in between it runs past Cleveland Hopkins airport and through North Olmsted, Parma, Garfield Heights, Maple Heights and Bedford Heights. For 5.84 miles on the east side it shares pavement with I-271, the only overlap of two three-digit Interstates anywhere in the system.",
+        "The piece of it everybody in north-east Ohio knows is the Valley View Bridge, which carries the freeway 212 feet above the Cuyahoga River valley and the Ohio & Erie Canal on spans 4,150 feet long. It is the busiest crossing of the valley: ODOT and its contractor put the load at up to 180,000 vehicles a day, which is why a four-lane bridge was eventually inserted between the two original ones rather than simply widening them."
+      ],
+      "zh": [
+        "I-480 是「南外环高速」，即克利夫兰外环的南弧。两端都接在俄亥俄收费高速 I-80 上——这正是偶数百位所承诺的——中间经过克利夫兰霍普金斯机场，并穿过北奥姆斯特德、帕尔马、加菲尔德海茨、梅普尔海茨与贝德福德海茨。在东侧有 5.84 英里与 I-271 共用路面，这是全系统中唯一两条三位数州际公路重叠之处。",
+        "俄亥俄东北部人人皆知的那一段是山谷景观大桥：它把这条高速托在库雅荷加河谷与俄亥俄－伊利运河之上 212 英尺处，桥长 4,150 英尺。它是这道河谷上最繁忙的通道：俄亥俄州交通部及其承包商给出的负荷高达每日 180,000 辆——这也是为什么最终选择在两座原桥之间插建一座四车道新桥，而不是简单拓宽旧桥。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Construction of the Outerbelt South began in 1971 on both sides of the Cuyahoga valley, and the two halves had to be joined. Work on the twin bridge decks started in 1972 and finished in 1975; they opened to traffic in 1977, connecting through to I-77. The original structures were built of 93-foot steel beams on concrete piers, four lanes each.",
+        "By the 2010s the decks were at the end of their lives and the bridge had no spare capacity to take a lane closure. The regional planning agency had approved a straightforward deck replacement in 2011 at an estimated $81.1 million; by the time the scope had grown to include a whole new four-lane structure between the existing bridges, the estimated total was $300.07 million, of which $277.5 million was construction. ODOT awarded a design-build contract to Walsh Construction in October 2017 for $227.8 million, about $28 million under its own estimate. The new middle bridge was built between 2018 and 2020, using 19 million pounds of structural steel and 66,000 cubic yards of concrete, and the original decks were then replaced."
+      ],
+      "zh": [
+        "南外环的建设于 1971 年在库雅荷加河谷两侧同时开工，两半须以桥相连。双桥桥面工程始于 1972 年，1975 年完工，1977 年通车，把这条路接通至 I-77。原有结构由 93 英尺长的钢梁架在混凝土桥墩上，每座四车道。",
+        "到 2010 年代，桥面已届寿命末期，而这座桥又腾不出富余通行能力来承受封闭车道。区域规划机构在 2011 年批准过一项直接更换桥面的方案，估算 8,110 万美元；待工程范围扩大到在两座旧桥之间新建一座完整的四车道桥后，估算总额升至 3.0007 亿美元，其中建设费 2.775 亿美元。俄亥俄州交通部于 2017 年 10 月把设计－建造合同发给沃尔什建筑公司，合同额 2.278 亿美元，比该部自身估算低约 2,800 万美元。新的中桥于 2018 至 2020 年间建成，用结构钢 1,900 万磅、混凝土 66,000 立方码，随后才更换原有桥面。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "44.45 miles in Ohio", "zh": "俄亥俄州境内 44.45 英里" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Valley View Bridge project", "zh": "山谷景观大桥工程" },
+      "value": { "en": "$227.8 million design-build contract awarded October 2017; total programmed cost $300.07 million", "zh": "2017 年 10 月授予设计－建造合同 2.278 亿美元；列入计划的总额为 3.0007 亿美元" },
+      "source": "Ohio Department of Transportation via Associated Press, 2018, and NOACA project planning review, 2017"
+    },
+    {
+      "label": { "en": "Original scope of the bridge work", "zh": "桥梁工程原定范围" },
+      "value": { "en": "An $81.1 million deck replacement approved in 2011, before the new middle span was added to the project", "zh": "2011 年批准的桥面更换工程为 8,110 万美元，其后才把新建中桥并入项目" },
+      "source": "Northeast Ohio Areawide Coordinating Agency project planning review, 2017"
+    },
+    {
+      "label": { "en": "Dimensions of the crossing", "zh": "跨河段尺寸" },
+      "value": { "en": "4,150 feet long and about 212 feet above the valley floor", "zh": "全长 4,150 英尺，高出谷底约 212 英尺" },
+      "source": "Walsh Group project record, 2020, and Ohio Department of Transportation"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic over the Valley View Bridge", "zh": "山谷景观大桥交通量" },
+      "value": { "en": "Up to 180,000 vehicles a day", "zh": "每日最多 180,000 辆" },
+      "source": "Ohio Department of Transportation, reported by Associated Press, 2018"
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Age of the original decks at replacement", "zh": "原桥面更换时的服役年限" },
+      "value": { "en": "About 40 years old when replacement began after 2020", "zh": "2020 年后开始更换时，已服役约 40 年" },
+      "source": "Walsh Group project record, 2020"
+    }
+  ],
+  "timeline": [
+    { "year": 1971, "en": "Construction of the Outerbelt South begins on both sides of the Cuyahoga valley.", "zh": "南外环在库雅荷加河谷两侧同时开工。" },
+    { "year": 1977, "en": "The twin Valley View bridges open, connecting the freeway through to I-77.", "zh": "山谷景观双桥通车，把这条高速接通至 I-77。" },
+    { "year": 2017, "en": "ODOT awards a $227.8 million design-build contract for a third bridge and new decks.", "zh": "俄亥俄州交通部授予 2.278 亿美元设计－建造合同，新建第三座桥并更换桥面。" },
+    { "year": 2020, "en": "The new middle bridge opens and work turns to replacing the 1970s decks.", "zh": "新中桥通车，工程转入更换 1970 年代桥面。" }
+  ]
+}

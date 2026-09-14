@@ -1,0 +1,104 @@
+{
+  "id": "us-550",
+  "name": { "en": "U.S. Route 550", "zh": "550 号美国国道" },
+  "tagline": { "en": "The Million Dollar Highway, a mine road turned mountain route", "zh": "百万美元公路：由矿道而成的山间通道" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "Interstate 25 in Bernalillo, New Mexico, north of Albuquerque", "zh": "新墨西哥州贝尔纳利约，阿尔伯克基以北，与 I-25 相接" },
+    "end": { "en": "US 50 in Montrose, Colorado", "zh": "科罗拉多州蒙特罗斯，与 US 50 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 550 is two roads bolted together. In New Mexico it is a fast four-lane divided highway running north-west from I-25 at Bernalillo across the Rio Puerco country and the Jicarilla Apache Nation to Bloomfield and Aztec, with 70 mph limits and almost nothing in between but sagebrush, gas wells and the long view to the San Juans. In Colorado it becomes a mountain highway: Durango, then up the Animas River and over three passes to Silverton, Ouray and down to Montrose.",
+        "The twenty miles between Silverton and Ouray are the Million Dollar Highway, and they are unlike anything else in the federal system. The road was blasted into the side of the Uncompahgre Gorge on the alignment of a nineteenth-century toll road, and it crosses Red Mountain Pass at 11,018 feet. There is no shoulder in places and no guardrail in others, because the ledge is too narrow to hold one. Nobody is certain where the name came from: the Colorado Department of Transportation notes the competing claims that the gravel used to improve the wagon road contained a million dollars' worth of ore, that the road cost a million dollars a mile, and that the views are simply worth a million."
+      ],
+      "zh": [
+        "US 550 是两条路拼在一起的产物。在新墨西哥，它是一条快速的四车道分隔式公路，自贝尔纳利约的 I-25 向西北穿过里奥普尔科一带与希卡里亚阿帕奇族领地至布卢姆菲尔德与阿兹特克，限速 70 英里/小时，沿途除山艾、天然气井与远望圣胡安山的开阔视野外几乎一无所有。在科罗拉多，它变成一条山区公路：先到杜兰戈，再沿阿尼马斯河上行、翻越三道山口至锡尔弗顿、乌雷，最后下行至蒙特罗斯。",
+        "锡尔弗顿与乌雷之间的二十英里就是「百万美元公路」，在整个联邦公路系统中别无二致。这段路沿一条十九世纪收费马车道的线位，在恩孔帕格里峡谷的崖壁上炸出，并在海拔 11,018 英尺处翻越红山口。有些地段没有路肩，有些地段没有护栏，因为那道岩阶窄得容不下。名字的由来无人确知：科罗拉多州交通运输部列出了几种彼此竞争的说法——用于改良马车道的砾石中含有价值百万美元的矿石、这条路每英里造价百万美元，以及沿途风景本身就值一百万。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Keeping the Colorado section open in winter is the central engineering problem. Red Mountain Pass sits beneath nearly a hundred named avalanche paths, the densest concentration above any highway in the state, and the Colorado Department of Transportation and the Colorado Avalanche Information Center between them monitor 522 known paths above Colorado highways and actively control 278 of them.",
+        "The worst is East Riverside, which falls some 3,280 feet from a starting zone of about 75 acres on Mount Abrams. Six people had been killed there since 1960 when the Colorado Geological Survey surveyed the road in 2000; the concrete snowshed built in 1985 to protect the highway was constructed at one quarter of its designed size, and mitigates roughly 90 per cent of what comes off the mountain. West Riverside, across the river, can put up to 35 feet of snow on the road. In the extraordinary March of 2019 a triggered slide buried the 180-foot shed under about 60 feet of snow, trees and rock, and CDOT locked the gates between Ouray and Silverton indefinitely. The department has since installed remotely fired O'bellx and Gasex systems at the Blue Point, Blue Willow and Mother Cline paths — the first fixed avalanche control on any US 550 pass."
+      ],
+      "zh": [
+        "让科罗拉多段在冬季保持通行，是核心的工程难题。红山口位于近百条有名的雪崩路径之下，是全州公路上方雪崩路径最密集之处；科罗拉多州交通运输部与科罗拉多雪崩信息中心共同监测该州公路上方 522 条已知路径，并对其中 278 条实施主动控制。",
+        "最凶险的是东里弗赛德路径，它自艾布拉姆斯山上约 75 英亩的起动区落差约 3,280 英尺。科罗拉多地质调查局 2000 年勘察这条路时，自 1960 年以来已有六人在此丧生；1985 年为保护公路而建的混凝土防雪棚，只按设计规模的四分之一建成，可化解自山上下来约九成的雪量。河对岸的西里弗赛德路径则可在路面堆下多达 35 英尺的积雪。在异常的 2019 年 3 月，一次人工触发的雪崩把那座 180 英尺长的防雪棚埋在约 60 英尺深的积雪、树木与岩石之下，科罗拉多州交通运输部无限期锁闭了乌雷与锡尔弗顿之间的道路。此后该部门在蓝点、蓝柳与母克莱恩三条路径上安装了可远程引爆的 O'bellx 与 Gasex 系统——这是 US 550 各山口上首套固定式雪崩控制设施。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Silverton–Ouray road was built for ore, not tourists. Otto Mears, the Russian-born entrepreneur who built much of the San Juan road and rail network, was contracted by San Juan County to build a wagon road from Silverton towards the Yankee Girl Mine and by Ouray County to build the remaining stretch from Ironton; his crews joined the two halves on 22 November 1884, and the result was run as the Silverton and Ouray Toll Road. The counties asked the state to take it over around 1920, an improved highway along the route was completed in 1924, and the first documented asphalt paving came in the 1950s.",
+        "The number itself started small and grew southward. In the 1926 system US 550 ran 110 miles from US 50 at Montrose to Durango. In 1934 it was extended through Farmington to Shiprock, New Mexico; in 1989 that western arm was handed to US 64. Then, in January 2000, New Mexico re-designated the newly rebuilt NM 44 as US 550 and the route was extended south from Aztec through Bloomfield all the way to I-25 at Bernalillo, absorbing NM 544 on the way. Nothing about the two halves matches: one is a four-lane desert highway signed for 70 mph, the other a single-lane-each-way ledge over an eleven-thousand-foot pass."
+      ],
+      "zh": [
+        "锡尔弗顿至乌雷的这条路是为矿石而修，不是为游客。出生于俄国的企业家奥托·米尔斯修建了圣胡安地区大部分道路与铁路网；圣胡安县委托他修筑自锡尔弗顿通往扬基女孩矿的马车道，乌雷县则委托他修筑自艾恩顿起的余下路段；他的工队于 1884 年 11 月 22 日把两段接通，建成后以「锡尔弗顿—乌雷收费公路」的名义经营。约 1920 年，两县请求州政府接管；沿该线位改良的公路于 1924 年建成，首次有记载的沥青铺筑则在 1950 年代。",
+        "这个号码本身起初很短，而后向南生长。在 1926 年的系统中，US 550 自蒙特罗斯的 US 50 至杜兰戈，长 110 英里。1934 年它经法明顿延伸至新墨西哥州希普罗克；1989 年那条西臂交给了 US 64。随后在 2000 年 1 月，新墨西哥把刚改建完成的 NM 44 改编为 US 550，路线自阿兹特克经布卢姆菲尔德一路南延至贝尔纳利约的 I-25，途中并入了 NM 544。这两半之间没有一处相称：一半是标示 70 英里/小时的四车道荒漠公路，另一半是翻越一万一千英尺山口、每向仅一条车道的崖阶。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The New Mexico half is one of American road-building's better-documented experiments in procurement. State law did not allow design-build at the time, so in July 1998 the highway department signed a lump-sum, performance-based professional services contract with a single company to design the road, manage construction and warrant the pavement for twenty years, while construction itself was still let by low bid. The job was the widening of 118 miles from San Ysidro to Bloomfield from two lanes to four, and it was finished in 2001 — three years rather than the two decades a conventional programme would have taken.",
+        "The state's accounting put the total at $323.82 million: $215.0 million of construction, $46.82 million of design and construction management, and $62.0 million for the performance warranties, with the twenty-year obligation backed by a $114 million bond. Because the work was paid for with bonds against future federal apportionments, the eventual bill was larger: press reporting in 2008 put the cost at $345 million with a further $142 million of interest. The safety case was strong — 36 people had been killed and 264 seriously injured on NM 44 between 1992 and 1996 — but a state review a decade after opening found that traffic volumes had risen about 35 per cent, crash numbers had risen nearly as much, and the promised economic development in the Four Corners had not materialised."
+      ],
+      "zh": [
+        "新墨西哥的这一半，是美国道路建设在采购方式上记录较为完整的一次试验。当时州法不允许设计—施工总承包，于是公路部门在 1998 年 7 月与一家公司签订了总价包干、基于绩效的专业服务合同，由其负责道路设计、施工管理，并对路面提供二十年质量保证，而施工本身仍按最低价招标。工程内容是把圣伊西德罗至布卢姆菲尔德 118 英里路段由双车道拓宽为四车道，于 2001 年完工——只用了三年，而按常规方式可能需要二十年。",
+        "该州的核算把总额定为 3.2382 亿美元：施工 2.15 亿美元、设计与施工管理 4,682 万美元、绩效保证 6,200 万美元，二十年期的责任由一笔 1.14 亿美元的债券担保。由于工程以未来联邦拨款为抵押发债支付，最终账单更大：2008 年的新闻报道称造价为 3.45 亿美元，另有 1.42 亿美元利息。安全上的理由很充分——1992 至 1996 年间，NM 44 上有 36 人死亡、264 人重伤——但通车十年后的一项州级评估发现，交通量上升约 35%，事故数量的增幅也几乎相当，而当初承诺的四角地区经济发展并未出现。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "NM 44 to US 550 widening, 1998–2001", "zh": "1998—2001 年 NM 44 改建为 US 550 的拓宽工程" },
+      "value": { "en": "$323.82 million by the state's accounting — $215.0 million construction, $46.82 million design and construction management, $62.0 million performance warranties — for 118 miles widened from two lanes to four, with the twenty-year warranty backed by a $114 million bond", "zh": "按该州核算为 3.2382 亿美元——施工 2.15 亿、设计与施工管理 4,682 万、绩效保证 6,200 万美元——用于把 118 英里路段由双车道拓宽为四车道，二十年质量保证由 1.14 亿美元债券担保" },
+      "source": "New Mexico DOT, 'RoadLIFE GPS' project report, National Transportation Library; FHWA Center for Innovative Finance Support project profile"
+    },
+    {
+      "label": { "en": "Cost of the bond financing", "zh": "债券融资的代价" },
+      "value": { "en": "$345 million as reported a decade later, with a further $142 million of interest on bonds repaid over twenty years from future federal funds", "zh": "十年后报道的数字为 3.45 亿美元，另有 1.42 亿美元利息，债券以未来的联邦经费在二十年内偿还" },
+      "source": "Associated Press reporting on the New Mexico DOT study, April 2008"
+    },
+    {
+      "label": { "en": "Cost of the original toll road", "zh": "最初收费公路的造价" },
+      "why": { "en": "The Silverton–Ouray wagon road was a private venture of the 1880s and no audited figure survives. The name 'Million Dollar Highway' is itself a nickname of disputed origin, and the Colorado Department of Transportation does not endorse any of the explanations.", "zh": "锡尔弗顿至乌雷的马车道是 1880 年代的私人经营项目，没有经审计的数字留存。「百万美元公路」本身只是一个来源有争议的绰号，科罗拉多州交通运输部并不认可其中任何一种解释。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic growth after the New Mexico widening", "zh": "新墨西哥拓宽后的交通增长" },
+      "value": { "en": "Annual travel on the corridor rose by about 35 per cent in the years after the road was widened to four lanes", "zh": "道路拓宽为四车道后的数年间，该走廊的年交通量上升约 35%" },
+      "source": "New Mexico Department of Transportation study, reported April 2008"
+    },
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Colorado and New Mexico count their own segments, and the two halves are not comparable: a 70 mph divided highway serving Albuquerque's commuter and gas-field traffic, and a mountain pass that closes for avalanche control. No combined figure is published.", "zh": "科罗拉多与新墨西哥各自统计本州路段，而这两半无法相提并论：一边是限速 70 英里/小时、承担阿尔伯克基通勤与气田车流的分隔式公路，一边是会因雪崩控制而封闭的山口。并无合并数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Avalanche exposure at Red Mountain Pass", "zh": "红山口的雪崩暴露程度" },
+      "value": { "en": "Nearly 100 named avalanche paths above the 11,018-foot pass, the most of any stretch of highway in Colorado; statewide, CDOT and the Colorado Avalanche Information Center control 278 of 522 known paths above highways", "zh": "在海拔 11,018 英尺的山口上方有近 100 条有名的雪崩路径，为科罗拉多所有公路路段之最；在全州范围内，州交通运输部与科罗拉多雪崩信息中心对公路上方 522 条已知路径中的 278 条实施控制" },
+      "source": "Colorado Springs Gazette, March 2019; Colorado Department of Transportation project page for the US 550 Red Mountain Pass avalanche control system"
+    },
+    {
+      "label": { "en": "The East Riverside snowshed", "zh": "东里弗赛德防雪棚" },
+      "value": { "en": "Built in 1985 at one quarter of its designed size, it mitigates about 90 per cent of the avalanches off Mount Abrams, whose East Riverside path drops some 3,280 feet from a 75-acre starting zone and had killed six people since 1960", "zh": "1985 年按设计规模的四分之一建成，可化解自艾布拉姆斯山下来的约九成雪崩；该山的东里弗赛德路径自 75 英亩的起动区落差约 3,280 英尺，自 1960 年以来已致六人死亡" },
+      "source": "Colorado Geological Survey field trip guide FT-00-02, 'Geology, Water Quality, and Avalanche Hazards of the Ouray–Silverton Area', 2000"
+    }
+  ],
+  "timeline": [
+    { "year": 1884, "en": "Otto Mears's crews join the two halves of the Silverton–Ouray wagon road on 22 November; it operates as a toll road.", "zh": "11 月 22 日，奥托·米尔斯的工队把锡尔弗顿至乌雷马车道的两段接通，以收费公路的形式运营。" },
+    { "year": 1924, "en": "An improved state highway along the toll road's alignment is completed.", "zh": "沿收费公路线位改良的州级公路建成。" },
+    { "year": 1926, "en": "US 550 is designated, running 110 miles from US 50 at Montrose to Durango.", "zh": "US 550 获得编号，自蒙特罗斯的 US 50 至杜兰戈，长 110 英里。" },
+    { "year": 1934, "en": "The route is extended through Farmington to Shiprock, New Mexico.", "zh": "本路线经法明顿延伸至新墨西哥州希普罗克。" },
+    { "year": 1989, "en": "The western arm between Farmington and Shiprock is transferred to US 64.", "zh": "法明顿至希普罗克的西臂移交 US 64。" },
+    { "year": 2000, "en": "New Mexico re-designates the rebuilt NM 44 as US 550, extending the route south to I-25 at Bernalillo.", "zh": "新墨西哥把改建后的 NM 44 改编为 US 550，路线南延至贝尔纳利约的 I-25。" },
+    { "year": 2019, "en": "An avalanche buries the Red Mountain Pass snowshed and the pass is closed indefinitely during a record season.", "zh": "在创纪录的雪季中，一场雪崩掩埋红山口防雪棚，山口被无限期封闭。" }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "us-89",
+  "name": { "en": "U.S. Route 89", "zh": "89 号美国国道" },
+  "tagline": { "en": "Flagstaff to Glacier, park entrance to park entrance", "zh": "自弗拉格斯塔夫至冰川，串起各国家公园入口" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "Business Loop I-40 and US 180 in Flagstaff, Arizona", "zh": "亚利桑那州弗拉格斯塔夫，I-40 商业环线与 US 180 交会处" },
+    "end": { "en": "The Canadian border at Piegan, Montana, east of Glacier National Park", "zh": "蒙大拿州皮根的加拿大边境，位于冰川国家公园以东" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 89 is the road that strings together the national parks of the interior West. From Flagstaff it runs north across the Navajo Nation below the Echo Cliffs, past the turnoffs for the Grand Canyon's east entrance and Lake Powell, then climbs into southern Utah, where it passes Zion, Bryce Canyon and the mouth of the Sevier canyons before running the length of the Sanpete and Sevier valleys through a chain of small Mormon farm towns.",
+        "North of Utah it changes register again. It crosses the Bear Lake country into Idaho, follows the Snake River side of Star Valley into Wyoming, and enters Jackson Hole and Grand Teton National Park, where for a stretch it is the park's main road. Beyond Yellowstone it drops down the Paradise Valley to Livingston, Montana, crosses the high plains to Great Falls, and finishes along the Rocky Mountain Front at Browning and the Blackfeet Reservation, ending at a small border station at Piegan with the east side of Glacier National Park in view.",
+        "Its southern half was once much longer. Until 1992 US 89 began at the Mexican border in Nogales and ran the length of Arizona through Tucson, Phoenix and Prescott; that section is gone from the national system, leaving the route's present character almost entirely rural and almost entirely mountain."
+      ],
+      "zh": [
+        "US 89 是把内陆西部各国家公园串在一起的那条路。它自弗拉格斯塔夫北上，穿越纳瓦霍族领地、沿回声崖脚下行进，经过通往大峡谷东入口与鲍威尔湖的岔口，随后爬进犹他州南部——沿途经过锡安、布赖斯峡谷与塞维尔各峡谷的谷口，再纵贯桑皮特谷与塞维尔谷，穿过一连串摩门教小农镇。",
+        "出犹他后，它的气质又一变。它横穿贝尔湖一带进入爱达荷，沿斯塔谷的斯内克河一侧进入怀俄明，进入杰克逊霍尔与大提顿国家公园——在那里有一段它本身就是公园的主干道。过黄石之后，它沿天堂谷下行至蒙大拿州利文斯顿，横穿高平原至大瀑布城，最后沿落基山前缘经布朗宁与黑脚族保留地，止于皮根一处小小的边境站，其东侧即可望见冰川国家公园。",
+        "它的南半段曾长得多。1992 年以前，US 89 起于诺加莱斯的墨西哥边境，纵贯亚利桑那全州，经图森、菲尼克斯与普雷斯科特；该段已从国家系统中消失，使本路线如今的面貌几乎全然是乡野的、也几乎全然是山地的。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The route's hardest piece of engineering was forced on it. Early on the morning of 20 February 2013 the roadbed south of Page buckled where the highway crosses the toe of the Echo Cliffs, and a landslide destroyed a section of pavement outright. The Arizona Department of Transportation closed 23 miles between the State Route 98 junction in Page and US 89A near Bitter Springs — a closure that lasted just over two years, in country where the alternatives are measured in hours.",
+        "The interim fix was to pave Navajo Route 20, a dirt road across the Kaibito Plateau, and sign it as a temporary US 89T; it opened to traffic in August 2013 after three months of work. The permanent repair, approved by the State Transportation Board in 2014 and delivered by a construction-manager-at-risk team, moved the highway about 60 feet east into the cliff face, excavated roughly a million cubic yards of rock and gravel, realigned 1,500 feet of roadway and used the excavated rock to build a buttress at the base of the slope. The road reopened in March 2015, ahead of schedule."
+      ],
+      "zh": [
+        "这条路线最艰难的工程是被逼出来的。2013 年 2 月 20 日清晨，公路在横越回声崖坡脚处的路基发生隆起变形，一场滑坡直接摧毁了一段路面。亚利桑那州交通运输部封闭了佩吉的 98 号州道路口至苦泉附近 US 89A 之间的 23 英里路段——这次封闭持续了两年多，而在那一带，绕行的代价是以小时计的。",
+        "临时办法是把横越凯比托高原的一条土路、即纳瓦霍 20 号路铺上沥青，标示为临时的 US 89T；经三个月施工后于 2013 年 8 月通车。永久性修复方案 2014 年获州交通委员会批准，由「风险型施工管理」团队实施：把公路向东移入崖壁约 60 英尺，挖除约一百万立方码的岩石与砾石，重新调整 1,500 英尺路段的线形，并用挖出的岩石在坡脚筑起支撑体。道路于 2015 年 3 月提前重新开放。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The number was among the first handed out by the Bureau of Public Roads in 1925, and at first it meant only the road from Flagstaff into central Utah. Within two years it had been stretched south across Arizona to the Mexican border at Nogales by way of Tucson, Phoenix, Yarnell Hill and Prescott, and north through Utah, Idaho, Wyoming and Montana. The Arizona Department of Transportation's own account puts the completed highway at 1,600 miles in 1938, from Nogales to Piegan — a deliberate border-to-border road.",
+        "Two later events cut it back. In the late 1950s the highway north of Flagstaff was realigned and repaved to serve the construction of Glen Canyon Dam; when the Glen Canyon Bridge was finished the route was moved onto a new alignment through Page, and the old road through Marble Canyon and Jacob Lake became US 89A. Then in April 1992 ADOT asked AASHTO to truncate the route at Flagstaff, and the committee agreed at its meeting of 13 June 1992. The abandoned southern half was parcelled out to I-19, Business Loop I-19, SR 77, SR 79, US 60, US 93, I-40 and a new State Route 89, which still carries the number between Wickenburg, Prescott and Ash Fork."
+      ],
+      "zh": [
+        "这个号码属于 1925 年公共道路局最早发放的那一批，起初只指弗拉格斯塔夫通往犹他州中部的那条路。不到两年，它已向南经图森、菲尼克斯、亚内尔坡与普雷斯科特横贯亚利桑那，直抵诺加莱斯的墨西哥边境，并向北穿过犹他、爱达荷、怀俄明与蒙大拿。按亚利桑那州交通运输部自己的说法，这条公路 1938 年建成时全长 1,600 英里，自诺加莱斯至皮根——是一条有意为之的边境到边境的道路。",
+        "后来的两件事让它缩短了。1950 年代后期，弗拉格斯塔夫以北的路段为配合格伦峡谷大坝施工而重新定线并重铺路面；格伦峡谷大桥建成后，路线被改到经佩吉的新线上，原经大理石峡谷与雅各布湖的旧路改编为 US 89A。随后在 1992 年 4 月，亚利桑那州交通运输部请求 AASHTO 把本路线截短至弗拉格斯塔夫，编号委员会在同年 6 月 13 日的会议上予以批准。被放弃的南半段被分派给 I-19、I-19 商业环线、SR 77、SR 79、US 60、US 93、I-40，以及新设的 89 号州道——后者至今仍在威肯堡、普雷斯科特与阿什福克之间沿用这个号码。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Echo Cliffs landslide repair, 2014–15", "zh": "2014—15 年回声崖滑坡修复" },
+      "value": { "en": "About $25 million, eligible for reimbursement under the Federal Highway Administration's emergency relief programme; the construction contract itself was reported at $22.3 million and up", "zh": "约 2,500 万美元，可按联邦公路管理局紧急救助计划申请补偿；施工合同本身据报为 2,230 万美元起" },
+      "source": "Arizona Department of Transportation news releases, 2014 and March 2015; Engineering News-Record, December 2015"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No such figure exists. US 89 was assembled in 1926–27 from roads the states and territories had already built, and its major later works — the Glen Canyon realignment, the 2013 landslide repair — were funded and costed separately.", "zh": "没有这样的数据。US 89 于 1926—27 年由各州与准州已建成的道路拼接而成，其后的重大工程——格伦峡谷改线、2013 年滑坡修复——则分别单独筹资与核算。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "why": { "en": "No current authoritative figure. AASHTO leaves U.S. Route mileage to the states and has published no national log since 1989. The one well-documented historical figure — 1,600 miles from Nogales to Piegan, as completed in 1938 — no longer describes the route, which lost its Arizona section south of Flagstaff in 1992.", "zh": "目前没有权威数字。AASHTO 把美国国道里程交由各州统计，1989 年后未再发布全国里程表。唯一有据可查的历史数字——1938 年建成时自诺加莱斯至皮根的 1,600 英里——已不能描述现在的路线，因为其弗拉格斯塔夫以南的亚利桑那段已于 1992 年不复存在。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Six state agencies count their own segments, and the traffic on this route is strongly seasonal — park-bound in summer, thin in winter. No combined figure is published.", "zh": "6 个州的机构各自统计本州路段，而本路线的交通量季节性极强——夏季以前往公园者为主，冬季稀疏。并无合并数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Length of the 2013–15 closure", "zh": "2013—15 年封闭路段长度" },
+      "value": { "en": "23 miles, between the State Route 98 junction in Page and US 89A near Bitter Springs, closed from 20 February 2013 until March 2015", "zh": "23 英里，自佩吉的 98 号州道路口至苦泉附近的 US 89A，自 2013 年 2 月 20 日封闭至 2015 年 3 月" },
+      "source": "Arizona Department of Transportation news release, March 2015"
+    },
+    {
+      "label": { "en": "Current pavement and bridge condition", "zh": "当前路面与桥梁状况" },
+      "why": { "en": "Condition data are reported to the Federal Highway Administration by state and functional class rather than by U.S. Route number, so no route-level rating exists for US 89.", "zh": "路况数据按州与功能等级、而非按美国国道编号上报联邦公路管理局，因此不存在针对 US 89 的全线评级。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 89 appears in the first federal numbering, at first meaning only the road from Flagstaff to central Utah.", "zh": "US 89 出现在首批联邦编号中，起初仅指弗拉格斯塔夫至犹他州中部的道路。" },
+    { "year": 1938, "en": "ADOT's history puts the completed border-to-border route at 1,600 miles, Nogales to Piegan.", "zh": "按亚利桑那州交通运输部的记述，这条边境到边境的公路建成时全长 1,600 英里，自诺加莱斯至皮根。" },
+    { "year": 1959, "en": "With the Glen Canyon Bridge complete, US 89 is moved onto a new alignment through Page; the old road becomes US 89A.", "zh": "格伦峡谷大桥建成后，US 89 改走经佩吉的新线，旧路改编为 US 89A。" },
+    { "year": 1992, "en": "AASHTO approves Arizona's request to truncate US 89 at Flagstaff, removing the whole Nogales–Flagstaff section.", "zh": "AASHTO 批准亚利桑那州把 US 89 截短至弗拉格斯塔夫的申请，整条诺加莱斯—弗拉格斯塔夫段由此撤销。" },
+    { "year": 2013, "en": "A landslide destroys the roadway at the Echo Cliffs south of Page; 23 miles close and a temporary US 89T is paved over Navajo Route 20.", "zh": "佩吉以南回声崖处一场滑坡摧毁路面；23 英里路段封闭，纳瓦霍 20 号路被铺设为临时的 US 89T。" },
+    { "year": 2015, "en": "The rebuilt highway reopens in March after a roughly $25 million repair, 30 days ahead of schedule.", "zh": "重建后的公路于 3 月重新开放，修复费用约 2,500 万美元，比计划提前 30 天。" }
+  ]
+}

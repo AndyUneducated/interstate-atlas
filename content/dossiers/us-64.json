@@ -1,0 +1,71 @@
+{
+  "id": "us-64",
+  "name": { "en": "U.S. Route 64", "zh": "64 号美国国道" },
+  "tagline": { "en": "Four Corners to the Outer Banks, grown at both ends", "zh": "自四角地带至外滩群岛，两端逐步接长" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "U.S. 160 at Teec Nos Pos, Arizona, on the Navajo Nation", "zh": "亚利桑那州提克诺斯波斯，纳瓦霍族领地内，与 US 160 相接" },
+    "end": { "en": "Whalebone Junction at Nags Head, North Carolina", "zh": "北卡罗来纳州纳格斯黑德，鲸骨交叉口" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 64 begins four miles from the Four Corners, on the Navajo Nation, and ends where the Outer Banks meet the Atlantic. In between it is at least four different roads. The New Mexico section runs east from Shiprock and Farmington across the Jicarilla country to Chama, over the Rio Grande gorge west of Taos, and out through the Sangre de Cristo foothills to the high plains at Clayton. Through the Oklahoma Panhandle and northern Oklahoma it is a plains route to Enid, Tulsa and Muskogee.",
+        "East of the Mississippi it changes again. Across Tennessee it runs along the southern edge of the state through Bolivar, Pulaski and Winchester to Chattanooga. The North Carolina mountain section, between Murphy and Hendersonville by way of Franklin, Highlands and Cashiers, is the tightest and steepest part of the whole route. Then the Piedmont — Statesville, Lexington, Asheboro, Raleigh — and finally the coastal plain, where US 64 becomes the road to the beach: Rocky Mount, Williamston, Plymouth, the Albemarle peninsula, and across Roanoke Island to Nags Head."
+      ],
+      "zh": [
+        "US 64 起于距四角地带四英里处的纳瓦霍族领地，终于外滩群岛与大西洋相接之处。中间它至少是四条不同的路。新墨西哥段自希普罗克与法明顿东行，穿过希卡里亚地区至查马，在陶斯以西跨越格兰德河峡谷，再穿桑格雷－德克里斯托山麓，出至克莱顿的高原平地。经俄克拉何马锅柄地带与该州北部时，它是一条通往伊尼德、塔尔萨与马斯科吉的平原路线。",
+        "密西西比河以东，它又变了。横穿田纳西时，它沿该州南缘而行，经博利瓦、普拉斯基与温切斯特至查塔努加。北卡罗来纳的山区段——自默菲经富兰克林、海兰兹与卡希尔斯至亨德森维尔——是全线弯道最急、坡度最陡的一段。随后是皮德蒙特地区的斯泰茨维尔、莱克星敦、阿什伯罗与罗利，最后进入沿海平原；在那里，US 64 成了通往海滨的道路：罗基芒特、威廉斯敦、普利茅斯、阿尔伯马尔半岛，再跨罗厄诺克岛抵纳格斯黑德。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "As approved on 11 November 1926, US 64 was a short interior route: its western end was at US 385 in Capulin, New Mexico, and its eastern end at Conway, Arkansas. Both ends then moved outward for sixty years.",
+        "The eastern extension was negotiated. AASHO raised the idea of carrying US 64 to the North Carolina coast in March 1932; North Carolina asked for it that June but proposed a routing from Morganton to Statesville by way of Lenoir, which AASHO refused, wanting the road to run directly with US 70. The state agreed and the extension was approved on 16 June 1932, ending at Fort Landing in Tyrrell County. Reaching the barrier islands took two more decades and two ferries — across Croatan Sound, replaced by a bridge in the mid-1950s, and across the Alligator River, bridged in 1960 — after which the terminus was moved out to Whalebone Junction at Nags Head.",
+        "The western end took longer. US 64 absorbed US 485 to reach Santa Fe in the early 1930s. Arizona proposed in 1959 that it be run west from Santa Fe to Tuba City; AASHO said no. Then on 11 November 1972 the route was truncated at Taos and swung west instead over a new road through Tres Piedras to Farmington, replacing several state highways. It was extended once more, on 2 December 1988, over what had been Arizona 504 and New Mexico 504 to meet US 160 at Teec Nos Pos — which leaves only about four miles of US 64 inside Arizona."
+      ],
+      "zh": [
+        "按 1926 年 11 月 11 日通过的方案，US 64 是一条短的内陆路线：西端在新墨西哥州卡普林与 US 385 相接，东端在阿肯色州康韦。此后六十年间，两端不断向外推移。",
+        "东延段是谈出来的。1932 年 3 月，AASHO 提出把 US 64 引向北卡罗来纳海岸；该州当年 6 月提出申请，但建议线位自摩根顿经莱诺至斯泰茨维尔，AASHO 予以否决，希望它直接与 US 70 同走廊。该州同意后，延伸段于 1932 年 6 月 16 日获批，止于蒂勒尔县的兰丁堡。要抵达堤岛还需再过二十年、再跨两道渡口——克罗阿坦海峡渡轮于 1950 年代中期改建为桥，阿尔伯马尔的鳄鱼河渡轮则于 1960 年建桥——此后端点才推至纳格斯黑德的鲸骨交叉口。",
+        "西端耗时更久。1930 年代初，US 64 吞并 US 485 抵达圣菲。1959 年亚利桑那州提议把它自圣菲西延至图巴城，AASHO 未予同意。随后在 1972 年 11 月 11 日，本路线在陶斯被截短，改经特雷斯彼德拉斯的新建道路西行至法明顿，取代了数条州道。1988 年 12 月 2 日又一次延伸，沿原亚利桑那 504 号与新墨西哥 504 号公路，至提克诺斯波斯与 US 160 相接——其结果是，US 64 在亚利桑那境内只剩约四英里。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Mileage inside Arizona", "zh": "亚利桑那州境内里程" },
+      "value": { "en": "About four miles, between the terminus at Teec Nos Pos and the New Mexico line — the shortest state section of the route", "zh": "约四英里，自提克诺斯波斯端点至新墨西哥州界，为本路线最短的一州路段" },
+      "source": "AARoads, U.S. 64 Arizona guide"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No figure exists. US 64 was numbered in 1926 over existing state roads and grew by absorbing more of them in 1932, 1972 and 1988; no agency has ever accounted for it as one project.", "zh": "没有这样的数据。US 64 于 1926 年沿既有州级道路编号，并在 1932、1972 与 1988 年通过吞并更多州道而延长；从未有任何机构把它作为单一工程核算。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "why": { "en": "No authoritative current figure exists. AASHTO leaves U.S. Route mileage to the states and last published a national log in 1989, months after the last extension of this route; published totals since then are unofficial compilations.", "zh": "目前没有权威数据。AASHTO 把美国国道里程交由各州统计，最后一份全国里程表发布于 1989 年，即本路线最后一次延伸后仅数月；此后公布的总里程均属非官方汇编。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Nine state agencies count their own segments. US 64 is a six-lane freeway east of Raleigh and a two-lane mountain road at Highlands; no combined figure is published.", "zh": "9 个州的机构各自统计本州路段。US 64 在罗利以东是六车道高速公路，在海兰兹则是双车道山路；并无合并数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Ferries replaced by bridges", "zh": "渡轮改建为桥梁" },
+      "value": { "en": "The Croatan Sound ferry was replaced by a bridge in about 1955 and the Alligator River ferry by a bridge in 1960, giving US 64 a continuous road connection to the Outer Banks", "zh": "克罗阿坦海峡渡轮约于 1955 年改建为桥梁，鳄鱼河渡轮于 1960 年改建为桥梁，US 64 由此获得通往外滩群岛的连续陆路" },
+      "source": "NCRoads.com route log for US 64"
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 64 is approved on 11 November, running from Capulin, New Mexico, to Conway, Arkansas.", "zh": "11 月 11 日 US 64 获批，自新墨西哥州卡普林至阿肯色州康韦。" },
+    { "year": 1932, "en": "AASHO approves the extension across Tennessee and North Carolina to the coast on 16 June.", "zh": "6 月 16 日，AASHO 批准横穿田纳西与北卡罗来纳、直抵海岸的延伸段。" },
+    { "year": 1960, "en": "A bridge replaces the Alligator River ferry, completing the road link to the Outer Banks.", "zh": "鳄鱼河渡轮改建为桥梁，通往外滩群岛的陆路由此贯通。" },
+    { "year": 1972, "en": "The route is truncated at Taos on 11 November and extended west to Farmington instead.", "zh": "11 月 11 日，本路线在陶斯被截短，改向西延伸至法明顿。" },
+    { "year": 1988, "en": "US 64 is extended to US 160 at Teec Nos Pos, Arizona, near the Four Corners.", "zh": "US 64 延伸至亚利桑那州提克诺斯波斯，与四角地带附近的 US 160 相接。" }
+  ]
+}

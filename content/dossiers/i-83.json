@@ -1,0 +1,69 @@
+{
+  "id": "i-83",
+  "name": { "en": "Interstate 83", "zh": "83 号州际公路" },
+  "tagline": { "en": "Baltimore to Harrisburg, and a downtown end that was never built", "zh": "从巴尔的摩到哈里斯堡，市区那一端始终未建" },
+  "officialMi": 85.05,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1960,
+  "termini": {
+    "start": { "en": "Fayette Street in downtown Baltimore, Maryland, at an at-grade intersection", "zh": "马里兰州巴尔的摩市中心费耶特街，止于一处平面交叉口" },
+    "end": { "en": "I-81 north of Harrisburg, Pennsylvania", "zh": "宾夕法尼亚州哈里斯堡以北，与 I-81 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-83 is a short route with two very different halves. In Pennsylvania it is a rural and suburban expressway between Harrisburg and York, crossing the Susquehanna and running down through farmland to the Maryland line. In Maryland it becomes the Baltimore–Harrisburg Expressway through the northern suburbs, then the Jones Falls Expressway into the city.",
+        "The Baltimore end is the unusual part. The JFX runs in the Jones Falls stream valley, on the footprint of an older road, which is how it got built when almost every other planned freeway in the city did not. It descends into downtown on elevated structure and then simply stops at a traffic light on Fayette Street.",
+        "That ending is not a design choice so much as the residue of a cancelled project. I-83 was meant to continue through Fells Point and Canton to meet I-95; it never did, and the expressway hands its traffic to city streets."
+      ],
+      "zh": [
+        "I-83 是一条短路线，却有两个迥异的半段。在宾夕法尼亚州，它是哈里斯堡与约克之间的城郊与乡村快速路，跨过萨斯奎哈纳河，穿过农田南下至马里兰州界。进入马里兰后，它先成为穿过北郊的巴尔的摩—哈里斯堡快速路，再成为通入市区的琼斯瀑布快速路。",
+        "巴尔的摩一端才是不寻常的地方。JFX 走在琼斯瀑布溪谷之中，沿用一条更早道路的占地——这正是它得以建成、而该市几乎所有其他规划中的高速公路都未能建成的原因。它以高架形式下行进入市中心，然后干脆在费耶特街的一个红绿灯前结束。",
+        "这个结尾与其说是设计选择，不如说是一项被取消工程留下的残迹。I-83 原计划继续穿过费尔斯角与坎顿去接 I-95；它始终没有做到，这条快速路只能把车流交给城市街道。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Pennsylvania got there first. The state began upgrading US 111 to expressway standard in 1950, and the first section opened in 1952 as the Harrisburg–York–Baltimore Expressway. By 1959 a driver could go from the outskirts of Harrisburg to the outskirts of Baltimore without a traffic light. The road was given the I-83 number in 1960, and the US 111 shields came down in 1963.",
+        "In Baltimore the JFX was the first Interstate the city actually built, largely because the alternative alignments drew opposition that this one did not. The first section opened in December 1961 between Charles Street and Falls Road; extensions followed through 1962, and the link to the Baltimore Beltway opened on 2 November that year.",
+        "Extending it through downtown proved impossible. In July 1983 Governor Hughes and Mayor Schaefer jointly asked to withdraw the unbuilt southern end from the Interstate System, and the Federal Highway Administration approved it that September. The bill for finishing it had become the argument against it, and the completion of I-95 under the harbour was the higher priority."
+      ],
+      "zh": [
+        "宾夕法尼亚州先行一步。该州自 1950 年起把 US 111 改造为快速路标准，首段于 1952 年通车，称哈里斯堡—约克—巴尔的摩快速路。到 1959 年，司机已能从哈里斯堡郊外一路开到巴尔的摩郊外而不遇一盏红绿灯。这条路于 1960 年获得 I-83 编号，US 111 的路牌则在 1963 年撤下。",
+        "在巴尔的摩，JFX 是该市真正建成的第一条州际公路，主要原因是其他备选线位都遭到反对，而这一条没有。首段于 1961 年 12 月在查尔斯街与福尔斯路之间通车；1962 年陆续延伸，同年 11 月 2 日接通巴尔的摩环城路。",
+        "把它延伸穿过市中心则被证明无法实现。1983 年 7 月，休斯州长与谢弗市长联名请求将未建的南端从州际公路系统中撤出，联邦公路管理局于同年 9 月批准。完工所需的账单本身成了反对它的理由，而在海港下方建成 I-95 才是更优先的事项。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Value of the withdrawn Baltimore routes", "zh": "巴尔的摩撤出路段的核定价值" },
+      "value": { "en": "$1,047.7 million final withdrawal value for the combined Baltimore withdrawals of I-70, I-595 and I-83, of which $575.3 million was reobligated to highway projects and $460.4 million to transit; the withdrawn I-83 segment was 3.35 miles, from I-95 to Fayette Street", "zh": "巴尔的摩 I-70、I-595 与 I-83 合并撤出的最终核定价值为 10.477 亿美元，其中 5.753 亿美元改投公路项目、4.604 亿美元投入公共交通；撤出的 I-83 路段长 3.35 英里，自 I-95 至费耶特街" },
+      "source": "FHWA Highway History, Interstate Withdrawal-Substitution Program, Baltimore, Maryland"
+    },
+    {
+      "label": { "en": "Route-wide construction cost", "zh": "全线建设成本" },
+      "why": { "en": "No route-wide figure is published. The Pennsylvania half was built as a US 111 expressway upgrade before the Interstate number existed, and the Maryland half was built by the city and state as separate projects through the early 1960s.", "zh": "未发布全线数据。宾夕法尼亚一半是在州际公路编号出现之前，作为 US 111 的快速路改造修建的；马里兰一半则由市、州在 1960 年代初以若干独立工程建成。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "85.05 miles: 50.55 in Pennsylvania and 34.50 in Maryland", "zh": "85.05 英里：宾夕法尼亚州 50.55 英里，马里兰州 34.50 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Maryland and Pennsylvania publish counts by segment. The Jones Falls Expressway in Baltimore and the rural section south of York are not comparable, and no route-wide figure is published.", "zh": "马里兰州与宾夕法尼亚州按路段发布交通量。巴尔的摩的琼斯瀑布快速路与约克以南的乡村路段无从比较，亦未发布全线数字。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1952, "en": "Pennsylvania opens the first section of the Harrisburg–York–Baltimore Expressway, an upgrade of US 111.", "zh": "宾夕法尼亚州通车哈里斯堡—约克—巴尔的摩快速路首段，由 US 111 改造而成。" },
+    { "year": 1960, "en": "The Pennsylvania expressway receives the I-83 designation.", "zh": "宾夕法尼亚州这条快速路获得 I-83 编号。" },
+    { "year": 1961, "en": "The first section of the Jones Falls Expressway opens in Baltimore in December.", "zh": "12 月，琼斯瀑布快速路首段在巴尔的摩通车。" },
+    { "year": 1962, "en": "The JFX is completed to the Baltimore Beltway on 2 November.", "zh": "11 月 2 日，JFX 建成接通巴尔的摩环城路。" },
+    { "year": 1983, "en": "Maryland withdraws the unbuilt southern end of I-83 from the Interstate System.", "zh": "马里兰州将 I-83 未建的南端从州际公路系统中撤出。" }
+  ]
+}

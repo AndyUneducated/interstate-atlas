@@ -1,0 +1,11 @@
+node_modules/
+
+# Upstream source data, ~120 MB. Not committed; run `npm run fetch` to restore.
+tools/src/
+
+# Terrain tile cache used when regenerating elevation profiles.
+tools/cache/
+
+# Verification artefacts.
+tools/shots/
+tools/elev.log

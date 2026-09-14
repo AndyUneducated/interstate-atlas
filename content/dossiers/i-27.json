@@ -1,0 +1,196 @@
+{
+  "id": "i-27",
+  "name": {
+    "en": "Interstate 27",
+    "zh": "27 号州际公路"
+  },
+  "tagline": {
+    "en": "Amarillo to Lubbock, straight across the Llano Estacado",
+    "zh": "从阿马里洛到拉伯克，笔直穿过埃斯塔卡多平原"
+  },
+  "officialMi": 128.44,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1968,
+  "completedYear": 1992,
+  "termini": {
+    "start": {
+      "en": "Interstate 40 in Amarillo, Texas",
+      "zh": "得克萨斯州阿马里洛，与 I-40 相接"
+    },
+    "end": {
+      "en": "US 87 south of Lubbock, Texas, just north of County Road 7500",
+      "zh": "得克萨斯州拉伯克以南、7500 号县道以北，接 US 87"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-27 connects two cities and nothing else. It runs south from Amarillo across the Llano Estacado to Lubbock, over ground so flat and so uniformly farmed that the route's landmarks are grain elevators. It never leaves Texas and meets no other Interstate except I-40 at its northern end.",
+        "The towns along it — Canyon, Happy, Tulia, Plainview, Hale Center, Abernathy, New Deal — are mostly bypassed, and the old US 87 still runs alongside for long stretches rather than having been absorbed. In places that produces an oddity: four lanes of US 87, four lanes of I-27 main line and two lanes of I-27 frontage road running in parallel across open cotton country.",
+        "At the Amarillo end it functions as a city road. Amarillo and Canyon have been growing towards each other along it since the early 1960s, and the strip of development between them is close to continuous."
+      ],
+      "zh": [
+        "I-27 只连接两座城市，别无其他。它自阿马里洛南下，横穿埃斯塔卡多平原前往拉伯克；沿途地势极平、耕作方式高度一致，以至于路上的地标就是粮仓。它从不离开得克萨斯，除北端的 I-40 外不与任何其他州际公路相交。",
+        "沿线的城镇——峡谷城、哈皮、图利亚、普莱恩维尤、黑尔中心、阿伯纳西、新政镇——大多被绕过，而旧 US 87 在很长的区间里依然并行存在，并未被吸收。这在某些地方造就了一种奇观：四车道的 US 87、四车道的 I-27 主线与两车道的 I-27 辅道，在开阔的棉田间并行前进。",
+        "在阿马里洛一端，它扮演的是城市道路的角色。自 1960 年代初起，阿马里洛与峡谷城便沿它相向生长，两地之间的带状开发已近乎连成一片。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Part of the road existed before the number did. In the late 1950s and early 1960s Texas built the Canyon E-Way south from Amarillo along US 60 and US 87, engineered for 45 miles per hour. When the corridor was added to the Interstate system, many of those structures — including on- and off-ramps far shorter than the standards allowed — were absorbed into I-27 under an exception to Interstate design requirements.",
+        "The number was assigned in a federal letter dated 24 December 1968, from I-40 in Amarillo to Lubbock, and in 1976 the designation was extended through Lubbock to Loop 289 on the south side of the city. Construction proper began in the Lubbock district in 1975, at the north end of the city. The Amarillo district finished its share on 5 December 1986 with a 23.6-mile section from south of Amarillo down to Happy.",
+        "The last piece was the urban stretch inside Loop 289 in Lubbock, from 19th Street to 54th Street, opened at a ceremony on the 34th Street overpass on 3 September 1992. It completed not only I-27 but the whole of Texas's portion of the Interstate system. Nothing was added to the route for another thirty-two years, until the Federal Highway Administration approved a 4.2-mile southward extension along US 87 in September 2024 — the first new miles of I-27 since 1992, and the first built under the Ports-to-Plains programme."
+      ],
+      "zh": [
+        "这条路的一部分早于它的编号存在。1950 年代末至 1960 年代初，得克萨斯沿 US 60 与 US 87 从阿马里洛南修了「峡谷快速路」，设计车速为每小时 45 英里。当该走廊被纳入州际公路系统后，那些结构物——包括远短于标准的上下匝道——依据州际公路设计标准的豁免被并入 I-27。",
+        "编号由一份日期为 1968 年 12 月 24 日的联邦函件授予，范围自阿马里洛的 I-40 至拉伯克；1976 年，该编号被延伸穿过拉伯克，直至城南的 289 号环路。真正的施工于 1975 年从拉伯克辖区、即该市北端开始。阿马里洛辖区于 1986 年 12 月 5 日完成本辖区任务，通车路段为自阿马里洛以南至哈皮的 23.6 英里。",
+        "最后一块是拉伯克 289 号环路以内、自 19 街至 54 街的城区段，1992 年 9 月 3 日在 34 街跨线桥举行通车典礼。它不仅使 I-27 全线贯通，也标志着得克萨斯全境的州际公路系统建设完成。此后三十二年间这条路未再延长，直到 2024 年 9 月联邦公路管理局批准沿 US 87 向南延伸 4.2 英里——这是 1992 年以来 I-27 的首批新增里程，也是「港口到平原」计划下建成的第一段。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "Traffic on this road is concentrated at the two ends and thin in the middle, and the middle is thinner than it looks because US 87 remains open alongside. Trucks make up a high share of the rural volume.",
+        "The bypassed towns show the cost. Tulia's business district lay along US 87 on the western edge of town — locally the West End — and after I-27 took the through traffic the grocery stores, service stations and motels there struggled or closed. By the time the Federal Highway Administration studied the corridor, Swisher County had one grocery store and the county immediately east had none, with the retail centres of Amarillo and Lubbock forty-five minutes and an hour away along the new road.",
+        "The current argument about I-27 is about extending it. The 1998 federal transportation act made the existing route part of the Ports-to-Plains Corridor, a high-priority corridor running from the Mexican border at Laredo to Denver; a 2001 feasibility study concluded that a continuous four-lane highway along its whole length was not justified. The programme has since proceeded piecemeal, and the 2024 extension south of Lubbock was its first Interstate-signed result."
+      ],
+      "zh": [
+        "这条路的车流集中在两端、中段稀薄，而中段其实比看上去更稀薄，因为 US 87 仍在旁边通行。在乡村路段中，卡车占比很高。",
+        "被绕过的城镇付出了代价。图利亚的商业区原本沿 US 87 分布在镇子西缘——当地称「西端」——在 I-27 把过境车流带走之后，那里的杂货店、加油站与汽车旅馆纷纷陷入困境或关门。到联邦公路管理局研究这条走廊时，斯威舍县只剩一家杂货店，紧邻其东的县一家也没有，而阿马里洛与拉伯克的零售中心沿新路分别只有四十五分钟与一小时之遥。",
+        "如今关于 I-27 的争论在于是否延长。1998 年的联邦交通法案把既有路线纳入「港口到平原」走廊——一条自拉雷多的墨西哥边境通往丹佛的高优先级走廊；2001 年的可行性研究则认为，沿其全长修建连续的四车道公路并不合理。此后该计划零散推进，2024 年拉伯克以南的延伸段是它第一个挂上州际公路盾牌的成果。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$453.4 million. TxDOT's Amarillo and Lubbock districts built the route from the mid-1970s to 1992",
+        "zh": "4.534 亿美元。得州交通部阿马里洛与拉伯克两辖区自 1970 年代中期建至 1992 年"
+      },
+      "source": "FHWA, Economic Development History of Interstate 27 in Texas, 2003–2004"
+    },
+    {
+      "label": {
+        "en": "Interstate Construction programme cost",
+        "zh": "州际建设计划支出"
+      },
+      "value": {
+        "en": "$579.0 million as tabulated at the close of the programme, including $29.3 million of projects not yet converted. The figure is higher than the $453.4 million reported in FHWA's corridor history because it is a different accounting: obligations plus remaining estimated cost as of 31 December 1989, state and federal funds combined.",
+        "zh": "按计划收尾时的统计为 5.790 亿美元，其中包含 2,930 万美元尚未转换的项目。该数字高于联邦公路管理局走廊史中所载的 4.534 亿美元，因为口径不同：它是截至 1989 年 12 月 31 日的已列支金额加剩余估算成本，且为州与联邦资金合计。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "128.44 miles, entirely within Texas. TxDOT certified 124.182 miles open to traffic in 2010; the 4.2-mile extension approved in 2024 accounts for the difference",
+        "zh": "128.44 英里，全线位于得克萨斯州境内。得州交通部 2010 年认证的通车里程为 124.182 英里；差额来自 2024 年获批的 4.2 英里延伸段"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026; TxDOT Highway Designation File, Interstate Highway No. 27"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Busiest point, Lubbock north of South Loop 289",
+        "zh": "最繁忙处：拉伯克南 289 号环路以北"
+      },
+      "value": {
+        "en": "61,000 vehicles a day in 2002, up from 28,000 in 1990 — the volume more than doubled after the downtown sections opened in 1992",
+        "zh": "2002 年日均 61,000 辆，1990 年为 28,000 辆——市中心路段 1992 年通车后车流量增长逾一倍"
+      },
+      "source": "Texas DOT district traffic maps, via FHWA, Economic Development History of Interstate 27 in Texas, 2003–2004"
+    },
+    {
+      "label": {
+        "en": "Amarillo, 45th Avenue to the I-40 junction",
+        "zh": "阿马里洛：45 街至 I-40 枢纽"
+      },
+      "value": {
+        "en": "57,000 vehicles a day in 2002, up from 8,710 in 1959",
+        "zh": "2002 年日均 57,000 辆，1959 年为 8,710 辆"
+      },
+      "source": "Texas DOT district traffic maps, via FHWA, Economic Development History of Interstate 27 in Texas, 2003–2004"
+    },
+    {
+      "label": {
+        "en": "Lightest point, north of Tulia",
+        "zh": "最稀疏处：图利亚以北"
+      },
+      "value": {
+        "en": "6,300 vehicles a day in 2002, barely changed from 6,200 in 1990; on most parallel segments of US 87 the count was below 1,000 a day in 1990",
+        "zh": "2002 年日均 6,300 辆，与 1990 年的 6,200 辆几无变化；1990 年，US 87 多数并行路段的日均车流量不足 1,000 辆"
+      },
+      "source": "Texas DOT district traffic maps, via FHWA, Economic Development History of Interstate 27 in Texas, 2003–2004"
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Inherited substandard geometry",
+        "zh": "承袭的不合标准线形"
+      },
+      "value": {
+        "en": "The Canyon E-Way, built in the late 1950s and early 1960s for 45 mph, was absorbed into I-27 under an exception to Interstate design standards; its short ramps remain in place",
+        "zh": "建于 1950 年代末至 1960 年代初、设计车速每小时 45 英里的「峡谷快速路」，依州际公路设计标准的豁免被并入 I-27；其短匝道仍在使用"
+      },
+      "source": "FHWA, Economic Development History of Interstate 27 in Texas, 2003–2004"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1968,
+      "en": "A federal letter dated 24 December designates I-27 from I-40 in Amarillo to Lubbock.",
+      "zh": "12 月 24 日的联邦函件将自阿马里洛 I-40 至拉伯克的路线定名为 I-27。"
+    },
+    {
+      "year": 1975,
+      "en": "Construction begins in the Lubbock district, from North Loop 289 to New Deal.",
+      "zh": "拉伯克辖区动工，自北 289 号环路至新政镇。"
+    },
+    {
+      "year": 1976,
+      "en": "The designation is extended through Lubbock to Loop 289 south of the city.",
+      "zh": "编号延伸穿过拉伯克，至城南 289 号环路。"
+    },
+    {
+      "year": 1986,
+      "en": "The Amarillo district completes its portion on 5 December with a 23.6-mile section down to Happy.",
+      "zh": "阿马里洛辖区于 12 月 5 日完成本辖区路段，通车 23.6 英里至哈皮。"
+    },
+    {
+      "year": 1991,
+      "en": "The Plainview business loop, formerly Loop 445, is designated.",
+      "zh": "原 445 号环路被定为普莱恩维尤商业环线。"
+    },
+    {
+      "year": 1992,
+      "en": "The final section through Lubbock opens on 3 September, completing the route and Texas's Interstate system.",
+      "zh": "穿过拉伯克的最后一段于 9 月 3 日通车，全线贯通，得州州际公路系统亦告建成。"
+    },
+    {
+      "year": 1998,
+      "en": "Federal legislation makes I-27 part of the Ports-to-Plains high-priority corridor.",
+      "zh": "联邦立法将 I-27 纳入「港口到平原」高优先级走廊。"
+    },
+    {
+      "year": 2005,
+      "en": "The Texas legislature names the route between I-40 and US 84 the Marshall Formby Memorial Highway.",
+      "zh": "得州议会将 I-40 至 US 84 之间的路段命名为马歇尔·福姆比纪念公路。"
+    },
+    {
+      "year": 2024,
+      "en": "FHWA approves a 4.2-mile extension south of Lubbock in September, the first new I-27 mileage since 1992.",
+      "zh": "9 月，联邦公路管理局批准拉伯克以南 4.2 英里延伸段，这是 1992 年以来 I-27 首次增加里程。"
+    }
+  ]
+}

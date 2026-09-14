@@ -1,0 +1,92 @@
+{
+  "id": "az-87",
+  "name": { "en": "Arizona State Route 87 — the Beeline Highway", "zh": "亚利桑那 87 号州道（蜂线公路）" },
+  "tagline": { "en": "Saguaro to ponderosa in sixty miles of divided mountain road", "zh": "六十英里分隔式山地公路，从巨人柱到黄松林" },
+  "termini": {
+    "start": { "en": "I-10 near Picacho", "zh": "皮卡乔附近的 I-10" },
+    "end": { "en": "SR 264 near Second Mesa on the Hopi Reservation", "zh": "霍皮保留地第二台地附近的 SR 264" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "The Beeline is the road Phoenix uses to get out of the heat. It leaves the eastern edge of the metropolitan area, crosses the Salt River basin and climbs through the Mazatzal Mountains and Tonto National Forest to Payson, on the lip of the Mogollon Rim. ADOT's corridor study measures the climb: from about 1,500 feet at Fountain Hills to 4,890 feet at Payson.",
+        "What makes it unusual is the geometry. The old two-lane road became the southbound carriageway; the northbound lanes, built in the 1990s, were cut on an entirely new alignment through different canyons. For long stretches the two directions are not a divided highway in any normal sense — between mileposts 241 and 246 they are more than a mile apart, and between 213 and 216 they cross over each other and run on the wrong sides.",
+        "North of Payson SR 87 changes character again. It runs with SR 260 over the Rim, then crosses the Coconino plateau and the Little Colorado country to Winslow, and finally climbs onto the Hopi mesas — a different Arizona at each end."
+      ],
+      "zh": [
+        "蜂线公路是凤凰城用来逃离酷热的那条路。它自都会区东缘出发，穿过盐河盆地，经马萨察尔山脉与通托国家森林爬升至莫戈永陡崖边缘的佩森。亚利桑那交通部的走廊研究记录了这段爬升：自喷泉山约 1,500 英尺升至佩森的 4,890 英尺。",
+        "它不寻常之处在于线形。旧的双车道成了南行车道；1990 年代修建的北行车道则沿全新线位、穿过不同的峡谷。在很长的路段上，两个方向根本不是通常意义上的分隔式公路——在里程碑 241 至 246 之间，两者相距一英里以上；在 213 至 216 之间，它们相互交叉，各自跑到了「错误」的一侧。",
+        "佩森以北，SR 87 再次变换性格。它与 SR 260 共线翻过陡崖，穿过科科尼诺高原与小科罗拉多河地带抵达温斯洛，最后爬上霍皮台地——两端是两个不同的亚利桑那。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "ADOT's own inventory is blunt about the corridor's weak points. The posted limit is 65 mph for most of the study length, but the southbound lanes drop to 55 between mileposts 247.4 and 243.5 because of tight curves and steep grades. There is a truck escape ramp on the northbound side near milepost 227.",
+        "Shoulders are inconsistent. The standard section is two twelve-foot lanes with a four-foot inside and ten-foot outside shoulder, but where there is a concrete centre median — roughly mileposts 245 to 250 and 219 to 229 — the inside shoulder is often less than four feet. Rock-fall is an active concern on the original alignment: at mileposts 214.2 to 214.6 the cut slopes are heavily jointed granite with a ditch too narrow for its slope height, so released material tends to roll onto the shoulder or into the travel lanes.",
+        "The department rates freight needs across the whole study length as high, and the reason it gives is the number of closures caused by crashes, obstructions and weather. The Mazatzal Rest Area at SR 188 is closed."
+      ],
+      "zh": [
+        "亚利桑那交通部自己的资产清单对这条走廊的弱点毫不含糊。研究范围内大部分路段限速 65 英里/小时，但南行车道在里程碑 247.4 至 243.5 之间因急弯与陡坡降至 55。北行方向在里程碑 227 附近设有一处卡车避险车道。",
+        "路肩宽度不一致。标准断面是两条 12 英尺车道加 4 英尺内侧与 10 英尺外侧路肩，但在设有混凝土中央分隔带处——大致是里程碑 245 至 250 与 219 至 229——内侧路肩常常不足 4 英尺。旧线位上的落石是现实问题：在里程碑 214.2 至 214.6，边坡切方是节理密集的花岗岩，而边沟相对坡高过窄，脱落的石块容易滚上路肩甚至进入行车道。",
+        "该部门将整个研究范围的货运需求评为「高」，理由是事故、障碍物与天气造成的封闭次数。SR 188 路口的马萨察尔休息区已关闭。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road began as a lumberman's project. Harvey Bush, who had houses in both Mesa and Payson, pushed the state and the timber industry to replace a string of disconnected trails through Reno Pass with a single road; it opened in 1934 and was known as the Bush Highway.",
+        "Postwar Phoenix outgrew it. A cutoff between Mesa and the Saguaro Lake turnoff bypassed the slowest part of the old road, and that shortcut — a bee line — gave the modern highway its name. The name then spread backwards over the whole route to Payson.",
+        "The 1990s reconstruction turned the Beeline into the four-lane bifurcated road it is now, and ADOT has been studying what to do next ever since: the current corridor development study covers the 59 miles from Fort McDowell Road at milepost 191 to Green Valley Parkway at milepost 250."
+      ],
+      "zh": [
+        "这条路起初是一位木材商的计划。同时在梅萨与佩森置有住宅的哈维·布什推动州政府与木材业以一条完整的道路取代穿越里诺山口的零散小径；道路于 1934 年通车，被称作布什公路。",
+        "战后凤凰城的增长让它不敷使用。梅萨与萨瓜罗湖岔口之间修建的一条截弯取直线绕开了旧路最慢的一段，而这条捷径——一条「蜂线」——给了今天这条公路名字。此后该名称向后蔓延，覆盖了通往佩森的整条路线。",
+        "1990 年代的改建把蜂线公路变成了如今这条四车道分岔公路，而亚利桑那交通部自那以后一直在研究下一步：当前的走廊发展研究覆盖自里程碑 191 的麦克道尔堡路至里程碑 250 的绿谷大道共 59 英里。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Elevation gained, Fountain Hills to Payson", "zh": "自喷泉山至佩森的爬升" },
+      "value": { "en": "About 1,500 feet to 4,890 feet", "zh": "约自 1,500 英尺升至 4,890 英尺" },
+      "source": "ADOT, SR 87 Corridor Development Study, Chapter 1 (background information)"
+    },
+    {
+      "label": { "en": "Corridor study length", "zh": "走廊研究长度" },
+      "value": { "en": "59 miles, milepost 191 to milepost 250", "zh": "59 英里，自里程碑 191 至里程碑 250" },
+      "source": "ADOT, SR 87 Corridor Development Study"
+    },
+    {
+      "label": { "en": "Bush Highway completed", "zh": "布什公路建成" },
+      "value": { "en": "1934", "zh": "1934 年" },
+      "source": "Sonoran Lifestyle, 'Beeline Highway History', citing the road's completion under Harvey Bush"
+    },
+    {
+      "label": { "en": "Total route length", "zh": "路线总长" },
+      "why": { "en": "ADOT publishes corridor-level mileposts rather than a single certified route total, and no state-published figure for the whole of SR 87 could be verified.", "zh": "亚利桑那交通部公布的是走廊层级的里程碑，而非单一认证总里程；未能查证到该州公布的 SR 87 全线数据。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Posted speed", "zh": "限速" },
+      "value": { "en": "65 mph for most of the corridor; 55 mph southbound between mileposts 247.4 and 243.5 for tight curves and steep grades", "zh": "走廊大部分路段 65 英里/小时；南行在里程碑 247.4 至 243.5 之间因急弯陡坡为 55 英里/小时" },
+      "source": "ADOT, SR 87 Corridor Development Study, Chapter 1"
+    },
+    {
+      "label": { "en": "Truck escape ramp", "zh": "卡车避险车道" },
+      "value": { "en": "One, northbound near milepost 227", "zh": "一处，北行方向里程碑 227 附近" },
+      "source": "ADOT, SR 87 Corridor Development Study, Chapter 1"
+    },
+    {
+      "label": { "en": "Carriageway separation", "zh": "上下行分离" },
+      "value": { "en": "More than a mile apart between mileposts 241 and 246; lanes cross over between 213 and 216", "zh": "里程碑 241 至 246 之间相距一英里以上；213 至 216 之间上下行交叉" },
+      "source": "ADOT, SR 87 Corridor Development Study, Chapter 1"
+    }
+  ],
+  "timeline": [
+    { "year": 1934, "en": "The Bush Highway, the first car route between Mesa and Payson, is completed.", "zh": "梅萨与佩森之间第一条汽车通道布什公路建成。" },
+    { "year": 1966, "en": "The Beeline designation is extended over the former SR 65 between Winslow and Strawberry.", "zh": "蜂线公路名号扩展至温斯洛与斯特罗伯里之间的原 SR 65。" }
+  ]
+}

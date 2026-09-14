@@ -1,0 +1,87 @@
+{
+  "id": "i-96",
+  "name": { "en": "Interstate 96", "zh": "96 号州际公路" },
+  "tagline": { "en": "Muskegon to Detroit on the line of an old Indian trail", "zh": "自马斯基根至底特律，沿一条古印第安小径的走向" },
+  "officialMi": 187.05,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1977,
+  "termini": {
+    "start": { "en": "I-196 and US 31 at Norton Shores, near Muskegon, Michigan", "zh": "密歇根州马斯基根附近的诺顿肖尔斯，与 I-196 及 US 31 相接" },
+    "end": { "en": "I-75 in Detroit, Michigan", "zh": "密歇根州底特律，与 I-75 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-96 crosses the Lower Peninsula from Lake Michigan to Detroit, linking Muskegon, Grand Rapids, Lansing and the Detroit suburbs. It is entirely within Michigan and it carries the state's main interior east–west traffic, both commuter and freight.",
+        "The corridor is much older than the road. The line it follows was an Indian trail before Michigan was a state, then a wagon road, then Grand River Avenue; it became state trunkline M-16 in 1919 and US 16 in the federal numbering. I-96 is the freeway that replaced it, and when the freeway was finished the US 16 shields came down for good.",
+        "The last 17 miles into Detroit are a different road again: the Jeffries Freeway, built in the 1970s in a depressed trench through the city's west side after the original alignment was moved."
+      ],
+      "zh": [
+        "I-96 横穿密歇根州下半岛，自密歇根湖直到底特律，串起马斯基根、大急流城、兰辛与底特律郊区。它全线位于密歇根州境内，承担该州内陆主要的东西向交通，既有通勤也有货运。",
+        "这条走廊远比这条路古老。它所循的路线，在密歇根建州之前是印第安人的小径，后来成为马车道，再后来成为大河大道；1919 年它成为州干线 M-16，在联邦编号体系中成为 US 16。I-96 就是取代它的高速公路；高速公路建成之时，US 16 的路牌被永久撤下。",
+        "进入底特律的最后十七英里又是另一条路：杰弗里斯快速路，1970 年代建成，在原线位被挪动之后，以下沉式路槽穿过该市西区。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Planning for a freeway along the Grand River corridor began in the 1940s, before the Interstate System existed, and the corridor was folded into the system in the mid-1950s. Work started in 1956 on the Brighton–Farmington Expressway, and when a four-mile piece opened on 1 August 1957 it was the first section of funded Interstate to open in Michigan. The full 23 miles east of Brighton were done that December.",
+        "By early 1959 the signs for I-96 and I-196 went up over what was still marked US 16, and about 59 miles of the 'Detroit–Muskegon Freeway' were open. Completion across the state came on 12 December 1962, when the final 54½ miles from near Grand Ledge east past Lansing and Howell opened with five ribbon cuttings in a morning. Governor Swainson declared the day Interstate 96 Day, and US 16 was decommissioned after a 36-year run.",
+        "Detroit took another fifteen years. The route through the city was moved in the 1960s and built in the 1970s as the Jeffries Freeway; the last gap closed on 21 November 1977."
+      ],
+      "zh": [
+        "沿大河走廊修建高速公路的规划始于 1940 年代，早于州际公路系统的出现；该走廊在 1950 年代中期被纳入系统。布赖顿—法明顿快速路于 1956 年动工，其中四英里于 1957 年 8 月 1 日通车，是密歇根州第一段获联邦资金的州际公路通车路段。布赖顿以东全部 23 英里于同年 12 月完工。",
+        "到 1959 年初，I-96 与 I-196 的标志已挂在仍标注为 US 16 的路上，「底特律—马斯基根高速公路」约有 59 英里通车。全州贯通发生在 1962 年 12 月 12 日：自大莱吉附近向东经兰辛与豪厄尔的最后 54.5 英里通车，一上午举行了五场剪彩。斯温森州长宣布当日为「96 号州际公路日」，US 16 在使用 36 年后被撤销。",
+        "底特律又花了十五年。穿城线位在 1960 年代被改动，并于 1970 年代以杰弗里斯快速路之名建成；最后一处缺口于 1977 年 11 月 21 日合拢。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The road is now old enough that rebuilding it is a standing programme rather than a project. Under Rebuilding Michigan, the state's bond-funded highway programme, MDOT has been reconstructing I-96 in long segments: more than nine miles in Ionia County between Bliss Road and Sunfield Road, and the interchange-heavy stretch where I-96 meets M-14 and I-275 in Livonia and Plymouth Township.",
+        "The Ionia County work is full-depth reconstruction — roadway, drainage, culverts, guardrail, curb and gutter — carried out with a movable barrier wall so that traffic could be crossed onto one carriageway while the other was rebuilt. The Livonia work covers roadway and ramp reconstruction plus rehabilitation of seventeen bridges.",
+        "In Oakland County a different approach was taken: the section from Kent Lake Road east to the I-275/I-696/M-5 interchange was converted in 2025 to a Flex Route, using the shoulder as a managed travel lane at peak times rather than adding permanent width."
+      ],
+      "zh": [
+        "这条路如今已老到需要以常设计划、而非单个项目来重建。在该州以债券融资的公路计划「重建密歇根」之下，密歇根州交通部一直在按长路段重建 I-96：艾奥尼亚县布利斯路至森菲尔德路之间九英里以上，以及利沃尼亚与普利茅斯镇境内 I-96 与 M-14、I-275 交汇、互通密集的一段。",
+        "艾奥尼亚县的工程为全深度重建——路基路面、排水、涵洞、护栏、路缘与边沟——施工采用可移动隔离墙，把车流全部导入一侧车行道，另一侧则进行重建。利沃尼亚的工程内容包括路段与匝道重建，以及十七座桥梁的修复。",
+        "在奥克兰县则采用了另一种思路：自肯特湖路向东至 I-275/I-696/M-5 互通的路段于 2025 年改造为「弹性车道」，在高峰时段把路肩作为受控行车道使用，而非永久拓宽。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "I-96 reconstruction, Ionia County", "zh": "艾奥尼亚县 I-96 重建" },
+      "value": { "en": "About $130 million to rebuild more than 9 miles between Bliss Road and Sunfield Road, June 2024 to November 2026", "zh": "约 1.3 亿美元，重建布利斯路至森菲尔德路之间 9 英里以上路段，2024 年 6 月至 2026 年 11 月" },
+      "source": "Michigan Department of Transportation project page, I-96 Rebuilding – Ionia County"
+    },
+    {
+      "label": { "en": "M-14/I-96 reconstruction, Wayne County", "zh": "韦恩县 M-14/I-96 重建" },
+      "value": { "en": "$139 million from May 2024, covering roadway and ramp reconstruction including the M-14/I-96/I-275 interchange and rehabilitation of 17 bridges", "zh": "自 2024 年 5 月起投入 1.39 亿美元，内容包括路段与匝道重建（含 M-14/I-96/I-275 互通）及 17 座桥梁修复" },
+      "source": "Michigan Department of Transportation M-14/I-96 Reconstruction project site, 2024"
+    },
+    {
+      "label": { "en": "Original construction cost", "zh": "原始建设成本" },
+      "why": { "en": "No route-wide total is published. The freeway was built between 1956 and 1977 as dozens of separate state contracts, and the Detroit section was designed and built two decades after the first.", "zh": "未发布全线总额。这条高速公路在 1956 至 1977 年间以数十份独立的州级合同建成，而底特律路段的设计与施工比最早路段晚了二十年。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "187.05 miles, entirely in Michigan", "zh": "187.05 英里，全线位于密歇根州" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "MDOT publishes counts by segment. Volumes on the Jeffries Freeway in Detroit and on the rural stretch through Ionia County are not comparable, and no route-wide figure is published.", "zh": "密歇根州交通部按路段发布交通量。底特律杰弗里斯快速路与艾奥尼亚县乡村路段的数值无从比较，亦未发布全线数字。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1919, "en": "The Grand River corridor enters the state trunkline system as M-16.", "zh": "大河走廊以 M-16 的编号纳入州干线公路系统。" },
+    { "year": 1957, "en": "A four-mile piece of the Brighton–Farmington Expressway opens on 1 August, the first funded Interstate section to open in Michigan.", "zh": "8 月 1 日，布赖顿—法明顿快速路的四英里路段通车，为密歇根州第一段获联邦资金的州际公路通车路段。" },
+    { "year": 1962, "en": "The route opens across the state on 12 December; US 16 is decommissioned in Michigan.", "zh": "12 月 12 日，本路线在全州范围通车；US 16 在密歇根州被撤销。" },
+    { "year": 1977, "en": "The Jeffries Freeway in Detroit opens on 21 November, closing the last gap.", "zh": "11 月 21 日，底特律的杰弗里斯快速路通车，合拢最后一处缺口。" },
+    { "year": 2025, "en": "The Oakland County section is converted to a Flex Route using the shoulder as a peak-hour lane.", "zh": "奥克兰县路段改造为「弹性车道」，高峰时段将路肩用作行车道。" }
+  ]
+}

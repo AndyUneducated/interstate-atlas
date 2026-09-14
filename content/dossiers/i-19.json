@@ -1,0 +1,178 @@
+{
+  "id": "i-19",
+  "name": {
+    "en": "Interstate 19",
+    "zh": "19 号州际公路"
+  },
+  "tagline": {
+    "en": "The only Interstate measured in kilometres",
+    "zh": "全美唯一以公里计程的州际公路"
+  },
+  "officialMi": 63.37,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1978,
+  "termini": {
+    "start": {
+      "en": "West Crawford Street beside the port of entry in Nogales, Arizona",
+      "zh": "亚利桑那州诺加莱斯，口岸旁的西克劳福德街"
+    },
+    "end": {
+      "en": "Interstate 10 in Tucson, Arizona",
+      "zh": "亚利桑那州图森，与 I-10 相接"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-19 runs up the Santa Cruz River valley from the Mexican border at Nogales to I-10 in Tucson, and it is the only Interstate in the country signed entirely in metric units. Distances to destinations are in kilometres, distances to exits in metres, and exit numbers are taken from kilometre posts rather than mileposts — so the route ends at exit 99 despite being a little over sixty miles long. Speed limits, by federal requirement, remain in miles per hour.",
+        "It is a short, quiet road through a corridor of unusual density of history and land use: the Spanish mission at Tumacácori, the artists' village of Tubac, the open-pit copper operations west of Green Valley, the retirement communities of Green Valley and Sahuarita, and the San Xavier Indian Reservation, where the freeway makes its only crossing of the Santa Cruz.",
+        "Its southern terminus is a city street. Arizona obtained a waiver from Interstate design requirements to let the freeway end inside Nogales rather than at the border itself, because of the terrain and the damage a full freeway would have done to the town's business district. Trucks bound for the larger Mariposa crossing leave the freeway several kilometres north and use State Route 189 instead."
+      ],
+      "zh": [
+        "I-19 自诺加莱斯的墨西哥边境沿圣克鲁斯河谷北上，通往图森的 I-10，是全国唯一全线以公制标识的州际公路。目的地距离以公里标注，出口距离以米标注，出口编号取自公里桩而非英里桩——因此尽管全长只有六十多英里，路线却以 99 号出口收尾。限速则依联邦规定仍用英里每小时。",
+        "这是一条短而安静的路，但沿途的历史与土地利用密度颇为罕见：图马卡科里的西班牙传教站、图巴克的艺术家村落、绿谷以西的露天铜矿、绿谷与萨瓦里塔的退休社区，以及圣哈维尔印第安保留地——高速公路在那里完成它对圣克鲁斯河的唯一一次跨越。",
+        "它的南端是一条城市街道。由于地形所限，加之修建完整高速会重创镇上的商业区，亚利桑那获得了州际公路设计标准的豁免，让这条路止于诺加莱斯城内而非边境线上。前往更大的马里波萨口岸的货车会在以北数公里处驶离高速，转走 SR 189。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The freeway went in piecemeal. A three-mile stub from I-10 down to Valencia Road opened in 1962 and a two-mile stretch at Green Valley in 1963; the rest was let as a long series of small contracts, with the section between Rio Rico and Nogales finished in 1974 and the major gap between Green Valley and Rio Rico closed in 1978.",
+        "The metric signing was an accident of timing. Congress passed the Metric Conversion Act in 1975 and President Ford established a U.S. Metric Board, and one of the Board's first decisions was to use the nearly finished I-19 as the pilot for converting mileposts into kilometre markers. The choice was made on the grounds that the road was a relatively isolated stretch with no major intersecting highways and heavy traffic to and from a country already on the metric standard. The original signs had been erected in customary units as each contract was let; in 1980 Arizona awarded a single contract to replace them, install kilometre posts and add bilingual signing in selected places.",
+        "The Metric Board was abolished in 1982 without the country having converted, but the signs stayed. Arizona proposed replacing them with mileposts around 2010 and dropped the idea after objections from communities and businesses along the road, whose addresses and advertising had been built around the kilometre exits. A full re-signing in 1999 kept the metric scheme."
+      ],
+      "zh": [
+        "这条高速是零散建成的。1962 年，自 I-10 南下至瓦伦西亚路的三英里短段通车；1963 年，绿谷附近两英里通车；其余部分以一长串小合同陆续发包，里奥里科至诺加莱斯段于 1974 年完工，绿谷至里奥里科之间的主要缺口则在 1978 年填补。",
+        "公制标识纯属时机使然。1975 年国会通过《公制转换法》，福特总统设立了美国公制委员会，而该委员会最早的决定之一，就是以即将完工的 I-19 作为把英里桩改为公里桩的试点。选择它的理由是：这段路相对孤立，没有重要的交叉干线，且往来于一个早已使用公制的国家之间的车流很密。最初的标志是随各合同分段竖立的、采用英制单位；1980 年，亚利桑那发出单一合同，将其更换、安装公里桩，并在若干地点增设双语标志。",
+        "公制委员会于 1982 年被撤销，全国并未完成转换，但这些标志留了下来。亚利桑那曾在 2010 年前后提议改立英里桩，因沿线社区和商户反对而放弃——它们的地址与广告都是围绕公里制出口建立的。1999 年的一次全线换标仍沿用了公制体系。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "This is a produce road. Nogales is Arizona's largest land port of entry and for more than a century has been the main gateway into North American markets for winter vegetables grown in Sinaloa and Sonora — tomatoes, squash, cucumbers, peppers. The trucks that carry them north come off the border and onto I-19.",
+        "The industry that grew around that traffic is visible from the road: a line of warehouses along the freeway corridor in Nogales and Santa Cruz County, together with customs brokerage, repackaging, freight forwarding and distribution businesses. The commission fees earned on shipping and brokerage, rather than the cargo itself, are the county's main income from the trade.",
+        "North of the produce belt the character changes to commuting. Green Valley and Sahuarita feed daily traffic into Tucson, and the interchange with I-10 at the northern end — locally the Crossing — was rebuilt in the early 2000s to handle it."
+      ],
+      "zh": [
+        "这是一条果蔬之路。诺加莱斯是亚利桑那最大的陆路口岸，一个多世纪以来一直是锡那罗亚与索诺拉两州冬季蔬菜——番茄、南瓜、黄瓜、辣椒——进入北美市场的主要门户。北运这些货物的卡车一出边境就驶上 I-19。",
+        "围绕这股车流生长起来的产业在路上一望可见：诺加莱斯与圣克鲁斯县沿高速走廊排开的仓库群，以及报关、分装、货运代理与分销企业。该县从这项贸易中获得的主要收入并非货物本身，而是运输与经销所收取的佣金。",
+        "越过果蔬带以北，道路性质转为通勤。绿谷与萨瓦里塔每天向图森输送车流，而北端与 I-10 相交的立交——当地称作「交汇口」——正是在 2000 年代初为此重建的。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$84.3 million, all in Arizona, for what is one of the shortest mainline Interstates in the country. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "8,430 万美元，全部在亚利桑那；这是全美最短的主干州际公路之一。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "63.37 miles, entirely within Arizona — signed as 102 kilometres",
+        "zh": "63.37 英里，全线位于亚利桑那州境内——标识为 102 公里"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026; Arizona DOT"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Cross-border produce traffic",
+        "zh": "跨境果蔬运量"
+      },
+      "value": {
+        "en": "About 120,000 trucks a year bringing roughly $2.5 billion of Mexican fresh produce through Nogales, on a three-year average; the value of Mexican agricultural imports through the port doubled between 2002 and 2011, from $1.26 billion to $2.53 billion",
+        "zh": "按三年均值计，每年约有 120,000 辆卡车经诺加莱斯运入价值约 25 亿美元的墨西哥新鲜果蔬；2002 至 2011 年间，经该口岸进口的墨西哥农产品价值翻了一番，从 12.6 亿美元增至 25.3 亿美元"
+      },
+      "source": "Arizona's Economy, Eller College of Management, University of Arizona, March 2014"
+    },
+    {
+      "label": {
+        "en": "Warehousing along the corridor",
+        "zh": "走廊沿线的仓储"
+      },
+      "value": {
+        "en": "About 70 warehouses concentrated along I-19 in Nogales and Santa Cruz County",
+        "zh": "诺加莱斯与圣克鲁斯县沿 I-19 集中分布约 70 座仓库"
+      },
+      "source": "Arizona's Economy, Eller College of Management, University of Arizona, March 2014"
+    },
+    {
+      "label": {
+        "en": "Route-wide daily traffic",
+        "zh": "全线日交通量"
+      },
+      "why": {
+        "en": "ADOT publishes counts by segment through its Traffic Data Management System rather than a single route average, and the spread on this road is wide — the Tucson end carries urban commuter volumes while the border end is dominated by freight.",
+        "zh": "亚利桑那州交通部通过其交通数据管理系统按路段发布计数，而非给出单一的全线平均值；这条路沿线差异很大——图森一端是城市通勤流量，边境一端则以货运为主。"
+      }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Metric signing",
+        "zh": "公制标识"
+      },
+      "value": {
+        "en": "Installed under a single ADOT contract in 1980 and renewed under a further project in 1999; kilometre posts and metric distance signs remain in place today",
+        "zh": "1980 年由亚利桑那州交通部以单一合同安装，1999 年又经一个项目整体更新；公里桩与公制距离标志沿用至今"
+      },
+      "source": "Arizona DOT, \"Kilometers in Arizona? You bet!\"; Arizona DOT signing contract records as compiled on Interstate 19, Wikipedia"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1962,
+      "en": "The first three miles open, a stub south from I-10 to Valencia Road in Tucson.",
+      "zh": "首段三英里通车：自图森 I-10 南至瓦伦西亚路的短线。"
+    },
+    {
+      "year": 1964,
+      "en": "At a public meeting in Nogales, the town argues for the freeway to stop short of the border; a waiver from Interstate requirements follows.",
+      "zh": "诺加莱斯的公众会议上，镇方主张高速公路不应直抵边境；随后获得州际公路标准的豁免。"
+    },
+    {
+      "year": 1974,
+      "en": "The section between Rio Rico and Nogales is completed.",
+      "zh": "里奥里科至诺加莱斯段建成。"
+    },
+    {
+      "year": 1975,
+      "en": "Congress passes the Metric Conversion Act and the U.S. Metric Board selects this route as its signing pilot.",
+      "zh": "国会通过《公制转换法》，美国公制委员会选定本路线作为标识试点。"
+    },
+    {
+      "year": 1978,
+      "en": "The gap between Green Valley and Rio Rico closes, completing the route.",
+      "zh": "绿谷至里奥里科之间的缺口填补，全线贯通。"
+    },
+    {
+      "year": 1980,
+      "en": "Arizona awards a single contract for metric signs, kilometre posts and bilingual signing.",
+      "zh": "亚利桑那以单一合同实施公制标志、公里桩与双语标识。"
+    },
+    {
+      "year": 1982,
+      "en": "The U.S. Metric Board is abolished; the signs stay.",
+      "zh": "美国公制委员会被撤销，标志则留存下来。"
+    },
+    {
+      "year": 2010,
+      "en": "ADOT's proposal to convert the route to mileposts is dropped after opposition along the corridor.",
+      "zh": "亚利桑那州交通部改用英里桩的提议因沿线反对而搁置。"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "i-276",
+  "name": { "en": "Interstate 276", "zh": "276 号州际公路" },
+  "tagline": { "en": "The Pennsylvania Turnpike east of Valley Forge", "zh": "宾州收费高速：福吉谷以东段" },
+  "officialMi": 30.91,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "I-76 and the Schuylkill Expressway at Valley Forge", "zh": "福吉谷，与 I-76 及斯库尔基尔快速路相接" },
+    "end": { "en": "I-95 at Bristol Township, Bucks County", "zh": "巴克斯县布里斯托尔镇，与 I-95 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-276 is the Pennsylvania Turnpike east of Valley Forge — the Delaware River Extension — running across the northern suburbs of Philadelphia through Norristown, Fort Washington and Willow Grove towards Bucks County. It is a toll road, part of the Turnpike system rather than a free state highway, and it was built to standards the Turnpike Commission had set in the 1940s: grades held to a maximum of two per cent, curves to four degrees, two twelve-foot lanes each way separated by a ten-foot sod strip.",
+        "The even hundreds digit says it returns to I-76, and at its western end it does, at the Valley Forge interchange. The eastern end has moved. Since the long-delayed Turnpike–I-95 interchange opened in 2018, I-95 has been routed onto the Turnpike and over the Delaware River, so I-276 now ends where the two meet in Bristol Township rather than at the river, which is why the federal log counts 30.91 miles for what was built as a 33-mile extension."
+      ],
+      "zh": [
+        "I-276 是宾州收费高速福吉谷以东的部分——「特拉华河延伸段」——横穿费城北郊，经诺里斯敦、华盛顿堡与柳树林，通往巴克斯县。它是收费公路，属收费高速系统而非免费的州级公路，建设标准沿用收费高速委员会 1940 年代定下的规矩：坡度不超过 2%、曲线不超过 4 度，每向两条 12 英尺车道，中间以 10 英尺宽草带分隔。",
+        "偶数百位意味着它会回到 I-76，在西端它确实如此，即福吉谷枢纽。东端则移动过。自那座久拖不决的收费高速与 I-95 枢纽于 2018 年开通后，I-95 被改线走上收费高速并跨过特拉华河，因此 I-276 现在止于两者在布里斯托尔镇的交会处，而非河边——这就是联邦路线名录为一条当年按 33 英里建成的延伸段记下 30.91 英里的原因。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The extension existed to reach New Jersey. Once the Turnpike's Western Extension opened in 1951 the obvious next move was eastward to meet the New Jersey Turnpike, which would make it possible to drive from New York City to the Ohio line without a traffic light. Governor John S. Fine signed the enabling bill in 1951; the Turnpike Commission sold $65 million of bonds in September 1952 and broke ground on 20 November. The first thirteen miles, Valley Forge to Fort Washington, opened in August 1954, and a further nineteen miles to Bristol Township that October. The longest structure on the line was the 1,224-foot Schuylkill River bridge.",
+        "The Delaware River crossing was a joint venture with New Jersey. Ground was broken on the Delaware River–Turnpike Toll Bridge in 1954 and it opened in May 1956, the governors of both states meeting in the middle of the span to cut the ribbon. The steel arch sits 135 feet above the water to clear shipping, with a 682-foot main span and a total length of about 6,600 feet; the Turnpike Commission put the cost of the bridge and its approaches at $27.2 million, of which the arch itself accounted for about $14 million."
+      ],
+      "zh": [
+        "这段延伸线的存在是为了接上新泽西。1951 年收费高速西延段通车后，下一步显然是向东与新泽西收费高速相接，那样便能从纽约市一路开到俄亥俄州界而不遇一个红绿灯。约翰·S·费恩州长于 1951 年签署授权法案；收费高速委员会在 1952 年 9 月发行 6,500 万美元债券，并于 11 月 20 日动土。福吉谷至华盛顿堡的前十三英里于 1954 年 8 月通车，再往东至布里斯托尔镇的十九英里于同年 10 月通车。全线最长的构筑物是 1,224 英尺的斯库尔基尔河桥。",
+        "特拉华河的跨河工程是与新泽西的合作项目。特拉华河收费高速大桥于 1954 年动土，1956 年 5 月通车，两州州长在桥中央会面剪彩。这座钢拱桥为通航而高出水面 135 英尺，主跨 682 英尺，全长约 6,600 英尺；收费高速委员会给出的桥梁及引道造价为 2,720 万美元，其中钢拱本身约 1,400 万美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "30.91 miles, entirely in Pennsylvania", "zh": "30.91 英里，全线位于宾夕法尼亚州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Bond issue for the extension", "zh": "延伸段债券发行额" },
+      "value": { "en": "$65 million of Turnpike Commission bonds sold in September 1952", "zh": "1952 年 9 月发行收费高速委员会债券 6,500 万美元" },
+      "source": "Pennsylvania Turnpike Commission records, via Pennsylvania Highways"
+    },
+    {
+      "label": { "en": "Delaware River–Turnpike Toll Bridge", "zh": "特拉华河收费高速大桥" },
+      "value": { "en": "$27.2 million for the bridge and approaches, jointly financed with New Jersey, opened May 1956", "zh": "桥梁及引道造价 2,720 万美元，与新泽西共同出资，1956 年 5 月通车" },
+      "source": "Pennsylvania Turnpike Commission records, via Pennsylvania Highways"
+    },
+    {
+      "label": { "en": "The arch span alone", "zh": "钢拱主桥单独造价" },
+      "value": { "en": "About $14 million for a 682-foot main span, 135 feet above the river", "zh": "主跨 682 英尺、高出水面 135 英尺，造价约 1,400 万美元" },
+      "source": "PhillyRoads, Delaware River-Turnpike Toll Bridge, citing turnpike records"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic on the Delaware River bridge", "zh": "特拉华河大桥交通量" },
+      "value": { "en": "About 42,000 vehicles a day in 2017, before I-95 was routed over it", "zh": "2017 年约每日 42,000 辆，此时 I-95 尚未改线经此" },
+      "source": "Delaware River Joint Toll Bridge figures for 2017, via Wikipedia"
+    }
+  ],
+  "timeline": [
+    { "year": 1951, "en": "Pennsylvania authorises the Delaware River Extension and a joint bridge with New Jersey.", "zh": "宾夕法尼亚州批准修建特拉华河延伸段及与新泽西共建的大桥。" },
+    { "year": 1952, "en": "$65 million in bonds is sold and construction begins on 20 November.", "zh": "发行 6,500 万美元债券，11 月 20 日开工。" },
+    { "year": 1954, "en": "The extension opens in two stages, reaching Bristol Township in October.", "zh": "延伸段分两期通车，10 月抵达布里斯托尔镇。" },
+    { "year": 1956, "en": "The Delaware River bridge opens, linking the Pennsylvania and New Jersey turnpikes.", "zh": "特拉华河大桥通车，连通宾州与新泽西两条收费高速。" },
+    { "year": 2018, "en": "I-95 is routed onto the Turnpike and I-276's eastern end moves to Bristol Township.", "zh": "I-95 改线走上收费高速，I-276 东端移至布里斯托尔镇。" }
+  ]
+}

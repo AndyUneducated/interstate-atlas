@@ -1,0 +1,105 @@
+{
+  "id": "i-68",
+  "name": { "en": "Interstate 68", "zh": "68 号州际公路" },
+  "tagline": { "en": "The National Freeway, cut straight through Sideling Hill", "zh": "国家快速路，笔直劈开赛德灵山" },
+  "officialMi": 115.59,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1991,
+  "termini": {
+    "start": { "en": "I-79 near Morgantown, West Virginia", "zh": "西弗吉尼亚州摩根敦附近，与 I-79 相接" },
+    "end": { "en": "I-70 at Hancock, Maryland", "zh": "马里兰州汉考克，与 I-70 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-68 crosses the Maryland panhandle and a corner of West Virginia, and it is one of the few Interstates that exists primarily as an economic development project rather than as a link between large cities. Neither of its ends is a metropolis: it runs from I-79 outside Morgantown to I-70 at Hancock, a town of a few hundred people.",
+        "It is signed as the National Freeway and follows, loosely, the line of the old National Road. The terrain is the point. Between Cumberland and Hancock the road crosses ridge after ridge of the folded Appalachians, with long grades, runaway truck ramps, and a summit above two and a half thousand feet — high for a road this far east.",
+        "Before it existed, east–west traffic across western Maryland used a two-lane US 40 with hairpin turns and steep climbs. The Appalachian Regional Development Act of 1965 designated the corridor for rebuilding, and the Appalachian Regional Commission helped pay for it."
+      ],
+      "zh": [
+        "I-68 横穿马里兰州的狭长地带和西弗吉尼亚的一角，是少数几条主要作为经济发展项目、而非大城市之间连接线而存在的州际公路。它的两端都不是大都会：西起摩根敦郊外的 I-79，东至只有几百居民的小镇汉考克处的 I-70。",
+        "它挂着「国家快速路」的名号，大致沿着旧国家大道的走向。地形才是重点。在坎伯兰与汉考克之间，道路一道接一道地翻越阿巴拉契亚褶皱山脊，长坡连绵，设有卡车避险车道，最高点海拔超过两千五百英尺——对东部这么靠里的公路来说已相当高。",
+        "在它出现之前，穿越马里兰西部的东西向交通只能走双车道的 US 40，急弯与陡坡并存。1965 年《阿巴拉契亚区域开发法》把这条走廊列为重建对象，阿巴拉契亚区域委员会参与出资。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The road's best-known feature is a hole in a mountain that is not a tunnel. At Sideling Hill in western Washington County the highway passes through a cut driven straight down through the crest, exposing a cross-section of a syncline — a downward fold in layered rock — in what is one of the best rock exposures in the northeastern United States.",
+        "A tunnel was considered and rejected. The state's engineers concluded that boring would cost roughly twice as much as cutting, that a tunnel would cost more to maintain in perpetuity, and that casualties from a crash inside a cut could be lifted out by helicopter. The cut was excavated in four benches on each face, and the spoil was used as embankment elsewhere on the project.",
+        "Maryland built a visitor centre on the shoulder to explain the geology to passing motorists. It was dedicated on the same day the last segment of the freeway opened, and has since closed permanently; the pull-off and the view of the rock remain."
+      ],
+      "zh": [
+        "这条路最著名的特征，是山体上一个并非隧道的豁口。在华盛顿县西部的赛德灵山，公路从山脊笔直向下切穿而过，露出一个向斜构造——层状岩石向下弯折形成的褶皱——的横剖面，这是美国东北部最好的岩层露头之一。",
+        "隧道方案曾被考虑并否决。州里的工程师得出结论：开挖隧道的造价大约是明挖切口的两倍，隧道的长期养护费用更高，而在切口路段发生事故时，伤员可以用直升机吊运出去。切口在两侧岩面各按四级台阶开挖，弃方用作项目其他路段的路堤。",
+        "马里兰在路肩上修了一座游客中心，向过往驾车者讲解这里的地质。它在快速路最后一段通车的同一天落成启用，后来已永久关闭；停车观景处和岩壁景观仍在。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The freeway was built from west to east over a quarter of a century. West Virginia's section was constructed in the 1970s, and on 13 August 1976 the last Maryland segment between Finzel and Keysers Ridge opened, completing the run from Cumberland to the state line.",
+        "East of Cumberland the work slowed. The National Environmental Policy Act now required an impact statement, and a location study begun in 1972 ran through alternates and public hearings before a route for the Sideling Hill section was approved in 1977. The cut segment opened in August 1985 and the full Sideling Hill section the following year.",
+        "That left a nineteen-mile gap east of Cumberland, the 'missing link', broken ground in May 1987 and opened on 2 August 1991. Maryland used the occasion to retire the route's US 48 designation and sign it as Interstate 68."
+      ],
+      "zh": [
+        "这条快速路自西向东建了四分之一个世纪。西弗吉尼亚段修建于 1970 年代；1976 年 8 月 13 日，马里兰州芬泽尔至凯泽斯岭之间的最后一段通车，坎伯兰至州界的路段就此贯通。",
+        "坎伯兰以东，工程慢了下来。《国家环境政策法》此时已要求编制环境影响报告书，1972 年启动的选线研究经过多个比选方案和公众听证，直到 1977 年才批准赛德灵山段的线位。切口路段 1985 年 8 月通车，整个赛德灵山段则在次年完成。",
+        "剩下的是坎伯兰以东十九英里的缺口，即所谓「失落的一环」，1987 年 5 月破土，1991 年 8 月 2 日通车。马里兰借此机会取消了这条路线的 US 48 编号，改挂 68 号州际公路。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost, Maryland", "zh": "马里兰州段总建设成本" },
+      "value": { "en": "$1.81 billion, expressed in 2012 dollars", "zh": "18.1 亿美元，以 2012 年美元计" },
+      "source": "FHWA, Economic Development History of Interstate 68 in Maryland"
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "115.59 miles — 80.66 in Maryland and 34.93 in West Virginia", "zh": "115.59 英里——马里兰州 80.66 英里，西弗吉尼亚州 34.93 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": { "en": "Cumberland to the West Virginia line", "zh": "坎伯兰至西弗吉尼亚州界" },
+      "value": { "en": "44 miles for $126 million, completed 13 August 1976", "zh": "44 英里，1.26 亿美元，1976 年 8 月 13 日建成" },
+      "source": "Maryland State Archives, The National Freeway"
+    },
+    {
+      "label": { "en": "Sideling Hill section", "zh": "赛德灵山路段" },
+      "value": { "en": "8.7 miles for $44 million, of which $20.1 million was the road cut and its approaches — 90 per cent federal, 10 per cent state", "zh": "8.7 英里，4,400 万美元，其中开山切口及其接线为 2,010 万美元——联邦出资 90%，州出资 10%" },
+      "source": "Maryland State Archives, The National Freeway; Maryland Geological Survey, Fact Sheet 17"
+    },
+    {
+      "label": { "en": "The missing link east of Cumberland", "zh": "坎伯兰以东的「失落的一环」" },
+      "value": { "en": "19 miles for $182 million, built 1987–91 in five sections", "zh": "19 英里，1.82 亿美元，1987 至 1991 年分五段建成" },
+      "source": "Maryland State Archives, The National Freeway"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "No agency publishes a route-wide figure. Counts are collected per segment by the Maryland and West Virginia transportation departments and are not aggregated for the route.", "zh": "没有机构发布全线数字。交通量由马里兰州与西弗吉尼亚州交通部门按路段采集，未按路线汇总。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Sideling Hill road cut", "zh": "赛德灵山开山切口" },
+      "value": { "en": "340 feet deep, excavated in four benches on each face spaced 80 feet apart vertically", "zh": "深 340 英尺，两侧岩面各开挖四级台阶，垂直间距 80 英尺" },
+      "source": "FHWA, Economic Development History of Interstate 68 in Maryland; Maryland Geological Survey, Fact Sheet 17"
+    },
+    {
+      "label": { "en": "Sideling Hill Exhibit Center", "zh": "赛德灵山展览中心" },
+      "value": { "en": "$1.8 million for the building and about $5.5 million for the whole complex, funded entirely by the state; opened 2 August 1991 and now permanently closed", "zh": "建筑造价 180 万美元，整个设施群约 550 万美元，全部由州政府出资；1991 年 8 月 2 日开放，现已永久关闭" },
+      "source": "Maryland Geological Survey, Fact Sheet 17"
+    }
+  ],
+  "timeline": [
+    { "year": 1965, "en": "The Appalachian Regional Development Act designates the corridor as Appalachian Development Highway System Corridor E.", "zh": "《阿巴拉契亚区域开发法》将该走廊列为阿巴拉契亚开发公路系统 E 号走廊。" },
+    { "year": 1976, "en": "The 13-mile Finzel–Keysers Ridge segment opens on 13 August, completing the 44 miles from Cumberland to the West Virginia line.", "zh": "8 月 13 日，芬泽尔至凯泽斯岭 13 英里路段通车，坎伯兰至西弗吉尼亚州界 44 英里全线贯通。" },
+    { "year": 1985, "en": "The Sideling Hill cut opens on 15 August, exposing a 340-foot cross-section of a syncline.", "zh": "8 月 15 日赛德灵山切口通车，露出深 340 英尺的向斜构造剖面。" },
+    { "year": 1987, "en": "Construction begins in May on the 19-mile missing link east of Cumberland.", "zh": "5 月，坎伯兰以东 19 英里「失落的一环」开工。" },
+    { "year": 1991, "en": "The last segment opens on 2 August; the route is signed as I-68, replacing US 48.", "zh": "8 月 2 日最后一段通车；本路线改挂 I-68 编号，取代 US 48。" }
+  ]
+}

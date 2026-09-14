@@ -1,0 +1,64 @@
+{
+  "id": "i-696",
+  "name": { "en": "Interstate 696", "zh": "696 号州际公路" },
+  "tagline": { "en": "The Reuther Freeway: 28 miles that took 32 years", "zh": "罗伊特高速：28 英里修了 32 年" },
+  "officialMi": 28.99,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1989,
+  "termini": {
+    "start": { "en": "I-96 and I-275 west of Detroit", "zh": "底特律以西，与 I-96 及 I-275 相接" },
+    "end": { "en": "I-94 at Roseville", "zh": "罗斯维尔，与 I-94 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-696 crosses the northern suburbs of Detroit from west to east, from I-96 and I-275 across to I-94 at Roseville, passing through Southfield, Oak Park, Royal Oak, Madison Heights and Warren. Michigan first proposed to number it I-98; AASHO recommended 696 instead, the state agreed on 12 September 1958 and the number was approved that December. It is signed as the Walter P. Reuther Freeway, after the president of the United Auto Workers.",
+        "For much of its length it is not a freeway laid on the ground but one dug into it. The central section runs in a trench parallel to Eleven Mile Road, with cut-and-cover tunnels carrying cross streets and parkland over the top. That design was not an aesthetic choice: it was the price of getting the road built at all. When it was finally finished the speed limit went up from 55 to 70 miles per hour."
+      ],
+      "zh": [
+        "I-696 自西向东横穿底特律北郊，从 I-96 与 I-275 一路接到罗斯维尔的 I-94，途经南菲尔德、奥克帕克、皇家橡树、麦迪逊海茨与沃伦。密歇根州最初提议把它编为 I-98；美国州公路工作者协会建议改为 696，该州于 1958 年 9 月 12 日同意，编号在当年 12 月获批。它挂的名字是「沃尔特·P·罗伊特高速」，取自全美汽车工人联合会主席。",
+        "它相当长的一段并不是铺在地面上的高速，而是挖进地里的。中段沿十一英里路平行下沉于壕沟中，上方以明挖回填隧道承载横向街道与绿地。这种设计不是出于美学考虑：它是这条路能建成的代价。全线终于完工后，限速由每小时 55 英里提高到 70 英里。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Construction began in 1961 and the western third opened in 1963, cheaply: $4.8 million a mile for the first 7.9-mile leg. The eastern third, from I-75 at Madison Heights to I-94, cost $200 million and opened in January 1979. Between them lay 9.1 miles that nobody could agree on. Municipalities along the line fought over the routing until the governor locked several of their officials in a room overnight to force a decision, and later objectors used federal environmental law to change the design.",
+        "Those objections left marks on the finished road. The Orthodox Jewish community in Oak Park needed to be able to cross the freeway on foot, so a set of parks was built on overpasses; the Detroit Zoo and the City of Detroit contested other elements. The last 9.1 miles opened in December 1989 at a dedication on a snowswept empty carriageway. The state's transportation director put the final segment at $55.7 million a mile, and the whole 28-mile freeway at $756 million over 32 years."
+      ],
+      "zh": [
+        "工程于 1961 年开工，西三分之一于 1963 年通车，造价便宜：最初 7.9 英里每英里 480 万美元。东三分之一自麦迪逊海茨的 I-75 至 I-94，造价 2 亿美元，1979 年 1 月通车。两者之间横着 9.1 英里，谁也谈不拢。沿线各市镇为线位争执不下，直到州长把其中几位官员整夜锁在一间屋子里逼他们做决定；后来的反对者又利用联邦环境法改动了设计。",
+        "这些反对在建成的道路上留下了痕迹。奥克帕克的东正教犹太社区需要能步行穿过高速，于是在跨线桥上建了一系列绿地；底特律动物园与底特律市则就其他细节提出异议。最后 9.1 英里于 1989 年 12 月通车，通车仪式在一条被雪吹得空荡荡的路面上举行。该州交通部门负责人给出的数字是：最后一段每英里 5,570 万美元，整条 28 英里的高速在 32 年间共花 7.56 亿美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "28.99 miles, entirely in Michigan", "zh": "28.99 英里，全线位于密歇根州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Total cost", "zh": "总造价" },
+      "value": { "en": "$756 million over 32 years for 28 miles", "zh": "28 英里，32 年间共 7.56 亿美元" },
+      "source": "Chicago Tribune, 15 December 1989, citing the Michigan Department of Transportation"
+    },
+    {
+      "label": { "en": "Cost per mile, first and last", "zh": "首段与末段每英里造价" },
+      "value": { "en": "$4.8 million a mile in 1963; $55.7 million a mile for the final segment in 1989", "zh": "1963 年每英里 480 万美元；1989 年最后一段每英里 5,570 万美元" },
+      "source": "Michigan DOT director James Pitz, quoted in the Chicago Tribune, 15 December 1989"
+    },
+    {
+      "label": { "en": "Eastern section", "zh": "东段" },
+      "value": { "en": "$200 million from I-75 to I-94, opened January 1979", "zh": "自 I-75 至 I-94，造价 2 亿美元，1979 年 1 月通车" },
+      "source": "Michigan Department of Transportation records, via Wikipedia"
+    }
+  ],
+  "timeline": [
+    { "year": 1958, "en": "AASHO approves the number I-696 in place of Michigan's proposed I-98.", "zh": "美国州公路工作者协会批准 I-696 编号，取代密歇根州提议的 I-98。" },
+    { "year": 1963, "en": "The western third opens between I-96 and US 24.", "zh": "西三分之一在 I-96 与 US 24 之间通车。" },
+    { "year": 1979, "en": "The eastern third opens in January between I-75 and I-94.", "zh": "东三分之一于 1 月在 I-75 与 I-94 之间通车。" },
+    { "year": 1989, "en": "The contested middle 9.1 miles open in December, 32 years after planning began.", "zh": "争议不断的中间 9.1 英里于 12 月通车，距规划启动已 32 年。" }
+  ]
+}

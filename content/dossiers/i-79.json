@@ -1,0 +1,64 @@
+{
+  "id": "i-79",
+  "name": { "en": "Interstate 79", "zh": "79 号州际公路" },
+  "tagline": { "en": "Charleston to Lake Erie through the Appalachian Plateau", "zh": "自查尔斯顿穿越阿巴拉契亚高原直抵伊利湖" },
+  "officialMi": 339.94,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1979,
+  "termini": {
+    "start": { "en": "I-77 in Charleston, West Virginia", "zh": "西弗吉尼亚州查尔斯顿，与 I-77 相接" },
+    "end": { "en": "PA 5 in Erie, Pennsylvania", "zh": "宾夕法尼亚州伊利，与 PA 5 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-79 runs north from the West Virginia capital to Lake Erie, crossing the Appalachian Plateau the hard way. There is no valley to follow for most of its length, so the road climbs and descends continuously through cut-and-fill country between Charleston, Clarksburg, Morgantown and the Pennsylvania line.",
+        "North of the state line it serves Pittsburgh from the west, passing the airport and crossing the Ohio River at Neville Island, then runs up through Butler and Mercer counties and the northwestern Pennsylvania farmland to Erie.",
+        "It is the north–south spine for a region that had none. Before it, traffic between Charleston and Pittsburgh used two-lane roads over the same ridges, and the road was built as much as a development project for northern West Virginia as a transport one."
+      ],
+      "zh": [
+        "I-79 自西弗吉尼亚州府向北通往伊利湖，以最费力的方式横越阿巴拉契亚高原。全线大部分路段无谷可循，因此道路在查尔斯顿、克拉克斯堡、摩根敦与宾州州界之间的挖填地形中不断上下起伏。",
+        "过了州界，它自西侧服务匹兹堡，经过机场，在内维尔岛跨越俄亥俄河，随后北上穿过巴特勒县、默瑟县与宾夕法尼亚西北部农田，直抵伊利。",
+        "它是一个原本没有南北向干道的地区的脊梁。在它之前，查尔斯顿与匹兹堡之间的交通只能走翻越同样山脊的双车道公路；这条路的修建，与其说是交通工程，不如说同时也是西弗吉尼亚北部的发展工程。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "West Virginia built its section from the middle outward over twelve years. The first piece, a five-mile bypass of part of WV 73 between Bridgeport and Fairmont, opened in December 1967. Morgantown was reached in 1970, the state line in 1974, and the road then worked south through the Elk River country toward the capital, reaching Clendenin in 1975 and Elkview in 1977.",
+        "Pennsylvania's story includes a renumbering. As first laid out, I-79 ran into downtown Pittsburgh and I-279 bypassed it. The designations were swapped, taking effect in 1972, so that I-79 became the western bypass and I-279 the spur into the city from the north.",
+        "The last piece needed to link West Virginia with Erie was the Neville Island Bridge over the Ohio River, which opened on 3 September 1976. West Virginia finished its own end in 1979, connecting to I-77 in Charleston, and in 1984 Pennsylvania extended the northern terminus about a mile further to PA 5 in Erie."
+      ],
+      "zh": [
+        "西弗吉尼亚州用了十二年，自中段向两端修建本州路段。第一段是布里奇波特与费尔蒙特之间绕行部分 WV 73 的五英里路段，于 1967 年 12 月通车。1970 年修抵摩根敦，1974 年抵州界，随后转而向南，穿过埃尔克河一带通往州府，1975 年修到克伦丹宁，1977 年修到埃尔克维尤。",
+        "宾夕法尼亚一段的故事里有一次改编号。按最初的方案，I-79 通入匹兹堡市区，由 I-279 绕城。两个编号后来互换，1972 年生效：I-79 成为西侧绕城线，I-279 则成为自北面进入市区的支线。",
+        "把西弗吉尼亚与伊利连通所需的最后一块，是跨越俄亥俄河的内维尔岛大桥，于 1976 年 9 月 3 日通车。西弗吉尼亚州于 1979 年完成本州南端，接上查尔斯顿的 I-77；1984 年，宾夕法尼亚州又把北端终点向前延伸约一英里，至伊利的 PA 5。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Route-wide construction cost", "zh": "全线建设成本" },
+      "why": { "en": "No public route-wide figure exists. The road was built by two states over roughly two decades as dozens of separate contracts, and federal cost accounting was kept for the Interstate System as a whole rather than per route.", "zh": "无公开的全线数据。这条路由两个州历时约二十年、以数十份独立合同建成，而联邦造价核算是针对整个州际公路系统，并非逐条统计。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "339.94 miles: 179.42 in Pennsylvania and 160.52 in West Virginia", "zh": "339.94 英里：宾夕法尼亚州 179.42 英里，西弗吉尼亚州 160.52 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Pennsylvania and West Virginia publish counts by segment. Volumes on the Pittsburgh approaches are an order of magnitude above those in the central West Virginia sections, and no route-wide figure is published.", "zh": "宾夕法尼亚州与西弗吉尼亚州按路段发布交通量。匹兹堡引道路段的数值比西弗吉尼亚中部路段高出一个数量级，亦无全线数字发布。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1967, "en": "The first section opens in West Virginia between Bridgeport and Fairmont.", "zh": "西弗吉尼亚州布里奇波特至费尔蒙特之间的首段通车。" },
+    { "year": 1972, "en": "The I-79 and I-279 designations are swapped at Pittsburgh, putting I-79 on the western bypass.", "zh": "匹兹堡处的 I-79 与 I-279 编号互换，I-79 改走西侧绕城线。" },
+    { "year": 1976, "en": "The Neville Island Bridge opens on 3 September, giving continuous freeway from West Virginia to Erie.", "zh": "9 月 3 日，内维尔岛大桥通车，西弗吉尼亚至伊利之间形成连续高速。" },
+    { "year": 1979, "en": "West Virginia opens the final section into Charleston, completing the route to I-77.", "zh": "西弗吉尼亚州通车进入查尔斯顿的最后一段，本路线接通 I-77。" },
+    { "year": 1984, "en": "Pennsylvania extends the northern terminus to PA 5 in Erie.", "zh": "宾夕法尼亚州将北端终点延伸至伊利的 PA 5。" }
+  ]
+}

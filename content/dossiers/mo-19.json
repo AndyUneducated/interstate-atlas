@@ -1,0 +1,92 @@
+{
+  "id": "mo-19",
+  "name": { "en": "Missouri Route 19", "zh": "密苏里 19 号公路" },
+  "tagline": { "en": "Wine country to the Ozark rivers on a 1920s alignment", "zh": "循 1920 年代线位，自葡萄酒乡直抵欧扎克河区" },
+  "designatedYear": 1922,
+  "termini": {
+    "start": { "en": "US 61 in New London", "zh": "新伦敦的 US 61" },
+    "end": { "en": "US 63 in Thayer", "zh": "塞耶的 US 63" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Route 19 is one of Missouri's original 1922 highways and still behaves like one. It runs north to south across the eastern half of the state, crossing the Missouri River at Hermann in the middle of the wine country, passing through Owensville and Cuba, and then entering the Ozarks, where it is signed as a scenic highway south of Cuba.",
+        "The Ozark section is the reason to drive it. The road passes through the Ozark National Scenic Riverways and parts of the Mark Twain National Forest, following the shape of the ground rather than cutting through it, and it reaches Eminence at the junction with Route 106 in the middle of the Current and Jacks Fork country.",
+        "Missouri's Department of Transportation describes the roadway in Shannon County plainly: two ten-foot traffic lanes with two-foot earth shoulders, a rock base and an asphalt surface, posted at 55 miles per hour, which the department notes first-time visitors find hard to achieve."
+      ],
+      "zh": [
+        "19 号公路是密苏里 1922 年最初那批公路之一，至今仍带着那时的脾性。它自北向南穿过该州东半部，在葡萄酒乡中心的赫尔曼跨越密苏里河，经欧文斯维尔与古巴，随后进入欧扎克；古巴以南，它被标为风景公路。",
+        "欧扎克路段是驾车前来的理由。道路穿过欧扎克国家风景河区与马克·吐温国家森林的部分区域，顺着地形起伏而非切开它；在卡伦特河与杰克斯福克河腹地，它于 106 号公路路口抵达埃米嫩斯。",
+        "密苏里交通部对香农县路段的描述十分朴素：两条 10 英尺行车道加 2 英尺土路肩，碎石基层加沥青面层，限速 55 英里/小时——该部门指出，初次到访者很难开到这个速度。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Three concrete arch bridges within about two miles of each other in northern Shannon County are the route's signature. The Current River Bridge, completed 29 July 1925, is a closed-spandrel arch with three 130-foot main spans and a total length of 601 feet; its 130-foot spans are the longest filled-spandrel arches on the Missouri state system.",
+        "The Sinking Creek Bridge, completed 15 November 1926, is an open-spandrel arch with three 80-foot spans and a total length of 338 feet. The Spring Valley or Round Spring Bridge, built in 1930, is an open-spandrel arch with a 151-foot main span and a total length of 522 feet, set on a 45-degree skew; the Missouri Historic Bridge Inventory calls it a superlative example of the type with the second longest span length in the state.",
+        "All three are 18 to 20 feet wide curb to curb. MoDOT records that the aesthetics were deliberate: because Route 19 connected to Round Spring State Park, the designers shaped the highway's curvature to reveal views of the bridges and the Current River, and instructed the Bridge Division to make the structures handsome."
+      ],
+      "zh": [
+        "香农县北部约两英里范围内的三座混凝土拱桥，是这条路线的标志。卡伦特河大桥于 1925 年 7 月 29 日完工，为实腹式拱桥，三跨主跨各 130 英尺，全长 601 英尺；其 130 英尺主跨是密苏里州道系统中最长的实腹拱。",
+        "沉溪大桥于 1926 年 11 月 15 日完工，为空腹式拱桥，三跨各 80 英尺，全长 338 英尺。斯普林瓦利桥（又称圆泉桥）建于 1930 年，为空腹式拱桥，主跨 151 英尺，全长 522 英尺，斜交 45 度；密苏里历史桥梁普查称其为该类型的杰出范例，主跨长度位居全州第二。",
+        "三座桥的缘石间宽度均为 18 至 20 英尺。密苏里交通部记载，其美学是有意为之：由于 19 号公路连接圆泉州立公园，设计者塑造了公路的曲线以展现桥梁与卡伦特河的景观，并要求桥梁处让结构物做得好看。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "In October 1923 commissioners from Dent, Shannon and Oregon counties appeared before the State Highway Commission to ask that the road be started as soon as possible. Commissioner D. L. Bales of Shannon County told them that building it 'would open up virgin territory and would mean much to that part of the state', and urged a Current River bridge in particular.",
+        "The highway was built in sections between 1925 and 1927 as a gravel road with an eighteen-foot surface; grading and excavation between the Dent County line and Eminence ran from 1925 to 1928, and an aggregate surface was given in 1941. The Fifth and Sixth Biennial Reports list ten projects on that stretch, with excavation contracts running from about $5,700 to $146,000 apiece.",
+        "The road was built for tourists as much as for farmers. Missouri tourist spending grew from $61 million in 1926 to $98 million by 1928, and the first roadside park in the state highway system was created on Route 19 south of Eminence. MoDOT has found the three-bridge stretch eligible for the National Register with a period of significance of 1925 to 1964 — the year the Ozark National Scenic Riverways was created, taking in over 134 miles of the upper Current River."
+      ],
+      "zh": [
+        "1923 年 10 月，登特县、香农县与俄勒冈县的委员到州公路委员会陈情，请求尽快动工。香农县委员 D. L. 贝尔斯表示，修建这条路「将打开一片处女地，对该地区意义重大」，并特别敦促尽快修建卡伦特河大桥。",
+        "公路于 1925 至 1927 年间分段修建，为路面宽 18 英尺的砾石路；登特县界至埃米嫩斯之间的平整与开挖自 1925 年持续至 1928 年，1941 年铺设了级配碎石面层。第五与第六期两年报列出该路段的十个项目，开挖合同金额自约 5,700 美元至 146,000 美元不等。",
+        "这条路既为农民而建，也为游客而建。密苏里的旅游支出自 1926 年的 6,100 万美元增至 1928 年的 9,800 万美元，而州公路系统中第一处路侧公园正建于埃米嫩斯以南的 19 号公路旁。密苏里交通部已认定这段三桥路段符合列入国家史迹名录的条件，重要时期为 1925 至 1964 年——后者正是欧扎克国家风景河区设立、纳入卡伦特河上游 134 英里以上河段的那一年。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Current River Bridge", "zh": "卡伦特河大桥" },
+      "value": { "en": "Completed 29 July 1925; three 130-foot main spans, 601 feet total, 18 feet wide", "zh": "1925 年 7 月 29 日完工；三跨主跨各 130 英尺，全长 601 英尺，宽 18 英尺" },
+      "source": "MoDOT, Three Bridges Historic District, Shannon County, Missouri, March 2016"
+    },
+    {
+      "label": { "en": "Sinking Creek Bridge", "zh": "沉溪大桥" },
+      "value": { "en": "Completed 15 November 1926; three 80-foot arch spans, 338 feet total, 18 feet wide", "zh": "1926 年 11 月 15 日完工；三跨拱各 80 英尺，全长 338 英尺，宽 18 英尺" },
+      "source": "MoDOT, Three Bridges Historic District, Shannon County, Missouri, March 2016"
+    },
+    {
+      "label": { "en": "Spring Valley (Round Spring) Bridge", "zh": "斯普林瓦利桥（圆泉桥）" },
+      "value": { "en": "1930; 151-foot main span, 522 feet total, 20 feet wide; contract awarded 13 May 1930 for $145,623.58", "zh": "1930 年；主跨 151 英尺，全长 522 英尺，宽 20 英尺；1930 年 5 月 13 日以 145,623.58 美元签约" },
+      "source": "MoDOT, Three Bridges Historic District, Shannon County, Missouri, March 2016"
+    },
+    {
+      "label": { "en": "Missouri tourist spending during construction", "zh": "施工期间密苏里旅游支出" },
+      "value": { "en": "$61 million in 1926, rising to $98 million by 1928", "zh": "1926 年 6,100 万美元，至 1928 年增至 9,800 万美元" },
+      "source": "Missouri State Highway Commission, Sixth Biennial Report, 1928, cited in MoDOT's Three Bridges documentation"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "MoDOT's biennial reports itemise individual contracts on parts of Route 19 but no total for the whole route was ever compiled.", "zh": "密苏里交通部的两年报逐项列出 19 号公路部分路段的合同，但从未汇总过全线总额。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Roadway width through the Three Bridges district", "zh": "三桥历史区路面宽度" },
+      "value": { "en": "Two ten-foot lanes with two-foot earth shoulders, posted at 55 mph", "zh": "两条 10 英尺车道加 2 英尺土路肩，限速 55 英里/小时" },
+      "source": "MoDOT, Three Bridges Historic District, Shannon County, Missouri, March 2016"
+    }
+  ],
+  "timeline": [
+    { "year": 1923, "en": "County commissioners ask the State Highway Commission to start the road and build a Current River bridge.", "zh": "各县委员请求州公路委员会动工并修建卡伦特河大桥。" },
+    { "year": 1925, "en": "The Current River Bridge is completed on 29 July.", "zh": "7 月 29 日，卡伦特河大桥完工。" },
+    { "year": 1926, "en": "The Sinking Creek Bridge is completed on 15 November.", "zh": "11 月 15 日，沉溪大桥完工。" },
+    { "year": 1930, "en": "The Spring Valley Bridge is contracted and built at Round Spring.", "zh": "斯普林瓦利桥在圆泉签约并建成。" },
+    { "year": 1941, "en": "The gravel highway between the Dent County line and Eminence is given an aggregate surface.", "zh": "登特县界至埃米嫩斯之间的砾石路铺设级配碎石面层。" },
+    { "year": 1964, "en": "The Ozark National Scenic Riverways is created, taking in over 134 miles of the upper Current River.", "zh": "欧扎克国家风景河区设立，纳入卡伦特河上游 134 英里以上河段。" }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "i-805",
+  "name": { "en": "Interstate 805", "zh": "805 号州际公路" },
+  "tagline": { "en": "San Diego's inland bypass of I-5, built as the Inland Freeway", "zh": "圣迭戈绕开 I-5 的内陆线，原名内陆高速" },
+  "officialMi": 28.67,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1975,
+  "termini": {
+    "start": { "en": "I-5 at San Ysidro, near the Mexican border", "zh": "圣伊西德罗，墨西哥边境附近，与 I-5 相接" },
+    "end": { "en": "I-5 at Sorrento Valley, San Diego", "zh": "圣迭戈索伦托谷，与 I-5 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-805 is one of the tidiest examples of the numbering rule in the whole system. It leaves I-5 at San Ysidro, a mile from the Mexican border, runs inland and parallel to it through Chula Vista, the eastern edge of central San Diego and Kearny Mesa, and returns to I-5 at Sorrento Valley twenty-nine miles later. Even hundreds digit, genuine loop, parent route at both ends.",
+        "It carries the traffic that has no business on the coast: the border crossings at San Ysidro and Otay Mesa, the inland suburbs, the hospitals and offices along Genesee Avenue. Its best-known structure is the Mission Valley Viaduct where it crosses I-8, one of the tallest freeway interchanges in the state, and the reason engineers still cite the road for its structural work rather than its alignment."
+      ],
+      "zh": [
+        "I-805 是整个系统中编号规则最规整的例子之一。它在距墨西哥边境一英里的圣伊西德罗离开 I-5，转向内陆与之平行，经丘拉维斯塔、圣迭戈中心区东缘与卡尼台地，二十九英里之后在索伦托谷回到 I-5。偶数百位，名副其实的环线，两端都接母线。",
+        "它承担的是不必往海边跑的那部分交通：圣伊西德罗与奥泰梅萨的口岸车流、内陆郊区、吉纳西大道沿线的医院与办公楼。它最有名的结构是与 I-8 交汇处的教会谷高架，全州最高的高速立交之一；工程界至今谈起这条路，说的多半是它的结构，而不是它的线位。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Planning began in 1956, the same year the Interstate System did; the route was designated in 1959 and took its present number in California's 1964 renumbering. Ground was broken on 25 September 1967 at El Cajon Boulevard and Boundary Street in San Diego, and the freeway was built in phases from the north end southwards over the following eight years.",
+        "The dedication was held on 23 July 1975 for scheduling reasons, before the road was actually finished; the last closed section between Plaza Boulevard and SR 94 opened on 4 September 1975. Total construction came to $145 million. In 1982 the state legislature named it the Jacob Dekema Freeway after the Caltrans district director who had overseen the building of most of San Diego's freeway network."
+      ],
+      "zh": [
+        "规划始于 1956 年，与州际公路系统同年；路线于 1959 年划定，在加州 1964 年重新编号时取得现在的号码。1967 年 9 月 25 日在圣迭戈的埃尔卡洪大道与边界街举行动工仪式，此后八年间由北向南分期建设。",
+        "通车典礼因排期原因于 1975 年 7 月 23 日举行，那时道路其实尚未完工；最后一段封闭路段位于广场大道与 SR 94 之间，于 1975 年 9 月 4 日开放。总建设费用为 1.45 亿美元。1982 年，州议会将其命名为雅各布·德凯马高速，以纪念这位主持修建了圣迭戈大部分高速路网的加州交通局分局局长。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "28.67 miles, entirely in California", "zh": "28.67 英里，全线位于加利福尼亚州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "value": { "en": "$145 million, announced on completion in September 1975", "zh": "1.45 亿美元，1975 年 9 月竣工时公布" },
+      "source": "Caltrans figures reported in September 1975, as compiled in the Wikipedia and AARoads route histories"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Daily traffic", "zh": "日交通量" },
+      "why": { "en": "Caltrans publishes counts point by point along the route and the range is wide, from the border approach at San Ysidro to the Sorrento Valley merge with I-5. No route-wide figure is published and no single count was verified for this entry.", "zh": "加州交通局按点位发布交通量，从圣伊西德罗口岸引道到索伦托谷与 I-5 的合流处差异很大。官方未发布全线数值，本条目也未核实到任何单点数据。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1967, "en": "Ground is broken in San Diego for what was then called the Inland Freeway.", "zh": "当时称为「内陆高速」的工程在圣迭戈动工。" },
+    { "year": 1975, "en": "The last closed section opens on 4 September, completing the route at a cost of $145 million.", "zh": "最后一段封闭路段于 9 月 4 日开放，全线建成，造价 1.45 亿美元。" },
+    { "year": 1982, "en": "The road is named the Jacob Dekema Freeway by the state legislature.", "zh": "州议会将本路命名为雅各布·德凯马高速。" }
+  ]
+}

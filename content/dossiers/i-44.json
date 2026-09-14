@@ -1,0 +1,92 @@
+{
+  "id": "i-44",
+  "name": { "en": "Interstate 44", "zh": "44 号州际公路" },
+  "tagline": { "en": "Two Oklahoma toll roads that became a Route 66 bypass", "zh": "两条俄克拉何马收费公路，拼成 66 号公路的替身" },
+  "officialMi": 626.28,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1958,
+  "termini": {
+    "start": { "en": "US 277, US 281 and US 287 in Wichita Falls, Texas", "zh": "得克萨斯州威奇托福尔斯，US 277、US 281 与 US 287 交会处" },
+    "end": { "en": "I-70 in St. Louis, Missouri", "zh": "密苏里州圣路易斯，与 I-70 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-44 is numbered as an east–west route but runs southwest to northeast, from Wichita Falls in north Texas through Lawton, Oklahoma City and Tulsa to downtown St. Louis. It is the only two-digit Interstate whose western end is in Texas and whose eastern end is in Missouri, and it does not connect to another Interstate at its Texas terminus at all.",
+        "For most of its length it is the successor to US 66. East of Springfield, Missouri, it follows almost exactly the old alignment, which Missouri had already widened from two lanes to four before the Interstate programme began. West of Springfield it swings south of the old route in order to meet the Oklahoma turnpikes that the state wanted the number to follow.",
+        "The result is a road of two temperaments. In Oklahoma most of it is a toll road with widely spaced interchanges, service plazas in the median, and the flat, fast feel of a 1950s parkway. In Missouri it is free, older-feeling, and much more crowded, climbing in and out of the Ozark hills between Springfield and Rolla before flattening out for the run into St. Louis."
+      ],
+      "zh": [
+        "I-44 按编号属东西向，实际却自西南走向东北：从得克萨斯州北部的威奇托福尔斯出发，经劳顿、俄克拉何马城和塔尔萨，直抵圣路易斯市中心。它是唯一一条西端在得克萨斯、东端在密苏里的两位数州际公路，而且在得州一端根本不与任何其他州际公路相连。",
+        "它的大部分路段是 US 66 的继承者。在密苏里州斯普林菲尔德以东，它几乎完全沿用旧线位——早在州际公路计划启动之前，密苏里就已把那段路从双车道拓宽为四车道。斯普林菲尔德以西，它则绕到旧线以南，为的是接上俄克拉何马州希望这个编号沿用的那几条收费公路。",
+        "由此形成了两副脾气。在俄克拉何马，它大体是一条收费公路：立交间距很大，服务区设在中央分隔带上，带着 1950 年代景观公路那种平坦而快速的质感。到了密苏里，它不收费、更显陈旧、也拥挤得多，在斯普林菲尔德与罗拉之间翻进翻出奥索卡丘陵，随后转为平坦，一路奔向圣路易斯。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Oklahoma half of I-44 was built before the Interstate system existed and was paid for by its users. The legislature created a turnpike authority in 1947 to build a road between Oklahoma City and Tulsa; revenue bonds were sold in November 1950, a supplemental issue followed in 1952, and the Turner Turnpike opened to traffic at three in the afternoon on 16 May 1953. A second road, the Will Rogers Turnpike from Tulsa to the Missouri line, was authorised in 1953 and opened in 1957.",
+        "On 14 July 1958 the Oklahoma Highway Commission designated both turnpikes as Interstate 44 — a signage decision, not a transfer of ownership; the roads stayed tolled and stayed with the authority. When US 66 was being replaced piece by piece, the Route 66 Association asked AASHTO to number this corridor Interstate 66 so the old name would survive. AASHTO refused.",
+        "The route grew at both ends. It reached its present configuration through St. Louis in 1972, and in August 1982 the Texas State Highway Commission approved a short extension from the Oklahoma line down to Wichita Falls, which is why the number now runs past the bottom of I-40 and ends at a junction of US highways."
+      ],
+      "zh": [
+        "I-44 位于俄克拉何马的那一半，早在州际公路系统出现之前就已建成，费用由使用者承担。州议会 1947 年设立收费公路管理局，负责修建俄克拉何马城至塔尔萨的道路；收益债券于 1950 年 11 月售出，1952 年又追加一期，特纳收费公路终于在 1953 年 5 月 16 日下午三时通车。第二条路——自塔尔萨通往密苏里州界的威尔·罗杰斯收费公路——1953 年获得授权，1957 年通车。",
+        "1958 年 7 月 14 日，俄克拉何马州公路委员会把这两条收费公路指定为 44 号州际公路——这只是标志牌上的决定，并非产权移交；道路继续收费，也继续归管理局所有。在 US 66 被逐段取代的过程中，「66 号公路协会」曾请求美国州公路及运输官员协会把这条走廊编为 66 号州际公路，好让旧名字存续下去。该协会拒绝了。",
+        "这条路线在两端都有生长。它于 1972 年在圣路易斯形成今日的格局；1982 年 8 月，得克萨斯州公路委员会批准了一段自俄克拉何马州界南下至威奇托福尔斯的短距离延伸——这就是为什么这个编号如今会跑到 I-40 以南，并终止于几条美国国道的交会处。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "There is no construction total for I-44 as a route, and the reason is structural rather than clerical. Three different funding regimes built it: Missouri's pre-Interstate widening of US 66, Oklahoma's bond-financed turnpikes, and ordinary federal-aid Interstate construction for the free sections and the urban ends.",
+        "The Oklahoma turnpikes, being bond deals, are documented to the dollar. The Turner Turnpike was financed by two revenue bond issues totalling $38 million and finished at a construction cost the authority certified in November 1953. Ninety-one contracts were let to forty-six contractors. The Will Rogers Turnpike that followed was a larger issue again.",
+        "The 1947 statute said the Turner Turnpike would become a free state highway once its bonds were retired. Later legislation cross-pledged the turnpikes to one another, so that none could be freed until all were paid off, and the road is still tolled."
+      ],
+      "zh": [
+        "I-44 作为一条路线没有建设总造价，原因是结构性的，而非记录疏漏。修建它的资金来自三套不同体制：密苏里在州际公路计划之前对 US 66 的拓宽、俄克拉何马以债券融资的收费公路，以及免费路段和城市两端所用的普通联邦补助州际公路资金。",
+        "俄克拉何马的收费公路属于债券交易，因此有精确到美元的记录。特纳收费公路由两期收益债券融资，合计 3,800 万美元，其建设造价由管理局在 1953 年 11 月核定。工程共发包 91 份合同，由 46 家承包商承担。随后的威尔·罗杰斯收费公路发债规模更大。",
+        "1947 年的法规曾规定，特纳收费公路在债券清偿后将成为免费的州公路。后来的立法把各条收费公路交叉抵押在一起，使得在全部债务付清之前任何一条都不能免费，于是这条路至今仍在收费。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No public figure exists. The corridor was assembled from a Missouri four-lane upgrade of US 66 completed before the Interstate programme, two Oklahoma toll roads financed by revenue bonds and still owned by a state authority, and federal-aid Interstate construction accounted for by state and fiscal year.", "zh": "无公开数据。这条走廊由三部分拼成：密苏里在州际公路计划之前完成的 US 66 四车道改造、两条以收益债券融资且至今仍归州属管理局所有的俄克拉何马收费公路，以及按州和财政年度核算的联邦补助州际公路工程。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "626.28 miles across 3 states", "zh": "626.28 英里，横跨 3 个州" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": { "en": "Longest and shortest state sections", "zh": "最长与最短的州内路段" },
+      "value": { "en": "Oklahoma, 317.68 miles; Texas, 15.41 miles", "zh": "俄克拉何马州 317.68 英里；得克萨斯州 15.41 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": { "en": "Turner Turnpike, Oklahoma City to Tulsa", "zh": "特纳收费公路，俄克拉何马城至塔尔萨" },
+      "value": { "en": "$38 million of revenue bonds — $31.47 million in 1950 and $7 million in 1952 — against a final construction cost of $38.5 million across 91 contracts", "zh": "发行收益债券 3,800 万美元（1950 年 3,147 万美元，1952 年 700 万美元），最终建设造价 3,850 万美元，共 91 份合同" },
+      "source": "Oklahoma Transportation Authority, History of the Oklahoma Transportation Authority, 2005"
+    },
+    {
+      "label": { "en": "Will Rogers Turnpike, Tulsa to the Missouri line", "zh": "威尔·罗杰斯收费公路，塔尔萨至密苏里州界" },
+      "value": { "en": "$68 million of bonds issued in December 1954; 88.5 miles opened 18 June 1957", "zh": "1954 年 12 月发行债券 6,800 万美元；全长 88.5 英里，1957 年 6 月 18 日通车" },
+      "source": "Oklahoma Transportation Authority, History of the Oklahoma Transportation Authority, 2005; Oklahoma Turnpike Authority, Description of the Oklahoma Turnpike Authority"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "No agency publishes a route-wide figure. The Oklahoma sections are toll facilities counted in transactions by the Oklahoma Turnpike Authority, while the Texas and Missouri sections are counted in vehicles per day by their state DOTs; the two are not comparable and are not combined anywhere.", "zh": "没有机构发布全线数字。俄克拉何马路段属收费设施，由俄克拉何马收费公路管理局按交易笔数统计；得克萨斯与密苏里路段则由各自州交通部门按日车辆数统计。两者不可比，也没有任何地方把它们合并计算。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1953, "en": "The Turner Turnpike between Oklahoma City and Tulsa opens to traffic on 16 May; construction is certified complete that November.", "zh": "5 月 16 日，连接俄克拉何马城与塔尔萨的特纳收费公路通车；同年 11 月核定竣工。" },
+    { "year": 1957, "en": "The Will Rogers Turnpike opens on 18 June, carrying the corridor from Tulsa to the Missouri state line.", "zh": "6 月 18 日威尔·罗杰斯收费公路通车，把走廊从塔尔萨延伸至密苏里州界。" },
+    { "year": 1958, "en": "The Oklahoma Highway Commission designates the two turnpikes as I-44 on 14 July — a signage decision only; the roads remain tolled.", "zh": "7 月 14 日，俄克拉何马州公路委员会将两条收费公路指定为 I-44——仅为标志牌上的决定，道路继续收费。" },
+    { "year": 1972, "en": "I-44 is completed through St. Louis, giving the route its present eastern end in the city.", "zh": "I-44 穿越圣路易斯的路段建成，本路线在该市形成今日的东端。" },
+    { "year": 1982, "en": "The Texas State Highway Commission approves I-44 from the Oklahoma line to Wichita Falls on 12 August, extending the number below I-40.", "zh": "8 月 12 日，得克萨斯州公路委员会批准自俄克拉何马州界至威奇托福尔斯的 I-44 路段，使该编号延伸到 I-40 以南。" }
+  ]
+}

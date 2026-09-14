@@ -1,0 +1,59 @@
+{
+  "note": "System-level events for the buildout timeline. Every entry is checkable against the cited source; nothing here is inferred.",
+  "events": [
+    {
+      "year": 1956,
+      "en": "President Eisenhower signs the Federal-Aid Highway Act of 1956 on 29 June. It raises the planned system to 41,000 miles, sets nationwide design standards, and fixes the federal share of construction at 90 percent.",
+      "zh": "艾森豪威尔总统于 6 月 29 日签署《1956 年联邦公路资助法》。该法将系统规划里程提高到 41,000 英里，制定全国统一设计标准，并将联邦承担的建设费用比例定为 90%。",
+      "source": "FHWA, The Dwight D. Eisenhower System of Interstate and Defense Highways, Part I"
+    },
+    {
+      "year": 1957,
+      "en": "AASHO adopts the numbering plan still in use: even numbers run east–west and odd numbers north–south, both rising from the south and west, with three digits marking a loop or spur off a parent route.",
+      "zh": "美国州公路工作者协会通过沿用至今的编号规则：偶数为东西向、奇数为南北向，编号均自南向北、自西向东递增；三位数则表示由主线派生的环线或支线。",
+      "source": "AASHTO / FHWA highway history"
+    },
+    {
+      "year": 1958,
+      "en": "The first Interstate Cost Estimate submitted to Congress puts the price of the system at $37.6 billion, of which $34.0 billion would be federal. Fourteen more estimates follow over the next 33 years.",
+      "zh": "首份《州际公路造价估算》提交国会，估计系统造价 376 亿美元，其中联邦承担 340 亿美元。此后 33 年间又提交了十四份估算。",
+      "source": "FHWA, Interstate System cost estimates reported to Congress, 1958–1991"
+    },
+    {
+      "year": 1990,
+      "en": "President George H. W. Bush signs Public Law 101-427 on 15 October, renaming the network the Dwight D. Eisenhower System of Interstate and Defense Highways.",
+      "zh": "老布什总统于 10 月 15 日签署第 101-427 号公法，将该路网更名为「德怀特·D·艾森豪威尔州际及国防公路系统」。",
+      "source": "Public Law 101-427, 15 October 1990"
+    },
+    {
+      "year": 1991,
+      "en": "The final Interstate Cost Estimate reports a total of $128.9 billion, with a federal share of $114.3 billion. It covers only the 42,795 miles built under the Interstate Construction programme, and excludes the turnpikes folded into the system.",
+      "zh": "最后一份《州际公路造价估算》报告总造价 1,289 亿美元，其中联邦承担 1,143 亿美元。该估算仅涵盖在州际公路建设计划下修建的 42,795 英里，不含并入系统的收费公路。",
+      "source": "FHWA, 1991 Interstate Cost Estimate"
+    },
+    {
+      "year": 1992,
+      "en": "The Glenwood Canyon section of I-70 opens to traffic on 14 October, completing the original Interstate System. The 12.5-mile stretch of viaducts, bridges and tunnels through a 3,000-foot-deep gorge cost $490 million in 1992 dollars.",
+      "zh": "I-70 格伦伍德峡谷段于 10 月 14 日通车，原定的州际公路系统就此建成。这段 12.5 英里的公路穿越 3,000 英尺深的峡谷，由高架桥、桥梁与隧道构成，以 1992 年币值计造价 4.9 亿美元。",
+      "source": "FHWA Public Roads, March/April 2004; Colorado DOT"
+    },
+    {
+      "year": 1996,
+      "en": "Interstate Construction funds are authorised for the last time, through fiscal year 1996. In all, federal-aid legislation had authorised $119 billion toward the federal share.",
+      "zh": "州际公路建设专项资金最后一次获得授权，期限至 1996 财年。联邦公路资助立法累计为联邦出资部分授权 1,190 亿美元。",
+      "source": "FHWA Interstate Frequently Asked Questions"
+    },
+    {
+      "year": 2018,
+      "en": "The Pennsylvania Turnpike interchange opens at Bristol Township on 22 September, closing the gap that had split I-95 since New Jersey cancelled the Somerset Freeway in 1983.",
+      "zh": "9 月 22 日，布里斯托尔镇的宾州收费高速互通立交通车，补上了自 1983 年新泽西州取消萨默塞特高速公路计划以来 I-95 的断口。",
+      "source": "Pennsylvania Turnpike Commission; FHWA"
+    },
+    {
+      "year": 2026,
+      "en": "The system stands at 46,876 miles, including roughly 2,900 miles of turnpikes that were folded in rather than built new.",
+      "zh": "系统总里程为 46,876 英里，其中约 2,900 英里是并入的既有收费公路，而非新建路段。",
+      "source": "FHWA Interstate Frequently Asked Questions; FHWA Route Log and Finder List, January 2026"
+    }
+  ]
+}

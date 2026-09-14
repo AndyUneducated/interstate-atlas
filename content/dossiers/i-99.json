@@ -1,0 +1,88 @@
+{
+  "id": "i-99",
+  "name": { "en": "Interstate 99", "zh": "99 号州际公路" },
+  "tagline": { "en": "The only Interstate whose number Congress wrote into law", "zh": "唯一由国会立法指定编号的州际公路" },
+  "officialMi": 98.64,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "termini": {
+    "start": { "en": "US 220 near Bedford, Pennsylvania, at the Pennsylvania Turnpike", "zh": "宾夕法尼亚州贝德福德附近，宾州收费高速处，与 US 220 相接" },
+    "end": { "en": "I-86 and US 15 near Painted Post, New York", "zh": "纽约州佩因特波斯特附近，与 I-86 及 US 15 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-99 runs up the middle of Pennsylvania through the ridge-and-valley country, from the Pennsylvania Turnpike at Bedford past Altoona and State College, then — after a gap — north along the US 15 corridor from Williamsport to the New York line and on to Corning. It is a rural road through small industrial towns and farmland, carrying university traffic, Marcellus gas-field trucks and north–south freight that would otherwise use two-lane highways.",
+        "Its number is what makes it notable. Interstate numbers normally rise from west to east, so a 99 should sit at the Atlantic edge of the grid. This one sits between I-79 and I-81, several hundred miles inland, because Congress assigned it directly rather than leaving the choice to the usual numbering process.",
+        "The route is also still in pieces. A gap remains between Bellefonte and Williamsport, where drivers follow US 220 under trailblazer signs, so the shield on the map describes an intention as much as a road."
+      ],
+      "zh": [
+        "I-99 沿宾夕法尼亚州中部的岭谷地带北上：自贝德福德的宾州收费高速起，经阿尔图纳与州学院镇，中间断开一段后，再沿 US 15 走廊自威廉斯波特北行至纽约州界，直抵科宁。这是一条穿过小型工业城镇与农田的乡村公路，承担大学车流、马塞勒斯页岩气田的卡车，以及本来只能走双车道公路的南北向货运。",
+        "真正令它引人注目的是编号。州际公路编号通常自西向东递增，因此「99」本应位于路网最东缘。而这一条却夹在 I-79 与 I-81 之间，深入内陆数百英里——因为它的编号是由国会直接指定的，而非交由通常的编号程序决定。",
+        "这条路至今仍是断开的。贝尔方特与威廉斯波特之间尚有缺口，司机需循导向标志走 US 220，因此地图上的盾牌标志所描述的，与其说是一条路，不如说是一个意图。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The corridor entered federal law in 1991 as High Priority Corridor 9 — US 220 and the Appalachian Thruway from Business 220 in Bedford, Pennsylvania, to the vicinity of Corning, New York. Four years later, Section 332 of the National Highway System Designation Act of 1995 amended that provision to read that the portion of the route referred to in subsection (c)(9) is designated as Interstate Route I-99.",
+        "That single sentence was unusual enough that the Federal Highway Administration addressed it in its published questions and answers on the Act: except for the legislatively mandated use of I-99 on Corridor 9, it wrote, proposed Interstate route numbers must continue to be submitted by each state for approval by AASHTO. Several later corridors were numbered by statute too, but this was the first.",
+        "Construction has followed slowly. New York designated its section from the Pennsylvania line to I-86 at Painted Post in June 2014. Pennsylvania spent four decades converting US 15 north of Williamsport from a two-lane road into a limited-access highway, and the Federal Highway Administration approved that corridor as I-99 in 2026."
+      ],
+      "zh": [
+        "这条走廊于 1991 年以「第 9 号高优先级走廊」的名义写入联邦法律——即自宾夕法尼亚州贝德福德的 Business 220 至纽约州科宁附近的 US 220 与阿巴拉契亚快速路。四年后，1995 年《国家公路系统命名法》第 332 条修改了该条款，写明：第 (c)(9) 款所指路线的相应部分，定名为州际公路 I-99。",
+        "这一句话不同寻常到联邦公路管理局在该法的官方问答中专门作出说明：除第 9 号走廊依法定强制使用 I-99 外，拟定的州际公路编号仍须由各州提交、经 AASHTO 批准。此后也有若干走廊由法律直接指定编号，但这是第一条。",
+        "施工进展缓慢。纽约州于 2014 年 6 月将自宾州州界至佩因特波斯特 I-86 的路段定名为 I-99。宾夕法尼亚州则用了四十年，把威廉斯波特以北的 US 15 由双车道公路改建为限制出入的公路，联邦公路管理局于 2026 年批准该走廊为 I-99。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "There is no single construction figure for I-99, because it was not built as one project. The clearest accounting comes from the northern end, where Pennsylvania's transportation department has described a forty-year programme of upgrades to US 15 delivered as dozens of separate contracts.",
+        "New York's share is documented in similar terms: a decade-long reconstruction that replaced the last two-lane segment near the state line with new four-lane freeway and a set of new bridges, finished in 2013 and signed as Interstate the following year."
+      ],
+      "zh": [
+        "I-99 没有单一的建设造价，因为它并非作为一项工程修建。核算最清楚的是北段：宾夕法尼亚州交通部把 US 15 的改造描述为一项历时四十年、以数十份独立合同交付的工程计划。",
+        "纽约州一侧的记录方式类似：一项历时十年的改建工程，把州界附近最后一段双车道路面换成新建的四车道高速公路并配套若干新桥，2013 年完工，次年挂上州际公路编号。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Pennsylvania US 15 upgrade programme", "zh": "宾夕法尼亚 US 15 改造计划" },
+      "value": { "en": "$480 million across 34 projects since 1984, covering new alignments, shoulders, pavement, access points and geometry on the 62-mile Williamsport-to-New York corridor", "zh": "自 1984 年起共 34 个项目、投资 4.8 亿美元，内容包括威廉斯波特至纽约州界这 62 英里走廊的新线位、路肩、路面、出入口与线形改造" },
+      "source": "Pennsylvania Department of Transportation news release, 14 July 2026"
+    },
+    {
+      "label": { "en": "New York section reconstruction", "zh": "纽约州段改建" },
+      "value": { "en": "$235 million over ten years, replacing a two-lane stretch of US 15 in Steuben County with four-lane highway and six bridges; the new section opened in October 2013", "zh": "历时十年、投资 2.35 亿美元，将斯托本县 US 15 的一段双车道路面改建为四车道公路并新建六座桥梁；新路段于 2013 年 10 月通车" },
+      "source": "The Leader, Corning, New York, 27 June 2014"
+    },
+    {
+      "label": { "en": "Route-wide construction cost", "zh": "全线建设成本" },
+      "why": { "en": "The route has been assembled over four decades from separate state projects on two different corridors, and neither state publishes a cumulative total for the Interstate as a whole.", "zh": "本路线由两条不同走廊上的州级项目历经四十年拼合而成，两州均未发布这条州际公路的累计总造价。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "98.64 miles: 85.75 in Pennsylvania and 12.89 in New York", "zh": "98.64 英里：宾夕法尼亚州 85.75 英里，纽约州 12.89 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": { "en": "Mileage designated after the route log", "zh": "路线名录之后新增的里程" },
+      "value": { "en": "A further 62 miles of US 15 between the I-180 interchange in Williamsport and the New York state line became I-99 on 30 July 2026, after the January 2026 route log was compiled", "zh": "威廉斯波特 I-180 互通与纽约州界之间另有 62 英里 US 15 于 2026 年 7 月 30 日成为 I-99，时间晚于 2026 年 1 月路线名录的编制" },
+      "source": "Pennsylvania Department of Transportation, I-99 designation project page and news release, July 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Pennsylvania and New York publish counts by segment, and no route-wide figure is issued for I-99.", "zh": "宾夕法尼亚州与纽约州按路段发布交通量，未发布 I-99 的全线数字。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1991, "en": "The US 220 and Appalachian Thruway corridor from Bedford to Corning is named High Priority Corridor 9 in federal law.", "zh": "自贝德福德至科宁的 US 220 与阿巴拉契亚快速路走廊，在联邦法律中被列为第 9 号高优先级走廊。" },
+    { "year": 1995, "en": "Congress designates the corridor as Interstate Route I-99 in the National Highway System Designation Act.", "zh": "国会在《国家公路系统命名法》中将该走廊定名为州际公路 I-99。" },
+    { "year": 2014, "en": "New York signs US 15 from the Pennsylvania line to I-86 at Painted Post as I-99.", "zh": "纽约州将自宾州州界至佩因特波斯特 I-86 的 US 15 挂牌为 I-99。" },
+    { "year": 2026, "en": "Pennsylvania designates 62 miles of US 15 between Williamsport and the New York line as I-99; a gap remains between Bellefonte and Williamsport.", "zh": "宾夕法尼亚州将威廉斯波特至纽约州界之间 62 英里 US 15 定名为 I-99；贝尔方特与威廉斯波特之间仍有缺口。" }
+  ]
+}

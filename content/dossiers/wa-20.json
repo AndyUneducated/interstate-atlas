@@ -1,0 +1,121 @@
+{
+  "id": "wa-20",
+  "name": { "en": "Washington State Route 20 — the North Cascades Highway", "zh": "华盛顿 20 号州道（北喀斯喀特公路）" },
+  "tagline": { "en": "Closed by snow every winter, and worth waiting for", "zh": "每年冬季因雪封闭，但值得等它开放" },
+  "designatedYear": 1964,
+  "completedYear": 1972,
+  "termini": {
+    "start": { "en": "US 101 at Discovery Bay, on the Olympic Peninsula", "zh": "奥林匹克半岛发现湾的 US 101" },
+    "end": { "en": "US 2 at Newport, near the Idaho state line", "zh": "爱达荷州界附近的纽波特，与 US 2 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "SR 20 crosses the entire north of Washington, but the part that carries the name North Cascades Highway is the middle of it: the run from the Skagit valley over Rainy Pass and Washington Pass into the Methow. West of that it takes in Whidbey Island and the Skagit flats; east of it, the Okanogan, the Kettle River Range and the Selkirks before it reaches the Idaho line at Newport.",
+        "The mountain section is not a road anyone needed for transport. It was lobbied for as a scenic and recreational crossing, built through what became North Cascades National Park, and opened in 1972 with the expectation that tourists would follow. They did: an estimated 8,000 people visited the Washington Pass overlook on the first weekend, and the Methow Valley town of Winthrop rebuilt its main street with false fronts and boardwalks specifically to catch the traffic.",
+        "What is unusual about it, for a state highway of this profile, is that it does not pretend to be all-season. WSDOT closes it every winter and makes no apology for doing so."
+      ],
+      "zh": [
+        "SR 20 横贯华盛顿州整个北部，但被称作「北喀斯喀特公路」的只是中段：自斯卡吉特河谷翻越雷尼山口与华盛顿山口，进入梅索谷。其西侧涵盖惠德贝岛与斯卡吉特平原；东侧则经奥卡诺根、凯特尔河山脉与塞尔柯克山脉，最终在纽波特抵达爱达荷州界。",
+        "山区路段并不是任何人出于运输需要而修的。它是作为一条景观与游憩越岭线被游说争取来的，穿越后来成为北喀斯喀特国家公园的地域，1972 年通车时人们就预期游客会随之而来。他们确实来了：通车首个周末估计有 8,000 人造访华盛顿山口观景台，梅索谷的温斯罗普镇更专为承接这股车流，把主街改建成带假门面和木板人行道的样式。",
+        "对于一条规格如此的州道而言，它有一点很不寻常：它并不假装自己全年通行。华盛顿州交通部每年冬天都会把它关上，而且对此毫不遮掩。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "A road across these mountains was attempted and abandoned repeatedly. The crossing SR 20 now uses follows one of the oldest state roads in Washington, established as a wagon route in 1896, which fell out of use within a decade. Nineteenth-century plans favoured a line through Cascade Pass and Stehekin and got nowhere.",
+        "By the 1940s planners had settled on the more northerly alignment. Construction began in 1959, a rough version of the road was finished in 1968, and the final section opened on 2 September 1972 — a project, as HistoryLink puts it, nearly eighty years in the making. Governor Dan Evans led a procession over Washington Pass, then repeated the ribbon-cutting at Newhalem and again at Sedro-Woolley.",
+        "The number came earlier than the road. SR 20 was created in the 1964 state renumbering and originally ran from the Mount Vernon area to Okanogan; by 1973 it had been extended east and west over existing highways, absorbing SR 113, parts of SR 525 and SR 536 near Port Townsend, SR 30 and SR 294 from Tonasket to Tiger, and part of SR 31 on to Newport."
+      ],
+      "zh": [
+        "穿越这片山地的道路曾被反复尝试又反复放弃。SR 20 今天所用的越岭线，沿着华盛顿州最古老的州道之一——1896 年开辟的一条马车道，而那条路不到十年便荒废。十九世纪的方案倾向于走喀斯喀特山口和斯特希金一线，结果毫无进展。",
+        "到 1940 年代，规划者选定了更偏北的走向。工程于 1959 年开工，1968 年道路的粗略版本建成，最后一段于 1972 年 9 月 2 日通车——用 HistoryLink 的说法，这是一项酝酿了近八十年的工程。州长丹·埃文斯率车队翻过华盛顿山口，随后在纽哈伦又剪了一次彩，在塞德罗伍利再剪一次。",
+        "编号比道路来得更早。SR 20 设立于 1964 年的州道重新编号，最初只是从弗农山一带到奥卡诺根；到 1973 年，它已沿既有公路向东西两侧延伸，并入了 SR 113、波特汤森附近 SR 525 与 SR 536 的部分路段、托纳斯基特至泰格的 SR 30 与 SR 294，以及 SR 31 通往纽波特的一段。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The seasonal closure is the defining fact about this road, and WSDOT documents it better than almost any comparable state. Rainy Pass sits at 4,862 feet and Washington Pass at 5,475 feet, and when the gates go up the highway closes between the Ross Dam trailhead at milepost 134 and the Silver Star gate at milepost 171. Later in the season, as conditions worsen, the closure points move down to the Newhalem gate at milepost 120 on the west and the Early Winters gate at milepost 178 on the east.",
+        "The department has kept opening and closing dates since 1972, and the record shows how wide the variation is. The median first open date is around 21 April and the median final closure around 24 November. The earliest closure on record is 17 October 2007; the latest is 3 January 1990. In the drought winter of 1976–77 the highway did not close at all.",
+        "Reopening is avalanche work, not just plowing. Crews clearing storm damage in 2026 had to travel through avalanche chutes to reach the damage, which limited when engineers and contractors could safely be in the corridor at all."
+      ],
+      "zh": [
+        "季节性封闭是这条路最核心的事实，而华盛顿州交通部对此的记录之完备，在同类州份中几乎无人能及。雷尼山口海拔 4,862 英尺，华盛顿山口 5,475 英尺；一旦落闸，公路便在 134 英里桩的罗斯坝步道口至 171 英里桩的银星闸门之间封闭。季节推进、条件恶化后，封闭点会下移至西侧 120 英里桩的纽哈伦闸门与东侧 178 英里桩的早冬闸门。",
+        "该部门自 1972 年起持续记录开闭日期，数据显示年际差异极大。首次开放日的中位数约为 4 月 21 日，最终封闭日的中位数约为 11 月 24 日。有记录的最早封闭为 2007 年 10 月 17 日，最晚为 1990 年 1 月 3 日。而在 1976 至 1977 年的干旱冬季，这条路完全没有封闭过。",
+        "重新开放是雪崩作业，而不只是扫雪。2026 年清理风暴损毁的施工队必须穿过雪崩槽才能抵达受损处，这也限制了工程师与承包商能够安全进入走廊的时段。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Recent years show what \"seasonal\" can mean in practice. Winter storms in December 2025 washed out several sections, and a rockslide came down near Diablo Lake at milepost 131 in March 2026. WSDOT opened limited access from the east as far as Porcupine Creek on 30 April, moved the west closure point to the Ross Dam trailhead on 30 May, and did not fully reopen until 14 June — which ties 1974 as the latest opening since records began.",
+        "The repair itself was substantial: slope stabilisation and debris removal at the rockslide, and rebuilding embankment and more than 1,000 feet of undermined and collapsed roadway and shoulder along a six-mile stretch between mileposts 142 and 148, with damaged drainage, guardrail and barrier replaced.",
+        "In practice this means checking before you go and not assuming a spring date. When the road is closed it is closed to everyone, including hikers, cyclists and campers within the work area. When it is open, the Washington Pass overlook is a few steps from the car park, and the byway designations along the route — the Cascade Loop and the North Cascades Scenic Byway among them — point at the rest."
+      ],
+      "zh": [
+        "近几年的情况说明了「季节性」在实际中意味着什么。2025 年 12 月的冬季风暴冲毁了数处路段，2026 年 3 月又有落石在 131 英里桩的迪亚布洛湖附近坠落。华盛顿州交通部于 4 月 30 日开放东侧至豪猪溪的有限通行，5 月 30 日把西侧封闭点移至罗斯坝步道口，直到 6 月 14 日才全线恢复——这与 1974 年并列为有记录以来最晚的开放日。",
+        "修复本身工程量不小：在落石处进行边坡加固与清障；在 142 至 148 英里桩之间约六英里路段重建路堤，修复逾 1,000 英尺被掏空和坍塌的路面与路肩，并更换受损的排水设施、护栏与防撞墙。",
+        "实际操作上，这意味着出行前必须查询，不要假定一个固定的春季开放日。封路期间对所有人封闭，作业区内的徒步者、骑行者和露营者也不例外。开放时，华盛顿山口观景台离停车场只有几步；沿线的景观道路认定——喀斯喀特环线与北喀斯喀特景观道路等——则指向其余可看之处。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Pass elevations", "zh": "山口海拔" },
+      "value": { "en": "Rainy Pass 4,862 feet; Washington Pass 5,475 feet", "zh": "雷尼山口 4,862 英尺；华盛顿山口 5,475 英尺" },
+      "source": "WSDOT news release, 3 December 2025"
+    },
+    {
+      "label": { "en": "Route length", "zh": "全线里程" },
+      "why": { "en": "SR 20 is generally described as Washington's longest state route, but no length from the WSDOT state highway log could be verified directly this session, and the published total excludes the ferry crossing on the route. No figure is given rather than one taken second-hand.", "zh": "SR 20 通常被称为华盛顿州最长的州道，但本次查证未能直接从该州公路登记册核实其里程，且已公布的总数不含本路线上的渡轮段。宁可不给数字，也不采用转手来源。" }
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "建设成本" },
+      "why": { "en": "No cost for the North Cascades crossing could be verified from WSDOT this session. Construction ran from 1959 to 1972 and the route number was later extended over pre-existing highways, so any total would need to state what it covers.", "zh": "本次查证未能从华盛顿州交通部取得北喀斯喀特越岭段的造价。工程自 1959 年持续至 1972 年，此后该编号又沿既有公路延伸，因此任何总数都须说明所涵盖的范围。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Visitors on the opening weekend", "zh": "通车首个周末的来访人数" },
+      "value": { "en": "An estimated 8,000 people visited the Washington Pass overlook", "zh": "估计有 8,000 人造访华盛顿山口观景台" },
+      "source": "HistoryLink.org essay 11044, North Cascades Highway opening, 2 September 1972"
+    },
+    {
+      "label": { "en": "Annual average daily traffic", "zh": "年平均日交通量" },
+      "why": { "en": "No count could be verified from WSDOT this session. Traffic on the mountain section is also seasonal by definition — the road carries none at all for several months of the year.", "zh": "本次查证未能从华盛顿州交通部取得交通量数据。此外，山区路段的交通量本质上就是季节性的——每年有数月完全没有车辆通行。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Winter closure limits", "zh": "冬季封闭范围" },
+      "value": { "en": "Between Ross Dam trailhead (milepost 134) and Silver Star gate (milepost 171), moving later to Newhalem (milepost 120) and Early Winters (milepost 178)", "zh": "自罗斯坝步道口（134 英里桩）至银星闸门（171 英里桩），季节后期移至纽哈伦（120 英里桩）与早冬闸门（178 英里桩）" },
+      "source": "WSDOT news release, 3 December 2025"
+    },
+    {
+      "label": { "en": "Median opening and closing dates", "zh": "开放与封闭日期中位数" },
+      "value": { "en": "First open around 21 April, final closure around 24 November, on records kept since 1972", "zh": "按 1972 年以来的记录，首次开放约在 4 月 21 日，最终封闭约在 11 月 24 日" },
+      "source": "WSDOT, Mountain pass closure and opening dates"
+    },
+    {
+      "label": { "en": "Extremes on record", "zh": "记录中的极端值" },
+      "value": { "en": "Earliest closure 17 October 2007; latest closure 3 January 1990; in the winter of 1976–77 the highway never closed", "zh": "最早封闭为 2007 年 10 月 17 日，最晚为 1990 年 1 月 3 日；1976—77 年冬季全程未曾封闭" },
+      "source": "WSDOT news release, 3 December 2025, and WSDOT mountain pass records"
+    },
+    {
+      "label": { "en": "Latest opening", "zh": "最晚开放日" },
+      "value": { "en": "14 June, reached in both 1974 and 2026 — the latest since records began in 1972", "zh": "6 月 14 日，1974 年与 2026 年两度出现——为 1972 年有记录以来最晚" },
+      "source": "WSDOT blog, North Cascades Highway 2026 opening, June 2026"
+    }
+  ],
+  "timeline": [
+    { "year": 1896, "en": "A wagon route is established across the crossing SR 20 now uses; it falls out of use within a decade.", "zh": "在 SR 20 今日所用的越岭线上开辟一条马车道，不到十年即废弃。" },
+    { "year": 1959, "en": "Construction of the North Cascades crossing begins on the northerly alignment.", "zh": "北喀斯喀特越岭段按偏北走向开工。" },
+    { "year": 1964, "en": "The number SR 20 is created in the state renumbering, then running only from the Mount Vernon area to Okanogan.", "zh": "州道重新编号中设立 SR 20 编号，当时仅自弗农山一带通至奥卡诺根。" },
+    { "year": 1972, "en": "The final section opens on 2 September; an estimated 8,000 people visit the Washington Pass overlook that weekend.", "zh": "9 月 2 日最后一段通车；当周末估计有 8,000 人造访华盛顿山口观景台。" },
+    { "year": 1990, "en": "The highway stays open until 3 January, the latest seasonal closure on record.", "zh": "公路开放至 1 月 3 日，为有记录以来最晚的季节性封闭。" },
+    { "year": 2026, "en": "Storm washouts and a rockslide delay full reopening to 14 June, tying 1974 for the latest opening on record.", "zh": "风暴冲毁与落石使全线恢复推迟至 6 月 14 日，与 1974 年并列有记录以来最晚开放。" }
+  ]
+}

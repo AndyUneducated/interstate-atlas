@@ -1,0 +1,113 @@
+{
+  "id": "ca-1-1",
+  "name": { "en": "California State Route 1 — the Pacific Coast Highway", "zh": "加利福尼亚 1 号州道（太平洋海岸公路）" },
+  "tagline": { "en": "A shelf blasted along the edge of the continent", "zh": "在大陆边缘炸出来的一道路台" },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "CA 1 is the coast road, and for a long stretch of central California it is the only road: a two-lane shelf cut into the western slope of the Santa Lucia Mountains with the Pacific directly below it. The route is not continuous — it is broken into pieces where it merges with US 101 — and this dossier covers the long central and northern run.",
+        "The most celebrated section is Big Sur. Caltrans' own corridor management plan describes the study area as a 75-mile stretch from San Carpoforo Creek, north of San Simeon, to the Carmel River, and the Monterey County portion of it was made an All-American Road in 1996 — a designation reserved for roads considered destinations in themselves rather than ways of reaching one.",
+        "What makes the drive feel unlike other scenic highways is what is absent from it. Big Sur's local coastal programme bans billboards and roadside advertising and keeps business signage small and rural in character. There are long intervals with no services, no mobile signal and nowhere to turn around."
+      ],
+      "zh": [
+        "CA 1 就是那条海岸公路，而在加州中部很长一段里，它是唯一的路：一条在圣卢西亚山脉西坡上开凿出来的双车道路台，太平洋就在路的正下方。这条路线并不连续——在与 US 101 合并处被切断——本篇涵盖的是中部与北部那段最长的路程。",
+        "最负盛名的一段是大苏尔。加州交通局自己的走廊管理规划把研究范围描述为自圣西米恩以北的圣卡波弗罗溪至卡梅尔河的 75 英里路段，其中蒙特雷县境内部分于 1996 年被定为「全美道路」——这一称号只授予那些本身即为目的地、而非通往目的地之手段的道路。",
+        "让这段路与其他景观公路不同的，恰恰是它所没有的东西。大苏尔的地方海岸规划禁止路边广告牌与广告，商家招牌也必须小巧、保持乡野气质。沿途有很长的区间没有服务设施、没有手机信号，也无处掉头。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Carmel–San Simeon section was built by removing the mountainside. The Division of Highways reported that completing the work would mean moving 13,000,000 cubic yards of material and building 32 bridges along 93 miles of coast, twenty-nine of which were finished by the time the road opened.",
+        "The single most extreme operation was at Limekiln Bluff, a promontory of solid granite rising nearly vertically out of the ocean about 37 miles north of San Simeon. One charge of dynamite and black powder totalling 34 tons dislodged roughly 97,000 cubic yards of rock, about 70,000 of which was blown straight into the sea; some 163,000 yards was eventually removed within a thousand feet of road.",
+        "The bridges were the other half of the problem. The best known is the open-spandrel reinforced concrete arch at the mouth of Bixby Creek, whose abutments are anchored into sheer rock walls 140 feet above the creek bed, 330 feet apart, carrying a 714-foot deck about 260 feet above the bottom of the canyon. At Dolan Creek the depth of the gorge and the cost of hauling concrete aggregate from Monterey led the engineers to build a 514-foot structure around a 180-foot three-hinged timber arch, in redwood."
+      ],
+      "zh": [
+        "卡梅尔至圣西米恩这一段是靠把山体挖掉修出来的。加州公路局当年报告称，完成这项工程意味着在 93 英里海岸线上搬运 1,300 万立方码土石、建造 32 座桥梁，其中 29 座在通车时已经完工。",
+        "最极端的一次作业在石灰窑崖——一处几乎垂直立于海面之上的整体花岗岩岬角，位于圣西米恩以北约 37 英里。一次共计 34 吨炸药与黑火药的爆破，撼落了约 9.7 万立方码岩石，其中约 7 万立方码直接被抛入海中；在这一千英尺路段内最终清运了约 16.3 万立方码。",
+        "桥梁是问题的另一半。最著名的是比克斯比溪口的空腹式钢筋混凝土拱桥，其桥台锚固在高出溪床 140 英尺的陡直岩壁上，相距 330 英尺，托起一段 714 英尺长、约在峡谷底部之上 260 英尺的桥面。在多兰溪，峡谷深度与从蒙特雷运送混凝土骨料的成本，使工程师选择建造一座 514 英尺长的结构，中央为 180 英尺的三铰木拱，材料是红杉。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road took the better part of two decades and was substantially built by prisoners. The first contract, awarded to Blake & Heaney, began grading north from near the Piedra Blanca lighthouse in 1921 and finished in December 1924. The terrain then defeated conventional contracting: on the Anderson Canyon to Big Sur contract, one slide carried a power shovel off the roadside and 500 feet down to the ocean, where it was wrecked and abandoned.",
+        "The State turned to prison labour. A camp for 120 convicts and 20 free men opened near Salmon Creek in March 1928, and a second near the mouth of the Little Sur River that July. Hand methods alone proved too slow, so machinery was brought in and the convicts were put to drilling and building masonry walls and parapets. The two camps met on 18 September 1934, and the last barrier between San Simeon and Carmel came down.",
+        "Governor Frank Merriam opened the finished road at Pfeiffer Park on 27 June 1937 by lighting a dynamite charge under a boulder placed symbolically across it. The Division of Highways put the total, including engineering and right of way, at close to nine million dollars. The route became State Route 1 in 1939."
+      ],
+      "zh": [
+        "这条路修了将近二十年，而且很大程度上是由囚犯修成的。第一份合同由 Blake & Heaney 承接，1921 年自皮德拉布兰卡灯塔附近向北开始整坡，1924 年 12 月完工。此后地形击败了常规承包方式：在安德森峡谷至大苏尔的合同段，一次滑坡把一台动力铲从路边带到 500 英尺下的海边，铲车报废弃置。",
+        "州政府转而使用囚犯劳工。1928 年 3 月，一处可容纳 120 名囚犯与 20 名自由工人的营地在鲑鱼溪附近启用；同年 7 月，第二处营地在小苏尔河口附近设立。仅靠手工作业过于缓慢，于是调入机械，囚犯则专门负责钻孔以及砌筑挡墙和护栏。两处营地的施工面于 1934 年 9 月 18 日会合，圣西米恩与卡梅尔之间最后一道屏障被清除。",
+        "1937 年 6 月 27 日，州长弗兰克·梅里亚姆在普费弗公园点燃置于路面上那块象征性巨石下的炸药，为建成的公路开通。加州公路局给出的总支出——含勘察设计与征地——接近九百万美元。这条路线于 1939 年成为 1 号州道。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "This road closes. The coast it is cut into is among the most landslide-prone terrain in the country, and Caltrans has cited USGS work identifying 75 miles of the Big Sur coastline as one of the most active landslide areas in the western United States, with over 1,500 mapped slides.",
+        "Two overlapping failures took the highway out for most of three years. Paul's Slide closed it from 14 January 2023 to 23 June 2024. Regent's Slide, six miles to the north, occurred on 9 February 2024 and shut a 6.8-mile section until noon on 14 January 2026 — a reopening Caltrans delivered months ahead of the estimated date of 30 March. In the days before reopening, crews cleared about 6,000 cubic yards of mud and debris from the repair site after winter storms.",
+        "Full reopening is not the same as reliable. Caltrans warns of occasional closures for storm debris removal and continuing construction delays, and the road is also exposed to wildfire closures. Conditions should be checked with Caltrans on the day of travel rather than the week before."
+      ],
+      "zh": [
+        "这条路会封闭。它所依附的海岸属于全美最易发生滑坡的地形之一，加州交通局曾引用美国地质调查局的成果，指出大苏尔海岸有 75 英里被认定为美国西部滑坡活动最活跃的区域之一，已测绘的滑坡超过 1,500 处。",
+        "两处相互重叠的坍塌，让这条公路在近三年里大部分时间不通。保罗滑坡自 2023 年 1 月 14 日至 2024 年 6 月 23 日造成封路。其以北六英里的摄政滑坡发生于 2024 年 2 月 9 日，导致一段 6.8 英里路段中断，直到 2026 年 1 月 14 日正午才恢复——比 3 月 30 日的预计通车日期提前了数月。通车前几天，施工队在冬季风暴之后从修复现场清运了约 6,000 立方码泥浆与碎屑。",
+        "全线恢复通行并不等于可靠。加州交通局提醒，为清除风暴碎屑仍会偶有封路，施工延误也将继续，而且这条路还面临野火封路的风险。路况应在出行当天向加州交通局查询，而不是提前一周。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost, Carmel to San Simeon", "zh": "卡梅尔至圣西米恩段造价" },
+      "value": { "en": "Close to $9,000,000, including construction, engineering and right of way", "zh": "接近 900 万美元，含施工、勘察设计与征地" },
+      "source": "California Highways and Public Works, Division of Highways, July 1937"
+    },
+    {
+      "label": { "en": "Material moved", "zh": "土石方搬运量" },
+      "value": { "en": "13,000,000 cubic yards along 93 miles of coast, with 32 bridges", "zh": "沿 93 英里海岸搬运 1,300 万立方码，建桥 32 座" },
+      "source": "California Highways and Public Works, Division of Highways, July 1937"
+    },
+    {
+      "label": { "en": "The Limekiln Bluff blast", "zh": "石灰窑崖爆破" },
+      "value": { "en": "A single 34-ton charge dislodged about 97,000 cubic yards of granite, roughly 70,000 of it into the ocean", "zh": "单次 34 吨装药撼落约 9.7 万立方码花岗岩，其中约 7 万立方码落入海中" },
+      "source": "California Highways and Public Works, Division of Highways, July 1937"
+    },
+    {
+      "label": { "en": "Scenic designations", "zh": "景观道路认定" },
+      "value": { "en": "Route 1 – Big Sur Coast Highway, 72 miles, All-American Road from 1996; Route 1 – San Luis Obispo North Coast Byway, 57 miles, All-American Road from 2002", "zh": "「1 号公路——大苏尔海岸公路」72 英里，1996 年起为全美道路；「1 号公路——圣路易斯奥比斯波北海岸景观道」57 英里，2002 年起为全美道路" },
+      "source": "FHWA, National Scenic Byways Program, designated byway list"
+    },
+    {
+      "label": { "en": "Length of this segment", "zh": "本路段里程" },
+      "why": { "en": "CA 1 is discontinuous, and Caltrans publishes a route total that expressly does not resolve the gaps and overlaps with US 101. No agency figure for this particular continuous segment could be verified, so none is given.", "zh": "CA 1 并不连续，加州交通局公布的全线里程明确未处理与 US 101 之间的断口与共线问题。未能查证到针对这一连续路段的官方数据，故不予给出。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Annual average daily traffic", "zh": "年平均日交通量" },
+      "why": { "en": "Traffic on CA 1 ranges from urban arterial volumes near the metropolitan areas to a rural two-lane road through Big Sur. Caltrans publishes counts by postmile, and no single figure for this segment could be verified this session.", "zh": "CA 1 的交通量从都会区附近的城市主干道水平，到穿越大苏尔的乡村双车道路段，差异极大。加州交通局按里程桩发布数据，本次查证未能取得该路段的单一数值。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Landslide activity", "zh": "滑坡活动" },
+      "value": { "en": "USGS identifies 75 miles of the Big Sur coastline as one of the most active landslide areas in the western United States, with over 1,500 mapped slides", "zh": "美国地质调查局认定大苏尔海岸 75 英里为美国西部滑坡活动最活跃的区域之一，已测绘滑坡逾 1,500 处" },
+      "source": "Caltrans District 5 news release, 14 January 2026, citing the U.S. Geological Survey"
+    },
+    {
+      "label": { "en": "Recent long closures", "zh": "近期长期封路" },
+      "value": { "en": "Paul's Slide closed the highway from 14 January 2023 to 23 June 2024; Regent's Slide occurred 9 February 2024 and reopened 14 January 2026", "zh": "保罗滑坡自 2023 年 1 月 14 日至 2024 年 6 月 23 日封路；摄政滑坡发生于 2024 年 2 月 9 日，2026 年 1 月 14 日恢复通行" },
+      "source": "Caltrans District 5 news release, 14 January 2026"
+    }
+  ],
+  "timeline": [
+    { "year": 1921, "en": "Grading begins on the Carmel–San Simeon Highway north of the Piedra Blanca lighthouse.", "zh": "卡梅尔—圣西米恩公路在皮德拉布兰卡灯塔以北开始整坡施工。" },
+    { "year": 1928, "en": "Prison labour camps open at Salmon Creek in March and near the Little Sur River in July.", "zh": "3 月鲑鱼溪、7 月小苏尔河附近先后设立囚犯劳工营地。" },
+    { "year": 1932, "en": "The Bixby Creek arch is completed, five years before the highway it was built for.", "zh": "比克斯比溪拱桥建成，比它所服务的公路早了五年。" },
+    { "year": 1934, "en": "The two convict camps meet on 18 September and the last barrier between San Simeon and Carmel is removed.", "zh": "9 月 18 日两处囚犯营地施工面会合，圣西米恩与卡梅尔之间最后一道屏障被清除。" },
+    { "year": 1937, "en": "Governor Merriam opens the road at Pfeiffer Park on 27 June.", "zh": "6 月 27 日，州长梅里亚姆在普费弗公园宣布公路通车。" },
+    { "year": 1939, "en": "The route is numbered California Highway 1.", "zh": "该路线获编号为加利福尼亚 1 号公路。" },
+    { "year": 1996, "en": "The Monterey County section becomes an All-American Road.", "zh": "蒙特雷县路段被定为全美道路。" },
+    { "year": 2026, "en": "Regent's Slide is repaired and the Big Sur coast is continuous again for the first time in almost three years.", "zh": "摄政滑坡修复完成，大苏尔海岸近三年来首次恢复贯通。" }
+  ]
+}

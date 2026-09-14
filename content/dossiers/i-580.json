@@ -1,0 +1,62 @@
+{
+  "id": "i-580",
+  "name": { "en": "Interstate 580", "zh": "580 号州际公路" },
+  "tagline": { "en": "San Rafael to the Central Valley, through the Bay Area's worst knot", "zh": "从圣拉斐尔到中央谷地，穿过湾区最乱的那个结" },
+  "officialMi": 76.13,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "US 101 at San Rafael, Marin County", "zh": "马林县圣拉斐尔，与 US 101 相接" },
+    "end": { "en": "I-5 near Tracy, San Joaquin County", "zh": "圣华金县特雷西附近，与 I-5 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-580 crosses the Bay Area sideways. It starts at US 101 in San Rafael, crosses the Richmond–San Rafael Bridge, runs down the East Bay through Oakland on the MacArthur Freeway, climbs out of the hills through Castro Valley and Dublin, and then goes over the Altamont Pass into the Central Valley to meet I-5 near Tracy. That makes it the region's main freight and commuter link to the valley, and the reason the Tri-Valley suburbs at Livermore and Pleasanton exist in their present form.",
+        "The knot in the middle is the MacArthur Maze, the stack of ramps at the eastern end of the Bay Bridge where I-580, I-880 and I-80 come together. It is one of the busiest interchanges in California and, because everything crossing the bay from the East Bay has to pass through it, one of the most exposed: there is no redundancy in it anywhere."
+      ],
+      "zh": [
+        "I-580 是横着穿过湾区的。它起自圣拉斐尔的 US 101，跨里士满—圣拉斐尔大桥，沿东湾南下，以麦克阿瑟高速穿过奥克兰，再经卡斯特罗谷与都柏林爬出山地，翻越阿尔塔蒙特山口进入中央谷地，在特雷西附近与 I-5 相接。这使它成为本区通往谷地的主要货运与通勤通道，也是利弗莫尔、普莱森顿一带「三谷」郊区之所以是今天这个样子的原因。",
+        "中间那个结是麦克阿瑟迷宫——海湾大桥东端 I-580、I-880 与 I-80 交汇处层层叠起的匝道群。它是加州最繁忙的立交之一；又因为从东湾跨海湾的所有车流都必须经过它，它也是最脆弱的立交之一：整座立交没有任何冗余可言。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "How exposed became clear at 3:41 a.m. on 29 April 2007, when a tanker carrying 8,600 gallons of petrol overturned on the connector from westbound I-80 to southbound I-880 and caught fire. The heat warped the steel girders of the ramp above, and a 165-foot section of the I-80-to-I-580 connector fell onto the roadway below. The driver was the only person injured, which at that hour was luck rather than design.",
+        "The repair became a case study in emergency contracting. The damaged lower ramp was jacked back into alignment and reopened on 8 May, nine days after the fire. Caltrans took bids from seven contractors for the collapsed upper connector on the same day and awarded the work to C.C. Myers for $867,075 — with incentives of $200,000 for each day the job finished early, up to $5 million. The ramp reopened on 24 May, well inside the original June deadline. By the time the lower deck reopened Caltrans had already spent $14.3 million on demolition, shoring and traffic management."
+      ],
+      "zh": [
+        "它有多脆弱，在 2007 年 4 月 29 日凌晨 3 时 41 分显露无遗：一辆载有 8,600 加仑汽油的槽罐车在由西行 I-80 转南行 I-880 的匝道上侧翻起火。高温把上方匝道的钢梁烤变形，I-80 转 I-580 连接线有 165 英尺坠落到下方路面上。唯一受伤的是司机本人——在那个时间点，这是运气，不是设计。",
+        "抢修过程成了应急发包的范例。受损的下层匝道被顶升复位，于 5 月 8 日、也就是火灾后第九天重新开放。同一天，加州交通局就坍塌的上层连接线向七家承包商开标，以 867,075 美元把工程交给 C.C. Myers 公司——外加提前完工奖励，每提前一天 20 万美元，上限 500 万美元。该匝道于 5 月 24 日通车，远早于原定的 6 月期限。而在下层路面重新开放时，加州交通局在拆除、支撑与交通组织上已花掉 1,430 万美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "76.13 miles in California (the I-580 in Nevada is a different road)", "zh": "加利福尼亚州境内 76.13 英里（内华达州的 I-580 是另一条路）" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Contract price to rebuild the collapsed ramp", "zh": "坍塌匝道重建合同价" },
+      "value": { "en": "$867,075, plus early-completion incentives of $200,000 a day up to $5 million", "zh": "867,075 美元，另有提前完工奖励，每天 20 万美元，上限 500 万美元" },
+      "source": "East Bay Times, 8 May 2007"
+    },
+    {
+      "label": { "en": "Emergency spending before the rebuild", "zh": "重建前的应急支出" },
+      "value": { "en": "$14.3 million on demolition, shoring, testing and traffic management by 7 May 2007", "zh": "截至 2007 年 5 月 7 日，拆除、支撑、检测与交通组织共 1,430 万美元" },
+      "source": "San Francisco Chronicle, 7 May 2007, quoting Caltrans"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic on the two damaged ramps", "zh": "两条受损匝道的交通量" },
+      "value": { "en": "About 80,000 vehicles a day", "zh": "每日约 80,000 辆" },
+      "source": "FHWA Focus newsletter FHWA-HRT-07-015, July 2007"
+    }
+  ],
+  "timeline": [
+    { "year": 2007, "en": "A petrol tanker fire collapses a section of the MacArthur Maze; both ramps are back in service within 25 days.", "zh": "汽油槽罐车起火导致麦克阿瑟迷宫一段坍塌，两条匝道在 25 天内均恢复通行。" }
+  ]
+}

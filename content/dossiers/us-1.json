@@ -1,0 +1,86 @@
+{
+  "id": "us-1",
+  "name": { "en": "U.S. Route 1", "zh": "1 号美国国道" },
+  "tagline": { "en": "Key West to the Canadian border, along the Atlantic fall line", "zh": "从基韦斯特到加拿大边境，沿大西洋瀑布线北上" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "Whitehead Street at Fleming Street, Key West, Florida", "zh": "佛罗里达州基韦斯特，怀特黑德街与弗莱明街路口" },
+    "end": { "en": "Fort Kent–Clair border crossing, Fort Kent, Maine", "zh": "缅因州福特肯特，福特肯特—克莱尔边境口岸" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 1 runs the length of the Atlantic seaboard, from a street corner in Key West to a customs post on the New Brunswick border at Fort Kent, Maine. It is the easternmost of the main north–south U.S. Routes, but for much of its length it is not a coastal road at all. North of Augusta, Georgia, the 1926 planners put it on the Atlantic Seaboard Fall Line — the inland edge of the coastal plain — because that was where the usable roads and the larger towns were. Between Jacksonville and Petersburg, Virginia, it therefore runs well west of I-95.",
+        "The road changes character completely, several times over. In the Keys it is the two-lane Overseas Highway, carried across open water on the works of a dead railroad. Through Florida and Georgia it is a four-lane divided arterial; in South Carolina and the sandhills of North Carolina it narrows to two lanes and passes through the middle of small towns. From Washington to Boston it becomes a chain of named city streets — Baltimore–Washington Boulevard, Roosevelt Boulevard in Philadelphia, the Boston Post Road — lined with the strip development that grew up on it before the Interstate existed. Only in Maine does it finally turn coastal."
+      ],
+      "zh": [
+        "US 1 纵贯整个大西洋沿岸，南起基韦斯特的一处街角，北至缅因州福特肯特、通往新不伦瑞克省的边境海关。它是各条主要南北向美国国道中最靠东的一条，但沿途很大一部分其实并不临海。在佐治亚州奥古斯塔以北，1926 年的规划者把它放在了大西洋瀑布线上——也就是滨海平原的内陆边缘——因为可用的道路和较大的城镇都在那里。因此在杰克逊维尔与弗吉尼亚州彼得斯堡之间，它的位置远在 I-95 以西。",
+        "这条路的性格反复彻底变化。在佛罗里达群岛，它是双车道的跨海公路，借一条废弃铁路的遗构跨越开阔水面。穿过佛罗里达和佐治亚时，它是四车道的中央分隔干道；到了南卡罗来纳和北卡罗来纳的沙丘地带，又收窄为双车道，从小镇中心直穿而过。从华盛顿到波士顿，它变成一串有名字的城市街道——巴尔的摩—华盛顿大道、费城的罗斯福大道、波士顿邮政路——两旁是州际公路出现之前就沿路长起来的带状商业带。直到进入缅因州，它才终于真正贴着海岸走。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The direct predecessor was the Atlantic Highway, an auto trail organised in 1911 as the Quebec–Miami International Highway and renamed four years later. Like all the named trails it overlapped others, and several of those older names are still in daily use on the same pavement: the Boston Post Road in New England, the Lincoln Highway between New York and Philadelphia, the Baltimore Pike, the Dixie Highway in and south of eastern Georgia.",
+        "The 1925 draft of the numbering plan gave US 1 the short inland route between Bangor and Houlton, with US 2 taking the longer coastal line to Calais. In the system approved on 11 November 1926 the two were swapped, and US 1 absorbed the coast. Local relocations onto new superhighways followed quickly — the Pulaski Skyway carried it across the New Jersey meadows from 1932 — and the Overseas Highway was completed to Key West in 1938 and added as a southern extension.",
+        "I-95 then took the traffic. Where the Interstate followed the same corridor, US 1 was reduced to the local street; where it did not, the older road kept a purpose. Between Petersburg and Jacksonville the two follow entirely different lines, US 1 on the fall line and I-95 out across the plain, and that section is still a four-lane through route in many places rather than a relic."
+      ],
+      "zh": [
+        "它的直接前身是大西洋公路（Atlantic Highway）——一条 1911 年以「魁北克—迈阿密国际公路」之名组织起来的命名汽车道，四年后改今名。与所有命名汽车道一样，它与其他线路多有重叠，其中几个更早的名字至今仍在同一段路面上日常使用：新英格兰的波士顿邮政路、纽约至费城之间的林肯公路、巴尔的摩收费道，以及佐治亚州东部及以南的迪克西公路。",
+        "1925 年的编号草案把班戈至霍尔顿之间较短的内陆线给了 US 1，而由 US 2 走较长的沿海线至卡莱斯。在 1926 年 11 月 11 日通过的方案中，两者对调，US 1 接手了海岸线。此后很快出现了一批改走新建高速路的局部改线——1932 年起，普拉斯基高架桥载着它横跨新泽西的沼泽地——跨海公路则于 1938 年建成通抵基韦斯特，并作为南延段并入本线。",
+        "随后 I-95 带走了车流。凡州际公路沿同一走廊而行之处，US 1 就降格为地方街道；未同走廊之处，这条老路仍有其用途。在彼得斯堡与杰克逊维尔之间，两条路走的完全是不同的线位：US 1 沿瀑布线，I-95 横穿平原，因此这一段至今仍有大量四车道的通过性路段，而非仅存的遗迹。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The most demanding piece of US 1 to keep open is the hundred-odd miles through the Florida Keys, where the road is the only land route in or out and doubles as the hurricane evacuation route. The Overseas Highway of 1938 was laid on the surviving piers of Henry Flagler's Overseas Railroad, which the 1935 Labor Day hurricane destroyed. Most of those spans were retired when modern replacements opened in 1982.",
+        "The old Seven Mile Bridge was not demolished. A 2.2-mile section to Pigeon Key is being restored and maintained as a pedestrian pier under a long-term cost-sharing agreement between the state, Monroe County and the City of Marathon. The 1982 bridge that replaced it is now itself the problem: FDOT began a rehabilitation contract on it in March 2026 and is separately running a study of whether to replace the structure outright."
+      ],
+      "zh": [
+        "US 1 最难维持通行的一段，是穿越佛罗里达群岛的百余英里。这里的公路是进出群岛唯一的陆路通道，同时兼作飓风疏散路线。1938 年的跨海公路铺设在亨利·弗拉格勒所建跨海铁路残存的桥墩上，那条铁路毁于 1935 年劳动节飓风。1982 年现代替代桥梁通车后，这些旧跨大多退出使用。",
+        "旧七英里桥并未拆除。通往鸽子岛的 2.2 英里路段正依据州政府、门罗县与马拉松市之间的长期费用分摊协议修复，并作为步行栈桥维护。取代它的 1982 年桥如今自己成了问题：佛罗里达州交通部已于 2026 年 3 月开工进行大修，并另行开展研究，评估是否干脆整体重建。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No such figure exists. US 1 was assembled in 1926 out of roads that already existed, and has been rebuilt piecemeal ever since by fifteen states and the District of Columbia. No agency has ever accounted for it as a single project.", "zh": "没有这样的数据。US 1 于 1926 年由既有道路拼合而成，此后由 15 个州与哥伦比亚特区分段陆续改建。从未有任何机构把它作为单一工程进行造价核算。" }
+    },
+    {
+      "label": { "en": "Seven Mile Bridge rehabilitation", "zh": "七英里桥大修" },
+      "value": { "en": "$17.7 million; work began 2 March 2026, estimated completion summer 2029", "zh": "1,770 万美元；2026 年 3 月 2 日开工，预计 2029 年夏季完工" },
+      "source": "Florida Department of Transportation District Six, project 446231-1-52-01, 2026"
+    },
+    {
+      "label": { "en": "Restoration of the old Seven Mile Bridge", "zh": "旧七英里桥修复" },
+      "value": { "en": "A 30-year, $77 million programme covering 2.2 miles, split between FDOT, Monroe County and the City of Marathon under a 2014 agreement", "zh": "为期 30 年、总额 7,700 万美元的计划，覆盖 2.2 英里，依 2014 年协议由佛州交通部、门罗县与马拉松市分摊" },
+      "source": "Monroe County Commission agreement reported by CBS Miami, 2014, and the Miami Herald, 2016"
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "why": { "en": "There is no current authoritative figure. AASHTO delegates U.S. Route mileage to the states and last published a national route log in 1989; lengths change whenever a state reroutes or truncates the road, and no federal register tracks them.", "zh": "目前没有权威数据。AASHTO 把美国国道的里程统计权下放给各州，最后一份全国路线里程表发布于 1989 年；只要某州改线或截短，里程就会变化，而联邦并无登记册予以追踪。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Counts are published segment by segment by each state DOT and span more than two orders of magnitude on this route, from suburban Philadelphia and Newark to two-lane sections in Aroostook County, Maine. No agency publishes a figure for the route as a whole.", "zh": "交通量由各州交通部门按路段发布，本路线沿途的差距超过两个数量级——从费城与纽瓦克的郊区路段，到缅因州阿鲁斯图克县的双车道路段。没有任何机构发布全线的统计数字。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Replacement of the Seven Mile Bridge", "zh": "七英里桥重建" },
+      "value": { "en": "Construction expected to exceed $500 million; a project development and environment study is funded, construction funding is not", "zh": "预计施工费用将超过 5 亿美元；项目开发与环境研究已有资金，施工资金尚未落实" },
+      "source": "FDOT spokesperson quoted by keysnews.com, November 2022"
+    }
+  ],
+  "timeline": [
+    { "year": 1911, "en": "The Quebec–Miami International Highway is organised along the Atlantic seaboard; it is renamed the Atlantic Highway in 1915.", "zh": "沿大西洋沿岸组织起「魁北克—迈阿密国际公路」，1915 年改名为大西洋公路。" },
+    { "year": 1926, "en": "US 1 is numbered on 11 November, taking the coastal route through Maine after a late swap with US 2.", "zh": "11 月 11 日 US 1 获得编号；在最后阶段与 US 2 对调后，取道缅因州沿海线。" },
+    { "year": 1938, "en": "The Overseas Highway is completed to Key West and becomes the southern extension of US 1.", "zh": "跨海公路建成通抵基韦斯特，成为 US 1 的南延段。" },
+    { "year": 1982, "en": "A new Seven Mile Bridge opens; the 1930s span is retired from traffic.", "zh": "新七英里桥通车，1930 年代的旧桥退出通行。" }
+  ]
+}

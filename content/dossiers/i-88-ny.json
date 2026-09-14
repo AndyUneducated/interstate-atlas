@@ -1,0 +1,69 @@
+{
+  "id": "i-88-ny",
+  "name": { "en": "Interstate 88", "zh": "88 号州际公路" },
+  "tagline": { "en": "Binghamton to Schenectady, the road they named after a senator", "zh": "从宾厄姆顿到斯克内克塔迪，以一位参议员命名的路" },
+  "officialMi": 117.37,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1968,
+  "completedYear": 1989,
+  "termini": {
+    "start": { "en": "I-81 near Binghamton, New York", "zh": "纽约州宾厄姆顿附近，与 I-81 相接" },
+    "end": { "en": "The New York State Thruway near Schenectady, New York", "zh": "纽约州斯克内克塔迪附近，与纽约州收费高速相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-88 runs diagonally across upstate New York between Binghamton and the Capital District, through the Susquehanna valley and the hills of the Leatherstocking country. The towns along it — Sidney, Oneonta, Cobleskill — are small, and between them the road is rural in a way few Interstates east of the Mississippi manage.",
+        "It replaced New York Route 7, a two-lane road, as the through route between the Southern Tier and Schenectady. Its purpose was as much economic as transport: to give a thinly populated part of the state a modern connection to the Thruway and to the freight network.",
+        "It is entirely within one state, connects two cities that are not large, and carries correspondingly modest traffic. That combination is exactly what made it controversial."
+      ],
+      "zh": [
+        "I-88 在纽约州北部斜穿而过，连接宾厄姆顿与首府地区，沿途经过萨斯奎哈纳河谷与「皮袜子故事」一带的丘陵。沿线的城镇——锡德尼、奥尼昂塔、科布尔斯基尔——都不大；城镇之间，这条路的乡野程度是密西西比河以东少有州际公路能达到的。",
+        "它取代了双车道的纽约州 7 号公路，成为南部层与斯克内克塔迪之间的过境通道。它的目的既是交通，也是经济：让该州人口稀疏的一隅与收费高速及货运网络建立现代化的联系。",
+        "它全线位于一个州内，连接两座并不算大的城市，交通量也相应有限。恰恰是这种组合，让它备受争议。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "I-88 was not in the original 1956 plan. It was added to the Interstate System by federal approval in December 1968, authorised by the New York State Legislature the same year, and approved by AASHO the following June. Most of it was built between the mid-1970s and 1980: the southern half from near Binghamton to Oneonta opened in November 1979, and the road reached Duanesburg the following October.",
+        "The last piece was the western connection to I-81, a mile and a half through the town of Chenango including a long bridge over the Chenango River. Local residents in Fenton fought the alignment, and the state transportation department was telling reporters as early as 1978 that the dispute was one of only two things keeping New York's Interstate system from being finished. The section opened on 1 January 1989.",
+        "While it was under construction it was known locally as the 'Warren M. Anderson Driveway' — a joke about the state Senate majority leader who had pushed hardest for it and whose home city sat at one end of a lightly used road. In July 1989, by act of the legislature and the signature of Governor Cuomo, the joke became the official name: the Senator Warren M. Anderson Expressway."
+      ],
+      "zh": [
+        "I-88 不在 1956 年的原始方案之内。它于 1968 年 12 月经联邦批准加入州际公路系统，同年由纽约州议会授权，次年 6 月获 AASHO 批准。其大部分建于 1970 年代中期至 1980 年之间：自宾厄姆顿附近至奥尼昂塔的南半段于 1979 年 11 月通车，次年 10 月修抵杜安斯堡。",
+        "最后一块是西端接入 I-81 的连接线：穿过切南戈镇的一英里半，其中包括一座跨越切南戈河的长桥。芬顿的当地居民反对该线位；早在 1978 年，州交通部就对记者表示，这场争议是阻碍纽约州州际公路系统完工的仅有两件事之一。该路段于 1989 年 1 月 1 日通车。",
+        "施工期间，当地人把它叫作「沃伦·M·安德森的私家车道」——这是拿州参议院多数党领袖开的玩笑：是他最卖力地推动了这条路，而他的家乡就在这条车流稀少的公路的一端。1989 年 7 月，经州议会立法并由科莫州长签署，玩笑成了正式名称：沃伦·M·安德森参议员快速路。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "A figure of roughly $500 million, tied to the 1968 state authorisation, circulates in secondary route compilations, but no primary state or federal accounting for the completed road was located for this entry, so no value is given here.", "zh": "在二手的公路资料汇编中流传着一个与 1968 年州级授权相关联的数字，约 5 亿美元；但本条目未能找到该路建成后的州级或联邦原始核算，故此处不给出数值。" }
+    },
+    {
+      "label": { "en": "Final section at Chenango", "zh": "切南戈最后一段" },
+      "value": { "en": "$20.3 million for 1.5 miles including a 2,650-foot bridge over the Chenango River, built 1987–1989", "zh": "2,030 万美元，1.5 英里，含一座跨切南戈河、长 2,650 英尺的桥梁，1987 至 1989 年建成" },
+      "source": "Interstate Guide, Interstate 88 (Eastern), compiling contemporary reporting"
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "117.37 miles, entirely in New York. The route log's I-88 entry also lists 140.60 miles in Illinois, which is a separate and unconnected road of the same number", "zh": "117.37 英里，全线位于纽约州。路线名录的 I-88 条目另列伊利诺伊州 140.60 英里，那是一条同编号但彼此无关、互不相连的道路" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "New York publishes counts by segment rather than by route. Contemporary reporting described I-88 as one of the state's less heavily used Interstates, but no route-wide figure is published.", "zh": "纽约州按路段而非按路线发布交通量。当时的报道称 I-88 是该州交通量较少的州际公路之一，但未发布全线数字。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1968, "en": "I-88 is added to the Interstate System in December and authorised by the New York State Legislature.", "zh": "12 月，I-88 加入州际公路系统，并获纽约州议会授权。" },
+    { "year": 1979, "en": "The southern half opens from near Binghamton to Oneonta in November.", "zh": "11 月，自宾厄姆顿附近至奥尼昂塔的南半段通车。" },
+    { "year": 1980, "en": "The road is extended east to Duanesburg in October.", "zh": "10 月，道路向东延伸至杜安斯堡。" },
+    { "year": 1989, "en": "The final link to I-81 opens on 1 January; in July the road is named for Senator Warren M. Anderson.", "zh": "1 月 1 日，接入 I-81 的最后一段通车；同年 7 月，该路以沃伦·M·安德森参议员命名。" }
+  ]
+}

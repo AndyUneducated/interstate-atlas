@@ -1,0 +1,86 @@
+{
+  "id": "us-395-ca",
+  "name": { "en": "U.S. Route 395", "zh": "395 号美国国道" },
+  "tagline": { "en": "The inland north–south road, Mojave to the Kettle River", "zh": "内陆南北通道，自莫哈韦至凯特尔河" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "Interstate 15 at the edge of Hesperia, California, in the Mojave Desert", "zh": "加利福尼亚州赫斯皮里亚边缘的莫哈韦沙漠，与 I-15 相接" },
+    "end": { "en": "The Canadian border at Laurier, Washington, a port of entry rather than a town", "zh": "华盛顿州劳里尔的加拿大边境——那是一处口岸，而非市镇" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 395 is the inland alternative to the Pacific coast routes, and its best-known stretch is the Eastern Sierra. From the Mojave it runs north past Kramer Junction and Inyokern into the Owens Valley, where it travels for a hundred miles between the Sierra escarpment on the west — the highest wall in the lower forty-eight — and the White and Inyo mountains on the east, through Lone Pine, Independence and Bishop. Beyond Mono Lake it climbs into the Bridgeport and Antelope valleys and crosses into Nevada near Topaz Lake.",
+        "North of Reno the road changes company. It runs up through Susanville and Alturas in California's northeastern corner, crosses the high desert and timber country of eastern Oregon by way of Lakeview, Burns, John Day and Pendleton, then enters Washington at the Columbia, serves the Tri-Cities, joins I-90 for the run into Spokane, and continues north through Colville and up the Kettle River to end at the border station at Laurier. It is the only U.S. Route that reaches the Canadian border in Washington's northeast corner, and for most of its length outside the cities it is two lanes."
+      ],
+      "zh": [
+        "US 395 是太平洋沿岸各路线的内陆替代通道，其中最著名的一段是内华达山脉东坡。它自莫哈韦北上，经克雷默枢纽与因约肯进入欧文斯谷；在那里它行驶百余英里，西侧是内华达山的断崖——美国本土四十八州中最高的一道山墙——东侧则是怀特山与因约山，沿途经孤松镇、因迪彭登斯与比肖普。过莫诺湖后，它爬入布里奇波特谷与安特洛普谷，并在托帕兹湖附近进入内华达。",
+        "里诺以北，道路的邻居换了。它北上穿过加利福尼亚东北角的苏珊维尔与阿尔图拉斯，经莱克维尤、伯恩斯、约翰迪与彭德尔顿横穿俄勒冈东部的高原荒漠与林区，随后在哥伦比亚河进入华盛顿，服务三城地区，与 I-90 共线进入斯波坎，再北行经科尔维尔、沿凯特尔河而上，止于劳里尔的边境站。它是唯一在华盛顿东北角抵达加拿大边境的美国国道；在城市之外的大部分路段，它都是双车道。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "US 395 began as a short branch. In the 1926 numbering, US 95 in Idaho was treated as the region's main north–south road and given three-digit spurs — US 195, US 295 and US 395 — and US 395 meant only the road from Spokane north to the Canadian border at Laurier, about 111 miles, known in Washington at the time as the Inland Empire Highway or State Road No. 3.",
+        "In 1934 AASHTO extended the number south all the way to San Diego, taking in state highways in Washington, Oregon, Nevada and California and lengthening the route to nearly 1,500 miles. Signing lagged the designation by years: it was fully posted south of Spokane by 1938 and all the way to San Diego by 1939. Promoters in Southern California had by then begun calling the inland corridor the Three Flags Highway, for the Mexico–United States–Canada run it now made possible.",
+        "Both ends of that ambition have since been trimmed. In Washington the construction of I-90 in the early 1960s pulled US 395 onto the freeway and away from Ritzville, Sprague, Tyler and Cheney. In California the southern end was given up altogether: signs came down through the 1970s, and in June 1979 AASHTO approved the state's request to truncate the route at its junction with I-15, on what is now the edge of Hesperia. The Mexican half of the Three Flags Highway is I-15 and I-215 today."
+      ],
+      "zh": [
+        "US 395 起初只是一条短支线。在 1926 年的编号中，爱达荷州的 US 95 被视为该地区的南北主干，并配有三位数支线——US 195、US 295 与 US 395——而 US 395 仅指自斯波坎北上至劳里尔加拿大边境的那段路，约 111 英里，当时在华盛顿称为内陆帝国公路或 3 号州道。",
+        "1934 年，AASHTO 把这个号码一路南延至圣迭戈，纳入华盛顿、俄勒冈、内华达与加利福尼亚的多条州道，使路线长度增至近 1,500 英里。标志的竖立比编号滞后数年：到 1938 年斯波坎以南全线标示完毕，1939 年才一直标到圣迭戈。那时南加州的推广者已开始把这条内陆走廊称作「三旗公路」，取其如今可自墨西哥经美国直通加拿大之意。",
+        "此后这一雄心的两端都被修剪过。在华盛顿，1960 年代初 I-90 的修建把 US 395 拉上高速公路，使其离开里茨维尔、斯普拉格、泰勒与钱尼。在加利福尼亚，南段被彻底放弃：1970 年代标志陆续撤除，1979 年 6 月 AASHTO 批准该州的请求，把路线截短至与 I-15 的交会处，即今日赫斯皮里亚的边缘。「三旗公路」通往墨西哥的那一半，如今是 I-15 与 I-215。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The Owens Valley has been California's long project on this route: converting a two-lane highway with no parallel alternative into a divided four-lane expressway, a section at a time. The last piece in Inyo County was the Olancha–Cartago project, 12.5 miles of new pavement built to separate opposing traffic and eliminate cross-centreline collisions on a stretch where, in the state's own assessment, the fatal collision rate was more than double the California average.",
+        "It cost about $165 million, including $33.9 million from the federal infrastructure act of 2021 — well above the $134.8 million Caltrans had estimated. The department attributes the overrun to record storms in 2022 and 2023 and to archaeological finds that halted work in a three-mile segment in June 2023 and forced a redesign after consultation with tribal representatives. Construction had begun in January 2022; the ribbon was cut on 23 October 2025."
+      ],
+      "zh": [
+        "欧文斯谷一直是加利福尼亚在这条路线上的长期工程：把一条没有平行替代通道的双车道公路，一段一段改造成分隔式的四车道快速路。因约县最后的一段是奥兰查—卡塔戈项目，新建 12.5 英里路面，用以分隔对向车流、消除越中线碰撞；按该州自己的评估，这一段的致死碰撞率是加州平均水平的两倍以上。",
+        "工程造价约 1.65 亿美元，其中 3,390 万美元来自 2021 年的联邦基础设施法案——远高于加州交通部原先估算的 1.348 亿美元。该部门把超支归因于 2022 与 2023 年创纪录的风暴，以及 2023 年 6 月在一段三英里范围内因考古发现而停工、并在与部族代表磋商后重新设计。工程于 2022 年 1 月开工，2025 年 10 月 23 日剪彩。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Olancha–Cartago four-lane expressway, 2022–25", "zh": "2022—25 年奥兰查—卡塔戈四车道快速路" },
+      "value": { "en": "About $165 million for 12.5 miles, including $33.9 million from the Infrastructure Investment and Jobs Act of 2021, against an earlier Caltrans estimate of $134.8 million", "zh": "约 1.65 亿美元，建成 12.5 英里，其中 3,390 万美元来自 2021 年《基础设施投资与就业法》，而加州交通部早先的估算为 1.348 亿美元" },
+      "source": "Caltrans District 9 news release, 30 October 2025, and Caltrans District 9 project page"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No such figure exists. US 395 was assembled in 1926 and 1934 from state highways in four states, and its later reconstruction has been funded project by project.", "zh": "没有这样的数据。US 395 于 1926 年与 1934 年由四个州的州道拼接而成，其后的改建均按项目分别筹资。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "why": { "en": "No current authoritative figure. AASHTO leaves U.S. Route mileage to the states and has published no national log since 1989. The route ran nearly 1,500 miles after the 1934 extension to San Diego, but California's 1979 truncation to Hesperia removed a substantial part of that.", "zh": "目前没有权威数字。AASHTO 把美国国道里程交由各州统计，1989 年后未再发布全国里程表。1934 年延伸至圣迭戈后，本路线接近 1,500 英里，但 1979 年加利福尼亚把它截短至赫斯皮里亚，去掉了其中相当一部分。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Four state agencies count their own segments; the route carries commuter traffic in the Tri-Cities and Spokane and a few thousand vehicles a day across the Oregon high desert. No combined figure is published.", "zh": "4 个州的机构各自统计本州路段；本路线在三城地区与斯波坎承担通勤车流，而在俄勒冈高原荒漠每日仅数千辆。并无合并数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Safety record of the Olancha–Cartago section before reconstruction", "zh": "改建前奥兰查—卡塔戈段的安全记录" },
+      "value": { "en": "A fatal collision rate more than double the California statewide average on the two-lane road, with no parallel facility available to traffic", "zh": "该双车道路段的致死碰撞率是加州全州平均水平的两倍以上，且没有可供车流使用的平行道路" },
+      "source": "California Transportation Commission project presentation, May 2024"
+    },
+    {
+      "label": { "en": "Current pavement and bridge condition", "zh": "当前路面与桥梁状况" },
+      "why": { "en": "Condition data are reported to the Federal Highway Administration by state and functional class rather than by U.S. Route number, so no route-level rating exists for US 395.", "zh": "路况数据按州与功能等级、而非按美国国道编号上报联邦公路管理局，因此不存在针对 US 395 的全线评级。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 395 is created as a spur of US 95, running only from Spokane north to the Canadian border at Laurier.", "zh": "US 395 作为 US 95 的支线设立，仅自斯波坎北上至劳里尔的加拿大边境。" },
+    { "year": 1934, "en": "AASHTO extends the number south through Oregon, Nevada and California to San Diego.", "zh": "AASHTO 把这个号码经俄勒冈、内华达与加利福尼亚南延至圣迭戈。" },
+    { "year": 1939, "en": "The route is fully signed along its whole length to San Diego, five years after designation.", "zh": "在获得编号五年之后，本路线全长的标志一直竖到圣迭戈。" },
+    { "year": 1979, "en": "AASHTO approves California's request to truncate the southern end at I-15 near Hesperia.", "zh": "AASHTO 批准加利福尼亚的请求，把南端截短至赫斯皮里亚附近的 I-15。" },
+    { "year": 2025, "en": "The Olancha–Cartago expressway is completed, the last stretch of US 395 to be four-laned in most of Inyo County.", "zh": "奥兰查—卡塔戈快速路完工，是因约县大部分范围内 US 395 最后改为四车道的一段。" }
+  ]
+}

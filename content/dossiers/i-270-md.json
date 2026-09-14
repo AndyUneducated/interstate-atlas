@@ -1,0 +1,75 @@
+{
+  "id": "i-270-md",
+  "name": { "en": "Interstate 270", "zh": "270 号州际公路" },
+  "tagline": { "en": "The busiest freeway in Maryland, and the hardest to widen", "zh": "马里兰州最繁忙的高速，也是最难拓宽的一条" },
+  "officialMi": 34.7,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "I-495, the Capital Beltway, at Bethesda", "zh": "贝塞斯达，与首都环线 I-495 相接" },
+    "end": { "en": "I-70 at Frederick", "zh": "弗雷德里克，与 I-70 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-270 runs north-west from the Capital Beltway at Bethesda through Rockville, Gaithersburg and Germantown to I-70 at Frederick. It is the spine of Montgomery County's biotechnology corridor, and the reason the road matters more than its 34.7 miles suggest: the jobs are strung along it, and so is the commute. At the southern end it splits into an east and a west spur to meet the Beltway at two separate points.",
+        "It carries more traffic than any other freeway in Maryland. State highway counts for 2016 put the section between Montrose Road and MD 189 at 257,000 vehicles a day — the highest freeway volume in the state, ahead of every section of the Capital Beltway. The even hundreds digit suggests a loop, and although I-270 does not curve back on itself, both of its ends are on other Interstates, which is the effect the numbering is reaching for."
+      ],
+      "zh": [
+        "I-270 自贝塞斯达的首都环线向西北，经罗克维尔、盖瑟斯堡与杰曼敦，抵达弗雷德里克的 I-70。它是蒙哥马利县生物技术走廊的脊梁，这也是它的重要性远超 34.7 英里所示的原因：工作岗位沿它排布，通勤车流也是。在南端，它分出东、西两条支线，分别在两处接上环线。",
+        "它的交通量高于马里兰州任何其他高速公路。州公路局 2016 年的统计显示，蒙特罗斯路与 MD 189 之间的路段每日 257,000 辆——为全州高速最高值，超过首都环线的任何一段。偶数百位暗示这是环线，尽管 I-270 并不折回自身，但它两端都接在别的州际公路上，而这正是这套编号规则想达到的效果。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road was built between 1953 and 1960 as the Washington National Pike, carrying US 240 between Bethesda and Frederick, and became I-70S when the Interstate system was created. There were plans to carry it on past the Beltway into Washington on the North Central Freeway; residents in the path stopped that in the 1970s. The US 240 designation came off in 1972, and on 18 May 1975 I-70S became I-270.",
+        "Congestion in Montgomery County led to a $200 million widening between I-495 and MD 118, finished on 12 October 1990, which took some sections from six lanes to twelve and pulled still more development up the corridor; HOV lanes were added on 19 December 1996. By 1999 traffic had already reached the levels forecast for 2010. What to do next has been contested for a decade. Maryland spent $100 million on an innovative congestion management contract announced in 2017, then pursued a $7.3 billion public-private toll-lane scheme, which Governor Wes Moore abandoned in favour of a roughly $4 billion publicly financed plan that rebuilds the American Legion Bridge first and leaves the I-270 corridor sections to a later phase."
+      ],
+      "zh": [
+        "这条路于 1953 至 1960 年间建成，名为「华盛顿国家大道」，承载贝塞斯达至弗雷德里克之间的 US 240；州际系统设立后，它成为 I-70S。当初还计划让它越过环线、沿「中北高速」进入华盛顿特区，沿线居民在 1970 年代阻止了这一方案。US 240 编号于 1972 年撤除，1975 年 5 月 18 日，I-70S 改为 I-270。",
+        "蒙哥马利县的拥堵促成了 I-495 与 MD 118 之间一项 2 亿美元的拓宽工程，1990 年 10 月 12 日完工，部分路段由六车道拓至十二车道，也把更多开发引向走廊上游；1996 年 12 月 19 日增设合乘车道。到 1999 年，交通量已达到原本预测 2010 年才会出现的水平。此后该怎么办，争论了十年。马里兰州在 2017 年宣布了一项 1 亿美元的创新拥堵管理合同，随后推动一项 73 亿美元的公私合营收费车道方案；韦斯·摩尔州长放弃了该方案，转而采用约 40 亿美元的公共融资计划——先重建美国军团大桥，把 I-270 走廊各段留待后期。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "34.7 miles in Maryland", "zh": "马里兰州境内 34.7 英里" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "1990 widening", "zh": "1990 年拓宽工程" },
+      "value": { "en": "$200 million between I-495 and MD 118, completed 12 October 1990", "zh": "I-495 与 MD 118 之间 2 亿美元，1990 年 10 月 12 日完工" },
+      "source": "Maryland State Highway Administration records, via Wikipedia"
+    },
+    {
+      "label": { "en": "Abandoned public-private scheme", "zh": "已放弃的公私合营方案" },
+      "value": { "en": "$7.3 billion, replaced in 2023 by a phased public plan of about $4 billion", "zh": "73 亿美元，2023 年被约 40 亿美元的分期公共融资方案取代" },
+      "source": "Engineering News-Record, 'Maryland Shifts Big Beltway Fix From P3 to Public Funding', 2023"
+    },
+    {
+      "label": { "en": "Congestion management contract", "zh": "拥堵管理合同" },
+      "value": { "en": "$100 million I-270 Innovative Congestion Management contract announced in April 2017", "zh": "2017 年 4 月宣布的 I-270 创新拥堵管理合同，1 亿美元" },
+      "source": "MDOT SHA, I-495 & I-270 Managed Lanes Study Draft EIS, Appendix A, 2020"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Busiest section", "zh": "最繁忙路段" },
+      "value": { "en": "257,000 vehicles a day between Montrose Road and MD 189 in 2016, the highest freeway volume in Maryland", "zh": "2016 年蒙特罗斯路与 MD 189 之间每日 257,000 辆，为马里兰州高速最高值" },
+      "source": "MDOT State Highway Administration, 2017, in the I-495 & I-270 Managed Lanes Study Draft EIS"
+    },
+    {
+      "label": { "en": "Second-busiest section", "zh": "第二繁忙路段" },
+      "value": { "en": "242,000 vehicles a day between MD 189 and MD 28", "zh": "MD 189 与 MD 28 之间每日 242,000 辆" },
+      "source": "MDOT State Highway Administration, 2017, in the I-495 & I-270 Managed Lanes Study Draft EIS"
+    }
+  ],
+  "timeline": [
+    { "year": 1960, "en": "The Washington National Pike is complete between Bethesda and Frederick.", "zh": "华盛顿国家大道在贝塞斯达与弗雷德里克之间建成。" },
+    { "year": 1975, "en": "I-70S is renumbered I-270 on 18 May.", "zh": "5 月 18 日，I-70S 改编为 I-270。" },
+    { "year": 1990, "en": "The $200 million widening through Montgomery County is finished on 12 October.", "zh": "穿越蒙哥马利县的 2 亿美元拓宽工程于 10 月 12 日完工。" },
+    { "year": 2023, "en": "Maryland drops the $7.3 billion toll-lane partnership for a phased public plan.", "zh": "马里兰州放弃 73 亿美元收费车道合营方案，改采分期公共融资计划。" }
+  ]
+}

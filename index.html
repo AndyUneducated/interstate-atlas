@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05070c">
+<title>Interstate Atlas — the highway network of the United States</title>
+<meta name="description" content="An interactive atlas of the United States highway network: Interstates, US numbered routes and the state route systems. Route termini, roadway classification, elevation profiles and written profiles, in English and Chinese.">
+
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="is-booting">
+
+<div id="map"></div>
+<div id="veil"></div>
+
+<!-- ── boot ─────────────────────────────────────────────────────────────── -->
+<div id="boot">
+  <div class="boot-in">
+    <svg class="boot-mark" viewBox="0 0 100 100" aria-hidden="true">
+      <circle class="ring" cx="50" cy="50" r="38"/>
+      <path class="arc" d="M50 12 a38 38 0 0 1 33 19"/>
+      <path d="M50 84 V32 M50 32 l-13 13 M50 32 l13 13" stroke-linecap="round"/>
+    </svg>
+    <p class="boot-title" id="bootTitle">INTERSTATE ATLAS</p>
+    <p class="boot-sub" id="bootSub">assembling the road network</p>
+    <div class="boot-bar"><i id="bootBar"></i></div>
+    <p class="boot-step" id="bootStep"></p>
+  </div>
+</div>
+
+<!-- ── top bar ──────────────────────────────────────────────────────────── -->
+<header id="hud">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 21V4"/><path d="M12 4 7 9"/><path d="M12 4l5 5"/>
+      <circle cx="12" cy="12" r="10" opacity=".35"/>
+    </svg>
+    <span class="brand-txt">
+      <span class="brand-name" data-i18n="app.name">INTERSTATE ATLAS</span>
+      <span class="brand-sub" data-i18n="app.tagline">the highway network of the United States</span>
+    </span>
+  </div>
+
+  <div class="hud-sp"></div>
+
+  <nav class="hud-group" aria-label="Views">
+    <button class="btn" id="btnPalette" type="button">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+      <span class="hud-label" data-i18n="nav.search">Search</span><kbd>/</kbd>
+    </button>
+    <button class="btn" id="btnNumbering" type="button">
+      <svg viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3v18M16 3v18"/></svg>
+      <span class="hud-label" data-i18n="nav.numbering">Numbering</span>
+    </button>
+    <button class="btn" id="btnDash" type="button">
+      <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+      <span class="hud-label" data-i18n="nav.dashboard">Statistics</span>
+    </button>
+    <button class="btn" id="btnTimeline" type="button">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      <span class="hud-label" data-i18n="nav.timeline">Timeline</span>
+    </button>
+    <button class="btn" id="btnPlanner" type="button">
+      <svg viewBox="0 0 24 24"><path d="M6 19V7a3 3 0 0 1 6 0v10a3 3 0 0 0 6 0V5"/><circle cx="6" cy="20" r="1.6"/><circle cx="18" cy="4" r="1.6"/></svg>
+      <span class="hud-label" data-i18n="nav.planner">Trip</span>
+    </button>
+  </nav>
+
+  <div class="hud-group">
+    <button class="btn btn-ico" id="btnTerrain" type="button" title="3D terrain">
+      <svg viewBox="0 0 24 24"><path d="M2 20l7-11 4.5 7M11 20l4-6 7 6z"/></svg>
+    </button>
+    <button class="btn btn-ico" id="btnAbout" type="button" title="About">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
+    </button>
+    <button class="btn" id="btnLang" type="button" title="Switch language">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.4 3 14.6 0 18M12 3c-3 3.4-3 14.6 0 18"/></svg>
+      <span data-i18n="nav.lang">中文</span>
+    </button>
+  </div>
+</header>
+
+<!-- ── left shell ───────────────────────────────────────────────────────── -->
+<div id="shell">
+  <section class="card" aria-labelledby="sysTitle">
+    <div class="card-hd">
+      <h2 id="sysTitle" data-i18n="sys.title">Route systems</h2>
+      <span class="sp"></span>
+      <button class="btn btn-ico" id="btnCollapse" type="button" title="Toggle panel">
+        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="1.7"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+    </div>
+    <div class="sys-list" id="sysList"></div>
+  </section>
+
+  <section class="card" style="display:flex;flex-direction:column;flex:1;min-height:0">
+    <div class="search">
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Search routes">
+      <button class="btn btn-ico clr" id="qClear" type="button" hidden>
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="card-hd" style="border-top:0">
+      <h2 id="resTitle" data-i18n="search.results">Results</h2>
+      <span class="sp"></span>
+      <span class="sys-count" id="resCount"></span>
+    </div>
+    <div class="results" id="results"></div>
+  </section>
+</div>
+
+<!-- ── route detail ─────────────────────────────────────────────────────── -->
+<aside id="detail" class="hidden" aria-live="polite"></aside>
+
+<!-- ── flythrough ───────────────────────────────────────────────────────── -->
+<div id="fly"></div>
+
+<!-- ── command palette ──────────────────────────────────────────────────── -->
+<div id="palette" class="hidden" role="dialog" aria-modal="true">
+  <div class="pal">
+    <div class="pal-in">
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+      <input id="palQ" type="text" autocomplete="off" spellcheck="false" aria-label="Command palette">
+    </div>
+    <div class="pal-list" id="palList"></div>
+    <div class="pal-ft">
+      <span><b>↑ ↓</b> <span data-i18n="pal.nav">navigate</span></span>
+      <span><b>↵</b> <span data-i18n="pal.open">open</span></span>
+      <span><b>esc</b> <span data-i18n="pal.close">dismiss</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ── overlay sheet ────────────────────────────────────────────────────── -->
+<div id="sheet" class="hidden" role="dialog" aria-modal="true"><div class="sh" id="sheetInner"></div></div>
+
+<div id="toast"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span id="toastMsg"></span></div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>

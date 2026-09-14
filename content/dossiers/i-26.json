@@ -1,0 +1,201 @@
+{
+  "id": "i-26",
+  "name": {
+    "en": "Interstate 26",
+    "zh": "26 号州际公路"
+  },
+  "tagline": {
+    "en": "Over the Blue Ridge and down to Charleston harbour",
+    "zh": "越过蓝岭，直下查尔斯顿港"
+  },
+  "officialMi": 328.04,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 2003,
+  "termini": {
+    "start": {
+      "en": "Interstate 81 near Kingsport, Tennessee",
+      "zh": "田纳西州金斯波特附近，与 I-81 相接"
+    },
+    "end": {
+      "en": "US 17 in Charleston, South Carolina",
+      "zh": "南卡罗来纳州查尔斯顿，与 US 17 相接"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-26 is signed as an east–west route but runs mostly northwest to southeast, from the Tennessee Valley near Kingsport over the Blue Ridge at Sams Gap, down the escarpment past Asheville and Hendersonville, across the South Carolina upstate and midlands at Spartanburg and Columbia, and out through the sandhills and coastal plain to the port at Charleston. It is the last link in a corridor of roughly 600 miles that ties the Ohio Valley to the South Carolina coast.",
+        "The three states contribute very unequally. South Carolina has more than two-thirds of the route; Tennessee and North Carolina between them have barely a hundred miles, and those are the hard ones. The mountain section is a sustained grade with runaway truck ramps and a reputation for fog.",
+        "Through Asheville the road is still unfinished in a meaningful sense. I-26 traffic is routed onto a section of I-240 and across the Captain Jeff Bowen Bridges over the French Broad River, where six mountain lanes taper down sharply and drivers have to change lanes quickly to stay on the route. The freeway intended to replace that arrangement — the I-26 Connector — was planned for more than thirty years before construction began."
+      ],
+      "zh": [
+        "I-26 标示为东西向干线，实际走向却大体自西北向东南：从金斯波特附近的田纳西河谷起，越过萨姆斯山口翻过蓝岭，沿陡坡下行经阿什维尔与亨德森维尔，横穿南卡罗来纳的上州与中部（斯帕坦堡、哥伦比亚），再穿过沙丘地带与海岸平原，直抵查尔斯顿港。它是一条约 600 英里长走廊的最后一环，把俄亥俄河谷与南卡海岸连接起来。",
+        "三州的贡献极不均衡。南卡罗来纳占全线三分之二以上；田纳西与北卡两州合计勉强一百英里，而这一百英里恰是最难的部分。山区段是持续的长坡，设有失控卡车匝道，并以多雾闻名。",
+        "在阿什维尔，这条路在实质意义上仍未建成。I-26 的车流被导入 I-240 的一段，经由跨越法兰西宽河的杰夫·鲍恩船长桥；山区的六车道在此急剧收窄，司机必须迅速变道才能继续沿本线行驶。旨在取代这一安排的高速公路——I-26 连接线——在动工之前已规划了三十余年。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The last piece built, 9.1 miles from Mars Hill up to Sams Gap on the Tennessee line, is the most heavily engineered stretch of the route. Because of the grade, the designers put in three runaway truck ramps. Because the Buckner Gap area near the state line fogs in, they installed a detection system that warns drivers before they reach the fog rather than after. The Laurel Creek Bridge was fitted with an anti-icing system.",
+        "The result is also a demonstration of the corridor's imbalance. The new highway comes off the mountain six lanes wide, narrows to four at Mars Hill, and — until the Connector is built — funnels down to a single lane where I-26 leaves I-240 for the bridge in Asheville.",
+        "The Connector itself is being built as three sections. The northern one carries a new stretch of freeway from the Haywood Road interchange across the French Broad River to US 19/23/70 north of Broadway, together with improvements along Riverside Drive. A third section, west of the river, remains unfunded."
+      ],
+      "zh": [
+        "最后建成的一段——从马斯希尔上行至田纳西州界萨姆斯山口的 9.1 英里——是全线工程强度最高的路段。由于坡度，设计者设置了三处失控卡车匝道；由于州界附近的巴克纳山口常起浓雾，他们安装了检测系统，在司机进入雾区之前而非之后发出警告。月桂溪大桥则配备了防冰系统。",
+        "这一成果同时也展示了整条走廊的失衡。新公路以六车道下山，在马斯希尔收窄为四车道，而在连接线建成之前，到了阿什维尔 I-26 离开 I-240 转上桥梁的地方，又收敛为一条车道。",
+        "连接线本身分三段建设。北段将一段新建高速从海伍德路立交跨越法兰西宽河，接至百老汇街以北的 US 19/23/70，并同步改善滨河大道。位于河西的第三段目前尚未获得资金。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The mountain link cost $230 million for 9.1 miles — about $25 million a mile in 2003 dollars, the price of putting an Interstate through the Blue Ridge. Planning for it began in 1989 and construction in 1996.",
+        "The Asheville Connector is an order of magnitude larger. North Carolina awarded the northern section as a design-build contract in May 2024, then spent six months with the contractor on an optimisation exercise that cut $124 million from the price, more than half of it by reducing the number and width of the bridges over the French Broad River. NCDOT's published breakdown for that section puts property acquisition, utility relocation and construction together at $1.213 billion.",
+        "Ground was broken in April 2026, more than thirty years after planning started, with completion expected in late 2031. The decision to carry I-26 over rather than under Patton Avenue — a flyover local planners had rejected years earlier — was made, NCDOT said, on cost grounds."
+      ],
+      "zh": [
+        "山区衔接段 9.1 英里耗资 2.3 亿美元——按 2003 年币值约合每英里 2,500 万美元，这就是把一条州际公路修过蓝岭的代价。它的规划始于 1989 年，施工始于 1996 年。",
+        "阿什维尔连接线的规模高出一个数量级。北卡罗来纳于 2024 年 5 月以设计—施工总承包方式发包北段，随后与承包商用了六个月做优化，将造价削减 1.24 亿美元，其中一半以上来自减少法兰西宽河桥梁的数量与宽度。北卡州交通部公布的该段费用构成中，征地、管线迁移与施工合计为 12.13 亿美元。",
+        "工程于 2026 年 4 月破土，距规划启动已逾三十年，预计 2031 年底完工。把 I-26 架于帕顿大道之上而非之下——这种高架形式多年前曾被当地规划者否决——据北卡州交通部表示，是出于成本考虑。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$262.3 million — South Carolina $204.4 million and North Carolina $57.8 million — for the route as it then ran, Charleston to Asheville. The extension across the Blue Ridge to Tennessee was built later and is not in that total. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "2.623 亿美元——南卡罗来纳 2.044 亿、北卡罗来纳 5,780 万美元——对应当时的路线，即查尔斯顿至阿什维尔。越过蓝岭通往田纳西的延伸段建于此后，并不计入该总额。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "328.04 miles — 220.90 in South Carolina, 54.45 in Tennessee, 52.69 in North Carolina",
+        "zh": "328.04 英里——南卡罗来纳 220.90 英里，田纳西 54.45 英里，北卡罗来纳 52.69 英里"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Mars Hill to Sams Gap, the final link",
+        "zh": "马斯希尔至萨姆斯山口：最后一环"
+      },
+      "value": {
+        "en": "$230 million for 9.1 miles; planning began in 1989, construction in 1996, and the road opened on 5 August 2003",
+        "zh": "9.1 英里造价 2.3 亿美元；1989 年开始规划，1996 年动工，2003 年 8 月 5 日通车"
+      },
+      "source": "North Carolina DOT, reported by the Hendersonville Times-News and Asheville.com, August 2003"
+    },
+    {
+      "label": {
+        "en": "I-26 Connector, whole project",
+        "zh": "I-26 连接线（整体工程）"
+      },
+      "value": {
+        "en": "Estimated at more than $1.8 billion excluding the unfunded western section — among the most expensive transportation projects in North Carolina's history — with completion expected in late 2031",
+        "zh": "在不含尚未获资金的西段情况下估算超过 18 亿美元，是北卡罗来纳史上造价最高的交通项目之一，预计 2031 年底完工"
+      },
+      "source": "North Carolina DOT, reported by WFAE, April 2026, and the Asheville Citizen-Times, January 2026"
+    },
+    {
+      "label": {
+        "en": "I-26 Connector, northern section",
+        "zh": "I-26 连接线北段"
+      },
+      "value": {
+        "en": "Property acquisition $175.6 million, utility relocation $27.4 million and construction $1.01 billion, a total of $1.213 billion. The design-build contract with Archer-Wright Joint Venture was awarded in May 2024 at $1.14 billion and cut to $1.023 billion after a six-month optimisation process that saved $124 million, more than $63 million of it from the French Broad River bridges",
+        "zh": "征地 1.756 亿美元、管线迁移 2,740 万美元、施工 10.1 亿美元，合计 12.13 亿美元。与阿彻—赖特联营体的设计—施工合同于 2024 年 5 月以 11.4 亿美元发包，经六个月优化削减 1.24 亿美元后降至 10.23 亿美元，其中逾 6,300 万美元来自法兰西宽河桥梁部分"
+      },
+      "source": "North Carolina DOT, I-26 Connector project update handout and press release, February 2025"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Expected traffic on the new mountain section",
+        "zh": "新建山区段预期交通量"
+      },
+      "value": {
+        "en": "Forecast at about 15,000 vehicles a day when it opened in 2003, against 8,000 a day on the old US 23 it replaced",
+        "zh": "2003 年通车时预测为日均约 15,000 辆，而它所取代的旧 US 23 为日均 8,000 辆"
+      },
+      "source": "North Carolina DOT forecast, reported by the Hendersonville Times-News, August 2003"
+    },
+    {
+      "label": {
+        "en": "Route-wide traffic volume",
+        "zh": "全线交通量"
+      },
+      "why": {
+        "en": "Three state departments of transportation publish counts for their own segments. The Columbia and Charleston sections and the Sams Gap climb are not comparable, and no agency publishes a combined average.",
+        "zh": "三州交通部门各自发布本州路段计数。哥伦比亚、查尔斯顿路段与萨姆斯山口爬坡段不具可比性，亦无机构发布合并平均值。"
+      }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Weather systems on the mountain section",
+        "zh": "山区段的气象系统"
+      },
+      "value": {
+        "en": "A fog detection system in the Buckner Gap area near the Tennessee line warns drivers ahead of the fog, and the Laurel Creek Bridge carries an anti-icing system",
+        "zh": "田纳西州界附近巴克纳山口一带设有雾情检测系统，可在司机进入雾区前发出警告；月桂溪大桥则配有防冰系统"
+      },
+      "source": "North Carolina DOT, reported by Asheville.com, August 2003"
+    },
+    {
+      "label": {
+        "en": "Runaway truck ramps",
+        "zh": "失控卡车匝道"
+      },
+      "value": {
+        "en": "Three, built into the Mars Hill to Sams Gap section because of the grade",
+        "zh": "三处，因坡度需要而设于马斯希尔至萨姆斯山口段"
+      },
+      "source": "North Carolina DOT, reported by Asheville.com, August 2003"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1989,
+      "en": "Planning begins both for the mountain section to Sams Gap and for the Asheville Connector, funded under North Carolina's new Highway Trust Fund.",
+      "zh": "通往萨姆斯山口的山区段与阿什维尔连接线同期开始规划，由北卡罗来纳新设的公路信托基金提供资金。"
+    },
+    {
+      "year": 1996,
+      "en": "Construction starts on the Mars Hill to Sams Gap section.",
+      "zh": "马斯希尔至萨姆斯山口段动工。"
+    },
+    {
+      "year": 2003,
+      "en": "The mountain section opens on 5 August, completing the route; it is named for Liston B. Ramsey.",
+      "zh": "山区段于 8 月 5 日通车，全线贯通；该段以利斯顿·B·拉姆齐命名。"
+    },
+    {
+      "year": 2024,
+      "en": "North Carolina awards the design-build contract for the Connector's northern section in May.",
+      "zh": "北卡罗来纳于 5 月发包连接线北段的设计—施工总承包合同。"
+    },
+    {
+      "year": 2025,
+      "en": "An optimisation process cuts $124 million from the northern section's price.",
+      "zh": "优化程序为北段削减造价 1.24 亿美元。"
+    },
+    {
+      "year": 2026,
+      "en": "Ground is broken on the I-26 Connector in April, more than thirty years after planning began.",
+      "zh": "I-26 连接线于 4 月破土，距规划启动已逾三十年。"
+    }
+  ]
+}

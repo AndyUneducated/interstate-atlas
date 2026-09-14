@@ -1,0 +1,99 @@
+{
+  "id": "ca-33-1",
+  "name": { "en": "California State Route 33 — the Maricopa Highway", "zh": "加利福尼亚 33 号州道（马里科帕公路）" },
+  "tagline": { "en": "Ventura to the oilfields, over the Transverse Ranges", "zh": "自文图拉越横断山脉直抵油田" },
+  "termini": {
+    "start": { "en": "US 101 and SR 1 in Ventura", "zh": "文图拉，US 101 与 SR 1 交汇处" },
+    "end": { "en": "Interstate 5 at Bird Road, in the northern San Joaquin Valley", "zh": "圣华金谷北部，5 号州际公路与伯德路交汇处" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "CA 33 starts as a short freeway out of Ventura and then becomes something else entirely. North of Ojai it climbs into the Los Padres National Forest as the Maricopa Highway, threading Matilija Canyon and Wheeler Gorge through a set of short tunnels, working over the Transverse Ranges at Pine Mountain Summit, and dropping into the Cuyama Valley on the far side.",
+        "Beyond that it becomes a west-side valley road: concurrent with SR 166 as far as Maricopa, then north through the oil country around Taft and up the axis of the San Joaquin Valley more or less parallel to Interstate 5. Like several long California state routes, it is broken into pieces rather than continuous.",
+        "The mountain section is the reason anyone knows the number. The Forest Service calls it the Jacinto Reyes Scenic Byway and describes it as the connector for commerce and tourism between the San Joaquin Valley and southern California; it is also, unusually for a road this close to Los Angeles, a route that still feels isolated."
+      ],
+      "zh": [
+        "CA 33 起初是文图拉出城的一小段高速公路，之后便完全变成另一种东西。在奥哈伊以北，它以马里科帕公路之名爬入洛斯帕德里斯国家森林，穿行马蒂利哈峡谷与惠勒峡谷、钻过几处短隧道，在派恩山岭越过横断山脉，再从另一侧下到库亚马谷。",
+        "再往前，它成为一条谷地西侧的道路：与 SR 166 共线至马里科帕，之后向北穿过塔夫特一带的石油产区，大致沿着圣华金谷的中轴、与 5 号州际公路平行北上。与加州若干条长途州道一样，它是断成数段的，并不连续。",
+        "山区路段才是这个编号为人所知的原因。林务局称其为哈辛托·雷耶斯景观道路，并将其描述为圣华金谷与南加州之间商贸与旅游的连接线；对于一条距洛杉矶如此之近的道路而言，它至今仍给人偏远之感，实属少见。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "This is a road that gets closed by weather at a scale most state highways do not. The storms of the 2022–23 winter produced mudslides, rockslides, slope erosion and several sections of collapsed carriageway. Caltrans shut roughly 32 miles, from Matilija Hot Springs Road to the Ozena Fire Station, from 10 January to 18 December 2023 — most of a year.",
+        "Rebuilding it took methods borrowed from mountain engineering: three retaining walls set on steel piles, rock slope protection built from boulders weighing up to six tons — many of them recycled from the slides that caused the damage — geogrid reinforcement in some embankments, and elevated cable-mesh drapery on unstable slopes. All guardrail inside the closure was replaced.",
+        "Reopening did not end the work. Caltrans kept signal-controlled, one-way alternating traffic at two construction zones near Pine Mountain summit, with five to seven minute delays at each, and permitted bicycles through subject to the same signals."
+      ],
+      "zh": [
+        "这是一条会因天气而大规模封闭的公路，其程度为多数州道所无。2022 至 2023 年冬季的风暴造成泥石流、落石、边坡侵蚀，以及数处路面坍塌。加州交通局自 2023 年 1 月 10 日至 12 月 18 日封闭了约 32 英里路段，自马蒂利哈温泉路至奥泽纳消防站——几乎封了整整一年。",
+        "重建动用了山区工程的手法：三道坐落于钢桩之上的挡土墙；以重达六吨的巨石砌筑的护坡石，其中许多是从造成损毁的滑坡体中回收利用的；部分路堤采用土工格栅加固；不稳定坡面则加装架空式钢丝网帘。封闭范围内的全部护栏均予更换。",
+        "恢复通行并不意味着工程结束。加州交通局在派恩山岭附近保留了两处由信号灯控制的单向交替通行作业区，每处延误五至七分钟，自行车可通行但同样须服从信号灯。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Expect to be turned back occasionally, and check before committing. The three tunnels at Wheeler Gorge are being rehabilitated — steel panels reinforced, delaminated concrete removed and patched — under a $5.14 million project running into the winter of 2026–27, and the work requires 55-hour weekend closures of the highway in both directions between post miles 18.2 and 19.0. During those closures nobody passes, residents included, and the signposted detour is SR 126 to I-5 to SR 166, which can add hours.",
+        "The byway itself is short and worth the time. The National Forest Scenic Byway section runs 37 miles from the edge of Ojai to the Lockwood Valley Road junction at the Ozena Fire Station, bordered by 30 miles of national forest and 7 miles of private land inside the forest boundary. Caltrans' own state scenic designation covers from 6.4 miles north of the SR 150 junction to the Santa Barbara county line.",
+        "It is a narrow road and being made only slightly less so. A safety project at the North Fork Matilija Creek Bridge, costed at $6.5 million and scheduled to run into the winter of 2028–29, will widen the highway by a little over four feet — to 11-foot lanes each way, a two-foot shoulder southbound, and, because of the terrain, no shoulder at all northbound."
+      ],
+      "zh": [
+        "要预料到偶尔会被劝返，出行前务必查询。惠勒峡谷的三处隧道正在整修——加固既有钢板、清除并修补脱层混凝土——工程造价 514 万美元，将持续到 2026 至 2027 年冬季，施工期间需要在 18.2 至 19.0 英里桩之间双向封闭公路 55 小时。封闭期间任何人都不得通行，居民也不例外，标示的绕行路线为 SR 126 转 I-5 再转 SR 166，可能多花数小时。",
+        "景观路段本身不长，值得花时间。国家森林景观道路段自奥哈伊城边至奥泽纳消防站的洛克伍德谷路路口，全长 37 英里，沿线有 30 英里国家森林和 7 英里位于森林界内的私有土地相邻。加州交通局自身的州级景观认定，覆盖自 SR 150 路口以北 6.4 英里至圣巴巴拉县界。",
+        "这是一条窄路，而且只会变宽一点点。北叉马蒂利哈溪大桥的安全改造项目造价 650 万美元，计划持续至 2028 至 2029 年冬季，将把路面加宽四英尺多——两个方向各为 11 英尺车道，南行侧留两英尺路肩，而由于地形限制，北行侧完全没有路肩。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Scenic byway length", "zh": "景观道路长度" },
+      "value": { "en": "37 miles as a National Forest Scenic Byway, from milepost 12 at Ojai to about milepost 49 at the Ozena Fire Station", "zh": "作为国家森林景观道路长 37 英里，自奥哈伊的 12 英里桩至奥泽纳消防站附近的 49 英里桩" },
+      "source": "USDA Forest Service, Los Padres National Forest, Jacinto Reyes National Scenic Byway page"
+    },
+    {
+      "label": { "en": "Wheeler Gorge tunnel rehabilitation", "zh": "惠勒峡谷隧道整修" },
+      "value": { "en": "$5.14 million for three tunnels at post miles 18.33, 18.81 and 18.85, running into winter 2026–27", "zh": "514 万美元，涉及 18.33、18.81 与 18.85 英里桩处三座隧道，工期延续至 2026—27 年冬季" },
+      "source": "Caltrans District 7 news release, 24 August 2026"
+    },
+    {
+      "label": { "en": "North Fork Matilija Creek Bridge safety project", "zh": "北叉马蒂利哈溪大桥安全项目" },
+      "value": { "en": "$6.5 million to widen the highway by more than four feet, scheduled to run into winter 2028–29", "zh": "650 万美元，将公路加宽四英尺以上，工期延续至 2028—29 年冬季" },
+      "source": "Caltrans District 7 project news release"
+    },
+    {
+      "label": { "en": "Total route length", "zh": "全线里程" },
+      "why": { "en": "CA 33 is broken into pieces and the published total expressly does not resolve the overlaps needed to make it continuous. No figure for this segment alone could be verified from Caltrans.", "zh": "CA 33 断为数段，已公布的总里程明确未处理使其连续所需的共线部分。未能从加州交通局查证到仅针对本路段的数据。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Annual average daily traffic", "zh": "年平均日交通量" },
+      "why": { "en": "No count could be verified from Caltrans this session. The route also spans an urban freeway in Ventura and a forest mountain road, so a route-wide figure would not be meaningful.", "zh": "本次查证未能从加州交通局取得交通量数据。此外，本路线既含文图拉的城市高速路段，也含森林山区道路，全线单一数值并无意义。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Longest recent closure", "zh": "近期最长封闭" },
+      "value": { "en": "About 32 miles closed from Matilija Hot Springs Road to the Ozena Fire Station, 10 January to 18 December 2023, after the 2022–23 winter storms", "zh": "2022—23 年冬季风暴之后，自马蒂利哈温泉路至奥泽纳消防站约 32 英里于 2023 年 1 月 10 日至 12 月 18 日封闭" },
+      "source": "Caltrans District 7, State Route 33 Emergency Highway Repairs project page"
+    },
+    {
+      "label": { "en": "Slope protection used in repairs", "zh": "修复所用护坡措施" },
+      "value": { "en": "Rock slope protection built from boulders weighing up to six tons, many recycled from the slides, plus geogrid and elevated cable-mesh drapery", "zh": "以重达六吨的巨石砌筑护坡石（许多自滑坡体回收利用），另用土工格栅与架空式钢丝网帘" },
+      "source": "Caltrans District 7, State Route 33 Emergency Highway Repairs project page"
+    },
+    {
+      "label": { "en": "Carriageway width after widening", "zh": "加宽后的路面宽度" },
+      "value": { "en": "11-foot lanes in each direction, a 2-foot shoulder southbound and no shoulder northbound, at the North Fork Matilija Creek Bridge", "zh": "在北叉马蒂利哈溪大桥处，双向各 11 英尺车道，南行侧 2 英尺路肩，北行侧无路肩" },
+      "source": "Caltrans District 7 project news release"
+    }
+  ],
+  "timeline": [
+    { "year": 2023, "en": "Winter storms collapse sections of the highway; about 32 miles stay closed from January to December.", "zh": "冬季风暴造成数处路面坍塌，约 32 英里自 1 月封闭至 12 月。" },
+    { "year": 2026, "en": "Caltrans rehabilitates the three Wheeler Gorge tunnels under a series of 55-hour weekend full closures.", "zh": "加州交通局以一系列 55 小时周末全封闭方式整修惠勒峡谷的三座隧道。" },
+    { "year": 2029, "en": "Widening and drainage work at the North Fork Matilija Creek Bridge is scheduled to finish.", "zh": "北叉马蒂利哈溪大桥的加宽与排水工程计划完工。" }
+  ]
+}

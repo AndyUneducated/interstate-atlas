@@ -1,0 +1,184 @@
+{
+  "id": "i-12",
+  "name": {
+    "en": "Interstate 12",
+    "zh": "12 号州际公路"
+  },
+  "tagline": {
+    "en": "The inland shortcut across the Florida Parishes",
+    "zh": "横穿佛罗里达教区的内陆捷径"
+  },
+  "officialMi": 86.65,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1957,
+  "completedYear": 1976,
+  "termini": {
+    "start": {
+      "en": "Interstate 10 in Baton Rouge, Louisiana",
+      "zh": "路易斯安那州巴吞鲁日，与 I-10 相接"
+    },
+    "end": {
+      "en": "Interstate 10 and Interstate 59 at Slidell, Louisiana",
+      "zh": "路易斯安那州斯莱德尔，I-10 与 I-59 交汇处"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-12 is the chord across an arc. I-10 leaves Baton Rouge heading south-east, swings around the bottom of Lake Pontchartrain through New Orleans and comes back up to Slidell; I-12 cuts straight across the top of the lake and rejoins it there. It is shorter, it avoids the city entirely, and for through traffic between Houston and the east it is usually the faster road.",
+        "The landscape is pine woods and the Florida Parishes — the slice of Louisiana east of the Mississippi and north of the lake that spent a few weeks in 1810 as the independent Republic of West Florida. The state named the road after that republic in 1993 and put its flag on the signs ten years later.",
+        "In practice the highway does three jobs at once. At its western end it is a commuter route into Baton Rouge from Livingston Parish; around Madisonville and Mandeville it feeds the Lake Pontchartrain Causeway; and along its whole length it carries long-distance freight on the national I-10 corridor. It is also a designated hurricane evacuation route, which is the role that has twice defined its history."
+      ],
+      "zh": [
+        "I-12 是一段弧的弦。I-10 自巴吞鲁日向东南离去，绕过蓬恰特雷恩湖南端穿过新奥尔良，再折回北上至斯莱德尔；I-12 则径直横切湖的北缘，在斯莱德尔与之重逢。它更短，完全绕开城市，对于休斯敦与东部之间的过境交通而言通常是更快的选择。",
+        "沿途风景是松林与「佛罗里达教区」——路易斯安那位于密西西比河以东、蓬恰特雷恩湖以北的那一片，1810 年曾有几周时间以独立的「西佛罗里达共和国」身份存在。1993 年，州政府以那个共和国的名字命名这条公路，十年后又把它的旗帜印上了路牌。",
+        "实际运行中，这条公路同时承担三项职能。西端是利文斯顿教区通往巴吞鲁日的通勤路线；在麦迪逊维尔与曼德维尔一带，它为蓬恰特雷恩湖堤道输送车流；而全线还承担 I-10 国家走廊上的长途货运。它同时也是指定的飓风疏散路线——正是这一角色两度决定了它的历史。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "I-12 was added to the Interstate System on 17 October 1957, as part of the expansion authorised after the 1956 act, originally running from I-10 at Baton Rouge to I-59 north of Slidell. By the mid-1960s the eastern end had been realigned so that I-12 and I-59 both terminate at I-10 near Slidell, which is the arrangement today.",
+        "Construction ran in sections from January 1967 to June 1976. The last piece was a long one: 31.2 miles from LA 445 south of Robert to LA 434 north of Lacombe, opened on 25 June 1976. Because so much of the route was built within a single decade, most of its bridges and interchanges reached middle age simultaneously — by 2011 a state feasibility study found the structures along 70 miles of the road were between 35 and 43 years old.",
+        "That study is the origin of the widening programme that has been running along I-12 since 2012, taking the road from two lanes each way to three in a series of projects working eastward from Walker towards Slidell."
+      ],
+      "zh": [
+        "I-12 于 1957 年 10 月 17 日被列入州际公路系统，属于 1956 年法案之后获批的扩容部分，最初自巴吞鲁日的 I-10 通往斯莱德尔以北的 I-59。到 1960 年代中期，东端经过改线，使 I-12 与 I-59 都终止于斯莱德尔附近的 I-10——这也是今天的格局。",
+        "工程自 1967 年 1 月至 1976 年 6 月分段推进。最后一段很长：自罗伯特以南的 LA 445 至拉孔布以北的 LA 434，共 31.2 英里，于 1976 年 6 月 25 日通车。由于路线的绝大部分是在同一个十年内建成的，它的桥梁与立交也几乎同时步入中年——2011 年一项州级可行性研究发现，全线 70 英里范围内的结构物已有 35 至 43 年的历史。",
+        "那项研究正是 I-12 自 2012 年起持续推进的扩建计划的起点：一系列工程自沃克向东推进至斯莱德尔，把道路从单向两车道拓宽为三车道。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "I-12's defining moment came in August 2005. Hurricane Katrina destroyed much of the I-10 Twin Span Bridge across Lake Pontchartrain, and with the direct route gone I-12 became, in effect, I-10 between Baton Rouge and Slidell. A road designed as a bypass absorbed the traffic of the corridor it bypasses, and the congestion ran from the Causeway all the way east to the I-10/I-59 split.",
+        "Relief came in stages rather than at once. The eastbound span of the Twin Span reopened to two-way traffic on 14 October 2005; the westbound span followed on 6 January 2006, with restrictions on speed, weight and size. Only then did I-12 return to something like its normal load.",
+        "The same characteristics make it a standing part of Louisiana's evacuation planning. When a storm threatens the south-east of the state, I-12 is one of the roads that carries traffic inland and away from the coast — and unlike I-10 through New Orleans, it does not depend on long water crossings to do it."
+      ],
+      "zh": [
+        "I-12 的关键时刻出现在 2005 年 8 月。卡特里娜飓风摧毁了跨越蓬恰特雷恩湖的 I-10 双桥大部分结构，直通路线中断后，I-12 实际上成了巴吞鲁日与斯莱德尔之间的 I-10。一条作为绕行线设计的道路，吸收了它本要绕开的那条走廊的全部交通，拥堵从堤道一路向东延伸至 I-10 与 I-59 的分岔口。",
+        "缓解是分阶段到来的，而非一蹴而就。双桥的东行桥于 2005 年 10 月 14 日恢复双向通行；西行桥于 2006 年 1 月 6 日恢复，并对车速、载重和尺寸设限。直到那时，I-12 的负荷才回到接近正常的水平。",
+        "同样的特性使它成为路易斯安那疏散预案中的固定一环。当风暴威胁该州东南部时，I-12 是把车流向内陆、向远离海岸方向疏导的道路之一——而且与穿越新奥尔良的 I-10 不同，它不必依赖漫长的跨水桥梁来完成这件事。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$115.2 million, all in Louisiana. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "1.152 亿美元，全部在路易斯安那。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "86.65 miles, entirely within Louisiana — the shortest route in this collection",
+        "zh": "86.65 英里，全线位于路易斯安那州境内，是本集中最短的一条路线"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Widening, LA 21 to LA 59 north of Mandeville",
+        "zh": "曼德维尔以北 LA 21 至 LA 59 段拓宽"
+      },
+      "why": {
+        "en": "The Louisiana Department of Transportation and Development publishes the scope and completion date for this project — widening into the median, full replacement of all bridges and overpasses, completed in 2024 — but not a contract value on the project page.",
+        "zh": "路易斯安那交通与发展部公布了该项目的范围与完工日期——向中央分隔带内拓宽、全部桥梁与跨线桥更换，2024 年完工——但项目页面未公布合同金额。"
+      }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Traffic after Hurricane Katrina",
+        "zh": "卡特里娜飓风后的交通"
+      },
+      "value": {
+        "en": "With the I-10 Twin Span Bridge destroyed, I-12 temporarily functioned as I-10 between Baton Rouge and Slidell from August 2005 until the westbound Twin Span reopened on 6 January 2006",
+        "zh": "I-10 双桥被摧毁后，自 2005 年 8 月至 2006 年 1 月 6 日西行桥恢复通行期间，I-12 暂时充当了巴吞鲁日与斯莱德尔之间的 I-10"
+      },
+      "source": "Louisiana DOTD and contemporary accounts of the Twin Span reopenings, October 2005 and January 2006"
+    },
+    {
+      "label": {
+        "en": "Route-wide traffic volume",
+        "zh": "全线交通量"
+      },
+      "why": {
+        "en": "DOTD publishes counts by segment. The commuter volumes at the Baton Rouge end and the through-freight volumes in the middle are different traffic doing different things, and no single figure describes both.",
+        "zh": "路易斯安那交通与发展部按路段发布交通量。巴吞鲁日一端的通勤流量与中段的过境货运流量性质完全不同，没有单一数字能同时描述二者。"
+      }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Age and extent of the structures",
+        "zh": "结构物的年龄与规模"
+      },
+      "value": {
+        "en": "Along the 70 miles from Walker Road to the I-59 interchange the road was built between 1968 and 1976 and carries 32 pairs of mainline bridges, 21 underpasses and 18 interchanges; as of 2011 the structures were 35 to 43 years old",
+        "zh": "自沃克路至 I-59 立交的 70 英里区间建于 1968 至 1976 年间，其中有 32 对主线桥、21 处下穿道和 18 处立交；截至 2011 年，这些结构物已有 35 至 43 年历史"
+      },
+      "source": "Louisiana DOTD, Stage 0 Feasibility Study and Environmental Inventory, Interstate 12 LA 447 to I-59, May 2012"
+    },
+    {
+      "label": {
+        "en": "Median width",
+        "zh": "中央分隔带宽度"
+      },
+      "value": {
+        "en": "A 64-foot median separates the four original lanes for most of the route, which is what made widening into the median possible",
+        "zh": "全线大部分区段以 64 英尺宽的中央分隔带分隔最初的四条车道，这正是后来能够向分隔带内拓宽的原因"
+      },
+      "source": "Louisiana DOTD, Stage 0 Feasibility Study and Environmental Inventory, Interstate 12 LA 447 to I-59, May 2012"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1957,
+      "en": "I-12 is added to the Interstate System on 17 October, running from I-10 at Baton Rouge to I-59 north of Slidell.",
+      "zh": "10 月 17 日，I-12 被列入州际公路系统，自巴吞鲁日的 I-10 通往斯莱德尔以北的 I-59。"
+    },
+    {
+      "year": 1967,
+      "en": "The first sections open to traffic in January.",
+      "zh": "首批路段于 1 月通车。"
+    },
+    {
+      "year": 1976,
+      "en": "The final 31.2-mile link opens on 25 June, completing the route.",
+      "zh": "最后 31.2 英里路段于 6 月 25 日通车，全线贯通。"
+    },
+    {
+      "year": 1993,
+      "en": "The Louisiana legislature names I-12 the Republic of West Florida Parkway.",
+      "zh": "路易斯安那州议会将 I-12 命名为西佛罗里达共和国景观道。"
+    },
+    {
+      "year": 2005,
+      "en": "Hurricane Katrina destroys the I-10 Twin Span Bridge; I-12 absorbs the I-10 traffic.",
+      "zh": "卡特里娜飓风摧毁 I-10 双桥，I-12 承接了 I-10 的交通。"
+    },
+    {
+      "year": 2012,
+      "en": "DOTD begins a programme of widening the route from four lanes to six.",
+      "zh": "路易斯安那交通与发展部启动将全线由四车道拓宽至六车道的计划。"
+    },
+    {
+      "year": 2024,
+      "en": "The widening from LA 21 to LA 59 north of Mandeville is completed.",
+      "zh": "曼德维尔以北 LA 21 至 LA 59 段的拓宽工程完工。"
+    }
+  ]
+}

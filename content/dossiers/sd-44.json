@@ -1,0 +1,107 @@
+{
+  "id": "sd-44",
+  "name": { "en": "South Dakota Highway 44", "zh": "南达科他 44 号公路" },
+  "tagline": { "en": "Rapid City to the Missouri by way of the Badlands back door", "zh": "自拉皮德城经荒地国家公园后门直抵密苏里河" },
+  "termini": {
+    "start": { "en": "US 385 west of Rapid City", "zh": "拉皮德城以西的 US 385" },
+    "end": { "en": "I-29 near Worthing, south of Sioux Falls", "zh": "苏福尔斯以南沃辛附近的 I-29" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "SD 44 runs 379 miles across southern South Dakota, from US 385 west of Rapid City to I-29 near Sioux Falls. It is the state's secondary east–west line, the one that does the same job as I-90 fifty miles to the south and with none of the traffic.",
+        "The western section is the reason most people drive it. Leaving Rapid City it crosses Rapid Creek, then the Cheyenne River, then enters the Buffalo Gap country and the southern edge of Badlands National Park, passing the near-ghost town of Scenic before reaching Interior. At Interior it meets SD 377, which is the two-mile connection the National Park Service points visitors along to reach the park's Loop Road — SD 44 is the scenic back approach rather than the park road itself.",
+        "East of the park it crosses the Pine Ridge and Rosebud reservations, runs through White River and Winner, and then the country flattens into the corn and soybean ground of the James River basin."
+      ],
+      "zh": [
+        "SD 44 全长 379 英里，横穿南达科他南部，自拉皮德城以西的 US 385 至苏福尔斯附近的 I-29。它是该州的次级东西向通道，做的事和五十英里外的 I-90 一样，却没有那些车流。",
+        "多数人是为西段而来。离开拉皮德城后，它跨过拉皮德溪，再跨夏延河，进入布法罗峡地带与荒地国家公园南缘，经过近乎鬼镇的西尼克，抵达因蒂里尔。在因蒂里尔它与 SD 377 相接，那是国家公园管理局指引游客前往公园环路的两英里连接线——SD 44 本身是风景优美的后门通道，而不是公园路。",
+        "公园以东，它穿过派恩里奇与罗斯巴德保留地，经过怀特里弗与温纳，随后地势转平，进入詹姆斯河流域的玉米与大豆地带。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The route's single most important structure is the Platte-Winner Bridge over the Missouri, also called the Lake Francis Case Memorial Bridge. SDDOT's environmental assessment records it as built in 1966, ten years after Fort Randall Dam closed and made the lake, and spanning approximately 5,656 feet — the longest bridge in the state.",
+        "It is also narrow. The deck is 28 feet wide: two twelve-foot lanes and two two-foot shoulders. In 1989 the department replaced the railings with concrete barriers and added drain openings. The bridge has been found eligible for the National Register both for joining South Dakota's East River and West River halves and for its length and construction methods, a finding the State Historic Preservation Office concurred with in November 2019.",
+        "Replacement is now programmed. SDDOT anticipates construction starting in early 2027 and finishing in 2031, with the new bridge carrying shoulders for a total width of 36 feet; the existing bridge will carry traffic throughout and be removed afterwards."
+      ],
+      "zh": [
+        "这条路线最重要的单体构筑物，是横跨密苏里河的普拉特—温纳大桥，又名弗朗西斯·凯斯湖纪念大桥。南达科他交通部的环境评估记录它建于 1966 年，即兰德尔堡大坝蓄水成湖的十年之后，跨度约 5,656 英尺——全州最长的桥。",
+        "它同时也很窄。桥面宽 28 英尺：两条 12 英尺车道加两条 2 英尺路肩。1989 年，该部门将栏杆更换为混凝土护栏并增设排水口。这座桥已被认定符合列入国家史迹名录的条件，理由既在于它连接了南达科他的「东河」与「西河」两半，也在于其跨度与建造工法；州史迹保护办公室于 2019 年 11 月表示同意。",
+        "替换工程现已排期。南达科他交通部预计 2027 年初开工、2031 年完工，新桥将设路肩、总宽 36 英尺；施工期间现有桥梁继续通车，完工后再行拆除。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "The Missouri crossing carries very little traffic and a great deal of freight. SDDOT's 2017 counts put the Platte-Winner Bridge at about 835 vehicles a day, of which roughly 22 per cent are heavy trucks — a share the department describes as relatively high compared with other roadways in the state. The design-year forecast for 2050 is 1,420 vehicles a day at the same truck share.",
+        "Those small numbers hide how much the crossing matters. Closing the bridge would push traffic onto an approximate 85-mile detour to the I-90 crossing at Chamberlain. When damaged piers were repaired in the summer of 1997 the bridge shut for about four months, and some motorists were detoured more than 70 miles out of the way.",
+        "The department's economic case rests on that dependency: Platte, Winner and Gregory share agricultural services across the river, which is why the truck share is what it is."
+      ],
+      "zh": [
+        "密苏里河渡口的车流很少，货运却很重。南达科他交通部 2017 年的数据显示，普拉特—温纳大桥日均约 835 辆车，其中约 22% 为重型卡车——该部门形容这一比例相对全州其他道路而言相当高。2050 设计年的预测为日均 1,420 辆，卡车比例不变。",
+        "这些小数字掩盖了这处渡口的重要性。桥梁封闭会把车流赶上一条约 85 英里的绕行路线，前往钱伯伦的 I-90 渡口。1997 年夏天修复受损桥墩时，桥梁关闭约四个月，部分驾驶人被迫绕行七十多英里。",
+        "该部门的经济论证正建立在这种依赖之上：普拉特、温纳与格雷戈里共享跨河的农业服务，卡车比例之高正源于此。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Route length", "zh": "路线长度" },
+      "value": { "en": "379 miles, US 385 west of Rapid City to I-29 near Sioux Falls", "zh": "379 英里，自拉皮德城以西的 US 385 至苏福尔斯附近的 I-29" },
+      "source": "SDDOT, SD44 Platte-Winner Bridge Environmental Assessment, 2023"
+    },
+    {
+      "label": { "en": "Platte-Winner Bridge", "zh": "普拉特—温纳大桥" },
+      "value": { "en": "Built 1966, approximately 5,656 feet long — the longest bridge in South Dakota", "zh": "1966 年建成，长约 5,656 英尺——南达科他最长的桥" },
+      "source": "SDDOT, SD44 Platte-Winner Bridge Environmental Assessment, 2023"
+    },
+    {
+      "label": { "en": "Existing bridge deck width", "zh": "现有桥面宽度" },
+      "value": { "en": "28 feet: two 12-foot lanes and two 2-foot shoulders", "zh": "28 英尺：两条 12 英尺车道加两条 2 英尺路肩" },
+      "source": "SDDOT, SD44 Platte-Winner Bridge Environmental Assessment, 2023"
+    },
+    {
+      "label": { "en": "Replacement bridge", "zh": "替换桥梁" },
+      "value": { "en": "36 feet wide, construction anticipated 2027–2031", "zh": "宽 36 英尺，预计 2027 至 2031 年施工" },
+      "source": "SDDOT project page, S.D. Highway 44 Platte-Winner Bridge"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "SDDOT accounts for spending by project rather than by route, and the replacement bridge's estimated cost was not published on the project page consulted.", "zh": "南达科他交通部按项目而非按路线核算支出，所查项目页面亦未公布替换桥梁的估算造价。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Platte-Winner Bridge traffic", "zh": "普拉特—温纳大桥交通量" },
+      "value": { "en": "About 835 vehicles a day in 2017, roughly 22 per cent heavy trucks", "zh": "2017 年日均约 835 辆，其中约 22% 为重型卡车" },
+      "source": "SDDOT, SD44 Platte-Winner Bridge Environmental Assessment, 2023 (2017 Traffic Operations Memo)"
+    },
+    {
+      "label": { "en": "Design-year forecast", "zh": "设计年预测" },
+      "value": { "en": "1,420 vehicles a day in 2050, 22 per cent heavy trucks", "zh": "2050 年日均 1,420 辆，重型卡车占 22%" },
+      "source": "SDDOT, SD44 Platte-Winner Bridge Environmental Assessment, 2023"
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Detour if the Missouri crossing closes", "zh": "密苏里河渡口封闭时的绕行" },
+      "value": { "en": "Approximately 85 miles via the I-90 crossing at Chamberlain", "zh": "约 85 英里，经钱伯伦的 I-90 渡口" },
+      "source": "SDDOT, SD44 Platte-Winner Bridge Environmental Assessment, 2023"
+    },
+    {
+      "label": { "en": "Longest recorded closure", "zh": "有记录的最长封闭" },
+      "value": { "en": "About four months in summer 1997 for pier repairs, with detours of more than 70 miles", "zh": "1997 年夏为修复桥墩关闭约四个月，绕行超过 70 英里" },
+      "source": "SDDOT, SD44 Platte-Winner Bridge Environmental Assessment, 2023"
+    }
+  ],
+  "timeline": [
+    { "year": 1966, "en": "The Platte-Winner Bridge opens across Lake Francis Case, ten years after Fort Randall Dam.", "zh": "普拉特—温纳大桥跨越弗朗西斯·凯斯湖通车，距兰德尔堡大坝建成十年。" },
+    { "year": 1989, "en": "SDDOT replaces the bridge railings with concrete barriers.", "zh": "南达科他交通部将桥梁栏杆更换为混凝土护栏。" },
+    { "year": 1997, "en": "Damaged piers close the bridge for about four months.", "zh": "桥墩受损导致大桥关闭约四个月。" },
+    { "year": 2019, "en": "The State Historic Preservation Office concurs that the bridge is eligible for the National Register.", "zh": "州史迹保护办公室同意该桥符合列入国家史迹名录的条件。" },
+    { "year": 2027, "en": "Construction of the replacement bridge is anticipated to begin.", "zh": "替换桥梁预计开工。" }
+  ]
+}

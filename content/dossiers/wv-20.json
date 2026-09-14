@@ -1,0 +1,76 @@
+{
+  "id": "wv-20",
+  "name": { "en": "West Virginia Route 20", "zh": "西弗吉尼亚 20 号公路" },
+  "tagline": { "en": "Bluefield to New Martinsville, the state's longest route, two lanes throughout", "zh": "自布卢菲尔德至新马丁斯维尔，全州最长路线，全程双车道" },
+  "termini": {
+    "start": { "en": "US 52 at Bluewell, near Bluefield", "zh": "布卢菲尔德附近布卢韦尔的 US 52" },
+    "end": { "en": "WV 7 near New Martinsville", "zh": "新马丁斯维尔附近的 WV 7" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "WV 20 is the longest route in the West Virginia state system. The Division of Highways puts it at 253.4 miles from Bluefield to New Martinsville, and it crosses ten counties doing it: Mercer, Summers, Fayette, Greenbrier, Nicholas, Webster, Upshur, Barbour, Harrison and Wetzel.",
+        "Despite the length it has essentially no multilane sections. It is a two-lane road the whole way, following creek bottoms and climbing over ridges, and it is repeatedly cut off by the Interstates rather than fed by them — I-77 and I-64 both cross it without the sort of interchange that would send traffic onto it.",
+        "It crosses the New River at Hinton, runs with WV 15 through Webster Springs, meets US 33 and US 119 at Buckhannon, and reaches Clarksburg before turning north-west through Shinnston and Wallace to finish near New Martinsville on the Ohio."
+      ],
+      "zh": [
+        "WV 20 是西弗吉尼亚州道系统中最长的一条。公路局将其定为自布卢菲尔德至新马丁斯维尔 253.4 英里，途中跨越十个县：默瑟、萨默斯、费耶特、格林布赖尔、尼古拉斯、韦伯斯特、厄普舍、巴伯、哈里森与韦策尔。",
+        "尽管里程可观，它基本没有多车道路段。全程都是双车道，沿溪谷而行、翻越山脊；州际公路一再把它切断，而不是向它输送车流——I-77 与 I-64 都横穿而过，却没有那种能把车流引上来的互通。",
+        "它在欣顿跨越新河，与 WV 15 共线穿过韦伯斯特斯普林斯，在巴克哈嫩与 US 33、US 119 相交，抵达克拉克斯堡后转向西北，经欣斯敦与华莱士，最终在俄亥俄河畔的新马丁斯维尔附近结束。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The instructive failure on WV 20 happened in the middle of a town. In June 2022 a large sinkhole opened along the route in Hinton, near the police department, after an old underground drainage structure collapsed.",
+        "The repair took three attempts. WVDOH crews put in a temporary drainage structure and filled the hole; heavy rains washed that out in November 2022; crews then installed a temporary bridge to span the hole, and in January 2023 filled it with enough rock and dirt to fill an Olympic-size swimming pool as a holding measure.",
+        "The permanent fix went to bid on 12 September 2023 under the state's Roads to Prosperity bond programme. Contractors will bore a new hole under WV 20 and install a new pipe to carry Brier Branch beneath the road — a permanent rerouting of the stream and closure of the old structure, after which the temporary bridge comes out and the road is repaved."
+      ],
+      "zh": [
+        "WV 20 上最具说明性的一次失效发生在镇子中央。2022 年 6 月，欣顿的这条路上、警察局附近，因一处老旧的地下排水结构坍塌而出现了一个大型塌陷坑。",
+        "修复尝试了三次。西弗吉尼亚公路局的工班先安装了临时排水结构并回填坑洞；2022 年 11 月的暴雨把它冲毁；工班随后架设临时桥跨越坑洞，并于 2023 年 1 月以足以填满一座奥林匹克游泳池的石料与泥土回填，作为过渡措施。",
+        "永久性修复于 2023 年 9 月 12 日在该州「通往繁荣之路」债券计划下招标。承包商将在 WV 20 下方钻孔并安装新管，将布莱尔支流引至路下——这是溪流的永久性改道并封闭旧结构；此后临时桥拆除，道路重新铺面。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The Buckhannon-to-Webster Springs section is the one riders single out, and the reason is the alignment: about fifty-five miles of near-continuous curve through the hills of the state's centre, with no towns of consequence in between.",
+        "Services are the constraint. Buckhannon at the north end and Webster Springs at the south end are where you eat and fuel; between them the road is in the woods. The same is broadly true of the Summers and Greenbrier county stretch around Hinton and Rainelle.",
+        "Surface quality varies by district rather than by route — WV 20 crosses ten counties and the condition changes with them. Slip and slide repair is a standing WVDOH programme in this part of the state, and Webster County sites appear on the department's published repair lists regularly."
+      ],
+      "zh": [
+        "骑手们单独挑出来的是巴克哈嫩至韦伯斯特斯普林斯一段，理由在于线形：约五十五英里近乎连续的弯道，穿行于该州中部的丘陵之间，其间没有像样的城镇。",
+        "限制在于服务设施。北端的巴克哈嫩与南端的韦伯斯特斯普林斯是吃饭与加油的地方；两者之间，路在林子里。欣顿与雷内尔一带的萨默斯县与格林布赖尔县路段大体亦然。",
+        "路面质量随管养区而非随路线变化——WV 20 跨越十个县，路况也随之改变。滑坡与塌方修复是该州这一带西弗吉尼亚公路局的常设项目，韦伯斯特县的工点经常出现在该部门公布的修复清单上。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Route length", "zh": "路线长度" },
+      "value": { "en": "253.4 miles, Bluefield to New Martinsville — the longest route in West Virginia", "zh": "253.4 英里，自布卢菲尔德至新马丁斯维尔——西弗吉尼亚最长的路线" },
+      "source": "WVDOH, West Virginia Transportation Data Pocket Reference"
+    },
+    {
+      "label": { "en": "Hinton sinkhole", "zh": "欣顿塌陷坑" },
+      "value": { "en": "Opened June 2022; temporary repair washed out November 2022; permanent fix bid 12 September 2023 under Roads to Prosperity", "zh": "2022 年 6 月出现；临时修复于 2022 年 11 月被冲毁；永久修复于 2023 年 9 月 12 日在「通往繁荣之路」计划下招标" },
+      "source": "WVDOH press release, 'WVDOH accepts bids to permanently fix Hinton sinkhole, 29 other projects', 2023"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "WVDOH accounts for spending by project and by district rather than by route, and no figure for building WV 20 as a whole has been published.", "zh": "西弗吉尼亚公路局按项目与管养区核算支出，而非按路线；并未公布修建 WV 20 全线的费用。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Multilane sections", "zh": "多车道路段" },
+      "why": { "en": "WVDOH's pocket reference gives the route's length but does not summarise lane configuration by route, and no agency statement on the extent of multilane sections could be verified.", "zh": "西弗吉尼亚公路局的袖珍手册给出了路线长度，但未按路线汇总车道配置；未能查证到官方关于多车道路段范围的说明。" }
+    }
+  ],
+  "timeline": [
+    { "year": 2022, "en": "A sinkhole opens on WV 20 in Hinton in June after an old drainage structure collapses.", "zh": "6 月，欣顿的 WV 20 因旧排水结构坍塌出现塌陷坑。" },
+    { "year": 2023, "en": "WVDOH takes bids on 12 September for a permanent rerouting of Brier Branch under the road.", "zh": "9 月 12 日，西弗吉尼亚公路局就将布莱尔支流永久改道至路下的工程招标。" }
+  ]
+}

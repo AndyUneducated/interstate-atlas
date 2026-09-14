@@ -1,0 +1,75 @@
+{
+  "id": "us-70",
+  "name": { "en": "U.S. Route 70", "zh": "70 号美国国道" },
+  "tagline": { "en": "Once the Broadway of America, now ends in Arizona", "zh": "昔日「美国百老汇」，如今止于亚利桑那" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "U.S. 60 in Globe, Arizona", "zh": "亚利桑那州格洛布，与 US 60 相接" },
+    "end": { "en": "Atlantic, North Carolina, on Core Sound", "zh": "北卡罗来纳州阿特兰提克，科尔湾畔" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 70 was for thirty years one of the country's principal east–west roads, promoted as the Broadway of America and, in the Southwest, as the Treasure Trail. It still runs from the North Carolina coast to eastern Arizona, but it no longer reaches an ocean at the western end.",
+        "From the fishing villages of Core Sound it goes up through Beaufort, New Bern, Kinston and Goldsboro to Raleigh, Durham and Greensboro, then along the Piedmont to Asheville and over the mountains into Tennessee: Knoxville, the Cumberland Plateau, Nashville and on to Memphis. West of the Mississippi it takes in Little Rock, Hot Springs, the pine hills of southeastern Oklahoma, Ardmore and the Red River country, then the Texas Panhandle plains. In New Mexico it runs Clovis, Roswell, Ruidoso, Alamogordo and Las Cruces — crossing the Tularosa Basin between the white gypsum dunes and San Augustin Pass — before Lordsburg, the Gila Valley, Safford and Globe."
+      ],
+      "zh": [
+        "在长达三十年的时间里，US 70 是全美主要的东西向道路之一，被宣传为「美国百老汇」，在西南部则被称作「宝藏之路」。它如今仍自北卡罗来纳海岸通往亚利桑那东部，但西端已不再抵达海洋。",
+        "它自科尔湾的渔村出发，北上经博福特、新伯尔尼、金斯顿与戈尔兹伯勒，至罗利、达勒姆与格林斯伯勒，再沿皮德蒙特至阿什维尔，并翻山进入田纳西：诺克斯维尔、坎伯兰高原、纳什维尔，一路至孟菲斯。密西西比河以西，它经小石城、温泉城、俄克拉何马东南的松丘、阿德莫尔与红河一带，再横穿得克萨斯锅柄地带的平原。在新墨西哥，它途经克洛维斯、罗斯韦尔、鲁伊多索、阿拉莫戈多与拉斯克鲁塞斯——在白色石膏沙丘与圣阿古斯丁山口之间穿过图拉罗萨盆地——此后是洛兹堡、希拉河谷、萨福德与格洛布。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The route approved on 11 November 1926 ran from Beaufort, North Carolina, to a junction with US 66 at Holbrook, Arizona, reaching it by way of Clovis, Vaughn and Springerville. In 1932 AASHO rerouted the western end to El Paso, which took US 70 out of Arizona altogether, and extended the eastern end to Atlantic, North Carolina, where it still is. In 1934 the west end was changed again, sent through Las Cruces, Deming, Globe and Phoenix to a junction with US 99 in the California desert; a year later it was carried into downtown Los Angeles.",
+        "It came apart in the 1960s. California's renumbering deleted US 70 from the state, and AASHO approved pulling the western terminus back to Blythe on 26 August 1963. Because the remaining stretch between Blythe and Globe was signed together with US 60 for its whole length, the overlap was judged unnecessary and removed on 13 February 1969. Globe has been the western end ever since, and the road between there and Lordsburg — much of it the old Gila River wagon and railroad route — is now promoted as the Old West Highway, a tourist designation created in 1994."
+      ],
+      "zh": [
+        "1926 年 11 月 11 日通过的线位，自北卡罗来纳州博福特通往亚利桑那州霍尔布鲁克与 US 66 的交叉口，途经克洛维斯、沃恩与斯普林格维尔。1932 年，AASHO 把西端改道至埃尔帕索，US 70 由此完全退出亚利桑那；同时东端延伸至北卡罗来纳州阿特兰提克，至今未变。1934 年西端再次变更，改经拉斯克鲁塞斯、德明、格洛布与凤凰城，至加利福尼亚沙漠中与 US 99 的交叉口；一年后又被引入洛杉矶市中心。",
+        "它在 1960 年代解体。加州重新编号把 US 70 从该州删除，AASHO 于 1963 年 8 月 26 日批准把西端点收回至布莱斯。由于布莱斯至格洛布之间余下的路段全程与 US 60 并挂，这段共线被判定为不必要，并于 1969 年 2 月 13 日撤销。此后格洛布一直是它的西端；而格洛布至洛兹堡之间的道路——很大一部分沿袭希拉河的旧马车道与铁路线——如今以「西部旧道」之名对外推介，这一旅游命名设立于 1994 年。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "One stretch of US 70 is closed to traffic on a schedule set by the Army. The road crosses White Sands Missile Range between Las Cruces and Alamogordo, and the range sets roadblocks on it at various points between White Sands National Park and San Augustin Pass whenever a test requires them. Individual closures typically last about an hour.",
+        "Because firings slip for weather or equipment, the range publishes the next day's roadblocks each weekday afternoon on a recorded line and advises drivers to check it again immediately before setting out; the New Mexico Department of Transportation carries the same information on its road-conditions service. The same arrangement applies to US 54 and US 380 where they cross the range."
+      ],
+      "zh": [
+        "US 70 有一段路，按陆军排定的时间表封闭通行。该路在拉斯克鲁塞斯与阿拉莫戈多之间穿过白沙导弹靶场；每当试验需要，靶场就在白沙国家公园与圣阿古斯丁山口之间的若干地点设卡封路。单次封闭通常约一小时。",
+        "由于发射会因天气或设备原因推迟，靶场每个工作日下午通过一条录音电话公布次日的封路安排，并建议驾驶者在出发前再次查询；新墨西哥州交通部的路况服务也提供同样的信息。US 54 与 US 380 穿过靶场的路段亦按同样办法处理。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No figure exists. US 70 was numbered in 1926 over roads already built, moved wholesale three times in the 1930s, and rebuilt piecemeal by nine states since.", "zh": "没有这样的数据。US 70 于 1926 年沿已建成的道路编号，1930 年代整体改线三次，此后由 9 个州分段陆续改建。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "why": { "en": "No authoritative current figure exists. AASHTO leaves U.S. Route mileage to the states and last published a national log in 1989; US 70 lost its California section in 1963 and a further stretch to Globe in 1969.", "zh": "目前没有权威数据。AASHTO 把美国国道里程交由各州统计，最后一份全国里程表发布于 1989 年；US 70 于 1963 年失去加州段，1969 年又被收回至格洛布。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Nine state agencies count their own segments. US 70 is a freeway through Raleigh and Nashville and a two-lane road across the Tularosa Basin and the San Carlos reservation; no combined figure is published.", "zh": "9 个州的机构各自统计本州路段。US 70 在罗利与纳什维尔是高速公路，在图拉罗萨盆地与圣卡洛斯保留地则是双车道公路；并无合并数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Missile-range roadblocks", "zh": "导弹靶场设卡封路" },
+      "value": { "en": "White Sands Missile Range sets roadblocks on US 70 at various points between White Sands National Park and San Augustin Pass; the schedule is published each weekday afternoon for the following day", "zh": "白沙导弹靶场在白沙国家公园与圣阿古斯丁山口之间的若干地点于 US 70 上设卡封路；封路安排在每个工作日下午公布次日计划" },
+      "source": "U.S. Army, White Sands Missile Range visitor information"
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 70 is approved on 11 November, from Beaufort, North Carolina, to Holbrook, Arizona.", "zh": "11 月 11 日 US 70 获批，自北卡罗来纳州博福特至亚利桑那州霍尔布鲁克。" },
+    { "year": 1932, "en": "The western end is rerouted to El Paso and the eastern end extended to Atlantic, North Carolina.", "zh": "西端改道至埃尔帕索，东端延伸至北卡罗来纳州阿特兰提克。" },
+    { "year": 1935, "en": "US 70 reaches downtown Los Angeles, becoming a coast-to-coast route.", "zh": "US 70 抵达洛杉矶市中心，成为横贯两岸的路线。" },
+    { "year": 1963, "en": "AASHO approves truncating the route from Los Angeles to Blythe, California, on 26 August.", "zh": "8 月 26 日，AASHO 批准将本路线自洛杉矶截短至加利福尼亚州布莱斯。" },
+    { "year": 1969, "en": "The Blythe–Globe overlap with US 60 is removed on 13 February; Globe becomes the western terminus.", "zh": "2 月 13 日，布莱斯至格洛布与 US 60 的共线段撤销，格洛布成为西端点。" }
+  ]
+}

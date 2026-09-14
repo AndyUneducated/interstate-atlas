@@ -1,0 +1,72 @@
+{
+  "id": "us-62",
+  "name": { "en": "U.S. Route 62", "zh": "62 号美国国道" },
+  "tagline": { "en": "An east–west number that runs from Mexico to Canada", "zh": "一个东西向编号，却自墨西哥通往加拿大" },
+  "designatedYear": 1930,
+  "termini": {
+    "start": { "en": "The Mexican border crossing in downtown El Paso, Texas", "zh": "得克萨斯州埃尔帕索市中心的墨西哥边境口岸" },
+    "end": { "en": "New York Route 104 in Niagara Falls, New York, near the Rainbow Bridge", "zh": "纽约州尼亚加拉瀑布城，彩虹桥附近，与纽约 104 号州道相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 62 has an even number, which in this system means an east–west road, and it connects a Mexican border crossing to a Canadian one. It is signed east–west from El Paso as far as the Ohio–Pennsylvania state line and north–south from there on, so the Niagara Falls end is officially its north terminus. It is the only even-numbered U.S. Route that reaches both borders.",
+        "From El Paso it climbs past the Guadalupe Mountains — the road runs within sight of the escarpment and past the turn for Carlsbad Caverns — then crosses the Permian Basin and the South Plains through Lubbock, and the southwestern Oklahoma towns of Altus and Lawton before Oklahoma City. East of there it becomes a different sort of road entirely, winding through the Arkansas Ozarks by way of Eureka Springs and Mountain Home.",
+        "The last third is the Ohio Valley and the industrial northeast: Kentucky's bluegrass through Elizabethtown, Bardstown, Lexington and Maysville; Ohio through Columbus, Canton and Youngstown; then the oil country of northwestern Pennsylvania and western New York to Jamestown, Buffalo and the Niagara gorge."
+      ],
+      "zh": [
+        "US 62 是偶数编号，在这套系统中意味着东西向道路，而它连接的却是一处墨西哥边境口岸与一处加拿大边境口岸。它自埃尔帕索起按东西向标示，至俄亥俄—宾夕法尼亚州界后改按南北向标示，因此尼亚加拉瀑布城那一端在官方上是它的北端点。它是唯一同时抵达两国边境的偶数编号美国国道。",
+        "自埃尔帕索出发，它沿瓜达卢佩山脉上行——路上可望见崖壁，并经过通往卡尔斯巴德洞窟的岔口——随后横穿二叠纪盆地与南部平原，经卢博克，再经俄克拉何马西南的阿尔特斯与劳顿抵俄克拉何马城。城市以东，它彻底变成另一类道路，取道尤里卡斯普林斯与芒廷霍姆一带，蜿蜒穿过阿肯色的奥沙克山区。",
+        "最后三分之一是俄亥俄河谷与东北部工业地带：肯塔基的蓝草地区，经伊丽莎白敦、巴兹敦、列克星敦与梅斯维尔；俄亥俄州经哥伦布、坎顿与扬斯敦；随后是宾夕法尼亚西北部的油区与纽约州西部，直抵詹姆斯敦、布法罗与尼亚加拉峡谷。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "US 62 nearly became US 66. In the fight over the 1926 numbering, when Kentucky demanded the number 60 for its road, one of the proposals on the table was to give \"62\" to the Chicago–Los Angeles route. Oklahoma's Cyrus Avery and his allies would accept the swap only if that road got \"66\" instead, and they won the point. The number 62 was left unused until 1930.",
+        "When it was finally commissioned it was a short route, from Maysville, Kentucky, to Carlsbad, New Mexico. There was no bridge over the Ohio at Maysville at the time, so the eastern end simply stopped at the river; Carlsbad was an equally odd western terminus, with no north–south U.S. Route then serving the town. About two years later both ends were pushed out to Niagara Falls and El Paso, the termini the route still has.",
+        "The El Paso end has moved three times within the city as border crossings opened and closed — to the Piedras street crossing until 1944, then to Mesa, and since 1974 to the downtown crossing. In New York the whole route was designated the National Veterans Highway by a bill signed into law on 30 July 2010."
+      ],
+      "zh": [
+        "US 62 差点成了 US 66。在 1926 年编号之争中，当肯塔基力争把 60 号给本州道路时，摆上桌面的方案之一是把「62」给芝加哥—洛杉矶线。俄克拉何马的赛勒斯·艾弗里及其同盟只在那条路改取「66」的前提下才肯换号，而他们赢下了这一点。62 这个号码此后一直空置，直到 1930 年。",
+        "它最终启用时只是一条短路线，自肯塔基州梅斯维尔至新墨西哥州卡尔斯巴德。当时梅斯维尔并无跨俄亥俄河的桥梁，东端就止于河边；卡尔斯巴德作为西端点同样古怪，当时并没有任何南北向美国国道经过该镇。约两年后，两端分别推至尼亚加拉瀑布城与埃尔帕索，也就是它至今的端点。",
+        "随着各处边境口岸的启用与关闭，埃尔帕索那一端在市内挪动过三次：1944 年前在皮德拉斯街口岸，其后改至梅萨，1974 年起改至市中心口岸。在纽约州，全线于 2010 年 7 月 30 日经立法签署定名为「全国退伍军人公路」。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No figure exists. US 62 was numbered in 1930 over roads the states had already built, extended around 1932 over more of the same, and rebuilt piecemeal by nine states since.", "zh": "没有这样的数据。US 62 于 1930 年沿各州已建成的道路编号，约 1932 年的延伸同样如此，此后由 9 个州分段陆续改建。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "why": { "en": "No authoritative figure exists. AASHTO leaves U.S. Route mileage to the states and last published a national log in 1989, and the published totals for US 62 do not agree with one another — AARoads gives 2,248 miles while its own state-by-state figures add up to about four miles more.", "zh": "没有权威数据。AASHTO 把美国国道里程交由各州统计，最后一份全国里程表发布于 1989 年；而各方公布的 US 62 总里程彼此并不一致——AARoads 给出 2,248 英里，但其自身逐州数据相加却多出约四英里。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Nine state agencies count their own segments. US 62 is an urban arterial in El Paso, Oklahoma City, Columbus and Buffalo and a two-lane road through the Guadalupe Mountains and the Ozarks; no combined figure is published.", "zh": "9 个州的机构各自统计本州路段。US 62 在埃尔帕索、俄克拉何马城、哥伦布与布法罗是城市干道，在瓜达卢佩山区与奥沙克山区则是双车道公路；并无合并数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Direction signing", "zh": "方向标示" },
+      "value": { "en": "US 62 is signed east–west from El Paso through Ohio and north–south through Pennsylvania and New York; the change occurs at the Ohio–Pennsylvania state line, and the section south of Carlsbad, New Mexico, is also signed north–south", "zh": "US 62 自埃尔帕索至俄亥俄按东西向标示，在宾夕法尼亚与纽约两州按南北向标示，转换点位于俄亥俄—宾夕法尼亚州界；此外，新墨西哥州卡尔斯巴德以南的路段也按南北向标示" },
+      "source": "usends.com endpoint survey of US 62"
+    },
+    {
+      "label": { "en": "Current pavement and bridge condition", "zh": "当前路面与桥梁状况" },
+      "why": { "en": "Condition data are reported to the Federal Highway Administration by state and functional class rather than by U.S. Route number, so no route-level rating exists for US 62.", "zh": "路况数据按州与功能等级、而非按美国国道编号上报联邦公路管理局，因此不存在针对 US 62 的全线评级。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "\"62\" is proposed for the Chicago–Los Angeles route during the numbering fight, but that road becomes US 66 and the number is left unused.", "zh": "编号之争期间曾提议把「62」用于芝加哥—洛杉矶线，但该路最终成为 US 66，这一号码就此空置。" },
+    { "year": 1930, "en": "US 62 is commissioned from Maysville, Kentucky, to Carlsbad, New Mexico.", "zh": "US 62 启用，自肯塔基州梅斯维尔至新墨西哥州卡尔斯巴德。" },
+    { "year": 1932, "en": "Both ends are extended, to Niagara Falls, New York, and El Paso, Texas.", "zh": "两端分别延伸至纽约州尼亚加拉瀑布城与得克萨斯州埃尔帕索。" },
+    { "year": 1974, "en": "The El Paso terminus moves to the downtown border crossing, where it remains.", "zh": "埃尔帕索端点移至市中心边境口岸，至今未变。" },
+    { "year": 2010, "en": "New York designates its entire section of US 62 the National Veterans Highway on 30 July.", "zh": "7 月 30 日，纽约州将境内 US 62 全线定名为「全国退伍军人公路」。" }
+  ]
+}

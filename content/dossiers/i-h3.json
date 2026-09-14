@@ -1,0 +1,100 @@
+{
+  "id": "i-h3",
+  "name": { "en": "Interstate H-3", "zh": "H-3 号州际公路" },
+  "tagline": { "en": "Pearl Harbor to Kaneohe, through the Koolau Range", "zh": "从珍珠港到卡内奥赫，穿越科奥劳山脉" },
+  "officialMi": 15.32,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1997,
+  "termini": {
+    "start": { "en": "H-1 at the Halawa interchange, near Pearl Harbor, Oahu", "zh": "瓦胡岛珍珠港附近哈拉瓦互通，与 H-1 相接" },
+    "end": { "en": "The main gate of Marine Corps Base Hawaii, Kaneohe Bay", "zh": "卡内奥赫湾，夏威夷海军陆战队基地正门" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "H-3 crosses the island of Oahu from the Pearl Harbor side to the windward side, linking the naval base at Pearl Harbor with the Marine Corps base at Kaneohe Bay. That military connection is the reason it exists: Hawaii has no land border with another state, and its Interstates qualified for federal funding on national-defence grounds rather than as part of any interstate network.",
+        "The road is almost entirely structure. From Halawa Valley it climbs on viaducts with no intermediate exits, bores through the crest of the Koolau Range in twin tunnels, emerges high on the windward wall above Haiku Valley, and descends on a second pair of viaducts curving along the mountainside toward Kaneohe Bay.",
+        "It is also the shortest signed Interstate route on the islands and one of the shortest anywhere in the system, and it carries the least traffic of Oahu's three H routes. Its significance is not in its length."
+      ],
+      "zh": [
+        "H-3 自珍珠港一侧横穿瓦胡岛至迎风面，把珍珠港的海军基地与卡内奥赫湾的海军陆战队基地连接起来。这条军事联系正是它存在的理由：夏威夷不与任何其他州陆路接壤，其州际公路获得联邦资金的依据是国防需要，而非属于任何跨州路网。",
+        "这条路几乎全部由构筑物组成。它自哈拉瓦谷起以高架桥爬升，中间不设出口，以双孔隧道穿透科奥劳山脊，在哈伊库谷上方的迎风面高处出洞，再沿山壁以第二组弯曲的高架桥下行，通往卡内奥赫湾。",
+        "它也是岛上最短的一条有编号的州际公路，在全系统中亦属最短之列，并且是瓦胡岛三条 H 路线中交通量最小的一条。它的意义不在长度。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The summit crossing is made by the Tetsuo Harano Tunnels, twin two-lane bores driven through the Koolau Range and named for a state highways administrator who worked for Hawaii for more than half a century. An exploratory tunnel was driven first, in 1988, to find out what the rock was going to do before the main bores were committed.",
+        "On the windward slope the freeway runs on the Windward Viaducts, a pair of prestressed concrete structures built by the precast segmental method, each about two kilometres long with twenty-four spans. The columns are as tall as a fifteen-storey building where the ground falls away, and the two decks sit at noticeably different elevations because the hillside drops across the width of the roadway. Between the viaducts and the coast the road passes through the short Hospital Rock Tunnels.",
+        "Building on this alignment meant working on steep, wet, unstable volcanic slopes in a valley with no road access to start with. The engineering is the reason the cost per mile is what it is; the politics are the reason the project took thirty-seven years."
+      ],
+      "zh": [
+        "翻越山脊靠的是哲夫·原野隧道（Tetsuo Harano Tunnels），这是穿透科奥劳山脉的一对双车道隧道，以一位为夏威夷服务逾半个世纪的州公路总管命名。1988 年先开挖了一条勘探隧道，以便在主洞开工前摸清岩体状况。",
+        "在迎风坡一侧，高速公路走在迎风高架桥上：这是一对预应力混凝土结构，采用预制节段法施工，每座长约两公里、共二十四跨。在地形陡降处，桥墩高度相当于一栋十五层楼；由于山坡在路幅宽度范围内即有落差，两幅桥面的标高明显不同。高架桥与海岸之间，道路穿过短小的医院岩隧道。",
+        "在这条线位上施工，意味着要在陡峭、湿润、不稳定的火山坡地上作业，而那条山谷起初根本没有道路可通。工程难度解释了每英里造价为何如此之高；政治过程则解释了这项工程为何耗时三十七年。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Hawaii was left out of the 1956 Federal-Aid Highway Act because it bordered no other state. The Hawaii Omnibus Act, signed in July 1960, brought the islands into the federal-aid Interstate programme and authorised H-1, H-2 and H-3 under the national-defence justification added to the law in 1957. H-3 was conceived that same year in a congressional report.",
+        "Litigation began in 1972, when the Stop H-3 Association sued to block construction on environmental grounds. A stipulation allowed work at both ends while the central section was enjoined, and the case ran for more than a decade and a half. Native Hawaiian sites, Hoomaluhia Park and the valleys the route would cross were all at issue.",
+        "When the courts looked unlikely to clear the way, the state asked its congressional delegation for a statutory exemption. Section 114 of the continuing appropriations act for fiscal year 1987, signed in October 1986, directed the Secretary of Transportation to approve the central section notwithstanding Section 4(f) of the Transportation Act. Opponents challenged the exemption as unconstitutional; the Ninth Circuit upheld it in 1989. The freeway opened on 12 December 1997."
+      ],
+      "zh": [
+        "由于不与任何其他州接壤，夏威夷被排除在 1956 年《联邦资助公路法》之外。1960 年 7 月签署的《夏威夷综合法案》把该州纳入联邦资助的州际公路计划，并依据 1957 年加入法律的国防理由授权修建 H-1、H-2 与 H-3。H-3 也正是在同一年的一份国会报告中被提出。",
+        "诉讼始于 1972 年，Stop H-3 协会以环境理由起诉，要求阻止施工。一份和解约定允许两端先行施工，中段则被禁令冻结，此案此后延续了十五年以上。夏威夷原住民遗址、Hoomaluhia 公园以及路线将要穿越的各条山谷，都是争议焦点。",
+        "当法院看来不太可能放行时，州政府转而请求本州国会代表团立法豁免。1986 年 10 月签署的 1987 财年继续拨款法案第 114 条，指令交通部长「不受」《交通法》第 4(f) 条限制批准中段工程。反对者质疑该豁免违宪；第九巡回上诉法院于 1989 年维持了它的效力。这条高速公路于 1997 年 12 月 12 日通车。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Final construction cost", "zh": "最终建设成本" },
+      "value": { "en": "$1.3 billion, of which about $1 billion went to construction firms and joint ventures and the rest to inspection, testing and contingencies; a further $11 million was committed to archaeological access and visitor centres for Hawaiian sites near the route", "zh": "13 亿美元，其中约 10 亿美元付给施工企业与联合体，其余用于检验、试验与不可预见费；另有 1,100 万美元用于路线附近夏威夷遗址的考古通道与访客中心" },
+      "source": "Honolulu Star-Bulletin, 3 December 1997"
+    },
+    {
+      "label": { "en": "Cost per mile", "zh": "每英里造价" },
+      "value": { "en": "About $80 million per mile, the highest of any Interstate ever built", "zh": "约每英里 8,000 万美元，为有史以来所有州际公路之最" },
+      "source": "Honolulu Star-Bulletin, 3 December 1997; University of Hawaii at Manoa, H-3 Construction archival case study"
+    },
+    {
+      "label": { "en": "Initial cost estimate", "zh": "最初造价估算" },
+      "value": { "en": "$250 million, when the project was conceived as a quick military route between Kaneohe, Pearl Harbor and Hickam", "zh": "2.5 亿美元，当时该工程被设想为连接卡内奥赫、珍珠港与希卡姆的军用快捷通道" },
+      "source": "Honolulu Star-Bulletin, 3 December 1997"
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "15.32 miles, entirely within the City and County of Honolulu", "zh": "15.32 英里，全线位于檀香山市县境内" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Daily traffic volume", "zh": "日交通量" },
+      "why": { "en": "Hawaii DOT publishes average annual daily traffic per count station rather than per route, and no route-wide figure for H-3 was located from the department for this entry.", "zh": "夏威夷州交通部按观测站而非按路线发布年平均日交通量，本条目未能从该部门取得 H-3 的全线数字。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Tetsuo Harano Tunnels", "zh": "哲夫·原野隧道" },
+      "value": { "en": "Twin bores of four lanes total: 5,165 feet Halawa-bound and 4,980 feet Kaneohe-bound", "zh": "双孔共四车道：哈拉瓦方向长 5,165 英尺，卡内奥赫方向长 4,980 英尺" },
+      "source": "Hawaii DOT tunnel data, as compiled by AARoads, Interstate H-3 guide, 2024"
+    },
+    {
+      "label": { "en": "Windward Viaducts", "zh": "迎风高架桥" },
+      "value": { "en": "Twin prestressed concrete structures about 2 km long with 24 spans each; maximum span 91.5 m, column heights from 3.6 m to 48.8 m, deck width 12.8–17.4 m", "zh": "一对预应力混凝土结构，各长约 2 公里、24 跨；最大跨径 91.5 米，桥墩高 3.6 至 48.8 米，桥面宽 12.8 至 17.4 米" },
+      "source": "Structural Engineering International, 'Precast Segmental Highway Viaducts, Hawaii', February 1995"
+    }
+  ],
+  "timeline": [
+    { "year": 1960, "en": "The Hawaii Omnibus Act brings Hawaii into the federal-aid Interstate programme and authorises H-1, H-2 and H-3 on national-defence grounds.", "zh": "《夏威夷综合法案》将夏威夷纳入联邦资助的州际公路计划，并以国防理由授权修建 H-1、H-2 与 H-3。" },
+    { "year": 1972, "en": "The Stop H-3 Association sues to halt construction; the central section is enjoined while work proceeds at both ends.", "zh": "Stop H-3 协会起诉要求停工；中段被禁令冻结，两端继续施工。" },
+    { "year": 1986, "en": "Congress exempts H-3 from Section 4(f) of the Transportation Act in the FY1987 continuing appropriations act.", "zh": "国会在 1987 财年继续拨款法案中，豁免 H-3 适用《交通法》第 4(f) 条。" },
+    { "year": 1989, "en": "The Ninth Circuit upholds the exemption in Stop H-3 Association v. Dole.", "zh": "第九巡回上诉法院在 Stop H-3 Association 诉 Dole 案中维持该豁免。" },
+    { "year": 1997, "en": "H-3 opens to traffic on 12 December, thirty-seven years after it was first proposed.", "zh": "12 月 12 日，H-3 通车，距最初提出已过去三十七年。" }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "us-11",
+  "name": { "en": "U.S. Route 11", "zh": "11 号美国国道" },
+  "tagline": { "en": "Down the Great Appalachian Valley to Lake Pontchartrain", "zh": "沿阿巴拉契亚大谷地南下庞恰特雷恩湖" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "U.S. 90 in New Orleans East, Louisiana", "zh": "路易斯安那州新奥尔良东区，与 US 90 相接" },
+    "end": { "en": "U.S. 2 at Rouses Point, New York, on the Canadian border", "zh": "纽约州劳斯波因特，加拿大边境旁，与 US 2 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 11 was laid out to connect the two border routes of the numbered system — US 2 at the Canadian line and US 90 near the Gulf — and to cross every major east–west highway in between. The Bureau of Public Roads thought the result unusual enough to note in 1927: alone among the routes east of the Mississippi, it follows the Appalachian range for practically its whole length, \"crossing the parallel ridges from valley to valley as topography dictates.\"",
+        "From Rouses Point it runs down through Watertown, Syracuse and Binghamton, then the anthracite towns of Scranton and Wilkes-Barre, then Harrisburg and Hagerstown. South of Winchester it enters the Shenandoah Valley and stays in the Great Appalachian Valley almost without interruption through Staunton, Roanoke, Bristol, Knoxville and Chattanooga. Only in Alabama does it leave the valley, bending southwest through Birmingham and Tuscaloosa and out across the Mississippi pine belt to Hattiesburg. It ends by crossing the eastern arm of Lake Pontchartrain on a five-mile concrete viaduct built in 1928.",
+        "For most of the valley section I-81 is within sight. Where the Interstate is the through road, US 11 is the street the towns are actually on — Main Street in Lexington, Virginia, and a hundred places like it."
+      ],
+      "zh": [
+        "US 11 的规划意图，是连接编号系统中的两条边境路线——加拿大边界旁的 US 2 与墨西哥湾附近的 US 90——并与其间每一条主要东西向公路相交。公共道路局在 1927 年认为这条路特别到值得一记：在密西西比河以东的各条路线中，唯有它几乎全程沿阿巴拉契亚山脉而行，「依地形所迫，自一道谷地越过平行山脊进入下一道谷地」。",
+        "它自劳斯波因特南下，穿过沃特敦、锡拉丘兹和宾厄姆顿，再经无烟煤矿区的斯克兰顿与威尔克斯－巴里，接着是哈里斯堡和黑格斯敦。温切斯特以南进入谢南多厄谷地，此后几乎不间断地沿阿巴拉契亚大谷地经斯坦顿、罗阿诺克、布里斯托尔、诺克斯维尔与查塔努加。只有到了亚拉巴马州，它才离开谷地，向西南弯过伯明翰与塔斯卡卢萨，横穿密西西比松林带抵达哈蒂斯堡。终点处，它借一座 1928 年建成的五英里混凝土栈桥跨越庞恰特雷恩湖东臂。",
+        "在谷地路段的大部分地方，I-81 都在视线之内。凡州际公路承担通过性交通之处，US 11 就是各城镇实际赖以生活的那条街——弗吉尼亚州列克星敦的主街，以及上百个类似的地方。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The route was in the original 1925 Joint Board proposal and was approved with the rest of the system on 11 November 1926. AASHO's first official log, published in 1927, put it at 1,696 miles and ended it at US 90 just east of the Louisiana line; travellers reached New Orleans on US 90 through Pearl River and Slidell. Louisiana closed that gap itself: the legislature authorised the state to buy the privately owned Pontchartrain Bridge and run it toll-free, and once that was done AASHO agreed on 28 June 1939 to route US 11 over the bridge. A further change on 21 October 1941 moved the southern terminus out of downtown New Orleans to the US 90 junction in the east of the city, where it remains.",
+        "The road's most persistent argument was in Tennessee. Governor Austin Peay wired the Bureau of Public Roads in 1925 threatening to pull his state out of the numbering plan unless US 11 went via Kingsport and Rogersville rather than Johnson City, and the board gave way; the Johnson City road became US 511. Towns on the losing alignment complained, and in 1929 AASHO split the route into 11 East and 11 West. AASHO abolished lettered splits in 1934 and renumbered the eastern leg US 411 — and Tennessee simply ignored it, continuing to sign 11E and 11W on its own maps. AASHO conceded the point in a general \"harmonizing\" of records approved on 8 December 1952, and the split has stood ever since.",
+        "I-81 did not truncate US 11; it took its traffic. In an oral history for the Federal Highway Administration, officials recalled that Virginia's highway commissioner argued the Interstate was unnecessary because US 11 \"was adequate\" — at the time a two-lane road whose superhighway sections were three lanes wide, with a shared middle passing lane that the interviewee called \"a suicide lane, of course.\""
+      ],
+      "zh": [
+        "这条路线出现在 1925 年联合委员会的最初方案中，并随整套系统于 1926 年 11 月 11 日获批。AASHO 1927 年的首份官方里程表把它列为 1,696 英里，南端止于路易斯安那州界以东的 US 90；旅客需沿 US 90 经珍珠河与斯莱德尔进入新奥尔良。路易斯安那州自行补上了这段缺口：州议会授权该州买下私有的庞恰特雷恩大桥并免费通行；办妥之后，AASHO 于 1939 年 6 月 28 日同意让 US 11 改走该桥。1941 年 10 月 21 日的又一次调整，把南端点从新奥尔良市中心移到该市东部的 US 90 交叉口，至今未变。",
+        "这条路争执最久的一段在田纳西州。1925 年，州长奥斯汀·皮依致电公共道路局，威胁说若 US 11 不改经金斯波特与罗杰斯维尔、而走约翰逊城，该州就退出编号方案；委员会让了步，约翰逊城那条路成了 US 511。落选线位上的城镇随即抗议，1929 年 AASHO 把该路线拆为 11 East 与 11 West。1934 年 AASHO 取消带方位字母的分支，把东支改编为 US 411——田纳西州干脆置之不理，继续在本州地图上标注 11E 与 11W。1952 年 12 月 8 日，AASHO 在一次全面「记录调和」中作出让步，此后这一分叉一直保留。",
+        "I-81 并未截短 US 11，只是带走了它的车流。在为联邦公路管理局所作的一份口述史中，官员回忆弗吉尼亚州公路厅长曾主张州际公路并无必要，因为 US 11「已经够用」——而它当时是一条双车道公路，所谓「高速路」路段也只有三车道，中间是共用的超车道，受访者称之为「当然就是一条自杀车道」。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The bridge at the southern end earned its keep in 2005. When Hurricane Katrina's surge lifted deck segments off the piers of the I-10 Twin Spans across Lake Pontchartrain and damaged the Fort Pike bridge on US 90, the 1928 US 11 crossing — the Maestri Bridge — came through more or less intact and became the only road into New Orleans from the east for about six weeks.",
+        "The reason was in the shape of the spans. A U.S. Geological Survey analysis of the Twin Spans' failure concluded that surge water trapped air in the box-like cavity beneath their deep girders, reducing the effective weight of the segments until they floated off their supports. The US 11 bridge alongside is a similar simply supported concrete girder structure, but its spans are shorter, its girders much shallower and arch-shaped, and its lateral diaphragms have holes that let air escape — so far less air was trapped beneath it."
+      ],
+      "zh": [
+        "南端的那座桥在 2005 年证明了自己的价值。卡特里娜飓风的风暴潮把横跨庞恰特雷恩湖的 I-10 双跨桥的桥面段掀离桥墩，又损坏了 US 90 上的派克堡桥；而 1928 年建成的 US 11 跨湖桥——梅斯特里大桥——基本完好，成为此后约六周内自东进入新奥尔良的唯一道路。",
+        "原因在于桥跨的形状。美国地质调查局对双跨桥失效的分析认为，风暴潮把空气封在其深梁下方的箱形空腔中，使桥段有效重量减小，直至浮离支座。旁边的 US 11 桥同为简支混凝土梁结构，但跨径更短，梁高浅得多且呈拱形，横隔板上还开有孔洞可让空气排出——因此桥下被封住的空气少得多。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Purchase of the Pontchartrain Bridge", "zh": "庞恰特雷恩大桥收购价" },
+      "value": { "en": "$600,000, authorised by Louisiana Act No. 71 of fiscal year 1937, to buy the privately owned toll bridge and operate it free of charge", "zh": "60 万美元，依路易斯安那州 1937 财年第 71 号法案授权，买下这座私有收费桥并免费开放通行" },
+      "source": "Federal Highway Administration, \"U.S. 11 — Rouses Point, New York, to New Orleans, Louisiana\""
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No figure exists. US 11 was numbered in 1926 over roads already built by the states and their turnpike predecessors, and has been rebuilt piecemeal by ten states since. No agency has costed it as a single work.", "zh": "没有这样的数据。US 11 于 1926 年沿各州及其收费道路前身已建成的道路编号，此后由 10 个州分段陆续改建。从未有任何机构把它作为单一工程核算造价。" }
+    },
+    {
+      "label": { "en": "Length in the official route logs", "zh": "官方里程表中的里程" },
+      "value": { "en": "1,696 miles in AASHO's first log of 1927; 1,761 miles in the 1939 log after the Louisiana rerouting; 1,780 miles in the 1989 AASHTO log, the most recent published", "zh": "1927 年 AASHO 首份里程表列为 1,696 英里；1939 年里程表在路易斯安那改线后列为 1,761 英里；1989 年 AASHTO 里程表（迄今最新一份）列为 1,780 英里" },
+      "source": "Federal Highway Administration, \"U.S. 11 — Rouses Point, New York, to New Orleans, Louisiana\""
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Counts are taken segment by segment by ten separate state agencies. US 11 runs as a suburban arterial through Syracuse, Harrisburg, Roanoke and Slidell and as a rural two-lane road for much of the rest; no agency publishes a route total.", "zh": "交通量由 10 个州的机构分段统计。US 11 在锡拉丘兹、哈里斯堡、罗阿诺克和斯莱德尔是郊区干道，其余多为乡村双车道公路；没有任何机构发布全线合计数字。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Surface condition at designation", "zh": "编号之初的路面状况" },
+      "value": { "en": "98 per cent surfaced in some form, from sand-clay to pavement, with the remaining 2 per cent due for completion during 1927", "zh": "98% 已有某种形式的路面，从砂黏土路面到铺装路面不等，余下的 2% 预定在 1927 年内完成" },
+      "source": "Thomas H. MacDonald, Chief of the Bureau of Public Roads, \"Closing the Gaps,\" The Highway Magazine, July 1927"
+    },
+    {
+      "label": { "en": "Current pavement and bridge condition", "zh": "当前路面与桥梁状况" },
+      "why": { "en": "Condition data are reported to the Federal Highway Administration by functional class and by state, not by U.S. Route number, so no route-level rating for US 11 exists in the federal record.", "zh": "路况数据由各州按功能等级上报联邦公路管理局，并非按美国国道编号上报，因此联邦记录中不存在针对 US 11 的全线评级。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 11 is approved on 11 November, running from Rouses Point, New York, to a junction with US 90 near the Louisiana line.", "zh": "11 月 11 日 US 11 获批，自纽约州劳斯波因特至路易斯安那州界附近与 US 90 的交叉口。" },
+    { "year": 1929, "en": "AASHO splits the route in Tennessee into 11 East and 11 West after towns on the bypassed alignment object.", "zh": "在被绕开线位上的城镇提出异议后，AASHO 于田纳西州境内将本路线拆为 11 East 与 11 West。" },
+    { "year": 1939, "en": "US 11 is rerouted on 28 June over the newly toll-free Pontchartrain Bridge into New Orleans.", "zh": "6 月 28 日，US 11 改经刚取消收费的庞恰特雷恩大桥进入新奥尔良。" },
+    { "year": 1941, "en": "The southern terminus is moved on 21 October from downtown New Orleans to the US 90 junction in the east of the city.", "zh": "10 月 21 日，南端点自新奥尔良市中心移至该市东部的 US 90 交叉口。" },
+    { "year": 1952, "en": "AASHO formally restores the Tennessee 11E/11W split, which the state had never stopped signing.", "zh": "AASHO 正式恢复田纳西州的 11E／11W 分叉——该州从未停止如此标示。" },
+    { "year": 2005, "en": "After Hurricane Katrina the US 11 bridge over Lake Pontchartrain is the only road into New Orleans from the east for about six weeks.", "zh": "卡特里娜飓风过后，US 11 的庞恰特雷恩湖跨湖桥在约六周内是自东进入新奥尔良的唯一道路。" }
+  ]
+}

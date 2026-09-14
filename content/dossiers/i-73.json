@@ -1,0 +1,77 @@
+{
+  "id": "i-73",
+  "name": { "en": "Interstate 73", "zh": "73 号州际公路" },
+  "tagline": { "en": "A corridor drawn from Michigan to the sea, built in one state", "zh": "从密歇根画到海边的走廊，只在一个州落地" },
+  "officialMi": 121.52,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "termini": {
+    "start": { "en": "US 74 near Rockingham, North Carolina", "zh": "北卡罗来纳州罗金厄姆附近，与 US 74 相接" },
+    "end": { "en": "NC 68 north of Greensboro, North Carolina", "zh": "北卡罗来纳州格林斯伯勒以北，与 NC 68 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-73 exists in one state. It runs up the middle of the North Carolina Piedmont along the US 220 corridor, from US 74 near Rockingham through Ellerbe and Asheboro to a junction north of Greensboro, and then stops. Nothing carries the number north into Virginia or south into South Carolina.",
+        "On the ground it does not feel like a fragment. Most of it is a well-built rural freeway through pine and pasture, some of it new location and much of it a rebuild of the old four-lane US 220, with the older highway still visible alongside as a service road in places. For long stretches I-73 and I-74 share pavement and both shields appear on the same signs.",
+        "What makes the route worth a page is the gap between the line on the federal map and the asphalt. The corridor was drawn to run from the Great Lakes to the Atlantic; one state built its share, and the rest of the map has been steadily erased."
+      ],
+      "zh": [
+        "I-73 只存在于一个州。它沿 US 220 走廊纵贯北卡罗来纳皮德蒙特地区中部，从罗金厄姆附近的 US 74 起，经埃勒比、阿什伯勒，到格林斯伯勒以北的一处交会点，然后就没有了。北面进入弗吉尼亚、南面进入南卡罗来纳，都没有任何道路挂这个编号。",
+        "身处其上，倒不觉得它是个残段。大部分是穿行于松林与牧场之间、修建质量不错的乡村高速公路，其中一部分是新辟线位，更多则是对旧有四车道 US 220 的改建，有些地方还能看到旧公路作为辅路留在一旁。很长一段路上，I-73 与 I-74 共用路面，两面盾牌出现在同一块标志上。",
+        "这条路线值得单列一页的原因，在于联邦地图上的线条与地面沥青之间的落差。这条走廊原本画成从五大湖直抵大西洋；其中一个州修好了自己那一段，地图上的其余部分则被逐步擦去。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The route began as a line in legislation rather than an engineering study. The Intermodal Surface Transportation Efficiency Act of 1991 named High Priority Corridor 5, the I-73/74 North–South Corridor, running from Charleston, South Carolina, through the Carolinas and West Virginia to Portsmouth and Cincinnati in Ohio and on to Detroit. Congress designated the corridor but appropriated nothing to build it, leaving each state to decide whether and when to proceed.",
+        "The map kept changing. The National Highway System Designation Act of 1995 added a branch from Toledo north to Sault Ste. Marie and set out alignments in West Virginia, Virginia and the Carolinas, and AASHTO approved the sections south of I-81 in Virginia in July 1996. The Transportation Equity Act for the 21st Century truncated both routes to Georgetown, South Carolina, in 1998.",
+        "Then the northern states left. Michigan's transportation department stopped studying I-73 in June 2001, citing a lack of need, and moved the remaining study money to safety work on the existing roads. Virginia's Commonwealth Transportation Board formally rescinded its 2001 location decision in September 2024 and turned to upgrading US 220 instead. South Carolina still plans a segment from I-95 to the Myrtle Beach area; it has never been funded."
+      ],
+      "zh": [
+        "这条路线最初是立法文本里的一条线，而非工程研究的产物。1991 年《多式联运地面运输效率法》命名了第 5 号高优先级走廊，即「I-73/74 南北走廊」，自南卡罗来纳州查尔斯顿起，穿过南北卡罗来纳和西弗吉尼亚，抵达俄亥俄的朴次茅斯与辛辛那提，再通往底特律。国会划定了走廊，却没有为建设拨一分钱，各州自行决定是否推进、何时推进。",
+        "地图一直在变。1995 年《国家公路系统指定法》增加了一条自托莱多向北至苏圣玛丽的支线，并明确了西弗吉尼亚、弗吉尼亚及南北卡罗来纳的线位；1996 年 7 月，美国州公路及运输官员协会批准了弗吉尼亚 I-81 以南的各路段。1998 年，《21 世纪运输公平法》把两条路线的终点都截短到南卡罗来纳州乔治敦。",
+        "随后北方各州退出了。密歇根州交通部 2001 年 6 月停止研究 I-73，理由是「缺乏需求」，并把剩余研究经费转投既有道路的安全改善。弗吉尼亚州运输委员会 2024 年 9 月正式撤销了 2001 年的选线决定，转而改造 US 220。南卡罗来纳仍在规划自 I-95 至默特尔比奇一带的路段，但从未获得资金。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Because the corridor was authorised without money attached, the cost question for I-73 has always been asked state by state, and mostly answered in the negative. North Carolina paid for its share out of the ordinary state transportation programme over about two decades, building the route as a sequence of US 220 widening and bypass projects that were separately budgeted and separately justified.",
+        "The remaining North Carolina projects — carrying the number north to Virginia and south to South Carolina — are unfunded and were pushed beyond the current planning horizon in the state's draft 2026–2035 improvement programme. Virginia's decision to abandon the project rested explicitly on the observation that upgrading US 220 would cost hundreds of millions where the Interstate would have cost billions."
+      ],
+      "zh": [
+        "由于这条走廊在获授权时没有配套资金，I-73 的造价问题一向是逐州提出的，而答案大多是否定的。北卡罗来纳在约二十年间用本州常规交通计划支付了自己那一段，把这条路线拆成一系列 US 220 拓宽与绕行工程，各自单独列预算、单独论证。",
+        "北卡余下的项目——把编号向北接到弗吉尼亚、向南接到南卡罗来纳——没有资金来源，在该州 2026 至 2035 年改善计划草案中被推到了当前规划期之外。弗吉尼亚放弃该项目的决定，明确建立在这样一个判断之上：改造 US 220 只需数亿美元，而修建州际公路要花数十亿。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No public figure exists. Congress designated the corridor in 1991 without appropriating construction money, and North Carolina built its section as a long series of separately budgeted US 220 widening and bypass contracts rather than as one route project.", "zh": "无公开数据。国会 1991 年划定该走廊时未拨付建设资金，北卡罗来纳是以一长串单独列预算的 US 220 拓宽与绕行合同来修建本州路段的，而非作为一个整体的路线项目。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "121.52 miles, all of it in North Carolina", "zh": "121.52 英里，全部位于北卡罗来纳州" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "No agency publishes a route-wide figure. Counts on this corridor are collected per segment by the North Carolina Department of Transportation and are reported for US 220 as well as for the Interstate designation that overlays it.", "zh": "没有机构发布全线数字。本走廊的交通量由北卡罗来纳州交通部按路段采集，且既按 US 220 统计，也按覆盖其上的州际公路编号统计。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1991, "en": "The Intermodal Surface Transportation Efficiency Act names High Priority Corridor 5 from Charleston, South Carolina, to Detroit. No construction money is appropriated.", "zh": "《多式联运地面运输效率法》命名第 5 号高优先级走廊，自南卡罗来纳州查尔斯顿至底特律。未拨付任何建设资金。" },
+    { "year": 1995, "en": "The National Highway System Designation Act adds a branch from Toledo to Sault Ste. Marie and makes I-73 eligible for the Interstate System if built to standard.", "zh": "《国家公路系统指定法》增设自托莱多至苏圣玛丽的支线，并规定 I-73 若按标准建成即可纳入州际公路系统。" },
+    { "year": 1996, "en": "AASHTO approves the I-73 and I-74 sections south of I-81 in Virginia on 25 July, allowing them to be signed once built.", "zh": "7 月 25 日，美国州公路及运输官员协会批准弗吉尼亚 I-81 以南的 I-73 与 I-74 路段，建成后即可挂牌。" },
+    { "year": 1998, "en": "The Transportation Equity Act for the 21st Century truncates both routes to Georgetown, South Carolina.", "zh": "《21 世纪运输公平法》将两条路线的终点截短至南卡罗来纳州乔治敦。" },
+    { "year": 2001, "en": "Michigan's transportation department abandons further study on 12 June, citing a lack of need, and redirects the money to safety projects.", "zh": "6 月 12 日，密歇根州交通部以「缺乏需求」为由停止进一步研究，并将资金转用于安全改善项目。" },
+    { "year": 2018, "en": "North Carolina extends I-73 signage in October over newly completed US 220 upgrades between Greensboro and Rockingham.", "zh": "10 月，北卡罗来纳在格林斯伯勒至罗金厄姆之间新建成的 US 220 改造路段上扩展 I-73 标志。" },
+    { "year": 2024, "en": "Virginia's Commonwealth Transportation Board rescinds its 2001 location decision in September, ending the project in the state.", "zh": "9 月，弗吉尼亚州运输委员会撤销 2001 年的选线决定，本州项目就此终止。" },
+    { "year": 2025, "en": "The second segment of the Rockingham bypass is completed in January, the last funded I-73 project in North Carolina.", "zh": "1 月，罗金厄姆绕行线第二段完工，这是北卡罗来纳最后一个已获资金的 I-73 项目。" }
+  ]
+}

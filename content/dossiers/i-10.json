@@ -1,0 +1,245 @@
+{
+  "id": "i-10",
+  "name": {
+    "en": "Interstate 10",
+    "zh": "10 号州际公路"
+  },
+  "tagline": {
+    "en": "Santa Monica to Jacksonville — the southern transcontinental",
+    "zh": "从圣莫尼卡到杰克逊维尔——南部横贯大陆的干线"
+  },
+  "officialMi": 2457.62,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1957,
+  "completedYear": 1990,
+  "termini": {
+    "start": {
+      "en": "Pacific Coast Highway at Santa Monica, California",
+      "zh": "加利福尼亚州圣莫尼卡，太平洋海岸公路"
+    },
+    "end": {
+      "en": "Interstate 95 in Jacksonville, Florida",
+      "zh": "佛罗里达州杰克逊维尔，与 I-95 相接"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-10 is the southernmost coast-to-coast Interstate, running from the Pacific at Santa Monica to a junction with I-95 in Jacksonville. It crosses eight states, and Texas alone accounts for more than a third of its length — a single state section longer than most complete Interstates.",
+        "The road changes character several times. West of Phoenix it is desert freeway, long and straight, with service towns spaced by the range of a fuel tank. Through Texas it becomes the archetypal American long haul: hundreds of miles of high-speed rural pavement punctuated by three of the country's largest urban freeway systems at El Paso, San Antonio and Houston. East of the Sabine River it turns into low-country road, carried across the swamps and bays of Louisiana, Mississippi and Alabama on some of the longest continuous bridging in the system.",
+        "It is also a hurricane road. The section between Baton Rouge and Slidell crosses Lake Pontchartrain on a pair of five-mile spans that were destroyed by Hurricane Katrina, and the Gulf Coast sections carry evacuation traffic inland whenever a storm threatens."
+      ],
+      "zh": [
+        "I-10 是最靠南的横贯两岸的州际公路，西起圣莫尼卡的太平洋岸，东至杰克逊维尔与 I-95 的交汇处。全线穿越八个州，其中仅德克萨斯一州就占了全长的三分之一以上——这一段州内里程比大多数州际公路的全长都要长。",
+        "这条路的性格几经变化。凤凰城以西是沙漠高速，笔直绵长，服务小镇之间的距离约等于一箱油的续航。进入德州后，它成了典型的美式长途路线：数百英里的高速乡村路面，被埃尔帕索、圣安东尼奥和休斯敦三座全国最大的城市快速路系统打断。越过萨宾河后，它变成低地公路，靠系统中最长的连续桥梁跨越路易斯安那、密西西比和亚拉巴马的沼泽与海湾。",
+        "它同时也是一条飓风通道。巴吞鲁日与斯莱德尔之间的路段以两座五英里长的桥梁跨越蓬恰特雷恩湖，这两座桥曾被卡特里娜飓风摧毁；每逢风暴来袭，墨西哥湾沿岸路段都要承担向内陆疏散的交通。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The last piece of I-10 to be built was also its strangest. Phoenix residents rejected an elevated freeway through the neighbourhoods north of downtown, and voted instead to put the road below grade and build a park on the lid. What resulted is officially the Papago Freeway Tunnel and is not a tunnel at all: nineteen bridge decks set side by side over a six-block trench, carrying thirteen acres of Margaret T. Hance Park above the traffic.",
+        "At the other end of the route, the Lake Pontchartrain crossing had to be rebuilt from scratch. Katrina's surge lifted whole deck spans off their supports and dropped them in the lake. Louisiana repaired the wreckage well enough to reopen four lanes within months, then spent five years building an entirely new pair of bridges — higher above the water, with anchoring designed so the decks cannot float off again, and reinforced concrete walls to absorb barge strikes.",
+        "The widest thing I-10 has ever been is the Katy Freeway in west Houston, rebuilt between 2003 and 2008 with six general-purpose lanes each way plus two variably priced toll lanes in the median, flanked by signalised frontage roads. Counting everything on the right-of-way, the cross-section reaches into the twenties."
+      ],
+      "zh": [
+        "I-10 最后建成的一段也是最奇特的一段。凤凰城居民否决了穿越市中心以北街区的高架高速方案，投票决定把道路压到地面以下，并在顶盖上建公园。最终的成果官方称作帕帕戈高速公路隧道，而它其实根本不是隧道：十九片桥面并排架在一条横跨六个街区的路槽上，把十三英亩的玛格丽特·T·汉斯公园托在车流之上。",
+        "在路线的另一端，蓬恰特雷恩湖的跨湖段不得不彻底重建。卡特里娜的风暴潮把整片桥面从支座上掀起，丢进湖里。路易斯安那先把残段修补到足以在数月内恢复四车道通行，随后花五年时间另建了一对全新桥梁——桥面离水面更高，锚固方式确保桥面不会再被浮起，并用钢筋混凝土墙体吸收驳船撞击。",
+        "I-10 最宽的地方是休斯敦西部的凯蒂高速，2003 至 2008 年间重建，单向六条普通车道，中央另设两条浮动收费车道，两侧还有设信号灯的辅道。把路权范围内的所有车道都算上，横断面车道数可达二十余条。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The general corridor was chosen long before the Interstate programme existed — the 1947 selection of the national system already ran a route along this line — and the number was applied in the first Interstate numbering in 1957. Most of it was built through the 1960s and 1970s.",
+        "Then it stalled in Phoenix. Plans for the Papago Freeway were formalised in 1960, an elevated design was proposed and scrapped, and the project went to the ballot twice. Voters approved the below-grade alternative three to one in 1979 and construction finally began in 1983.",
+        "The Deck Park Tunnel opened on 10 August 1990, and with it I-10 became continuous from the Pacific to the Atlantic seaboard — the nation's second coast-to-coast Interstate, thirty-three years after it was numbered."
+      ],
+      "zh": [
+        "这条走廊的大致线位早在州际公路计划出现之前就已确定——1947 年选定国家干线系统时就已沿此线划出一条路线——编号则于 1957 年州际公路首次编号时确定。绝大部分路段建于 1960 与 1970 年代。",
+        "随后工程在凤凰城停滞。帕帕戈高速公路的规划于 1960 年正式确立，高架方案提出后又被放弃，项目两度付诸公投。1979 年，选民以三比一的比例通过了下沉式方案，工程终于在 1983 年动工。",
+        "顶盖公园隧道于 1990 年 8 月 10 日通车，I-10 由此从太平洋岸贯通至大西洋沿岸，成为全国第二条横贯两岸的州际公路——距其获得编号已过去三十三年。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$5.018 billion, the largest shares being Texas at $1.272 billion and Arizona at $1.239 billion. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "50.18 亿美元，其中占比最大的是得克萨斯 12.72 亿与亚利桑那 12.39 亿美元。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989); FHWA, Interstate 10 Arizona fact sheet"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "2,457.62 miles across 8 states",
+        "zh": "2,457.62 英里，横跨 8 个州"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Longest state section",
+        "zh": "最长的州内路段"
+      },
+      "value": {
+        "en": "Texas, 878.76 miles; Florida is second at 362.02",
+        "zh": "德克萨斯州 878.76 英里；佛罗里达州次之，362.02 英里"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Phoenix section, cost at completion",
+        "zh": "凤凰城路段造价"
+      },
+      "value": {
+        "en": "More than $500 million for 20 miles, plus $150 million in right-of-way; federal aid covered 95 per cent of construction",
+        "zh": "20 英里造价超过 5 亿美元，另有 1.5 亿美元征地费用；联邦补助承担了建设费用的 95%"
+      },
+      "source": "FHWA, Interstate 10 Arizona fact sheet"
+    },
+    {
+      "label": {
+        "en": "Papago Freeway Tunnel",
+        "zh": "帕帕戈高速公路隧道"
+      },
+      "value": {
+        "en": "More than $55 million for the structure and a further $20 million for electrical and mechanical systems; 2,887 feet of 19 side-by-side bridge decks",
+        "zh": "结构部分造价超过 5,500 万美元，机电系统另需约 2,000 万美元；全长 2,887 英尺，由 19 片并排桥面构成"
+      },
+      "source": "FHWA, Interstate 10 Arizona fact sheet"
+    },
+    {
+      "label": {
+        "en": "Katy Freeway reconstruction, Houston",
+        "zh": "休斯敦凯蒂高速重建"
+      },
+      "value": {
+        "en": "$2.79 billion; broke ground 2003 and completed October 2008",
+        "zh": "27.9 亿美元；2003 年动工，2008 年 10 月完工"
+      },
+      "source": "FHWA Center for Innovative Finance Support, Katy Freeway project profile"
+    },
+    {
+      "label": {
+        "en": "Twin Span Bridge replacement",
+        "zh": "双桥重建工程"
+      },
+      "value": {
+        "en": "$803 million in federal funds secured in 2006; delivered at about $733 million, roughly 9 per cent under budget",
+        "zh": "2006 年获得 8.03 亿美元联邦资金；实际支出约 7.33 亿美元，比预算低约 9%"
+      },
+      "source": "FHWA, Interstate 10 Louisiana fact sheet; America's Transportation Awards, 2012"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Deck Park Tunnel, Phoenix",
+        "zh": "凤凰城顶盖公园隧道"
+      },
+      "value": {
+        "en": "More than 230,000 vehicles a day, including 11,000 trucks (2015)",
+        "zh": "日均车流量超过 230,000 辆，其中卡车 11,000 辆（2015 年）"
+      },
+      "source": "FHWA, Interstate 10 Arizona fact sheet"
+    },
+    {
+      "label": {
+        "en": "Katy Freeway, before reconstruction",
+        "zh": "凯蒂高速重建前"
+      },
+      "value": {
+        "en": "Built in the 1960s for about 80,000 vehicles a day; forty years later volumes were approaching three times that, with congestion lasting up to 11 hours a day",
+        "zh": "1960 年代按日均约 80,000 辆车设计；四十年后交通量接近设计值的三倍，每日拥堵时长可达 11 小时"
+      },
+      "source": "FHWA Center for Innovative Finance Support, Katy Freeway project profile"
+    },
+    {
+      "label": {
+        "en": "Route-wide traffic volume",
+        "zh": "全线交通量"
+      },
+      "why": {
+        "en": "No agency publishes a single figure for the whole route. Counts are taken segment by segment by eight state DOTs, and volumes on this route range from urban Houston and Los Angeles down to stretches of west Texas desert. Any route-wide average would conceal more than it revealed.",
+        "zh": "没有任何机构发布全线的单一数字。交通量由八个州的交通部门按路段统计，而本路线的车流量跨度极大，从休斯敦、洛杉矶的城市段一直到西德克萨斯的沙漠路段。任何全线平均值掩盖的信息都多于它揭示的信息。"
+      }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Twin Span Bridge, damage from Hurricane Katrina",
+        "zh": "双桥在卡特里娜飓风中的损毁"
+      },
+      "value": {
+        "en": "64 spans, each weighing over 255 tons, fell into Lake Pontchartrain and 473 more were knocked out of alignment",
+        "zh": "64 片桥面（每片重逾 255 吨）坠入蓬恰特雷恩湖，另有 473 片发生错位"
+      },
+      "source": "FHWA, Interstate 10 Louisiana fact sheet"
+    },
+    {
+      "label": {
+        "en": "Twin Span Bridge, emergency reopening",
+        "zh": "双桥的紧急恢复通行"
+      },
+      "value": {
+        "en": "A $30.9 million repair bid was accepted within 12 days; two-way traffic resumed on the eastbound bridge 47 days after the storm and four lanes were restored after 130 days",
+        "zh": "3,090 万美元的抢修标在 12 天内签定；风暴后第 47 天东行桥恢复双向通行，第 130 天恢复四车道通行"
+      },
+      "source": "FHWA, Interstate 10 Louisiana fact sheet"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1957,
+      "en": "I-10 is numbered in the first Interstate numbering, from Santa Monica to Jacksonville.",
+      "zh": "州际公路首次编号，I-10 获得编号，自圣莫尼卡至杰克逊维尔。"
+    },
+    {
+      "year": 1960,
+      "en": "Plans for the Papago Freeway through Phoenix are formalised.",
+      "zh": "穿越凤凰城的帕帕戈高速公路规划正式确立。"
+    },
+    {
+      "year": 1979,
+      "en": "Phoenix voters approve the below-grade Papago alignment by three to one.",
+      "zh": "凤凰城选民以三比一的比例通过帕帕戈下沉式线位方案。"
+    },
+    {
+      "year": 1983,
+      "en": "Construction begins on the Papago Freeway and its deck park.",
+      "zh": "帕帕戈高速公路及其顶盖公园动工。"
+    },
+    {
+      "year": 1990,
+      "en": "The Deck Park Tunnel opens on 10 August, completing I-10 coast to coast.",
+      "zh": "顶盖公园隧道于 8 月 10 日通车，I-10 实现两岸贯通。"
+    },
+    {
+      "year": 2005,
+      "en": "Hurricane Katrina destroys much of the Lake Pontchartrain Twin Span Bridge.",
+      "zh": "卡特里娜飓风摧毁蓬恰特雷恩湖双桥的大部分结构。"
+    },
+    {
+      "year": 2008,
+      "en": "The rebuilt Katy Freeway opens in Houston with managed toll lanes in the median.",
+      "zh": "休斯敦重建后的凯蒂高速通车，中央分隔带内设浮动收费管理车道。"
+    },
+    {
+      "year": 2011,
+      "en": "All lanes of the new Twin Span Bridge open, months ahead of schedule.",
+      "zh": "新建双桥全部车道通车，比原计划提前数月。"
+    }
+  ]
+}

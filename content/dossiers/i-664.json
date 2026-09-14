@@ -1,0 +1,75 @@
+{
+  "id": "i-664",
+  "name": { "en": "Interstate 664", "zh": "664 号州际公路" },
+  "tagline": { "en": "A second way under Hampton Roads", "zh": "汉普顿锚地之下的第二条通道" },
+  "officialMi": 20.57,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1992,
+  "termini": {
+    "start": { "en": "I-64 at Hampton", "zh": "汉普顿，与 I-64 相接" },
+    "end": { "en": "I-64 and I-264 at Chesapeake", "zh": "切萨皮克，与 I-64 及 I-264 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-664 exists because of water. Hampton Roads is a metropolitan area split by the mouth of the James River, and until 1992 the only Interstate crossing was the Hampton Roads Bridge-Tunnel on I-64, which was chronically congested. I-664 leaves I-64 at Hampton, runs down through Newport News, crosses the harbour on the Monitor–Merrimac Memorial Bridge-Tunnel to Suffolk, and comes back to I-64 at Chesapeake. The even hundreds digit is honest: it is a loop that returns to its parent, and it completes an Interstate circuit around the region's coastal cities.",
+        "The crossing itself is 4.6 miles of composite structure — 3.2 miles of twin trestle, two artificial portal islands, and a four-lane tunnel 4,800 feet long beneath the shipping channel. It is toll-free. The name commemorates the duel between the ironclads USS Monitor and CSS Virginia, fought on 9 March 1862 about a mile from where the tunnel now runs; 1,800 residents petitioned for it, and the Virginia Transportation Board adopted the name in September 1991."
+      ],
+      "zh": [
+        "I-664 的存在源于水。汉普顿锚地是一个被詹姆斯河口切开的都会区，1992 年之前，唯一的州际跨越通道是 I-64 上的汉普顿锚地桥隧，长期拥堵。I-664 在汉普顿离开 I-64，南下穿过纽波特纽斯，经莫尼特－梅里马克纪念桥隧跨过港湾抵达萨福克，再在切萨皮克回到 I-64。偶数百位在这里是诚实的：它是一条回到母线的环线，并让该区域各沿海城市之间的州际环路得以闭合。",
+        "这段跨越本身是 4.6 英里的组合式构筑物——3.2 英里双线栈桥、两座人工洞口岛，以及航道之下一条长 4,800 英尺的四车道隧道。它不收费。名字纪念的是 1862 年 3 月 9 日铁甲舰「莫尼特」号与「弗吉尼亚」号之间的对决，交战地点距今日隧道约一英里；1,800 名居民联名请愿，弗吉尼亚州交通委员会于 1991 年 9 月采用了这个名称。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The whole of I-664 came to approximately $800 million and was built by 38 prime contractors and 231 subcontractors. The bridge-tunnel alone accounted for $400 million of that and was the largest public project in Virginia's history at the time. A seven-mile section from Chesapeake north to SR 135 in Suffolk opened after a ribbon-cutting on 17 January 1992 and cost $139 million on its own.",
+        "It ran late. VDOT announced on 4 June 1991 that the 31 December 1991 completion date could not be met, partly because the amount of steel needed for the two ventilation buildings had been underestimated and partly because of local objections to the site chosen for dredging the two islands. The crossing was dedicated by Governor L. Douglas Wilder on 29 April 1992 and opened to traffic at 12:01 a.m. the next day, with motorists who had waited hours for it queuing to be first through. AASHTO's route numbering committee did not formally approve the I-664 designation until 13 June 1992, six weeks after the road opened."
+      ],
+      "zh": [
+        "整条 I-664 的造价约 8 亿美元，由 38 家主承包商与 231 家分包商建成。仅桥隧一项就占去 4 亿美元，在当时是弗吉尼亚州史上最大的公共工程。自切萨皮克北至萨福克 SR 135 的七英里路段，在 1992 年 1 月 17 日剪彩后通车，单独造价 1.39 亿美元。",
+        "工期延后了。弗吉尼亚州交通部于 1991 年 6 月 4 日宣布，1991 年 12 月 31 日的完工期无法达成，一部分原因是两座通风楼所需钢材量估算不足，另一部分是当地对两座人工岛取砂疏浚选址的反对。跨越工程由州长 L·道格拉斯·怀尔德于 1992 年 4 月 29 日主持落成，次日零时一分对交通开放，等了几个小时的司机排队争当第一个通过的人。美国州公路及运输工作者协会的路线编号委员会直到 1992 年 6 月 13 日才正式批准 I-664 这个编号，比通车晚了六周。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "20.57 miles, entirely in Virginia", "zh": "20.57 英里，全线位于弗吉尼亚州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Total cost", "zh": "总造价" },
+      "value": { "en": "Approximately $800 million for the whole route, built by 38 prime contractors and 231 subcontractors", "zh": "全线约 8 亿美元，由 38 家主承包商与 231 家分包商建成" },
+      "source": "Virginia Department of Transportation bulletin, 1992"
+    },
+    {
+      "label": { "en": "Monitor–Merrimac Memorial Bridge-Tunnel", "zh": "莫尼特－梅里马克纪念桥隧" },
+      "value": { "en": "$400 million for 4.6 miles including a 4,800-foot tunnel and two artificial islands", "zh": "4.6 英里共 4 亿美元，含 4,800 英尺隧道与两座人工岛" },
+      "source": "Virginia Department of Transportation bulletin, 1992"
+    },
+    {
+      "label": { "en": "Suffolk to Chesapeake section", "zh": "萨福克至切萨皮克段" },
+      "value": { "en": "$139 million for seven miles, opened 17 January 1992", "zh": "七英里造价 1.39 亿美元，1992 年 1 月 17 日通车" },
+      "source": "Richmond Times-Dispatch, 18 January 1992"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic in the first months", "zh": "通车首几个月交通量" },
+      "value": { "en": "22,460 vehicles a day in May 1992, rising to 31,580 by August 1992", "zh": "1992 年 5 月每日 22,460 辆，至 8 月升至 31,580 辆" },
+      "source": "Virginia General Assembly Senate Document No. 20, 1993"
+    },
+    {
+      "label": { "en": "Relief to the older crossing", "zh": "对旧通道的缓解效果" },
+      "value": { "en": "Fewer than 6,000 vehicles a day were drawn off the Hampton Roads Bridge-Tunnel in 1992", "zh": "1992 年从汉普顿锚地桥隧分流走的车辆每日不足 6,000 辆" },
+      "source": "Virginia General Assembly Senate Document No. 20, 1993"
+    }
+  ],
+  "timeline": [
+    { "year": 1990, "en": "The elevated approach from the tunnel to Suffolk is finished in August.", "zh": "自隧道至萨福克的高架引道于 8 月完工。" },
+    { "year": 1991, "en": "VDOT announces in June that the December completion date cannot be met.", "zh": "弗吉尼亚州交通部于 6 月宣布 12 月完工期无法达成。" },
+    { "year": 1992, "en": "The bridge-tunnel opens at 12:01 a.m. on 30 April, completing the route.", "zh": "桥隧于 4 月 30 日零时一分通车，全线建成。" }
+  ]
+}

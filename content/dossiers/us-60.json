@@ -1,0 +1,79 @@
+{
+  "id": "us-60",
+  "name": { "en": "U.S. Route 60", "zh": "60 号美国国道" },
+  "tagline": { "en": "The number Kentucky fought for, and the road that created US 66", "zh": "肯塔基力争来的编号，也造就了 US 66" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "Interstate 10 southwest of Brenda, Arizona", "zh": "亚利桑那州布伦达西南，与 10 号州际公路相接" },
+    "end": { "en": "General Booth Boulevard at Rudee Point, Virginia Beach, Virginia", "zh": "弗吉尼亚州弗吉尼亚海滩鲁迪角，布思将军大道" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 60 runs from the Atlantic at Virginia Beach to a junction with I-10 in the Arizona desert, and it is a different road in each third. In the east it is Virginia's old main street — Williamsburg, Richmond, Lynchburg, Lexington — then climbs into West Virginia on the Midland Trail through White Sulphur Springs and down the New and Kanawha valleys to Charleston and Huntington. Through Kentucky it is the road along the Ohio River side of the state, taking in Ashland, Lexington, Louisville and Paducah.",
+        "West of the Mississippi it flattens: the Missouri Bootheel, Poplar Bluff, Springfield, then northeastern Oklahoma through Bartlesville and the Osage, and the Texas Panhandle to Amarillo. New Mexico is where it becomes genuinely remote — Fort Sumner, Vaughn, Socorro, and then the Plains of San Agustin, where the road runs past the dish antennas of the Very Large Array, and on through Pie Town and Quemado. In Arizona it crosses the White Mountains, drops through the Salt River Canyon and the copper towns of Globe and Superior into Phoenix, and expires in the desert beyond Wickenburg."
+      ],
+      "zh": [
+        "US 60 自弗吉尼亚海滩的大西洋岸，通往亚利桑那沙漠中与 I-10 的交叉口；它的三段各是一条不同的路。东段是弗吉尼亚的老主街——威廉斯堡、里士满、林奇堡、列克星敦——随后沿米德兰小道爬入西弗吉尼亚，经白硫磺泉，顺新河与卡诺瓦河谷而下抵查尔斯顿与亨廷顿。穿过肯塔基时，它是该州靠俄亥俄河一侧的那条路，途经阿什兰、列克星敦、路易斯维尔与帕迪尤卡。",
+        "密西西比河以西，地势转平：密苏里靴跟区、波普拉布拉夫、斯普林菲尔德，接着是经巴特尔斯维尔与奥色治地区的俄克拉何马东北部，再横穿得克萨斯锅柄地带至阿马里洛。真正变得荒远是在新墨西哥——福特萨姆纳、沃恩、索科罗，随后进入圣阿古斯丁平原，公路从甚大天线阵的碟形天线旁经过，再穿过派镇与克马多。在亚利桑那，它翻越白山，经盐河峡谷与格洛布、休皮里尔两座铜矿城镇下抵凤凰城，最后消失在威肯堡以外的沙漠中。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "US 60 is the reason US 66 has that number. The Joint Board's Committee of Five gave \"60\" to a crescent route from Chicago to Los Angeles, even though a multiple of ten was supposed to mean a transcontinental east–west road. The Federal Highway Administration's own history notes that three of the states the crescent passed through were represented on the committee, which made the exception look suspicious and produced the most contentious fight over the whole numbering plan.",
+        "Kentucky's governor, William J. Fields, objected that his state would be the only one in the Mississippi Valley without a major multiple-of-ten route, and took the argument to AASHO's chairman in person in January 1926. A compromise that would have split the number into 60N from Springfield to Chicago and 60E from Springfield to Virginia Beach satisfied nobody. In the end Oklahoma's Cyrus Avery and his allies agreed to give Kentucky \"60\" provided the Chicago–Los Angeles road got \"66\" rather than \"62.\" The system was approved on that basis on 11 November 1926, with US 60 running from Springfield, Missouri, to Virginia Beach.",
+        "It then grew and shrank. AASHO extended US 60 west from Springfield to Los Angeles on 8 June 1931, making it a genuine coast-to-coast route. California's 1964 renumbering removed the designation from the state: I-10 took the road from Beaumont east to Arizona, State Route 60 took the Los Angeles-to-Beaumont section, and US 60 was cut back to its present end near Brenda."
+      ],
+      "zh": [
+        "US 66 之所以叫这个号，原因就在 US 60。联合委员会的「五人委员会」把「60」给了一条自芝加哥通往洛杉矶的弧形线路，尽管以 10 的倍数编号本应意味着一条横贯东西的公路。联邦公路管理局自己的史志指出，这条弧线经过的各州中有三个州在该委员会中有代表，这让例外显得可疑，并引发了整个编号方案中最激烈的争执。",
+        "肯塔基州州长威廉·J·菲尔兹提出抗议，称该州将成为密西西比河流域唯一没有以 10 为尾数的主要路线的州，并于 1926 年 1 月亲自向 AASHO 主席陈情。曾有一个折中方案，把该编号拆为斯普林菲尔德至芝加哥的 60N 与斯普林菲尔德至弗吉尼亚海滩的 60E，结果双方都不接受。最终，俄克拉何马的赛勒斯·艾弗里及其同盟同意把「60」让给肯塔基，条件是芝加哥—洛杉矶之路取得「66」而非「62」。1926 年 11 月 11 日，系统即以此为基础获批，US 60 自密苏里州斯普林菲尔德通往弗吉尼亚海滩。",
+        "此后它先长后短。1931 年 6 月 8 日，AASHO 把 US 60 自斯普林菲尔德西延至洛杉矶，使其成为真正横贯两岸的路线。加州 1964 年重新编号把该编号从州内撤除：博蒙特以东至亚利桑那的路段划归 I-10，洛杉矶至博蒙特段改为 60 号州道，US 60 则被收回至今日布伦达附近的端点。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The eastern half is an unusually good sequence of old road. Virginia's section passes through the colonial capital at Williamsburg and the Blue Ridge at the Lexington gap; West Virginia's is the Midland Trail, the transcontinental auto trail that the Midland Trail Association laid out after its route was rejected for the Lincoln Highway, and which still gives the road its name on state signs.",
+        "The New Mexico section is the one worth planning for. Between Socorro and Quemado the highway crosses the Plains of San Agustin, a high basin chosen for radio astronomy precisely because nothing else is there; the Very Large Array's antennas are moved along railway tracks beside the road. Beyond it is Pie Town, named after a 1920s roadside business and now home to a few dozen people, and then eighty-odd miles of continental divide country before Arizona."
+      ],
+      "zh": [
+        "东半段是一串难得完整的老路。弗吉尼亚段穿过威廉斯堡的殖民地首府旧址，并在列克星敦一带穿越蓝岭；西弗吉尼亚段则是米德兰小道——该线路在竞逐林肯公路落选后，由米德兰小道协会自行规划成一条横贯大陆的命名汽车道，至今仍以此名出现在该州的路牌上。",
+        "新墨西哥段最值得专程安排。索科罗与克马多之间，公路横穿圣阿古斯丁平原；这片高原盆地被选作射电天文台址，恰恰因为那里别无他物——甚大天线阵的天线沿公路旁的铁轨移动。再往西是派镇，其名源自 1920 年代的一家路边铺子，如今只有数十位居民；此后还有八十余英里的大陆分水岭地带，才进入亚利桑那。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No figure exists. US 60 was numbered in 1926 over roads the states had already built, extended in 1931 over more of the same, and rebuilt piecemeal by ten states since.", "zh": "没有这样的数据。US 60 于 1926 年沿各州已建成的道路编号，1931 年的延伸同样如此，此后由 10 个州分段陆续改建。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "why": { "en": "No authoritative current figure exists. AASHTO leaves U.S. Route mileage to the states and last published a national log in 1989; US 60 lost its whole California section in 1964 and has been rerouted around many cities since.", "zh": "目前没有权威数据。AASHTO 把美国国道里程交由各州统计，最后一份全国里程表发布于 1989 年；US 60 于 1964 年失去整个加州段，此后又多次改线绕开城市。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "What was at stake in 1926", "zh": "1926 年之争的赌注" },
+      "value": { "en": "Kentucky had about 20,000 registered cars in 1915, 127,000 by 1921 and more than 233,000 by 1925, the year the national numbering map was drawn", "zh": "肯塔基州 1915 年约有 2 万辆注册汽车，1921 年增至 12.7 万辆，到绘制全国编号图的 1925 年已超过 23.3 万辆" },
+      "source": "The Register of the Kentucky Historical Society, vol. 113, no. 1, Winter 2015"
+    },
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Ten state agencies count their own segments. US 60 is a Phoenix freeway at one end and a two-lane road across the Plains of San Agustin in the middle; no combined figure is published.", "zh": "10 个州的机构各自统计本州路段。US 60 一端是凤凰城的高速公路，中段则是横穿圣阿古斯丁平原的双车道公路；并无合并数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Current pavement and bridge condition", "zh": "当前路面与桥梁状况" },
+      "why": { "en": "Condition data are reported to the Federal Highway Administration by state and functional class rather than by U.S. Route number, so no route-level rating exists for US 60.", "zh": "路况数据按州与功能等级、而非按美国国道编号上报联邦公路管理局，因此不存在针对 US 60 的全线评级。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "After Kentucky's objection, AASHO gives \"60\" to the Springfield–Virginia Beach route and \"66\" to the Chicago–Los Angeles road; the system is approved on 11 November.", "zh": "在肯塔基州提出异议后，AASHO 把「60」给了斯普林菲尔德—弗吉尼亚海滩线，把「66」给了芝加哥—洛杉矶线；11 月 11 日系统获批。" },
+    { "year": 1931, "en": "US 60 is extended west from Springfield to Los Angeles on 8 June.", "zh": "6 月 8 日，US 60 自斯普林菲尔德西延至洛杉矶。" },
+    { "year": 1964, "en": "California's renumbering removes US 60 from the state; the route is cut back to Brenda, Arizona.", "zh": "加州重新编号将 US 60 从州内撤除，本路线被收回至亚利桑那州布伦达。" }
+  ]
+}

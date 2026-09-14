@@ -1,0 +1,184 @@
+{
+  "id": "i-37",
+  "name": {
+    "en": "Interstate 37",
+    "zh": "37 号州际公路"
+  },
+  "tagline": {
+    "en": "San Antonio to the Gulf through the brush country",
+    "zh": "自圣安东尼奥穿越灌丛原野直抵墨西哥湾"
+  },
+  "officialMi": 143.15,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1959,
+  "completedYear": 1981,
+  "termini": {
+    "start": {
+      "en": "US 181 near the harbour in Corpus Christi, Texas",
+      "zh": "得克萨斯州科珀斯克里斯蒂港区附近，接 US 181"
+    },
+    "end": {
+      "en": "Interstate 35 in San Antonio, Texas",
+      "zh": "得克萨斯州圣安东尼奥，与 I-35 相接"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-37 is one of the handful of Interstates that never leave Texas, and it serves only two cities of any size: Corpus Christi at the Gulf end and San Antonio at the other. In between it crosses the South Texas brush country — mesquite, live oak, ranchland, the Choke Canyon reservoir — past Mathis, Three Rivers and Pleasanton, none of which it enters.",
+        "It replaced two older roads: State Highway 9 from Corpus Christi up to Three Rivers, and US 281 from there into San Antonio. The old highways still exist alongside much of it.",
+        "Its most important job is one it only does occasionally. I-37 is the evacuation route out of Corpus Christi, and the design of its recent reconstruction is built around that — extra lanes, wider shoulders, higher bridges — rather than around daily commuting. In San Antonio the road carries two honorary names, for the Medal of Honor recipients Lucian Adams and William J. Bordelon, applied in 1994; before that it was simply the Southeast Expressway."
+      ],
+      "zh": [
+        "I-37 属于少数从不离开得克萨斯的州际公路之一，且只服务两座有规模的城市：墨西哥湾一端的科珀斯克里斯蒂，与另一端的圣安东尼奥。两者之间，它横穿南得州的灌丛原野——牧豆树、活栎、牧场、乔克峡谷水库——途经马西斯、三河镇与普莱森顿，却都不进城。",
+        "它取代了两条更早的道路：自科珀斯克里斯蒂北上三河镇的 SH 9，以及自那里通往圣安东尼奥的 US 281。这两条旧干线在很长区间里依然与它并存。",
+        "它最重要的职责只是偶尔履行。I-37 是科珀斯克里斯蒂的撤离通道，而它近年改建的设计正是围绕这一点展开——增设车道、加宽路肩、抬高桥梁——而非围绕日常通勤。在圣安东尼奥，这条路有两个荣誉名称，纪念荣誉勋章获得者卢西安·亚当斯与威廉·J·博德隆，1994 年命名；此前它只叫「东南快速路」。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The corridor was first proposed in 1956 as a route for US 181, added to the national Interstate system in 1957 and given the number I-37 by the Texas Transportation Commission on 1 October 1959. Nothing was built for two more years.",
+        "Construction started at the Gulf end. Ground was broken in Corpus Christi on 10 October 1961 on a stretch under a mile long; the first bridge — Staples Street over the freeway — opened in September 1962, and the first section of road in May 1963. The freeway then crept west and north through the 1960s in increments of one or two miles at a time.",
+        "In San Antonio the road was in the city's 1956 expressway plan but arguments about its routing near Brooks Air Force Base held it up until the mid-1960s. The first segments opened in 1968, in time for HemisFair; the right-of-way downtown was paved and used as a car park for the fair before it became a freeway. The last rural gap, from Oakville north to US 281, opened in October 1981, twenty-two years after the number was assigned."
+      ],
+      "zh": [
+        "这条走廊最初于 1956 年作为 US 181 的线路被提出，1957 年纳入国家州际公路系统，并由得州交通委员会于 1959 年 10 月 1 日定编为 I-37。此后两年仍无工程动工。",
+        "施工从墨西哥湾一端开始。1961 年 10 月 10 日在科珀斯克里斯蒂为一段不足一英里的路基破土；首座桥梁——斯泰普尔斯街跨高速桥——于 1962 年 9 月通车，第一段路面于 1963 年 5 月通车。此后整个 1960 年代，这条高速以每次一两英里的幅度缓缓向西、向北推进。",
+        "在圣安东尼奥，这条路早已列入该市 1956 年的快速路规划，但关于布鲁克斯空军基地附近线位的争论使其搁置到 1960 年代中期。首批路段于 1968 年通车，赶上了半球博览会；市中心的路权用地先是铺装后作为博览会停车场，之后才成为高速公路。最后一处乡村缺口——自奥克维尔北至 US 281——于 1981 年 10 月通车，距编号授予已过二十二年。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "Until recently the southbound crossing of the Nueces River at the Corpus Christi end was a bridge built in 1933 for US 77, long before the Interstate existed; the northbound span dated from 1958, when that highway was widened to four lanes. An evacuation route for a coastal city was running on Depression-era and Eisenhower-era structures.",
+        "The current reconstruction addresses that directly. TxDOT is replacing the river bridges and rebuilding about three miles of the road from south of Redbird Lane to the US 77 interchange, widening the main lanes to eight, adding a dedicated hurricane evacuation lane and wider shoulders, and setting the new bridges five feet higher than the old ones to cope with storm surge and flooding.",
+        "The work also untangles the US 77 junction at Calallen — itself only built between 1988 and 1991 — with a reconstructed northbound direct connector, new ramps, and better clearance at the overpasses."
+      ],
+      "zh": [
+        "直到不久之前，科珀斯克里斯蒂一端跨越纽埃西斯河的南行桥梁还是 1933 年为 US 77 修建的，远早于州际公路的出现；北行桥跨则建于 1958 年，当时那条干线扩为四车道。一座沿海城市的撤离通道，一直依靠大萧条时代与艾森豪威尔时代的结构物运行。",
+        "当前的改建直接解决了这个问题。得州交通部正在更换跨河桥梁，并重建自红鸟巷以南至 US 77 立交约三英里的道路：主线拓宽至八车道，增设专用的飓风撤离车道与更宽的路肩，并将新桥比旧桥抬高五英尺，以应对风暴潮与洪水。",
+        "工程同时理顺了卡拉伦的 US 77 枢纽——那处枢纽本身也只是在 1988 至 1991 年间建成的——重建了北行直连匝道、新建匝道，并改善了跨线桥的净空。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$260.3 million, all in Texas. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "2.603 亿美元，全部在得克萨斯。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "143.15 miles, entirely within Texas",
+        "zh": "143.15 英里，全线位于得克萨斯州境内"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Nueces River Bridge reconstruction",
+        "zh": "纽埃西斯河大桥改建"
+      },
+      "value": {
+        "en": "$85.7 million for about three miles, begun in September 2021 in four phases, with completion estimated at the end of 2026",
+        "zh": "约三英里造价 8,570 万美元，2021 年 9 月分四期动工，预计 2026 年底完工"
+      },
+      "source": "Texas DOT, reported by the Corpus Christi Caller-Times, August 2021, and TxDOT construction notices, 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Route-wide traffic volume",
+        "zh": "全线交通量"
+      },
+      "why": {
+        "en": "TxDOT publishes counts station by station through its Statewide Traffic Analysis and Reporting System rather than as a route average, and this road's range is wide: urban volumes at both ends, ranch country in the middle, and evacuation peaks that no annual average captures.",
+        "zh": "得州交通部通过其全州交通分析与报告系统按观测站发布计数，而非给出路线平均值；而这条路的差异很大：两端是城市流量，中段是牧场地带，撤离高峰更是任何年均值都无法体现的。"
+      }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Age of the Nueces River crossings",
+        "zh": "纽埃西斯河跨河桥龄"
+      },
+      "value": {
+        "en": "The southbound span was built in 1933 for US 77 and the northbound span in 1958; both are being replaced under the current project",
+        "zh": "南行桥跨建于 1933 年（为 US 77 而建），北行桥跨建于 1958 年；两者均在当前工程中更换"
+      },
+      "source": "Texas bridge records, as compiled in Interstate 37, Wikipedia"
+    },
+    {
+      "label": {
+        "en": "New bridge elevation",
+        "zh": "新桥标高"
+      },
+      "value": {
+        "en": "Five feet higher than the bridges they replace, to manage storm surge and keep the evacuation route open during storms",
+        "zh": "比所取代的桥梁高出五英尺，以应对风暴潮并在风暴期间保持撤离通道畅通"
+      },
+      "source": "Texas DOT, reported by the Corpus Christi Caller-Times, August 2021"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1956,
+      "en": "The route is first proposed, as an alignment for US 181, and appears in San Antonio's expressway plan.",
+      "zh": "该线路首次以 US 181 线位的形式提出，并出现在圣安东尼奥的快速路规划中。"
+    },
+    {
+      "year": 1957,
+      "en": "The San Antonio–Corpus Christi corridor is added to the national Interstate system.",
+      "zh": "圣安东尼奥—科珀斯克里斯蒂走廊纳入国家州际公路系统。"
+    },
+    {
+      "year": 1959,
+      "en": "The Texas Transportation Commission authorises the I-37 designation on 1 October.",
+      "zh": "10 月 1 日，得州交通委员会核定 I-37 编号。"
+    },
+    {
+      "year": 1961,
+      "en": "Ground is broken in Corpus Christi on 10 October.",
+      "zh": "10 月 10 日在科珀斯克里斯蒂破土动工。"
+    },
+    {
+      "year": 1963,
+      "en": "The first section of freeway opens in Corpus Christi in May.",
+      "zh": "5 月，科珀斯克里斯蒂首段高速通车。"
+    },
+    {
+      "year": 1968,
+      "en": "The first San Antonio segments open in time for HemisFair.",
+      "zh": "圣安东尼奥首批路段赶在半球博览会前通车。"
+    },
+    {
+      "year": 1981,
+      "en": "The last gap, Oakville north to US 281, opens in October, completing the route.",
+      "zh": "最后一处缺口——奥克维尔北至 US 281——于 10 月通车，全线贯通。"
+    },
+    {
+      "year": 1991,
+      "en": "The I-37 / US 77 interchange at Calallen is completed in November.",
+      "zh": "11 月，卡拉伦的 I-37 与 US 77 立交建成。"
+    },
+    {
+      "year": 2021,
+      "en": "Reconstruction of the Nueces River crossing begins in September.",
+      "zh": "9 月，纽埃西斯河跨河段改建动工。"
+    }
+  ]
+}

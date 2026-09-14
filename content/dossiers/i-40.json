@@ -1,0 +1,267 @@
+{
+  "id": "i-40",
+  "name": {
+    "en": "Interstate 40",
+    "zh": "40 号州际公路"
+  },
+  "tagline": {
+    "en": "Barstow to Wilmington, and the ghost of Route 66",
+    "zh": "从巴斯托到威尔明顿，与 66 号公路的幽影"
+  },
+  "officialMi": 2552.9,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1957,
+  "completedYear": 1990,
+  "termini": {
+    "start": {
+      "en": "Interstate 15 at Barstow, California",
+      "zh": "加利福尼亚州巴斯托，与 I-15 相接"
+    },
+    "end": {
+      "en": "US 117 / NC 132 in Wilmington, North Carolina",
+      "zh": "北卡罗来纳州威尔明顿，US 117 与 NC 132 交汇处"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-40 runs from the Mojave Desert to the Atlantic coast of North Carolina, the third-longest Interstate and one of only two that cross eight states. West of Oklahoma City it follows, parallels or simply paves over US Route 66, and much of the mythology of that older road has attached itself to the newer one.",
+        "The western half is high, dry and empty: the Mojave, the Colorado Plateau at Flagstaff, the New Mexico mesas, the Texas Panhandle. The middle is agricultural and riverine, crossing the Mississippi at Memphis. The eastern half climbs into the Appalachians, where the descent through the Pigeon River Gorge on the Tennessee–North Carolina line is the most landslide-prone stretch on the route, then runs out across the Piedmont through Greensboro and Raleigh before ending, almost incongruously, at a traffic light on the edge of Wilmington.",
+        "Tennessee holds the longest state section and California the shortest, which is a reasonable summary of the road's centre of gravity: it is a southern and mid-southern route that happens to begin in a California desert."
+      ],
+      "zh": [
+        "I-40 自莫哈韦沙漠一路通往北卡罗来纳的大西洋岸，是第三长的州际公路，也是仅有的两条穿越八个州的路线之一。俄克拉何马城以西，它沿着、平行于、或干脆覆盖在 US 66 之上，那条老路的许多传奇也因此转移到了这条新路身上。",
+        "西半段高、干、空旷：莫哈韦沙漠、弗拉格斯塔夫一带的科罗拉多高原、新墨西哥的台地、德克萨斯狭长地带。中段则是农业与河流地带，在孟菲斯跨越密西西比河。东半段爬入阿巴拉契亚山脉，田纳西与北卡州界处穿越鸽河峡谷的下坡是全线最易发生滑坡的路段；随后一路穿出皮德蒙特台地，经格林斯伯勒和罗利，最后略显突兀地终止于威尔明顿边缘的一处红绿灯。",
+        "田纳西州拥有最长的州内路段，加利福尼亚州最短，这大致概括了这条路的重心所在：它本质上是一条南部与中南部的路线，只是起点恰好落在加州的沙漠里。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "I-40 was authorised by the Federal-Aid Highway Act of 1956 between Barstow and Greensboro, and numbered in the first Interstate numbering in 1957. The first Interstate-funded construction anywhere on the route took place in Haywood County, North Carolina, and the state's first completed stretch of Interstate was I-40 on the East–West Expressway in Winston-Salem.",
+        "The road's eastern end kept moving. North Carolina won approval to extend I-40 to I-95 in 1969, and approval to carry it all the way to the coast at Wilmington in 1984. That last extension was contested for years — Senator Jesse Helms led the opposition, and it took a change of governor before construction moved.",
+        "The final segment, connecting Raleigh to Wilmington, was dedicated on 29 June 1990. A sign was erected at the eastern end giving the distance to Barstow; it was stolen so often that the state stopped replacing it in 2009. The last construction on the route was the rerouting of I-40 around Winston-Salem in 1992."
+      ],
+      "zh": [
+        "I-40 由 1956 年《联邦资助公路法》授权，范围自巴斯托至格林斯伯勒，并在 1957 年州际公路首次编号时获得编号。全线最早动用州际公路资金的施工发生在北卡罗来纳州海伍德县，而该州第一段建成的州际公路正是温斯顿-塞勒姆东西快速路上的 I-40。",
+        "这条路的东端位置一再变动。北卡罗来纳于 1969 年获准将 I-40 延伸至 I-95，又于 1984 年获准将其一路延伸至海岸边的威尔明顿。最后这段延伸争议多年——参议员杰西·赫尔姆斯领导了反对意见，直到州长换届工程才得以推进。",
+        "连接罗利与威尔明顿的最后一段于 1990 年 6 月 29 日举行通车仪式。东端曾立起一块标注至巴斯托距离的路牌，但因屡遭盗窃，州政府自 2009 年起不再补立。全线最后一项新建工程是 1992 年 I-40 绕行温斯顿-塞勒姆的改线。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Building the route was accounted for at the time; undoing part of it was not. I-40 carries one of the clearest examples in the system of what it costs to reverse a bad 1960s decision. The Crosstown Expressway carried I-40 across downtown Oklahoma City on an elevated structure that became the longest structurally deficient bridge in the state; a crack was found in a pier beam in 1989, and inspection and maintenance alone ran over a million dollars a year.",
+        "Rather than replace it in place, Oklahoma moved the highway. A new ten-lane alignment was built about five blocks south, at ground level and partly below it, and traffic was switched over in early 2012. The old elevated road was demolished and its footprint became a city boulevard — a second project with its own budget."
+      ],
+      "zh": [
+        "修建这条路线在当年是有账可查的，而拆掉其中一段却没有。I-40 提供了全系统中最清楚的例证之一：纠正一个 1960 年代的错误决策要花多少钱。横城快速路以高架形式把 I-40 架过俄克拉何马城市中心，这座高架后来成为该州最长的结构缺陷桥梁；1989 年在一根桥墩横梁上发现裂缝，仅检测与养护一项每年就超过一百万美元。",
+        "俄克拉何马没有原址重建，而是把整条高速搬走。新建的十车道线位位于原址以南约五个街区处，采用地面及部分地下的形式，2012 年初完成交通转换。原高架道路随后拆除，其路基改建为一条城市林荫大道——这又是一个有独立预算的工程。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "On 11 May 2021 a contracted inspector working under the deck of the Hernando de Soto Bridge at Memphis found that a critical steel tie girder had fractured. Two of the four plates that made up the box member had broken through completely and a third was partly gone; on a tied-arch bridge that member is not redundant. The inspector telephoned 911 and had the bridge closed on the spot.",
+        "River traffic resumed after three days. Vehicles did not: the crossing stayed shut for eighty-three days while contractors plated the fracture, cut out the damaged section and then reinforced seventeen further locations where the original welds showed signs of weakness. All I-40 traffic across the Mississippi was pushed onto the older and narrower I-55 bridge three miles south.",
+        "Metallurgical analysis traced the fracture to two wide, poorly executed weld repairs made during the bridge's original fabrication in the late 1960s — a defect that had been sitting in the structure, photographed and unnoticed, for decades."
+      ],
+      "zh": [
+        "2021 年 5 月 11 日，一名受委托的检测人员在孟菲斯埃尔南多·德索托大桥桥面下方作业时，发现一根关键的钢系杆已经断裂。构成该箱形构件的四块钢板中有两块完全断开，第三块也部分断裂；对系杆拱桥而言，这一构件并无冗余。检测人员当即拨打 911，桥梁随即封闭。",
+        "河道通航三天后恢复，车辆通行则没有：这处渡口关闭了八十三天，承包商在此期间对断裂处加设钢板、切除受损段落，随后又对另外十七处原始焊缝显现薄弱迹象的位置进行加固。跨密西西比河的 I-40 交通全部被迫转移到南侧三英里处那座更老、更窄的 I-55 大桥。",
+        "金相分析将断裂原因追溯至桥梁 1960 年代末原始加工时两处宽大且施工粗劣的补焊——这一缺陷在结构中潜伏了数十年，甚至被拍进过照片，却始终无人察觉。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$3.393 billion — North Carolina $887.4 million, Tennessee $826.4 million, Arizona $468.5 million, New Mexico $430.1 million, Oklahoma $252.7 million, Arkansas $235.7 million, Texas $181.4 million, California $111.0 million. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "33.93 亿美元——北卡罗来纳 8.874 亿、田纳西 8.264 亿、亚利桑那 4.685 亿、新墨西哥 4.301 亿、俄克拉何马 2.527 亿、阿肯色 2.357 亿、得克萨斯 1.814 亿、加利福尼亚 1.110 亿美元。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "2,552.90 miles across 8 states",
+        "zh": "2,552.90 英里，横跨 8 个州"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Longest state section",
+        "zh": "最长的州内路段"
+      },
+      "value": {
+        "en": "Tennessee, 455.44 miles; North Carolina is second at 420.06",
+        "zh": "田纳西州 455.44 英里；北卡罗来纳州次之，420.06 英里"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Shortest state section",
+        "zh": "最短的州内路段"
+      },
+      "value": {
+        "en": "California, 154.46 miles",
+        "zh": "加利福尼亚州，154.46 英里"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "I-40 Crosstown relocation, Oklahoma City",
+        "zh": "俄克拉何马城横城快速路改线"
+      },
+      "value": {
+        "en": "$688 million; construction began 2005 and the new alignment opened to eastbound traffic on 5 January 2012",
+        "zh": "6.88 亿美元；2005 年动工，新线位于 2012 年 1 月 5 日对东行车辆开放"
+      },
+      "source": "The Oklahoman, January 2012; Oklahoma DOT, I-40 Crosstown project timeline"
+    },
+    {
+      "label": {
+        "en": "Original Crosstown bridge",
+        "zh": "原横城高架桥"
+      },
+      "value": {
+        "en": "Built for $12.25 million; inspection and maintenance later cost more than $1 million a year",
+        "zh": "建造费用 1,225 万美元；后期检测与养护费用每年超过 100 万美元"
+      },
+      "source": "Office of the Governor of Oklahoma, press release, January 2012; The Oklahoman, January 2012"
+    },
+    {
+      "label": {
+        "en": "Oklahoma City Boulevard, built in the old I-40 footprint",
+        "zh": "沿原 I-40 路基新建的俄克拉何马城林荫大道"
+      },
+      "value": {
+        "en": "About $120 million for 1.6 miles, including the connections back to I-40, I-35 and I-235",
+        "zh": "1.6 英里造价约 1.2 亿美元，含与 I-40、I-35、I-235 的衔接工程"
+      },
+      "source": "Oklahoma DOT, I-40 Crosstown project page"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Oklahoma City Crosstown, design volumes",
+        "zh": "俄克拉何马城横城段设计交通量"
+      },
+      "value": {
+        "en": "The old elevated road was designed for 76,000 vehicles a day and was carrying as many as 125,000; the replacement is designed for 173,000",
+        "zh": "旧高架按日均 76,000 辆车设计，实际车流量最高达 125,000 辆；新建道路的设计流量为 173,000 辆"
+      },
+      "source": "Office of the Governor of Oklahoma, press release, January 2012"
+    },
+    {
+      "label": {
+        "en": "Hernando de Soto Bridge, traffic displaced by the 2021 closure",
+        "zh": "2021 年封桥期间转移的埃尔南多·德索托大桥交通量"
+      },
+      "value": {
+        "en": "More than 40,000 vehicles a day were rerouted, mostly onto the I-55 bridge",
+        "zh": "每日逾 40,000 辆车被迫改道，多数转往 I-55 大桥"
+      },
+      "source": "Arkansas Democrat-Gazette, July 2021"
+    },
+    {
+      "label": {
+        "en": "Route-wide traffic volume",
+        "zh": "全线交通量"
+      },
+      "why": {
+        "en": "Traffic counts are published per segment by eight state DOTs and vary by more than an order of magnitude along the route, from the Mojave Desert to urban Nashville and Raleigh. No agency publishes a route-wide figure.",
+        "zh": "交通量由八个州的交通部门按路段发布，全线差异超过一个数量级——从莫哈韦沙漠到纳什维尔、罗利的城市段。没有任何机构发布全线数字。"
+      }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Hernando de Soto Bridge, 2021 repair",
+        "zh": "埃尔南多·德索托大桥 2021 年抢修"
+      },
+      "value": {
+        "en": "$9.7 million total, split between Tennessee and Arkansas, over an 83-day closure; eastbound lanes reopened 31 July and westbound 2 August 2021",
+        "zh": "总计 970 万美元，由田纳西与阿肯色两州分摊，封闭时间共 83 天；东行车道于 2021 年 7 月 31 日、西行车道于 8 月 2 日恢复通行"
+      },
+      "source": "Tennessee DOT, State Bridge Engineer presentation on the emergency repair of the Hernando de Soto Bridge, 2021"
+    },
+    {
+      "label": {
+        "en": "Hernando de Soto Bridge, structure",
+        "zh": "埃尔南多·德索托大桥结构"
+      },
+      "value": {
+        "en": "Two continuous tied-arch spans of 900 feet each, 109 feet above the water, opened 2 August 1973",
+        "zh": "两跨连续系杆拱，每跨 900 英尺，桥面高出水面 109 英尺，1973 年 8 月 2 日通车"
+      },
+      "source": "Tennessee DOT, State Bridge Engineer presentation on the emergency repair of the Hernando de Soto Bridge, 2021"
+    },
+    {
+      "label": {
+        "en": "Economic cost of the 2021 closure",
+        "zh": "2021 年封桥的经济代价"
+      },
+      "value": {
+        "en": "More than $120 million to the trucking industry, as estimated by the Arkansas Trucking Association",
+        "zh": "阿肯色卡车运输协会估算，货运业损失超过 1.2 亿美元"
+      },
+      "source": "Arkansas Trucking Association, quoted in the Arkansas Democrat-Gazette, July 2021"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1957,
+      "en": "I-40 is numbered in the first Interstate numbering, from Barstow to Greensboro.",
+      "zh": "州际公路首次编号，I-40 获得编号，自巴斯托至格林斯伯勒。"
+    },
+    {
+      "year": 1958,
+      "en": "The East–West Expressway in Winston-Salem becomes North Carolina's first completed Interstate section, as part of I-40.",
+      "zh": "温斯顿-塞勒姆东西快速路作为 I-40 的一部分，成为北卡罗来纳州首段建成的州际公路。"
+    },
+    {
+      "year": 1969,
+      "en": "North Carolina wins approval to extend I-40 east to I-95.",
+      "zh": "北卡罗来纳获准将 I-40 向东延伸至 I-95。"
+    },
+    {
+      "year": 1984,
+      "en": "The Federal Highway Administration approves extending I-40 to Wilmington.",
+      "zh": "联邦公路管理局批准将 I-40 延伸至威尔明顿。"
+    },
+    {
+      "year": 1990,
+      "en": "The final Raleigh–Wilmington section is dedicated on 29 June, completing the route.",
+      "zh": "罗利至威尔明顿的最后一段于 6 月 29 日举行通车仪式，全线贯通。"
+    },
+    {
+      "year": 1992,
+      "en": "The Winston-Salem rerouting is finished, the last new construction on I-40.",
+      "zh": "温斯顿-塞勒姆改线完工，成为 I-40 最后一项新建工程。"
+    },
+    {
+      "year": 2012,
+      "en": "The relocated I-40 Crosstown opens in Oklahoma City; the old elevated road is demolished.",
+      "zh": "俄克拉何马城改线后的 I-40 横城段通车，旧高架随后拆除。"
+    },
+    {
+      "year": 2021,
+      "en": "A fractured tie girder closes the Hernando de Soto Bridge at Memphis for 83 days.",
+      "zh": "系杆断裂导致孟菲斯埃尔南多·德索托大桥封闭 83 天。"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "mn-23",
+  "name": { "en": "Minnesota State Highway 23", "zh": "明尼苏达 23 号州道" },
+  "tagline": { "en": "Diagonal freight route from the Iowa corner to Duluth", "zh": "自爱荷华州角斜贯至德卢斯的货运通道" },
+  "termini": {
+    "start": { "en": "I-90 near Beaver Creek in the state's south-western corner", "zh": "州西南角比弗克里克附近的 I-90" },
+    "end": { "en": "I-35 and US 2 in Duluth", "zh": "德卢斯的 I-35 与 US 2" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Highway 23 is signed east–west but runs diagonally, from the Iowa and South Dakota corner of Minnesota to Lake Superior. It is the road that connects Pipestone, Marshall, Granite Falls, Willmar, Paynesville, Cold Spring, St. Cloud, Milaca, Mora, Hinckley and Sandstone to Duluth without ever quite joining an Interstate for long.",
+        "The south-western end is prairie and row crop; the middle is the granite country around St. Cloud and Cold Spring, where quarrying has shaped the towns; the north-eastern end runs through pine and bog to the head of the lake. Because it links Duluth indirectly to Sioux Falls, it functions as a regional trunk line rather than a scenic drive.",
+        "MnDOT is explicit that this is a freight road. Its District 8 study of manufacturers and carriers in south-west and west-central Minnesota found Highway 23 named repeatedly as a critical connection for moving goods to national and international markets, and the corridor also carries heavy seasonal and weekend tourist peaks."
+      ],
+      "zh": [
+        "23 号公路标示为东西向，实际却是斜行的，自明尼苏达与爱荷华、南达科他交界的角落一路通往苏必利尔湖。它把派普斯通、马歇尔、花岗瀑布、威尔马、佩恩斯维尔、冷泉、圣克劳德、米拉卡、莫拉、欣克利与桑德斯通连到德卢斯，而始终没有与州际公路长距离合并。",
+        "西南端是草原与行栽作物；中段是圣克劳德与冷泉一带的花岗岩地带，采石业塑造了这些城镇；东北端穿过松林与沼泽，直达湖头。由于它把德卢斯间接连向苏福尔斯，它的角色是区域干线，而非风景路线。",
+        "明尼苏达交通部明确指出这是一条货运道路。其第八区针对西南与中西部制造商与承运人的研究发现，23 号公路被反复提及为将货物运往全国与国际市场的关键连接；该走廊同时承受着明显的季节性与周末旅游高峰。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The engineering story of Highway 23 is the closing of two gaps. MnDOT treats the 53 miles between Willmar and Interstate 94 as a single corridor problem; all but sixteen of those miles had been built as four-lane road, leaving two stubborn two-lane sections known as the South Gap, between New London and Paynesville, and the North Gap, between Paynesville and Richmond.",
+        "The North Gap is now done. Environmental review and layout development began in June 2015, MnDOT issued its Findings of Fact in December 2017, construction ran over two seasons in 2022 and 2023, and the detour came off on 2 November 2023. The finished work rebuilt and widened nine miles from Stearns County Road 33 in Paynesville to Highway 22 in Richmond.",
+        "The project did more than add lanes. Crews realigned the highway's curvature near Roscoe to improve sight distances, reworked access at four intersections, replaced a pipe under County Road 43 and rebuilt a mile of the Glacial Lakes State Trail near Richmond."
+      ],
+      "zh": [
+        "23 号公路的工程故事，是两处缺口的填补。明尼苏达交通部把威尔马与 94 号州际公路之间的 53 英里视作一个整体走廊问题；其中除十六英里外均已建成四车道，剩下两段顽固的双车道，分别称作「南缺口」（新伦敦至佩恩斯维尔）与「北缺口」（佩恩斯维尔至里士满）。",
+        "北缺口现已完成。环境审查与总体布置自 2015 年 6 月启动，明尼苏达交通部于 2017 年 12 月发布事实认定，施工跨越 2022 与 2023 两个季节，绕行于 2023 年 11 月 2 日解除。完工工程重建并拓宽了自佩恩斯维尔的斯特恩斯县 33 号路至里士满 22 号公路的九英里。",
+        "这项工程不只是增加车道。施工队调整了罗斯科附近的平曲线以改善视距，改造了四处交叉口的出入方式，更换了 43 号县道下方的管涵，并重建了里士满附近一英里的冰川湖州立步道。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The North Gap cost $41.75 million for nine miles — roughly $4.6 million a mile for expansion from two lanes to four in gently rolling farm country with no major structures.",
+        "MnDOT's stated benefits are conventional for a corridor of this kind: better traffic flow and freight movement, better corridor performance, capacity, mobility and safety, and encouragement of business growth along the route. The safety argument rests less on volume than on the mismatch of a two-lane section between two four-lane ones.",
+        "Work did not quite end with the ribbon. In May 2024 crews returned to install pipe at County Road 10 near Roscoe and deepen a pond control basin, closing a lane of westbound traffic for a week or two."
+      ],
+      "zh": [
+        "北缺口的九英里工程耗资 4,175 万美元——在地势平缓、没有大型结构物的农业地带，把双车道扩为四车道，约合每英里 460 万美元。",
+        "明尼苏达交通部列出的效益对这类走廊而言颇为常规：改善交通流与货物运输，提升走廊运行表现、通行能力、机动性与安全性，并促进沿线商业发展。安全论据依据的与其说是流量，不如说是两段四车道之间夹着一段双车道所造成的落差。",
+        "工程并未在剪彩时真正结束。2024 年 5 月，施工队重返罗斯科附近的 10 号县道安装管涵并加深一处蓄水池底，西行方向封闭一条车道一到两周。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "North Gap project", "zh": "北缺口工程" },
+      "value": { "en": "$41.75 million for nine miles, Paynesville to Richmond; construction ended 2 November 2023", "zh": "4,175 万美元，佩恩斯维尔至里士满九英里；2023 年 11 月 2 日完工" },
+      "source": "MnDOT District 8, Hwy 23 North Gap project page"
+    },
+    {
+      "label": { "en": "Willmar to I-94 corridor", "zh": "威尔马至 I-94 走廊" },
+      "value": { "en": "About 53 miles, of which all but 16 were already four lanes before the gap projects", "zh": "约 53 英里，缺口工程之前其中除 16 英里外均已为四车道" },
+      "source": "MnDOT District 8, Hwy 23 Gaps project page"
+    },
+    {
+      "label": { "en": "Route length", "zh": "路线长度" },
+      "why": { "en": "MnDOT publishes route mileage through control-section records rather than as a headline figure, and no state-published total for MN 23 could be verified this session.", "zh": "明尼苏达交通部通过控制段记录发布里程，而非公布总览数字；本次未能查证到该州公布的 MN 23 总里程。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Corridor traffic volume", "zh": "走廊交通量" },
+      "why": { "en": "MnDOT's published project pages describe the corridor's freight role qualitatively without giving a route-level average daily traffic figure, and no state-published count for MN 23 as a whole could be verified.", "zh": "明尼苏达交通部公布的项目页面只定性描述该走廊的货运角色，未给出路线层级的日均交通量；未能查证到该州公布的 MN 23 全线数据。" }
+    }
+  ],
+  "timeline": [
+    { "year": 2015, "en": "Environmental review and layout development begin for the Hwy 23 North Gap in June.", "zh": "6 月，23 号公路北缺口的环境审查与总体布置启动。" },
+    { "year": 2017, "en": "MnDOT issues its Findings of Fact and Conclusion for the North Gap in December.", "zh": "12 月，明尼苏达交通部发布北缺口的事实认定与结论。" },
+    { "year": 2023, "en": "The North Gap opens; the detour is lifted on 2 November.", "zh": "北缺口通车；绕行于 11 月 2 日解除。" }
+  ]
+}

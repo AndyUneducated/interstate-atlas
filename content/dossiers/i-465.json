@@ -1,0 +1,54 @@
+{
+  "id": "i-465",
+  "name": { "en": "Interstate 465", "zh": "465 号州际公路" },
+  "tagline": { "en": "The Indianapolis belt, and the road the city grew towards", "zh": "印第安纳波利斯环线：城市追着它生长" },
+  "officialMi": 52.73,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1970,
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-465 is a complete circle around Indianapolis, close to the boundary of Marion County, and it is the busiest road in Indiana by any measure. Four Interstates converge on the city — I-65, I-69, I-70 and I-74 — and all of them meet the belt. Through traffic is signed around it rather than through downtown, which is why the beltway carries a heavier freight load than the radial routes it intercepts.",
+        "Its even hundreds digit is doing real work: it leaves I-65 and comes back to I-65, and its 52.73 miles are all in one county. When it was laid out in the late 1950s most of the route was farmland well beyond the built-up city. The city then grew out to meet it, and the interchanges became the addresses businesses wanted, which is the ordinary life cycle of an American beltway compressed into about twenty years."
+      ],
+      "zh": [
+        "I-465 是围绕印第安纳波利斯的一整圈环线，贴着马里恩县县界走，无论以何种口径衡量，它都是印第安纳州最繁忙的道路。四条州际公路在这座城市汇聚——I-65、I-69、I-70 与 I-74——全都与这条环线相交。过境交通被指引绕行而非穿过市中心，因此这条环线承担的货运量比它所截住的各条放射线更重。",
+        "它的偶数百位名副其实：从 I-65 出发，又回到 I-65，52.73 英里全在一个县内。1950 年代末定线时，路线大部分是远在建成区之外的农田。随后城市朝它生长过来，各处立交成了企业争抢的地址——这是美国环线通常的生命周期，只是被压缩进了约二十年。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Construction started in 1959 and the first section opened in 1961. Indiana had pressed for the belt specifically so that Interstate traffic could be diverted around the capital, and the work was sequenced to match the radial Interstates as they arrived: the stretch from I-65 north-west of the city round to State Road 100 on the south-east was done before I-74 opened towards Cincinnati in October 1964. The last piece, joining the north and east legs between Keystone Avenue and 56th Street, opened on 5 October 1970.",
+        "The original construction was let contract by contract — a 2.3-mile segment with five bridges cost $3.20 million in 1962, a single interchange $3.51 million in 1963 — and no consolidated total for the loop was ever published. The big modern number belongs to Accelerate 465, INDOT's reconstruction of the eleven-mile west leg between State Road 67 and 56th Street. It rebuilt or upgraded seven major interchanges, added lanes, and cost $423 million between 2007 and its completion in December 2012."
+      ],
+      "zh": [
+        "工程于 1959 年开工，首段于 1961 年通车。印第安纳州当初力争修这条环线，正是为了把州际交通引导绕开首府；施工次序也配合各条放射线的到达：自城市西北的 I-65 绕到东南的州道 100 号那一段，在 1964 年 10 月 I-74 通往辛辛那提之前就已完成。最后一块——在基斯通大道与 56 街之间连接北段与东段——于 1970 年 10 月 5 日通车。",
+        "最初的建设是逐份合同发包的：1962 年，一段 2.3 英里、含五座桥的工程造价 320 万美元；1963 年，单个立交造价 351 万美元；整条环线从未公布汇总金额。真正的现代大数字属于「Accelerate 465」计划，即印第安纳州交通部对州道 67 号至 56 街之间十一英里西段的重建。该工程重建或升级了七座主要立交、增设车道，2007 年动工至 2012 年 12 月完工，造价 4.23 亿美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "52.73 miles, entirely in Indiana", "zh": "52.73 英里，全线位于印第安纳州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Accelerate 465 reconstruction", "zh": "Accelerate 465 重建工程" },
+      "value": { "en": "$423 million for 11 miles and seven major interchanges, completed December 2012", "zh": "11 英里及七座主要立交，造价 4.23 亿美元，2012 年 12 月完工" },
+      "source": "Indiana Department of Transportation, Accelerate 465 project page"
+    },
+    {
+      "label": { "en": "Original cost of the loop", "zh": "环线原始造价" },
+      "why": { "en": "The beltway was built through dozens of separate contracts between 1959 and 1970 — $3.20 million for a 2.3-mile segment in 1962, $3.51 million for one interchange in 1963 — and the Indiana histories of the Interstate programme give no consolidated total for I-465 alone.", "zh": "这条环线在 1959 至 1970 年间通过数十份独立合同建成——1962 年一段 2.3 英里造价 320 万美元，1963 年单个立交造价 351 万美元——印第安纳州州际公路计划的各部史料均未给出 I-465 单独的汇总金额。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1959, "en": "Construction of the belt around Marion County begins.", "zh": "环绕马里恩县的环线开工建设。" },
+    { "year": 1961, "en": "The first section opens to traffic.", "zh": "首段通车。" },
+    { "year": 1970, "en": "The last link between Keystone Avenue and 56th Street opens on 5 October, closing the circle.", "zh": "基斯通大道与 56 街之间的最后一段于 10 月 5 日通车，环线合圈。" },
+    { "year": 2012, "en": "Accelerate 465 finishes rebuilding the eleven-mile west leg.", "zh": "Accelerate 465 完成十一英里西段的重建。" }
+  ]
+}

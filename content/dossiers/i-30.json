@@ -1,0 +1,217 @@
+{
+  "id": "i-30",
+  "name": {
+    "en": "Interstate 30",
+    "zh": "30 号州际公路"
+  },
+  "tagline": {
+    "en": "A paid-off turnpike joining Fort Worth to Little Rock",
+    "zh": "一条已还清债券的收费公路，连接沃思堡与小石城"
+  },
+  "officialMi": 367.28,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1972,
+  "termini": {
+    "start": {
+      "en": "Interstate 20 in western Fort Worth, Texas",
+      "zh": "得克萨斯州沃思堡西部，与 I-20 相接"
+    },
+    "end": {
+      "en": "Interstate 40 in North Little Rock, Arkansas",
+      "zh": "阿肯色州北小石城，与 I-40 相接"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-30 is the shortest of the original east–west Interstates whose numbers end in zero. It runs from a wye junction with I-20 on the western edge of Fort Worth, straight through downtown Fort Worth and downtown Dallas, out across East Texas to Texarkana, and on through the pine and pasture of southwest Arkansas to I-40 at North Little Rock.",
+        "Its middle third is a city road in a way no other rural-numbered Interstate quite is. The stretch between the two downtowns — signed as the Tom Landry Highway since 2001 — is lined with the things that grew up around it: Six Flags Over Texas, the Rangers' ballparks, the Cowboys' stadium a mile to the south. It was open country when the road was built.",
+        "East of the metroplex the character changes completely: a long, steady, heavily trucked route between two state capitals' worth of traffic, with Texarkana the only town of size in between."
+      ],
+      "zh": [
+        "在编号以零结尾的原始东西向州际公路中，I-30 是最短的一条。它自沃思堡西缘与 I-20 的 Y 形枢纽起，直穿沃思堡与达拉斯两处市中心，越过东得州抵达特克萨卡纳，再穿过阿肯色西南部的松林与牧场，接上北小石城的 I-40。",
+        "它中段三分之一的城市属性，在以乡村编号的州际公路中几乎独一无二。两处市中心之间的路段——自 2001 年起标为汤姆·兰德里公路——两侧尽是围着它长起来的东西：得州六旗乐园、游骑兵队的球场、南面一英里处的牛仔队球场。这条路修建之时，那里还是旷野。",
+        "出了都会区，性格完全改变：一条漫长、平稳、货车密集的通道，承载着相当于两个州首府之间的车流，中间唯一有规模的城镇是特克萨卡纳。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Arkansas's section came from a pre-Interstate road. Parts of Little Rock's University Avenue and the New Benton Highway, a four-lane divided road linking Pulaski and Saline counties, became the first stretch of I-30 in the state. By 1960 that was all there was: Little Rock west to a point five miles beyond Benton.",
+        "The northern end was fixed in November 1962 when the I-40 interchange at North Little Rock opened. Construction continued through the 1960s until only the gap between Hope and Prescott remained, and that closed on 10 November 1972 with a ceremony near Emmet — the day Little Rock and Dallas were finally joined by Interstate.",
+        "In Texas the pieces came together differently: the freeway through Fort Worth was finished in 1964, and the Texas Highway Commission had approved 240 miles of I-30 in the state in 1962. But the Dallas–Fort Worth link stayed a toll road for another six years, so for most of the 1970s the through route existed while one of its most important segments was not yet part of the Interstate system."
+      ],
+      "zh": [
+        "阿肯色段源自一条先于州际公路存在的道路。小石城大学大道的一部分，以及连接普拉斯基县与塞兰县的四车道分隔道路「新本顿公路」，成为该州 I-30 的最早路段。到 1960 年，全州的 I-30 就只有这些：自小石城向西至本顿以外五英里处。",
+        "北端在 1962 年 11 月确定，当时北小石城的 I-40 立交通车。施工在整个 1960 年代持续，最后只剩霍普至普雷斯科特之间的缺口；该缺口于 1972 年 11 月 10 日在埃米特附近举行仪式后填补——小石城与达拉斯终于由州际公路相连。",
+        "在得克萨斯，各段的拼合方式则不同：穿过沃思堡的高速于 1964 年建成，而得州公路委员会已在 1962 年批准了本州 240 英里的 I-30。但达拉斯—沃思堡之间的衔接段又当了六年收费公路，因此在 1970 年代的大部分时间里，这条贯通路线虽已存在，其最重要的一段却还不属于州际公路系统。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The Dallas–Fort Worth section was not built with highway funds. By the end of 1952 both cities' chambers of commerce had concluded that if conventional financing was not available within five years they would pursue tolls, and in June 1955 the Texas Turnpike Authority sold bonds at a record-low interest rate for toll-road debt — 2.93 per cent, beating the Florida Turnpike's 3.32 per cent. Right-of-way buying began the following month, construction in October.",
+        "Delivery was extraordinarily fast by any standard: four years from authorisation to opening, and thirty months from preliminary design. The turnpike opened on 27 August 1957, with a formal dedication the following week, and came in under budget. The Turnpike Authority's pitch to motorists was not speed but the absence of traffic signals — a sign in downtown Dallas in 1959 offered a choice between the turnpike and Business US 80's fifty-three traffic lights.",
+        "Traffic growth through the 1960s retired the bonds seventeen years ahead of schedule. The Authority tried to keep the tolls to finance a parallel Trinity Turnpike; the Texas Transportation Commission killed that in March 1974, Fort Worth sued in 1976 to stop the idea for good, and in May 1977 the governor signed a law requiring the tolls off by the end of the year. The road became free I-30 on 1 January 1978."
+      ],
+      "zh": [
+        "达拉斯—沃思堡之间的路段并非用公路资金修建。到 1952 年底，两市商会均已认定：若五年内拿不到常规融资，就改走收费路线。1955 年 6 月，得克萨斯收费公路管理局以收费公路债券史上最低的利率发债——2.93%，压过佛罗里达收费公路的 3.32%。次月开始征地，10 月动工。",
+        "以任何标准衡量，交付速度都异常之快：从获得授权到通车四年，从初步设计到通车仅三十个月。收费公路于 1957 年 8 月 27 日通车，次周举行正式典礼，且低于预算完工。管理局对司机的卖点不是速度，而是没有信号灯——1959 年达拉斯市中心的一块标志让司机在收费公路与 Business US 80 的五十三个红灯之间做选择。",
+        "1960 年代的车流增长使债券提前十七年清偿。管理局曾试图保留收费以为平行的三一收费公路融资；得州交通委员会于 1974 年 3 月否决了该方案，沃思堡市 1976 年提起诉讼以彻底阻断这一想法，1977 年 5 月州长签署法律，要求年底前取消收费。这条路于 1978 年 1 月 1 日成为免费的 I-30。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "value": {
+        "en": "$568.4 million — Texas $409.5 million and Arkansas $158.9 million. The turnpike that became the Fort Worth–Dallas half of the route was originally financed with toll revenue bonds rather than federal-aid funds. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "5.684 亿美元——得克萨斯 4.095 亿、阿肯色 1.589 亿美元。后来成为沃思堡—达拉斯段的那条收费公路，最初是以通行费收益债券融资，而非联邦补助资金。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "367.28 miles — 224.30 in Texas, 142.98 in Arkansas",
+        "zh": "367.28 英里——得克萨斯 224.30 英里，阿肯色 142.98 英里"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Dallas–Fort Worth Turnpike, as built",
+        "zh": "达拉斯—沃思堡收费公路建设成本"
+      },
+      "value": {
+        "en": "$55.8 million for 30 miles, $2.7 million below the estimate — about $462 million in 2013 dollars. Financed with $58.5 million of bonds sold in June 1955 at 2.93 per cent, then a record low for toll-road debt",
+        "zh": "30 英里造价 5,580 万美元，比估算低 270 万美元——按 2013 年币值约合 4.62 亿美元。以 1955 年 6 月发行的 5,850 万美元债券融资，利率 2.93%，为当时收费公路债券的最低纪录"
+      },
+      "source": "Oscar Slotboom, Dallas–Fort Worth Freeways, 2014, citing Texas Turnpike Authority records"
+    },
+    {
+      "label": {
+        "en": "The toll",
+        "zh": "通行费"
+      },
+      "value": {
+        "en": "50 cents to drive the full 30 miles in 1957 — about $4 in 2013 dollars, or $5.70 measured against wages — raised to 60 cents in 1961 and never increased again",
+        "zh": "1957 年全程 30 英里收费 50 美分——按 2013 年币值约 4 美元，若按工资水平折算约 5.70 美元——1961 年提高到 60 美分，此后再未上调"
+      },
+      "source": "Oscar Slotboom, Dallas–Fort Worth Freeways, 2014, citing Texas Turnpike Authority records"
+    },
+    {
+      "label": {
+        "en": "Bond retirement",
+        "zh": "债券清偿"
+      },
+      "value": {
+        "en": "Seventeen years ahead of schedule; retirement was announced in 1971 for 1977, and the road became toll-free on 1 January 1978",
+        "zh": "比原计划提前十七年；1971 年宣布将于 1977 年清偿，道路于 1978 年 1 月 1 日起免费"
+      },
+      "source": "Oscar Slotboom, Dallas–Fort Worth Freeways, 2014"
+    },
+    {
+      "label": {
+        "en": "Compensation for the free western end",
+        "zh": "西端免费段的补偿"
+      },
+      "value": {
+        "en": "Fort Worth and Tarrant County paid the Turnpike Authority $2 million in 1964 to compensate for toll income lost when the western terminus was made free from Oakland Boulevard into downtown Fort Worth",
+        "zh": "1964 年，沃思堡市与塔兰特县向收费公路管理局支付 200 万美元，以补偿西端自奥克兰大道进入沃思堡市中心改为免费所损失的通行费收入"
+      },
+      "source": "Texas Turnpike Authority v. City of Fort Worth, Supreme Court of Texas, 1977"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Tarrant County counts, 2020",
+        "zh": "2020 年塔兰特县计数"
+      },
+      "value": {
+        "en": "127,429 vehicles a day at Cooks Lane in Fort Worth and 122,904 at the Dallas county line, falling to 62,670 at the Parker county line west of the city",
+        "zh": "沃思堡库克斯巷处日均 127,429 辆，达拉斯县界处 122,904 辆，而城西帕克县界处降至 62,670 辆"
+      },
+      "source": "Texas DOT Transportation Planning and Programming Division counts, 2020"
+    },
+    {
+      "label": {
+        "en": "Through the Arlington entertainment district",
+        "zh": "阿灵顿娱乐区路段"
+      },
+      "value": {
+        "en": "About 140,000 vehicles a day on average between the Bush Turnpike and Collins Street",
+        "zh": "布什收费公路与柯林斯街之间日均约 140,000 辆"
+      },
+      "source": "Texas DOT, reported by The Dallas Morning News, November 2018"
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Arlington reconstruction",
+        "zh": "阿灵顿路段改建"
+      },
+      "value": {
+        "en": "The section from Legends Way to Center Street in Arlington was rebuilt below grade and widened, completed on 4 November 2010 and accelerated to be ready for Super Bowl XLV in February 2011",
+        "zh": "阿灵顿传奇路至中心街路段下沉重建并加宽，于 2010 年 11 月 4 日完工，工期经压缩以赶上 2011 年 2 月的第 45 届超级碗"
+      },
+      "source": "Oscar Slotboom, Dallas–Fort Worth Freeways, 2014"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1955,
+      "en": "Turnpike bonds are sold in June at 2.93 per cent; construction begins in October with a groundbreaking at Arlington.",
+      "zh": "6 月以 2.93% 的利率发行收费公路债券；10 月在阿灵顿举行开工典礼。"
+    },
+    {
+      "year": 1957,
+      "en": "The Dallas–Fort Worth Turnpike opens on 27 August.",
+      "zh": "达拉斯—沃思堡收费公路于 8 月 27 日通车。"
+    },
+    {
+      "year": 1961,
+      "en": "The full-length toll rises from 50 to 60 cents.",
+      "zh": "全程通行费由 50 美分升至 60 美分。"
+    },
+    {
+      "year": 1962,
+      "en": "The I-40 interchange at North Little Rock opens, fixing the route's northern end; Texas approves 240 miles of I-30.",
+      "zh": "北小石城 I-40 立交通车，确定本路线北端；得克萨斯批准本州 240 英里的 I-30。"
+    },
+    {
+      "year": 1964,
+      "en": "The freeway through Fort Worth is completed.",
+      "zh": "穿过沃思堡的高速公路建成。"
+    },
+    {
+      "year": 1972,
+      "en": "The last gap, between Hope and Prescott in Arkansas, opens on 10 November.",
+      "zh": "最后一处缺口——阿肯色霍普至普雷斯科特段——于 11 月 10 日通车。"
+    },
+    {
+      "year": 1974,
+      "en": "The Texas Transportation Commission kills the proposed Trinity Turnpike and with it the case for keeping the tolls.",
+      "zh": "得州交通委员会否决拟建的三一收费公路，保留收费的理由随之消失。"
+    },
+    {
+      "year": 1978,
+      "en": "Tolls end and the turnpike becomes part of I-30 on 1 January.",
+      "zh": "1 月 1 日收费终止，收费公路并入 I-30。"
+    },
+    {
+      "year": 2001,
+      "en": "The former turnpike is named the Tom Landry Highway on 30 October.",
+      "zh": "10 月 30 日，原收费公路被命名为汤姆·兰德里公路。"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "ks-4",
+  "name": { "en": "K-4 — the long way across Kansas", "zh": "K-4——横穿堪萨斯的长路" },
+  "tagline": { "en": "Scott City to Nortonville, the state's longest state highway", "zh": "自斯科特城至诺顿维尔，全州最长的州道" },
+  "designatedYear": 1927,
+  "termini": {
+    "start": { "en": "US-83 north of Scott City", "zh": "斯科特城以北的 US-83" },
+    "end": { "en": "US-59 near Nortonville", "zh": "诺顿维尔附近的 US-59" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "K-4 is the longest highway in the Kansas state system, and it earns the distinction by refusing to go anywhere directly. From US-83 north of Scott City it works east across the high plains through Ransom, La Crosse and Hoisington, drops into the Smoky Hills, threads Lindsborg and Assaria, crosses the Flint Hills at Herington, reaches Topeka, and then wanders north-east through Valley Falls to end at US-59 outside Nortonville.",
+        "It is a road of fourteen counties and almost no through traffic. West of Salina the towns are small and widely spaced and the highway is a two-lane farm road carrying grain trucks; the Interstate parallels it at a distance and takes everything that is in a hurry.",
+        "Topeka is the exception. Since 1997 K-4 has run through the east side of the capital on the Oakland Expressway, a short piece of freeway that is nothing like the rest of the route."
+      ],
+      "zh": [
+        "K-4 是堪萨斯州道系统中最长的一条，而它之所以获得这一头衔，靠的正是不肯直着走。它自斯科特城以北的 US-83 起，向东横穿高平原，经兰瑟姆、拉克罗斯与霍伊辛顿，落入斯莫基丘陵，穿过林兹堡与阿萨里亚，在赫林顿跨越燧石丘陵，抵达托皮卡，随后向东北经过瓦利福尔斯，终于诺顿维尔城外的 US-59。",
+        "这是一条经过十四个县、几乎没有过境交通的路。萨莱纳以西城镇稀小疏落，公路是承载粮车的双车道乡道；州际公路在远处与之并行，把所有赶时间的车都带走了。",
+        "托皮卡是例外。自 1997 年起，K-4 沿奥克兰快速路穿过首府东侧，那是一小段与全线其余部分毫无相似之处的高速公路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "K-4 was first designated in 1927, when it ran only from La Crosse east to the Missouri state line by Atchison. By 1932 it had been pushed west over the former alignment of K-52 to the Scott City end it still has.",
+        "The eastern end then went the other way. On 1 December 1994 the route was truncated to US-59 in Nortonville, giving up the last stretch towards Atchison.",
+        "The Topeka realignment came later still. Between 1968 and 1997 K-4 was carried through the capital on US-75 and US-24. The Oakland Expressway, one of the system enhancement projects selected under the state's Comprehensive Highway Program, opened in 1997 and gave K-4 its present route; the planned continuation of the freeway north of US-24 has never been built, and funding for further corridor work stopped in 2000."
+      ],
+      "zh": [
+        "K-4 最初于 1927 年划定，当时只从拉克罗斯向东通至阿奇森附近的密苏里州界。到 1932 年，它已沿原 K-52 线位向西延伸至今天仍在使用的斯科特城端点。",
+        "东端后来则反向收缩。1994 年 12 月 1 日，路线被截短至诺顿维尔的 US-59，放弃了通往阿奇森的最后一段。",
+        "托皮卡的改线更晚。1968 至 1997 年间，K-4 借 US-75 与 US-24 穿过首府。奥克兰快速路——该州综合公路计划下选定的系统提升项目之一——于 1997 年通车，赋予 K-4 现今的走向；原规划中 US-24 以北的高速续建段从未建成，走廊后续工程的拨款在 2000 年中止。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Spending on K-4 is bridge spending. The route crosses a great many small streams in country where the structures are old, and KDOT's work programme reflects that.",
+        "In February 2024 the department let a contract to replace bridge 113 over Gypsum Creek drainage southeast of Gypsum, in Saline County, for $90,682 — the kind of number that shows what a single rural crossing costs. A year later, on 3 March 2025, it began a $5.2 million project to replace two more Saline County bridges: the structure at the K-4/I-135 junction at exit 82, and the bridge over Dry Creek just east of the K-104 junction.",
+        "The larger of those closed I-135 overnight to remove the old span and detoured K-4 traffic through the interchanges at exits 78 and 86 — a reminder that on a route this long the inconvenience of a single bridge is measured in tens of miles."
+      ],
+      "zh": [
+        "K-4 上的支出主要是桥梁支出。这条路线跨越大量小溪，而这一带的结构物都已老旧，堪萨斯交通部的工程计划正反映了这一点。",
+        "2024 年 2 月，该部门就萨莱恩县吉普瑟姆东南跨石膏溪排水沟的 113 号桥发包重建，合同金额 90,682 美元——这个数字说明了一处乡间小跨越要花多少钱。一年后的 2025 年 3 月 3 日，它启动了一项 520 万美元的工程，重建萨莱恩县另外两座桥：82 号出口 K-4 与 I-135 交汇处的结构物，以及 K-104 路口以东跨干溪的桥梁。",
+        "其中较大的一项曾在夜间封闭 I-135 以拆除旧跨，并将 K-4 车流经 78 与 86 号出口绕行——这提醒人们，在这样一条长路上，一座桥带来的不便是以数十英里计的。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Two-bridge replacement, Saline County", "zh": "萨莱恩县双桥重建" },
+      "value": { "en": "$5.2 million, King Construction of Hesston, begun 3 March 2025", "zh": "520 万美元，赫斯顿 King Construction 承建，2025 年 3 月 3 日开工" },
+      "source": "Kansas Department of Transportation press release, 'K-4 bridge replacements begin March 3 in Saline County', 2025"
+    },
+    {
+      "label": { "en": "Gypsum Creek bridge replacement", "zh": "石膏溪桥重建" },
+      "value": { "en": "$90,682, L & M Contractors, let February 2024", "zh": "90,682 美元，L & M Contractors 承建，2024 年 2 月发包" },
+      "source": "KDOT approved bids, letting of 21 February 2024"
+    },
+    {
+      "label": { "en": "Route length", "zh": "路线长度" },
+      "why": { "en": "KDOT publishes its centreline as a GIS network with mileages adjusted by attribute table rather than as a public per-route total, and no state-published figure for K-4 could be verified this session.", "zh": "堪萨斯交通部以 GIS 路网形式发布中心线、里程通过属性表校正，并未公开按路线汇总的数据；本次未能查证到该州公布的 K-4 总里程。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1927, "en": "K-4 is first designated, running from La Crosse east to the Missouri state line near Atchison.", "zh": "K-4 首次划定，自拉克罗斯向东通至阿奇森附近的密苏里州界。" },
+    { "year": 1932, "en": "The route is extended west over the former K-52 to its present end north of Scott City.", "zh": "路线沿原 K-52 向西延伸至今天斯科特城以北的端点。" },
+    { "year": 1994, "en": "The eastern terminus is truncated to US-59 in Nortonville on 1 December.", "zh": "12 月 1 日，东端点截短至诺顿维尔的 US-59。" },
+    { "year": 1997, "en": "The Oakland Expressway opens in east Topeka and K-4 is moved onto it.", "zh": "奥克兰快速路在托皮卡东部通车，K-4 改行其上。" }
+  ]
+}

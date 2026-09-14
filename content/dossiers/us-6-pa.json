@@ -1,0 +1,89 @@
+{
+  "id": "us-6-pa",
+  "name": { "en": "U.S. Route 6", "zh": "6 号美国国道" },
+  "tagline": { "en": "The Grand Army of the Republic Highway, cut short in 1964", "zh": "共和国大军公路，1964 年被截短" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "U.S. 395 in Bishop, California", "zh": "加利福尼亚州比肖普，与 US 395 相接" },
+    "end": { "en": "Provincetown, Massachusetts, at the tip of Cape Cod", "zh": "马萨诸塞州普罗温斯敦，科德角尖端" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 6 crosses fourteen states without ever being the main road for very long. From the tip of Cape Cod it runs through Providence and Hartford, over the Bear Mountain Bridge, and then takes the top of Pennsylvania — Scranton, Towanda, Wellsboro, Coudersport, Warren — which is the part most people mean when they talk about driving it. West of Cleveland it flattens out across Ohio, Indiana, Illinois, Iowa and Nebraska, mostly as the old road a mile or two off I-80.",
+        "In Colorado and Utah it briefly becomes something else. It climbs out of Denver into the Front Range and crosses the Continental Divide at Loveland Pass on switchbacks, because Colorado law requires placarded hazardous-materials loads to use it rather than the Eisenhower–Johnson tunnels underneath. Beyond Grand Junction it runs with I-70 through Glenwood Canyon, then strikes out across the Utah and Nevada basin-and-range through Delta, Ely and Tonopah — the emptiest paved country in the lower forty-eight — before stopping at Bishop, in the Owens Valley, where it used to keep going to the Pacific."
+      ],
+      "zh": [
+        "US 6 穿越 14 个州，却从未有很长一段是主干道。它从科德角尖端出发，经普罗维登斯和哈特福德，跨熊山大桥，随后沿宾夕法尼亚州北缘而行——斯克兰顿、托旺达、韦尔斯伯勒、库德斯波特、沃伦——人们谈起自驾 US 6 时，多半说的就是这一段。到克利夫兰以西，它在俄亥俄、印第安纳、伊利诺伊、艾奥瓦和内布拉斯加一路铺平，基本上就是距 I-80 一两英里之外的那条老路。",
+        "到了科罗拉多和犹他，它短暂地变成另一种东西。它自丹佛爬上落基山前岭，以盘山弯道在洛夫兰山口翻越大陆分水岭——因为科罗拉多州法规规定，挂危险品标牌的货车必须走这里，而不得穿行下方的艾森豪威尔—约翰逊隧道。过大章克申后，它与 I-70 并行穿过格伦伍德峡谷，再横穿犹他与内华达的盆岭地带，经德尔塔、伊利和托诺帕——这是美国本土 48 州最空旷的一片铺装路段——最后止于欧文斯谷中的比肖普；从前它还要继续走到太平洋。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The 1925 Joint Board proposal gave US 6 a short life: Provincetown to Brewster, New York. The first official AASHO log, published in 1927, extended it to Erie, Pennsylvania, and put its total length at 707 miles. It grew by absorption. In 1931 AASHO extended it to Greeley, Colorado, swallowing US 32 across Iowa and US 38 across Nebraska and eastern Colorado, and both of those numbers vanished from the next log.",
+        "On 21 June 1937 US 6 was extended to Long Beach, California, 3,652 miles from Provincetown, and became the longest road in the country. It was not yet paved the whole way: the stretch between Delta, Utah, and Ely, Nevada, was, in the words of Business Week in 1952, \"nothing but a wagon trail.\" Paving was finished that September and Delta celebrated with a two-day party and a 1,500-person square dance in the street.",
+        "The end came from an accounting change. California's Senate Bill 64 renumbered the state's highways effective 1 July 1964 and required that each road carry only one number. To comply, the state asked to have US 6 pulled back to Bishop, ending its long overlap with US 395; AASHO's numbering committee agreed on 18 June 1963. US 6 lost its Pacific terminus, dropped to 3,227 miles, and handed the title of longest U.S. Route to US 20."
+      ],
+      "zh": [
+        "1925 年联合委员会的方案只给了 US 6 很短的一段：从普罗温斯敦到纽约州布鲁斯特。1927 年发布的首份 AASHO 官方路线里程表把它延长到宾夕法尼亚州伊利，总里程列为 707 英里。此后它靠吞并他人而生长。1931 年 AASHO 将其延伸至科罗拉多州格里利，吞下了横贯艾奥瓦的 US 32 和横贯内布拉斯加与科罗拉多东部的 US 38，这两个编号在下一版里程表中随即消失。",
+        "1937 年 6 月 21 日，US 6 延伸至加利福尼亚州长滩，自普罗温斯敦起全长 3,652 英里，成为全美最长的公路。但它当时尚未全线铺装：犹他州德尔塔至内华达州伊利之间的那一段，用《商业周刊》1952 年的话说，「不过是一条马车道」。铺装工程于当年 9 月完工，德尔塔为此办了两天庆典，还在街上组织了 1,500 人的方块舞。",
+        "终结它的是一次编号清理。加利福尼亚州第 64 号参议院法案自 1964 年 7 月 1 日起对全州公路重新编号，规定每条道路只能挂一个号。为符合该规定，该州申请把 US 6 收回至比肖普，结束它与 US 395 的长距离共线；AASHO 编号委员会于 1963 年 6 月 18 日批准。US 6 由此失去太平洋端点，里程降至 3,227 英里，并把「最长美国国道」的名号交给了 US 20。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The Pennsylvania section is the one that has been deliberately looked after. A nonprofit, the PA Route 6 Alliance, was formed in 2003 to manage the state's Route 6 Heritage Corridor, and in 2025 PennDOT designated a four-county stretch through Warren, McKean, Potter and Tioga counties as a state Scenic Byway — the longest in Pennsylvania. The designation brings control of off-premise advertising along the corridor, which is the practical point of it.",
+        "Elsewhere the road is best understood as a record of what long-distance driving was like before the Interstates. Jack Kerouac put his narrator on it in On The Road and had the plan fail immediately: a driver at Bear Mountain tells him there is no through traffic on 6 and he should go via the Holland Tunnel instead. The writer George R. Stewart, choosing a highway to write a book about in the late 1940s, passed over US 6 on the grounds that it \"runs uncertainly from nowhere to nowhere, scarcely to be followed from one end to the other, except by some devoted eccentric.\""
+      ],
+      "zh": [
+        "宾夕法尼亚段是被有意识地照看起来的一段。2003 年成立的非营利机构「宾州 6 号公路联盟」负责管理该州的 6 号公路遗产廊道；2025 年，宾州交通部把途经沃伦、麦基恩、波特和泰奥加四县的一段划定为州级景观道，也是宾州最长的一条。该称号带来的实际效力，是对廊道沿线场外广告的管控权。",
+        "在其他路段，这条路更适合被理解为州际公路出现之前长途驾车生活的一份记录。杰克·凯鲁亚克在《在路上》中让主人公取道于此，而计划旋即落空：熊山的一位司机告诉他，6 号路上根本没有过境车流，不如改走荷兰隧道。作家乔治·R·斯图尔特在 1940 年代末挑选一条公路写书时放弃了 US 6，理由是它「从不知何处不明不白地通向不知何处，除了某个执着的怪人，几乎没人能从头走到尾」。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No figure exists. US 6 was assembled from existing state roads in 1926 and enlarged four times by absorbing other numbered routes; no agency has ever costed it as one project.", "zh": "没有这样的数据。US 6 于 1926 年由既有州级道路拼合而成，此后四度通过吞并其他编号路线而扩张；从未有任何机构把它作为单一工程核算造价。" }
+    },
+    {
+      "label": { "en": "Length at its greatest extent", "zh": "历史最长里程" },
+      "value": { "en": "3,652 miles, Provincetown to Long Beach, when AASHO extended the route on 21 June 1937 — then the longest road in the United States", "zh": "3,652 英里，自普罗温斯敦至长滩；AASHO 于 1937 年 6 月 21 日批准该延伸，当时为全美最长的公路" },
+      "source": "Federal Highway Administration, \"U.S. 6 — The Grand Army of the Republic Highway\""
+    },
+    {
+      "label": { "en": "Length in the first route log", "zh": "首份里程表中的里程" },
+      "value": { "en": "707 miles, Provincetown to Erie, Pennsylvania, in AASHO's first official log of the U.S. routes, 1927", "zh": "707 英里，自普罗温斯敦至宾夕法尼亚州伊利，见 AASHO 1927 年首份美国国道官方里程表" },
+      "source": "Federal Highway Administration, \"U.S. 6 — The Grand Army of the Republic Highway\""
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Each state counts its own segments. On US 6 the spread runs from commuter arterials in suburban Chicago and Denver to desert sections in Nevada that carry a few hundred vehicles a day, and no agency combines them.", "zh": "各州各自统计本州路段。US 6 沿线的差距从芝加哥与丹佛郊区的通勤干道，到内华达沙漠中日均仅数百辆车的路段，没有任何机构进行合并统计。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Pennsylvania Scenic Byway designation", "zh": "宾夕法尼亚州景观道称号" },
+      "value": { "en": "211 miles through Warren, McKean, Potter and Tioga counties — Pennsylvania's 24th and longest scenic byway; celebrated at Coudersport on 30 October 2025", "zh": "211 英里，途经沃伦、麦基恩、波特与泰奥加四县，为宾州第 24 条、也是最长的一条景观道；2025 年 10 月 30 日在库德斯波特举行揭幕仪式" },
+      "source": "PA Route 6 Alliance and PennDOT, October 2025"
+    },
+    {
+      "label": { "en": "Hazardous-materials routing over Loveland Pass", "zh": "洛夫兰山口的危险品绕行规定" },
+      "value": { "en": "Colorado rules require all placarded hazardous-materials loads to use US 6 over Loveland Pass whenever the pass is open, rather than the Eisenhower–Johnson Memorial Tunnels on I-70", "zh": "科罗拉多州规章规定：只要洛夫兰山口开放，所有挂危险品标牌的货运都必须走 US 6 翻越该山口，而不得使用 I-70 上的艾森豪威尔—约翰逊纪念隧道" },
+      "source": "Colorado Code of Regulations, 2 CCR 601-8, Rule 3.02"
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 6 is approved on 11 November, running from Provincetown, Massachusetts, to Erie, Pennsylvania.", "zh": "11 月 11 日 US 6 获批，自马萨诸塞州普罗温斯敦至宾夕法尼亚州伊利。" },
+    { "year": 1931, "en": "AASHO extends the route to Greeley, Colorado, absorbing US 32 in Iowa and US 38 in Nebraska and Colorado.", "zh": "AASHO 将本路线延伸至科罗拉多州格里利，吞并艾奥瓦州的 US 32 与内布拉斯加、科罗拉多两州的 US 38。" },
+    { "year": 1937, "en": "Extended to Long Beach, California, on 21 June; at 3,652 miles it becomes the longest road in the country.", "zh": "6 月 21 日延伸至加利福尼亚州长滩；全长 3,652 英里，成为全美最长的公路。" },
+    { "year": 1952, "en": "The last unpaved section, between Delta, Utah, and Ely, Nevada, is surfaced.", "zh": "最后一段未铺装路面——犹他州德尔塔至内华达州伊利之间——完成铺装。" },
+    { "year": 1964, "en": "California's renumbering takes effect on 1 July and the western terminus moves to Bishop; the route loses its Pacific end.", "zh": "7 月 1 日加州重新编号生效，西端点移至比肖普，本路线失去太平洋端点。" },
+    { "year": 2025, "en": "PennDOT designates 211 miles across four northern Pennsylvania counties as a state Scenic Byway.", "zh": "宾州交通部将宾夕法尼亚州北部四县境内的 211 英里划定为州级景观道。" }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "id": "i-4",
+  "name": {
+    "en": "Interstate 4",
+    "zh": "4 号州际公路"
+  },
+  "tagline": {
+    "en": "Tampa to Daytona, straight through the theme parks",
+    "zh": "从坦帕到代托纳，穿过主题公园地带"
+  },
+  "officialMi": 131.89,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1965,
+  "termini": {
+    "start": {
+      "en": "Interstate 275 in Tampa, Florida",
+      "zh": "佛罗里达州坦帕，与 I-275 相接"
+    },
+    "end": {
+      "en": "Interstate 95 at Daytona Beach, Florida",
+      "zh": "佛罗里达州代托纳比奇，与 I-95 相接"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-4 crosses the Florida peninsula diagonally, from the downtown interchange in Tampa — known locally as Malfunction Junction — northeast through Lakeland and Orlando to the Atlantic coast at Daytona Beach. It never leaves the state, and despite running plainly southwest to northeast it carries an even number, a legacy of the corridor being treated as an east–west connector between two coasts.",
+        "Its middle third is the reason the road is famous. Between Disney and the Orlando beltway, I-4 is simultaneously a commuter route, a freight corridor and the principal access road for one of the largest concentrations of tourist attractions in the world. The traffic mix is unusual: local drivers who use the road daily, and visitors reading exit signs for the first time.",
+        "The phrase \"I-4 corridor\" has also escaped the transport vocabulary entirely. Because the counties strung along the road hold a large share of Florida's swing voters, the road's name is used in national political coverage as shorthand for a region rather than a route."
+      ],
+      "zh": [
+        "I-4 斜向穿越佛罗里达半岛，自坦帕市中心的立交（当地人称之为「故障交汇处」）向东北经莱克兰、奥兰多，直抵大西洋岸的代托纳比奇。它从不离开本州；尽管走向明显是西南—东北，却使用偶数编号，这源于当年把这条走廊视作连接两岸的东西向联络线。",
+        "让这条路出名的是它的中段。在迪士尼与奥兰多环城路之间，I-4 同时是通勤路线、货运走廊，也是全球最密集的旅游景点群的主要进出通道。这里的交通构成很特别：既有天天走这条路的本地司机，也有第一次读出口标志的游客。",
+        "「I-4 走廊」这个说法也早已跳出交通词汇。由于沿线各县集中了佛罗里达相当比例的摇摆选民，全国政治报道常用这条路的名字指代一个地区，而非一条公路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Construction began in 1958, and the first piece to open was a short rural stretch between Plant City and Lakeland in 1959 — among the earliest Interstate construction anywhere in Florida. Tampa to Orlando was through by 1962, and accounts of the final link differ between 1965 and 1966; the route was substantially finished by the middle of the decade.",
+        "As originally planned, I-4 did not end in Tampa. It was to continue southwest across Tampa Bay on the Howard Frankland Bridge and into St Petersburg, with a proposed continuation to the Sunshine Skyway. That plan was overtaken by the extension of I-75 down the peninsula: in 1971 I-4 was truncated at the downtown Tampa interchange, and the bay crossing became part of what is now I-275.",
+        "The road's median carried a second unbuilt plan for decades — a high-speed rail line between Tampa and Orlando, cancelled in 2011. Passenger rail has since returned to the corridor as a proposal, with Brightline planning to use the I-4 right-of-way for a Tampa extension."
+      ],
+      "zh": [
+        "工程于 1958 年动工，最先通车的是 1959 年普兰特城至莱克兰之间的一小段乡村路面——这是佛罗里达州最早开工的州际公路工程之一。坦帕至奥兰多于 1962 年贯通；关于最后一段的完工年份，各方记载在 1965 与 1966 年之间不一，但这条路在 1960 年代中期已基本建成。",
+        "按最初规划，I-4 的终点并不在坦帕。它本应继续向西南跨越坦帕湾的霍华德·弗兰克兰大桥进入圣彼得斯堡，并有继续延伸至阳光高架桥的方案。这一计划被 I-75 向半岛南部的延伸取代：1971 年 I-4 被截短至坦帕市中心立交，跨湾段成为今日 I-275 的一部分。",
+        "这条路的中央分隔带数十年间还承载着另一项未建成的计划——坦帕至奥兰多的高速铁路，该项目于 2011 年被取消。此后客运铁路以提案形式重返这条走廊：Brightline 计划利用 I-4 的路权修建通往坦帕的延伸线。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The most expensive thing Florida has ever built on this road — or on any road — is the reconstruction of twenty-one miles of it through Orlando. The I-4 Ultimate project rebuilt the mainline from west of Kirkman Road through downtown to Seminole County, added two variably priced express lanes in each direction, replaced well over a hundred bridges and reconfigured fifteen interchanges.",
+        "It was procured not as a construction contract but as a forty-year concession. A private consortium designed, built and financed the work and now operates and maintains the corridor; the state pays by instalments. Milestone payments ran through construction, two large payments followed final acceptance, and annual availability payments — tied to how well the road is kept, not to toll revenue — continue to 2054.",
+        "The structure means the state's bill did not end when the express lanes opened in February 2022. It will keep arriving once a year for another three decades, and only then does the corridor revert fully to public operation."
+      ],
+      "zh": [
+        "佛罗里达在这条路上——也是在所有道路上——投入最多的一笔钱，是对奥兰多段二十一英里的重建。I-4 Ultimate 项目重建了自柯克曼路以西经市中心至塞米诺尔县的主线，单向新增两条浮动收费快速车道，更换了逾百座桥梁，并改造了十五处大型立交。",
+        "它的采购方式不是施工合同，而是一份为期四十年的特许经营协议。私营联合体负责设计、建造与融资，如今还负责运营与养护，州政府则分期付款。施工期间按里程碑付款，最终验收后又有两笔大额付款，而与养护水平（而非通行费收入）挂钩的年度可用性付款将一直支付到 2054 年。",
+        "这种结构意味着，州政府的账单并没有随 2022 年 2 月快速车道通车而结束。它将在此后三十年里每年到期一次；只有到那时，这条走廊才会完全回归公共运营。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "Traffic on I-4 is heaviest not at its ends but across the middle, and the counts through Orlando are the sort normally seen on urban beltways rather than on a single cross-state route. Volumes north of downtown have been running near two hundred thousand vehicles a day for a decade.",
+        "What makes the congestion distinctive is that it is not a commuting peak. Tourist traffic is spread across the day and across the year, so the road between the Beachline Expressway and the Orlando beltway degrades at times when an ordinary commuter corridor would be clear. Independent congestion rankings have placed that segment among the worst in the country.",
+        "Florida's response has been to keep rebuilding. The Ultimate project addressed the section through Orlando; a further programme, Beyond the Ultimate, extends the same treatment outward towards Disney and Polk County, so that by the time it is finished the road will have been reconstructed continuously across the whole metropolitan area."
+      ],
+      "zh": [
+        "I-4 的交通压力最大之处不在两端，而在中段；奥兰多段的车流量更像是城市环路上的数字，而非一条跨州单线公路的数字。市中心以北的流量十年来一直接近日均二十万辆车。",
+        "这里的拥堵之所以与众不同，是因为它并非通勤高峰所致。旅游交通在一天之内、一年之内都摊得很平，因此海滨快速路与奥兰多环城路之间的路段，会在普通通勤走廊本应畅通的时段陷入拥堵。独立的拥堵排名曾把这一路段列入全国最差之列。",
+        "佛罗里达的应对方式是持续重建。Ultimate 项目处理了穿越奥兰多的路段；后续的 Beyond the Ultimate 计划把同样的做法向外延伸至迪士尼与波尔克县方向。等到全部完工，这条路在整个都会区范围内都将被连续重建一遍。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Original construction cost",
+        "zh": "最初的建设成本"
+      },
+      "value": {
+        "en": "$146.5 million for the route as then defined, Tampa to Daytona Beach. State and federal funds combined, in dollars of the day, as tabulated by FHWA at the close of the Interstate Construction programme; it excludes reconstruction after 1989.",
+        "zh": "按当时的路线定义（坦帕至代托纳比奇）为 1.465 亿美元。州与联邦资金合计，按当年美元计，为联邦公路管理局在州际建设计划收尾时的统计口径；不含 1989 年以后的改建。"
+      },
+      "source": "FHWA, Interstate System engineering data, Part III – Cost: estimated cost of individual Interstate routes, 1991 Interstate Cost Estimate (data as of 31 December 1989)"
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "131.89 miles, entirely within Florida",
+        "zh": "131.89 英里，全线位于佛罗里达州境内"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "I-4 Ultimate, capital cost",
+        "zh": "I-4 Ultimate 项目建设投资"
+      },
+      "value": {
+        "en": "$2.323 billion for 21 miles, delivered as a 40-year design-build-finance-operate-maintain concession",
+        "zh": "21 英里造价 23.23 亿美元，以为期 40 年的设计—建造—融资—运营—养护特许模式实施"
+      },
+      "source": "FDOT, I-4 Ultimate funding fact sheet; FHWA Center for Innovative Finance Support, I-4 Ultimate project profile"
+    },
+    {
+      "label": {
+        "en": "Payment structure",
+        "zh": "付款结构"
+      },
+      "value": {
+        "en": "$1.035 billion in 17 quarterly milestone payments during construction, $688 million in two final-acceptance payments, then availability payments of up to $75 million a year (2014 dollars) until September 2054",
+        "zh": "施工期间分 17 次按季支付里程碑款共 10.35 亿美元，最终验收时分两笔支付 6.88 亿美元，随后每年支付最高 7,500 万美元（2014 年币值）的可用性付款，直至 2054 年 9 月"
+      },
+      "source": "FDOT, I-4 Ultimate funding fact sheet"
+    },
+    {
+      "label": {
+        "en": "Federal credit assistance",
+        "zh": "联邦信贷支持"
+      },
+      "value": {
+        "en": "Two TIFIA loans of $127.3 million and $822.2 million; financial close September 2014",
+        "zh": "两笔 TIFIA 贷款，分别为 1.273 亿美元与 8.222 亿美元；2014 年 9 月完成融资交割"
+      },
+      "source": "FHWA Center for Innovative Finance Support, I-4 Ultimate project profile"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Orlando, north of Kaley Avenue",
+        "zh": "奥兰多凯利大道以北"
+      },
+      "value": {
+        "en": "192,500 vehicles a day in 2015, up from 131,500 in 2011",
+        "zh": "2015 年日均 192,500 辆车，2011 年为 131,500 辆"
+      },
+      "source": "MetroPlan Orlando, Tracking the Trends, June 2016, using FDOT annual average daily traffic counts"
+    },
+    {
+      "label": {
+        "en": "Busiest stretch, current volume",
+        "zh": "最繁忙路段的现状流量"
+      },
+      "value": {
+        "en": "About 200,000 vehicles a day, forecast to reach 250,000 by 2050",
+        "zh": "日均约 200,000 辆车，预计到 2050 年将达 250,000 辆"
+      },
+      "source": "FDOT, quoted in coverage of the Beyond the Ultimate programme, March 2024"
+    },
+    {
+      "label": {
+        "en": "Congestion ranking",
+        "zh": "拥堵排名"
+      },
+      "value": {
+        "en": "The 12 miles between the SR 528 Beachline Expressway and the SR 429 Orlando beltway ranked as the 10th most congested corridor in the United States and the worst in Florida",
+        "zh": "SR 528 海滨快速路与 SR 429 奥兰多环城路之间的 12 英里路段，被列为全美第十拥堵的走廊，也是佛罗里达州最差的一段"
+      },
+      "source": "INRIX, 2022 Global Traffic Scorecard"
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": {
+        "en": "Structures replaced by the I-4 Ultimate project",
+        "zh": "I-4 Ultimate 项目更换的结构物"
+      },
+      "value": {
+        "en": "More than 140 bridges rebuilt and 15 major interchanges reconfigured, with 75 of the bridges in a 4.2-mile downtown bridge district",
+        "zh": "重建桥梁逾 140 座，改造大型立交 15 处，其中 75 座桥梁集中在市中心 4.2 英里长的桥梁密集段"
+      },
+      "source": "Engineering News-Record, March 2017"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1958,
+      "en": "Construction begins on the first Interstate work in Florida, on I-4 between Plant City and Lakeland.",
+      "zh": "佛罗里达州首项州际公路工程动工，位于 I-4 普兰特城至莱克兰之间。"
+    },
+    {
+      "year": 1959,
+      "en": "The first segment opens between Plant City and Lakeland.",
+      "zh": "普兰特城至莱克兰的首段通车。"
+    },
+    {
+      "year": 1962,
+      "en": "The route is through from Tampa to Orlando.",
+      "zh": "坦帕至奥兰多全线贯通。"
+    },
+    {
+      "year": 1965,
+      "en": "I-4 is substantially complete from Tampa to Daytona Beach.",
+      "zh": "I-4 自坦帕至代托纳比奇基本建成。"
+    },
+    {
+      "year": 1971,
+      "en": "The western end is truncated at downtown Tampa; the Tampa Bay crossing becomes part of another route.",
+      "zh": "西端被截短至坦帕市中心，跨坦帕湾段划归另一条路线。"
+    },
+    {
+      "year": 2015,
+      "en": "Construction begins on the I-4 Ultimate reconstruction through Orlando.",
+      "zh": "穿越奥兰多的 I-4 Ultimate 重建工程动工。"
+    },
+    {
+      "year": 2022,
+      "en": "The I-4 Express variably priced lanes open on 26 February.",
+      "zh": "I-4 Express 浮动收费车道于 2 月 26 日通车。"
+    }
+  ]
+}

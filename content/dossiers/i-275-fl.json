@@ -1,0 +1,63 @@
+{
+  "id": "i-275-fl",
+  "name": { "en": "Interstate 275", "zh": "275 号州际公路" },
+  "tagline": { "en": "Tampa Bay's cross-water loop, carried on the Sunshine Skyway", "zh": "跨越坦帕湾的环线，由阳光天桥承载" },
+  "officialMi": 60.26,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "I-75 at Palmetto, Manatee County", "zh": "马纳提县巴尔梅托，与 I-75 相接" },
+    "end": { "en": "I-75 at Wesley Chapel, Pasco County", "zh": "帕斯科县韦斯利礼拜堂，与 I-75 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-275 leaves I-75 south of Tampa Bay at Palmetto, crosses the mouth of the bay, runs the length of the Pinellas peninsula through St Petersburg, crosses back over Old Tampa Bay on the Howard Frankland Bridge, cuts through downtown Tampa and rejoins I-75 north of the city. The even hundreds digit is honest: it is a loop that returns to its parent. What is unusual is the geography. Most beltways go round a city; this one goes across water twice to reach the other half of a metropolitan area that a bay has cut in two.",
+        "It is also the only three-digit Interstate in this group with a toll bridge as its signature structure. The Sunshine Skyway carries four lanes of I-275 over the shipping channel into Tampa Bay on a cable-stayed main span, with a toll still collected at each end, while the rest of the route through St Petersburg and Tampa is free urban freeway."
+      ],
+      "zh": [
+        "I-275 在坦帕湾以南的巴尔梅托离开 I-75，横跨海湾口，纵贯皮内拉斯半岛经圣彼得斯堡，再经霍华德·富兰克林大桥跨回老坦帕湾，穿过坦帕市中心，在城北回到 I-75。偶数百位在这里是诚实的：它确实是一条回到母线的环线。不同寻常的是地理条件。多数环线是绕着一座城市走；这一条要两次跨水，才能抵达被海湾一分为二的都会区的另一半。",
+        "它也是本组三位数州际公路中唯一以收费桥梁为标志性结构的一条。阳光天桥以斜拉主跨把 I-275 的四条车道送过进入坦帕湾的航道，两端至今仍收取通行费；而经圣彼得斯堡与坦帕的其余路段则是免费的城市高速。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The bridge exists because the one before it failed. On the morning of 9 May 1980, in a squall that knocked out visibility and radar, the freighter Summit Venture hit a pier of the original steel cantilever Skyway. More than a thousand feet of the southbound span fell into the bay and thirty-five people died, most of them passengers on a Greyhound bus that drove off the broken end.",
+        "Florida built the replacement to a design its governor had seen in France. Construction began in June 1982; the cable-stayed bridge opened to traffic on 20 April 1987 with a 1,200-foot main span, 181 feet of clearance above the shipping channel and a set of thirty-six concrete dolphins placed around the piers specifically to absorb a ship strike. It cost $244 million, of which the Federal Highway Administration funded about $105 million, and it was the longest cable-stayed concrete bridge in the world when it opened."
+      ],
+      "zh": [
+        "这座桥之所以存在，是因为它的前身失败了。1980 年 5 月 9 日上午，一场暴雨使能见度尽失、雷达失效，货轮「峰会冒险」号撞上了原钢桁架悬臂式阳光天桥的桥墩。南行桥面有一千多英尺坠入海湾，三十五人遇难，其中多数是一辆从断口驶出的灰狗巴士上的乘客。",
+        "佛罗里达按该州州长在法国见过的样式建造了替代桥梁。工程于 1982 年 6 月动工，斜拉桥于 1987 年 4 月 20 日通车：主跨 1,200 英尺，航道上方净空 181 英尺，桥墩周围专门设置了三十六座混凝土防撞墩以吸收船舶撞击。造价 2.44 亿美元，其中联邦公路管理局出资约 1.05 亿美元；通车时它是世界上最长的斜拉混凝土桥。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "60.26 miles, entirely in Florida", "zh": "60.26 英里，全线位于佛罗里达州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Cost of the Sunshine Skyway", "zh": "阳光天桥造价" },
+      "value": { "en": "$244 million, of which FHWA funded about $105 million", "zh": "2.44 亿美元，其中联邦公路管理局出资约 1.05 亿美元" },
+      "source": "PBS Building Big databank, and US General Accounting Office report RCED-85-32, 1985, for the federal share"
+    },
+    {
+      "label": { "en": "Cost of the rest of the route", "zh": "其余路段造价" },
+      "why": { "en": "I-275 through St Petersburg and Tampa was built in segments from the 1960s onwards by the Florida State Road Department and its successor, and no consolidated construction total for the route has been published.", "zh": "经圣彼得斯堡与坦帕的 I-275 路段自 1960 年代起由佛罗里达州公路部门及其后继机构分段修建，未曾公布过全线的建设总额。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic on the Sunshine Skyway", "zh": "阳光天桥交通量" },
+      "value": { "en": "65,215 vehicles a day in 2023", "zh": "2023 年每日 65,215 辆" },
+      "source": "Florida DOT bridge traffic data for structure 150189, 2023"
+    }
+  ],
+  "timeline": [
+    { "year": 1980, "en": "The freighter Summit Venture strikes the original Skyway; the southbound span collapses and 35 people die.", "zh": "货轮「峰会冒险」号撞击原阳光天桥，南行桥面坍塌，35 人遇难。" },
+    { "year": 1982, "en": "Construction begins on a cable-stayed replacement with pier protection designed for ship strikes.", "zh": "带防撞墩设计的斜拉替代桥梁动工。" },
+    { "year": 1987, "en": "The new Sunshine Skyway opens to traffic on 20 April.", "zh": "新阳光天桥于 4 月 20 日通车。" }
+  ]
+}

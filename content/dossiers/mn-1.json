@@ -1,0 +1,82 @@
+{
+  "id": "mn-1",
+  "name": { "en": "Minnesota State Highway 1", "zh": "明尼苏达 1 号州道" },
+  "tagline": { "en": "Red River to Lake Superior through the emptiest part of the state", "zh": "自红河至苏必利尔湖，穿越全州最空旷之地" },
+  "termini": {
+    "start": { "en": "North Dakota Highway 54 at the Red River in Oslo", "zh": "奥斯陆红河畔的北达科他 54 号公路" },
+    "end": { "en": "MN 61 at Illgen City on the North Shore", "zh": "北岸伊尔根城的 MN 61" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Highway 1 crosses northern Minnesota from the Red River to Lake Superior, and it changes completely on the way. The western third is Red River Valley: flat, black-soil sugar beet and small grain country through Oslo, Warren and Thief River Falls, where the horizon is a grain elevator.",
+        "Then it enters the forest and stays there. The route passes through the Koochiching, George Washington, Kabetogama, Bear Island and Finland state forests and the Superior National Forest, serving Red Lake, Northome, Cook, Tower and Ely. The Ely section is the gateway to the Boundary Waters Canoe Area Wilderness.",
+        "The last stretch, from Ely south-east to Illgen City, is the part people drive for its own sake: a narrow, sinuous road through jack pine, white pine and red pine that comes out on MN 61 at the lake. It is a conifer forest with birch and maple mixed in, which is why the last week of September is the standard advice for colour."
+      ],
+      "zh": [
+        "1 号公路自红河横穿明尼苏达北部直抵苏必利尔湖，沿途面貌彻底改变。西边三分之一是红河谷：平坦的黑土甜菜与小粒谷物产区，经奥斯陆、沃伦与蒂夫里弗福尔斯，地平线上立着谷仓。",
+        "随后它进入森林，并一直留在其中。路线穿过库奇钦、乔治·华盛顿、卡贝托加马、贝尔岛与芬兰几处州立森林以及苏必利尔国家森林，服务红湖、诺瑟姆、库克、托尔与伊利。伊利一段是通往边界水域独木舟区荒野的门户。",
+        "最后一段自伊利东南行至伊尔根城，是人们专程为它而来的路段：一条狭窄蜿蜒的道路穿行于短叶松、白松与红松之间，最终汇入湖边的 MN 61。这是一片混有桦木与枫树的针叶林，因此赏叶的标准建议是九月的最后一周。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The practical problem with Highway 1 is that when a piece of it closes, there is very little else. MnDOT's culvert repair project illustrates it precisely: at a site 7.6 miles south-east of Ely, traffic is detoured via New Tomahawk Road, Scott Road, Ely-Babbitt Road and County Road 21 — about 30 miles. At the Weiss Creek site further south the detour via Lax Lake Road and County Highway 11 runs about 44 miles.",
+        "Those three culvert replacements, all repairing flood damage, are programmed for late August to mid-October 2026 and mid-May to late June 2027, with only one work site active at a time.",
+        "The road itself has been substantially rebuilt in recent years. MnDOT's District 1 programme covered tree clearing, rock removal and culvert replacement between Isabella and Ely in 2017, resurfacing the following summer, and a separate reconstruction that straightened alignment and flattened hills."
+      ],
+      "zh": [
+        "1 号公路的现实难题在于，一旦某段封闭，几乎没有别的路可走。明尼苏达交通部的涵洞修复工程恰好说明了这一点：在伊利东南 7.6 英里处的工点，车辆需经新汤姆霍克路、斯科特路、伊利—巴比特路与 21 号县道绕行，约 30 英里。更南面的韦斯溪工点，经拉克斯湖路与 11 号县道绕行约 44 英里。",
+        "这三处涵洞更换均为修复洪水损毁，排期在 2026 年 8 月下旬至 10 月中旬与 2027 年 5 月中旬至 6 月下旬，且同一时间只开放一个工点。",
+        "道路本身近年已大幅重建。明尼苏达交通部第一区的工程计划涵盖 2017 年伊莎贝拉与伊利之间的清林、清石与涵洞更换，次年夏天的重铺，以及另一项拉直线形、削缓坡度的改建工程。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The Eagles Nest Lake reconstruction in St. Louis County is the biggest recent investment: 5.7 miles of two-lane highway rebuilt with straightened alignment and flattened hills, let in November 2016 at an original bid of $16,376,833 and built through to late July 2018.",
+        "The Lake County resurfacing that followed it was a fraction of that. MnDOT let 13.5 miles of work from the Kawishiwi River area to Isabella in April 2017 at an original bid of $4,669,600, with tree clearing in autumn 2017 and paving in 2018.",
+        "The disparity is the whole story of maintaining a road like this. Rebuilding geometry in rock costs something close to $3 million a mile; putting new surface on an existing alignment costs a small fraction of it, which is why most of Highway 1 gets the second treatment and waits."
+      ],
+      "zh": [
+        "圣路易斯县的鹰巢湖改建是近年最大的一笔投入：5.7 英里双车道公路重建，线形拉直、坡度削缓，2016 年 11 月发包，原始中标价 16,376,833 美元，工程持续至 2018 年 7 月底。",
+        "紧随其后的莱克县重铺只是其零头。明尼苏达交通部于 2017 年 4 月就卡维希维河一带至伊莎贝拉的 13.5 英里工程发包，原始中标价 4,669,600 美元，2017 年秋清林，2018 年铺面。",
+        "这一悬殊正是养护此类道路的全部故事。在岩层中重塑线形，每英里成本接近 300 万美元；在既有线位上重铺路面只需其中一小部分，因此 1 号公路大部分路段得到的是后一种处理，然后继续等待。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Eagles Nest Lake reconstruction", "zh": "鹰巢湖改建" },
+      "value": { "en": "5.7 miles rebuilt; original bid $16,376,833, let November 2016, completed late July 2018", "zh": "重建 5.7 英里；原始中标价 16,376,833 美元，2016 年 11 月发包，2018 年 7 月底完工" },
+      "source": "MnDOT District 1, 2018 Highway Construction Program"
+    },
+    {
+      "label": { "en": "Kawishiwi–Isabella resurfacing", "zh": "卡维希维—伊莎贝拉重铺" },
+      "value": { "en": "13.5 miles; original bid $4,669,600, let April 2017", "zh": "13.5 英里；原始中标价 4,669,600 美元，2017 年 4 月发包" },
+      "source": "MnDOT District 1, 2018 Highway Construction Program"
+    },
+    {
+      "label": { "en": "Route length", "zh": "路线长度" },
+      "why": { "en": "MnDOT publishes route mileage through its Roadway Data control-section records rather than as a headline figure, and no state-published total for MN 1 could be verified this session.", "zh": "明尼苏达交通部通过道路数据的控制段记录发布里程，而非公布总览数字；本次未能查证到该州公布的 MN 1 总里程。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Detour, culvert site south-east of Ely", "zh": "伊利东南涵洞工点绕行" },
+      "value": { "en": "About 30 miles via New Tomahawk Road, Scott Road, Ely-Babbitt Road and County Road 21", "zh": "约 30 英里，经新汤姆霍克路、斯科特路、伊利—巴比特路与 21 号县道" },
+      "source": "MnDOT District 1, Hwy 1 Culvert repairs project page"
+    },
+    {
+      "label": { "en": "Detour, Weiss Creek culvert site", "zh": "韦斯溪涵洞工点绕行" },
+      "value": { "en": "About 44 miles via Lax Lake Road, County Highway 11 and County Road 2", "zh": "约 44 英里，经拉克斯湖路、11 号县道与 2 号县道" },
+      "source": "MnDOT District 1, Hwy 1 Culvert repairs project page"
+    }
+  ],
+  "timeline": [
+    { "year": 2018, "en": "The 5.7-mile Eagles Nest Lake reconstruction is completed in St. Louis County.", "zh": "圣路易斯县 5.7 英里的鹰巢湖改建完工。" },
+    { "year": 2026, "en": "MnDOT begins replacing three flood-damaged culverts, with detours of up to 44 miles.", "zh": "明尼苏达交通部开始更换三处洪水损毁的涵洞，绕行最长达 44 英里。" }
+  ]
+}

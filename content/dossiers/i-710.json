@@ -1,0 +1,64 @@
+{
+  "id": "i-710",
+  "name": { "en": "Interstate 710", "zh": "710 号州际公路" },
+  "tagline": { "en": "The Long Beach Freeway — the port road that stops in mid-air", "zh": "长滩高速：一条戛然而止的港口通道" },
+  "officialMi": 19.59,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "Pacific Coast Highway at Long Beach", "zh": "长滩，太平洋海岸公路" },
+    "end": { "en": "Valley Boulevard at Alhambra, just north of I-10", "zh": "阿罕布拉，I-10 以北的谷地大道" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-710 is twenty miles of freight corridor. It runs north from Long Beach along the channel of the Los Angeles River through Compton, South Gate, Bell, Vernon and East Los Angeles, and it exists mainly to connect the Ports of Los Angeles and Long Beach — together the busiest container complex in the country — with the BNSF and Union Pacific intermodal yards inland and the warehouses beyond them. South of Pacific Coast Highway the same road is signed as a state route rather than an Interstate.",
+        "It is built narrow for the job it does: eight general-purpose lanes north of I-405 and six south of it, with portions of the southern corridor carrying up to 39,000 truck trips a day, most of them port drayage. The neighbourhoods it passes through are among the most heavily affected by that traffic anywhere in California, and every proposal to widen the road over the past twenty years has had to argue with them first."
+      ],
+      "zh": [
+        "I-710 是二十英里长的货运通道。它自长滩沿洛杉矶河河道北上，经康普顿、南门、贝尔、弗农与东洛杉矶；它存在的主要理由，是把洛杉矶港与长滩港——合起来是全美最繁忙的集装箱港区——同内陆的 BNSF 与联合太平洋铁路多式联运场站及其后方的仓储区连起来。在太平洋海岸公路以南，同一条路挂的是州道编号而不是州际编号。",
+        "以它承担的工作而言，这条路修得偏窄：I-405 以北八条普通车道，以南六条，而南段部分路段每日通行多达 39,000 趟卡车，其中多数是港口短驳。它穿过的社区，是全加州受这类交通影响最重的一批；过去二十年里，每一项拓宽方案都得先和这些社区交涉。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The freeway was meant to keep going. On 18 November 1964 the California Highway Commission adopted a routing for the final five miles north through El Sereno, South Pasadena and Pasadena to meet the Foothill Freeway, and the state had already been buying houses and vacant lots along the line since the 1950s. The northern interchange was built in Pasadena in the early 1970s and then stood as a stub: it displaced thousands of residents and cut a residential district off from the city centre for a connection that never arrived.",
+        "It took fifty-four years to formally abandon. In May 2017 the Metro board voted unanimously to withdraw support and funding from a five-mile, $3.2-billion tunnel between the two freeways, moving $700 million instead into street and interchange work around the abrupt northern end in Alhambra. Caltrans certified an environmental document in November 2018 that chose the street improvements over the tunnel. In 2022 the California Transportation Commission approved handing the Pasadena stub to the city, which closed the question for good."
+      ],
+      "zh": [
+        "这条高速本来还要往北修。1964 年 11 月 18 日，加州公路委员会通过了最后五英里的线位：向北穿过埃尔塞雷诺、南帕萨迪纳与帕萨迪纳，接上山麓高速；自 1950 年代起，州里就一直在沿线收购住宅与空地。北端的立交在 1970 年代初于帕萨迪纳建成，此后一直是个断头：它让数千居民搬迁，把一片住宅区与市中心隔开，而它要接的那条路始终没有出现。",
+        "正式放弃用了五十四年。2017 年 5 月，Metro 董事会一致表决撤回对两条高速之间那条五英里、32 亿美元隧道的支持与资金，转而把 7 亿美元投入阿罕布拉北端断头附近的道路与立交工程。2018 年 11 月，加州交通局批准了一份环境文件，选择以地面道路改善取代隧道方案。2022 年，加州交通委员会批准把帕萨迪纳那段断头路移交给市政府，这个问题就此彻底了结。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "19.59 miles, entirely in California", "zh": "19.59 英里，全线位于加利福尼亚州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Cost of the cancelled tunnel", "zh": "已取消隧道的造价估算" },
+      "value": { "en": "$3.2 billion for five miles, abandoned in 2017 before construction", "zh": "五英里造价 32 亿美元，2017 年在开工前放弃" },
+      "source": "Los Angeles Times, 24 May 2017"
+    },
+    {
+      "label": { "en": "Money redirected instead", "zh": "转投他处的资金" },
+      "value": { "en": "$700 million moved to street, interchange and freeway improvements along the corridor", "zh": "7 亿美元转投沿线道路、立交与高速改善工程" },
+      "source": "Los Angeles Times, 24 May 2017"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Truck traffic on the southern corridor", "zh": "南段走廊卡车交通量" },
+      "value": { "en": "Up to 39,000 truck trips a day, most of them port drayage; forecast to rise by as much as 50 per cent by 2035", "zh": "每日最多 39,000 趟卡车，多数为港口短驳；预计到 2035 年最多增长 50%" },
+      "source": "Los Angeles Cleantech Incubator, I-710 heavy-duty charging blueprint, 2024"
+    }
+  ],
+  "timeline": [
+    { "year": 1964, "en": "California adopts a route for the final five miles north through South Pasadena and Pasadena.", "zh": "加州通过最后五英里北段线位，穿越南帕萨迪纳与帕萨迪纳。" },
+    { "year": 2017, "en": "Metro drops the $3.2 billion tunnel and moves $700 million to surface improvements.", "zh": "Metro 放弃 32 亿美元隧道方案，将 7 亿美元转投地面改善工程。" },
+    { "year": 2022, "en": "The unused Pasadena stub is relinquished to the city, ending the extension permanently.", "zh": "闲置的帕萨迪纳断头路移交市政府，延伸计划永久终止。" }
+  ]
+}

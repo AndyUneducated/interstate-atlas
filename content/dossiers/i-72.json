@@ -1,0 +1,69 @@
+{
+  "id": "i-72",
+  "name": { "en": "Interstate 72", "zh": "72 号州际公路" },
+  "tagline": { "en": "Champaign to Hannibal, an Interstate that grew westward", "zh": "从尚佩恩到汉尼拔，一条向西生长的州际公路" },
+  "officialMi": 179.31,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 2000,
+  "termini": {
+    "start": { "en": "US 61 in Hannibal, Missouri", "zh": "密苏里州汉尼拔，与 US 61 相接" },
+    "end": { "en": "University Avenue and Church Street in Champaign, Illinois", "zh": "伊利诺伊州尚佩恩，大学大道与教堂街" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-72 crosses central Illinois from Champaign through Decatur and Springfield to the Mississippi at Hannibal, Missouri, where it ends two miles into that state. It is a rural route almost the whole way, running through some of the flattest and most productive farmland in the country, and it is one of the least crowded two-digit Interstates in the Midwest.",
+        "The eastern half, from Springfield to Champaign, was built as an Interstate. The western half was not: it is the Central Illinois Expressway, a US 36 upgrade that western Illinois spent decades campaigning for, in a part of the state sometimes called Forgotonia for its lack of good roads.",
+        "The two halves still feel different. The older section runs between I-55 and I-57 as a straightforward connector; the newer one is a long, empty, well-engineered road with widely spaced interchanges and a new bridge at the end of it."
+      ],
+      "zh": [
+        "I-72 横穿伊利诺伊中部，自尚佩恩经迪凯特、斯普林菲尔德抵达密西西比河畔的密苏里州汉尼拔，并在进入该州两英里后结束。它几乎全程都是乡村路线，穿行于全美最平坦、最高产的农田之间，也是中西部最不拥挤的两位数州际公路之一。",
+        "东半段自斯普林菲尔德至尚佩恩，本就是按州际公路修建的。西半段则不是：那是「伊利诺伊中部快速路」，由 US 36 升级而来，是伊利诺伊西部争取了几十年的结果——该地区因缺乏好路，有时被戏称为「被遗忘之地」。",
+        "两半至今仍有不同的质感。较早的一段在 I-55 与 I-57 之间充当直白的连接线；较新的一段则漫长、空旷、工程质量上乘，立交间距很大，尽头还有一座新桥。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The original I-72 opened between Springfield and Champaign in the 1970s, the first portion running west from Champaign to Monticello and the rest completed in November 1976. For the next fifteen years that was the whole route.",
+        "West of Springfield, Illinois was building the Central Illinois Expressway along US 36. A section near Fall Creek opened in August 1989, and the expressway reached Hull on 22 November 1991. Illinois asked for the corridor to be numbered I-172; AASHTO approved that in June 1991, but the Federal Highway Administration preferred to treat it as an extension of I-72.",
+        "AASHTO settled the matter in April 1995, extending I-72 west from I-55 at Springfield to US 61 at Hannibal and moving the I-172 number onto the spur north to Quincy. Signs went up within days. The route was not physically continuous into Missouri until the Mark Twain Memorial Bridge opened across the Mississippi on 16 September 2000."
+      ],
+      "zh": [
+        "最初的 I-72 于 1970 年代在斯普林菲尔德与尚佩恩之间通车，首段自尚佩恩西行至蒙蒂塞洛，其余部分于 1976 年 11 月完成。此后十五年间，这就是整条路线的全部。",
+        "在斯普林菲尔德以西，伊利诺伊正沿 US 36 修建「伊利诺伊中部快速路」。福尔溪附近的一段 1989 年 8 月通车，该快速路于 1991 年 11 月 22 日修抵赫尔。伊利诺伊曾请求把这条走廊编为 I-172；美国州公路及运输官员协会 1991 年 6 月批准，但联邦公路管理局倾向于把它作为 I-72 的延伸处理。",
+        "1995 年 4 月，协会一锤定音：把 I-72 自斯普林菲尔德的 I-55 西延至汉尼拔的 US 61，并把 I-172 编号移到北上昆西的支线上。标志几天内就换好了。直到 2000 年 9 月 16 日马克·吐温纪念大桥跨越密西西比河通车，这条路线才在实体上连进密苏里。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No public figure exists. The eastern half was built as an Interstate in the 1970s under federal aid accounted for by state and fiscal year, and the western half was built as the Central Illinois Expressway, a US 36 upgrade let as a long series of separate contracts before it carried an Interstate number.", "zh": "无公开数据。东半段在 1970 年代作为州际公路修建，所用联邦补助按州和财政年度核算；西半段则是「伊利诺伊中部快速路」，属 US 36 升级工程，在获得州际公路编号之前已以一长串独立合同发包。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "179.31 miles — 177.25 in Illinois and 2.06 in Missouri", "zh": "179.31 英里——伊利诺伊州 177.25 英里，密苏里州 2.06 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": { "en": "Central Illinois Expressway, Fall Creek section", "zh": "伊利诺伊中部快速路福尔溪段" },
+      "value": { "en": "$42 million for 7.5 miles, opened 17 August 1989", "zh": "7.5 英里造价 4,200 万美元，1989 年 8 月 17 日通车" },
+      "source": "The State Journal-Register (Springfield, Illinois), 18 August 1989"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "No agency publishes a route-wide figure. The Illinois and Missouri transportation departments count traffic by segment, and this route's volumes vary widely between its urban approaches at Springfield, Decatur and Champaign and its long rural sections.", "zh": "没有机构发布全线数字。伊利诺伊与密苏里的交通部门按路段统计交通量，本路线在斯普林菲尔德、迪凯特、尚佩恩的城市进出段与漫长的乡村路段之间流量差异很大。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1976, "en": "I-72 is completed between Springfield and Champaign in November, giving the route its original 80-mile extent.", "zh": "11 月，斯普林菲尔德至尚佩恩之间的 I-72 建成，本路线形成最初 80 英里的范围。" },
+    { "year": 1989, "en": "A 7.5-mile section of the Central Illinois Expressway opens near Fall Creek on 17 August.", "zh": "8 月 17 日，伊利诺伊中部快速路在福尔溪附近开放 7.5 英里路段。" },
+    { "year": 1991, "en": "AASHTO approves an I-172 designation for the corridor on 9 June; the Central Illinois Expressway reaches Hull on 22 November.", "zh": "6 月 9 日，美国州公路及运输官员协会批准将该走廊编为 I-172；11 月 22 日，伊利诺伊中部快速路修抵赫尔。" },
+    { "year": 1995, "en": "AASHTO renumbers the corridor as an extension of I-72 in April, moving I-172 to the spur north to Quincy; signing begins within the week.", "zh": "4 月，协会把该走廊改编为 I-72 的延伸段，并将 I-172 移至北上昆西的支线；一周内开始换标。" },
+    { "year": 2000, "en": "The Mark Twain Memorial Bridge opens on 16 September, carrying I-72 across the Mississippi into Hannibal.", "zh": "9 月 16 日马克·吐温纪念大桥通车，I-72 得以跨越密西西比河进入汉尼拔。" }
+  ]
+}

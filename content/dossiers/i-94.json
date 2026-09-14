@@ -1,0 +1,74 @@
+{
+  "id": "i-94",
+  "name": { "en": "Interstate 94", "zh": "94 号州际公路" },
+  "tagline": { "en": "Billings to Port Huron, across the northern tier", "zh": "从比林斯到休伦港，横贯北部诸州" },
+  "officialMi": 1441.77,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "termini": {
+    "start": { "en": "I-90 east of Billings, Montana", "zh": "蒙大拿州比林斯以东，与 I-90 相接" },
+    "end": { "en": "The Blue Water Bridge at Port Huron, Michigan, continuing as Ontario Highway 402", "zh": "密歇根州休伦港蓝水大桥，接安大略 402 号公路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-94 crosses the northern tier from the Yellowstone Valley in Montana to the Canadian border at Port Huron, and it is the only east–west Interstate that spends its whole length north of the fortieth parallel. It leaves I-90 east of Billings, runs the Yellowstone and then the Dakota plains, curves down through the Twin Cities, Madison and Milwaukee to Chicago, and then turns back northeast across Michigan.",
+        "The two halves are not much alike. West of Fargo it is the emptiest kind of Interstate, long straight sections through badlands and wheat country with towns an hour apart. From Minneapolis eastward it becomes one of the busiest urban corridors in the Midwest, and between Chicago and Detroit it serves the industrial heartland directly.",
+        "It also carries a disproportionate share of the system's winter problems. Ground blizzards close the Dakota sections outright, and closures are enforced with gates at interchanges rather than left to drivers' judgement."
+      ],
+      "zh": [
+        "I-94 自蒙大拿州的黄石河谷横贯北部诸州，直抵休伦港的加拿大边境，是唯一一条全程位于北纬四十度以北的东西向州际公路。它在比林斯以东离开 I-90，沿黄石河、继而穿越达科他平原，向南弯经双子城、麦迪逊与密尔沃基抵达芝加哥，随后折向东北横穿密歇根。",
+        "两半段差别很大。法戈以西是最空旷的那种州际公路：长长的直线路段穿过恶地与麦田，城镇之间相隔一小时车程。明尼阿波利斯以东则成为中西部最繁忙的城市走廊之一，而芝加哥与底特律之间更是直接服务于工业腹地。",
+        "它也承担了全系统中不成比例的冬季难题。地面暴风雪会让达科他路段整段关闭，而关闭是靠互通处的道闸强制执行，而不是交由司机自行判断。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Part of I-94 is older than the Interstate System by more than a decade. The Willow Run Expressway, near Ypsilanti in Michigan, was begun in 1941 and opened in September 1942 to move workers to Ford's Willow Run bomber plant. It was extended east into Detroit as the Detroit Industrial Expressway, finished in March 1945, and numbered M-112 at the time. The interchange built in 1953 between the Edsel Ford and Lodge freeways in Detroit was the first full freeway-to-freeway interchange in the country.",
+        "The plains states built theirs from scratch. North Dakota started in the late 1950s; its first section, between Valley City and Jamestown, was dedicated in October 1958 and was described at the time as the largest single piece completed as a unit anywhere on the 41,000-mile system.",
+        "North Dakota's 352 miles took thirteen years. The Missouri River was crossed in December 1965, the 47-mile Bismarck-to-Dawson stretch — the longest opened at once — followed in November 1966, and the state marked completion with a motorcade in August 1970."
+      ],
+      "zh": [
+        "I-94 有一部分比州际公路系统还早十几年。密歇根州伊普西兰蒂附近的威洛兰快速路于 1941 年动工，1942 年 9 月通车，用以输送工人前往福特的威洛兰轰炸机厂。它随后向东延伸入底特律，称底特律工业快速路，1945 年 3 月完工，当时编号为 M-112。1953 年在底特律建成的埃德塞尔·福特高速与洛奇高速之间的立交，是美国第一座完整的高速公路对高速公路互通。",
+        "平原各州则是从零建起。北达科他州于 1950 年代后期开工；首段位于瓦利城与詹姆斯敦之间，1958 年 10 月举行落成仪式，当时被称为这套 41,000 英里系统中一次性建成的最大单体路段。",
+        "北达科他州的 352 英里用了十三年。1965 年 12 月跨过密苏里河；1966 年 11 月开通俾斯麦至道森的 47 英里路段，为一次通车里程最长的一段；1970 年 8 月，该州以车队巡游的方式庆祝全州路段建成。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The Dakota and western Minnesota sections are managed as much for weather as for pavement. Open country and dry snow produce ground blizzards in which the road surface is clear but visibility falls to nothing, and the state transportation departments close long stretches at a time rather than attempt to keep them open.",
+        "At the eastern end the problem is age and load. The Michigan sections carry heavy truck traffic between Detroit, Chicago and the Ontario border crossing at Port Huron, on pavement and structures that in places date to the 1940s and 1950s expressways the Interstate absorbed."
+      ],
+      "zh": [
+        "达科他与明尼苏达西部路段的养护，与其说是针对路面，不如说是针对天气。开阔地形加上干雪会造成地面暴风雪：路面本身干净，能见度却降到零，各州交通部门因此选择整段封闭，而不是设法维持通行。",
+        "东端的问题则是老化与荷载。密歇根路段承担底特律、芝加哥与休伦港安大略过境口岸之间的繁重卡车运输，而其中部分路面与结构可追溯至州际公路当年并入的 1940 至 1950 年代快速路。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Route-wide construction cost", "zh": "全线建设成本" },
+      "why": { "en": "No public route-wide figure exists. I-94 was built by seven states over more than three decades, and its oldest sections in Michigan were wartime defence expressways completed before the Interstate programme was created.", "zh": "无公开的全线数据。I-94 由七个州历时三十余年建成，其在密歇根州最古老的路段是州际公路计划设立之前完工的战时国防快速路。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "1,441.77 miles across 7 states; the longest section is North Dakota at 352.38 miles, followed by Michigan at 272.06", "zh": "1,441.77 英里，横跨 7 个州；最长路段为北达科他州 352.38 英里，其次为密歇根州 272.06 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Seven state DOTs publish counts segment by segment. Volumes on the Chicago and Detroit sections are not comparable with eastern Montana, and no route-wide figure is published.", "zh": "七个州的交通部门按路段发布交通量。芝加哥与底特律路段的数值与蒙大拿东部无从比较，亦无全线数字发布。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1942, "en": "The Willow Run Expressway opens in Michigan to serve a wartime bomber plant, later becoming part of I-94.", "zh": "威洛兰快速路在密歇根通车，服务战时轰炸机厂，后成为 I-94 的一部分。" },
+    { "year": 1945, "en": "The Detroit Industrial Expressway is completed, extending the wartime road east into Detroit.", "zh": "底特律工业快速路建成，将这条战时道路东延入底特律。" },
+    { "year": 1953, "en": "The Edsel Ford–Lodge interchange in Detroit opens, the first full freeway-to-freeway interchange in the United States.", "zh": "底特律埃德塞尔·福特—洛奇立交建成，为美国第一座完整的高速公路对高速公路互通。" },
+    { "year": 1958, "en": "North Dakota dedicates its first section, between Valley City and Jamestown.", "zh": "北达科他州瓦利城至詹姆斯敦的首段举行落成仪式。" },
+    { "year": 1970, "en": "North Dakota completes its 352-mile section and marks it with a motorcade across the state.", "zh": "北达科他州建成本州 352 英里路段，并以横穿全州的车队巡游庆祝。" }
+  ]
+}

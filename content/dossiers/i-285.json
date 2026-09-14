@@ -1,0 +1,82 @@
+{
+  "id": "i-285",
+  "name": { "en": "Interstate 285", "zh": "285 号州际公路" },
+  "tagline": { "en": "The Perimeter — the bypass that became Atlanta's main road", "zh": "环城线——绕城公路，最后成了亚特兰大的主干道" },
+  "officialMi": 62.65,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1969,
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-285 is a closed ring around Atlanta, 62.65 miles of it, carrying the three Interstates that converge on the city — I-20, I-75 and I-85 — around the outside instead of through the middle. The even hundreds digit marks it as a loop: it leaves each parent route and gives it back. Atlantans use it as a unit of geography rather than a road, dividing the region into what is inside the Perimeter and what is outside it.",
+        "It has not been a bypass for a long time. The loop is six lanes in places and fourteen in others, and the northern arc between the I-75 and I-85 interchanges, known locally as the Top End, is one of the busiest stretches of freeway in the south-eastern United States. Its junction with SR 400 alone handles more than 400,000 vehicles a day. Freight uses it heavily too: Georgia DOT counts more than 20,000 trucks a day on parts of the loop."
+      ],
+      "zh": [
+        "I-285 是环绕亚特兰大的一个闭合圆环，全长 62.65 英里，把汇聚于该市的三条州际公路——I-20、I-75、I-85——从外围引导过去，而不是让它们穿城而过。编号中的偶数百位表明它是环线：从母线离开，再把车流交还给母线。对亚特兰大人来说，它与其说是一条路，不如说是一个地理单位：整个都会区被分成「环内」和「环外」。",
+        "它早就不再只是绕行线了。环线有的路段六车道，有的十四车道；I-75 与 I-85 两处立交之间的北弧段（当地称作 Top End）是美国东南部最繁忙的高速路段之一。仅它与 SR 400 的枢纽每天就通过 40 万辆以上车辆。货运的使用也很重：佐治亚州交通部统计，环线部分路段每天有两万多辆卡车通行。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The first contract, a 2.5-mile piece in DeKalb County that included part of the cloverleaf with I-85, was let in June 1958. The ring then closed slowly and unevenly over eleven years: a two-mile section near the Chattahoochee River in 1964, a 7.4-mile stretch on the east side in August 1968, another 5.6 miles a fortnight later. The circuit was finished on 15 October 1969, in a ceremony at which Governor Lester Maddox rode the hood of a car through a paper ribbon.",
+        "What opened that day was a modest road: two lanes in each direction, with bridges deliberately built wide enough to take a third. The whole thing had cost $90 million. Within a generation the suburbs had arrived, office parks had clustered at the interchanges, and the loop built to keep through traffic out of Atlanta had become the road that local traffic could not avoid. Every large project on it since has been a widening or an untangling."
+      ],
+      "zh": [
+        "首份合同于 1958 年 6 月发出，是迪卡尔布县一段 2.5 英里的工程，其中包含与 I-85 相交的苜蓿叶立交的一部分。此后这个环用了十一年才慢慢合拢，且进度并不均匀：1964 年查特胡奇河附近通车两英里，1968 年 8 月东侧通车 7.4 英里，两周后又开通 5.6 英里。整圈于 1969 年 10 月 15 日建成，通车仪式上州长莱斯特·马多克斯坐在汽车引擎盖上冲破了纸制彩带。",
+        "那天开通的其实是一条朴素的路：双向各两车道，桥梁却有意修得足够宽，以便日后加出第三条。整项工程耗资 9,000 万美元。不过一代人的时间，郊区就蔓延过来，办公园区在各个立交附近成片出现，这条本为把过境交通挡在亚特兰大之外而修的环线，变成了本地交通绕不开的路。此后它上面的每一项大工程，不是拓宽，就是解开某个结。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The loop cost $90 million to build in the 1960s. Fixing a single interchange on it cost nearly ten times that, in nominal dollars, half a century later. The I-285 junction with SR 400 had been a state priority for years and had no money behind it; after Georgia voters rejected a regional transport sales tax in 2012, the state procured the rebuild as a design-build-finance partnership instead, selecting North Perimeter Contractors in December 2015.",
+        "That contract put the total project cost at $803 million, covering design, right of way, construction, oversight and finance charges — around $300 million below the $1.1 billion the work had been estimated at before bids came in. The result, a set of direct flyover ramps and about ten miles of collector–distributor lanes, was substantially complete in 2024 after seven years of construction."
+      ],
+      "zh": [
+        "这条环线在 1960 年代的建设费用是 9,000 万美元。半个世纪后，仅仅整修其上的一处立交，名义金额就接近它的十倍。I-285 与 SR 400 的枢纽多年来一直是州级优先项目，却始终没有资金；2012 年佐治亚选民否决了区域交通销售税之后，州里改用「设计—建造—融资」的伙伴关系方式发包，并于 2015 年 12 月选定 North Perimeter Contractors。",
+        "该合同把项目总造价定为 8.03 亿美元，涵盖设计、征地、施工、监管与融资费用，比投标前 11 亿美元的估算低了约 3 亿美元。工程内容是一组直连高架匝道和约十英里的集散车道，历时七年，于 2024 年基本完工。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "62.65 miles, a closed loop entirely within Georgia", "zh": "62.65 英里，闭合环线，全部位于佐治亚州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Original construction cost", "zh": "最初建设成本" },
+      "value": { "en": "$90 million for the complete loop, opened 1969", "zh": "整条环线 9,000 万美元，1969 年通车" },
+      "source": "WXIA-TV (11Alive), October 2019, reporting Georgia DOT figures"
+    },
+    {
+      "label": { "en": "Cost of the SR 400 interchange rebuild", "zh": "SR 400 枢纽重建造价" },
+      "value": { "en": "$803 million total project cost, against a pre-bid estimate of $1.1 billion", "zh": "项目总造价 8.03 亿美元，投标前估算为 11 亿美元" },
+      "source": "FHWA Center for Innovative Finance Support, project profile for the I-285/SR 400 interchange reconstruction (2015–16 procurement)"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic at the SR 400 interchange", "zh": "SR 400 枢纽交通量" },
+      "value": { "en": "More than 400,000 vehicles a day", "zh": "每日 40 万辆以上" },
+      "source": "FHWA Center for Innovative Finance Support, project profile for the I-285/SR 400 interchange reconstruction"
+    },
+    {
+      "label": { "en": "Truck traffic", "zh": "卡车交通量" },
+      "value": { "en": "More than 20,000 trucks a day on parts of the loop", "zh": "环线部分路段每日超过两万辆卡车" },
+      "source": "Georgia DOT figures reported by the Atlanta Journal-Constitution, October 2019"
+    },
+    {
+      "label": { "en": "Average daily traffic for the whole loop", "zh": "全环平均日交通量" },
+      "why": { "en": "Georgia DOT publishes counts by segment, and volumes on the Top End are several times those on the quieter south-western arc. No agency publishes a single average for the ring, and one would obscure more than it explained.", "zh": "佐治亚州交通部按路段发布交通量，北弧段的数值是西南侧安静路段的数倍。没有任何机构发布整个环线的单一平均值，而这样一个数字掩盖的信息会多于它说明的。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1958, "en": "The first I-285 contract is let for 2.5 miles in DeKalb County.", "zh": "I-285 首份合同发出，工程为迪卡尔布县的 2.5 英里路段。" },
+    { "year": 1969, "en": "The Perimeter is completed as a two-lane-each-way loop, opened by Governor Lester Maddox.", "zh": "环城线以双向各两车道的规模建成，由州长莱斯特·马多克斯主持通车。" },
+    { "year": 2015, "en": "Georgia DOT awards the $803 million rebuild of the SR 400 interchange as a design-build-finance contract.", "zh": "佐治亚州交通部以设计—建造—融资方式发包 SR 400 枢纽重建，金额 8.03 亿美元。" },
+    { "year": 2024, "en": "The rebuilt interchange is substantially complete after seven years of work.", "zh": "历时七年，重建后的枢纽基本完工。" }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "i-86-ny",
+  "name": { "en": "Interstate 86", "zh": "86 号州际公路" },
+  "tagline": { "en": "The Southern Tier Expressway, converted one segment at a time", "zh": "南部层快速路，一段一段地改出来" },
+  "officialMi": 254.16,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1999,
+  "termini": {
+    "start": { "en": "I-90 near Erie, Pennsylvania", "zh": "宾夕法尼亚州伊利附近，与 I-90 相接" },
+    "end": { "en": "NY 17 near Endicott, Broome County, New York; a separate designated section runs from I-81 in Binghamton east to Windsor", "zh": "纽约州布鲁姆县恩迪科特附近，与 NY 17 相接；另有一段已定名路段自宾厄姆顿的 I-81 向东至温莎" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-86 is the east–west freeway across the Southern Tier of New York, the band of counties along the Pennsylvania border that the Thruway bypassed by a hundred miles. It runs from I-90 near Erie through Jamestown, Olean, Salamanca, Corning and Elmira toward Binghamton, and it is the only limited-access road serving any of them.",
+        "Almost none of it was built as an Interstate. The road is the Southern Tier Expressway, constructed as New York State Route 17 from the 1950s onward, and I-86 is a designation being applied to it piece by piece as each section is brought up to federal standards.",
+        "The result is a route that exists in stages. Most of the western two-thirds carries the shield; the eastern end is still NY 17 in places, and a separate designated segment sits detached near Binghamton, waiting for the gap to close."
+      ],
+      "zh": [
+        "I-86 是横贯纽约州「南部层」的东西向高速公路——南部层是沿宾夕法尼亚州界的一串县份，收费高速从它们以北一百英里处绕了过去。这条路自伊利附近的 I-90 起，经詹姆斯敦、奥利恩、萨拉曼卡、康宁与埃尔迈拉通往宾厄姆顿，并且是这些地方唯一的限制出入道路。",
+        "它几乎没有一段是按州际公路标准新建的。这条路就是南部层快速路，自 1950 年代起以纽约州 17 号公路的名义修建；而 I-86 这个编号，是随着各路段逐一达到联邦标准而一段一段挂上去的。",
+        "结果是一条分阶段存在的路线。西边三分之二的大部分已挂上盾牌标志；东端有些地方仍是 NY 17，另有一段已定名的路段孤立在宾厄姆顿附近，等着中间的缺口合拢。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The freeway came first and the number followed. The Quickway was built in the 1950s and 1960s to relieve NY 17 traffic heading for the Catskills, and the Southern Tier Expressway extended it westward from the 1960s into the 1990s. In 1998 the whole corridor from the Pennsylvania line to Harriman was named High Priority Corridor 36 in federal transport law.",
+        "On 3 December 1999 the Federal Highway Administration designated the first 177 miles — all of the former Pennsylvania Route 17 plus NY 17 as far east as Corning — as Interstate 86. Extensions have come one at a time as improvements were finished: eight miles to Horseheads in January 2004, a detached ten-mile piece from Binghamton to Windsor in 2006, Elmira in 2008, the Tioga county line in 2013, and thirty-two more miles from Waverly to Endicott in November 2024.",
+        "It has taken far longer than planned. In 2004 the state was saying the entire 381-mile length of Route 17 would be Interstate 86 by 2009. Two decades past that date the conversion is still unfinished, and the section between Binghamton and the Thruway remains the longest piece outstanding."
+      ],
+      "zh": [
+        "先有高速公路，后有编号。「快捷道」（Quickway）建于 1950 与 1960 年代，用以缓解前往卡茨基尔山的 NY 17 交通；南部层快速路自 1960 年代起将其向西延伸，直到 1990 年代。1998 年，自宾州州界至哈里曼的整条走廊在联邦交通法中被列为第 36 号高优先级走廊。",
+        "1999 年 12 月 3 日，联邦公路管理局将最初的 177 英里——原宾夕法尼亚州 17 号公路全线，加上向东至康宁的 NY 17——定名为州际公路 86 号。此后随着各项改造完工，编号逐段东延：2004 年 1 月延长八英里至霍斯黑兹；2006 年增加一段自宾厄姆顿至温莎、彼此不相连的十英里；2008 年至埃尔迈拉；2013 年至蒂奥加县界；2024 年 11 月又增加自韦弗利至恩迪科特的三十二英里。",
+        "进度比计划慢得多。2004 年该州曾表示，全长 381 英里的 17 号公路将在 2009 年前全部成为 I-86。如今距这个期限已过二十年，改造仍未完成，宾厄姆顿与收费高速之间的路段是尚未解决的最长一段。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Because the road already existed, the cost of I-86 is the cost of bringing an older freeway up to Interstate standard: removing at-grade intersections, lengthening acceleration and deceleration lanes, rebuilding interchange ramps, replacing guide rail and signs, fencing the right of way and rehabilitating bridges.",
+        "New York's transportation department has priced each designation as it went. The published figures for individual segments run from roughly the cost of a single interchange to tens of millions of dollars, and the department estimated in 2006 that preparing the remaining stretch between Binghamton and the Thruway would take well over half a billion dollars."
+      ],
+      "zh": [
+        "由于这条路本已存在，I-86 的成本其实是把一条较老的高速公路提升到州际公路标准的成本：取消平面交叉、加长加减速车道、改建互通匝道、更换护栏与标志、沿路权设置围栏、并对桥梁进行修复。",
+        "纽约州交通部在每次定名时都公布过相应造价。已发布的单段数字，从大致相当于一处互通的费用到数千万美元不等；该部门在 2006 年估计，把宾厄姆顿至收费高速之间的剩余路段准备好，所需资金将远超五亿美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Corning to Horseheads upgrade", "zh": "康宁至霍斯黑兹改造" },
+      "value": { "en": "About $14 million in improvements from January 2002, including a new interchange replacing an at-grade intersection at Kahler Road; the eight-mile section was designated I-86 in January 2004", "zh": "自 2002 年 1 月起投入约 1,400 万美元改造，其中包括在 Kahler Road 新建一处互通以取代平面交叉口；这八英里路段于 2004 年 1 月定名为 I-86" },
+      "source": "New York State Department of Transportation press release, 4 February 2004"
+    },
+    {
+      "label": { "en": "Kirkwood to Windsor upgrade", "zh": "柯克伍德至温莎改造" },
+      "value": { "en": "About $30 million to remove at-grade intersections, replace guide rail, fence the right of way and rebuild interchange ramps on 9.9 miles, designated in 2006", "zh": "约 3,000 万美元，用于在 9.9 英里范围内取消平面交叉、更换护栏、设置路权围栏并改建互通匝道，2006 年定名" },
+      "source": "New York State Department of Transportation press release, 20 September 2006"
+    },
+    {
+      "label": { "en": "Waverly to Endicott upgrade", "zh": "韦弗利至恩迪科特改造" },
+      "value": { "en": "More than $29.7 million across several projects from 2008, covering longer acceleration and deceleration lanes, sign replacement, bridge rehabilitation and resurfacing on 32 miles designated in November 2024", "zh": "自 2008 年起多个项目共投入逾 2,970 万美元，内容包括加长加减速车道、更换标志、桥梁修复与路面翻新，涉及 2024 年 11 月定名的 32 英里" },
+      "source": "New York State Department of Transportation press release, 14 November 2024"
+    },
+    {
+      "label": { "en": "Remaining conversion to the Thruway", "zh": "至收费高速的剩余改造" },
+      "value": { "en": "More than $500 million in projects was scheduled as of 2006 to prepare the section between Binghamton and the New York State Thruway in Orange County", "zh": "截至 2006 年，已安排逾 5 亿美元的项目，用于准备宾厄姆顿至奥兰治县纽约州收费高速之间的路段" },
+      "source": "New York State Department of Transportation press release, 20 September 2006"
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "254.16 miles: 245.67 in New York and 8.49 in Pennsylvania. The route log's I-86 entry also lists 62.83 miles in Idaho, which is a separate and unconnected road of the same number", "zh": "254.16 英里：纽约州 245.67 英里，宾夕法尼亚州 8.49 英里。路线名录的 I-86 条目另列爱达荷州 62.83 英里，那是一条同编号但彼此无关、互不相连的道路" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "New York and Pennsylvania publish counts by segment. No route-wide figure is issued for I-86, and the corridor's mileage keeps changing as more of NY 17 is redesignated.", "zh": "纽约州与宾夕法尼亚州按路段发布交通量。未发布 I-86 的全线数字，且随着 NY 17 不断被改挂编号，该走廊的里程也在变化。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1998, "en": "The corridor from the Pennsylvania line to Harriman is named High Priority Corridor 36 in federal law.", "zh": "自宾州州界至哈里曼的走廊在联邦法律中被列为第 36 号高优先级走廊。" },
+    { "year": 1999, "en": "The first 177 miles are designated Interstate 86 on 3 December.", "zh": "12 月 3 日，最初的 177 英里被定名为州际公路 86 号。" },
+    { "year": 2004, "en": "The designation is extended eight miles east to Horseheads.", "zh": "编号向东延伸八英里至霍斯黑兹。" },
+    { "year": 2006, "en": "A detached 9.9-mile section from Binghamton to Windsor is designated, taking the total past half the corridor.", "zh": "宾厄姆顿至温莎一段 9.9 英里（与主线不相连）获得编号，累计里程超过走廊的一半。" },
+    { "year": 2024, "en": "A further 32 miles between Waverly and Endicott are designated in November.", "zh": "11 月，韦弗利至恩迪科特之间再有 32 英里获得编号。" }
+  ]
+}

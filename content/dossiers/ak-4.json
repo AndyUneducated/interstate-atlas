@@ -1,0 +1,97 @@
+{
+  "id": "ak-4",
+  "name": { "en": "Alaska Route 4 — the Richardson Highway", "zh": "阿拉斯加 4 号公路（理查森公路）" },
+  "tagline": { "en": "Alaska's first road, from tidewater at Valdez over Thompson Pass", "zh": "阿拉斯加的第一条路，自瓦尔迪兹海岸翻越汤普森山口" },
+  "termini": {
+    "start": { "en": "Valdez, on Prince William Sound", "zh": "威廉王子湾畔的瓦尔迪兹" },
+    "end": { "en": "Delta Junction, where AK 2 takes over the Richardson Highway", "zh": "三角洲枢纽，理查森公路自此由 AK 2 接续" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "AK 4 carries the southern two-thirds of the Richardson Highway, Alaska's oldest road. The Richardson itself runs 366 miles from Valdez to Fairbanks; the route number covers the part from tidewater up to Delta Junction, after which AK 2 takes the same pavement north.",
+        "It begins at sea level in Valdez, hemmed in by the Chugach Mountains, and climbs almost immediately into Thompson Pass — the single feature that defines the road. From there it drops to the Copper River, runs north past Wrangell–St. Elias country and Glennallen, crosses the Alaska Range at Isabel Pass, and comes down into the Tanana valley.",
+        "Traffic on it fell away in 1971, when the Parks Highway opened and drivers between Anchorage and Fairbanks stopped needing to go via Glennallen and Delta Junction. That loss is why the Richardson is pleasant now: a paved, mostly two-lane road with adequate services and not much reason for anyone to be on it in a hurry."
+      ],
+      "zh": [
+        "AK 4 承载理查森公路南段约三分之二的路程，而理查森公路是阿拉斯加最古老的道路。理查森公路本身自瓦尔迪兹至费尔班克斯全长 366 英里；这个路线编号覆盖的是自海岸至三角洲枢纽的部分，此后同一条路面由 AK 2 继续向北。",
+        "它从海平面高度的瓦尔迪兹起步，被丘加奇山脉夹住，几乎立刻爬上汤普森山口——这是定义这条路的唯一要素。之后下行至铜河，向北经兰格尔—圣伊莱亚斯山区和格伦纳伦，在伊莎贝尔山口穿过阿拉斯加山脉，再下到塔纳纳河谷。",
+        "1971 年帕克斯公路通车后，安克雷奇与费尔班克斯之间的司机不再需要绕经格伦纳伦和三角洲枢纽，这条路的车流随之减少。这种「失落」恰恰是理查森公路如今宜人的原因：铺装路面、大部分为双车道、服务设施够用，而且没人有理由在上面赶路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "It started as a five-foot pack trail. The Army cut the Valdez-to-Eagle trail in the spring of 1899, and the government hired destitute prospectors alongside its regular crews — work that let hundreds of failed gold-seekers earn their passage out of the country. The 1902 Fairbanks strike redirected traffic, and the modern highway follows that rush's route fairly closely.",
+        "In 1910 the trail was rebuilt as a wagon road under General Wilds P. Richardson, first president of the Alaska Road Commission, whose name it kept. The Commission brought it up to automobile standards in the 1920s. The Second World War, which turned Fairbanks into a military centre, paid for bridges at the river crossings that had until then been served by ferries.",
+        "Even then it could not be driven in winter, because of Thompson Pass. In 1949 a private freight company, Alaska Freight Lines, stationed snow-moving equipment and a man in the pass for the season and proved it could be kept open. The Road Commission took over year-round maintenance after that, paved the pass in 1955, and hard-surfaced the rest of the highway in 1957."
+      ],
+      "zh": [
+        "它最初只是一条五英尺宽的驮运小道。1899 年春，陆军开辟了瓦尔迪兹至伊格尔的小道，政府在正规工程队之外还雇用了身无分文的探矿者——这份工作让数百名淘金失败者挣到了离开阿拉斯加的路费。1902 年费尔班克斯金矿的发现改变了人流方向，今天的公路大致沿着那次淘金潮的路线。",
+        "1910 年，小道在阿拉斯加道路委员会首任主席威尔兹·P·理查森将军主持下改建为马车道，路名也由此而来。委员会在 1920 年代把它提升到可通行汽车的标准。第二次世界大战使费尔班克斯成为军事中心，也带来了资金，在此前依靠渡船的各处河流上架起了桥梁。",
+        "即便如此，冬季仍无法通行，原因就是汤普森山口。1949 年，私营货运公司阿拉斯加货运公司在山口整季驻扎除雪设备和一名员工，证明这里可以保持通行。此后道路委员会接手全年养护，1955 年铺装山口路段，1957 年完成全线硬化。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "Thompson Pass is the snowiest place in Alaska. DOT&PF puts the average at over 550 inches a year, which makes snow removal a permanent occupation rather than a seasonal one. Avalanches reach the road several times each winter, and the state keeps a maintenance station in the pass with an avalanche specialist on staff to manage the risk.",
+        "This matters beyond the convenience of drivers. Valdez is the southern terminus of the Trans-Alaska Pipeline, and the pass is the only overland link to it, so the state has a strong practical reason to keep the road plowed and de-iced regardless of weather.",
+        "The rest of AK 4 is paved throughout and mostly straightforward in summer, with some rough pavement. Heavy snow and high winds can close any stretch of it for days at a time in winter, which is the realistic thing to plan around."
+      ],
+      "zh": [
+        "汤普森山口是阿拉斯加降雪最多的地方。州交通与公共设施部给出的年均值超过 550 英寸，这使除雪成为一项常年而非季节性的工作。每个冬季都有数次雪崩抵达路面，州政府在山口设有养护站，并配备一名雪崩专家专职管控风险。",
+        "这件事的意义不只在于司机是否方便。瓦尔迪兹是跨阿拉斯加输油管道的南端终点，而这个山口是通往它的唯一陆路联系，因此州政府有非常实际的理由，不论天气如何都要保持道路除雪除冰。",
+        "AK 4 其余路段全线铺装，夏季大体好走，局部路面较为粗糙。冬季的大雪与强风可能让任何一段连续封闭数日，这才是实际需要预留余地的地方。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length of the Richardson Highway", "zh": "理查森公路里程" },
+      "value": { "en": "366 miles from Valdez to Fairbanks; AK 4 covers the Valdez to Delta Junction portion", "zh": "自瓦尔迪兹至费尔班克斯 366 英里；AK 4 覆盖瓦尔迪兹至三角洲枢纽的部分" },
+      "source": "Alaska DOT&PF, Richardson Highway route description, accessed September 2026"
+    },
+    {
+      "label": { "en": "Length of AK 4 itself", "zh": "AK 4 自身里程" },
+      "why": { "en": "No figure for the state route as distinct from the full Richardson Highway could be verified from Alaska DOT&PF this session, and subtracting one published number from another would be an estimate rather than a citation.", "zh": "本次查证未能从阿拉斯加州交通与公共设施部取得区别于理查森公路全线的该州道里程；用一个公开数字去减另一个只能算估算，不算引用。" }
+    },
+    {
+      "label": { "en": "Highest pass", "zh": "最高山口" },
+      "value": { "en": "Isabel Pass, 3,280 feet, in the Alaska Range", "zh": "阿拉斯加山脉中的伊莎贝尔山口，海拔 3,280 英尺" },
+      "source": "The MILEPOST, Richardson Highway route log, 2026 edition"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Annual average daily traffic", "zh": "年平均日交通量" },
+      "why": { "en": "No route-level count could be verified from Alaska DOT&PF this session. The department does note that traffic on the Glennallen–Delta Junction stretch declined after the Parks Highway opened in 1971, but it gives no figures.", "zh": "本次查证未能从阿拉斯加州交通与公共设施部取得全线交通量数据。该部门确实提到格伦纳伦至三角洲枢纽路段的车流在 1971 年帕克斯公路通车后有所下降，但未给出具体数字。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Snowfall at Thompson Pass", "zh": "汤普森山口降雪量" },
+      "value": { "en": "Over 550 inches a year on average — the snowiest place in Alaska", "zh": "年均超过 550 英寸——阿拉斯加降雪最多之处" },
+      "source": "Alaska DOT&PF, Historic Roads of Alaska: Driving the History of the Last Frontier"
+    },
+    {
+      "label": { "en": "Avalanche management", "zh": "雪崩管理" },
+      "value": { "en": "Avalanches hit the road several times each year; the Thompson Pass maintenance station has an avalanche expert on staff", "zh": "每年有数次雪崩抵达路面；汤普森山口养护站配备专职雪崩专家" },
+      "source": "Alaska DOT&PF, Richardson Highway route description, accessed September 2026"
+    },
+    {
+      "label": { "en": "Seasonal closure", "zh": "季节性封闭" },
+      "value": { "en": "None since the early 1950s, but heavy snow and high winds can shut the highway for days at a time", "zh": "1950 年代初以来不再季节性封闭，但大雪与强风可能连续数日中断通行" },
+      "source": "Alaska DOT&PF, Richardson Highway route description, accessed September 2026"
+    }
+  ],
+  "timeline": [
+    { "year": 1899, "en": "The Army cuts a five-foot pack trail from Valdez toward Eagle.", "zh": "陆军自瓦尔迪兹向伊格尔方向开辟一条五英尺宽的驮运小道。" },
+    { "year": 1910, "en": "The trail is rebuilt as a wagon road under General Wilds P. Richardson of the Alaska Road Commission.", "zh": "在阿拉斯加道路委员会的威尔兹·P·理查森将军主持下，小道改建为马车道。" },
+    { "year": 1950, "en": "A private freight company keeps Thompson Pass plowed through the winter of 1949–50, proving year-round travel possible.", "zh": "一家私营货运公司在 1949 至 1950 年冬季维持汤普森山口通行，证明全年通车可行。" },
+    { "year": 1955, "en": "The Alaska Road Commission paves the road over Thompson Pass.", "zh": "阿拉斯加道路委员会完成汤普森山口路段铺装。" },
+    { "year": 1957, "en": "The highway is hard-surfaced.", "zh": "公路完成硬化路面施工。" },
+    { "year": 1971, "en": "The Parks Highway opens and through traffic between Anchorage and Fairbanks leaves the Richardson.", "zh": "帕克斯公路通车，安克雷奇与费尔班克斯之间的过境车流不再取道理查森公路。" }
+  ]
+}

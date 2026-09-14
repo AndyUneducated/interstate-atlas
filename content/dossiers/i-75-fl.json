@@ -1,0 +1,182 @@
+{
+  "id": "i-75-fl",
+  "name": {
+    "en": "Interstate 75",
+    "zh": "75 号州际公路"
+  },
+  "tagline": {
+    "en": "Everglades to the Canadian locks, through six states",
+    "zh": "从大沼泽到加拿大船闸，纵贯六州"
+  },
+  "officialMi": 1693.48,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1992,
+  "termini": {
+    "start": {
+      "en": "SR 826 and SR 924 on the Hialeah–Miami Lakes line, Florida",
+      "zh": "佛罗里达州海厄利亚与迈阿密湖交界处，与 SR 826、SR 924 相接"
+    },
+    "end": {
+      "en": "The Canadian border at Sault Ste. Marie, Michigan",
+      "zh": "密歇根州苏圣玛丽，加拿大边境"
+    }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-75 runs from the northwestern edge of Miami to a bridge over the St. Marys River at the top of Michigan. It is the system's main north–south line through the eastern interior rather than along the coast, and it does the work of moving both freight and a very large seasonal migration of people between the Great Lakes and Florida.",
+        "The southern end is the oddest part. Leaving Miami the road turns due west and crosses the Everglades on a tolled, fenced, largely featureless straightaway before reaching the Gulf coast at Naples and turning north for good. From there to Georgia it is a wide, fast, relentlessly suburban six lanes past Fort Myers, Sarasota, Tampa, and Ocala.",
+        "North of Atlanta the character shifts again: mountains at Chattanooga, then the long Kentucky ridges, then the flat industrial run through Ohio and Michigan to Detroit. The last two hundred miles are the emptiest, climbing into northern Michigan and finishing on a suspension bridge across the Straits of Mackinac before a short, quiet stretch to the border."
+      ],
+      "zh": [
+        "I-75 自迈阿密西北边缘一路通到密歇根州最北端跨越圣玛丽斯河的一座桥。它是系统中穿行东部内陆而非沿海岸的南北主干线，承担着在五大湖与佛罗里达之间运送货物、以及规模极大的季节性人口迁徙的双重任务。",
+        "南端是最古怪的一段。离开迈阿密后，道路正西转向，以一条收费、设有围栏、几乎毫无景观变化的直线横穿大沼泽，到那不勒斯抵达墨西哥湾岸后才真正北转。从那里到佐治亚，它是宽阔、快速、郊区特征浓厚的六车道，依次经过迈尔斯堡、萨拉索塔、坦帕和奥卡拉。",
+        "过了亚特兰大以北，性格再度转变：查塔努加一带是山地，接着是肯塔基漫长的山脊，然后是穿过俄亥俄与密歇根、通往底特律的平坦工业地带。最后两百英里最为空旷，一路爬升进入密歇根北部，以一座横跨麦基诺海峡的悬索桥收尾，再经一小段安静的路程抵达边境。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Mackinac Bridge is the single largest structure on the route and predates the Interstate number on it. It was designed by David B. Steinman, begun in May 1954, and opened to traffic on 1 November 1957, connecting Michigan's two peninsulas across the Straits of Mackinac. It is a suspension bridge five miles long including approaches, with a main span of 3,800 feet between towers that stand 552 feet above the water, and it remains the longest suspension bridge between anchorages in the Western Hemisphere.",
+        "At the other end of the route, the Everglades crossing is an engineering problem of the opposite kind: not height but water. The road first opened in 1968 as the two-lane Everglades Parkway, a toll road with a bad safety record and a worse hydrological one, since it dammed the sheet flow of the Everglades. When it was rebuilt as four-lane Interstate between 1986 and 1992 the design added a long series of bridges and culverts so that water and animals could pass beneath, with the endangered Florida panther specifically in view.",
+        "The nickname came before the road. The American Automobile Association coined Alligator Alley while the parkway was still being planned, arguing it would be useless to motorists and no more than an alley for alligators; Florida adopted the name officially in 1966."
+      ],
+      "zh": [
+        "麦基诺大桥是全线最大的单体构筑物，而且比它上面的州际编号出现得更早。它由大卫·B·斯坦曼设计，1954 年 5 月开工，1957 年 11 月 1 日通车，横跨麦基诺海峡连接密歇根的上下两个半岛。这是一座含引桥全长五英里的悬索桥，两座高出水面 552 英尺的主塔之间主跨 3,800 英尺，至今仍是西半球锚碇间距最长的悬索桥。",
+        "在路线的另一端，穿越大沼泽是性质相反的工程难题：不是高度，而是水。这条路 1968 年最初以双车道「大沼泽景观公路」的形式通车，是一条安全记录不佳、水文记录更糟的收费公路——它截断了大沼泽的片流。1986 至 1992 年改建为四车道州际公路时，设计中加入了一长串桥梁与涵洞，让水和动物能从下方通过，其中特别考虑了濒危的佛罗里达美洲豹。",
+        "绰号比道路本身更早出现。景观公路还在规划阶段时，美国汽车协会就造出了「鳄鱼巷」这个说法，理由是它对驾车者毫无用处，充其量是一条给鳄鱼走的巷子；佛罗里达州在 1966 年正式采用了这个名字。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "I-75 was finished in stages from the north down. Michigan's last segment opened in November 1973 and Tennessee's in December 1974. On 21 December 1977 a seventeen-mile link between northern Marietta and Cartersville, Georgia, was opened, and with it the route ran unbroken from Tampa to Sault Ste. Marie — the first Interstate in the system to be completed from one end of the country to the other.",
+        "The route was then extended south. Florida finished new construction in Miami-Dade and Broward counties in 1986, and the reconstructed Everglades crossing was signed as I-75 on 25 November 1992, carrying the number all the way from the Miami area to the Canadian border.",
+        "Florida ended up with the longest single-state section of I-75, and by the FHWA's own route log it is also the longest section of any Interstate in any state east of the Mississippi River."
+      ],
+      "zh": [
+        "I-75 是自北向南分段建成的。密歇根州最后一段 1973 年 11 月通车，田纳西州则在 1974 年 12 月。1977 年 12 月 21 日，佐治亚州玛丽埃塔北部至卡特斯维尔之间一段十七英里的连接线通车，本路线自此从坦帕到苏圣玛丽全程贯通——成为系统中第一条自国土一端通到另一端的州际公路。",
+        "随后路线继续南延。佛罗里达在 1986 年完成迈阿密—戴德县与布劳沃德县的新建工程，改建后的大沼泽穿越段于 1992 年 11 月 25 日挂上 I-75 编号，把这个号码一路从迈阿密地区延伸到加拿大边境。",
+        "佛罗里达最终拥有了 I-75 最长的州内路段；依据联邦公路管理局自己的路线名录，这也是密西西比河以东任何州内任何一条州际公路的最长路段。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No agency publishes a construction cost for I-75 as a whole. Six states built it over four decades, the Everglades section began life as a state toll road, and the Straits crossing was financed privately through revenue bonds years before the Interstate programme existed.",
+        "The Mackinac Bridge is the exception that is documented down to the contract. Michigan sold $99.8 million of bridge revenue bonds in December 1953 after two failed attempts at market, and the Mackinac Bridge Authority's own accounting separates the design fee, the two construction contracts, and the debt service that consumed the remainder of the proceeds. The bonds were not retired until 1986, twenty-nine years after the bridge opened."
+      ],
+      "zh": [
+        "没有机构公布 I-75 整条路的建设造价。六个州历经四十年把它建起来，大沼泽路段最初是一条州属收费公路，而海峡跨越段则是在州际公路计划出现多年之前由收益债券私募融资建成的。",
+        "麦基诺大桥是有据可查到合同层面的例外。在两次发债失利之后，密歇根于 1953 年 12 月售出 9,980 万美元大桥收益债券；麦基诺大桥管理局自己的账目把设计费、两份施工合同以及吞掉其余发债所得的还本付息分列开来。这批债券直到 1986 年、即大桥通车二十九年后才全部清偿。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": {
+        "en": "Total construction cost",
+        "zh": "总建设成本"
+      },
+      "why": {
+        "en": "No public figure exists. The route was built by six states between the 1950s and 1992, incorporating a state toll road across the Everglades and a bond-financed bridge across the Straits of Mackinac that both predate its Interstate designation. Federal cost records were kept by state and fiscal year, not by route.",
+        "zh": "无公开数据。本路线由六个州自 1950 年代至 1992 年间建成，其中并入了一条横穿大沼泽的州属收费公路和一座以债券融资、横跨麦基诺海峡的大桥，两者都早于它的州际编号。联邦造价记录按州和财政年度统计，而非按路线。"
+      }
+    },
+    {
+      "label": {
+        "en": "Official length",
+        "zh": "官方里程"
+      },
+      "value": {
+        "en": "1,693.48 miles across 6 states",
+        "zh": "1,693.48 英里，横跨 6 个州"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Longest and shortest state sections",
+        "zh": "最长与最短的州内路段"
+      },
+      "value": {
+        "en": "Florida, 470.74 miles — the longest Interstate section in any state east of the Mississippi; Tennessee, 75.63 miles",
+        "zh": "佛罗里达州 470.74 英里，为密西西比河以东各州中最长的州际公路路段；田纳西州 75.63 英里"
+      },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": {
+        "en": "Mackinac Bridge, financing",
+        "zh": "麦基诺大桥融资"
+      },
+      "value": {
+        "en": "$99,800,000 of revenue bonds issued in 1954, yielding $96,400,033 to the Authority; bonds retired 1 July 1986",
+        "zh": "1954 年发行 9,980 万美元收益债券，管理局实收 96,400,033 美元；债券于 1986 年 7 月 1 日清偿"
+      },
+      "source": "Mackinac Bridge Authority, History of the Bridge"
+    },
+    {
+      "label": {
+        "en": "Mackinac Bridge, construction contracts",
+        "zh": "麦基诺大桥施工合同"
+      },
+      "value": {
+        "en": "$70,268,500 to build, of which $44,532,900 for the superstructure and $25,735,600 for the foundations; design cost $3,500,000",
+        "zh": "建造费 70,268,500 美元，其中上部结构 44,532,900 美元、基础 25,735,600 美元；设计费 3,500,000 美元"
+      },
+      "source": "Mackinac Bridge Authority, project cost FAQ"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": {
+        "en": "Route-wide traffic volume",
+        "zh": "全线交通量"
+      },
+      "why": {
+        "en": "No agency publishes a route-wide figure. Counts are collected per segment by six state DOTs, and this road carries urban volumes through Tampa, Atlanta, Cincinnati, and Detroit alongside rural volumes across the Everglades and northern Michigan.",
+        "zh": "没有机构发布全线数字。交通量由六个州的交通部门按路段采集，而本路线既承担坦帕、亚特兰大、辛辛那提和底特律的城市流量，也承担穿越大沼泽与密歇根北部的乡村流量。"
+      }
+    },
+    {
+      "label": {
+        "en": "Cincinnati, Brent Spence Bridge",
+        "zh": "辛辛那提，布伦特·斯彭斯大桥"
+      },
+      "value": {
+        "en": "About 160,000 vehicles a day on the shared I-75/I-71 crossing, against a design load of roughly 80,000",
+        "zh": "I-75 与 I-71 共用的跨河段日均约 160,000 辆，而设计承载量约为 80,000 辆"
+      },
+      "source": "Ohio Department of Transportation, Brent Spence Bridge Corridor grant announcement, 2022"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 1957,
+      "en": "The Mackinac Bridge opens across the Straits of Mackinac, later carrying I-75 between Michigan's peninsulas.",
+      "zh": "麦基诺大桥跨越麦基诺海峡通车，后来成为 I-75 连接密歇根上下半岛的通道。"
+    },
+    {
+      "year": 1968,
+      "en": "The two-lane Everglades Parkway, nicknamed Alligator Alley, opens as a Florida toll road across the Everglades.",
+      "zh": "双车道的「大沼泽景观公路」（绰号「鳄鱼巷」）作为佛罗里达州收费公路横穿大沼泽通车。"
+    },
+    {
+      "year": 1977,
+      "en": "A 17-mile link in Georgia opens on 21 December, making I-75 the first Interstate completed from one end of the country to the other, Tampa to Sault Ste. Marie.",
+      "zh": "12 月 21 日佐治亚州一段 17 英里连接线通车，I-75 成为第一条自国土一端贯通到另一端的州际公路，从坦帕到苏圣玛丽。"
+    },
+    {
+      "year": 1986,
+      "en": "Florida completes new construction in Miami-Dade and Broward counties and begins rebuilding the Everglades crossing to Interstate standards.",
+      "zh": "佛罗里达完成迈阿密—戴德县与布劳沃德县的新建工程，并开始将大沼泽穿越段改建至州际公路标准。"
+    },
+    {
+      "year": 1992,
+      "en": "The rebuilt Everglades crossing is signed as I-75 on 25 November, completing the route from the Miami area to the Canadian border.",
+      "zh": "11 月 25 日，改建后的大沼泽穿越段挂上 I-75 标志，本路线自迈阿密地区至加拿大边境全线贯通。"
+    }
+  ]
+}

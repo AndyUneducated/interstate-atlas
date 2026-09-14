@@ -1,0 +1,5 @@
+# Keep line endings stable in the repository regardless of the machine that
+# writes them; the build scripts and JSON data are all text.
+* text=auto eol=lf
+*.png binary
+*.ico binary

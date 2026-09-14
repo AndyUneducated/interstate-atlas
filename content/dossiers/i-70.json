@@ -1,0 +1,134 @@
+{
+  "id": "i-70",
+  "name": { "en": "Interstate 70", "zh": "70 号州际公路" },
+  "tagline": { "en": "Utah desert to Baltimore, over the Continental Divide", "zh": "从犹他荒漠翻越大分水岭直抵巴尔的摩" },
+  "officialMi": 2061.22,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1957,
+  "completedYear": 1992,
+  "termini": {
+    "start": { "en": "I-15 at Cove Fort, Utah", "zh": "犹他州考夫堡，与 I-15 相接" },
+    "end": { "en": "A park-and-ride lot just inside the Baltimore Beltway, Baltimore, Maryland", "zh": "马里兰州巴尔的摩，巴尔的摩环城路以内的一处停车换乘场" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-70 begins at a junction in the Utah desert, at a place called Cove Fort where almost nobody lives, and ends at a park-and-ride lot in west Baltimore. In between it crosses ten states and the Rocky Mountains, and it is the only primary Interstate whose western end is not a city, a coast, or a border.",
+        "The road changes character more sharply than almost any other route in the system. In Utah it runs through the San Rafael Swell on an alignment where no highway existed before, with no fuel, food, or lodging for a long stretch of central desert. In Colorado it climbs above eleven thousand feet through a tunnel under the Continental Divide, then descends through a river canyon on a viaduct stacked in two levels. From Kansas to Ohio it flattens into the plainest kind of Interstate — straight, agricultural, heavily trucked — before turning into an urban expressway through Columbus and a mountain road again across the Pennsylvania panhandle.",
+        "Its eastern end is the most telling thing about it. The road was drawn to reach downtown Baltimore and never got there: the city section was abandoned in the face of neighbourhood opposition, and the number now stops at a car park. Drivers who follow the shield east find themselves being funnelled onto the Beltway instead."
+      ],
+      "zh": [
+        "I-70 的西端起自犹他荒漠中的一处交汇点——一个名叫考夫堡、几乎无人居住的地方——东端止于西巴尔的摩的一处停车换乘场。中间它横穿十个州和落基山脉，也是唯一一条西端既不是城市、不是海岸、也不是边境的主干州际公路。",
+        "它沿途性格转变之剧烈，在全系统中几乎无出其右。在犹他，它穿过圣拉斐尔隆起，走的是此前从未有公路的线位，中部沙漠有很长一段没有加油、餐饮和住宿。在科罗拉多，它经由一条穿越大分水岭的隧道爬升到海拔一万一千英尺以上，随后沿一条河谷以上下双层的高架桥下行。从堪萨斯到俄亥俄，它又变回最平淡的那种州际公路——笔直、农业、货车密集——然后在哥伦布市区化为城市快速路，到了宾夕法尼亚狭长地带再次变成山路。",
+        "最能说明它性格的是东端。这条路原本画到巴尔的摩市中心，却始终没能抵达：城区段在社区反对声中被放弃，编号如今止于一处停车场。沿着盾形路牌东行的司机，最后会被引导汇入环城路。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Two Colorado projects account for most of I-70's reputation. The Eisenhower–Johnson Memorial Tunnel carries the road under the Continental Divide about sixty miles west of Denver at an average elevation of just over eleven thousand feet; when the first bore opened it was the highest vehicular tunnel in the world. Driving it began in 1968, the westbound bore opened in 1973, and the eastbound bore followed at the end of 1979. The first bore alone set a record for federal-aid spending on a single project, and the contract had to be shifted from bid items to a cost basis partway through because of what the crews met in mid-mountain.",
+        "Glenwood Canyon is the other. The last twelve miles of I-70 were threaded along the Colorado River through a canyon narrow enough that the two directions had to be stacked on separate viaducts, with forty bridges and a pair of four-thousand-foot tunnels. Construction ran from 1980 to 1992 and the design was driven by the requirement not to wreck the canyon; retaining walls were tinted, and some structures were built from the deck above rather than from the riverbed.",
+        "Utah's contribution is less celebrated and arguably stranger. The San Rafael Swell section was built where no paved road had ever run, opening in 1970 as a two-lane highway that was only brought up to four lanes over the following two decades. It remains the emptiest stretch of the Interstate system."
+      ],
+      "zh": [
+        "I-70 的声誉大半来自科罗拉多州的两项工程。艾森豪威尔—约翰逊纪念隧道在丹佛以西约六十英里处将道路引入大分水岭之下，平均海拔略高于一万一千英尺；第一孔通车时，它是世界上海拔最高的公路隧道。开挖始于 1968 年，西行孔 1973 年通车，东行孔在 1979 年底跟进。仅第一孔就创下了联邦补助单项工程支出的纪录，而且由于施工队在山体中部遇到的情况，合同在中途不得不从按项计价改为按成本计价。",
+        "另一项是格伦伍德峡谷。I-70 最后十二英里沿科罗拉多河穿峡谷而过，峡谷之窄，使上下行方向必须分置于两层高架之上，工程包含四十座桥梁和一对四千英尺长的隧道。施工自 1980 年持续到 1992 年，设计的首要约束是不能破坏峡谷；挡土墙做了色彩处理，部分结构是从上方桥面而非河床施工的。",
+        "犹他州的贡献名气较小，但或许更为奇特。圣拉斐尔隆起路段建在从未有过铺装道路的地方，1970 年以双车道形式通车，其后二十年才逐步扩建为四车道。它至今仍是州际公路系统中最空旷的一段。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "I-70 was one of the first routes to get money and dirt moving. Missouri awarded the first Interstate construction contract under the 1956 Act in August of that year, and the first project on which construction actually started was a short paving job on US 40 — now I-70 — in St. Charles County.",
+        "The route originally stopped at Denver. In 1957 the Federal-Aid Highway Act's extra thousand miles of system mileage made a western extension possible, and the argument was over where it should end in Utah. Utah and Colorado wanted Spanish Fork, which would have tied Denver to the Wasatch Front. Federal planners showed the Army a variant ending at Cove Fort instead, because it gave a much more direct connection between Denver and southern California. Cove Fort was announced on 18 October 1957 with no advance notice to Utah officials — the Bureau of Public Roads later admitted the silence was deliberate, to forestall a fight.",
+        "At the other end the road lost its argument. Plans to carry I-70 into Baltimore through Leakin Park and on to I-95 collapsed under sustained community and environmental opposition; the state and city asked for the section east of Security Boulevard to be withdrawn in July 1981 and the federal government agreed that September. A stub of the associated city freeway had already been built and became known locally as the Highway to Nowhere; its Interstate number was deleted and US 40 was put on it instead."
+      ],
+      "zh": [
+        "I-70 是最早拿到钞票、最早动土的路线之一。1956 年 8 月，密苏里州授出了依据当年《联邦公路法》签订的第一份州际公路施工合同；而真正最先开工的项目，是圣查尔斯县 US 40——即今日 I-70——上的一段短距离铺装工程。",
+        "这条路线最初只到丹佛。1957 年《联邦公路法》为系统追加的一千英里里程使西延成为可能，争论的焦点变成了它该在犹他何处终止。犹他与科罗拉多想要西班牙福克，那样就能把丹佛与瓦萨奇前沿连起来。联邦规划者却向陆军部展示了另一个终点为考夫堡的方案，因为它让丹佛与南加州之间的联系直接得多。考夫堡方案于 1957 年 10 月 18 日公布，事先未通知犹他州官员——公共道路局后来承认，这种沉默是故意的，为的是防止内斗。",
+        "在另一端，这条路输掉了争论。让 I-70 穿过利金公园进入巴尔的摩、再接上 I-95 的计划，在持续的社区与环保反对下崩塌；1981 年 7 月，州政府与市政府请求撤销安全大道以东的路段，联邦政府在同年 9 月同意。与之配套的那条城市高速公路已经建成一小段，在当地被称为「通往无处的高速公路」；它的州际编号被删除，改由 US 40 使用。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "There is no published construction total for I-70 as a whole, and there is no agency that would have compiled one: the road was built by ten state highway departments over roughly four decades under a federal programme whose cost accounting was organised by year and by state, not by route number.",
+        "What does exist is unusually good documentation of the expensive pieces, because the expensive pieces were expensive enough to be newsworthy. The two Continental Divide bores, the Glenwood Canyon link, and the recent rebuild of the Denver viaduct are each costed in public agency records, and together they show how the money on this route clusters in a few dozen miles of Colorado rather than spreading evenly across two thousand."
+      ],
+      "zh": [
+        "I-70 整条路没有公开的建设总造价，也不存在会去汇总它的机构：这条路由十个州的公路部门历经约四十年建成，而其所属联邦计划的造价核算是按年度、按州组织的，不是按路线编号。",
+        "确实存在的，是对那些昂贵路段异乎寻常详尽的记录——因为它们贵到足以成为新闻。两条大分水岭隧道、格伦伍德峡谷的连接段，以及近年丹佛高架的重建，都在公共机构的记录中留下了造价数据；把它们放在一起就能看出，这条路上的钱集中在科罗拉多的几十英里里，而不是均匀摊在两千英里上。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No public figure exists. I-70 was built by ten state highway departments between 1956 and 1992 under a federal aid programme that accounted for costs by state and fiscal year rather than by route, and the Pennsylvania Turnpike portion of the corridor predates the programme entirely.", "zh": "无公开数据。I-70 由十个州的公路部门于 1956 至 1992 年间建成，所属联邦补助计划按州和财政年度而非按路线核算造价，而走廊中属于宾州收费高速的部分更是完全早于该计划。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "2,061.22 miles across 10 states", "zh": "2,061.22 英里，横跨 10 个州" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": { "en": "Longest and shortest state sections", "zh": "最长与最短的州内路段" },
+      "value": { "en": "Colorado, 450.18 miles; West Virginia, 14.45 miles", "zh": "科罗拉多州 450.18 英里；西弗吉尼亚州 14.45 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": { "en": "Eisenhower–Johnson Memorial Tunnel", "zh": "艾森豪威尔—约翰逊纪念隧道" },
+      "value": { "en": "$116.9 million for the westbound bore and $144.9 million for the eastbound, about $262 million for the pair", "zh": "西行孔 1.169 亿美元，东行孔 1.449 亿美元，两孔合计约 2.62 亿美元" },
+      "source": "Colorado Department of Transportation, tunnel fact sheets (2013 and 2014)"
+    },
+    {
+      "label": { "en": "Glenwood Canyon, final 12 miles", "zh": "格伦伍德峡谷最后 12 英里" },
+      "value": { "en": "About $490 million, 1980–1992, including 40 bridges and two 4,000-foot tunnels", "zh": "约 4.9 亿美元，1980 至 1992 年，含 40 座桥梁与两条 4,000 英尺长隧道" },
+      "source": "Colorado Department of Transportation, I-70 Glenwood Canyon history; Los Angeles Times, 15 October 1992"
+    },
+    {
+      "label": { "en": "Central 70 rebuild, Denver", "zh": "丹佛「中央 70」重建工程" },
+      "value": { "en": "$1.2 billion for 10 miles, removing a 57-year-old viaduct and lowering the road under a 4-acre park", "zh": "12 亿美元改造 10 英里，拆除一座 57 年历史的高架，并将道路下压至一座 4 英亩公园之下" },
+      "source": "Colorado Department of Transportation, Central 70 Project page and completion release, 2022"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "No agency publishes a single figure for the route. Counts are collected per segment by ten state DOTs, and volumes on this road span more than an order of magnitude between the Denver viaduct and the central Utah desert.", "zh": "没有机构发布全线的单一数字。交通量由十个州的交通部门按路段采集，而本路线上丹佛高架与犹他中部沙漠之间的流量差异超过一个数量级。" }
+    },
+    {
+      "label": { "en": "Eisenhower–Johnson Memorial Tunnel, 2024", "zh": "艾森豪威尔—约翰逊纪念隧道，2024 年" },
+      "value": { "en": "Average daily traffic peaked at 42,348 vehicles in July and bottomed out at 27,947 in November", "zh": "日均交通量 7 月最高达 42,348 辆，11 月最低为 27,947 辆" },
+      "source": "Colorado Department of Transportation, Eisenhower Tunnel traffic counts, 2024"
+    },
+    {
+      "label": { "en": "Denver, Central 70 corridor", "zh": "丹佛「中央 70」走廊" },
+      "value": { "en": "Upwards of 200,000 vehicles per day", "zh": "每日超过 200,000 辆" },
+      "source": "Colorado Department of Transportation, Central 70 Project page, 2023"
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Tunnel repair and maintenance backlog", "zh": "隧道维修与养护欠账" },
+      "value": { "en": "$100 million committed by Colorado's Statewide Bridge and Tunnel Enterprise to the Eisenhower–Johnson facility", "zh": "科罗拉多州全州桥梁与隧道企业局为艾森豪威尔—约翰逊隧道设施承诺投入 1 亿美元" },
+      "source": "Colorado Office of the State Auditor, Statewide Bridge and Tunnel Enterprise financial audits, FY2022 and FY2024"
+    },
+    {
+      "label": { "en": "Services on the Utah desert section", "zh": "犹他沙漠路段的服务设施" },
+      "value": { "en": "None for about 110 miles between Salina and Green River — the longest such gap in the Interstate system", "zh": "萨莱纳至格林里弗之间约 110 英里内没有任何服务设施，为州际公路系统中最长的此类空白" },
+      "source": "Utah Division of State History, History to Go: Interstate 70"
+    }
+  ],
+  "timeline": [
+    { "year": 1956, "en": "Construction begins on a paving project on US 40 in St. Charles County, Missouri — the first work started anywhere under the 1956 Federal-Aid Highway Act, and now part of I-70.", "zh": "密苏里州圣查尔斯县 US 40 的一项铺装工程开工，这是依据 1956 年《联邦公路法》在全美最先动工的项目，今属 I-70。" },
+    { "year": 1957, "en": "The Bureau of Public Roads extends I-70 west of Denver and announces Cove Fort, Utah, as its terminus, overriding Utah's preference for Spanish Fork.", "zh": "公共道路局将 I-70 西延至丹佛以西，并宣布终点为犹他州考夫堡，否决了犹他州倾向的西班牙福克方案。" },
+    { "year": 1970, "en": "Seventy miles of new two-lane highway open across Utah's San Rafael Swell — the longest stretch of Interstate opened at one time.", "zh": "横穿犹他州圣拉斐尔隆起的 70 英里新建双车道公路通车，是州际公路一次性通车里程之最。" },
+    { "year": 1973, "en": "The Eisenhower bore opens under the Continental Divide, replacing the climb over Loveland Pass.", "zh": "艾森豪威尔隧道孔在大分水岭下通车，取代了翻越洛夫兰山口的路线。" },
+    { "year": 1979, "en": "The Johnson bore opens, giving the Continental Divide crossing two lanes in each direction.", "zh": "约翰逊隧道孔通车，大分水岭穿越段实现双向各两车道。" },
+    { "year": 1981, "en": "Maryland and Baltimore withdraw I-70 east of Security Boulevard; the federal government approves, and the route's eastern end becomes a park-and-ride lot.", "zh": "马里兰州与巴尔的摩市撤销安全大道以东的 I-70；联邦政府批准，本路线东端遂成为一处停车换乘场。" },
+    { "year": 1992, "en": "The Glenwood Canyon section is dedicated on 14 October, completing I-70 from Utah to Maryland.", "zh": "10 月 14 日格伦伍德峡谷路段举行通车典礼，I-70 自犹他至马里兰全线贯通。" },
+    { "year": 2023, "en": "The Central 70 rebuild through Denver is completed, replacing the 1960s viaduct with a lowered roadway under a park.", "zh": "穿越丹佛的「中央 70」重建工程完工，1960 年代的高架被公园之下的下沉道路取代。" }
+  ]
+}

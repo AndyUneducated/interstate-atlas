@@ -1,0 +1,75 @@
+{
+  "id": "i-84-or",
+  "name": { "en": "Interstate 84 (west)", "zh": "84 号州际公路（西段）" },
+  "tagline": { "en": "Portland to Echo, Utah, on the line of the Oregon Trail", "zh": "自波特兰至犹他州埃科，沿俄勒冈小径而行" },
+  "officialMi": 733.06,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "completedYear": 1986,
+  "termini": {
+    "start": { "en": "I-5 in Portland, Oregon", "zh": "俄勒冈州波特兰，与 I-5 相接" },
+    "end": { "en": "I-80 at Echo Junction, Utah", "zh": "犹他州埃科枢纽，与 I-80 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "The western I-84 runs from Portland up the Columbia River Gorge, across the dry interior of eastern Oregon and southern Idaho, and over the Wasatch into Echo Canyon, where it meets I-80. It is the inland route to the Pacific Northwest, and for most of its length it is following the line of the Oregon Trail — as did US 30 and US 30S before it.",
+        "The first eighty-odd miles are the most distinctive stretch of freeway in the Northwest: a road pinned between basalt cliffs and a mile-wide river, through a gorge that cuts the Cascade Range at sea level. Beyond The Dalles the trees stop and the road becomes high desert, running through Pendleton, Baker City, Boise and the Snake River Plain.",
+        "It is a freight corridor first. Portland's port traffic, Idaho agriculture and long-haul trucking between the Northwest and the Salt Lake City distribution hub all use it, and there is no parallel Interstate for hundreds of miles in either direction."
+      ],
+      "zh": [
+        "西段 I-84 自波特兰沿哥伦比亚河峡谷上行，横穿俄勒冈州东部与爱达荷州南部的干旱内陆，翻越瓦萨奇山脉进入埃科峡谷，与 I-80 相交。它是通往西北太平洋地区的内陆通道，其大部分里程都沿着俄勒冈小径的走向——在它之前的 US 30 与 US 30S 也是如此。",
+        "最初八十余英里是西北部最具特色的一段高速公路：道路夹在玄武岩崖壁与宽达一英里的河流之间，穿过一道在海平面高度切开喀斯喀特山脉的峡谷。过了达尔斯，树木消失，道路进入高原荒漠，经彭德尔顿、贝克城、博伊西，直至蛇河平原。",
+        "它首先是一条货运走廊。波特兰的港口运输、爱达荷的农产品，以及西北部与盐湖城配送枢纽之间的长途卡车运输都走这条路，而两个方向数百英里之内都没有平行的州际公路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The corridor was identified as a national through route long before the Interstate System existed; the Bureau of Public Roads listed it among proposed toll superhighways in a 1939 report. When the system was drawn up it was first pencilled in as I-82, then assigned I-80N in the 1958 plan so that it would read as a northern fork of I-80 and correspond with US 30. Oregon had asked for plain I-80 and accepted the suffix as a compromise.",
+        "Suffixed numbers fell out of favour. AASHTO adopted guidelines against them, Idaho proposed renumbering I-80N as I-84 in 1977, Utah seconded, and Oregon and Washington objected on grounds of cost and confusion for roadside businesses. The motion passed on 7 July 1977, with a deadline of 1 July 1980 for the states to change their signs. Oregon's changed on 1 May 1980.",
+        "Construction ran from the 1950s to the 1980s. The Banfield Freeway between Portland and Troutdale, opened in 1955, was absorbed into the route; new road was built through the Gorge in the 1960s and across north-eastern Oregon in the 1970s. Oregon's last section, near Baker City, opened on 3 July 1975; Idaho finished at Caldwell in 1984; and the final link anywhere on the route, between Blue Creek Summit and Tremonton in Utah, opened in September 1986."
+      ],
+      "zh": [
+        "早在州际公路系统出现之前，这条走廊就被认定为全国性过境通道；公共道路局在 1939 年的一份报告中，已将其列入拟建的收费超级公路之中。系统规划之初，它先被草拟为 I-82，随后在 1958 年方案中定为 I-80N，以便读作 I-80 的北支，并与 US 30 相对应。俄勒冈州原本要求直接使用 I-80，最后接受了带后缀的编号作为折中。",
+        "带方位后缀的编号后来不受待见。AASHTO 通过了反对此类编号的准则；1977 年爱达荷州提议把 I-80N 改为 I-84，犹他州附议，俄勒冈与华盛顿两州则以费用与路边商家困扰为由反对。动议于 1977 年 7 月 7 日通过，各州须在 1980 年 7 月 1 日前完成换牌。俄勒冈州于 1980 年 5 月 1 日更换。",
+        "施工自 1950 年代延续到 1980 年代。1955 年通车的班菲尔德高速（波特兰至特劳特代尔）被并入本路线；1960 年代在峡谷中新建道路，1970 年代建成俄勒冈东北部路段。俄勒冈州最后一段位于贝克城附近，1975 年 7 月 3 日通车；爱达荷州于 1984 年在考德威尔收尾；全线最后一处缺口——犹他州蓝溪垭口至特雷蒙顿之间——于 1986 年 9 月通车。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Two stretches define the drive. The first is the Columbia River Gorge, where the freeway shares a narrow bench with a mainline railroad between the cliffs and the water, and where the wind funnelling through the gap is strong enough to be a standing hazard for high-sided vehicles.",
+        "The second is Cabbage Hill, the descent from the Blue Mountains into the Umatilla Valley east of Pendleton. Oregon carried the freeway down the face in long sweeping curves rather than a straight grade, and the eastbound climb and westbound descent are both signed for trucks, with runaway ramps and chain-up areas. In winter the pass is one of the first places the road closes."
+      ],
+      "zh": [
+        "有两段路决定了这条路的驾驶体验。第一段是哥伦比亚河峡谷：高速公路与一条铁路干线共用崖壁与水面之间的一道狭窄台地，而从这道缺口灌入的大风，强到足以成为高车身车辆的长期危险源。",
+        "第二段是卷心菜山（Cabbage Hill），即彭德尔顿以东自蓝山下行进入尤马蒂拉谷的路段。俄勒冈州没有采用直线纵坡，而是让高速公路以长而舒缓的弯道盘下山坡；东行的爬坡与西行的下坡都设有针对卡车的标志、避险车道与装链区。冬季里，这处山口是全线最早封闭的地点之一。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Route-wide construction cost", "zh": "全线建设成本" },
+      "why": { "en": "No public route-wide figure exists. The road was built by three states across three decades, partly by upgrading existing US 30 and US 30S pavement, and federal cost accounting was kept for the Interstate System as a whole.", "zh": "无公开的全线数据。这条路由三个州历时三十年建成，其中一部分是在既有 US 30 与 US 30S 路面基础上改建，而联邦造价核算是针对整个州际公路系统的。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "733.06 miles: 375.68 in Oregon, 275.83 in Idaho and 81.55 in Utah", "zh": "733.06 英里：俄勒冈州 375.68 英里，爱达荷州 275.83 英里，犹他州 81.55 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026, summing the three western states listed under I-84"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Three state transportation departments publish counts by segment. Volumes on the Portland approaches are not comparable with those in the Snake River Plain, and no route-wide figure is published.", "zh": "三个州的交通部门按路段发布交通量。波特兰引道路段的数值与蛇河平原无从比较，亦无全线数字发布。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1939, "en": "The Bureau of Public Roads lists the corridor among proposed national toll superhighways.", "zh": "公共道路局将该走廊列入拟建的全国收费超级公路之中。" },
+    { "year": 1958, "en": "The route is assigned the number I-80N, a northern fork of I-80 following US 30.", "zh": "本路线获编号 I-80N，作为 I-80 的北支，循 US 30 而行。" },
+    { "year": 1975, "en": "Oregon's last section, near Baker City, opens on 3 July.", "zh": "7 月 3 日，俄勒冈州最后一段在贝克城附近通车。" },
+    { "year": 1977, "en": "AASHTO approves renumbering I-80N as I-84, giving the states until July 1980 to change signs.", "zh": "AASHTO 批准将 I-80N 改编号为 I-84，各州须在 1980 年 7 月前完成换牌。" },
+    { "year": 1986, "en": "The final link, between Blue Creek Summit and Tremonton in Utah, opens in September.", "zh": "9 月，全线最后一处缺口——犹他州蓝溪垭口至特雷蒙顿之间——通车。" }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "i-355",
+  "name": { "en": "Interstate 355", "zh": "355 号州际公路" },
+  "tagline": { "en": "The Veterans Memorial Tollway, built in two halves", "zh": "退伍军人纪念收费高速：分两半建成" },
+  "officialMi": 32.72,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 2007,
+  "termini": {
+    "start": { "en": "Army Trail Road in DuPage County, where Illinois 53 continues north", "zh": "杜佩奇县军道路，伊利诺伊 53 号公路自此向北延续" },
+    "end": { "en": "I-80 in Will County", "zh": "威尔县，与 I-80 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-355 is the Illinois Tollway's north–south road through the western suburbs of Chicago, running roughly parallel to Illinois 53 from Army Trail Road in DuPage County south across I-88, I-55 and finally I-80 in Will County. The odd hundreds digit marks it as a spur that does not return to its parent, and the northern end proves the point: it simply stops at a surface road and hands its traffic to Illinois 53.",
+        "It is a toll road of the modern kind — six lanes, sixteen interchanges, all-electronic open-road tolling since 2006 — and it was built for an area that had already been built. The Tollway's own description of the original section is blunt about this: the entire corridor is developed suburban land. Until 2007 it was called the North–South Tollway; the legislature then asked for the whole road to be dedicated to veterans, which is why the name changed on a road that had not."
+      ],
+      "zh": [
+        "I-355 是伊利诺伊收费高速局在芝加哥西郊的南北向道路，大致与伊利诺伊 53 号公路平行，自杜佩奇县的军道路南下，依次跨越 I-88、I-55，最后在威尔县接上 I-80。奇数百位标示它是一条不回到母线的支线，而北端正好印证了这一点：它就那样在一条地面道路处结束，把车流交给伊利诺伊 53 号公路。",
+        "它是现代意义上的收费公路——六车道、十六处立交，自 2006 年起全面采用不停车电子收费——而它服务的地区在它修好之前就已建成。收费高速局对原始路段的描述直言不讳：整条走廊都是已开发的郊区土地。2007 年之前它叫「南北收费高速」；此后立法机构要求把整条路献给退伍军人，于是一条没有改变的路换了名字。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The first segment, 17.5 miles from Army Trail Road south to I-55, was completed in 1989 and cost approximately $523 million. When construction was winding up, the Tollway had two bridge columns built over I-55 in anticipation of an extension southwards, and they then stood unused for the better part of two decades.",
+        "The extension was finally built as the I-355 South Extension: 12.5 miles from I-55 through Will County to I-80, including a 1.3-mile bridge over the Des Plaines River valley, at a construction cost of about $730 million against a budget of $729.2 million. To keep the price down the Tollway broke the work into smaller contracts to keep bidding competitive. It opened to traffic in November 2007, ahead of schedule, and at the ribbon-cutting the whole of I-355 was dedicated as the Veterans Memorial Tollway."
+      ],
+      "zh": [
+        "第一段自军道路南下至 I-55，长 17.5 英里，1989 年建成，造价约 5.23 亿美元。工程收尾时，收费高速局为日后南延，在 I-55 上方预建了两座桥墩，此后它们闲置了将近二十年。",
+        "延伸段最终以「I-355 南延段」之名建成：自 I-55 穿过威尔县至 I-80，长 12.5 英里，含一座跨德斯普兰斯河谷的 1.3 英里长桥，建设造价约 7.30 亿美元，预算为 7.292 亿美元。为压低价格，收费高速局把工程拆成较小的合同以保持投标竞争。该段于 2007 年 11 月提前通车，剪彩当日，整条 I-355 被献名为「退伍军人纪念收费高速」。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "32.72 miles, entirely in Illinois", "zh": "32.72 英里，全线位于伊利诺伊州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Original section", "zh": "原始路段" },
+      "value": { "en": "About $523 million for 17.5 miles, completed 1989", "zh": "17.5 英里约 5.23 亿美元，1989 年建成" },
+      "source": "Illinois Tollway 2008 Budget Book"
+    },
+    {
+      "label": { "en": "South Extension", "zh": "南延段" },
+      "value": { "en": "About $730 million for 12.5 miles including a 1.3-mile river valley bridge, opened November 2007", "zh": "12.5 英里约 7.30 亿美元，含一座 1.3 英里长的跨河谷桥梁，2007 年 11 月通车" },
+      "source": "Illinois Tollway 2008 Budget Book"
+    },
+    {
+      "label": { "en": "Budget for the extension", "zh": "延伸段预算" },
+      "value": { "en": "$729.2 million, delivered ahead of schedule and within budget", "zh": "7.292 亿美元，工程提前完成且未超预算" },
+      "source": "Illinois Tollway 2008 Budget Book"
+    }
+  ],
+  "timeline": [
+    { "year": 1989, "en": "The North–South Tollway opens from Army Trail Road to I-55.", "zh": "南北收费高速自军道路至 I-55 段通车。" },
+    { "year": 2006, "en": "Open-road tolling is completed across the Illinois Tollway system.", "zh": "伊利诺伊收费高速系统完成不停车电子收费改造。" },
+    { "year": 2007, "en": "The 12.5-mile South Extension opens to I-80 and the road is renamed for veterans.", "zh": "12.5 英里南延段通车至 I-80，全路更名以纪念退伍军人。" }
+  ]
+}

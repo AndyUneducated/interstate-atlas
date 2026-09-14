@@ -1,0 +1,85 @@
+{
+  "id": "ak-2",
+  "name": { "en": "Alaska Route 2 — the Alaska Highway and Elliott Highway", "zh": "阿拉斯加 2 号公路（阿拉斯加公路与埃利奥特公路）" },
+  "tagline": { "en": "The Alcan's Alaska miles, and the back road to Manley Hot Springs", "zh": "阿尔康公路在阿拉斯加境内的路段，以及通往曼利温泉的支路" },
+  "termini": {
+    "start": { "en": "A dead end at the Tanana River, Manley Hot Springs", "zh": "曼利温泉，塔纳纳河畔的尽头路" },
+    "end": { "en": "The Canada–United States border, where the route becomes Yukon Highway 1", "zh": "美加边境，此后接续为育空 1 号公路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "AK 2 is two roads of entirely different consequence carrying one number. East of Delta Junction it is the Alaska Highway — the Alcan, the wartime land link to the contiguous states, and still the way most people drive to Alaska. West of Fairbanks it is the Elliott Highway, a thin road that serves the Dalton Highway junction at Livengood and then continues, used by almost nobody, to a dead end at the Tanana River at Manley Hot Springs.",
+        "In between the number borrows other highways: the Richardson between Delta Junction and Fairbanks, and a short run of the Steese inside the city. Delta Junction marks the official northwestern end of the Alaska Highway, and the town makes a point of it with a milepost sign, though the mileposts on the Richardson Highway stretch beyond are measured from the port of Valdez instead.",
+        "The Alaska Highway is paved for its whole length now and carries ordinary traffic in ordinary cars, which is a considerable change from its reputation. The Elliott has not had the same attention, and its condition is a standing item in state maintenance plans."
+      ],
+      "zh": [
+        "AK 2 是两条意义完全不同的路共用一个编号。三角洲枢纽以东是阿拉斯加公路——即阿尔康公路，战时通往美国本土的陆上通道，至今仍是多数人自驾进入阿拉斯加的路径。费尔班克斯以西则是埃利奥特公路，一条细窄的道路，先服务于利文古德的道尔顿公路路口，之后几乎无人通行，一直延伸到曼利温泉塔纳纳河畔的尽头。",
+        "两者之间，这个编号借用了别的公路：三角洲枢纽至费尔班克斯段借理查森公路，城内还有一小段斯蒂斯公路。三角洲枢纽是阿拉斯加公路官方的西北端点，镇上专门立了里程碑标志；不过再往北那段理查森公路的里程碑，起算点是瓦尔迪兹港。",
+        "如今阿拉斯加公路全线铺装，普通轿车即可正常通行，这与它长年的名声已相去甚远。埃利奥特公路没有得到同等重视，其路况一直是州养护计划中的固定议题。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Alaska Highway was a war project. After Pearl Harbor, the Aleutians were the closest North American land to Japan and a land route to the territory became a military priority. President Roosevelt approved the project on 11 February 1942 and an agreement for American construction of a road across Canada followed on 18 March; Canada supplied the right-of-way and waived customs duties, and the United States built the road and maintained it for the duration of the war.",
+        "The pioneer road was driven through from Dawson Creek to Big Delta by the Army Corps of Engineers and the Public Roads Administration and finished in October 1942. It was opened to Army truck traffic at a ceremony at Soldier's Summit on 20 November; the first truck from Dawson Creek reached Fairbanks the following day. Many of the soldiers who built it were Black troops drafted after the Selective Service Act of 1940.",
+        "The name came later — Canada and the United States exchanged diplomatic notes formally calling it the Alaska Highway on 19 July 1943, replacing the working name Alcan. The military road was handed to Canada on 1 April 1946 and opened to the general public in 1948."
+      ],
+      "zh": [
+        "阿拉斯加公路是一项战时工程。珍珠港事件之后，阿留申群岛成为北美距日本最近的陆地，通往该领地的陆路因此成为军事优先事项。罗斯福总统于 1942 年 2 月 11 日批准该项目，3 月 18 日达成由美方在加拿大境内修路的协定；加拿大提供路权并豁免关税，美方负责修建，并承诺在战争期间承担养护。",
+        "先导路由陆军工程兵团与公共道路管理局自道森克里克贯通至大三角洲，于 1942 年 10 月完工。11 月 20 日在士兵岭举行仪式，向陆军卡车开放通行；次日，第一辆自道森克里克出发的卡车抵达费尔班克斯。参与筑路的士兵中有许多是 1940 年《选征兵役法》之后入伍的黑人部队。",
+        "路名是后来才定的——1943 年 7 月 19 日，加美双方互换外交照会，正式定名为「阿拉斯加公路」，取代原先的工作名称「阿尔康」。这条军用道路于 1946 年 4 月 1 日移交加拿大，1948 年向公众开放。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The enduring engineering problem on this route is what is underneath it. Interior Alaska sits on discontinuous permafrost, and where the frozen ground is ice-rich, thawing leaves voids under the pavement that show up as dips, waves, cracks and potholes. State geologists mapping the Alaska Highway corridor between Delta Junction and the Canadian border found ice-rich ground requiring reroutes, special fills and stabilised embankments, and expect to keep requiring them.",
+        "DOT&PF distinguishes this from ordinary seasonal frost heave, where water freezes under the pavement each winter and drains away each spring. Both happen along AK 2, and the agency has been explicit that its permafrost-related maintenance costs have risen over the past decade or so.",
+        "The western arm shows the bill. DOT&PF described Elliott Highway mileposts 51 to 63 as being in an advanced stage of deterioration and a serious maintenance burden, with frost heaving and thawing permafrost the stated causes, and rebuilt the embankment and the Tolovana River bridge deck under a project that ran from 2023."
+      ],
+      "zh": [
+        "这条路线长期的工程难题在于路基之下。阿拉斯加内陆位于不连续永久冻土之上，若冻土含冰量高，融化后会在路面下留下空洞，表现为凹陷、起伏、开裂与坑洞。州地质人员在三角洲枢纽至加拿大边境的阿拉斯加公路走廊测绘时，发现多处高含冰地层，需要改线、特殊填料和加固路堤，并预计今后仍将如此。",
+        "州交通与公共设施部把这一现象与普通季节性冻胀区分开来：后者是每年冬季路面下的水结冰、次年春季又排走。AK 2 沿线两种情况都有，该部门也明确表示，近十余年来与永久冻土相关的养护成本一直在上升。",
+        "西段最能看出代价。州交通与公共设施部形容埃利奥特公路 51 至 63 英里已严重劣化、成为沉重的养护负担，并指明原因是冻胀与永久冻土融化；在 2023 年起实施的项目中，路堤与托洛瓦纳河桥面均获重建。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Cost and speed of the original Alaska Highway", "zh": "阿拉斯加公路最初的造价与工期" },
+      "value": { "en": "Over 1,500 miles built in less than nine months in 1942, at a cost of $130.6 million — for the whole Dawson Creek to Big Delta road, most of it in Canada", "zh": "1942 年在不到九个月内建成 1,500 余英里，耗资 1.306 亿美元——指道森克里克至大三角洲全线，其中大部分在加拿大境内" },
+      "source": "FHWA, Contributions and Crossroads: Alaska Highway fact sheet"
+    },
+    {
+      "label": { "en": "Length of AK 2 itself", "zh": "AK 2 自身里程" },
+      "why": { "en": "No length for the state route as a whole could be verified from Alaska DOT&PF this session. The number is awkward because AK 2 is assembled from five named highways and runs concurrently with others through Fairbanks, so published figures for the component roads cannot simply be added.", "zh": "本次查证未能从阿拉斯加州交通与公共设施部取得该州道全线里程。这个数字本身就不好处理：AK 2 由五条命名公路拼接而成，在费尔班克斯还与其他路线共线，因此各组成路段的公开里程无法直接相加。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Annual average daily traffic", "zh": "年平均日交通量" },
+      "why": { "en": "No route-level count could be verified from Alaska DOT&PF. Volumes on this route also range from Fairbanks commuter traffic to a road at Manley Hot Springs that sees almost none, so a single average would not describe anything real.", "zh": "未能从阿拉斯加州交通与公共设施部查证到全线交通量数据。本路线的车流从费尔班克斯的通勤交通到曼利温泉附近几乎无车的路段，差异悬殊，单一平均值无法反映真实情况。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Permafrost maintenance cost", "zh": "永久冻土相关养护成本" },
+      "value": { "en": "DOT&PF estimated in 2013 that thawing permafrost contributed about $11 million a year in maintenance costs in its Northern Region alone", "zh": "州交通与公共设施部 2013 年估算，仅其北部区域内，永久冻土融化每年造成约 1,100 万美元养护支出" },
+      "source": "Alaska DOT&PF, \"Building in Permafrost Country\" travel topic, citing a 2013 departmental estimate"
+    },
+    {
+      "label": { "en": "Surface", "zh": "路面" },
+      "value": { "en": "The Alaska Highway is paved over its entire length; the Elliott Highway section is paved but has required embankment reconstruction", "zh": "阿拉斯加公路全线铺装；埃利奥特公路段亦为铺装路面，但已需进行路堤重建" },
+      "source": "Alaska DOT&PF, Elliott Highway MP 51–63 Rehabilitation project page, accessed September 2026"
+    }
+  ],
+  "timeline": [
+    { "year": 1942, "en": "Roosevelt approves the project in February; the pioneer road from Dawson Creek to Big Delta is finished in October and opened to Army trucks in November.", "zh": "2 月罗斯福批准项目；10 月道森克里克至大三角洲的先导路完工，11 月向陆军卡车开放。" },
+    { "year": 1943, "en": "Canada and the United States formally name the road the Alaska Highway by exchange of diplomatic notes on 19 July.", "zh": "7 月 19 日，加美互换外交照会，正式定名为「阿拉斯加公路」。" },
+    { "year": 1946, "en": "The military road is turned over to Canada on 1 April.", "zh": "4 月 1 日，这条军用道路移交加拿大。" },
+    { "year": 1948, "en": "The Alaska Highway opens to the general public.", "zh": "阿拉斯加公路向公众开放。" }
+  ]
+}

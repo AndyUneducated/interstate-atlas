@@ -1,0 +1,60 @@
+{
+  "id": "i-275-oh",
+  "name": { "en": "Interstate 275", "zh": "275 号州际公路" },
+  "tagline": { "en": "Cincinnati's Circle Freeway, a beltway in three states", "zh": "辛辛那提环形高速：横跨三州的环线" },
+  "officialMi": 80.73,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1979,
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-275 encircles Cincinnati, and because the Ohio River bends around the city the loop has to cross three states: 52.86 miles in Ohio, 24.58 in Kentucky and 3.29 in Indiana. It is the only complete Interstate beltway that touches three states, and it crosses the Ohio River twice — on the Carroll C. Cropper Bridge in the west and the Combs-Hehl Bridge in the east — plus the Licking River on a high span south of Covington and Newport.",
+        "The Ohio and Indiana sections were laid out across farmland, so few people were displaced building them; the Kentucky section is the hilly one, with mile-long five per cent grades and deep rock cuts between I-71/75 and the Combs-Hehl Bridge. Because the loop sits well out from the centre and lines up with I-75, it works mostly as a commuter and development corridor rather than a through bypass — the beltway pulled growth out to meet it."
+      ],
+      "zh": [
+        "I-275 环绕辛辛那提；由于俄亥俄河在此绕城而行，这条环线不得不跨越三个州：俄亥俄州 52.86 英里、肯塔基州 24.58 英里、印第安纳州 3.29 英里。它是唯一一条触及三个州的完整州际环线，两度跨越俄亥俄河——西侧为卡罗尔·C·克罗珀大桥，东侧为库姆斯－黑尔大桥——另在科温顿与纽波特以南以高架桥跨越利金河。",
+        "俄亥俄段与印第安纳段布线穿过农田，施工中迁移的居民很少；肯塔基段则是多山的那一段，在 I-71/75 与库姆斯－黑尔大桥之间有长达一英里的 5% 坡道和深挖石方。由于环线离市中心相当远，又与 I-75 走向一致，它主要起通勤与开发走廊的作用，而不是过境绕行线——环线把城市的增长拉了过来。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Planning began in the early 1950s, when separate Ohio and Kentucky proposals were combined into what was first called the Greater Cincinnati Metropolitan Area Bypass and then the Circle Freeway. Construction started in Ohio in 1958. In March 1962 the highway departments of Ohio, Kentucky and Indiana jointly announced a plan for an 80-mile loop costing $153 million, incorporating 21.3 miles already under way in northern Hamilton County.",
+        "Kentucky let its first contracts on 16 January 1970. The Licking River crossing, on piers 126 and 130 feet high, opened with three lanes each way in February 1976 at a cost of $7 million. The last link was the Combs-Hehl Bridge over the Ohio River between Brent, Kentucky and the California neighbourhood of Cincinnati: substructure work began in 1968, the first superstructure contract was let in May 1972, and the twin 1,400-foot spans — 12,000 tons of steel, $30.5 million — opened on 19 December 1979, closing the circle twenty-one years after the first shovel."
+      ],
+      "zh": [
+        "规划始于 1950 年代初，当时俄亥俄州与肯塔基州各自的方案被合并为最初称作「大辛辛那提都会区绕行线」、后称「环形高速」的项目。工程于 1958 年在俄亥俄州开工。1962 年 3 月，俄亥俄、肯塔基与印第安纳三州公路部门联合宣布一项 80 英里、造价 1.53 亿美元的环线计划，其中并入了汉密尔顿县北部已在施工的 21.3 英里。",
+        "肯塔基州于 1970 年 1 月 16 日发出首批合同。利金河跨河段桥墩高 126 英尺与 130 英尺，1976 年 2 月以每向三车道通车，造价 700 万美元。最后一环是俄亥俄河上的库姆斯－黑尔大桥，连接肯塔基州布伦特与辛辛那提的加利福尼亚社区：1968 年开始下部结构施工，1972 年 5 月发出首份上部结构合同，这对 1,400 英尺长的双桥用钢 12,000 吨、造价 3,050 万美元，于 1979 年 12 月 19 日通车，在首次动土二十一年后完成合圈。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "80.73 miles — 52.86 in Ohio, 24.58 in Kentucky, 3.29 in Indiana", "zh": "80.73 英里，其中俄亥俄州 52.86 英里、肯塔基州 24.58 英里、印第安纳州 3.29 英里" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "1962 estimate for the whole loop", "zh": "1962 年全环线估算" },
+      "value": { "en": "$153 million for an 80-mile beltway, announced jointly by three states in March 1962", "zh": "80 英里环线造价 1.53 亿美元，1962 年 3 月由三州联合宣布" },
+      "source": "Ohio, Kentucky and Indiana highway departments, March 1962, via Bridges and Tunnels"
+    },
+    {
+      "label": { "en": "Combs-Hehl Bridge", "zh": "库姆斯－黑尔大桥" },
+      "value": { "en": "$30.5 million and 12,000 tons of steel for twin 1,400-foot spans, opened 19 December 1979", "zh": "双桥各长 1,400 英尺，造价 3,050 万美元，用钢 12,000 吨，1979 年 12 月 19 日通车" },
+      "source": "Bridges and Tunnels, Combs-Hehl Bridges, and Kentucky State Highway Department records"
+    },
+    {
+      "label": { "en": "Licking River crossing", "zh": "利金河跨河段" },
+      "value": { "en": "$7 million for twin 1,500-foot spans on piers up to 130 feet high, opened February 1976", "zh": "双桥各长 1,500 英尺，桥墩最高 130 英尺，造价 700 万美元，1976 年 2 月通车" },
+      "source": "AARoads Interstate 275 Kentucky guide, citing Kentucky highway records"
+    }
+  ],
+  "timeline": [
+    { "year": 1958, "en": "Construction starts in northern Hamilton County, Ohio.", "zh": "工程在俄亥俄州汉密尔顿县北部开工。" },
+    { "year": 1962, "en": "Three states announce an 80-mile, $153 million loop around Cincinnati.", "zh": "三州宣布环绕辛辛那提的 80 英里、1.53 亿美元环线计划。" },
+    { "year": 1976, "en": "The Licking River crossing opens in Kentucky.", "zh": "肯塔基州利金河跨河段通车。" },
+    { "year": 1979, "en": "The Combs-Hehl Bridge opens on 19 December and the beltway is complete.", "zh": "库姆斯－黑尔大桥于 12 月 19 日通车，环线建成。" }
+  ]
+}

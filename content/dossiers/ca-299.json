@@ -1,0 +1,88 @@
+{
+  "id": "ca-299",
+  "name": { "en": "California State Route 299 — the Trinity Highway", "zh": "加利福尼亚 299 号州道（三一公路）" },
+  "tagline": { "en": "Redwood coast to the Nevada line across the north of the state", "zh": "自红杉海岸横贯加州北部直抵内华达州界" },
+  "termini": {
+    "start": { "en": "US 101 at the northern edge of Arcata", "zh": "阿克塔北缘的 US 101" },
+    "end": { "en": "The Nevada state line east of Cedarville", "zh": "锡达维尔以东的内华达州界" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "CA 299 crosses the whole top of California, from the redwood coast at Arcata to a point on the Nevada line where the pavement simply stops and a dirt road continues. It is mostly a two-lane road, and it is the main east–west connection across a part of the state that has very few.",
+        "The western half is the part people drive for its own sake. Between Arcata and Redding the road follows the Trinity River — a designated Wild and Scenic river — through Willow Creek, Salyer, Junction City and Weaverville, climbing over a series of summits with names that appear in every winter road report: Berry, Lord Ellis, Oregon Mountain, Buckhorn.",
+        "East of Redding the road changes entirely. It climbs onto the volcanic country near Burney and Adin and then out into the high desert of Modoc County, running through Alturas and Cedarville to the state line. This eastern half is empty in a way the coastal half is not."
+      ],
+      "zh": [
+        "CA 299 横穿整个加州北部，自阿克塔的红杉海岸一直到内华达州界上某处——那里路面直接中断，接下去是一条土路。它以双车道为主，是该州这一带极为稀缺的东西向主要通道之一。",
+        "西半段是人们专程去开的路。在阿克塔与雷丁之间，道路沿三一河而行——这是一条被列为「野性与风景河流」的河——途经威洛克里克、萨利尔、琼克申城和韦弗维尔，并翻越一连串在每份冬季路况报告里都会出现的岭口：贝里、洛德埃利斯、俄勒冈山、巴克霍恩。",
+        "雷丁以东，道路性格完全改变。它爬上伯尼和阿丁附近的火山地带，随后进入莫多克县的高原荒漠，经阿尔图拉斯和锡达维尔抵达州界。东半段的空旷程度，与西半段完全不同。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "Winter here means chain controls rather than seasonal closure. Caltrans posts control points in stages along the route — separate checks approaching Buckhorn Summit, around Burney, east of the SR 89 junction — and at truck-screening level all trucks must stop and carry maximum chains to proceed, with permit loads prohibited over the summit.",
+        "Outright closures happen and they come quickly. In February 2026 the Highway Patrol shut the highway from the Blue Lake scales to milepost 33 because of snow, falling trees, downed power lines and stuck vehicles; it reopened the same morning once Caltrans and the utility had cleared it. That pattern — closed and reopened within hours or days — recurs through the winter.",
+        "The road also loses ground. After heavy rain and snow in early 2026, the Buckhorn Summit Slide damaged a pullout and part of the eastbound shoulder just east of the summit; Caltrans installed concrete K-rail, ran one-way traffic control, and found the repair slower than expected because the ground was wetter than engineers had anticipated."
+      ],
+      "zh": [
+        "这里的冬季意味着装链管制，而不是季节性封路。加州交通局沿线分段设置管制点——接近巴克霍恩岭、伯尼一带、89 号州道路口以东各设独立检查——在货车筛查级别下，所有货车必须停车并携带最高等级防滑链方可通行，许可载运车辆禁止越岭。",
+        "彻底封路也会发生，而且来得很快。2026 年 2 月，公路巡警因积雪、倒树、断落电线和滞留车辆，将蓝湖检重站至 33 英里桩之间封闭；在加州交通局与电力公司清障后，当天上午即恢复通行。这种数小时或数天内封闭又开放的模式，整个冬季反复出现。",
+        "这条路也在失去路基。2026 年初的强降雨与降雪之后，巴克霍恩岭滑坡损毁了岭口以东的一处路边停车带和部分东行路肩；加州交通局架设混凝土 K 型护栏、实行单向交通管制，并发现修复比预期缓慢，因为地层比工程师预估的更为湿润。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The stretch worth planning around is the Forest Service byway. The Trinity Scenic Byway was designated in October 1991 and follows CA 299 between Shasta, on the outskirts of Redding, and Blue Lake near Arcata. The Forest Service chose the theme \"From the Valley Oaks to the Redwood Coast\" to point at what the drive actually does — it passes through several distinct climate zones in a few hours.",
+        "It is not a fast road and should not be treated as one. It is largely two lanes, winding, with logging and freight traffic, and passing opportunities are limited over the summits. Weaverville, roughly midway on the western half, is the practical place to stop for fuel and food.",
+        "Check conditions on the day. Caltrans publishes live road information and camera views for the summits, and in winter the difference between an easy three-hour drive and an impassable one can be a few hours of weather."
+      ],
+      "zh": [
+        "值得专门安排行程的是林务局认定的景观路段。三一景观道路于 1991 年 10 月获得认定，沿 CA 299 自雷丁城郊的沙斯塔至阿克塔附近的蓝湖。林务局选定的主题是「从谷地栎到红杉海岸」，点明了这段路的实质——它在几个小时内穿过若干个截然不同的气候带。",
+        "这不是一条快路，也不该当作快路对待。它以双车道为主，弯道密集，有木材运输与货运车流，越岭路段超车机会有限。西半段大致中点的韦弗维尔是加油与就餐的实际落脚处。",
+        "出行当天务必查询路况。加州交通局提供实时路况信息和各岭口的摄像画面；在冬季，一趟轻松的三小时车程与完全无法通行之间的差别，可能只是几个小时的天气变化。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Scenic byway designation", "zh": "景观道路认定" },
+      "value": { "en": "Designated the Trinity Scenic Byway in October 1991, running between Shasta near Redding and Blue Lake near Arcata", "zh": "1991 年 10 月获定为三一景观道路，自雷丁附近的沙斯塔至阿克塔附近的蓝湖" },
+      "source": "USDA Forest Service, Shasta-Trinity National Forest, Trinity Scenic Byway page"
+    },
+    {
+      "label": { "en": "Total length", "zh": "全线里程" },
+      "why": { "en": "The route is widely described as the longest east–west state route in California, but no length from Caltrans could be verified this session, and the site's own measured figure comes from generalised map geometry rather than a survey.", "zh": "本路线普遍被称为加州最长的东西向州道，但本次查证未能从加州交通局取得其里程数据；本站自行测得的数值来自概化地图几何，而非实测。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Annual average daily traffic", "zh": "年平均日交通量" },
+      "why": { "en": "No count for this route could be verified from Caltrans this session. Volumes would in any case differ by an order of magnitude between the Redding approaches and the Modoc County section.", "zh": "本次查证未能从加州交通局取得本路线的交通量数据。况且雷丁进出方向与莫多克县路段的车流量相差可达一个数量级。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Seasonal closure", "zh": "季节性封闭" },
+      "value": { "en": "None scheduled, but the route is subject to emergency winter closures — in February 2026 it was shut from the Blue Lake scales to milepost 33 for snow, fallen trees and power lines", "zh": "无计划性封闭，但会有冬季紧急封路——2026 年 2 月因积雪、倒树与断落电线，自蓝湖检重站至 33 英里桩封闭" },
+      "source": "California Highway Patrol via the Times-Standard, 18 February 2026"
+    },
+    {
+      "label": { "en": "Chain controls", "zh": "装链管制" },
+      "value": { "en": "Imposed in stages by segment; at truck-screening level all trucks must stop and carry maximum chains, and permit loads are prohibited over the summit", "zh": "按路段分级实施；在货车筛查级别下所有货车须停车并携带最高等级防滑链，许可载运车辆禁止越岭" },
+      "source": "Caltrans chain control notices reported by KRCR, Redding"
+    },
+    {
+      "label": { "en": "Slide damage", "zh": "滑坡损毁" },
+      "value": { "en": "The Buckhorn Summit Slide, reported by Caltrans on 11 March 2026, destroyed a pullout and part of the eastbound shoulder and required emergency slope repairs", "zh": "加州交通局于 2026 年 3 月 11 日通报的巴克霍恩岭滑坡损毁了一处路边停车带及部分东行路肩，需进行边坡应急修复" },
+      "source": "Caltrans District 2, reported by the Redding Record Searchlight, March 2026"
+    }
+  ],
+  "timeline": [
+    { "year": 1991, "en": "The Arcata–Redding section is designated the Trinity Scenic Byway by the Forest Service in October.", "zh": "10 月，阿克塔至雷丁路段由林务局认定为三一景观道路。" },
+    { "year": 2026, "en": "The Buckhorn Summit Slide takes out a pullout and part of the eastbound shoulder, requiring emergency repair.", "zh": "巴克霍恩岭滑坡冲毁一处路边停车带及部分东行路肩，需应急修复。" }
+  ]
+}

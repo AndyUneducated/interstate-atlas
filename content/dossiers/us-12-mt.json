@@ -1,0 +1,83 @@
+{
+  "id": "us-12-mt",
+  "name": { "en": "U.S. Route 12", "zh": "12 号美国国道" },
+  "tagline": { "en": "Detroit to the Pacific by way of the Lochsa River", "zh": "自底特律取道洛克萨河抵太平洋" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "U.S. 101 in Aberdeen, Washington", "zh": "华盛顿州阿伯丁，与 US 101 相接" },
+    "end": { "en": "Michigan Avenue in downtown Detroit, Michigan", "zh": "密歇根州底特律市中心密歇根大道" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 12 is one of the few U.S. Routes that got substantially longer rather than shorter. It began as a Detroit-to-Montana road and now runs from downtown Detroit to the Pacific at Aberdeen, Washington. In Michigan it is the Chicago Road, laid on the Sauk Trail; through Indiana it is the Dunes Highway along the foot of Lake Michigan; across Wisconsin, Minnesota and the Dakotas it is a two-lane farm road through Madison, Eau Claire, Aberdeen and Mobridge, crossing the Missouri at the Standing Rock reservation.",
+        "West of there it is the road you take when you do not want I-90 or I-94. It runs through central Montana — Roundup, Harlowton, White Sulphur Springs — over the Continental Divide at MacDonald Pass west of Helena, then joins the Interstate as far as Missoula. The famous part comes next: from Lolo it climbs to Lolo Pass and drops into Idaho along the Lochsa and Clearwater rivers, roughly the line of the Lewis and Clark expedition's crossing, with no town and no junction for about ninety miles. Beyond Lewiston it becomes a Columbia Basin farm highway through Walla Walla and the Yakima Valley, crosses the Cascades at White Pass, and ends on Grays Harbor."
+      ],
+      "zh": [
+        "US 12 是少数几条显著变长而非变短的美国国道。它最初是一条自底特律通往蒙大拿的道路，如今则从底特律市中心一直通到华盛顿州阿伯丁的太平洋岸。在密歇根州，它是铺在索克小道上的芝加哥路；穿过印第安纳州时，它是沿密歇根湖南岸的沙丘公路；横过威斯康星、明尼苏达与南北达科他时，它是一条经麦迪逊、奥克莱尔、阿伯丁与莫布里奇的双车道农业公路，并在立岩保留地处跨越密苏里河。",
+        "再往西，它就是你不愿意走 I-90 或 I-94 时的那条路。它穿过蒙大拿中部——朗德阿普、哈洛顿、白硫磺泉——在海伦娜以西的麦克唐纳山口越过大陆分水岭，随后与州际公路合走至米苏拉。著名的一段紧接其后：自洛洛爬上洛洛山口，落入爱达荷，沿洛克萨河与克利尔沃特河而下，大致就是刘易斯与克拉克探险队翻山的路线，其间约九十英里既无城镇也无路口。过刘易斯敦后，它变成一条哥伦比亚盆地的农业公路，经沃拉沃拉与亚基马谷，在白山口翻越喀斯喀特山脉，终于格雷斯港。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Lochsa section took nearly half a century. Idaho's highway commission designated a route from Kooskia east to Lolo Pass as the Lewis and Clark Highway in 1916 and let a contract in 1918; by 1920 the road had reached the Pete King ranger station at present-day Lowell and was known locally as the River Road. Work then stopped while the state argued over which canyon to use. Aerial surveys of the North Fork and the Lochsa were flown in 1931 — among the first uses of aerial survey in American highway location — and the Lochsa was chosen because it had the most uniform direction and gradient and the least rise and fall.",
+        "Construction resumed in pieces, worked in the 1930s and 1940s by federal prisoners from the Canyon Creek prison camp and by Japanese American internees held at the Kooskia camp nearby. The last link over Lolo Pass opened in 1962. At the dedication at Packer Meadow on 19 August, the governors of Idaho and Montana cut through a western redcedar log with a two-man crosscut saw."
+      ],
+      "zh": [
+        "洛克萨河那一段耗时近半个世纪。爱达荷州公路委员会于 1916 年把自库斯基亚东至洛洛山口的线路定名为「刘易斯与克拉克公路」，并于 1918 年发包；到 1920 年，道路已修到今日洛厄尔所在的皮特金护林站，当地人称之为「河路」。此后工程停顿，州内为该走哪条峡谷争执不下。1931 年对北支与洛克萨两条河谷进行了航空测量——这是美国公路选线中最早采用航测的案例之一——最终选定洛克萨，理由是其走向与坡度最为均匀、起伏最小。",
+        "工程分段续建，1930 与 1940 年代由峡谷溪监狱营的联邦囚犯，以及关押在附近库斯基亚营地的日裔美国人参与施工。翻越洛洛山口的最后一段于 1962 年通车。8 月 19 日在帕克草甸举行的落成典礼上，爱达荷与蒙大拿两州州长用双人横锯锯断了一段西部红杉原木。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The 1926 log gave US 12 a total of 1,301 miles, from Detroit to Miles City, Montana. It was stitched together out of named trails — the Detroit-Lincoln-Denver Highway to Kalamazoo, the Dunes Highway in Indiana, the Black and Yellow Trail into Wisconsin, the Glacier Trail across western Minnesota, and long stretches of the Yellowstone Trail, the Boston-to-Seattle route organised in 1912 by a South Dakota good-roads man, Joe W. Parmley, under the slogan \"A Good Road from Plymouth Rock to Puget Sound.\"",
+        "By 1939 AASHO had run US 12 on from Miles City to Yellowstone's north entrance by way of Billings, Red Lodge and Cooke City. That lasted twenty years; in October 1959 Montana had the route swung west instead, through Roundup and Helena to Missoula, and the numbering committee checked with Idaho and Washington first to confirm that a further extension was being built to standard. It was approved as far as Lewiston on 19 June 1962, but the sections beyond were refused three times — once because \"the standards are inadequate,\" and once because Washington and Oregon had submitted applications with different routings and could not agree on a terminus. Aberdeen was finally approved on 20 June 1967.",
+        "Michigan went the other way. US 12's original alignment across the state was eventually rebuilt as I-94, and the number was moved onto the freeway. In June 1961 AASHO approved Michigan's request to take it off again and put it on former US 112 — the Sauk Trail and the Chicago Road — which took effect on 1 January 1962 and deleted US 112 from the system. Rather than replace every shield, the state highway department is reported to have blacked out the first \"1\" on the old US 112 markers."
+      ],
+      "zh": [
+        "1926 年的里程表把 US 12 列为 1,301 英里，自底特律至蒙大拿州迈尔斯城。它由若干条命名汽车道缝合而成——至卡拉马祖的底特律—林肯—丹佛公路、印第安纳的沙丘公路、进入威斯康星的「黑黄小道」、横过明尼苏达西部的冰川小道，以及大段的黄石小道；后者是 1912 年由南达科他的修路推动者乔·W·帕姆利组织起来的波士顿—西雅图线路，口号是「从普利茅斯岩到普吉特湾的一条好路」。",
+        "到 1939 年，AASHO 已把 US 12 自迈尔斯城延伸至黄石公园北口，途经比灵斯、雷德洛奇与库克城。此格局维持了二十年；1959 年 10 月，蒙大拿州改让它转向西行，经朗德阿普与海伦娜至米苏拉，而编号委员会事先向爱达荷与华盛顿两州核实，确认后续延伸段正按标准修建。1962 年 6 月 19 日，延伸至刘易斯敦获批，但再往西的路段三度被否——一次的理由是「标准不足」，另一次是华盛顿与俄勒冈提交的申请线位不同、就终点无法达成一致。阿伯丁终于在 1967 年 6 月 20 日获批。",
+        "密歇根州则走了反方向。US 12 在该州的原有线位后来被改建为 I-94，编号也随之移上高速公路。1961 年 6 月，AASHO 批准该州的申请，把它再撤下来，改走原 US 112——即索克小道与芝加哥路；此举于 1962 年 1 月 1 日生效，并把 US 112 从系统中删除。据记载，州公路厅并未更换全部标志牌，而是把旧 US 112 标牌上的第一个「1」涂黑了事。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Lewis and Clark Highway, Kooskia to the Montana line", "zh": "刘易斯与克拉克公路，库斯基亚至蒙大拿州界" },
+      "value": { "en": "$12.7 million for the 100-mile section, including a $1.3 million federal lands grant described at the 1962 dedication as the largest single federal lands allocation then made to one state", "zh": "该 100 英里路段共 1,270 万美元，其中含 130 万美元联邦土地专项拨款；在 1962 年落成典礼上，该拨款被称为当时给予单一州的最大一笔联邦土地拨款" },
+      "source": "Wallace C. Burns, chairman of the Idaho Highway Board, at the 1962 dedication, as reported by the Lewiston Tribune"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No figure exists for the route as a whole. US 12 was numbered over existing roads in 1926, extended four times, and rebuilt piecemeal by nine states; only individual projects such as the Lewis and Clark Highway were costed.", "zh": "全线并无此类数据。US 12 于 1926 年沿既有道路编号，此后四度延伸，并由 9 个州分段改建；只有个别工程（如刘易斯与克拉克公路）留有造价记录。" }
+    },
+    {
+      "label": { "en": "Length in the official route logs", "zh": "官方里程表中的里程" },
+      "value": { "en": "1,301 miles in the 1926 log, Detroit to Miles City; 2,491 miles in the 1989 AASHTO log, the most recent published", "zh": "1926 年里程表列为 1,301 英里，自底特律至迈尔斯城；1989 年 AASHTO 里程表（迄今最新一份）列为 2,491 英里" },
+      "source": "Federal Highway Administration, \"U.S. 12 Michigan to Washington\""
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Nine state agencies count their own segments. US 12 is an urban arterial in Detroit and Chicago's southern suburbs and carries very little through traffic across the Dakotas and the Lochsa canyon; no combined figure is published.", "zh": "9 个州的机构各自统计本州路段。US 12 在底特律及芝加哥南郊是城市干道，而在达科他两州与洛克萨峡谷则过境车流极少；并无合并统计数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Why the western extension was delayed", "zh": "西延段为何拖延" },
+      "value": { "en": "AASHO rejected the extension west of Lewiston in 1962 and again in 1963 on the record that \"the standards are inadequate,\" approving it only in 1967 once the roads had been rebuilt", "zh": "AASHO 于 1962 年及 1963 年否决刘易斯敦以西的延伸申请，理由记录为「标准不足」；直至相关道路改建完成，才于 1967 年批准" },
+      "source": "AASHO Route Numbering Committee minutes, quoted by the Federal Highway Administration"
+    }
+  ],
+  "timeline": [
+    { "year": 1912, "en": "The Yellowstone Trail is organised in South Dakota; US 12 will later follow long stretches of it.", "zh": "黄石小道在南达科他组织成立，US 12 日后将沿用其中大段线路。" },
+    { "year": 1926, "en": "US 12 is approved on 11 November, 1,301 miles from Detroit to Miles City, Montana.", "zh": "11 月 11 日 US 12 获批，自底特律至蒙大拿州迈尔斯城，全长 1,301 英里。" },
+    { "year": 1959, "en": "Montana has the route swung west from Forsyth through Helena to Missoula, replacing the Yellowstone branch.", "zh": "蒙大拿州将本路线自福赛思改向西行，经海伦娜至米苏拉，取代原通往黄石的分支。" },
+    { "year": 1962, "en": "The Lolo Pass link opens and US 12 is extended to Lewiston, Idaho; in Michigan the number moves off I-94 onto the old Chicago Road.", "zh": "洛洛山口路段通车，US 12 延伸至爱达荷州刘易斯敦；在密歇根州，该编号从 I-94 移至旧芝加哥路。" },
+    { "year": 1967, "en": "AASHO approves the final extension to Aberdeen, Washington, on 20 June, giving US 12 a Pacific terminus.", "zh": "6 月 20 日 AASHO 批准最后一段延伸至华盛顿州阿伯丁，US 12 由此获得太平洋端点。" }
+  ]
+}

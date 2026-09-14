@@ -1,0 +1,67 @@
+{
+  "id": "i-485",
+  "name": { "en": "Interstate 485", "zh": "485 号州际公路" },
+  "tagline": { "en": "Charlotte's outer loop, closed after a quarter-century", "zh": "夏洛特外环：四分之一世纪后才合圈" },
+  "officialMi": 65.62,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 2015,
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-485 is a complete circle around Charlotte, North Carolina — the only place in the country the number is used. The FHWA route log counts 65.62 miles of Interstate mileage; NCDOT describes the finished road as a 67-mile loop. It is an even hundreds number off I-85 and it behaves like one, leaving I-85 on the north-east side of the city and coming back to it on the west.",
+        "Charlotte grew hard through the years the loop was being built, and the beltway both followed and drove that growth: the southern quadrant through Ballantyne and Matthews was four lanes when it opened and needed widening to six almost immediately. Since 2019 the state has been adding a tolled express lane in each direction between the I-77 interchange and the Monroe Expressway, the busiest part of the ring, with opening expected in early 2026 after repeated delays."
+      ],
+      "zh": [
+        "I-485 是围绕北卡罗来纳州夏洛特的一整圈环线，这个编号在全美仅此一处使用。联邦公路管理局的路线名录记 65.62 英里州际里程；北卡州交通部则把建成后的这条路称作 67 英里的环线。它是从 I-85 分出的偶数百位编号，行为也名副其实：在城市东北侧离开 I-85，又在西侧回到 I-85。",
+        "环线建设的这些年里夏洛特扩张剧烈，而这条环线既是跟随者也是推动者：穿过巴兰坦与马修斯的南象限通车时只有四车道，几乎立刻就需要拓宽到六车道。自 2019 年起，该州在 I-77 枢纽与门罗快速路之间——环线上最繁忙的一段——每向增建一条收费快速车道；在多次延期后，预计 2026 年初开通。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The loop was built quadrant by quadrant over roughly twenty-five years, which is why there is no single construction figure for it. Individual segments give the shape of the spending: 7.5 miles between NC 24-27 and NC 49, joining I-85 to the university area, cost $55.4 million and opened on 3 September 2003 after two and a half years' work.",
+        "The last piece was the north-east: 5.7 miles of eight-lane freeway from west of NC 115 to east of I-85, linking I-77 to I-85 and closing the ring. NCDOT let it as a design-build-finance contract with a construction value of $139.5 million, and the design-builder agreed to a payment schedule stretched over five and a half years against four and a half years of construction. Including right of way and the associated interchange work the segment came to about $231.7 million. It opened at a ribbon-cutting on 5 June 2015."
+      ],
+      "zh": [
+        "这条环线在约二十五年间按象限分块建成，因此没有单一的总造价数字。各分段能勾出支出的轮廓：NC 24-27 与 NC 49 之间的 7.5 英里，把 I-85 接到大学城一带，造价 5,540 万美元，历时两年半，于 2003 年 9 月 3 日通车。",
+        "最后一块在东北：自 NC 115 以西至 I-85 以东的 5.7 英里八车道高速，把 I-77 接上 I-85，完成合圈。北卡州交通部以「设计－建造－融资」合同发包，建设合同额 1.395 亿美元；承包方同意在四年半的施工期之上，接受长达五年半的分期付款安排。连同征地与相关立交工程，该段总额约 2.317 亿美元。它于 2015 年 6 月 5 日剪彩通车。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "65.62 miles of Interstate mileage in North Carolina; NCDOT calls it a 67-mile loop", "zh": "北卡罗来纳州境内州际里程 65.62 英里；北卡州交通部称之为 67 英里环线" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026, and NCDOT Charlotte Outer Loop project page"
+    },
+    {
+      "label": { "en": "Final north-east segment", "zh": "东北最后一段" },
+      "value": { "en": "$139.5 million construction contract, about $231.7 million all in, for 5.7 miles opened 5 June 2015", "zh": "5.7 英里，建设合同 1.395 亿美元，全部计入约 2.317 亿美元，2015 年 6 月 5 日通车" },
+      "source": "FHWA Center for Innovative Finance Support project profile, I-485 Charlotte Loop, and WCNC, 5 June 2015"
+    },
+    {
+      "label": { "en": "North-eastern segment of 2003", "zh": "2003 年东北段" },
+      "value": { "en": "$55.4 million for 7.5 miles of six-lane freeway, opened 3 September 2003", "zh": "7.5 英里六车道高速，造价 5,540 万美元，2003 年 9 月 3 日通车" },
+      "source": "Interstate-Guide, Interstate 485 Charlotte, citing NCDOT"
+    },
+    {
+      "label": { "en": "Express lanes project", "zh": "快速车道工程" },
+      "value": { "en": "$202.9 million as presented in October 2015, of which $201.3 million construction; work began March 2019", "zh": "按 2015 年 10 月的方案为 2.029 亿美元，其中建设费 2.013 亿美元；2019 年 3 月开工" },
+      "source": "Charlotte Regional Transportation Planning Organization, I-485 Express Lanes presentation, October 2015"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Daily traffic on the southern section", "zh": "南段日交通量" },
+      "value": { "en": "About 112,000 vehicles a day in the express lanes study corridor", "zh": "快速车道研究走廊内约每日 112,000 辆" },
+      "source": "Charlotte Regional Transportation Planning Organization, I-485 Express Lanes presentation, October 2015"
+    }
+  ],
+  "timeline": [
+    { "year": 2003, "en": "A 7.5-mile north-eastern segment opens on 3 September, linking I-85 to the university area.", "zh": "东北 7.5 英里路段于 9 月 3 日通车，连接 I-85 与大学城一带。" },
+    { "year": 2011, "en": "Construction starts on the last 5.7 miles between NC 115 and I-85.", "zh": "NC 115 与 I-85 之间最后 5.7 英里开工。" },
+    { "year": 2015, "en": "The loop is completed on 5 June, about two decades after work first began.", "zh": "环线于 6 月 5 日建成，距最初动工约二十年。" },
+    { "year": 2019, "en": "Work begins on tolled express lanes between I-77 and the Monroe Expressway.", "zh": "I-77 与门罗快速路之间的收费快速车道开工。" }
+  ]
+}

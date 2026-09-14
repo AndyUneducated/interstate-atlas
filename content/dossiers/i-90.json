@@ -1,0 +1,107 @@
+{
+  "id": "i-90",
+  "name": { "en": "Interstate 90", "zh": "90 号州际公路" },
+  "tagline": { "en": "Seattle to Boston — the longest route in the system", "zh": "从西雅图到波士顿——全系统最长的路线" },
+  "officialMi": 2705.99,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1957,
+  "completedYear": 1993,
+  "termini": {
+    "start": { "en": "SR 519 near the waterfront in Seattle, Washington", "zh": "华盛顿州西雅图滨水区附近，与 SR 519 相接" },
+    "end": { "en": "Route 1A in East Boston, Massachusetts", "zh": "马萨诸塞州东波士顿，与 Route 1A 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-90 is the longest route in the Interstate System, and the only one that runs from salt water in the Pacific Northwest to salt water in New England. It serves thirteen states and connects Seattle, Spokane, Billings, Rapid City, Sioux Falls, Chicago, Cleveland, Buffalo, Albany and Boston — a string of cities that has less in common with each other than almost any other Interstate corridor can claim.",
+        "The western half is a mountain and plains road: Snoqualmie Pass, the Idaho panhandle, the long climb across Montana and Wyoming, then the Black Hills and the corn. The eastern half is largely a chain of 1950s toll roads — the Jane Addams Memorial Tollway, the Indiana Toll Road, the Ohio Turnpike, the New York State Thruway, the Massachusetts Turnpike — stitched into one number and one shield.",
+        "That inheritance shows. Drivers crossing from Indiana into Ohio or from New York into Massachusetts are still moving between separate toll authorities with separate rules, service plazas and ticket systems, all under a single route marker."
+      ],
+      "zh": [
+        "I-90 是州际公路系统中最长的路线，也是唯一一条从西北太平洋的海水通到新英格兰海水的路线。它服务十三个州，串起西雅图、斯波坎、比林斯、拉皮德城、苏福尔斯、芝加哥、克利夫兰、布法罗、奥尔巴尼与波士顿——这些城市彼此之间的共性之少，在州际公路走廊中几乎无可比拟。",
+        "西半段是山地与平原之路：斯诺阔尔米山口、爱达荷州狭长地带、横穿蒙大拿与怀俄明的漫长爬升，然后是黑山与玉米地。东半段则基本上是一串 1950 年代的收费公路——简·亚当斯纪念收费高速、印第安纳收费公路、俄亥俄收费高速、纽约州收费高速、马萨诸塞收费高速——被缝进同一个编号、同一块路牌之下。",
+        "这份继承留下了痕迹。司机从印第安纳进入俄亥俄、或从纽约进入马萨诸塞时，其实是在不同的收费机构之间移动，各有自己的规则、服务区与票证系统，只是共用一个路线编号。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The most unusual structures on I-90 are its two floating bridges across Lake Washington, east of downtown Seattle. The lake is deep and its bed is soft, so instead of piers the crossings rest on hollow reinforced-concrete pontoons anchored to the lakebed. The eastbound span, the Lacey V. Murrow Memorial Bridge, opened in 1940 as the first reinforced-concrete floating bridge ever built and the largest floating structure in the world at the time. The idea came from a Seattle engineer, Homer Hadley, who spent more than a decade promoting it.",
+        "The westbound span, opened in 1989, was eventually named for Hadley. In 1990 the original bridge sank while closed for renovation: hatchways had been left open, and hydrodemolition water, rain and wave splash filled the pontoons until eight of them went down in a storm. Nobody was hurt. It was rebuilt and back in service by September 1993.",
+        "These are not the longest floating bridges in the world — that record belongs to the nearby SR 520 crossing of the same lake — but they remain the only floating bridges carrying an Interstate, and since 2026 the Hadley span has also carried light rail, the first permanent electrified railway on a floating structure."
+      ],
+      "zh": [
+        "I-90 上最不寻常的结构，是西雅图市区以东横跨华盛顿湖的两座浮桥。湖水深、湖底软，因此桥不用桥墩，而是架在锚固于湖底的空心钢筋混凝土浮箱上。东行桥——莱西·V·默罗纪念大桥——于 1940 年通车，是世界上第一座钢筋混凝土浮桥，当时也是世界上最大的浮动结构物。这个构想出自西雅图工程师霍默·哈德利，他为推广此法奔走了十余年。",
+        "1989 年通车的西行桥最终以哈德利命名。1990 年，原桥在封闭翻修期间沉没：施工开口未封，水力破碎用水、雨水与涌浪灌入浮箱，最终在一场风暴中有八个浮箱沉入湖底，所幸无人受伤。该桥经重建后于 1993 年 9 月恢复通行。",
+        "它们并不是世界上最长的浮桥——该纪录属于同一湖面上邻近的 SR 520 大桥——但它们仍是唯一承载州际公路的浮桥；而自 2026 年起，哈德利桥还开始承载轻轨，成为世界上第一条建在浮动结构上的永久电气化铁路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "I-90 was numbered in 1957 and, because so much of its eastern half already existed as turnpikes, the Midwest sections were finished early — complete by 1978. The western states took far longer. Wyoming opened its last piece to the Montana line in July 1985; Montana's final two-lane stretch near Springdale was widened to four lanes in May 1987.",
+        "The most-told episode is Wallace, Idaho. The freeway was planned to go straight through the town, so in 1976 local leaders had the downtown placed on the National Register of Historic Places, which forced a redesign. The federal government built a short elevated bypass along the north edge of town instead. It opened in September 1991, and a week later Wallace ceremonially retired what had been the last traffic signal on I-90 between Seattle and Boston. Idaho declared its section complete in July 1992.",
+        "The route's own ends came last. The final western section, near the Seattle terminus, opened in September 1993. Ten years after that, the Big Dig extended I-90 east through a new harbour tunnel to Logan Airport and Route 1A, moving the eastern terminus to East Boston in January 2003."
+      ],
+      "zh": [
+        "I-90 于 1957 年编号；由于东半段大量路线原本已作为收费公路存在，中西部路段完工较早，到 1978 年即已建成。西部各州则慢得多。怀俄明州于 1985 年 7 月通车通往蒙大拿州界的最后一段；蒙大拿州斯普林代尔附近最后一段双车道于 1987 年 5 月拓宽为四车道。",
+        "被讲得最多的一段插曲发生在爱达荷州华莱士。高速公路原计划直穿该镇，于是 1976 年当地领袖把市中心列入《国家史迹名录》，迫使方案重做。联邦政府改在镇北缘修建一段短高架绕行线，于 1991 年 9 月通车；一周后，华莱士以仪式方式送走了西雅图至波士顿之间 I-90 上最后一盏交通信号灯。爱达荷州于 1992 年 7 月宣布本州路段完工。",
+        "这条路自己的两端反倒最晚完成。最西端西雅图附近的最后一段于 1993 年 9 月通车。又过十年，波士顿「大开挖」工程把 I-90 经一条新的海港隧道东延至洛根机场与 Route 1A，于 2003 年 1 月把东端终点移至东波士顿。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "why": { "en": "No public route-wide figure exists. Roughly a third of I-90's mileage was built as bonded toll roads by separate authorities before or outside the federal programme, and the remainder was funded state by state over four decades. Federal cost accounting was kept for the Interstate System as a whole.", "zh": "无公开的全线数据。I-90 约有三分之一的里程是由不同机构在联邦计划之前或之外、以债券融资的收费公路形式修建，其余部分则在四十年间由各州分别出资。联邦的造价核算是针对整个州际公路系统的。" }
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "2,705.99 miles across 13 states", "zh": "2,705.99 英里，横跨 13 个州" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    },
+    {
+      "label": { "en": "Length as ranked by FHWA", "zh": "联邦公路管理局排名所用里程" },
+      "value": { "en": "3,020.44 miles total route length, the longest Interstate route; the figure above is lower because it excludes mileage where I-90 overlaps I-80 and I-94 and the duplication is credited to the other route", "zh": "全线总长 3,020.44 英里，为最长的州际公路路线；上方数字较低，是因为它不计入 I-90 与 I-80、I-94 重合的里程——重复里程被计在另一条路线名下" },
+      "source": "FHWA Route Log and Finder List, Interstate System facts, January 2025"
+    },
+    {
+      "label": { "en": "Longest state section", "zh": "最长的州内路段" },
+      "value": { "en": "Montana, 544.70 miles; South Dakota is second at 412.76", "zh": "蒙大拿州 544.70 英里；南达科他州次之，412.76 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Thirteen state DOTs publish counts segment by segment. On this route they range from a few thousand vehicles a day in eastern Montana and the Idaho panhandle to urban tollway volumes in Chicago and Boston, so no single number is meaningful and none is published.", "zh": "十三个州的交通部门各自按路段发布交通量。本路线的数值跨度极大——从蒙大拿州东部与爱达荷州狭长地带每日数千辆，到芝加哥与波士顿的城市收费高速流量——因此单一数字没有意义，也无人发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Lacey V. Murrow Memorial Bridge, floating span", "zh": "莱西·V·默罗纪念大桥浮动段" },
+      "value": { "en": "6,620 feet long; about 2,800 feet of it sank in November 1990 during renovation", "zh": "长 6,620 英尺；其中约 2,800 英尺于 1990 年 11 月翻修期间沉没" },
+      "source": "ASCE Journal of Performance of Constructed Facilities, 1995"
+    },
+    {
+      "label": { "en": "Homer M. Hadley Memorial Bridge, floating span", "zh": "霍默·M·哈德利纪念大桥浮动段" },
+      "value": { "en": "5,811 feet long, the fifth-longest floating bridge in the world; opened June 1989", "zh": "长 5,811 英尺，为世界第五长浮桥；1989 年 6 月通车" },
+      "source": "Sound Transit, 'Crosslake Explained', with WSDOT bridge data"
+    },
+    {
+      "label": { "en": "Mount Baker Ridge tunnels, Seattle", "zh": "西雅图贝克山脊隧道" },
+      "value": { "en": "Twin 1,466-foot bores, 29 feet wide, the largest-diameter soft-earth tunnels of their day (1940); a 63-foot-diameter bore was added in 1989", "zh": "双孔各长 1,466 英尺、宽 29 英尺，为当时（1940 年）直径最大的软土隧道；1989 年增建一孔直径 63 英尺的隧道" },
+      "source": "American Society of Civil Engineers, Historic Civil Engineering Landmark citation"
+    }
+  ],
+  "timeline": [
+    { "year": 1940, "en": "The Lake Washington floating bridge opens, the first reinforced-concrete floating bridge built anywhere.", "zh": "华盛顿湖浮桥通车，是世界上首座钢筋混凝土浮桥。" },
+    { "year": 1957, "en": "I-90 is numbered in the first plan for the Interstate System.", "zh": "州际公路系统首个编号方案中，I-90 获得编号。" },
+    { "year": 1978, "en": "The Midwestern sections are complete, largely by absorbing existing toll roads.", "zh": "中西部路段建成，主要方式是并入既有收费公路。" },
+    { "year": 1990, "en": "Eight pontoons of the original floating bridge sink during renovation; the span reopens in 1993.", "zh": "原浮桥在翻修期间有八个浮箱沉没，该桥于 1993 年重新通车。" },
+    { "year": 1991, "en": "The elevated bypass of Wallace, Idaho opens, retiring the last traffic signal on the route.", "zh": "爱达荷州华莱士的高架绕行线通车，本路线最后一盏交通信号灯退役。" },
+    { "year": 1993, "en": "The final western section opens near Seattle.", "zh": "西雅图附近的最后一段西部路段通车。" },
+    { "year": 2003, "en": "The Big Dig extends I-90 through a new harbour tunnel to Route 1A in East Boston.", "zh": "「大开挖」工程将 I-90 经新建海港隧道延伸至东波士顿的 Route 1A。" }
+  ]
+}

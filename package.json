@@ -1,0 +1,24 @@
+{
+  "name": "interstate-atlas",
+  "version": "1.0.0",
+  "description": "An interactive bilingual atlas of the United States highway network",
+  "homepage": "https://andyuneducated.github.io/interstate-atlas/",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "fetch": "node tools/fetch-source.mjs && node tools/fetch-fhwa.mjs",
+    "build": "node tools/build-data.mjs && node tools/build-content.mjs",
+    "build:elevation": "node tools/build-elevation.mjs",
+    "serve": "node tools/serve.mjs",
+    "verify": "node tools/verify.mjs",
+    "test": "node tools/build-content.mjs"
+  },
+  "dependencies": {
+    "pngjs": "^7.0.0",
+    "shapefile": "^0.6.6"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}

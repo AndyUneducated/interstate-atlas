@@ -1,0 +1,81 @@
+{
+  "id": "i-295-nj",
+  "name": { "en": "Interstate 295", "zh": "295 号州际公路" },
+  "tagline": { "en": "The free road beside the New Jersey Turnpike", "zh": "新泽西收费高速旁的免费替代线" },
+  "officialMi": 93.08,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1994,
+  "termini": {
+    "start": { "en": "I-95 at Newport, Delaware", "zh": "特拉华州纽波特，与 I-95 相接" },
+    "end": { "en": "I-95 at the Pennsylvania Turnpike in Bristol Township, Pennsylvania", "zh": "宾夕法尼亚州布里斯托尔镇宾州收费高速处，与 I-95 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-295 runs up the New Jersey side of the Delaware River from the Delaware Memorial Bridge to Trenton, and since 2018 it carries on across the river into Bucks County. The federal log splits it between three states — 76.56 miles in New Jersey, 10.82 in Pennsylvania and 5.7 in Delaware — and both ends are on I-95, which is what an even hundreds digit is supposed to mean.",
+        "Its job is to be the alternative. The New Jersey Turnpike runs a few miles inland on the same axis, and I-295 is the toll-free road for the same trips, picking up US 322, I-76, NJ 42, US 30, NJ 70 and NJ 73 as it goes past Camden. That makes it a commuter road for most of its length rather than a long-distance one. Since 2018 it has also been the through route for I-95's old alignment past Trenton, which is why the number now appears on both banks of the river."
+      ],
+      "zh": [
+        "I-295 沿特拉华河的新泽西一侧，自特拉华纪念大桥北上至特伦顿；自 2018 年起，它又跨过河进入巴克斯县。联邦路线名录把它分记在三个州——新泽西 76.56 英里、宾夕法尼亚 10.82 英里、特拉华 5.7 英里——两端都接在 I-95 上，这正是偶数百位应有的含义。",
+        "它的职责是充当替代线。新泽西收费高速在同一轴线上、往内陆几英里处并行，而 I-295 是同类出行的免费之选；经过卡姆登一带时，它一路接上 US 322、I-76、NJ 42、US 30、NJ 70 与 NJ 73。这使它大半里程更像通勤道路而非长途通道。自 2018 年起，它还成了 I-95 旧线在特伦顿以北的直通路线——这就是为什么这个编号现在出现在河的两岸。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Three pieces of it are older than the Interstate system: the Delaware Memorial Bridge and its approach, built in 1951; a section in Salem County from 1953; and two stretches shared with US 130 that opened in 1948 and 1954. The corridor was proposed in 1956 as 'FAI Corridor 108' and received the I-295 designation in New Jersey in 1958 and in Delaware in 1959, on terms of ninety per cent federal funding.",
+        "It then took thirty-six years to finish. The southernmost stretch was done in 1968; the segment from Route 73 north to Burlington County Route 537 opened on 27 April 1969 and the run north to Bordentown by December 1974. The last gap, 3.1 miles between US 130/206 and I-195 east of Trenton, did not open until 22 December 1994. The estimate for building I-295 was $131 million in 1963 and $193 million by 1969; by the time it was actually complete a quarter of a century later it had cost $500 million."
+      ],
+      "zh": [
+        "其中三段比州际公路系统还老：1951 年建成的特拉华纪念大桥及其引道；1953 年的塞勒姆县路段；以及与 US 130 共线、分别于 1948 年与 1954 年通车的两段。这条走廊在 1956 年以「FAI 108 号走廊」之名提出，1958 年在新泽西、1959 年在特拉华获得 I-295 编号，按联邦出资九成的条件实施。",
+        "此后又花了三十六年才建成。最南段于 1968 年完工；自 73 号公路北上至伯林顿县 537 号县道的路段于 1969 年 4 月 27 日通车，再往北至博登敦一段到 1974 年 12 月完成。最后的缺口是特伦顿以东、US 130／206 与 I-195 之间的 3.1 英里，直到 1994 年 12 月 22 日才通车。修建 I-295 的估算在 1963 年为 1.31 亿美元，1969 年升至 1.93 亿美元；等到四分之一世纪后真正完工，实际花了 5 亿美元。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Delaware Memorial Bridge carries the southern end. Congress approved it on 13 July 1946, construction began on 1 February 1949 and the first span opened in August 1951 at a cost of $44 million; Othmar Ammann, who designed the George Washington and Verrazzano-Narrows bridges, was among those responsible. A second span 250 feet upstream was built from 1964 and opened in 1968 at a cost of $77 million, after which the 1951 span was closed for fifteen months to have its suspenders replaced and its divided deck rebuilt as four undivided lanes. All eight lanes were in service from 29 December 1969.",
+        "At the northern end the Scudder Falls Bridge, opened in June 1961 and functionally obsolete, was replaced by twin spans. Construction started on 30 May 2017; the first span took Pennsylvania-bound traffic from 9 July 2019 with all-electronic tolling from 14 July, the second opened in August 2021, and the project reached substantial completion on 17 December 2021. The awarded bid for the whole job was $396 million, of which $99,943,285 was the two bridge spans themselves."
+      ],
+      "zh": [
+        "南端由特拉华纪念大桥承载。国会于 1946 年 7 月 13 日批准该桥，1949 年 2 月 1 日开工，第一座桥于 1951 年 8 月通车，造价 4,400 万美元；设计过乔治·华盛顿大桥与韦拉扎诺海峡大桥的奥特马尔·阿曼是负责人之一。第二座桥位于上游 250 英尺处，自 1964 年起建，1968 年通车，造价 7,700 万美元；此后 1951 年那座桥封闭十五个月，更换吊索并把原本分隔的桥面改建为四条不分隔车道。八条车道自 1969 年 12 月 29 日起全部投入使用。",
+        "北端 1961 年 6 月通车、已在功能上过时的斯卡德瀑布大桥，被一对孪生桥取代。工程于 2017 年 5 月 30 日开工；第一座桥自 2019 年 7 月 9 日起承载前往宾州方向的车流，7 月 14 日起实施全电子收费；第二座桥于 2021 年 8 月通车，项目于 2021 年 12 月 17 日达到实质完工。整项工程中标金额为 3.96 亿美元，其中两座桥本身为 99,943,285 美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "93.08 miles — 76.56 in New Jersey, 10.82 in Pennsylvania, 5.7 in Delaware", "zh": "93.08 英里，其中新泽西州 76.56 英里、宾夕法尼亚州 10.82 英里、特拉华州 5.7 英里" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "建设总造价" },
+      "value": { "en": "$500 million, against estimates of $131 million in 1963 and $193 million in 1969", "zh": "5 亿美元；1963 年估算为 1.31 亿美元，1969 年为 1.93 亿美元" },
+      "source": "PhillyRoads, Interstate 295 New Jersey, citing New Jersey highway records"
+    },
+    {
+      "label": { "en": "Delaware Memorial Bridge", "zh": "特拉华纪念大桥" },
+      "value": { "en": "$44 million for the 1951 span and $77 million for the 1968 span", "zh": "1951 年建成的桥造价 4,400 万美元，1968 年建成的桥造价 7,700 万美元" },
+      "source": "Delaware River and Bay Authority records, via Interstate-Guide and Wikipedia"
+    },
+    {
+      "label": { "en": "Scudder Falls Bridge replacement", "zh": "斯卡德瀑布大桥重建" },
+      "value": { "en": "$396 million awarded bid, including $99,943,285 for the two spans; substantially complete 17 December 2021", "zh": "中标金额 3.96 亿美元，其中两座桥为 99,943,285 美元；2021 年 12 月 17 日实质完工" },
+      "source": "Delaware River Joint Toll Bridge Commission, Scudder Falls Toll Bridge project record"
+    },
+    {
+      "label": { "en": "Delaware approach rehabilitation", "zh": "特拉华州引道整修" },
+      "value": { "en": "$33.7 million, finished in spring 2019", "zh": "3,370 万美元，2019 年春完工" },
+      "source": "Interstate-Guide, Interstate 295 Delaware Valley, citing Delaware River and Bay Authority"
+    }
+  ],
+  "timeline": [
+    { "year": 1951, "en": "The first span of the Delaware Memorial Bridge opens.", "zh": "特拉华纪念大桥第一座桥通车。" },
+    { "year": 1958, "en": "The corridor receives the I-295 designation in New Jersey.", "zh": "该走廊在新泽西州获得 I-295 编号。" },
+    { "year": 1974, "en": "The freeway is complete north as far as Bordentown.", "zh": "高速北段建成至博登敦。" },
+    { "year": 1994, "en": "The last 3.1 miles near Trenton open on 22 December.", "zh": "特伦顿附近最后 3.1 英里于 12 月 22 日通车。" },
+    { "year": 2018, "en": "I-295 is extended over the former I-95 across the Delaware into Pennsylvania.", "zh": "I-295 沿 I-95 旧线跨过特拉华河延伸进宾夕法尼亚州。" }
+  ]
+}

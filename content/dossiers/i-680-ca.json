@@ -1,0 +1,63 @@
+{
+  "id": "i-680-ca",
+  "name": { "en": "Interstate 680", "zh": "680 号州际公路" },
+  "tagline": { "en": "The inland East Bay bypass, from San Jose to the Carquinez Strait", "zh": "东湾内陆绕行线：从圣何塞到卡奎内斯海峡" },
+  "officialMi": 70.49,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "US 101 and I-280 at San Jose", "zh": "圣何塞，与 US 101、I-280 相接" },
+    "end": { "en": "I-80 at Cordelia, Solano County", "zh": "索拉诺县科尔迪利亚，与 I-80 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-680 is the inland bypass of the Bay Area's eastern side. It leaves US 101 and I-280 in San Jose, runs north through Milpitas and up the Sunol Grade, crosses I-580 at Dublin, then follows the valley behind the Oakland hills through Danville, Walnut Creek and Concord before crossing the Carquinez Strait at the Benicia–Martinez Bridge to meet I-80 at Cordelia. It carries the traffic that does not need to touch Oakland at all.",
+        "The road's character changes at the grades. The Sunol Grade between Fremont and Pleasanton and the climb out of the Livermore Valley are the pinch points, and both now carry express lanes where a solo driver can buy space in the carpool lane at a price that changes with the traffic. Between Martinez and San Ramon the same arrangement runs for twenty-two continuous miles southbound."
+      ],
+      "zh": [
+        "I-680 是湾区东侧的内陆绕行线。它自圣何塞的 US 101 与 I-280 出发，经米尔皮塔斯北上，翻越苏诺尔坡，在都柏林与 I-580 交汇，随后沿奥克兰山背后的谷地经丹维尔、核桃溪与康科德，再经贝尼西亚—马丁内斯大桥跨卡奎内斯海峡，在科尔迪利亚接上 I-80。它承担的是那些根本不需要进奥克兰的车流。",
+        "这条路的性格在坡道处改变。弗里蒙特与普莱森顿之间的苏诺尔坡，以及爬出利弗莫尔谷的那一段，是两个瓶颈；如今两处都设有快速收费车道，独自驾车者可以按随交通状况浮动的价格，买下合乘车道上的位置。在马丁内斯与圣拉蒙之间，南行方向的同类车道连续延伸二十二英里。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The single most expensive thing on I-680 is the second Benicia–Martinez Bridge. The original 1.2-mile deck truss opened on 15 September 1962 and cost $25 million. Its replacement companion, a 1.7-mile segmental concrete span carrying five northbound lanes, opened on 25 August 2007 at a final cost of $1.3 billion, against an original estimate of about $300 million and a revised estimate of $1.05 billion. The old bridge was then seismically retrofitted for four lanes of southbound traffic, and a bicycle and pedestrian path opened across it on 29 August 2009.",
+        "The express lanes have been bought piecemeal and are cheaper by an order of magnitude. The southbound Sunol lane cost $41.1 million and opened on 20 September 2010; the northbound lane from Auto Mall Parkway to SR 84, nine miles, cost $205.8 million and was built between 2018 and late 2020. Tolling on the Sunol pair resumed on 31 March 2023 after a pause for construction."
+      ],
+      "zh": [
+        "I-680 上最贵的单项工程是第二座贝尼西亚—马丁内斯大桥。最初那座 1.2 英里的下承式桁架桥于 1962 年 9 月 15 日通车，造价 2,500 万美元。与之并行的新桥为 1.7 英里的节段式混凝土桥，承载五条北行车道，于 2007 年 8 月 25 日通车，最终造价 13 亿美元，而最初估算约为 3 亿美元、修订后为 10.5 亿美元。旧桥随后完成抗震加固，改为四条南行车道，桥上的自行车与人行道于 2009 年 8 月 29 日开放。",
+        "快速收费车道是一段段买下来的，价格要低一个数量级。南行的苏诺尔段造价 4,110 万美元，2010 年 9 月 20 日通车；北行自 Auto Mall Parkway 至 SR 84 的九英里，造价 2.058 亿美元，2018 年至 2020 年底建成。苏诺尔两条车道在因施工暂停收费后，于 2023 年 3 月 31 日恢复收费。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "70.49 miles in California", "zh": "加利福尼亚州境内 70.49 英里" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Cost of the northbound Benicia–Martinez Bridge", "zh": "贝尼西亚—马丁内斯北行桥造价" },
+      "value": { "en": "$1.3 billion, against an original estimate of about $300 million", "zh": "13 亿美元，最初估算约 3 亿美元" },
+      "source": "Caltrans and Bay Area Toll Authority figures for the bridge opened in 2007"
+    },
+    {
+      "label": { "en": "Cost of the Sunol express lanes", "zh": "苏诺尔快速收费车道造价" },
+      "value": { "en": "$41.1 million southbound (opened 2010) and $205.8 million northbound (built 2018–2020)", "zh": "南行 4,110 万美元（2010 年通车），北行 2.058 亿美元（2018 至 2020 年建设）" },
+      "source": "AARoads route guide to I-680 in California, citing Caltrans project records"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Daily traffic", "zh": "日交通量" },
+      "why": { "en": "Caltrans publishes counts location by location along the route, and volumes vary widely between the Sunol Grade, the Walnut Creek section and the bridge approach. No single route-wide figure is published.", "zh": "加州交通局按点位发布交通量，苏诺尔坡、核桃溪路段与桥头引道之间差异很大。官方并未发布全线单一数值。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1962, "en": "The first Benicia–Martinez Bridge opens, carrying two-way traffic over the Carquinez Strait.", "zh": "第一座贝尼西亚—马丁内斯大桥通车，双向交通跨越卡奎内斯海峡。" },
+    { "year": 2007, "en": "A second bridge opens for northbound traffic at a final cost of $1.3 billion.", "zh": "第二座桥开放供北行车辆通行，最终造价 13 亿美元。" },
+    { "year": 2010, "en": "The southbound Sunol express lane opens, the first on the route.", "zh": "南行苏诺尔快速收费车道通车，为全线首条。" }
+  ]
+}

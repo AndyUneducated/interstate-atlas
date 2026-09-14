@@ -1,0 +1,106 @@
+{
+  "id": "i-93",
+  "name": { "en": "Interstate 93", "zh": "93 号州际公路" },
+  "tagline": { "en": "Boston to the White Mountains, by way of the Big Dig", "zh": "从波士顿到白山，途经「大开挖」" },
+  "officialMi": 188.91,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "termini": {
+    "start": { "en": "I-95 in Canton, Massachusetts", "zh": "马萨诸塞州坎顿，与 I-95 相接" },
+    "end": { "en": "I-91 in St. Johnsbury, Vermont", "zh": "佛蒙特州圣约翰斯伯里，与 I-91 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-93 is short by Interstate standards and carries more freight and commuter traffic per mile than almost anything else in New England. It starts at I-95 south of Boston, runs north through Quincy and Dorchester into the city centre, tunnels under downtown, crosses the Charles River, and then heads up through the northern suburbs to New Hampshire.",
+        "In New Hampshire it becomes the state's main north–south spine, carrying commuters from the Massachusetts border through Manchester and Concord, and then weekend traffic into the mountains. It narrows through Franconia Notch, where the freeway gives way to a parkway built to a lower standard to fit the pass, before crossing into Vermont for a final eleven miles to I-91.",
+        "The road therefore has three lives in under two hundred miles: a buried urban expressway, a suburban commuter corridor, and a mountain parkway. Most of its reputation comes from the first."
+      ],
+      "zh": [
+        "以州际公路的标准衡量，I-93 很短，但单位里程承担的货运与通勤流量在新英格兰几乎无出其右。它起自波士顿以南的 I-95，向北穿过昆西与多切斯特进入市中心，从市区地下穿过，越过查尔斯河，再经北郊各镇通往新罕布什尔。",
+        "进入新罕布什尔后，它成为该州南北向的主干：既承担从马萨诸塞州界经曼彻斯特、康科德的通勤流量，也承担周末进山的车流。在弗兰科尼亚山口，路面收窄——为迁就这处隘口，高速公路降格为一条按较低标准修建的景观公路——之后进入佛蒙特州，再走最后十一英里接上 I-91。",
+        "于是这条路在不到两百英里的长度里有三段人生：地下城市快速路、郊区通勤走廊、山地景观公路。它的名声大多来自第一段。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Through downtown Boston, I-93 runs in the Thomas P. O'Neill, Jr. Tunnel, built directly beneath an elevated highway that stayed open throughout construction. The elevated Central Artery had opened in 1959 with six lanes; by the early 1990s it was one of the most congested highways in the country, and the replacement was designed as an eight-to-ten lane expressway underground.",
+        "At the northern end the tunnel surfaces near Causeway Street and crosses the Charles on the Leonard P. Zakim Bunker Hill Bridge, a hybrid cable-stayed structure with twin inverted-Y towers. Eight lanes pass between the towers and two more are cantilevered outside the eastern cable plane, which makes the bridge asymmetrical in section — the first of its kind in the United States, and the widest cable-stayed bridge built anywhere at the time.",
+        "The towers straddle the MBTA Orange Line tracks where they surface in Charlestown, and their legs are truncated at an angle to clear them. Threading a ten-lane bridge and a highway tunnel through an active rail corridor, a river and a working downtown is the reason the project took as long as it did."
+      ],
+      "zh": [
+        "穿过波士顿市中心时，I-93 走在托马斯·P·奥尼尔隧道内；这条隧道就建在一条高架公路的正下方，而那条高架在整个施工期间始终保持通行。高架的中央干道于 1959 年通车，为六车道；到 1990 年代初，它已是全美最拥堵的公路之一，取代它的方案是一条八至十车道的地下快速路。",
+        "在北端，隧道于考斯韦街附近出地面，经伦纳德·P·扎基姆邦克山大桥跨越查尔斯河。这是一座混合式斜拉桥，有两座倒 Y 形桥塔：八条车道从塔腿之间穿过，另有两条车道悬挑在东侧索面之外，使桥的横断面呈不对称形——这在美国尚属首例，该桥在建成时也是当时世界上最宽的斜拉桥。",
+        "桥塔骑跨在 MBTA 橙线出地面的轨道之上，塔腿为避让轨道而做了斜切处理。要在一条运营中的铁路走廊、一条河与一座运转中的市中心之间穿过一座十车道大桥和一条公路隧道——这正是该工程耗时如此之久的原因。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The Central Artery/Tunnel Project — the Big Dig — is the most expensive highway project ever built in the United States. Planning began with environmental documents in 1982; Congress approved federal funding and the basic scope in April 1987; construction started in September 1991; substantial completion was declared on 13 January 2006.",
+        "Two numbers circulate and both are real, because they measure different things. The Federal Highway Administration's project profile gives the construction cost, split between federal aid and state bonds that are scheduled to be paid off in 2038. In 2012 the state's transportation chief financial officer told a legislative oversight committee a larger figure that adds the interest on that borrowing, and said debt service on the project was limiting what Massachusetts could spend on anything else.",
+        "Neither figure includes maintenance of the tunnels, which is funded largely from tolls on the Massachusetts Turnpike, the harbour tunnels and the Tobin Bridge, nor related projects left unfinished when the accounting was done."
+      ],
+      "zh": [
+        "中央干道／隧道工程——即「大开挖」——是美国有史以来造价最高的公路工程。1982 年以编制环境文件的方式启动规划；1987 年 4 月国会批准联邦拨款与工程基本范围；1991 年 9 月开工；2006 年 1 月 13 日宣布实质性完工。",
+        "坊间流传两个数字，而两个都是真的，只是衡量的东西不同。联邦公路管理局的项目档案给出的是建设成本，由联邦补助与州债券分担，后者预定于 2038 年还清。2012 年，该州交通部门的首席财务官向州议会监督委员会报出了一个更大的数字，其中计入了这笔借款的利息，并表示该工程的还本付息正在压缩马萨诸塞州在其他方面的支出能力。",
+        "两个数字都不含隧道的养护费用（主要由马萨诸塞收费高速、海港隧道与托宾大桥的通行费支付），也不含核算当时尚未完工的相关配套工程。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Central Artery/Tunnel Project construction cost", "zh": "中央干道／隧道工程建设成本" },
+      "value": { "en": "$14.8 billion, of which $7 billion federal aid and $7.8 billion state bonds; the bonds are to be paid in full by 2038", "zh": "148 亿美元，其中联邦补助 70 亿美元、州债券 78 亿美元；债券预定于 2038 年全部还清" },
+      "source": "FHWA Center for Innovative Finance Support, Central Artery/Tunnel project profile"
+    },
+    {
+      "label": { "en": "Project cost including borrowing interest", "zh": "计入借款利息后的工程成本" },
+      "value": { "en": "$24.3 billion, with about $9.3 billion of principal and interest still owed in 2012 and payments running to 2038", "zh": "243 亿美元；至 2012 年仍有约 93 亿美元本息未偿，还款延续至 2038 年" },
+      "source": "MassDOT chief financial officer, testimony to the Massachusetts House Post Audit and Oversight Committee, July 2012, as reported by the Associated Press"
+    },
+    {
+      "label": { "en": "Zakim Bunker Hill Bridge construction cost", "zh": "扎基姆邦克山大桥建设成本" },
+      "value": { "en": "About $100 million", "zh": "约 1 亿美元" },
+      "source": "Structural Engineering International, 'Zakim Bunker Hill Bridge, Boston, Massachusetts', May 2003"
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "188.91 miles: 131.65 in New Hampshire, 46.16 in Massachusetts, 11.10 in Vermont", "zh": "188.91 英里：新罕布什尔州 131.65 英里，马萨诸塞州 46.16 英里，佛蒙特州 11.10 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Elevated Central Artery daily traffic", "zh": "高架中央干道日交通量" },
+      "value": { "en": "About 75,000 vehicles a day when it opened in 1959; upwards of 200,000 by the early 1990s", "zh": "1959 年通车时约每日 7.5 万辆；至 1990 年代初超过每日 20 万辆" },
+      "source": "Massachusetts Department of Transportation, 'The Big Dig: project background'"
+    },
+    {
+      "label": { "en": "Present-day route-wide traffic volume", "zh": "当前全线交通量" },
+      "why": { "en": "Three state DOTs publish counts segment by segment, and the range on this route is very wide — from the tunnels under Boston to a two-lane-each-way parkway in Franconia Notch. No agency publishes a route-wide figure.", "zh": "三个州的交通部门分别按路段发布交通量，而本路线的跨度极大——从波士顿地下的隧道，到弗兰科尼亚山口双向各两车道的景观公路。没有机构发布全线数字。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Leonard P. Zakim Bunker Hill Bridge", "zh": "伦纳德·P·扎基姆邦克山大桥" },
+      "value": { "en": "1,432 feet long and 183 feet wide, carrying ten lanes; the widest cable-stayed bridge in the world and the first asymmetrical hybrid design in the United States", "zh": "长 1,432 英尺、宽 183 英尺，承载十条车道；为世界上最宽的斜拉桥，也是美国首座不对称混合式设计的斜拉桥" },
+      "source": "Massachusetts Department of Transportation, 'The Big Dig: tunnels and bridges'; FIGG Bridge Group project record"
+    },
+    {
+      "label": { "en": "Scale of the Central Artery/Tunnel works", "zh": "中央干道／隧道工程规模" },
+      "value": { "en": "7.8 miles of highway, 161 lane miles, about half in tunnel; 3.8 million cubic yards of concrete placed and more than 16 million cubic yards of soil excavated", "zh": "公路长 7.8 英里，合 161 车道英里，其中约一半为隧道；浇筑混凝土 380 万立方码，开挖土方逾 1,600 万立方码" },
+      "source": "Massachusetts Department of Transportation, 'The Big Dig: project background'"
+    }
+  ],
+  "timeline": [
+    { "year": 1959, "en": "The elevated Central Artery opens through downtown Boston with six lanes.", "zh": "六车道的高架中央干道穿过波士顿市中心通车。" },
+    { "year": 1982, "en": "Environmental documents are prepared for the Central Artery/Tunnel Project.", "zh": "中央干道／隧道工程开始编制环境文件。" },
+    { "year": 1987, "en": "Congress approves federal funding and the basic scope of the project.", "zh": "国会批准该工程的联邦拨款与基本范围。" },
+    { "year": 1991, "en": "Construction begins on the South Boston bypass road and the third harbour tunnel.", "zh": "南波士顿绕行路与第三条海港隧道开工。" },
+    { "year": 2003, "en": "I-93 traffic moves into the O'Neill Tunnel and onto the Zakim Bunker Hill Bridge.", "zh": "I-93 车流转入奥尼尔隧道并驶上扎基姆邦克山大桥。" },
+    { "year": 2004, "en": "The elevated Central Artery is dismantled.", "zh": "高架中央干道被拆除。" },
+    { "year": 2006, "en": "Substantial completion of the Central Artery/Tunnel Project is declared on 13 January.", "zh": "1 月 13 日，中央干道／隧道工程宣布实质性完工。" }
+  ]
+}

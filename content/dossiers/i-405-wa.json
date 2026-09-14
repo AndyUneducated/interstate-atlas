@@ -1,0 +1,69 @@
+{
+  "id": "i-405-wa",
+  "name": { "en": "Interstate 405", "zh": "405 号州际公路" },
+  "tagline": { "en": "The Eastside bypass of Seattle, and its toll lanes", "zh": "西雅图东区绕行线及其收费车道" },
+  "officialMi": 30.3,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "I-5 at Tukwila, south of Seattle", "zh": "西雅图以南塔克维拉，与 I-5 相接" },
+    "end": { "en": "I-5 at Lynnwood, north of Seattle", "zh": "西雅图以北林伍德，与 I-5 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "This is the other I-405 — Washington's, not California's. It leaves I-5 at Tukwila, runs up the east side of Lake Washington through Renton, Bellevue, Kirkland and Bothell, and rejoins I-5 at Lynnwood. The even hundreds digit is exactly right here: it is a bypass that returns to its parent, and it lets traffic avoid both downtown Seattle and the lake.",
+        "It is no longer a bypass in practice. Bellevue and Redmond grew into a second regional downtown, and the road that was meant to go round Seattle became the spine of the Eastside instead. WSDOT describes the Renton-to-Bellevue stretch as one of the worst commutes in the state. The department's answer has been tolling rather than more free lanes: express toll lanes already run from Bellevue north to Lynnwood, and the current project extends them south to link up with the SR 167 HOT lanes and produce a 40-mile tolled network."
+      ],
+      "zh": [
+        "这是另一条 I-405——华盛顿州的那条，不是加州的。它在塔克维拉离开 I-5，沿华盛顿湖东岸北上，经伦顿、贝尔维尤、柯克兰与博塞尔，在林伍德重新汇入 I-5。偶数百位在这里完全贴切：它是一条绕行线并回到母线，让车流既避开西雅图市中心，也避开湖面。",
+        "但实际上它已不再是绕行线。贝尔维尤与雷德蒙德长成了区域的第二个市中心，这条本为绕开西雅图而修的路，反倒成了东区的脊梁。华盛顿州交通部称伦顿至贝尔维尤段是全州最糟的通勤路段之一。该部门的对策是收费而非增加免费车道：快速收费车道已从贝尔维尤通到北面的林伍德，当前工程把它们向南延伸，与 SR 167 的高乘载收费车道衔接，形成一个 40 英里的收费网络。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The Renton to Bellevue widening was funded in 2015 under the state's Connecting Washington package. WSDOT's own engineer's estimate for the design-build contract was $650 million to $700 million; the contract was awarded on 1 October 2019 to a Flatiron West and Lane Construction joint venture for $704,975,000, and construction started in autumn 2020. The work adds one lane in each direction and combines it with the existing HOV lane to make a two-lane express toll system between SR 167 in Renton and Northeast Sixth Street in Bellevue.",
+        "It has not gone well. The contractual completion date was the end of 2025; in November 2025 WSDOT said that date was no longer achievable and set a new target of summer 2027, an eighteen-month slip. The state has been in active litigation with its own design-build contractor since 2023, asking the court both to reject the contractor's claims for additional payment and to award the state compensation for late completion."
+      ],
+      "zh": [
+        "伦顿至贝尔维尤拓宽工程的资金于 2015 年由该州「联通华盛顿」一揽子计划落实。华盛顿州交通部对设计－建造合同的工程师估价为 6.5 亿至 7 亿美元；合同于 2019 年 10 月 1 日授予 Flatiron West 与 Lane Construction 的联合体，金额 704,975,000 美元，工程于 2020 年秋开工。该工程每向增建一条车道，并与既有的合乘车道合并，在伦顿的 SR 167 与贝尔维尤的东北六街之间形成双车道快速收费系统。",
+        "进展并不顺利。合同约定的完工期是 2025 年底；2025 年 11 月，华盛顿州交通部表示该日期已无法实现，并把目标改为 2027 年夏，工期后延十八个月。自 2023 年以来，该州一直与自己的设计－建造承包商处于诉讼状态，既请法院驳回承包商的追加付款诉求，也要求就延期完工向该州赔偿。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "30.3 miles in Washington", "zh": "华盛顿州境内 30.3 英里" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Renton to Bellevue contract", "zh": "伦顿至贝尔维尤合同额" },
+      "value": { "en": "$704,975,000 awarded 1 October 2019, against an estimate of $650–700 million", "zh": "2019 年 10 月 1 日授予，金额 704,975,000 美元，估价为 6.5 亿至 7 亿美元" },
+      "source": "Washington State Department of Transportation contracting record, I-405 Renton to Bellevue"
+    },
+    {
+      "label": { "en": "Extent of the toll lane network", "zh": "收费车道网络范围" },
+      "value": { "en": "40 miles of express toll lanes once the project connects to the SR 167 HOT lanes", "zh": "工程与 SR 167 高乘载收费车道衔接后，快速收费车道将达 40 英里" },
+      "source": "Washington State Department of Transportation project page, I-405 Renton to Bellevue"
+    },
+    {
+      "label": { "en": "Schedule", "zh": "工期" },
+      "value": { "en": "Contractual completion end of 2025, revised in November 2025 to summer 2027", "zh": "合同约定 2025 年底完工，2025 年 11 月改为 2027 年夏" },
+      "source": "WSDOT Blog, 'Renton to Bellevue project update: New timeline', November 2025"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Daily traffic", "zh": "日交通量" },
+      "why": { "en": "WSDOT describes the Renton–Bellevue section as one of the worst commutes in the state but publishes traffic and revenue forecasts for the corridor rather than a current daily volume, and the department said in 2025 that those forecasts were being revised for the new schedule.", "zh": "华盛顿州交通部称伦顿－贝尔维尤段是全州最糟的通勤路段之一，但其公布的是该走廊的交通量与收入预测而非当前日交通量；该部门在 2025 年表示，这些预测正因工期变更而重新修订。" }
+    }
+  ],
+  "timeline": [
+    { "year": 2015, "en": "The widening is funded under the Connecting Washington package.", "zh": "拓宽工程由「联通华盛顿」计划提供资金。" },
+    { "year": 2019, "en": "A $705 million design-build contract is awarded in October.", "zh": "10 月授予 7.05 亿美元设计－建造合同。" },
+    { "year": 2020, "en": "Construction starts in the autumn.", "zh": "工程于秋季开工。" },
+    { "year": 2025, "en": "WSDOT abandons the 2025 completion date and targets summer 2027.", "zh": "华盛顿州交通部放弃 2025 年完工目标，改定 2027 年夏。" }
+  ]
+}

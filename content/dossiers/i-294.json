@@ -1,0 +1,87 @@
+{
+  "id": "i-294",
+  "name": { "en": "Interstate 294", "zh": "294 号州际公路" },
+  "tagline": { "en": "The Tri-State Tollway — Chicago's western bypass, still tolled", "zh": "三州收费高速：绕开芝加哥西侧，至今仍收费" },
+  "officialMi": 48.1,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1958,
+  "termini": {
+    "start": { "en": "I-80/I-94 at Lansing, Illinois", "zh": "伊利诺伊州兰辛，与 I-80、I-94 相接" },
+    "end": { "en": "I-94 at Deerfield, Illinois", "zh": "伊利诺伊州迪尔菲尔德，与 I-94 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-294 is the western two-thirds of the Tri-State Tollway, leaving I-94 at Lansing on the Indiana line, running south and west of Chicago past Oak Lawn, Hinsdale and O'Hare, and rejoining I-94 at Deerfield. The even hundreds digit is accurate for once: it is a genuine loop that gives its parent route back. What makes it unusual among Interstate beltways is that it is a toll road, owned and operated not by the state highway department but by the Illinois Tollway.",
+        "It is also the freight route. Everything moving between the Indiana steel belt, the O'Hare air-cargo complex and the warehouses of the western suburbs uses some part of it, alongside a commuter load the road was never designed for. The Tollway puts more than 300,000 vehicles a day on the central section between Balmoral Avenue and 95th Street — a stretch that still had 1950s pavement and bridges under it when the current rebuild began."
+      ],
+      "zh": [
+        "I-294 是三州收费高速的西侧三分之二段：自印第安纳州界附近的兰辛离开 I-94，沿芝加哥的南侧与西侧外围，经橡树草坪、欣斯代尔与奥黑尔机场，最后在迪尔菲尔德回到 I-94。这一次偶数百位名副其实：它确实是一条把车流交还给母线的环线。它在州际环线中的特别之处，在于这是一条收费公路，产权与运营不属于州公路部门，而属于伊利诺伊收费高速管理局。",
+        "它同时是货运通道。印第安纳钢铁带、奥黑尔航空货运枢纽与西郊仓储区之间的货物往来，都要走它的某一段，而在此之上还叠加了当初根本没有设计过的通勤流量。管理局的数据显示，巴尔莫勒尔大道至 95 街之间的中段每日通行超过 30 万辆——而在本轮重建开工时，这一段路面和桥梁仍是 1950 年代的原物。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Illinois General Assembly created a Toll Highway Commission in 1953, construction began in late 1956, and the whole original 187-mile system — the Tri-State, the Northwest and the East–West Tollways — opened in sections during 1958, the last of it on 23 December. The system cost about $459 million and was financed with a $415 million bond issue rather than out of taxes, which is why it still has toll plazas while the free Interstates around it do not.",
+        "It was built for intercity traffic, with interchanges spaced far apart and service plazas on bridges over the carriageway. That is not what it became. When the system opened roughly seventy per cent of its traffic was long-distance; by the end of the century tollway officials estimated that roughly seventy per cent was commuters. The suburbs that the road was routed around in 1958 had grown out to meet it, and in several places past it."
+      ],
+      "zh": [
+        "伊利诺伊州议会于 1953 年设立收费公路委员会，工程于 1956 年底动工，最初 187 英里的整个系统——三州、西北与东西三条收费高速——在 1958 年分段通车，最后一段于 12 月 23 日开放。整个系统耗资约 4.59 亿美元，资金来自 4.15 亿美元的债券发行而非税收，这也是它至今仍设收费站、而周边免费州际公路不设的原因。",
+        "它当初是为城际交通修的：立交间距很大，服务区架在车道上方的桥屋里。后来的情况却完全不同。系统开通时约七成流量是长途交通；到二十世纪末，管理局估计约七成变成了通勤者。1958 年被这条路绕开的郊区，已经长到了它跟前，有些地方还越了过去。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The Tollway is rebuilding the central twenty-two miles of I-294 between Balmoral Avenue and 95th Street at a budgeted $4 billion, running from 2018 to 2027. The work widens the mainline to five lanes each way, converts the inside shoulders to Flex Lanes, rebuilds the Mile Long Bridge and the BNSF Railway bridge, and reconfigures the I-290/I-88 interchange. The southern section between I-55 and 95th Street returned to its permanent configuration in 2024, and the northern segment was widened from four lanes to five the same year.",
+        "That single project is roughly a quarter of the agency's fifteen-year capital programme, Move Illinois, whose budget the tollway board raised to $15.2 billion in December 2023 with substantial completion pushed to 2027. The money comes from drivers rather than from the state's road fund: the Tollway collected $1.4 billion in tolls during 2024, and 86.2 per cent of its transactions were paid electronically through I-PASS."
+      ],
+      "zh": [
+        "管理局正在重建 I-294 中段——巴尔莫勒尔大道至 95 街之间的二十二英里——预算 40 亿美元，工期自 2018 年至 2027 年。内容包括把主线拓宽为双向各五车道、把内侧路肩改造成弹性车道、重建 Mile Long 桥与 BNSF 铁路桥，并改造 I-290/I-88 枢纽。I-55 至 95 街之间的南段已于 2024 年恢复永久布置，北段也在同年由四车道拓宽为五车道。",
+        "仅这一个项目，就约占该机构十五年资本计划「Move Illinois」的四分之一；2023 年 12 月，董事会把该计划预算提高到 152 亿美元，并把实质完工时间推迟到 2027 年。这些钱来自司机而不是州公路基金：2024 年管理局收取通行费 14 亿美元，其中 86.2% 的交易通过 I-PASS 电子方式支付。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "48.1 miles, entirely in Illinois", "zh": "48.1 英里，全线位于伊利诺伊州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Original construction cost", "zh": "最初建设成本" },
+      "value": { "en": "About $459 million for the original 187-mile, three-road tollway system opened in 1958, financed with a $415 million bond issue", "zh": "1958 年通车的 187 英里、三条路的收费公路系统共约 4.59 亿美元，由 4.15 亿美元债券融资" },
+      "source": "Encyclopedia of Chicago, Chicago Historical Society, entry on the Tollway Authority"
+    },
+    {
+      "label": { "en": "Current reconstruction", "zh": "当前重建工程" },
+      "value": { "en": "$4 billion for 22 miles between Balmoral Avenue and 95th Street, 2018–2027", "zh": "巴尔莫勒尔大道至 95 街之间 22 英里，40 亿美元，2018 至 2027 年" },
+      "source": "Illinois Tollway, Central Tri-State Tollway project page, 2025"
+    },
+    {
+      "label": { "en": "System toll revenue", "zh": "系统通行费收入" },
+      "value": { "en": "$1.4 billion across the whole Illinois Tollway system in 2024", "zh": "2024 年伊利诺伊收费高速全系统 14 亿美元" },
+      "source": "Illinois Tollway Annual Comprehensive Financial Report, 2024"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Daily traffic, central section", "zh": "中段日交通量" },
+      "value": { "en": "More than 300,000 vehicles a day between Balmoral Avenue and 95th Street", "zh": "巴尔莫勒尔大道至 95 街之间每日超过 30 万辆" },
+      "source": "Illinois Tollway, Central Tri-State Tollway project page, 2025"
+    },
+    {
+      "label": { "en": "Share of long-distance traffic", "zh": "长途交通占比" },
+      "value": { "en": "About 70 per cent at opening in 1958; by the end of the century about 70 per cent was commuters instead", "zh": "1958 年通车时约 70%；到二十世纪末，约 70% 已变成通勤交通" },
+      "source": "Encyclopedia of Chicago, Chicago Historical Society, entry on the Tollway Authority"
+    }
+  ],
+  "timeline": [
+    { "year": 1953, "en": "Illinois creates a Toll Highway Commission to build the system with bonds rather than taxes.", "zh": "伊利诺伊州设立收费公路委员会，以债券而非税收修建该系统。" },
+    { "year": 1958, "en": "The Tri-State Tollway opens in sections, the last on 23 December.", "zh": "三州收费高速分段通车，最后一段于 12 月 23 日开放。" },
+    { "year": 2018, "en": "Work begins on the $4 billion rebuild of the central 22 miles.", "zh": "中段 22 英里的 40 亿美元重建工程开工。" },
+    { "year": 2024, "en": "The southern section returns to its permanent configuration and the northern segment is widened to five lanes.", "zh": "南段恢复永久布置，北段拓宽至五车道。" }
+  ]
+}

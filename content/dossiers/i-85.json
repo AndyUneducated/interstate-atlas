@@ -1,0 +1,100 @@
+{
+  "id": "i-85",
+  "name": { "en": "Interstate 85", "zh": "85 号州际公路" },
+  "tagline": { "en": "Montgomery to Petersburg along the Piedmont manufacturing belt", "zh": "从蒙哥马利到彼得斯堡，沿皮德蒙特制造业带" },
+  "officialMi": 631.29,
+  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
+  "designatedYear": 1957,
+  "termini": {
+    "start": { "en": "I-65 in Montgomery, Alabama", "zh": "亚拉巴马州蒙哥马利，与 I-65 相接" },
+    "end": { "en": "I-95 in Petersburg, Virginia", "zh": "弗吉尼亚州彼得斯堡，与 I-95 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-85 is a regional road that behaves like a national one. It carries an odd number, so it is nominally north–south, but it runs northeast–southwest along the foot of the Appalachians and covers more east–west distance than north–south. Its diagonal is steep enough that in Georgia and Alabama it lies west of I-75, which the grid says should be impossible.",
+        "The corridor it follows is the Piedmont: the belt of mill towns and textile country that runs from Montgomery through Atlanta, Greenville, Charlotte and Greensboro to the Virginia line. Those towns grew into the modern manufacturing and distribution economy of the Southeast, and I-85 is the road that connects them. Through Atlanta and Charlotte it becomes a wide urban freeway; between them it is a dense, truck-heavy, four-to-six lane rural route that rarely feels empty.",
+        "At its northern end it runs out at I-95 in Petersburg, Virginia, having never reached a coast, a border or a major national terminus. Its importance is entirely in the middle."
+      ],
+      "zh": [
+        "I-85 是一条区域性道路，却起着全国性道路的作用。它编号为奇数，名义上南北走向，但实际沿阿巴拉契亚山麓自西南向东北延伸，东西方向跨度大于南北方向。它斜得如此之甚，以至于在佐治亚与亚拉巴马境内跑到了 I-75 以西——按编号网格的规矩，这本不该发生。",
+        "它所循的走廊是皮德蒙特：自蒙哥马利经亚特兰大、格林维尔、夏洛特、格林斯伯勒直至弗吉尼亚州界的一条工厂小镇与纺织业地带。这些城镇后来成长为东南部现代制造业与物流经济的所在，而 I-85 正是把它们串起来的那条路。穿过亚特兰大与夏洛特时，它是宽阔的城市高速；两地之间则是车流密集、卡车众多的四至六车道乡村路线，很少有空旷的时候。",
+        "它的北端止于弗吉尼亚州彼得斯堡的 I-95，既未抵达海岸，也未抵达边境或任何全国性枢纽。它的重要性完全在于中段。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "I-85 was designated in August 1957, but parts of it were older than the Interstate System. Atlanta had begun building what became the Downtown Connector in 1948, and the first stretch opened in 1951, five years before the Federal-Aid Highway Act. At the northern end, the Petersburg approach was built as part of the Richmond–Petersburg Turnpike, a toll road completed in 1958 whose tolls came off in 1992.",
+        "South Carolina makes a well-documented case study. The first contract on its section — a bridge over the Broad River in Cherokee County — was awarded in September 1956 and was the state's first Interstate contract of any kind. The last construction contract was let in January 1962, and the road opened over its full length in the state in September 1964, the first South Carolina Interstate completed.",
+        "Later work kept moving the line. When an 8.75-mile bypass of Spartanburg opened in mid-1995, the I-85 designation moved onto it and the old road through town became a business route — the second time South Carolina could say it had completed I-85."
+      ],
+      "zh": [
+        "I-85 于 1957 年 8 月定名，但其中一些路段比州际公路系统本身更老。亚特兰大早在 1948 年就开始修建后来成为「市中心连接线」的道路，首段于 1951 年通车，比《联邦资助公路法》还早五年。北端通往彼得斯堡的引道则是里士满—彼得斯堡收费公路的一部分，该收费公路于 1958 年建成，1992 年取消收费。",
+        "南卡罗来纳州是一个记录翔实的案例。该州路段的第一份合同——切罗基县跨布罗德河的一座桥——于 1956 年 9 月授出，也是该州所有州际公路合同中的第一份。最后一份施工合同于 1962 年 1 月签出，1964 年 9 月本州境内全线通车，成为南卡罗来纳州第一条建成的州际公路。",
+        "此后的工程仍在挪动线位。1995 年年中，一条长 8.75 英里的斯帕坦堡绕城路通车，I-85 的编号随之移到新线上，原先穿城而过的道路改为商业支线——南卡罗来纳州因此第二次可以宣称「I-85 已经建成」。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "On 30 March 2017 a fire under the elevated I-85 in Buckhead, north of downtown Atlanta, brought down about 700 feet of highway. The blaze started in a state storage area beneath the bridge, where coiled plastic conduit had been kept, and burned hot enough to collapse the northbound deck and ruin the southbound one.",
+        "The rebuild became a demonstration of what emergency procurement can do. The contractor worked around the clock on 350 feet of elevated highway in each direction; the fire had spared the foundations and the original columns, which saved months. Georgia's transportation department offered a sliding early-completion incentive, and the road reopened in mid-May, about a month ahead of the original target.",
+        "The episode also showed how little slack the corridor has. This is one of the busiest stretches of Interstate in the Southeast, and with it closed for six weeks, metro Atlanta had no equivalent alternative to absorb the traffic."
+      ],
+      "zh": [
+        "2017 年 3 月 30 日，亚特兰大市中心以北巴克海德一带，高架 I-85 下方起火，约 700 英尺路面坍塌。火起于桥下一处州属材料堆场，那里存放着成卷的塑料管材；火势之猛，使北行桥面坍塌、南行桥面损毁到无法修复。",
+        "重建过程成了应急采购能力的一次展示。承包商昼夜不停施工，双向各重建 350 英尺高架路面；大火未殃及基础与原有桥墩，因此省下了数月工期。佐治亚州交通部设置了按提前天数递增的奖励，道路于 5 月中旬重新通车，比原定目标提前约一个月。",
+        "这一事件也显示出该走廊几乎没有余量。这里是东南部最繁忙的州际公路路段之一，封闭六周期间，亚特兰大都会区没有任何同等规模的替代道路来吸纳这些车流。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "South Carolina section construction cost", "zh": "南卡罗来纳州路段建设成本" },
+      "value": { "en": "$267 million for the state's 106 miles, built between 1956 and 1964", "zh": "该州 106 英里路段造价 2.67 亿美元，1956 至 1964 年间建成" },
+      "source": "FHWA Highway History, 'I-85: The Boom Belt, South Carolina'"
+    },
+    {
+      "label": { "en": "First Interstate contract in South Carolina", "zh": "南卡罗来纳州第一份州际公路合同" },
+      "value": { "en": "$280,665 for a bridge over the Broad River in Cherokee County, awarded 21 September 1956", "zh": "280,665 美元，用于切罗基县跨布罗德河的一座桥，1956 年 9 月 21 日授出" },
+      "source": "FHWA Highway History, 'I-85: The Boom Belt, South Carolina'"
+    },
+    {
+      "label": { "en": "Atlanta bridge collapse rebuild", "zh": "亚特兰大桥梁坍塌重建" },
+      "value": { "en": "Up to $16.6 million: $11.9 million for the new bridge, $1.6 million for demolition and up to $3.1 million in early-completion incentives, with the federal government covering 90 percent", "zh": "最高 1,660 万美元：新桥 1,190 万美元、旧桥拆除 160 万美元、提前完工奖励最高 310 万美元，其中联邦政府承担 90%" },
+      "source": "Georgia Department of Transportation, as reported by the Atlanta Journal-Constitution, April 2017"
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "631.29 miles across 5 states; longest section North Carolina, 203.97 miles", "zh": "631.29 英里，横跨 5 个州；最长路段为北卡罗来纳州，203.97 英里" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic on the collapsed Atlanta section", "zh": "亚特兰大坍塌路段的交通量" },
+      "value": { "en": "Nearly 250,000 vehicles a day in normal operation", "zh": "正常情况下接近每日 25 万辆" },
+      "source": "Engineering News-Record, 10 May 2017"
+    },
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Five state DOTs publish counts segment by segment, and volumes range from rural Southside Virginia to the Atlanta and Charlotte urban cores. No route-wide figure is published.", "zh": "五个州的交通部门按路段发布交通量，数值从弗吉尼亚州南部乡村路段到亚特兰大、夏洛特市区不等。无全线数字发布。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Note on route length", "zh": "关于路线长度的说明" },
+      "value": { "en": "Sources that count the full driving distance from Montgomery to Petersburg give a longer figure than the route log, because I-85 runs concurrently with I-40 between Greensboro and Hillsborough, North Carolina, and that mileage is credited to I-40", "zh": "按蒙哥马利至彼得斯堡实际行车距离统计的资料，数字大于路线名录，原因是 I-85 在北卡罗来纳州格林斯伯勒与希尔斯伯勒之间与 I-40 共线，该段里程计在 I-40 名下" },
+      "source": "FHWA Route Log and Finder List, Table 1, January 2026, compared with route descriptions"
+    }
+  ],
+  "timeline": [
+    { "year": 1951, "en": "The first section of what becomes the Atlanta Downtown Connector opens, five years before the Interstate System exists.", "zh": "后来成为亚特兰大市中心连接线的首段通车，比州际公路系统的设立早五年。" },
+    { "year": 1957, "en": "I-85 is designated in August as a route from Montgomery, Alabama to Petersburg, Virginia.", "zh": "8 月，I-85 定名，路线自亚拉巴马州蒙哥马利至弗吉尼亚州彼得斯堡。" },
+    { "year": 1964, "en": "South Carolina opens its entire section, the first Interstate completed in that state.", "zh": "南卡罗来纳州全州路段通车，为该州第一条建成的州际公路。" },
+    { "year": 1995, "en": "The Spartanburg bypass opens and the I-85 designation moves onto it.", "zh": "斯帕坦堡绕城路通车，I-85 编号随之移至新线。" },
+    { "year": 2017, "en": "A fire collapses about 700 feet of elevated I-85 in Atlanta; the road reopens six weeks later.", "zh": "亚特兰大一场大火使约 700 英尺高架 I-85 坍塌，六周后重新通车。" }
+  ]
+}

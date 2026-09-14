@@ -1,0 +1,64 @@
+{
+  "id": "i-610-tx",
+  "name": { "en": "Interstate 610", "zh": "610 号州际公路" },
+  "tagline": { "en": "The Loop — Houston's first ring road, and now its inner one", "zh": "610 环线：休斯敦第一条环路，如今的内环" },
+  "officialMi": 37.97,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "completedYear": 1975,
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-610 is a closed ring of about thirty-eight miles around inner Houston, known locally by quadrant: the North, East, South and West Loops. The even hundreds digit marks it as a loop off I-10, which it meets twice. Inside it are downtown, the Texas Medical Center, Rice University and the Uptown–Galleria district; the East Loop runs through the refineries and terminals of the Houston Ship Channel. Like Atlanta's Perimeter, the road has become a social boundary as much as a traffic one — Houstonians say inside the Loop and mean something about the city, not about a road.",
+        "The West Loop past the Galleria is the congested half and has been since the shopping centre opened in 1970 and set off a building boom beside the freeway. The East Loop is the industrial half, and it carries the Sidney Sherman Bridge over the Ship Channel: ten lanes, a 600-foot main span and 135 feet of clearance for ships. The National Bridge Inventory records about 136,576 vehicles a day across it, and rates its deck satisfactory with the superstructure and substructure both fair."
+      ],
+      "zh": [
+        "I-610 是环绕休斯敦内城、周长约三十八英里的闭合环线，当地人按象限称呼它：北环、东环、南环、西环。偶数百位表明它是 I-10 的环线，二者两次相交。环内是市中心、得克萨斯医学中心、莱斯大学和上城—伽利略购物中心一带；东环则穿过休斯敦航道沿线的炼油厂与码头。与亚特兰大的环城线一样，这条路既是交通边界，也成了社会边界——休斯敦人说「环内」，指的是这座城市的某种属性，而不是一条路。",
+        "经过伽利略购物中心的西环是拥堵的那一半，自 1970 年该购物中心开业、在高速旁引发建设热潮以来一直如此。东环是工业的那一半，其上有跨越航道的悉尼·谢尔曼大桥：十车道，主跨 600 英尺，桥下净空 135 英尺供船舶通行。美国国家桥梁清单记录该桥日均通行约 136,576 辆，桥面状况评为「尚可」，上部结构与下部结构均为「一般」。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "A bypass around Houston was first proposed in 1931 and first formally studied in 1941, the year Harris County voters approved a bond for what was then called the Defense Loop — a route to move troops and materiel around the city rather than through it. It was designated Loop 137 in 1942; the war stopped everything. The West and South Loops were approved as freeways in October 1954, the first freeway section opened in 1960, and Houston's first four-level interchange was completed where the West Loop meets the Southwest Freeway in 1962.",
+        "The east side was the last and hardest part, because it had to cross the Ship Channel. Construction of the 6,300-foot, ten-lane bridge began in October 1968; the main span was widened to 600 feet at the insistence of the Army Corps of Engineers, which judged the original 400-foot design a hazard to shipping. The bridge and the East Loop opened on 2 March 1973, and the ring finally closed on 22 September 1975 with a short section on the north-east side. The total cost of the loop was $169,423,000."
+      ],
+      "zh": [
+        "绕开休斯敦的外环最早在 1931 年被提出，1941 年首次正式研究，同年哈里斯县选民通过了为当时所谓「国防环线」发行债券的表决——这条路的用意是让部队和物资绕城而行，而不是穿城而过。1942 年它被定名为 137 号环线；随后战争让一切停摆。西环与南环于 1954 年 10 月获批按高速公路标准建设，第一段高速于 1960 年通车，休斯敦第一座四层立交也于 1962 年在西环与西南高速交汇处建成。",
+        "东侧是最后、也最难的一段，因为它必须跨越航道。这座 6,300 英尺长、十车道的大桥于 1968 年 10 月动工；主跨在陆军工程兵团的坚持下从原设计的 400 英尺加宽到 600 英尺，理由是原方案对航运构成危险。大桥与东环于 1973 年 3 月 2 日通车，整个环线则在 1975 年 9 月 22 日随东北侧一小段的开通而最终合拢。全环总造价为 169,423,000 美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "37.97 miles, a closed loop entirely within Texas", "zh": "37.97 英里，闭合环线，全部位于得克萨斯州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Total construction cost", "zh": "总建设成本" },
+      "value": { "en": "$169,423,000 for the complete 38.3-mile loop", "zh": "38.3 英里全环共计 169,423,000 美元" },
+      "source": "Texas Highway Department news bulletin, 1975, reproduced by TexasFreeway.com"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic on the Ship Channel bridge", "zh": "航道大桥交通量" },
+      "value": { "en": "136,576 vehicles a day, 8 per cent of them trucks", "zh": "每日 136,576 辆，其中卡车占 8%" },
+      "source": "National Bridge Inventory record for the Sidney Sherman Bridge, 2020 count"
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Sidney Sherman Bridge condition", "zh": "悉尼·谢尔曼大桥状况" },
+      "value": { "en": "Deck 6 (satisfactory), superstructure 5 (fair), substructure 5 (fair) on the federal 0–9 scale", "zh": "按联邦 0—9 分制：桥面 6 分（尚可），上部结构 5 分（一般），下部结构 5 分（一般）" },
+      "source": "National Bridge Inventory, inspection of December 2024"
+    }
+  ],
+  "timeline": [
+    { "year": 1941, "en": "Harris County voters approve a bond for the Defense Loop, the ancestor of I-610.", "zh": "哈里斯县选民通过为「国防环线」发行债券，此即 I-610 的前身。" },
+    { "year": 1960, "en": "The first freeway section of the loop opens, on the North Loop.", "zh": "环线的第一段高速在北环通车。" },
+    { "year": 1973, "en": "The Sidney Sherman Bridge carries the East Loop over the Houston Ship Channel.", "zh": "悉尼·谢尔曼大桥建成，东环由此跨越休斯敦航道。" },
+    { "year": 1975, "en": "A short north-east section closes the ring, 34 years after the bond vote.", "zh": "东北侧一小段通车使环线合拢，距债券表决已过去 34 年。" }
+  ]
+}

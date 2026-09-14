@@ -1,0 +1,77 @@
+{
+  "id": "i-695-md",
+  "name": { "en": "Interstate 695", "zh": "695 号州际公路" },
+  "tagline": { "en": "The Baltimore Beltway — a ring with a hole in it since 2024", "zh": "巴尔的摩环线：自 2024 年起，环上有个缺口" },
+  "officialMi": 46.29,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-695 rings Baltimore at a radius of about eight miles, carrying suburban commuters around Towson, Catonsville and Dundalk and, at its southern end, crossing the Patapsco River. That crossing matters out of proportion to its length: the Fort McHenry and Baltimore Harbor tunnels on I-95 and I-895 are closed to hazardous cargo, so the beltway's own river crossing was the designated route for tankers and anything else that cannot go underground.",
+        "Since 26 March 2024 the ring has not been a ring. The container ship Dali lost power and struck a pier of the Francis Scott Key Bridge, which collapsed into the Patapsco, killing six highway workers who were on the deck at the time. The outer loop now ends at Quarantine Road and the inner loop at MD 157, and about 34,000 drivers a day who used the bridge take one of the tunnels instead."
+      ],
+      "zh": [
+        "I-695 以约八英里的半径环绕巴尔的摩，把郊区通勤者绕经陶森、卡顿斯维尔与邓多克，并在南端跨越帕塔普斯科河。这处渡河点的重要性远超其长度：I-95 的麦克亨利堡隧道与 I-895 的巴尔的摩港隧道都禁止危险品通行，因此环线自己的这座桥，是油罐车及其他无法走地下的车辆的指定路线。",
+        "自 2024 年 3 月 26 日起，这个环不再是环。集装箱船「达利」号失去动力，撞上弗朗西斯·斯科特·基大桥的桥墩，大桥坠入帕塔普斯科河，桥面上作业的六名公路工人遇难。如今外环止于隔离路，内环止于 MD 157，原本走这座桥的每日约 34,000 名司机改走两条隧道之一。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The beltway was built from the inside out over fifteen years. The main arc, from MD 2 near Arundel Village round to US 40 near Essex, was completed in 1962; an extension southeast from US 40 to MD 150 opened in 1972 as the Southeast Freeway. That left one gap, the Patapsco crossing between Hawkins Point and Sollers Point, which had originally been planned as a third harbour tunnel and was redesigned as a bridge.",
+        "The Francis Scott Key Bridge opened on 23 March 1977 and closed the circuit. It had cost $141 million to build — about $568 million in current money — and carried roughly 11.5 million vehicles a year. The National Transportation Safety Board later noted that it predated the pier-protection standards that would have been required of a bridge designed after it."
+      ],
+      "zh": [
+        "这条环线由内向外修了十五年。主弧段自阿伦德尔村附近的 MD 2 绕至埃塞克斯附近的 US 40，于 1962 年建成；1972 年又自 US 40 向东南延伸至 MD 150，称为东南高速。剩下的唯一缺口，是霍金斯角与索勒斯角之间的帕塔普斯科河渡口，原计划修第三条港口隧道，后改为桥梁方案。",
+        "弗朗西斯·斯科特·基大桥于 1977 年 3 月 23 日通车，环线由此闭合。该桥造价 1.41 亿美元，折合今日币值约 5.68 亿美元，年通行量约 1,150 万辆。美国国家运输安全委员会后来指出，这座桥早于桥墩防撞标准出台，而按此后标准设计的桥梁本应满足这些要求。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Replacing the bridge has turned out to cost more than most people rebuild a whole motorway for. Six weeks after the collapse the Maryland Department of Transportation put the job at $1.7 billion to $1.9 billion with an opening in late 2028, and a bill signed in December 2024 committed the federal government to paying for it. On 17 November 2025 the state revised the estimate to between $4.3 billion and $5.2 billion and moved the opening to late 2030.",
+        "The procurement has been as troubled as the number suggests. Kiewit was hired for the first phase in 2024 under a contract initially worth $73 million; in April 2026 the Maryland Transportation Authority declined to retain the firm for the main construction phase, saying its proposal far exceeded the state's own cost estimates, and began procuring the remaining work in separate packages."
+      ],
+      "zh": [
+        "重建这座桥的花费，已经超过很多地方修一整条高速的开支。坍塌六周后，马里兰州交通部把工程造价定为 17 亿至 19 亿美元，预计 2028 年底通车；2024 年 12 月签署的一项法案确定由联邦政府承担这笔费用。2025 年 11 月 17 日，州政府把估算上调至 43 亿至 52 亿美元，通车时间推迟到 2030 年底。",
+        "招标过程与这个数字一样波折。Kiewit 公司于 2024 年承接第一阶段，合同初始金额 7,300 万美元；2026 年 4 月，马里兰州交通管理局决定不再让该公司承担主体施工阶段，理由是其报价远超州方自己的造价估算，并开始把余下工程拆分成若干标段发包。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "46.29 miles, entirely in Maryland", "zh": "46.29 英里，全线位于马里兰州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Cost of the Francis Scott Key Bridge", "zh": "弗朗西斯·斯科特·基大桥造价" },
+      "value": { "en": "$141 million when built, about $568 million in current money", "zh": "建成时 1.41 亿美元，折合今日币值约 5.68 亿美元" },
+      "source": "Maryland officials' figures reported November 2025, inflation-adjusted"
+    },
+    {
+      "label": { "en": "Cost of the replacement bridge", "zh": "替代桥梁造价" },
+      "value": { "en": "Estimated at $4.3 billion to $5.2 billion as of November 2025, up from $1.7–1.9 billion in May 2024", "zh": "截至 2025 年 11 月估算为 43 亿至 52 亿美元，高于 2024 年 5 月的 17 亿至 19 亿美元" },
+      "source": "Maryland Department of Transportation announcement, 17 November 2025"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Traffic on the lost bridge", "zh": "已损毁桥梁的交通量" },
+      "value": { "en": "About 11.5 million vehicles a year before the collapse", "zh": "坍塌前每年约 1,150 万辆" },
+      "source": "Maryland Transportation Authority figures, reported 2024"
+    },
+    {
+      "label": { "en": "Drivers displaced by the collapse", "zh": "因坍塌改道的司机" },
+      "value": { "en": "About 34,000 a day, now using the I-95 or I-895 tunnels", "zh": "每日约 34,000 人，改走 I-95 或 I-895 隧道" },
+      "source": "Maryland Transportation Institute, University of Maryland, Key Bridge collapse impact study, 2025"
+    }
+  ],
+  "timeline": [
+    { "year": 1962, "en": "The main arc of the Baltimore Beltway is completed from MD 2 round to US 40.", "zh": "巴尔的摩环线主弧段建成，自 MD 2 绕至 US 40。" },
+    { "year": 1977, "en": "The Francis Scott Key Bridge opens, closing the ring across the Patapsco River.", "zh": "弗朗西斯·斯科特·基大桥通车，跨帕塔普斯科河使环线闭合。" },
+    { "year": 2024, "en": "The container ship Dali strikes a pier; the bridge collapses and six workers are killed.", "zh": "集装箱船「达利」号撞击桥墩，大桥坍塌，六名工人遇难。" },
+    { "year": 2025, "en": "Maryland raises the replacement estimate to $4.3–5.2 billion and delays the opening to late 2030.", "zh": "马里兰州把重建估算提高到 43 至 52 亿美元，通车推迟至 2030 年底。" }
+  ]
+}

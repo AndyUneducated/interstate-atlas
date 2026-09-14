@@ -1,0 +1,102 @@
+{
+  "id": "ak-3",
+  "name": { "en": "Alaska Route 3 — the George Parks Highway", "zh": "阿拉斯加 3 号公路（乔治·帕克斯公路）" },
+  "tagline": { "en": "Anchorage to Fairbanks, and the only road to Denali", "zh": "从安克雷奇到费尔班克斯，也是通往迪纳利的唯一道路" },
+  "officialMi": 323,
+  "mileageSource": "Alaska DOT&PF, George Parks Highway Scenic Byway Corridor Partnership Plan",
+  "completedYear": 1971,
+  "termini": {
+    "start": { "en": "Glenn Highway (AK 1) in the Matanuska Valley near Wasilla", "zh": "马塔努斯卡谷瓦西拉附近的格伦公路（AK 1）" },
+    "end": { "en": "Fairbanks", "zh": "费尔班克斯" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "The Parks Highway runs 323 miles from the Glenn Highway in the Matanuska Valley to Fairbanks, linking Alaska's two largest cities through the middle of the state. Its mileposts do not start at zero; they start at 35, because they are measured from Anchorage. It is the state's main north–south artery and the one road that reaches Denali National Park and Preserve.",
+        "A common assumption about the name is wrong. It does not refer to the parks it passes. George Alexander Parks was territorial governor of Alaska from 1925 to 1933, and the road was renamed for him in 1975, four years after it opened as the Anchorage–Fairbanks Highway. The aptness was noticed at the time.",
+        "The drive moves from the farmed Matanuska Valley into the Susitna lowlands, past Talkeetna and the Alaska Range viewpoints, over Broad Pass, down the Nenana River canyon to Healy and then out across interior forest to Fairbanks. On a clear day Denali is visible from the road; most days it is not."
+      ],
+      "zh": [
+        "帕克斯公路自马塔努斯卡谷的格伦公路起，全长 323 英里至费尔班克斯，从州境中部把阿拉斯加两座最大城市连接起来。它的里程碑不是从零开始，而是从 35 开始，因为起算点是安克雷奇。它是全州主要的南北向干道，也是唯一通达迪纳利国家公园与保护区的道路。",
+        "关于路名有一个常见的误解。它并非指沿途的公园。乔治·亚历山大·帕克斯是 1925 至 1933 年的阿拉斯加领地总督，公路于 1975 年以他命名，此前四年它以「安克雷奇—费尔班克斯公路」之名通车。当时人们也注意到这个名字恰好贴切。",
+        "沿途从农耕的马塔努斯卡谷进入苏西特纳低地，经塔尔基特纳和阿拉斯加山脉观景点，翻过布罗德山口，沿内纳纳河峡谷下行至希利，再穿过内陆森林抵达费尔班克斯。天气晴好时从路上可以看见迪纳利峰；多数日子看不见。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road was built in disconnected pieces over years and opened as a through route on 14 October 1971, with the ceremony held at the Hurricane Gulch bridge. It was called the Anchorage–Fairbanks Highway then, and the effect on travel was immediate and large.",
+        "Before it existed, driving to Mount McKinley National Park from either city meant going the long way round via Paxson on the Richardson Highway. The National Park Service recorded the change precisely: the highway cut the Anchorage-to-park-entrance distance to 240 miles, a reduction of 184 miles, and the Fairbanks distance to 125 miles, a reduction of 215.",
+        "The park was not ready for what followed. Visitation went from 44,528 in 1971 to 88,615 the next year. Anticipating exactly that, the Park Service decided to close the Park Road to private vehicles west of the Savage River, which is why visitors today ride buses into Denali rather than drive."
+      ],
+      "zh": [
+        "这条路多年间分段修建，1971 年 10 月 14 日作为贯通路线通车，通车仪式在飓风峡大桥举行。当时它名为「安克雷奇—费尔班克斯公路」，对出行的影响立竿见影且相当可观。",
+        "在它出现之前，从两座城市中的任何一座开车前往麦金利山国家公园，都得绕远路经理查森公路的帕克森。国家公园管理局对这一变化有精确记录：新路把安克雷奇至公园入口的距离缩短到 240 英里，减少了 184 英里；费尔班克斯一侧缩短到 125 英里，减少了 215 英里。",
+        "公园并未准备好应对随之而来的变化。游客量从 1971 年的 44,528 人次增至次年的 88,615 人次。正是预见到这一点，公园管理局决定禁止私家车驶入萨维奇河以西的园内道路——这也是今天游客乘巴士而非自驾进入迪纳利的原因。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Only the middle of the route carries a state scenic designation: the 116 miles between mileposts 132 and 248, from the Chulitna River bridge to Healy, are the George Parks Highway Scenic Byway. That is the segment with the Alaska Range views, Denali State Park and the park entrance.",
+        "It is a wide, well-maintained, year-round road by Alaska standards, and it is not a wilderness expedition — there is fuel, food and lodging at intervals along it, with Cantwell and Healy the useful stops in the thin middle stretch. The Denali park entrance is at milepost 237.4, 125 miles south of Fairbanks.",
+        "Winter is still winter. Broad Pass, the summit of the route at 2,400 feet, ices readily, and blowing snow, short daylight and moose on the carriageway are the usual hazards. Alaska's 511 service is the place to check before setting out."
+      ],
+      "zh": [
+        "只有中段获得州级景观道路认定：132 至 248 英里之间的 116 英里，自丘利特纳河大桥至希利，为乔治·帕克斯公路景观道路。这一段涵盖了阿拉斯加山脉景观、迪纳利州立公园和国家公园入口。",
+        "按阿拉斯加的标准，这是一条宽阔、养护良好、全年通行的道路，并不构成荒野远征——沿途间隔有加油、餐饮和住宿，中段较为荒僻处以坎特韦尔和希利最为实用。迪纳利国家公园入口位于 237.4 英里处，距费尔班克斯以南 125 英里。",
+        "冬天依然是冬天。全线最高点布罗德山口海拔 2,400 英尺，极易结冰；风吹雪、日照短促和闯上车道的驼鹿是常见风险。出行前宜查询阿拉斯加的 511 服务。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "里程" },
+      "value": { "en": "323 miles, Glenn Highway junction to Fairbanks", "zh": "323 英里，自格伦公路路口至费尔班克斯" },
+      "source": "Alaska DOT&PF, George Parks Highway Scenic Byway Corridor Partnership Plan"
+    },
+    {
+      "label": { "en": "Scenic byway designation", "zh": "景观道路认定" },
+      "value": { "en": "116 miles, mileposts 132 to 248 — the only state-designated segment", "zh": "116 英里，自 132 至 248 英里处——唯一获州级认定的路段" },
+      "source": "Alaska DOT&PF, George Parks Highway Scenic Byway Corridor Partnership Plan"
+    },
+    {
+      "label": { "en": "Distance saved to Denali", "zh": "前往迪纳利缩短的距离" },
+      "value": { "en": "184 miles from Anchorage and 215 miles from Fairbanks, compared with the previous route via Paxson", "zh": "相较此前经帕克森的路线，自安克雷奇缩短 184 英里，自费尔班克斯缩短 215 英里" },
+      "source": "National Park Service, Denali cultural resources report \"The Year Everything Changed\", 2020"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "建设成本" },
+      "why": { "en": "Figures circulate in commercial road guides but none could be traced to Alaska DOT&PF or another primary source this session. The route was also built in disconnected pieces over many years, so any single total would need to say which pieces it covers.", "zh": "商业路书中流传着一些数字，但本次查证未能追溯到阿拉斯加州交通与公共设施部或其他一手来源。此外，本路线多年间分段修建，任何总数都必须说明所涵盖的路段范围。" }
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Park visitation after opening", "zh": "通车后的公园游客量" },
+      "value": { "en": "Visits to Mount McKinley National Park rose from 44,528 in 1971 to 88,615 in 1972", "zh": "麦金利山国家公园游客量由 1971 年的 44,528 人次增至 1972 年的 88,615 人次" },
+      "source": "National Park Service, Denali cultural resources report \"The Year Everything Changed\", 2020"
+    },
+    {
+      "label": { "en": "Annual average daily traffic", "zh": "年平均日交通量" },
+      "why": { "en": "No route-level count could be verified from Alaska DOT&PF this session. Counts on this highway are also strongly seasonal, with summer visitor traffic dominating the middle segment.", "zh": "本次查证未能从阿拉斯加州交通与公共设施部取得全线交通量数据。本路线的交通量季节性也很强，中段以夏季游客车流为主。" }
+    }
+  ],
+  "conditionFigures": [
+    {
+      "label": { "en": "Highest point", "zh": "最高点" },
+      "value": { "en": "Broad Pass summit, 2,400 feet, at milepost 201.3", "zh": "布罗德山口顶点，海拔 2,400 英尺，位于 201.3 英里处" },
+      "source": "The MILEPOST, Parks Highway route log, 2026 edition"
+    },
+    {
+      "label": { "en": "Seasonal closure", "zh": "季节性封闭" },
+      "value": { "en": "None — maintained as a year-round route, though Broad Pass is prone to icing", "zh": "无——作为全年通行路线维护，但布罗德山口易结冰" },
+      "source": "The MILEPOST, Parks Highway route log, 2026 edition"
+    }
+  ],
+  "timeline": [
+    { "year": 1971, "en": "The Anchorage–Fairbanks Highway opens as a through route on 14 October, with the ceremony at Hurricane Gulch.", "zh": "10 月 14 日，安克雷奇—费尔班克斯公路作为贯通路线通车，仪式在飓风峡举行。" },
+    { "year": 1972, "en": "Mount McKinley National Park visitation nearly doubles, and the Park Service closes the Park Road to private cars west of the Savage River.", "zh": "麦金利山国家公园游客量几近翻倍，公园管理局禁止私家车驶入萨维奇河以西的园内道路。" },
+    { "year": 1975, "en": "The road is renamed the George Parks Highway for the territorial governor of 1925–33.", "zh": "该路更名为乔治·帕克斯公路，纪念 1925 至 1933 年的领地总督。" }
+  ]
+}

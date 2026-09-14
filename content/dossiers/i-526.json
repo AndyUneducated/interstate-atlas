@@ -1,0 +1,68 @@
+{
+  "id": "i-526",
+  "name": { "en": "Interstate 526", "zh": "526 号州际公路" },
+  "tagline": { "en": "The Mark Clark Expressway — a half-built Charleston beltway", "zh": "马克·克拉克快速路：只修了一半的查尔斯顿环线" },
+  "officialMi": 19.56,
+  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
+  "termini": {
+    "start": { "en": "US 17 in West Ashley, west of Charleston", "zh": "查尔斯顿以西西阿什利，与 US 17 相接" },
+    "end": { "en": "US 17 at Mount Pleasant, east of Charleston", "zh": "查尔斯顿以东芒特普莱森特，与 US 17 相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "I-526 is the Mark Clark Expressway, the arc that runs around the landward side of Charleston: from US 17 in West Ashley north across I-26 and North Charleston, over the Wando and Cooper rivers by way of Daniel Island, and back down to US 17 at Mount Pleasant. Both ends are on a US highway rather than an Interstate, which is the first clue that something is missing.",
+        "The even hundreds digit promises a loop that returns to I-26, and on paper it does cross it — but the ring it was meant to close was never finished. The 1972 plan was for a Charleston Inner Beltway running all the way from Mount Pleasant to James Island. What exists is the northern two-thirds of that idea; the southern third, across Johns Island to James Island, stayed on the drawing board for fifty years and has now been formally abandoned."
+      ],
+      "zh": [
+        "I-526 是马克·克拉克快速路，即绕过查尔斯顿内陆一侧的那道弧：自西阿什利的 US 17 起北上，跨过 I-26 与北查尔斯顿，经丹尼尔岛越过万多河与库珀河，再南下回到芒特普莱森特的 US 17。它两端接的是美国国道而非州际公路，这就是缺了点什么的第一条线索。",
+        "偶数百位承诺一条回到 I-26 的环线，纸面上它也确实与 I-26 相交——但它本该闭合的那个环从未建成。1972 年的方案是一条「查尔斯顿内环」，从芒特普莱森特一路通到詹姆斯岛。现存的是这个构想的北部三分之二；南部三分之一，即穿过约翰斯岛抵达詹姆斯岛的那段，在图纸上躺了五十年，如今已正式放弃。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Charleston County voters approved a half-cent transportation sales tax in November 2004, and the county used those projects as a local match to win funding from the South Carolina Transportation Infrastructure Bank in 2006. A draft environmental impact statement was signed on 26 July 2010, and in August 2010 SCDOT named its preferred alternative: a 7.9-mile four-lane parkway with 1.6 miles of connector roads, 9.5 miles in all, including 4.5 miles of structure and two crossings of the Atlantic Intracoastal Waterway.",
+        "Then the arithmetic turned. The estimate was $725 million in 2015; in April 2022 SCDOT put it at $2.35 billion, revised that December to $2.2 billion. Because a 2019 agreement capped the state's contribution at $420 million, every dollar of the increase fell on Charleston County, which would have owed $1.78 billion — land acquisition alone was put at $261 million. County voters rejected a sales tax referendum in November 2024, and on 12 May 2025 the Infrastructure Bank, SCDOT and the county signed an agreement terminating the project. SCDOT is keeping the right of way it bought; the county is being refunded about $3.1 million."
+      ],
+      "zh": [
+        "查尔斯顿县选民在 2004 年 11 月通过了半美分交通销售税，该县以这些项目作为地方配套，于 2006 年争取到南卡罗来纳州交通基础设施银行的资金。环境影响报告草案于 2010 年 7 月 26 日签署，同年 8 月，南卡州交通部公布了首选方案：一条 7.9 英里的四车道景观道路，加 1.6 英里连接道，合计 9.5 英里，其中含 4.5 英里桥梁结构与两处跨大西洋沿岸内航道的桥梁。",
+        "然后账算不过来了。2015 年的估算是 7.25 亿美元；2022 年 4 月南卡州交通部报出 23.5 亿美元，当年 12 月修正为 22 亿美元。由于 2019 年的协议把该州出资上限锁定在 4.2 亿美元，涨出来的每一块钱都压在查尔斯顿县身上，该县须承担 17.8 亿美元——单是征地一项就估为 2.61 亿美元。县内选民在 2024 年 11 月否决了一项销售税公投；2025 年 5 月 12 日，基础设施银行、南卡州交通部与该县签署协议，终止该项目。南卡州交通部保留已购的用地；该县获退约 310 万美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "value": { "en": "19.56 miles, entirely in South Carolina", "zh": "19.56 英里，全线位于南卡罗来纳州" },
+      "source": "FHWA Route Log and Finder List, Table 2, January 2026"
+    },
+    {
+      "label": { "en": "Cost of the abandoned extension", "zh": "已放弃延伸段的造价" },
+      "value": { "en": "$725 million estimated in 2015, $2.35 billion in April 2022, revised to $2.2 billion that December", "zh": "2015 年估算 7.25 亿美元，2022 年 4 月为 23.5 亿美元，同年 12 月修正为 22 亿美元" },
+      "source": "Post and Courier, 26 April 2022 and December 2022, reporting SCDOT estimates"
+    },
+    {
+      "label": { "en": "Split of the bill", "zh": "费用分担" },
+      "value": { "en": "The state's share was capped at $420 million in 2019, leaving Charleston County $1.78 billion", "zh": "州方出资于 2019 年被限定为 4.2 亿美元，查尔斯顿县需承担 17.8 亿美元" },
+      "source": "Post and Courier, December 2022, citing SCDOT Secretary Christy Hall"
+    },
+    {
+      "label": { "en": "Right of way for the extension", "zh": "延伸段征地费" },
+      "value": { "en": "About $261 million, reflecting Charleston property prices", "zh": "约 2.61 亿美元，反映查尔斯顿的地价水平" },
+      "source": "SCDOT, quoted in the Post and Courier, 26 April 2022"
+    },
+    {
+      "label": { "en": "Original construction cost of the built sections", "zh": "已建路段原始造价" },
+      "why": { "en": "The existing arc was built in phases by South Carolina from the 1970s onwards and no consolidated construction total for I-526 as built has been published.", "zh": "现存的这道弧由南卡罗来纳州自 1970 年代起分期建成，从未公布 I-526 已建部分的汇总造价。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1972, "en": "A Charleston Inner Beltway is planned from Mount Pleasant to James Island.", "zh": "规划一条自芒特普莱森特至詹姆斯岛的查尔斯顿内环。" },
+    { "year": 2004, "en": "County voters approve a half-cent sales tax that becomes the local match for the extension.", "zh": "县内选民通过半美分销售税，成为延伸段的地方配套资金。" },
+    { "year": 2010, "en": "SCDOT names a 9.5-mile parkway across Johns Island as its preferred alternative.", "zh": "南卡州交通部选定穿越约翰斯岛的 9.5 英里景观道路为首选方案。" },
+    { "year": 2024, "en": "Charleston County voters reject the sales tax referendum that would have paid for it.", "zh": "查尔斯顿县选民否决为该项目筹资的销售税公投。" },
+    { "year": 2025, "en": "The funding agreement is terminated on 12 May and the extension is abandoned.", "zh": "5 月 12 日资金协议终止，延伸段计划放弃。" }
+  ]
+}

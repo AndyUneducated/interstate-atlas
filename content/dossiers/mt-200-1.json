@@ -1,0 +1,76 @@
+{
+  "id": "mt-200-1",
+  "name": { "en": "Montana Highway 200", "zh": "蒙大拿 200 号公路" },
+  "tagline": { "en": "Idaho line to North Dakota, mostly two lanes, mostly alone", "zh": "自爱达荷州界至北达科他，多为双车道，多半孤身一人" },
+  "termini": {
+    "start": { "en": "Idaho Highway 200 at the state line near Heron", "zh": "赫伦附近州界处的爱达荷 200 号公路" },
+    "end": { "en": "North Dakota Highway 200 at the state line near Fairview", "zh": "费尔维尤附近州界处的北达科他 200 号公路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "MT 200 crosses Montana through the middle, which in Montana means crossing four or five different countries. It enters from Idaho in the timbered Clark Fork valley at the foot of the Cabinet Mountains, follows the Flathead and the Jocko, borrows I-90 through Missoula, and then strikes out up the Blackfoot River — the river of Norman Maclean's stories — to Lincoln.",
+        "East of Lincoln it climbs to Rogers Pass and drops out of the mountains onto the Rocky Mountain Front. From there it is plains: Great Falls, Lewistown, Winnett, Jordan, Circle, Sidney. The towns thin out, the sky does the work, and the highway runs for long stretches with nothing on it.",
+        "It is signed as the Lewis and Clark Trail, and much of the western half does follow water the expedition knew. The eastern half is a different kind of interest — ranch and wheat country, badlands along the Missouri breaks, and the oil traffic of the Bakken at the North Dakota end."
+      ],
+      "zh": [
+        "MT 200 从中部横穿蒙大拿，而在蒙大拿，这意味着穿过四五个截然不同的国度。它自爱达荷进入，先是卡比涅山脚下林木茂密的克拉克福克河谷，沿弗拉特黑德河与霍科河而行，借道 I-90 穿过米苏拉，随后沿黑脚河——诺曼·麦克林笔下的那条河——一路向上至林肯。",
+        "林肯以东，它爬上罗杰斯山口，从山中跌落到落基山前缘。此后便是平原：大瀑布城、路易斯敦、温尼特、乔丹、瑟克尔、锡德尼。城镇越来越稀，天空开始唱主角，公路有很长一段路上空无一物。",
+        "它被标为「刘易斯与克拉克小径」，西半段确实大多沿着当年探险队认识的水路。东半段则是另一种趣味——牧场与麦田、密苏里河断崖边的荒地，以及北达科他一端巴肯油田的车流。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The route's most famous number is a temperature, not a distance. NOAA's National Centers for Environmental Information records Montana's all-time minimum as minus 70 degrees Fahrenheit at Rogers Pass on 20 January 1954 — still the lowest reading ever taken in the contiguous United States.",
+        "The station that took it was a cooperative observer's thermometer at the 4 K's Mine, on Highway 200 three-quarters of a mile west of where the road crosses the pass, at an elevation of 5,470 feet. The University of Montana's account notes the conditions: five and a half feet of snow on the ground, skies clearing at sunset, and the temperature falling through the night.",
+        "That is an extreme in an extreme place, not a normal. But it tells you what the corridor is: an unshielded two-lane road over the Continental Divide with no other crossing for more than a hundred miles in either direction, where winter is the design condition rather than an interruption."
+      ],
+      "zh": [
+        "这条路线最著名的数字是一个温度，而不是一段距离。美国国家海洋和大气管理局国家环境信息中心记录的蒙大拿历史最低气温，是 1954 年 1 月 20 日罗杰斯山口的华氏零下 70 度——至今仍是美国本土四十八州测得的最低值。",
+        "记录它的是一位协作观测员在 4 K's 矿场的温度计，位置在 200 号公路旁、道路翻越山口处以西四分之三英里，海拔 5,470 英尺。蒙大拿大学的记述提到了当时的条件：地面积雪五英尺半，日落时天空迅速放晴，气温整夜持续下跌。",
+        "这是极端地点的极端值，不是常态。但它说明了这条走廊是什么：一条毫无遮蔽的双车道公路翻越大陆分水岭，南北一百多英里内再无其他越岭通道，冬季在这里是设计工况，而非一次打扰。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The corridor predates the number. Montana's answer to the national Good Roads movement of the 1920s produced the Central Montana Highway, and in 1921 the State Highway Commission began building it across the Continental Divide at Rogers Pass.",
+        "The trans-mountain link between Simms and Bonner was finished by 1938, which for the period meant a high-speed gravel road rather than pavement. That connection is what turned a string of local roads into a usable east–west route through the middle of the state.",
+        "The 200 number itself is comparatively recent, and it is shared: Montana's 200 is one link in a chain of state highways numbered 200 that runs from Idaho across Montana and North Dakota into Minnesota."
+      ],
+      "zh": [
+        "这条走廊比它的编号更早。蒙大拿对 1920 年代全国「良好道路」运动的回应催生了「蒙大拿中部公路」，1921 年州公路委员会开始在罗杰斯山口修建这条跨越大陆分水岭的道路。",
+        "西姆斯与邦纳之间的越山连接于 1938 年完成，以当时的标准，这意味着一条「高速砾石路」而非铺装路面。正是这段连接，把一串地方道路变成了一条可用的、横贯州中部的东西向通道。",
+        "200 这个编号本身相对晚近，而且是共用的：蒙大拿的 200 号只是一条编号 200 的州道链条中的一环，这条链自爱达荷起，横跨蒙大拿与北达科他，直抵明尼苏达。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Coldest temperature recorded", "zh": "测得最低气温" },
+      "value": { "en": "−70 °F at Rogers Pass, 20 January 1954 — Montana's all-time minimum and the lowest in the contiguous United States", "zh": "1954 年 1 月 20 日罗杰斯山口华氏零下 70 度——蒙大拿历史最低，也是美国本土四十八州最低" },
+      "source": "NOAA National Centers for Environmental Information, State Climate Extremes Committee records"
+    },
+    {
+      "label": { "en": "Rogers Pass weather station", "zh": "罗杰斯山口气象站" },
+      "value": { "en": "Established 1 May 1953 at the 4 K's Mine, elevation 5,470 feet, on Highway 200 three-quarters of a mile west of the pass crossing", "zh": "1953 年 5 月 1 日设于 4 K's 矿场，海拔 5,470 英尺，位于 200 号公路旁、越岭点以西四分之三英里" },
+      "source": "University of Montana, 'That Time Montana Hit 70 Below … And Maybe Colder'"
+    },
+    {
+      "label": { "en": "Continental Divide crossing begun", "zh": "大陆分水岭路段动工" },
+      "value": { "en": "1921, by the Montana Highway Commission at Rogers Pass", "zh": "1921 年，由蒙大拿公路委员会在罗杰斯山口动工" },
+      "source": "Distinctly Montana, 'Highway 200: A Damn Good Road'"
+    },
+    {
+      "label": { "en": "Route length", "zh": "路线长度" },
+      "why": { "en": "MDT publishes its road log as a GIS dataset segmented by event rather than as a route total, and no state-published single figure for MT 200 could be verified this session.", "zh": "蒙大拿交通部的道路台账以按事件分段的 GIS 数据集形式发布，而非路线总里程；本次未能查证到该州公布的 MT 200 单一数据。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1921, "en": "The Montana Highway Commission begins the Central Montana Highway over Rogers Pass.", "zh": "蒙大拿公路委员会开始修建翻越罗杰斯山口的蒙大拿中部公路。" },
+    { "year": 1938, "en": "The trans-mountain link between Simms and Bonner is completed as a gravel road.", "zh": "西姆斯与邦纳之间的越山连接以砾石路形式完成。" },
+    { "year": 1954, "en": "A cooperative observer at Rogers Pass records −70 °F, the lowest temperature ever measured in the contiguous United States.", "zh": "罗杰斯山口的协作观测员记录到华氏零下 70 度，为美国本土四十八州有记录以来最低气温。" }
+  ]
+}
