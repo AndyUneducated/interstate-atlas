@@ -9,7 +9,10 @@
 
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
-<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<!-- MapLibre is vendored rather than loaded from a CDN: the site is otherwise
+     entirely self-contained, and a static atlas should not stop working because
+     someone else's origin is having a bad day. -->
+<link rel="stylesheet" href="assets/vendor/maplibre-gl.css">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="is-booting">
@@ -141,7 +144,7 @@
 
 <div id="toast"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span id="toastMsg"></span></div>
 
-<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="assets/vendor/maplibre-gl.js"></script>
 <script type="module" src="assets/app.js"></script>
 </body>
 </html>

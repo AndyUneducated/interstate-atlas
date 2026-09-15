@@ -9,3 +9,4 @@ tools/cache/
 # Verification artefacts.
 tools/shots/
 tools/elev.log
+tools/serve.pid
