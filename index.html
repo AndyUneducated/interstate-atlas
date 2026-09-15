@@ -24,9 +24,10 @@
 <div id="boot">
   <div class="boot-in">
     <svg class="boot-mark" viewBox="0 0 100 100" aria-hidden="true">
-      <circle class="ring" cx="50" cy="50" r="38"/>
-      <path class="arc" d="M50 12 a38 38 0 0 1 33 19"/>
-      <path d="M50 84 V32 M50 32 l-13 13 M50 32 l13 13" stroke-linecap="round"/>
+      <circle class="ring" cx="50" cy="50" r="42"/>
+      <path class="arc" d="M50 8 a42 42 0 0 1 36 21"/>
+      <path class="bm-crest" d="M50 18C40.4 23 29.6 25.1 19.2 24.7c0 27.9 5.4 49.1 30.8 72 25.4-22.9 30.8-44.1 30.8-72C70.4 25.1 59.6 23 50 18z"/>
+      <path class="bm-lane" d="M50 78V34"/>
     </svg>
     <p class="boot-title" id="bootTitle">INTERSTATE ATLAS</p>
     <p class="boot-sub" id="bootSub">assembling the road network</p>
@@ -38,9 +39,9 @@
 <!-- ── top bar ──────────────────────────────────────────────────────────── -->
 <header id="hud">
   <div class="brand">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 21V4"/><path d="M12 4 7 9"/><path d="M12 4l5 5"/>
-      <circle cx="12" cy="12" r="10" opacity=".35"/>
+    <svg viewBox="0 0 24 24" aria-hidden="true" class="brand-mark">
+      <path class="bm-crest" d="M12 2.4C9.7 3.6 7.1 4.1 4.6 4 4.6 10.7 5.9 15.8 12 21.3c6.1-5.5 7.4-10.6 7.4-17.3-2.5.1-5.1-.4-7.4-1.6z"/>
+      <path class="bm-lane" d="M12 16.8V7.2"/>
     </svg>
     <span class="brand-txt">
       <span class="brand-name" data-i18n="app.name">INTERSTATE ATLAS</span>
@@ -74,8 +75,19 @@
   </nav>
 
   <div class="hud-group">
-    <button class="btn btn-ico" id="btnTerrain" type="button" title="3D terrain">
-      <svg viewBox="0 0 24 24"><path d="M2 20l7-11 4.5 7M11 20l4-6 7 6z"/></svg>
+    <div class="seg" id="basemap" role="group" aria-label="Base map">
+      <button class="seg-b on" data-base="dark" type="button" data-i18n-title="base.dark" title="Dark">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M4.5 7.5h15M4.5 16.5h15"/></svg>
+      </button>
+      <button class="seg-b" data-base="relief" type="button" data-i18n-title="base.relief" title="Relief">
+        <svg viewBox="0 0 24 24"><path d="M2 20l7-11 4.5 7M11 20l4-6 7 6z"/></svg>
+      </button>
+      <button class="seg-b" data-base="satellite" type="button" data-i18n-title="base.satellite" title="Satellite">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M4.6 4.6a10.5 10.5 0 0 0 0 14.8M19.4 19.4a10.5 10.5 0 0 0 0-14.8"/></svg>
+      </button>
+    </div>
+    <button class="btn btn-ico" id="btnTerrain" type="button" data-i18n-title="base.tilt" title="3D tilt">
+      <svg viewBox="0 0 24 24"><path d="M3 16l9-5 9 5-9 5z"/><path d="M12 11V4"/><path d="M9 6.5L12 4l3 2.5"/></svg>
     </button>
     <button class="btn btn-ico" id="btnAbout" type="button" title="About">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
@@ -98,6 +110,9 @@
       </button>
     </div>
     <div class="sys-list" id="sysList"></div>
+    <!-- Alaska, Hawaii and Puerto Rico are all in the data and all off the
+         edge of the opening view, which made them look absent. -->
+    <div class="jumps" id="jumps"></div>
   </section>
 
   <section class="card" style="display:flex;flex-direction:column;flex:1;min-height:0">
@@ -116,6 +131,14 @@
     <div class="results" id="results"></div>
   </section>
 </div>
+
+<!-- Lives outside #shell on purpose: the collapse control is inside the panel
+     and goes with it, so the way back has to be somewhere the panel cannot
+     take with it. -->
+<button id="shellOpen" type="button" title="Show route panel" aria-label="Show route panel">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+  <span class="so-txt" data-i18n="sys.title">Route systems</span>
+</button>
 
 <!-- ── route detail ─────────────────────────────────────────────────────── -->
 <aside id="detail" class="hidden" aria-live="polite"></aside>

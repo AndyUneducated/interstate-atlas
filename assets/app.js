@@ -25,6 +25,7 @@ export const app = {
   stateLoaded: new Set(),
   trip: [],
   terrain: false,
+  basemap: 'dark',
 };
 
 /* ── boot ─────────────────────────────────────────────────────────────── */
@@ -45,6 +46,13 @@ function applyStaticStrings() {
   for (const el of document.querySelectorAll('[data-i18n]')) {
     el.textContent = t(el.dataset.i18n);
   }
+  // Icon-only controls carry their label in the tooltip, which still has to
+  // follow the language.
+  for (const el of document.querySelectorAll('[data-i18n-title]')) {
+    const label = t(el.dataset.i18nTitle);
+    el.title = label;
+    el.setAttribute('aria-label', label);
+  }
   document.getElementById('q').placeholder = t('search.placeholder');
   document.getElementById('palQ').placeholder = t('pal.placeholder');
   document.getElementById('btnLang').title = t('nav.langTitle');
@@ -58,6 +66,7 @@ function applyStaticStrings() {
 export function relabel() {
   applyStaticStrings();
   renderSystems();
+  renderJumps();
   renderResults();
   if (app.selected) renderDetail(app.selected);
   if (isSheetOpen()) openSheet(isSheetOpen());
@@ -565,26 +574,167 @@ export function clearSelection() {
 
 /* ── terrain ──────────────────────────────────────────────────────────── */
 
+// AWS terrain tiles: terrarium encoding, public, no key required. One source
+// feeds both the hillshade and the 3D mesh, so it is created on first need by
+// whichever asks first.
+function ensureDem() {
+  if (app.map.getSource('dem')) return;
+  app.map.addSource('dem', {
+    type: 'raster-dem',
+    tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],
+    encoding: 'terrarium',
+    tileSize: 256,
+    maxzoom: 13,
+    attribution: 'Terrain: Mapzen / AWS Open Data',
+  });
+}
+
+// Imagery and relief go underneath the basemap's own labels rather than on top
+// of everything. Place names then stay legible over both, and stay in the
+// language the rest of the map is using.
+function firstSymbolLayer() {
+  for (const l of app.map.getStyle().layers) if (l.type === 'symbol') return l.id;
+  return undefined;
+}
+
+// The basemap's labels are pale, having been drawn for a near-black ground.
+// Over imagery they vanish, so they get a hard halo for as long as the imagery
+// is up. The originals are kept so switching back restores the style exactly
+// rather than leaving a halo behind.
+const labelHalo = new Map();
+function haloLabels(on) {
+  const map = app.map;
+  for (const l of map.getStyle().layers) {
+    if (l.type !== 'symbol') continue;
+    if (!labelHalo.has(l.id)) {
+      labelHalo.set(l.id, {
+        color: map.getPaintProperty(l.id, 'text-halo-color'),
+        width: map.getPaintProperty(l.id, 'text-halo-width'),
+      });
+    }
+    const was = labelHalo.get(l.id);
+    map.setPaintProperty(l.id, 'text-halo-color', on ? 'rgba(2,5,12,0.9)' : was.color);
+    map.setPaintProperty(l.id, 'text-halo-width', on ? 1.7 : was.width);
+  }
+}
+
+export function setBasemap(mode) {
+  const map = app.map;
+  if (app.basemap === mode) return;
+  app.basemap = mode;
+
+  if (mode === 'satellite' && !map.getSource('sat')) {
+    map.addSource('sat', {
+      type: 'raster',
+      // Esri's public imagery service, addressed row-then-column.
+      tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
+      tileSize: 256,
+      maxzoom: 19,
+      attribution: 'Imagery: Esri, Maxar, Earthstar Geographics',
+    });
+    map.addLayer({
+      id: 'sat', type: 'raster', source: 'sat',
+      paint: { 'raster-opacity': 0, 'raster-opacity-transition': { duration: 450 } },
+    }, firstSymbolLayer());
+  }
+
+  if (mode === 'relief' && !map.getLayer('hillshade')) {
+    ensureDem();
+    map.addLayer({
+      id: 'hillshade', type: 'hillshade', source: 'dem',
+      paint: {
+        // Cool highlights and near-black shadow, so relief reads as relief on a
+        // dark ground instead of washing the panel out.
+        'hillshade-exaggeration': 0.72,
+        'hillshade-shadow-color': '#02040a',
+        'hillshade-highlight-color': '#5c9fd6',
+        'hillshade-accent-color': '#0b1a2e',
+        'hillshade-illumination-anchor': 'viewport',
+        'hillshade-illumination-direction': 315,
+      },
+    }, firstSymbolLayer());
+  }
+
+  if (map.getLayer('sat')) map.setPaintProperty('sat', 'raster-opacity', mode === 'satellite' ? 1 : 0);
+  if (map.getLayer('hillshade')) {
+    map.setLayoutProperty('hillshade', 'visibility', mode === 'relief' ? 'visible' : 'none');
+  }
+  // Imagery carries its own shading; the drawn ground would only fight it.
+  for (const id of ['ctx']) {
+    if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', mode === 'satellite' ? 'none' : 'visible');
+  }
+  haloLabels(mode === 'satellite');
+
+  for (const b of document.querySelectorAll('#basemap .seg-b')) {
+    b.classList.toggle('on', b.dataset.base === mode);
+  }
+  toast(t(`toast.base.${mode}`));
+}
+
 export function toggleTerrain(force) {
   const map = app.map;
   const next = force ?? !app.terrain;
-  if (next && !map.getSource('dem')) {
-    // AWS terrain tiles: terrarium encoding, public, no key required.
-    map.addSource('dem', {
-      type: 'raster-dem',
-      tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],
-      encoding: 'terrarium',
-      tileSize: 256,
-      maxzoom: 13,
-      attribution: 'Terrain: Mapzen / AWS Open Data',
-    });
-  }
+  if (next) ensureDem();
   app.terrain = next;
   map.setTerrain(next ? { source: 'dem', exaggeration: 1.35 } : null);
-  if (next && map.getPitch() < 25) map.easeTo({ pitch: 58, duration: 1100 });
-  if (!next) map.easeTo({ pitch: 0, duration: 900 });
+  // Relief is only legible from an angle, so tilting turns it on if the map is
+  // still flat-shaded; the two controls are otherwise independent.
+  // Tilted, the map has a horizon, and without a sky it is a black band. The
+  // atmosphere is only worth drawing while there is something to see it above.
+  map.setSky(next ? {
+    'sky-color': '#071226',
+    'horizon-color': '#1f5480',
+    'fog-color': '#05070c',
+    'sky-horizon-blend': 0.55,
+    'horizon-fog-blend': 0.6,
+    'fog-ground-blend': 0.4,
+  } : {
+    'sky-color': '#05070c', 'horizon-color': '#05070c', 'fog-color': '#05070c',
+    'sky-horizon-blend': 0, 'horizon-fog-blend': 0, 'fog-ground-blend': 0,
+  });
+
+  if (next) {
+    if (app.basemap === 'dark') setBasemap('relief');
+    if (map.getPitch() < 25) map.easeTo({ pitch: 62, duration: 1100 });
+  } else {
+    map.easeTo({ pitch: 0, duration: 900 });
+  }
   document.getElementById('btnTerrain').classList.toggle('on', next);
   toast(t(next ? 'toast.terrainOn' : 'toast.terrainOff'));
+}
+
+/* ── region jumps ─────────────────────────────────────────────────────── */
+
+// The opening view frames the lower 48, which is the right default and also
+// the reason Alaska, Hawaii and Puerto Rico read as missing: nothing hints
+// that the map continues past the frame. One tap each.
+const REGIONS = [
+  { key: 'l48', i18n: 'jump.l48', bounds: [[-125.5, 24.2], [-66.4, 49.6]] },
+  { key: 'ak', i18n: 'jump.ak', st: 'AK', bounds: [[-169.5, 52.0], [-129.5, 71.5]] },
+  { key: 'hi', i18n: 'jump.hi', st: 'HI', bounds: [[-160.4, 18.8], [-154.7, 22.4]] },
+  { key: 'pr', i18n: 'jump.pr', st: 'PR', bounds: [[-67.4, 17.85], [-65.2, 18.6]] },
+];
+
+function renderJumps() {
+  const host = document.getElementById('jumps');
+  host.innerHTML = '';
+  for (const r of REGIONS) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'jump';
+    b.textContent = t(r.i18n);
+    b.addEventListener('click', async () => {
+      app.map.fitBounds(r.bounds, {
+        padding: { top: 90, bottom: 70, left: document.body.classList.contains('shell-off') ? 40 : 400, right: 80 },
+        duration: 1500,
+      });
+      // Flying somewhere with nothing drawn on it is how Alaska came to look
+      // absent in the first place. Outside the lower 48 the only routes are
+      // state routes, which load per state, so bring them along.
+      if (r.st && !app.stateLoaded.has(r.st)) await loadState(r.st);
+    });
+    host.appendChild(b);
+  }
 }
 
 /* ── systems panel ────────────────────────────────────────────────────── */
@@ -637,9 +787,14 @@ dossierIds().then((ids) => {
 export function searchRoutes(text, { limit = 300, systemsOnly = true } = {}) {
   const q = text.trim().toLowerCase();
   const terms = q.split(/\s+/).filter(Boolean);
+  // Browsing follows the map, searching searches everything. Restricting a
+  // typed query to the systems currently drawn meant "200" answered "nothing
+  // matches" while MT 200 sat in the index, and choosing a result switches its
+  // system on regardless.
+  const restrict = systemsOnly && !terms.length;
   const out = [];
   for (const r of app.index) {
-    if (systemsOnly && !app.systems.get(r.sys).on) continue;
+    if (restrict && !app.systems.get(r.sys).on) continue;
     if (terms.length) {
       let ok = true;
       for (const term of terms) if (!r.hay.includes(term)) { ok = false; break; }
@@ -662,8 +817,11 @@ export function searchRoutes(text, { limit = 300, systemsOnly = true } = {}) {
 
 export function shieldHtml(r, big = false) {
   const cls = r.sys === 'interstate' ? 'shield-i' : r.sys === 'us' ? 'shield-us' : 'shield-st';
-  const text = r.sys === 'state' ? `${r.st}·${r.num}` : r.num;
-  return `<span class="shield ${cls}${big ? ' shield-lg' : ''}">${text}</span>`;
+  // The number and nothing else. State routes used to read "CA·87" inside the
+  // marker, which no real shield does and which no circle that size can hold.
+  // Every one of these already has its state named beside it.
+  const text = String(r.num ?? '').replace(/[<>&]/g, '');
+  return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" title="${cls === 'shield-st' ? `${r.st} ` : ''}${text}">${text}</span>`;
 }
 
 function renderResults() {
@@ -851,8 +1009,16 @@ function wire() {
     relabel();
   });
 
-  document.getElementById('btnCollapse').addEventListener('click', () => {
-    document.getElementById('shell').classList.toggle('hidden');
+  const setShell = (open) => {
+    document.getElementById('shell').classList.toggle('hidden', !open);
+    document.body.classList.toggle('shell-off', !open);
+  };
+  document.getElementById('btnCollapse').addEventListener('click', () => setShell(false));
+  document.getElementById('shellOpen').addEventListener('click', () => setShell(true));
+
+  document.getElementById('basemap').addEventListener('click', (e) => {
+    const b = e.target.closest('.seg-b');
+    if (b) setBasemap(b.dataset.base);
   });
 
   document.getElementById('btnTerrain').addEventListener('click', () => toggleTerrain());
@@ -930,6 +1096,7 @@ async function main() {
 
   boot(86, 'boot.step.ready');
   renderSystems();
+  renderJumps();
   renderResults();
 
   boot(100, 'boot.step.ready');

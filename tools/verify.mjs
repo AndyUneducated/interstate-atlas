@@ -55,7 +55,7 @@ page.on('response', (r) => {
 
 let failures = 0;
 const step = async (name, fn) => {
-  process.stdout.write(`${name.padEnd(38)}`);
+  process.stdout.write(`${name.padEnd(46)}`);
   try {
     await fn();
     console.log('ok');
@@ -296,6 +296,75 @@ await step('state routes load', async () => {
   await waitForSource('st-CA');
 });
 await shot('10-state-routes.png');
+
+await step('route markers never clip their number', async () => {
+  // Three-digit state routes are the case a fixed-width shield could not hold.
+  await page.fill('#q', '200');
+  await page.waitForTimeout(600);
+  const bad = await page.evaluate(() => [...document.querySelectorAll('.shield')]
+    .filter((s) => s.scrollWidth > Math.ceil(s.getBoundingClientRect().width) + 1)
+    .map((s) => s.textContent));
+  if (bad.length) throw new Error(`clipped: ${JSON.stringify(bad.slice(0, 6))}`);
+  const n = await page.locator('.shield').count();
+  if (!n) throw new Error('no markers rendered for a three-digit search');
+  await page.fill('#q', '');
+});
+
+await step('search reaches systems that are switched off', async () => {
+  // Typing a number should find it whether or not its system is drawn.
+  const hits = await page.evaluate(() => {
+    const off = [...document.querySelectorAll('.sys')].filter((s) => !s.classList.contains('on'));
+    return off.length;
+  });
+  await page.fill('#q', 'US 50');
+  await page.waitForTimeout(600);
+  const rows = await page.locator('#results .res').count();
+  await page.fill('#q', '');
+  if (!rows) throw new Error(`no results for "US 50" with ${hits} system(s) switched off`);
+});
+
+await step('collapsed panel can be reopened', async () => {
+  await page.click('#btnCollapse');
+  await page.waitForTimeout(700);
+  if (!(await page.locator('#shellOpen').isVisible())) {
+    throw new Error('panel collapsed with no control left to reopen it');
+  }
+  await page.click('#shellOpen');
+  await page.waitForTimeout(700);
+  if (await page.locator('#shell').evaluate((e) => e.classList.contains('hidden'))) {
+    throw new Error('panel did not come back');
+  }
+});
+
+await step('base maps switch', async () => {
+  for (const mode of ['relief', 'satellite', 'dark']) {
+    await page.click(`[data-base="${mode}"]`);
+    await page.waitForTimeout(900);
+    const on = await page.evaluate(() => document.querySelector('#basemap .seg-b.on')?.dataset.base);
+    if (on !== mode) throw new Error(`asked for ${mode}, got ${on}`);
+    const ok = await page.evaluate((m) => {
+      const map = window.__map;
+      if (m === 'satellite') return map.getLayer('sat') && map.getPaintProperty('sat', 'raster-opacity') === 1;
+      if (m === 'relief') return map.getLayer('hillshade')
+        && map.getLayoutProperty('hillshade', 'visibility') !== 'none';
+      return true;
+    }, mode);
+    if (!ok) throw new Error(`${mode} selected but its layer is not live`);
+  }
+});
+await shot('11-relief.png');
+
+await step('region jump brings Alaska and its routes', async () => {
+  await page.locator('#jumps .jump').nth(1).click();
+  await page.waitForTimeout(3800);
+  const { lat, feats } = await page.evaluate(() => ({
+    lat: window.__map.getCenter().lat,
+    feats: (window.__map.getSource('st-AK')?._data.features || []).length,
+  }));
+  if (lat < 55) throw new Error(`jump did not reach Alaska (lat ${Math.round(lat)})`);
+  if (!feats) throw new Error('reached Alaska with no Alaska routes loaded');
+});
+await shot('12-alaska.png');
 
 console.log(`\nsteps failed:    ${failures}`);
 console.log(`console errors:  ${errors.length}`);

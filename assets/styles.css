@@ -117,6 +117,13 @@ a { color: var(--cyan); text-decoration: none; }
 .boot-mark circle, .boot-mark path { fill: none; stroke: var(--cyan); stroke-width: 1.5; }
 .boot-mark .ring { opacity: 0.3; animation: spin 3.4s linear infinite; transform-origin: 50% 50%; }
 .boot-mark .arc { stroke-linecap: round; animation: spin 1.5s var(--ease) infinite; transform-origin: 50% 50%; }
+.boot-mark .bm-crest { fill: rgba(53, 231, 255, 0.1); stroke-width: 2.4; }
+/* The lane draws itself in while the data loads. */
+.boot-mark .bm-lane {
+  stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 7 6;
+  animation: lane 1.1s linear infinite;
+}
+@keyframes lane { to { stroke-dashoffset: -13; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .boot-title {
@@ -152,8 +159,19 @@ a { color: var(--cyan); text-decoration: none; }
   background: var(--panel); border: 1px solid var(--line);
   border-radius: var(--r-md); backdrop-filter: blur(16px) saturate(1.3);
 }
-.brand svg { width: 20px; height: 20px; flex: none; }
-.brand svg path, .brand svg circle { fill: none; stroke: var(--cyan); stroke-width: 1.6; }
+.brand-mark { width: 21px; height: 21px; flex: none; overflow: visible; }
+/* The crest carries a faint fill so the silhouette survives at small sizes;
+   the lane is dashed, which is the whole idea of the mark. */
+.bm-crest {
+  fill: rgba(53, 231, 255, 0.14); stroke: var(--cyan); stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+.bm-lane {
+  fill: none; stroke: var(--cyan); stroke-width: 1.6;
+  stroke-linecap: round; stroke-dasharray: 2.6 2.4;
+}
+.brand:hover .bm-crest { fill: rgba(53, 231, 255, 0.24); }
+.brand-mark, .brand:hover .bm-crest { transition: fill 0.25s; }
 .brand-txt { display: flex; flex-direction: column; line-height: 1.25; }
 .brand-name {
   font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.3em;
@@ -195,6 +213,66 @@ a { color: var(--cyan); text-decoration: none; }
   transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
 }
 #shell.hidden { transform: translateX(calc(-100% - 14px)); opacity: 0; pointer-events: none; }
+
+/* Region jumps: the map does not end at the frame. */
+.jumps {
+  display: flex; flex-wrap: wrap; gap: 5px;
+  padding: 9px 13px 11px; border-top: 1px solid var(--line);
+}
+.jump {
+  padding: 4px 9px; border: 1px solid var(--line); border-radius: 999px;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--ink-faint);
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.jump:hover {
+  color: var(--cyan); border-color: rgba(53, 231, 255, 0.45);
+  background: rgba(53, 231, 255, 0.08);
+}
+
+/* Base-map picker: three mutually exclusive grounds, so one control rather
+   than three independent toggles that could all be lit at once. */
+.seg {
+  display: flex; align-items: center; gap: 2px; padding: 2px;
+  background: rgba(10, 15, 26, 0.7); border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.seg-b {
+  display: grid; place-items: center; width: 30px; height: 26px;
+  border-radius: 7px; color: var(--ink-faint);
+  transition: color 0.18s, background 0.18s;
+}
+.seg-b svg {
+  width: 15px; height: 15px; stroke: currentColor; fill: none;
+  stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+}
+.seg-b:hover { color: var(--ink-dim); }
+.seg-b.on {
+  color: var(--bg); background: var(--cyan);
+  box-shadow: 0 0 14px rgba(53, 231, 255, 0.4);
+}
+
+/* The way back in. Hidden while the panel is open, so the edge stays clean. */
+#shellOpen {
+  position: fixed; left: 10px; top: 62px; z-index: 16;
+  display: flex; align-items: center; gap: 7px;
+  height: 38px; padding: 0 13px 0 11px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--r-lg); backdrop-filter: blur(18px) saturate(1.3);
+  color: var(--ink-dim); font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  opacity: 0; pointer-events: none; transform: translateX(-10px);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease),
+              color 0.2s, border-color 0.2s;
+}
+#shellOpen svg {
+  width: 15px; height: 15px; flex: none;
+  stroke: currentColor; fill: none; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+#shellOpen:hover { color: var(--cyan); border-color: var(--line-2); }
+body.shell-off #shellOpen { opacity: 1; pointer-events: auto; transform: none; }
+body.is-booting #shellOpen { opacity: 0 !important; pointer-events: none; }
 
 .card {
   background: var(--panel); border: 1px solid var(--line);
@@ -262,12 +340,22 @@ a { color: var(--cyan); text-decoration: none; }
 .res.sel { background: rgba(53, 231, 255, 0.1); }
 
 /* Route shields, drawn in CSS to match the real signs. */
+/* Route markers size themselves to the number they carry. A fixed box suited
+   "95" and clipped anything longer, so the square is a floor and the padding
+   decides the rest: two digits stay square, three widen, and the state circle
+   becomes a lozenge rather than swallowing its own text. */
 .shield {
+  --sh-h: 26px;
+  --sh-fs: 11px;
   flex: none; display: grid; place-items: center; font-family: var(--mono);
   font-weight: 600; letter-spacing: -0.02em; line-height: 1;
+  height: var(--sh-h); min-width: var(--sh-h); padding: 0 5px;
+  font-size: var(--sh-fs); white-space: nowrap;
 }
+.shield-lg { --sh-h: 40px; --sh-fs: 17px; padding: 0 8px; }
+
 .shield-i {
-  width: 30px; height: 26px; font-size: 11px; color: #fff;
+  color: #fff;
   background: linear-gradient(180deg, #3a6fbd 0%, #16406f 100%);
   border-radius: 4px 4px 7px 7px; box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, 0.22);
   position: relative; padding-top: 4px;
@@ -277,19 +365,17 @@ a { color: var(--cyan); text-decoration: none; }
   background: #b3243b; border-radius: 3px 3px 0 0;
 }
 .shield-us {
-  width: 29px; height: 26px; font-size: 11px; color: #10141c;
+  color: #10141c;
   background: #e8eef6; border-radius: 5px;
   box-shadow: inset 0 0 0 1.5px #10141c;
 }
 .shield-st {
-  width: 28px; height: 26px; font-size: 10.5px; color: var(--st-col);
-  border: 1.5px solid currentColor; border-radius: 50%;
+  color: var(--st-col);
+  border: 1.5px solid currentColor; border-radius: 999px;
   background: rgba(169, 139, 255, 0.1);
 }
-.shield-lg.shield-i { width: 46px; height: 40px; font-size: 17px; padding-top: 7px; }
+.shield-lg.shield-i { padding-top: 7px; }
 .shield-lg.shield-i::before { height: 8px; }
-.shield-lg.shield-us { width: 44px; height: 40px; font-size: 16px; }
-.shield-lg.shield-st { width: 42px; height: 40px; font-size: 14px; }
 
 .res-txt { flex: 1; min-width: 0; }
 .res-name {
