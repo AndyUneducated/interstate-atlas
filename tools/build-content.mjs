@@ -64,6 +64,22 @@ async function main() {
   const index = JSON.parse(await readFile(join(ROOT, 'data', 'index.json'), 'utf8'));
   const knownIds = new Set(index.routes.map((r) => r[0]));
 
+  // Routes that carry an official construction cost from FHWA's route-by-route
+  // table. Several dossiers were written before that table was wired in and
+  // record the cost as undocumented, some of them asserting that federal
+  // accounting was only ever done for the system as a whole. That is no longer
+  // true, and leaving the claim in place would print "no public data" directly
+  // above the figure. The claims are dropped here rather than edited out of
+  // content/, so the reason lives in one place and the removals are reported.
+  const costed = new Set();
+  try {
+    const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', 'interstate.json'), 'utf8'));
+    for (const f of fc.features) if (f.properties.offCostK) costed.add(f.properties.id);
+  } catch { /* geometry not built yet; nothing to reconcile against */ }
+
+  const ROUTE_COST_LABEL = /^(total|route-wide|original|overall)?\s*construction cost$|^cost of the whole route$/i;
+  const superseded = [];
+
   await rm(OUT, { recursive: true, force: true });
   await mkdir(OUT, { recursive: true });
 
@@ -134,6 +150,16 @@ async function main() {
       fail(file, 'officialMi given without mileageSource');
     }
 
+    if (costed.has(id) && Array.isArray(d.figures)) {
+      const kept = d.figures.filter((f) => {
+        const blank = !(f.value && (f.value.en || f.value.zh));
+        const drop = blank && ROUTE_COST_LABEL.test((f.label?.en || '').trim());
+        if (drop) superseded.push(`${id} — "${f.label.en}"`);
+        return !drop;
+      });
+      d = { ...d, figures: kept };
+    }
+
     if (d.completedYear != null) {
       const row = index.routes.find((r) => r[0] === id);
       timelineRoutes.push({ id, label: row[1], year: d.completedYear, mi: row[5] });
@@ -176,6 +202,11 @@ async function main() {
   }));
 
   console.log(`published ${published} dossiers`, bySystem);
+  if (superseded.length) {
+    console.log(`\n${superseded.length} "no public data" cost figure(s) dropped, now sourced from`
+      + ' the FHWA route cost table:');
+    for (const s of superseded) console.log(`  ${s}`);
+  }
   console.log(`timeline: ${timelineRoutes.length} dated routes, ${timelineEvents.length} events`);
 
   if (warnings.length) {

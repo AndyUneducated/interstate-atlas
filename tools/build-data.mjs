@@ -58,7 +58,10 @@ function tierOf(system, parsed) {
 function labelFor(system, parsed, stateCode) {
   if (system === 'interstate') {
     if (parsed.qualifier === 'business') return `Business I-${parsed.base}${parsed.suffix}`;
-    return `I-${parsed.base}${parsed.hawaii ? '' : parsed.suffix}`;
+    // Hawaii's Interstates are signed and published as H-1, H-2, H-3 rather
+    // than as I-H1, so they carry the hyphen and drop the I.
+    if (parsed.hawaii) return parsed.base.replace(/^([A-Z]+)(\d)/, '$1-$2');
+    return `I-${parsed.base}${parsed.suffix}`;
   }
   if (system === 'us') {
     const tag = { alternate: ' Alt', business: ' Bus', bypass: ' Byp', truck: ' Trk', unsigned: '' };
@@ -170,13 +173,16 @@ function compositionOf(edges) {
  * Washington DC and North Carolina.
  */
 async function loadOfficial() {
-  try {
-    const p = join(ROOT, 'content', 'reference', 'fhwa-mileage.json');
-    return JSON.parse(await readFile(p, 'utf8'));
-  } catch {
-    console.log('  (no FHWA reference file; run tools/fetch-fhwa.mjs)');
-    return null;
-  }
+  const read = async (name) => {
+    try {
+      return JSON.parse(await readFile(join(ROOT, 'content', 'reference', name), 'utf8'));
+    } catch {
+      console.log(`  (no ${name}; run tools/fetch-fhwa.mjs)`);
+      return null;
+    }
+  };
+  const [mileage, cost] = await Promise.all([read('fhwa-mileage.json'), read('fhwa-cost.json')]);
+  return mileage ? { mileage, cost } : null;
 }
 
 /**
@@ -194,23 +200,72 @@ async function loadOfficial() {
 function attachOfficial(routes, ref) {
   if (!ref) return;
   let matched = 0;
+  let costed = 0;
+
+  // Both FHWA tables are keyed by route and state, so both join the same way:
+  // add up only the states this particular road runs through. A route whose
+  // states are missing from a table is something that table does not cover —
+  // an unsigned or renumbered designation still present in the geometry — and
+  // a partial sum for it would be worse than nothing, so it gets neither.
+  const sumOverStates = (entry, mine) => {
+    if (!entry) return null;
+    const known = mine.filter((st) => entry.states[st] != null);
+    if (!known.length || known.length < mine.length) return null;
+    return { known, value: known.reduce((s, st) => s + entry.states[st], 0) };
+  };
+
+  // Both tables key a route by its signed designation, which is not quite how
+  // the numbers arrive here: Hawaii's three Interstates are signed H-1, H-2 and
+  // H-3 and filed that way by FHWA, but reach this point as H1, H2 and H3.
+  // Without the hyphen none of them join, which costs the atlas the single
+  // best-documented construction cost in the system.
+  const lookup = (table, number) => {
+    if (!table) return null;
+    const hyphenated = String(number).replace(/^([A-Z]+)(\d)/, '$1-$2');
+    return table[`I-${number}`] || table[number] || table[hyphenated] || null;
+  };
+
   for (const r of routes) {
     if (r.system !== 'interstate') continue;
-    const entry = ref.routes[`I-${r.number}`] || ref.routes[r.number];
-    if (!entry) continue;
-
     const mine = r.states.map((s) => s.st);
-    const known = mine.filter((st) => entry.states[st] != null);
-    // A route whose states are absent from the log is something the log does
-    // not cover — an unsigned or decommissioned designation still in the
-    // geometry. Reporting a partial sum for it would be worse than nothing.
-    if (!known.length || known.length < mine.length) continue;
 
-    r.offMi = Math.round(known.reduce((s, st) => s + entry.states[st], 0) * 10) / 10;
-    r.offCities = known.flatMap((st) => (entry.cities[st] || []).map((c) => `${c}, ${st}`));
-    matched++;
+    const miEntry = lookup(ref.mileage.routes, r.number);
+    const mi = sumOverStates(miEntry, mine);
+    if (mi) {
+      r.offMi = Math.round(mi.value * 10) / 10;
+      r.offCities = mi.known.flatMap((st) => (miEntry.cities[st] || []).map((c) => `${c}, ${st}`));
+      matched++;
+    }
+
+    // Cost needs one more case than mileage. The cost table omits a state
+    // wherever that state's mileage was not paid for with Interstate
+    // Construction funds, so I-90 has no Indiana row (the Indiana Toll Road
+    // was folded in) and I-95 has no District of Columbia row. Summing the
+    // remaining states would then quietly understate the route.
+    //
+    // So: sum this route's own states when every one of them is present, which
+    // is both the accurate answer and the one that excludes spending on
+    // mileage since renumbered away (I-80's total still carries the Oregon
+    // I-80N that is now I-84). Otherwise, when the two state sets agree apart
+    // from a state or two, fall back to the published whole-route total and
+    // record that that is what is being shown.
+    const costEntry = lookup(ref.cost?.routes, r.number);
+    const cost = sumOverStates(costEntry, mine);
+    if (cost) {
+      r.offCostK = Math.round(cost.value);
+      costed++;
+    } else if (costEntry?.total != null) {
+      const tbl = Object.keys(costEntry.states);
+      const shared = mine.filter((st) => tbl.includes(st)).length;
+      if (shared >= tbl.length - 1 && shared >= mine.length - 2 && shared / tbl.length >= 0.8) {
+        r.offCostK = Math.round(costEntry.total);
+        r.offCostWhole = true;
+        costed++;
+      }
+    }
   }
   console.log(`  official mileage matched for ${matched} Interstate routes`);
+  console.log(`  official construction cost matched for ${costed} Interstate routes`);
 }
 
 function clusterByCorridor(pieces, tier) {
@@ -406,7 +461,7 @@ async function main() {
       properties: {
         id: r.id, sys: r.system, tier: r.tier, label: r.label, st: r._primarySt,
         num: r.number, base: r.base, mi: r.mi, pavedMi: r.pavedMi, offMi: r.offMi ?? null,
-        spanMi: r.spanMi,
+        offCostK: r.offCostK ?? null, offCostWhole: r.offCostWhole ?? null, spanMi: r.spanMi,
         gs: r.gradeSeparated, toll: r.tolled, unpaved: r.unpaved, div: r.dividedShare,
         breaks: r.breaks, gapMi: r.gapMi, np: main.length,
         states: r.states, types: r.types,

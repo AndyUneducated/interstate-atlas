@@ -47,7 +47,11 @@ const num = (s) => {
   return Number.isFinite(v) ? v : null;
 };
 
-const ROUTE_RE = /^(?:I|A|H|PRI)-\d+[A-Z]?$/;
+// Most designations are plain, but Texas runs three branches of I-69 that the
+// log files as "I-69 Central", "I-69 East" and "I-69 West". They are separate
+// roads with separate TOTAL rows, so the pattern has to admit the suffix;
+// without it their totals land on I-69 and the last one read wins.
+const ROUTE_RE = /^(?:I|A|H|PRI)-\d+[A-Z]?(?: (?:Central|East|West|North|South))?$/;
 
 /**
  * Both tables share a layout: a header cell naming the route, then one row per
@@ -101,11 +105,17 @@ function parseTable(html, continuous) {
     }
   }
 
-  // A single-state main route has no separate TOTAL row to read.
   for (const r of Object.values(routes)) {
-    if (r.continuous && r.total == null) {
-      const sum = Object.values(r.states).reduce((s, v) => s + v, 0);
-      r.total = sum ? Math.round(sum * 100) / 100 : null;
+    const sum = Math.round(Object.values(r.states).reduce((s, v) => s + v, 0) * 100) / 100;
+    // A single-state main route has no separate TOTAL row to read.
+    if (r.continuous && r.total == null) r.total = sum || null;
+    // The log's own totals do not always equal its own state rows: I-57's
+    // total omits the Arkansas mileage designated after the total was struck.
+    // Record both rather than silently preferring one, and note it, so nothing
+    // downstream has to guess which number it is looking at.
+    if (r.total != null && Math.abs(r.total - sum) > 0.5) {
+      r.sumOfStates = sum;
+      r.note = 'published total does not equal the sum of its own state rows';
     }
   }
   return routes;
@@ -115,6 +125,68 @@ async function grab(name) {
   const res = await fetch(`${BASE}/${name}.cfm`);
   if (!res.ok) throw new Error(`${name}: HTTP ${res.status}`);
   return res.text();
+}
+
+const COST_URL = 'https://www.fhwa.dot.gov/highwayhistory/data/page03.cfm';
+
+/**
+ * Parse "Estimated Cost of Individual Interstate Routes" from FHWA's
+ * Interstate System engineering data.
+ *
+ * This is the only published per-route cost accounting for the system. It is
+ * drawn from the 1991 Interstate Cost Estimate and gives, for each route in
+ * each state, the state-plus-federal cost of Interstate Construction work:
+ * preliminary engineering, right-of-way and construction. Figures are in
+ * thousands of dollars and are not inflation-adjusted.
+ *
+ * Its limits matter as much as its contents, and are recorded alongside it:
+ * it counts only IC-funded work, so the turnpikes folded into the system are
+ * absent; obligations are cut off at the end of 1989; and the route
+ * descriptions reflect the extents of that time, which is why I-40 is
+ * described as ending at Benson rather than Wilmington.
+ */
+function parseCosts(html) {
+  const start = html.search(/Estimated Cost of Individual/i);
+  if (start < 0) throw new Error('cost table not found on the page');
+
+  const routes = {};
+  let current = null;
+
+  for (const m of html.slice(start).matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...m[1].matchAll(/<(t[hd])[^>]*>([\s\S]*?)<\/\1>/gi)].map((c) => strip(c[2]));
+    if (!cells.length) continue;
+
+    // A route header is a single wide cell naming the route and its extent.
+    const head = cells[0].match(/^Interstate Route\s+([A-Z]*-?[\dA-Z]+)\s*[-–]\s*(.+)$/i);
+    if (head) {
+      const num = head[1].replace(/^-/, '');
+      const key = /^(H|A|PRI)-/i.test(num) ? num.toUpperCase() : `I-${num}`;
+      current = key;
+      routes[key] ||= { description: head[2].trim(), states: {}, total: null };
+      continue;
+    }
+    // Aggregate rows the table uses for unassigned spending.
+    if (/^(Misc Routes|Other Costs|Total)/i.test(cells[0])) { current = null; continue; }
+    if (!current) continue;
+
+    const code = ST[cells[0]];
+    if (!code) continue;
+    // Columns: state, remaining, obligations, unconverted, cost in state,
+    // total across all states (present only on a route's last state row).
+    const inState = num(cells[4] ?? '');
+    const allStates = num(cells[5] ?? '');
+    if (inState != null) routes[current].states[code] = inState;
+    if (allStates != null) routes[current].total = allStates;
+  }
+
+  // Single-state routes carry their total on the same row, and a few omit it.
+  for (const r of Object.values(routes)) {
+    if (r.total == null) {
+      const sum = Object.values(r.states).reduce((s, v) => s + v, 0);
+      r.total = sum || null;
+    }
+  }
+  return routes;
 }
 
 async function main() {
@@ -132,7 +204,40 @@ async function main() {
   console.log(`  auxiliary routes: ${Object.keys(aux).length} designations, ${seg(aux)} state segments`);
   console.log(`  system mileage implied: ${Math.round(miles(main1) + miles(aux)).toLocaleString()} mi`);
 
+  const noted = Object.entries(routes).filter(([, r]) => r.note);
+  if (noted.length) {
+    console.log(`\n  ${noted.length} route(s) where the log disagrees with itself:`);
+    for (const [k, r] of noted) {
+      console.log(`    ${k.padEnd(10)} published ${r.total}  vs  states sum ${r.sumOfStates}`);
+    }
+  }
+
+  console.log('\nfetching FHWA per-route cost table...');
+  const costRes = await fetch(COST_URL);
+  if (!costRes.ok) throw new Error(`cost page: HTTP ${costRes.status}`);
+  const costs = parseCosts(await costRes.text());
+  const costTotal = Object.values(costs).reduce((s, r) => s + (r.total || 0), 0);
+  console.log(`  ${Object.keys(costs).length} routes, `
+    + `${Object.values(costs).reduce((s, r) => s + Object.keys(r.states).length, 0)} state segments`);
+  console.log(`  sum of route totals: $${(costTotal / 1e6).toFixed(1)} billion `
+    + `(1991 ICE reported $124.3bn for PE + ROW + construction)`);
+
   await mkdir(OUT, { recursive: true });
+  await writeFile(join(OUT, 'fhwa-cost.json'), JSON.stringify({
+    source: {
+      en: 'FHWA, Estimated Cost of Individual Interstate Routes (1991 Interstate Cost Estimate)',
+      zh: '美国联邦公路管理局《各条州际公路造价估算》（1991 年州际公路造价估算）',
+    },
+    url: COST_URL,
+    unit: 'thousands of US dollars, state plus federal, not inflation-adjusted',
+    covers: 'Interstate Construction funds only: preliminary engineering, right-of-way and construction. '
+      + 'Obligations are cut off at 31 December 1989. Turnpikes folded into the system without IC funds are '
+      + 'absent, and route extents are those of 1989-91.',
+    retrieved: new Date().toISOString().slice(0, 10),
+    routes: costs,
+  }, null, 0));
+  console.log('wrote content/reference/fhwa-cost.json');
+
   await writeFile(join(OUT, 'fhwa-mileage.json'), JSON.stringify({
     source: {
       en: 'FHWA Route Log and Finder List, Tables 1 and 2',

@@ -168,18 +168,23 @@ async function main() {
   console.log(`sampling ${features.length} routes at ${SAMPLES} points each (zoom ${Z})`);
   await mkdir(OUT, { recursive: true });
 
-  let written = 0;
+  const ids = [];
   for (const [i, f] of features.entries()) {
     const profile = await profileFor(f);
     if (!profile) continue;
     await writeFile(join(OUT, `${f.properties.id}.json`), JSON.stringify(profile));
-    written++;
+    ids.push(f.properties.id);
     if ((i + 1) % 20 === 0 || i === features.length - 1) {
       console.log(`  ${i + 1}/${features.length}  tiles: ${fetched} fetched, ${cached} cached`);
     }
   }
 
-  console.log(`wrote ${written} elevation profiles`);
+  // A manifest, for the same reason the dossiers have one: a profile exists for
+  // a couple of hundred routes out of 7,500, and without a list to check first
+  // every other route would ask for a file that is not there.
+  ids.sort();
+  await writeFile(join(OUT, 'index.json'), JSON.stringify({ ids }));
+  console.log(`wrote ${ids.length} elevation profiles and their manifest`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

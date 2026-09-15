@@ -4,12 +4,29 @@
 //   node tools/verify.mjs [baseUrl]
 
 import { chromium } from 'playwright-core';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const BASE = process.argv[2] || 'http://localhost:8787';
+const ROOT = join(import.meta.dirname, '..');
 const SHOTS = join(import.meta.dirname, 'shots');
 await mkdir(SHOTS, { recursive: true });
+
+// Pick, from the build output, an Interstate that carries an official cost but
+// no hand-written dossier. Chosen here rather than in the page so the search
+// does not fill the console with the 404s it probes for.
+const NO_DOSSIER_COSTED = await (async () => {
+  const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', 'interstate.json'), 'utf8'));
+  for (const f of fc.features) {
+    if (!f.properties.offCostK) continue;
+    try {
+      await access(join(ROOT, 'data', 'dossiers', `${f.properties.id}.json`));
+    } catch {
+      return f.properties.id;
+    }
+  }
+  return null;
+})();
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1600, height: 950 }, deviceScaleFactor: 1 });
@@ -28,16 +45,17 @@ page.on('requestfailed', (r) => {
   failed.push(`${err} ${r.url().slice(0, 120)}`);
 });
 page.on('response', (r) => {
-  // Elevation profiles are only generated for curated routes and the page is
-  // built to cope with their absence, so a miss there is not a fault.
-  if (r.status() >= 400 && !r.url().includes('/elevation/')) {
+  // Nothing should 404 any more: both the dossiers and the elevation profiles
+  // exist for a curated subset, and both are gated on a manifest so a route
+  // without one is never requested.
+  if (r.status() >= 400) {
     failed.push(`HTTP ${r.status()} ${r.url().slice(0, 120)}`);
   }
 });
 
 let failures = 0;
 const step = async (name, fn) => {
-  process.stdout.write(`${name.padEnd(34)}`);
+  process.stdout.write(`${name.padEnd(38)}`);
   try {
     await fn();
     console.log('ok');
@@ -139,6 +157,37 @@ await step('termini shown', async () => {
   const terms = await page.locator('.term-v').allTextContents();
   if (terms.length < 2) throw new Error('missing termini');
   if (terms.some((x) => !x.trim() || x.trim() === '—')) throw new Error(`blank terminus: ${JSON.stringify(terms)}`);
+});
+
+await step('official construction cost shown', async () => {
+  const cost = page.locator('.fig').filter({ hasText: 'Interstate Construction cost' }).first();
+  if (!(await cost.count())) {
+    const figs = await page.locator('.fig-k').allTextContents();
+    throw new Error(`no cost figure among: ${JSON.stringify(figs)}`);
+  }
+  // A figure is worthless without a source and a legible magnitude.
+  const value = (await cost.locator('.fig-v').first().textContent())?.trim() || '';
+  if (!/\$[\d,.]+\s(billion|million)/.test(value)) throw new Error(`malformed cost: ${value}`);
+  if (!value.includes('FHWA')) throw new Error(`cost figure is unsourced: ${value}`);
+});
+
+await step('cost reaches routes with no dossier', async () => {
+  // The point of deriving cost from the route table is that it covers roads
+  // nobody hand-wrote. Confirm the money section appears for one of those.
+  if (!NO_DOSSIER_COSTED) throw new Error('every costed route has a dossier; nothing to check');
+  await page.evaluate((rid) => window.__select(rid), NO_DOSSIER_COSTED);
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForFunction(
+    (rid) => document.querySelector('#detail')?.dataset.id === rid
+      || document.querySelector('.dt-name'),
+    NO_DOSSIER_COSTED,
+    { timeout: 8000 },
+  );
+  await page.waitForTimeout(1200);
+  const cost = page.locator('.fig').filter({ hasText: 'Interstate Construction cost' });
+  if (!(await cost.count())) {
+    throw new Error(`${NO_DOSSIER_COSTED} has cost data but shows no cost figure`);
+  }
 });
 
 await step('numbering explainer', async () => {

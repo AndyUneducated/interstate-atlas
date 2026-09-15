@@ -135,7 +135,9 @@ function buildMap() {
   map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
   map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }), 'bottom-right');
   app.map = map;
-  window.__map = map; // handle for the headless checks in tools/verify.mjs
+  // Handles for the headless checks in tools/verify.mjs.
+  window.__map = map;
+  window.__select = select;
   return map;
 }
 
@@ -454,17 +456,23 @@ function animateFlow() {
   flowRaf = requestAnimationFrame(step);
 }
 
+// The route as loaded, not as drawn.
+//
+// Anything the map hands back — from a click or from querySourceFeatures — is a
+// tile feature: clipped to the tile it came from, split into one LineString per
+// line, and with nested properties flattened to JSON strings. That is enough to
+// identify a road and not enough to describe one, so highlighting, fitting and
+// the termini all have to come from the source data instead. Reading a clipped
+// fragment instead would frame the map on whichever piece happened to be under
+// the cursor.
 function findFeature(id) {
   const meta = app.byId.get(id);
   if (!meta) return null;
   const srcId = meta.sys === 'state' ? `st-${meta.st}` : `rt-${meta.sys}`;
-  if (!app.map.getSource(srcId)) return null;
-  const found = app.map.querySourceFeatures(srcId, { filter: ['==', ['get', 'id'], id] });
-  if (found.length) return found[0];
-  // querySourceFeatures only sees loaded tiles, so fall back to the raw data.
-  const data = app.map.getSource(srcId)._data;
-  if (data && data.features) return data.features.find((f) => f.properties.id === id) || null;
-  return null;
+  const src = app.map.getSource(srcId);
+  const data = src?._data;
+  if (!data?.features) return null;
+  return data.features.find((f) => f.properties.id === id) || null;
 }
 
 export async function select(id, { feature = null, fit = true } = {}) {
@@ -474,7 +482,9 @@ export async function select(id, { feature = null, fit = true } = {}) {
   if (meta.sys === 'state' && !app.stateLoaded.has(meta.st)) await loadState(meta.st);
   else if (meta.sys !== 'state' && !app.loaded.has(meta.sys)) await enableSystem(meta.sys);
 
-  const f = feature || findFeature(id);
+  // A caller may pass the feature it has, but the loaded copy wins when there
+  // is one; see findFeature for why a clicked feature cannot be trusted.
+  const f = findFeature(id) || feature;
   app.selected = id;
   app.selectedFeature = f;
 

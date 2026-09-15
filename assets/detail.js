@@ -60,7 +60,8 @@ function terminusRow(kind, place, coord, dossierText) {
   } else {
     body = '—';
   }
-  const coords = coord ? `${coord[1].toFixed(4)}°, ${coord[0].toFixed(4)}°` : '';
+  const ll = Array.isArray(coord) && Number.isFinite(coord[0]) && Number.isFinite(coord[1]) ? coord : null;
+  const coords = ll ? `${ll[1].toFixed(4)}°, ${ll[0].toFixed(4)}°` : '';
   return `<div class="term ${isFrom ? 'from' : 'to'}">
     <span class="term-rail"></span>
     <span class="term-dot"></span>
@@ -117,6 +118,21 @@ function prose(paras) {
   return paras.map((p) => `<p>${esc(p)}</p>`).join('');
 }
 
+/* The cost table is denominated in thousands, which reads badly at either end
+   of its range: $146,455 thousand for I-4 and $7,963,000 thousand for I-95.
+   Scale it to whichever unit keeps the number legible. */
+function usd(thousands) {
+  if (thousands >= 1e6) return `$${(thousands / 1e6).toFixed(2)} billion`;
+  if (thousands >= 1e3) return `$${Math.round(thousands / 1e3).toLocaleString()} million`;
+  return `$${Math.round(thousands).toLocaleString()},000`;
+}
+
+function usdZh(thousands) {
+  // Chinese groups by 万 and 亿; at these magnitudes 亿 is the natural unit.
+  const yi = (thousands * 1000) / 1e8;
+  return yi >= 1 ? `${yi.toFixed(2)} 亿美元` : `${Math.round((thousands * 1000) / 1e4).toLocaleString()} 万美元`;
+}
+
 function figuresBlock(figures) {
   if (!figures?.length) return '';
   const rows = figures.map((f) => {
@@ -156,13 +172,26 @@ function servedBlock(cities) {
 
 const elevCache = new Map();
 
+// Profiles are sampled for the curated routes only, so the manifest is checked
+// before asking for a file, exactly as the dossiers are.
+let elevList = null;
+function elevationIndex() {
+  elevList ||= fetch('data/elevation/index.json')
+    .then((r) => (r.ok ? r.json() : { ids: [] }))
+    .then((d) => new Set(d.ids))
+    .catch(() => new Set());
+  return elevList;
+}
+
 async function elevationFor(id) {
   if (elevCache.has(id)) return elevCache.get(id);
   let data = null;
-  try {
-    const res = await fetch(`data/elevation/${id}.json`);
-    if (res.ok) data = await res.json();
-  } catch { /* not generated for this route */ }
+  if ((await elevationIndex()).has(id)) {
+    try {
+      const res = await fetch(`data/elevation/${id}.json`);
+      if (res.ok) data = await res.json();
+    } catch { /* leave the panel to report the absence */ }
+  }
   elevCache.set(id, data);
   return data;
 }
@@ -232,8 +261,15 @@ export async function renderDetail(id) {
   const types = prop(f, 'types') || {};
   const start = prop(f, 'start');
   const end = prop(f, 'end');
-  const np = p.np ?? f?.geometry.coordinates.length ?? 0;
-  const main = f ? f.geometry.coordinates.slice(0, np) : [];
+  // The geometry is written as a MultiLineString, but it does not always arrive
+  // as one: a feature read back from the map's tiles can come through as a
+  // single LineString, whose coordinates are points rather than lines. Taken at
+  // face value that makes the first "line" a bare [lon, lat] pair and the
+  // terminus row reads a latitude off a number. Normalise to a list of lines.
+  const coords = f?.geometry?.coordinates || [];
+  const lines = Array.isArray(coords[0]?.[0]) ? coords : (coords.length ? [coords] : []);
+  const np = Math.min(p.np ?? lines.length, lines.length) || lines.length;
+  const main = lines.slice(0, np);
   const startCoord = main[0]?.[0];
   const endCoord = main[main.length - 1]?.at(-1);
 
@@ -301,13 +337,46 @@ export async function renderDetail(id) {
   const sections = document.getElementById('dtSections');
   const parts = [];
 
+  // FHWA's 1991 route-by-route accounting is the only published construction
+  // cost for most of these roads. It is derived data rather than written, so it
+  // is built here and folded into the money section whether or not a dossier
+  // exists — which is what gives an otherwise undocumented Interstate a real,
+  // citable cost instead of a blank.
+  const costFigure = p.offCostK ? figuresBlock([{
+    label: { en: 'Interstate Construction cost', zh: '州际公路建设计划造价' },
+    value: {
+      en: `${usd(p.offCostK)} in then-year dollars, state and federal funds combined`,
+      zh: `${usdZh(p.offCostK)}（当年币值，含州与联邦资金）`,
+    },
+    source: 'FHWA, Estimated Cost of Individual Interstate Routes (1991 Interstate Cost Estimate)',
+  }, {
+    label: { en: 'What that figure covers', zh: '该数字的涵盖范围' },
+    value: {
+      en: 'Preliminary engineering, right-of-way and construction paid for with Interstate '
+        + 'Construction funds, with obligations counted to the end of 1989. It excludes work done since, '
+        + 'and it excludes any toll road folded into the system without those funds.'
+        + (p.offCostWhole
+          ? ' This is the published total for the whole route as the table defined it, used here because '
+            + 'at least one state this route crosses has no line of its own — usually because that '
+            + 'stretch was not built with those funds.'
+          : ''),
+      zh: '以州际公路建设专项资金支付的前期设计、征地与施工费用，债务计至 1989 年底。'
+        + '不含此后的工程，也不含未动用该资金而并入系统的收费公路。'
+        + (p.offCostWhole
+          ? '此处采用的是该表所定义的整条路线公布总额，因为本路线经过的至少一个州在表中没有单独条目——'
+            + '通常是因为那段路并非由该资金修建。'
+          : ''),
+    },
+    source: 'FHWA, Interstate System engineering data, notes to the cost tables',
+  }]) : '';
+
   const written = new Map((dossier?.sections || []).map((s) => [s.key, s]));
   let first = true;
   for (const key of SECTION_ORDER) {
     const s = written.get(key);
-    if (!s) continue;
-    let body = prose(s[getLang()] || s.en);
-    if (key === 'money' && dossier?.figures) body += figuresBlock(dossier.figures);
+    if (!s && !(key === 'money' && costFigure)) continue;
+    let body = s ? prose(s[getLang()] || s.en) : '';
+    if (key === 'money') body += figuresBlock(dossier?.figures) + costFigure;
     if (key === 'traffic' && dossier?.trafficFigures) body += figuresBlock(dossier.trafficFigures);
     if (key === 'condition' && dossier?.conditionFigures) body += figuresBlock(dossier.conditionFigures);
     parts.push(section(key, body, first));
