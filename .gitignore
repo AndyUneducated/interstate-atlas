@@ -10,3 +10,7 @@ tools/cache/
 tools/shots/
 tools/elev.log
 tools/serve.pid
+
+# Build logs and one-off diagnostic scripts.
+tools/*.log
+tools/probe-*.mjs

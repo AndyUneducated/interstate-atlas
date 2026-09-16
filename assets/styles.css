@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Interstate Atlas
+   Highway Atlas
    A dark instrument panel: near-black ground, cyan and amber signal colours,
    thin rules, monospace for anything numeric.
    ========================================================================== */
@@ -26,6 +26,9 @@
   --i-col: #35e7ff;
   --us-col: #ffb545;
   --st-col: #a98bff;
+  --tch-col: #ff4d6d;
+  --nhs-col: #4fe3b0;
+  --pr-col: #ff9ecb;
 
   --r-sm: 4px;
   --r-md: 8px;
@@ -216,9 +219,11 @@ a { color: var(--cyan); text-decoration: none; }
 
 /* Region jumps: the map does not end at the frame. */
 .jumps {
-  display: flex; flex-wrap: wrap; gap: 5px;
+  display: flex; flex-direction: column; gap: 5px;
   padding: 9px 13px 11px; border-top: 1px solid var(--line);
 }
+.jump-row { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+.jump-row > .flagdot { margin-right: 2px; }
 .jump {
   padding: 4px 9px; border: 1px solid var(--line); border-radius: 999px;
   font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.09em;
@@ -304,14 +309,206 @@ body.is-booting #shellOpen { opacity: 0 !important; pointer-events: none; }
   border: 1.5px solid currentColor; transition: box-shadow 0.2s, background 0.2s;
 }
 .sys.on .sys-dot { background: currentColor; box-shadow: 0 0 11px currentColor; }
-.sys[data-sys="interstate"] { color: var(--i-col); }
-.sys[data-sys="us"] { color: var(--us-col); }
-.sys[data-sys="state"] { color: var(--st-col); }
+/* Each row carries its own system colour, set inline from the same table the
+   map draws from, so the dot beside a system can never disagree with the
+   lines it switches on. */
+.sys { color: var(--sys-col, var(--ink-faint)); }
+
+/* Country headings. Small, quiet, and set in the mono face so they read as
+   structure rather than as two more things to click. */
+.sys-country {
+  display: flex; align-items: center; gap: 7px;
+  padding: 10px 14px 5px;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.sys-country:not(:first-child) {
+  margin-top: 3px; border-top: 1px solid rgba(120, 170, 220, 0.07);
+}
+.flagdot {
+  width: 13px; height: 9px; border-radius: 1.5px; flex: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+/* Not flags - a flag at 13px is mud. Two abstracted field marks instead:
+   the American stripes, and the Canadian pale. */
+.flag-us {
+  background: repeating-linear-gradient(180deg, #d94a5a 0 1.5px, #e8eef6 1.5px 3px);
+}
+.flag-ca {
+  background: linear-gradient(90deg, #d94a5a 0 27%, #e8eef6 27% 73%, #d94a5a 73% 100%);
+}
 .sys-txt { flex: 1; min-width: 0; }
 .sys-name { display: block; font-size: 12.5px; color: var(--ink); letter-spacing: 0.02em; }
 .sys.on .sys-name { color: currentColor; }
 .sys-meta { display: block; font-family: var(--mono); font-size: 10px; color: var(--ink-faint); margin-top: 1px; }
 .sys-count { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); }
+
+/* ==========================================================================
+   Buildout timelapse: docked, not modal
+
+   The whole point is to watch the map change, so this sits along the bottom
+   and leaves the map alone. The scrub track is the mileage curve itself: the
+   shape you drag along is the buildout, near-vertical through the sixties and
+   almost flat after 1985.
+   ========================================================================== */
+
+#tlapse {
+  position: fixed; z-index: 18;
+  left: calc(var(--shell) + 20px); right: 10px; bottom: 10px;
+  display: none; align-items: stretch; gap: 16px;
+  padding: 11px 14px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--r-lg); backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+}
+body.tlapse-on #tlapse { display: flex; }
+/* With the panel collapsed the bar takes the width it was denied. */
+body.shell-off #tlapse { left: 10px; }
+/* The detail panel and this bar both want the bottom-right; the bar wins,
+   because it is the thing being driven. */
+body.tlapse-on #detail { bottom: 108px; }
+
+.tlx-l { display: flex; align-items: center; gap: 12px; flex: none; }
+.tlx-play {
+  width: 40px; height: 40px; flex: none;
+  display: grid; place-items: center;
+  border: 1px solid var(--line-2); border-radius: 50%;
+  color: var(--cyan); background: rgba(53, 231, 255, 0.07);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.12s;
+}
+.tlx-play:hover { background: rgba(53, 231, 255, 0.15); box-shadow: 0 0 16px rgba(53, 231, 255, 0.28); }
+.tlx-play:active { transform: scale(0.94); }
+.tlx-play svg { width: 16px; height: 16px; fill: currentColor; stroke: none; }
+.tlx-play .i-pause { display: none; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; }
+#tlapse.playing .tlx-play .i-play { display: none; }
+#tlapse.playing .tlx-play .i-pause { display: block; }
+
+.tlx-year {
+  font-family: var(--mono); font-size: 27px; line-height: 1;
+  letter-spacing: -0.01em; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  min-width: 4ch;
+}
+
+/* The curve, and the range input laid transparently over it. Using a real
+   input keeps the keyboard and the pointer behaviour the browser already
+   gets right; the drawing is what the reader sees. */
+.tlx-c { position: relative; flex: 1; min-width: 0; padding-bottom: 13px; }
+.tlx-svg {
+  display: block; width: 100%; height: 46px;
+  overflow: visible;
+}
+.tlx-ghost { fill: none; stroke: rgba(120, 170, 220, 0.2); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.tlx-line { fill: none; stroke: var(--cyan); stroke-width: 1.8; vector-effect: non-scaling-stroke;
+  clip-path: inset(0 0 0 0); }
+.tlx-area { stroke: none; }
+.tlx-rule { stroke: rgba(255, 255, 255, 0.34); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.tlx-head {
+  fill: #fff; stroke: var(--cyan); stroke-width: 2; vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 7px rgba(53, 231, 255, 0.9));
+}
+.tlx-range {
+  position: absolute; inset: 0 0 13px 0; width: 100%; height: 46px;
+  margin: 0; opacity: 0; cursor: ew-resize;
+}
+.tlx-ticks {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 12px;
+  font-family: var(--mono); font-size: 9px; color: var(--ink-faint);
+}
+.tlx-ticks span { position: absolute; transform: translateX(-50%); }
+
+.tlx-r { display: flex; align-items: flex-start; gap: 18px; flex: none; }
+.tlx-m { display: flex; flex-direction: column; gap: 2px; min-width: 88px; }
+.tlx-k {
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.tlx-v {
+  font-family: var(--mono); font-size: 18px; line-height: 1.1; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.tlx-v small { font-size: 10px; color: var(--ink-faint); margin-left: 3px; }
+.tlx-v .na { font-size: 11px; color: var(--ink-faint); }
+.tlx-s { font-family: var(--mono); font-size: 9px; color: var(--ink-faint); }
+
+.tlx-btns { display: flex; gap: 5px; }
+.tlx-i {
+  width: 28px; height: 28px; display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: var(--r-sm);
+  color: var(--ink-faint); transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.tlx-i svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8;
+  stroke-linecap: round; }
+.tlx-i:hover { color: var(--cyan); border-color: rgba(53, 231, 255, 0.45); }
+.tlx-i.on { color: var(--cyan); border-color: rgba(53, 231, 255, 0.5); background: rgba(53, 231, 255, 0.1); }
+
+/* The year's record, surfacing as the playhead reaches it. Anchored above the
+   bar and sized to its content so a year with one event does not reserve room
+   for three. */
+.tlx-events {
+  position: absolute; left: 14px; bottom: calc(100% + 9px);
+  width: min(560px, calc(100% - 28px));
+  display: flex; flex-direction: column; gap: 1px;
+  background: var(--line); border: 1px solid var(--line-2);
+  border-radius: var(--r-md); overflow: hidden;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+  animation: tlxRise 0.32s var(--ease);
+}
+@keyframes tlxRise {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: none; }
+}
+.tlx-ev {
+  padding: 10px 13px; background: var(--panel-solid);
+  border-left: 2px solid rgba(53, 231, 255, 0.4);
+}
+.tlx-ev.sys { border-left-color: var(--us-col); }
+.tlx-ev p { font-size: 12px; line-height: 1.55; color: var(--ink-dim); }
+.tlx-ev .src {
+  display: block; margin-top: 4px;
+  font-family: var(--mono); font-size: 9px; color: var(--ink-faint);
+}
+.tlx-ev-go {
+  display: inline-block; margin-bottom: 4px;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.09em;
+  color: var(--cyan); text-transform: uppercase;
+}
+.tlx-ev-go:hover { text-decoration: underline; }
+.tlx-ev-more {
+  padding: 6px 13px; background: var(--panel-solid);
+  font-family: var(--mono); font-size: 9px; color: var(--ink-faint);
+}
+
+/* The honesty note. Hidden until asked for, because it is an explanation
+   rather than a caption, but one tap away because the two figures above it
+   genuinely do measure different things. */
+.tlx-note {
+  position: absolute; left: 14px; right: 14px; bottom: calc(100% + 9px);
+  padding: 12px 14px;
+  background: var(--panel-solid); border: 1px solid var(--line-2);
+  border-radius: var(--r-md); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+}
+.tlx-note p { font-size: 12px; line-height: 1.6; color: var(--ink-dim); max-width: 78ch; }
+.tlx-note .src { margin-top: 6px; font-family: var(--mono); font-size: 9.5px; color: var(--ink-faint); }
+
+@media (max-width: 1180px) {
+  .tlx-r { gap: 12px; }
+  .tlx-m { min-width: 70px; }
+  .tlx-s { display: none; }
+}
+@media (max-width: 860px) {
+  #tlapse { left: 8px; right: 8px; bottom: 8px; flex-wrap: wrap; gap: 10px; }
+  .tlx-c { order: 3; flex-basis: 100%; }
+  body.tlapse-on #detail { bottom: 8px; }
+}
+
+/* Jurisdiction picker: one tile per state or province. */
+.jur-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden;
+}
+.jur { border: 0; background: var(--panel-solid); }
 
 /* search */
 .search { position: relative; }
@@ -374,6 +571,95 @@ body.is-booting #shellOpen { opacity: 0 !important; pointer-events: none; }
   border: 1.5px solid currentColor; border-radius: 999px;
   background: rgba(169, 139, 255, 0.1);
 }
+
+/* ── Canadian markers ─────────────────────────────────────────────────────
+   The Trans-Canada is signed as a white shield carrying a green maple leaf
+   with the number on the leaf, and it is the one Canadian marker that is the
+   same in every province. The leaf is a background image rather than a glyph
+   so it sits behind the number instead of stealing width from it, which is
+   what keeps a three-digit number from pushing outside the shield. */
+.shield-tch {
+  color: #fff;
+  background:
+    /* a maple leaf, centred and dim enough to read behind a number */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(255,255,255,0.22)' d='M12 2l1.2 3.6 2.6-1.3-.7 3.3 3.1-.6-1.9 2.6 3.7 1.5-3.1 1.6 1.4 2.3-3.4-.4.5 3.6-2.4-1.9-1 2.9-1-2.9-2.4 1.9.5-3.6-3.4.4 1.4-2.3L2 14.7l3.7-1.5L3.8 10.6l3.1.6-.7-3.3 2.6 1.3z'/%3E%3C/svg%3E")
+      center / 86% no-repeat,
+    linear-gradient(180deg, #1d8b58 0%, #0d5734 100%);
+  border-radius: 4px 4px 9px 9px;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.5);
+  padding: 0 6px;
+}
+/* Designated but not Trans-Canada: a plain white marker, which is what most
+   Canadian provinces actually sign, tinted by the system colour. */
+.shield-nhs {
+  color: #0d1a14;
+  background: #dff6ea; border-radius: 4px;
+  box-shadow: inset 0 0 0 1.5px #0d3b28;
+}
+.shield-pr {
+  color: var(--pr-col);
+  border: 1.5px solid currentColor; border-radius: 5px;
+  background: rgba(255, 158, 203, 0.1);
+}
+
+/* ── provincial signs ─────────────────────────────────────────────────────
+   Four provinces sign something distinctive enough to draw. Each emblem is a
+   background image rather than a pseudo-element glyph, for the same reason as
+   the maple leaf: it sits behind or above the number without taking width from
+   it, so a three-digit number still fits. The number is pushed down to clear
+   the emblem, and .shield's min-width keeps the box from going narrower than
+   the emblem needs. */
+
+/* Ontario signs its King's Highways with a crown over the number. */
+.shield-on {
+  color: #f4f7fb;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 12'%3E%3Cpath fill='rgba(255,255,255,0.85)' d='M4 10h20l1.6-7-5.2 3L14 1 7.6 6 2.4 3z'/%3E%3C/svg%3E")
+      center top 2.5px / auto 5px no-repeat,
+    linear-gradient(180deg, #2f3d55 0%, #1a2435 100%);
+  border-radius: 5px 5px 8px 8px;
+  box-shadow: inset 0 0 0 1.5px rgba(244, 247, 251, 0.55);
+  padding: 6px 6px 0; align-content: end;
+}
+
+/* Quebec's autoroutes carry a green plate; its routes nationales do not. */
+.shield-qca {
+  color: #fff;
+  background: linear-gradient(180deg, #1f7a4d 0%, #0f4a2e 100%);
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.6);
+}
+.shield-qc {
+  color: #eef3f8;
+  background: linear-gradient(180deg, #33415a 0%, #1d2739 100%);
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1.5px rgba(238, 243, 248, 0.5);
+}
+
+/* British Columbia sets a dogwood blossom above the number. */
+.shield-bc {
+  color: #eaf2ff;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='rgba(234,242,255,0.8)'%3E%3Cpath d='M12 3.4c1.5 0 2.7 2 2.7 4.2S13.5 11 12 11s-2.7-1.2-2.7-3.4S10.5 3.4 12 3.4z'/%3E%3Cpath d='M12 20.6c-1.5 0-2.7-2-2.7-4.2S10.5 13 12 13s2.7 1.2 2.7 3.4-1.2 4.2-2.7 4.2z'/%3E%3Cpath d='M3.4 12c0-1.5 2-2.7 4.2-2.7S11 10.5 11 12s-1.2 2.7-3.4 2.7S3.4 13.5 3.4 12z'/%3E%3Cpath d='M20.6 12c0 1.5-2 2.7-4.2 2.7S13 13.5 13 12s1.2-2.7 3.4-2.7 4.2 1.2 4.2 2.7z'/%3E%3C/g%3E%3C/svg%3E")
+      center top 1px / auto 8px no-repeat,
+    linear-gradient(180deg, #27405f 0%, #14253b 100%);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1.5px rgba(234, 242, 255, 0.5);
+  padding: 8px 5px 0; align-content: end;
+}
+
+/* Alberta's is a plain rounded shield, black on white. */
+.shield-ab {
+  color: #10141c;
+  background: #eef2f7;
+  border-radius: 4px 4px 9px 9px;
+  box-shadow: inset 0 0 0 1.5px #10141c;
+}
+
+/* At marker size the emblems would be a smudge, so they scale with the box. */
+.shield-lg.shield-on { padding-top: 10px; background-size: auto 8px, auto; }
+.shield-lg.shield-bc { padding-top: 13px; background-size: auto 12px, auto; }
+
 .shield-lg.shield-i { padding-top: 7px; }
 .shield-lg.shield-i::before { height: 8px; }
 

@@ -1,19 +1,16 @@
 /* Overlay views: numbering explainer, statistics, buildout timeline, trip
-   planner, state picker and the about page. */
+   planner, jurisdiction picker and the about page. */
 
-import { t, getLang, stateName, miles, num } from './i18n.js';
+import { t, getLang, stateName, miles, num, isProvince, ownerLabel } from './i18n.js';
 import { app, select, loadState, zoomToState } from './app.js';
 
 let current = null;
-let timelineTimer = null;
 
 export function isSheetOpen() { return current; }
 
 export function closeSheet() {
   document.getElementById('sheet').classList.add('hidden');
   current = null;
-  if (timelineTimer) { clearInterval(timelineTimer); timelineTimer = null; }
-  restoreTimelapse();
 }
 
 function esc(s) {
@@ -42,9 +39,9 @@ export function openSheet(key) {
   const render = {
     numbering: renderNumbering,
     dashboard: renderDashboard,
-    timeline: renderTimeline,
     planner: renderPlanner,
     states: renderStates,
+    provinces: renderProvinces,
     about: renderAbout,
   }[key];
   if (!render) { current = null; return; }
@@ -57,9 +54,9 @@ export function openSheet(key) {
   ({
     numbering: wireNumbering,
     dashboard: wireDashboard,
-    timeline: wireTimeline,
     planner: wirePlanner,
     states: wireStates,
+    provinces: wireStates,
     about: () => {},
   }[key])();
 }
@@ -350,7 +347,7 @@ function renderDashboard() {
               <td>${r.label}</td>
               <td class="n">${num(r.mi)}</td>
               <td class="n">${num(r.ns)}</td>
-              <td>${r.sys === 'state' ? stateName(r.st) : t(`sys.${r.sys}`)}</td>
+              <td>${ownerLabel(r.sys, r.st)}</td>
             </tr>`).join('')}</tbody>
           </table>
         </div>
@@ -369,111 +366,6 @@ function wireDashboard() {
       loadState(st).then(() => zoomToState(st));
     });
   }
-}
-
-/* ══════════════════════════════════════════════════════════════════════
-   Buildout timeline
-   ══════════════════════════════════════════════════════════════════════ */
-
-let timelineData = null;
-
-async function ensureTimeline() {
-  if (timelineData) return timelineData;
-  try {
-    timelineData = await (await fetch('data/timeline.json')).json();
-  } catch {
-    timelineData = { range: [1956, 2026], routes: [], events: [] };
-  }
-  return timelineData;
-}
-
-function renderTimeline() {
-  return frame('tl.title', 'tl.sub', '<div id="tlBody" class="tl-wrap"></div>');
-}
-
-function paintTimeline(year) {
-  const d = timelineData;
-  const done = d.routes.filter((r) => r.year && r.year <= year);
-  const mi = done.reduce((s, r) => s + (r.mi || 0), 0);
-  const events = d.events.filter((e) => e.year === year);
-
-  document.getElementById('tlYear').textContent = year;
-  document.getElementById('tlCount').textContent = num(done.length);
-  document.getElementById('tlMiles').textContent = num(mi);
-  const pct = ((year - d.range[0]) / (d.range[1] - d.range[0])) * 100;
-  document.getElementById('tlRange').style.setProperty('--pct', `${pct}%`);
-
-  document.getElementById('tlEvents').innerHTML = events.length
-    ? events.map((e) => `<div class="tl-ev${e.system ? ' sys' : ''}">
-        <b>${e.year}</b>
-        <span>${esc(e[getLang()] || e.en)}
-        ${e.source ? `<span class="src">${esc(e.source)}</span>` : ''}</span>
-      </div>`).join('')
-    : `<p class="res-empty" style="padding:10px 0">${t('tl.noEvents')}</p>`;
-
-  // Drive the map: only routes documented as open by this year stay visible.
-  const ids = done.map((r) => r.id);
-  if (app.map.getLayer('rt-interstate')) {
-    for (const layer of ['rt-interstate', 'rt-interstate-glow', 'rt-interstate-label']) {
-      app.map.setFilter(layer, ['in', ['get', 'id'], ['literal', ids]]);
-    }
-  }
-}
-
-function restoreTimelapse() {
-  if (!app.map?.getLayer('rt-interstate')) return;
-  for (const layer of ['rt-interstate', 'rt-interstate-glow', 'rt-interstate-label']) {
-    app.map.setFilter(layer, null);
-  }
-}
-
-async function wireTimeline() {
-  const d = await ensureTimeline();
-  const host = document.getElementById('tlBody');
-  if (!d.routes.length) {
-    host.innerHTML = `<p class="res-empty">${getLang() === 'zh'
-      ? '尚无有据可查的建成年份数据。时间轴只显示有确切年份记载的路线，因此暂时为空。'
-      : 'No documented completion years are available yet. The timeline only shows routes with a sourced year, so it stays empty until those are written.'}</p>`;
-    return;
-  }
-
-  host.innerHTML = `
-    <div class="tl-year"><b id="tlYear">${d.range[0]}</b><span id="tlNote">${t('tl.sub')}</span></div>
-    <div class="tl-track">
-      <input type="range" id="tlRange" min="${d.range[0]}" max="${d.range[1]}" value="${d.range[0]}" style="width:100%">
-      <div class="tl-ticks"><span>${d.range[0]}</span><span>${Math.round((d.range[0] + d.range[1]) / 2)}</span><span>${d.range[1]}</span></div>
-    </div>
-    <div style="display:flex;gap:8px">
-      <button class="btn" id="tlPlay" type="button" style="border:1px solid var(--line)">
-        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M7 4l13 8-13 8z"/></svg>
-        <span id="tlPlayLabel">${t('tl.play')}</span>
-      </button>
-    </div>
-    <div class="tl-stat">
-      <div class="m"><span class="m-k">${t('tl.complete')}</span><div class="m-v" id="tlCount">0</div></div>
-      <div class="m"><span class="m-k">${t('tl.miles')}</span><div class="m-v" id="tlMiles">0</div></div>
-    </div>
-    <div class="dash-card"><h3>${t('tl.events')}</h3><div class="in"><div class="tl-list" id="tlEvents"></div></div></div>`;
-
-  const range = document.getElementById('tlRange');
-  range.addEventListener('input', () => paintTimeline(Number(range.value)));
-  document.getElementById('tlPlay').addEventListener('click', () => {
-    const label = document.getElementById('tlPlayLabel');
-    if (timelineTimer) {
-      clearInterval(timelineTimer);
-      timelineTimer = null;
-      label.textContent = t('tl.play');
-      return;
-    }
-    label.textContent = t('tl.pause');
-    timelineTimer = setInterval(() => {
-      let y = Number(range.value) + 1;
-      if (y > d.range[1]) y = d.range[0];
-      range.value = y;
-      paintTimeline(y);
-    }, 420);
-  });
-  paintTimeline(d.range[0]);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -507,7 +399,7 @@ function paintPlanner() {
         <span class="tp-leg-n">${i + 1}</span>
         <span class="tp-leg-bd">
           <span class="tp-leg-t">${r.label}</span>
-          <span class="tp-leg-s">${miles(r.mi)} · ${r.sys === 'state' ? stateName(r.st) : t(`sys.${r.sys}`)} · ${num(r.gs, r.gs % 1 ? 1 : 0)}% ${t('dt.gradeSep').toLowerCase()}</span>
+          <span class="tp-leg-s">${miles(r.mi)} · ${ownerLabel(r.sys, r.st)} · ${num(r.gs, r.gs % 1 ? 1 : 0)}% ${t('dt.gradeSep').toLowerCase()}</span>
         </span>
         <button class="tp-leg-x" data-rm="${r.id}" type="button" aria-label="Remove">
           <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -546,23 +438,37 @@ function paintPlanner() {
 function wirePlanner() { paintPlanner(); }
 
 /* ══════════════════════════════════════════════════════════════════════
-   State picker
+   Jurisdiction picker
+
+   One picker, two tiers. American state routes and Canadian provincial
+   highways are the same problem - too much geometry to ship as one file, so
+   the reader chooses where to look - and they get the same sheet, filtered to
+   the country that asked for it.
    ══════════════════════════════════════════════════════════════════════ */
 
-function renderStates() {
-  const s = app.stats;
-  const rows = Object.entries(s.byState).sort((a, b) => stateName(a[0]).localeCompare(stateName(b[0])));
-  return frame('sys.pickState', 'sys.state.meta', `
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden">
-      ${rows.map(([st, v]) => `<button class="sys" data-load="${st}" type="button" style="border:0;background:var(--panel-solid)">
+function renderJurisdictions(sys) {
+  const ca = sys === 'provincial';
+  const rows = Object.entries(app.stats.byState)
+    .filter(([code]) => isProvince(code) === ca)
+    .sort((a, b) => stateName(a[0]).localeCompare(stateName(b[0]), getLang() === 'zh' ? 'zh' : 'en'));
+
+  return frame(ca ? 'sys.pickProvince' : 'sys.pickState', `sys.${sys}.meta`, `
+    <div class="jur-grid">
+      ${rows.map(([code, v]) => `<button class="sys jur" data-load="${code}" type="button">
         <span class="sys-txt">
-          <span class="sys-name">${stateName(st)}</span>
-          <span class="sys-meta">${num(v.routes)} · ${miles(v.state)}</span>
+          <span class="sys-name">${stateName(code)}</span>
+          <span class="sys-meta">${num(v[sys] ? v.routes : 0)} · ${miles(v[sys] || 0)}</span>
         </span>
-        ${app.stateLoaded.has(st) ? '<span class="pill">on</span>' : ''}
+        ${app.stateLoaded.has(code) ? '<span class="pill">on</span>' : ''}
       </button>`).join('')}
-    </div>`);
+    </div>
+    ${ca ? `<div class="note" style="margin-top:13px">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
+      <span>${t('ca.municipalWhy')}</span></div>` : ''}`);
 }
+
+const renderStates = () => renderJurisdictions('state');
+const renderProvinces = () => renderJurisdictions('provincial');
 
 function wireStates() {
   for (const btn of document.querySelectorAll('[data-load]')) {

@@ -10,7 +10,7 @@
    the gap so a drive still feels continuous. */
 
 import { t, num } from './i18n.js';
-import { app, toast } from './app.js';
+import { app, toast, shieldHtml } from './app.js';
 
 const TRAIL_SRC = 'fly-trail';
 const HEAD_SRC = 'fly-head';
@@ -186,11 +186,10 @@ function renderPanel() {
   el.classList.add('on');
 }
 
-function shield(meta) {
-  const cls = meta.sys === 'interstate' ? 'shield-i' : meta.sys === 'us' ? 'shield-us' : 'shield-st';
-  const text = meta.sys === 'state' ? `${meta.st}·${meta.num}` : meta.num;
-  return `<span class="shield ${cls}">${text}</span>`;
-}
+// The one marker renderer, shared with the sidebar. This used to draw its own
+// and set a state route's text to "CA·87", which no real sign does and which
+// overflowed the marker at three digits.
+const shield = (meta) => shieldHtml(meta);
 
 const SPEEDS = [1, 2, 4, 0.5];
 

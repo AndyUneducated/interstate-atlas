@@ -1,16 +1,38 @@
-/* Interstate Atlas — map surface, route selection, search.
+/* Highway Atlas — map surface, route selection, search.
    Detail panel, overlay sheets and the flythrough live in their own modules. */
 
-import { t, setLang, getLang, stateName, miles } from './i18n.js';
+import {
+  t, setLang, getLang, stateName, miles, isProvince, jurisdictionNames, routeLabel,
+  ownerLabel,
+} from './i18n.js';
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen, refreshPlannerIfOpen } from './sheets.js';
 import { startFly, stopFly, isFlying } from './fly.js';
+import { openTimelapse, closeTimelapse, isTimelapseOn } from './timelapse.js';
 
+/**
+ * The six route systems, grouped by country.
+ *
+ * Three American, three Canadian, and the two sets are not translations of
+ * each other: Canada has no signed national system, so its tiers are
+ * designations rather than shields. `perJuris` marks the two tiers too large
+ * to draw at once - 6,750 state routes and several thousand provincial ones -
+ * which load a jurisdiction at a time from their own directory.
+ */
 const SYSTEMS = [
-  { id: 'interstate', code: 'i', colour: '#35e7ff', src: 'data/geo/interstate.json', on: true },
-  { id: 'us', code: 'u', colour: '#ffb545', src: 'data/geo/us.json', on: false },
-  { id: 'state', code: 's', colour: '#a98bff', src: null, on: false },
+  { id: 'interstate', code: 'i', cc: 'us', colour: '#35e7ff', src: 'data/geo/interstate.json', on: true },
+  { id: 'us', code: 'u', cc: 'us', colour: '#ffb545', src: 'data/geo/us.json', on: false },
+  { id: 'state', code: 's', cc: 'us', colour: '#a98bff', src: null, dir: 'state', perJuris: true, on: false },
+  { id: 'tch', code: 't', cc: 'ca', colour: '#ff4d6d', src: 'data/geo/tch.json', on: true },
+  { id: 'nhs', code: 'n', cc: 'ca', colour: '#4fe3b0', src: 'data/geo/nhs.json', on: false },
+  { id: 'provincial', code: 'r', cc: 'ca', colour: '#ff9ecb', src: null, dir: 'provincial', perJuris: true, on: false },
 ];
+
+const SYS_BY_CODE = Object.fromEntries(SYSTEMS.map((s) => [s.code, s.id]));
+const PER_JURIS = new Set(SYSTEMS.filter((s) => s.perJuris).map((s) => s.id));
+
+/** True for the tiers that ship one file per state or province. */
+function isPerJuris(sys) { return PER_JURIS.has(sys); }
 
 export const app = {
   map: null,
@@ -59,8 +81,8 @@ function applyStaticStrings() {
   document.getElementById('bootTitle').textContent = t('boot.title');
   document.getElementById('bootSub').textContent = t('boot.sub');
   document.title = getLang() === 'zh'
-    ? '美国公路图谱 — 美国国家公路网'
-    : 'Interstate Atlas — the highway network of the United States';
+    ? '北美公路图谱 — 北美国家公路网'
+    : 'Highway Atlas — the highway network of North America';
 }
 
 export function relabel() {
@@ -78,12 +100,15 @@ export function relabel() {
 async function loadIndex() {
   const res = await fetch('data/index.json');
   const raw = await res.json();
-  const sysOf = { i: 'interstate', u: 'us', s: 'state' };
   const tierOf = { p: 'primary', a: 'auxiliary', x: 'special', s: 'state' };
-  app.index = raw.routes.map(([id, label, sys, tier, st, mi, base, num, cx, cy, gs, ns]) => ({
-    id, label, sys: sysOf[sys], tier: tierOf[tier], st, mi, base, num, cx, cy, gs, ns,
-    // Pre-lowered haystack so keystroke filtering stays cheap across 7,500 rows.
-    hay: `${label} ${num} ${st}`.toLowerCase(),
+  app.index = raw.routes.map(([id, label, sys, tier, st, mi, base, num, cx, cy, gs, ns, where]) => ({
+    id, label, sys: SYS_BY_CODE[sys], tier: tierOf[tier], st, mi, base, num, cx, cy, gs, ns, where,
+    // Pre-lowered haystack so keystroke filtering stays cheap across 11,000
+    // rows. The jurisdiction's full name is in it too, so "ontario" and
+    // "saskatchewan" find their routes without the user knowing the code. So
+    // is the place a shared number is told apart by, so "ON 4 Chatham" picks
+    // the right one out of the thirty-eight roads Ontario numbers 4.
+    hay: `${label} ${num} ${st} ${jurisdictionNames(st)} ${where || ''}`.toLowerCase(),
   }));
   for (const r of app.index) app.byId.set(r.id, r);
   app.generated = raw.generated;
@@ -127,13 +152,16 @@ export async function dossierIds() { return dossierIndex(); }
 
 /* ── map ──────────────────────────────────────────────────────────────── */
 
-const US_BOUNDS = [[-125.5, 24.2], [-66.4, 49.6]];
+// The frame the atlas opens on. Wide enough to hold the lower 48 and the
+// Canadian corridor where the network actually is, and it is a promise the
+// region jumps then keep: what is off this edge is reachable, not missing.
+const HOME_BOUNDS = [[-126.5, 25.2], [-58.5, 55.5]];
 
 function buildMap() {
   const map = new maplibregl.Map({
     container: 'map',
     style: 'https://tiles.openfreemap.org/styles/dark',
-    bounds: US_BOUNDS,
+    bounds: HOME_BOUNDS,
     fitBoundsOptions: { padding: { top: 90, bottom: 60, left: 400, right: 80 } },
     maxZoom: 15,
     minZoom: 2.4,
@@ -227,7 +255,7 @@ function addSystemLayers(sys, data) {
     id: `${srcId}-label`,
     type: 'symbol',
     source: srcId,
-    minzoom: sys === 'state' ? 7.5 : 5,
+    minzoom: isPerJuris(sys) ? 7.5 : 5,
     layout: {
       'symbol-placement': 'line',
       'text-field': ['get', 'label'],
@@ -256,10 +284,10 @@ function addSystemLayers(sys, data) {
   });
 }
 
-async function enableSystem(sys) {
+export async function enableSystem(sys) {
   const s = app.systems.get(sys);
   s.on = true;
-  if (sys === 'state') {
+  if (isPerJuris(sys)) {
     renderSystems();
     return;
   }
@@ -283,8 +311,11 @@ function setSystemVisible(sys, on) {
 
 function disableSystem(sys) {
   app.systems.get(sys).on = false;
-  if (sys === 'state') {
-    for (const st of app.stateLoaded) setStateVisible(st, false);
+  const def = SYSTEMS.find((s) => s.id === sys);
+  if (def?.perJuris) {
+    for (const st of app.stateLoaded) {
+      if (systemOfJurisdiction(st) === sys) setStateVisible(st, false);
+    }
   } else {
     setSystemVisible(sys, false);
   }
@@ -292,23 +323,30 @@ function disableSystem(sys) {
   renderResults();
 }
 
-/* state routes load one jurisdiction at a time */
+/* The two numbered-by-jurisdiction tiers - American state routes and Canadian
+   provincial highways - are far too large to ship as one file each, so they
+   load a jurisdiction at a time. State and province codes do not collide, so
+   one registry covers both; only the folder and the owning system differ. */
+
+function systemOfJurisdiction(code) { return isProvince(code) ? 'provincial' : 'state'; }
 
 export async function loadState(st) {
   if (app.stateLoaded.has(st)) { setStateVisible(st, true); return; }
+  const sys = systemOfJurisdiction(st);
   toast(t('toast.loadingState', { state: stateName(st) }));
-  const data = await (await fetch(`data/geo/state/${st}.json`)).json();
+  const dir = SYSTEMS.find((s) => s.id === sys).dir;
+  const data = await (await fetch(`data/geo/${dir}/${st}.json`)).json();
   app.stateLoaded.add(st);
-  addStateLayers(st, data);
-  app.systems.get('state').on = true;
+  addStateLayers(st, data, sys);
+  app.systems.get(sys).on = true;
   renderSystems();
   renderResults();
 }
 
-function addStateLayers(st, data) {
+function addStateLayers(st, data, sys = 'state') {
   const map = app.map;
   const srcId = `st-${st}`;
-  const colour = lineColour('state');
+  const colour = lineColour(sys);
   map.addSource(srcId, { type: 'geojson', data, promoteId: 'id' });
   const width = (m) => ['interpolate', ['linear'], ['zoom'], 4, 0.35 * m, 7, 0.9 * m, 11, 2.4 * m];
   // State routes sit beneath the national systems so those stay legible.
@@ -477,7 +515,7 @@ function animateFlow() {
 function findFeature(id) {
   const meta = app.byId.get(id);
   if (!meta) return null;
-  const srcId = meta.sys === 'state' ? `st-${meta.st}` : `rt-${meta.sys}`;
+  const srcId = isPerJuris(meta.sys) ? `st-${meta.st}` : `rt-${meta.sys}`;
   const src = app.map.getSource(srcId);
   const data = src?._data;
   if (!data?.features) return null;
@@ -488,8 +526,8 @@ export async function select(id, { feature = null, fit = true } = {}) {
   const meta = app.byId.get(id);
   if (!meta) return;
 
-  if (meta.sys === 'state' && !app.stateLoaded.has(meta.st)) await loadState(meta.st);
-  else if (meta.sys !== 'state' && !app.loaded.has(meta.sys)) await enableSystem(meta.sys);
+  if (isPerJuris(meta.sys) && !app.stateLoaded.has(meta.st)) await loadState(meta.st);
+  else if (!isPerJuris(meta.sys) && !app.loaded.has(meta.sys)) await enableSystem(meta.sys);
 
   // A caller may pass the feature it has, but the loaded copy wins when there
   // is one; see findFeature for why a clicked feature cannot be trusted.
@@ -705,35 +743,55 @@ export function toggleTerrain(force) {
 
 /* ── region jumps ─────────────────────────────────────────────────────── */
 
-// The opening view frames the lower 48, which is the right default and also
-// the reason Alaska, Hawaii and Puerto Rico read as missing: nothing hints
-// that the map continues past the frame. One tap each.
+// The opening view frames the settled band of both countries, which is where
+// nearly all of the pavement is. Everything outside it - Alaska, Hawaii,
+// Puerto Rico, the Canadian north - is real and mapped but off the edge, and
+// nothing on a map hints that it continues past the frame. One tap each.
 const REGIONS = [
-  { key: 'l48', i18n: 'jump.l48', bounds: [[-125.5, 24.2], [-66.4, 49.6]] },
-  { key: 'ak', i18n: 'jump.ak', st: 'AK', bounds: [[-169.5, 52.0], [-129.5, 71.5]] },
-  { key: 'hi', i18n: 'jump.hi', st: 'HI', bounds: [[-160.4, 18.8], [-154.7, 22.4]] },
-  { key: 'pr', i18n: 'jump.pr', st: 'PR', bounds: [[-67.4, 17.85], [-65.2, 18.6]] },
+  { group: 'us', key: 'na', i18n: 'jump.na', bounds: [[-168, 17], [-52, 71]] },
+  { group: 'us', key: 'l48', i18n: 'jump.l48', bounds: [[-125.5, 24.2], [-66.4, 49.6]] },
+  { group: 'us', key: 'ak', i18n: 'jump.ak', st: 'AK', bounds: [[-169.5, 52.0], [-129.5, 71.5]] },
+  { group: 'us', key: 'hi', i18n: 'jump.hi', st: 'HI', bounds: [[-160.4, 18.8], [-154.7, 22.4]] },
+  { group: 'us', key: 'pr', i18n: 'jump.pr', st: 'PR', bounds: [[-67.4, 17.85], [-65.2, 18.6]] },
+  { group: 'ca', key: 'ca', i18n: 'jump.ca', bounds: [[-141, 41.5], [-52.5, 70]] },
+  { group: 'ca', key: 'cawest', i18n: 'jump.cawest', bounds: [[-139, 48.2], [-94, 60.5]] },
+  { group: 'ca', key: 'caeast', i18n: 'jump.caeast', bounds: [[-95.5, 41.6], [-52.5, 62]] },
+  { group: 'ca', key: 'canorth', i18n: 'jump.canorth', bounds: [[-141, 58], [-61, 71]] },
 ];
 
 function renderJumps() {
   const host = document.getElementById('jumps');
   host.innerHTML = '';
-  for (const r of REGIONS) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'jump';
-    b.textContent = t(r.i18n);
-    b.addEventListener('click', async () => {
-      app.map.fitBounds(r.bounds, {
-        padding: { top: 90, bottom: 70, left: document.body.classList.contains('shell-off') ? 40 : 400, right: 80 },
-        duration: 1500,
+  for (const group of ['us', 'ca']) {
+    const row = document.createElement('div');
+    row.className = 'jump-row';
+    const label = document.createElement('i');
+    label.className = `flagdot flag-${group}`;
+    label.title = t(`sys.country.${group}`);
+    row.appendChild(label);
+
+    for (const r of REGIONS.filter((x) => x.group === group)) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'jump';
+      // Addressed by key rather than by position: the row these sit in has
+      // grown twice now, and anything counting from the left breaks each time.
+      b.dataset.jump = r.key;
+      b.textContent = t(r.i18n);
+      b.addEventListener('click', async () => {
+        app.map.fitBounds(r.bounds, {
+          padding: { top: 90, bottom: 70, left: document.body.classList.contains('shell-off') ? 40 : 400, right: 80 },
+          duration: 1500,
+        });
+        // Flying somewhere with nothing drawn on it is how Alaska came to look
+        // absent in the first place. Alaska now has its four Interstates, but
+        // Hawaii's and Puerto Rico's networks are state routes, which load per
+        // jurisdiction, so bring them along.
+        if (r.st && !app.stateLoaded.has(r.st)) await loadState(r.st);
       });
-      // Flying somewhere with nothing drawn on it is how Alaska came to look
-      // absent in the first place. Outside the lower 48 the only routes are
-      // state routes, which load per state, so bring them along.
-      if (r.st && !app.stateLoaded.has(r.st)) await loadState(r.st);
-    });
-    host.appendChild(b);
+      row.appendChild(b);
+    }
+    host.appendChild(row);
   }
 }
 
@@ -746,29 +804,39 @@ function renderSystems() {
   const milesBy = app.stats?.bySystem || {};
 
   host.innerHTML = '';
-  for (const s of SYSTEMS) {
-    const live = app.systems.get(s.id);
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = `sys${live.on ? ' on' : ''}`;
-    btn.dataset.sys = s.id;
-    const mi = milesBy[s.id]?.mi;
-    btn.innerHTML = `
-      <span class="sys-dot"></span>
-      <span class="sys-txt">
-        <span class="sys-name">${t(`sys.${s.id}`)}</span>
-        <span class="sys-meta">${t(`sys.${s.id}.meta`)}${mi ? ` · ${miles(mi)}` : ''}</span>
-      </span>
-      <span class="sys-count">${t('sys.routes', { n: (counts[s.id] || 0).toLocaleString() })}</span>`;
-    btn.addEventListener('click', () => {
-      if (s.id === 'state') {
-        openSheet('states');
-        return;
-      }
-      if (app.systems.get(s.id).on) disableSystem(s.id);
-      else enableSystem(s.id);
-    });
-    host.appendChild(btn);
+  // Grouped by country, because the two sets of tiers are not equivalents of
+  // one another and listing all six flat invited reading them as one ladder.
+  for (const cc of ['us', 'ca']) {
+    const head = document.createElement('p');
+    head.className = 'sys-country';
+    head.innerHTML = `<i class="flagdot flag-${cc}"></i>${t(`sys.country.${cc}`)}`;
+    host.appendChild(head);
+
+    for (const s of SYSTEMS.filter((x) => x.cc === cc)) {
+      const live = app.systems.get(s.id);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `sys${live.on ? ' on' : ''}`;
+      btn.dataset.sys = s.id;
+      btn.style.setProperty('--sys-col', s.colour);
+      const mi = milesBy[s.id]?.mi;
+      btn.innerHTML = `
+        <span class="sys-dot"></span>
+        <span class="sys-txt">
+          <span class="sys-name">${t(`sys.${s.id}`)}</span>
+          <span class="sys-meta">${t(`sys.${s.id}.meta`)}${mi ? ` · ${miles(mi)}` : ''}</span>
+        </span>
+        <span class="sys-count">${t('sys.routes', { n: (counts[s.id] || 0).toLocaleString() })}</span>`;
+      btn.addEventListener('click', () => {
+        if (s.perJuris) {
+          openSheet(s.id === 'state' ? 'states' : 'provinces');
+          return;
+        }
+        if (app.systems.get(s.id).on) disableSystem(s.id);
+        else enableSystem(s.id);
+      });
+      host.appendChild(btn);
+    }
   }
 }
 
@@ -815,13 +883,47 @@ export function searchRoutes(text, { limit = 300, systemsOnly = true } = {}) {
   return { total: out.length, rows: out.slice(0, limit) };
 }
 
+// One marker class per system. Each is drawn in CSS after the real sign: the
+// Interstate's red header band, the US route's white escutcheon, the
+// Trans-Canada's green with its maple leaf, and a jurisdiction-tinted marker
+// for the two numbered-by-jurisdiction tiers.
+const SHIELD_CLASS = {
+  interstate: 'shield-i',
+  us: 'shield-us',
+  state: 'shield-st',
+  tch: 'shield-tch',
+  nhs: 'shield-nhs',
+  provincial: 'shield-pr',
+};
+
+// Four Canadian provinces sign a marker distinctive enough to be worth drawing
+// rather than tinting: Ontario's crown over the number on its King's Highways,
+// Quebec's green autoroute plate, British Columbia's dogwood blossom, and
+// Alberta's black-on-white rounded shield. The rest sign a plain white square
+// or circle that the tinted default already reads as.
+//
+// Quebec is the one that depends on the number rather than the province, since
+// an autoroute and a route nationale carry different signs in the same
+// province: A-20 is the green plate, Route 132 is not.
+const PROV_SHIELD = { ON: 'shield-on', BC: 'shield-bc', AB: 'shield-ab' };
+
+function provincialShield(r) {
+  if (r.st === 'QC') return /^A/i.test(String(r.num ?? '')) ? 'shield-qca' : 'shield-qc';
+  return PROV_SHIELD[r.st] || 'shield-pr';
+}
+
 export function shieldHtml(r, big = false) {
-  const cls = r.sys === 'interstate' ? 'shield-i' : r.sys === 'us' ? 'shield-us' : 'shield-st';
+  let cls = SHIELD_CLASS[r.sys] || 'shield-st';
+  // A designated route still wears its province's sign - the National Highway
+  // System is a designation, not a marker, and nothing is signed "NHS".
+  if (cls === 'shield-pr' || cls === 'shield-nhs') cls = provincialShield(r);
   // The number and nothing else. State routes used to read "CA·87" inside the
   // marker, which no real shield does and which no circle that size can hold.
-  // Every one of these already has its state named beside it.
+  // Every one of these already has its jurisdiction named beside it.
   const text = String(r.num ?? '').replace(/[<>&]/g, '');
-  return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" title="${cls === 'shield-st' ? `${r.st} ` : ''}${text}">${text}</span>`;
+  const prefixed = cls !== 'shield-i' && cls !== 'shield-us' && cls !== 'shield-tch';
+  return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" `
+    + `title="${prefixed ? `${r.st} ` : ''}${text}">${text}</span>`;
 }
 
 function renderResults() {
@@ -841,9 +943,17 @@ function renderResults() {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = `res${app.selected === r.id ? ' sel' : ''}`;
-    const sub = r.sys === 'state'
-      ? stateName(r.st)
-      : `${r.ns} ${t('dt.states').toLowerCase()} · ${r.gs}% ${t('dt.gradeSep').toLowerCase()}`;
+    // A state or provincial route wants its jurisdiction named; a national
+    // route wants the shape of its run, since its name already says the
+    // system. Either way, a route sharing its number with another leads with
+    // the place that tells them apart, because without it the rows are
+    // indistinguishable and the reader has to open each one.
+    const sub = r.where
+      ? `${stateName(r.st)} · ${r.where}`
+      : isPerJuris(r.sys)
+        ? stateName(r.st)
+        : `${r.ns} ${t(isProvince(r.st) ? 'dt.provinces' : 'dt.states').toLowerCase()}`
+          + ` · ${r.gs}% ${t('dt.gradeSep').toLowerCase()}`;
     const written = writtenIds.has(r.id)
       ? `<span class="res-pen" title="${t('search.written')}"></span>` : '';
     b.innerHTML = `${shieldHtml(r)}
@@ -939,7 +1049,7 @@ function renderPalette() {
     for (const r of rows) {
       item(`<span class="ico-w">${shieldHtml(r)}</span>
         <span class="pal-it-txt"><span class="pal-it-name">${r.label}</span>
-        <span class="pal-it-sub">${r.sys === 'state' ? stateName(r.st) : t(`sys.${r.sys}`)} · ${miles(r.mi)}</span></span>`,
+        <span class="pal-it-sub">${ownerLabel(r.sys, r.st)}${r.where ? ` · ${r.where}` : ''} · ${miles(r.mi)}</span></span>`,
       () => select(r.id));
     }
   }
@@ -1024,9 +1134,15 @@ function wire() {
   document.getElementById('btnTerrain').addEventListener('click', () => toggleTerrain());
   document.getElementById('btnPalette').addEventListener('click', openPalette);
   for (const [btn, key] of [['btnNumbering', 'numbering'], ['btnDash', 'dashboard'],
-    ['btnTimeline', 'timeline'], ['btnPlanner', 'planner'], ['btnAbout', 'about']]) {
+    ['btnPlanner', 'planner'], ['btnAbout', 'about']]) {
     document.getElementById(btn).addEventListener('click', () => openSheet(key));
   }
+  // The buildout view docks over the map instead of opening a sheet, because
+  // a modal that covers the map cannot show the map changing.
+  document.getElementById('btnTimeline').addEventListener('click', () => {
+    document.getElementById('btnTimeline').classList.toggle('on', !isTimelapseOn());
+    openTimelapse();
+  });
 
   document.getElementById('palQ').addEventListener('input', renderPalette);
   document.getElementById('palette').addEventListener('click', (e) => {

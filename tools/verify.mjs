@@ -355,7 +355,7 @@ await step('base maps switch', async () => {
 await shot('11-relief.png');
 
 await step('region jump brings Alaska and its routes', async () => {
-  await page.locator('#jumps .jump').nth(1).click();
+  await page.click('[data-jump="ak"]');
   await page.waitForTimeout(3800);
   const { lat, feats } = await page.evaluate(() => ({
     lat: window.__map.getCenter().lat,
@@ -365,6 +365,52 @@ await step('region jump brings Alaska and its routes', async () => {
   if (!feats) throw new Error('reached Alaska with no Alaska routes loaded');
 });
 await shot('12-alaska.png');
+
+await step('Alaska has its four unsigned Interstates', async () => {
+  // Alaska's Interstates carry no shields, so they cannot be read out of the
+  // geometry and are declared instead. If that declaration stops being
+  // applied, Alaska silently goes back to looking like it has no Interstates.
+  const found = await page.evaluate(() => (window.__map.getSource('rt-interstate')?._data.features || [])
+    .filter((f) => f.properties.label?.startsWith('A-'))
+    .map((f) => f.properties.label).sort());
+  const want = ['A-1', 'A-2', 'A-3', 'A-4'];
+  if (want.some((w) => !found.includes(w))) {
+    throw new Error(`expected ${want.join(' ')}, found ${found.join(' ') || 'none'}`);
+  }
+});
+
+await step('Trans-Canada draws by default', async () => {
+  await page.click('[data-jump="ca"]');
+  await page.waitForTimeout(2600);
+  const n = await waitForSource('rt-tch');
+  if (n < 5) throw new Error(`only ${n} Trans-Canada routes`);
+});
+await shot('13-canada.png');
+
+await step('a Canadian route reads with Canadian metrics', async () => {
+  await page.fill('#q', 'TCH 1');
+  await page.waitForTimeout(700);
+  await page.locator('#results .res').first().click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(2200);
+  const keys = await page.locator('.mgrid .m-k').allTextContents();
+  // Canada publishes lanes and posted speeds and has no toll attribute at all,
+  // so the panel must not be showing the American metric set.
+  if (!keys.some((k) => /lanes/i.test(k))) throw new Error(`no lane metric among ${JSON.stringify(keys)}`);
+  if (keys.some((k) => /tolled/i.test(k))) throw new Error('showing a tolled share Canada does not publish');
+  const facts = await page.locator('.ca-facts .fig-k').allTextContents();
+  if (!facts.length) throw new Error('no Canadian designation facts shown');
+});
+await shot('14-canada-detail.png');
+
+await step('provincial highways load by province', async () => {
+  await page.keyboard.press('Escape');
+  await page.click('.sys[data-sys="provincial"]');
+  await page.waitForSelector('[data-load="ON"]', { timeout: 10000 });
+  await page.click('[data-load="ON"]');
+  await waitForSource('st-ON');
+});
+await shot('15-ontario.png');
 
 console.log(`\nsteps failed:    ${failures}`);
 console.log(`console errors:  ${errors.length}`);

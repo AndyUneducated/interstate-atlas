@@ -101,7 +101,7 @@ export function bboxDistanceKm(a, b) {
  * mainline. Everything left over is kept as branch geometry: still drawn, but
  * not treated as part of the through route.
  */
-export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
+function buildGraph(parts, snapDeg, bridgeKm) {
   const buckets = new Map();
   const nodeCoord = [];
 
@@ -191,6 +191,12 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
     }
   }
 
+  return { nodeCoord, edges, find };
+}
+
+export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
+  const { nodeCoord, edges, find } = buildGraph(parts, snapDeg, bridgeKm);
+
   const groups = new Map();
   for (const e of edges) {
     const root = find(e.a);
@@ -223,11 +229,16 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
 
     let pieces = [];
     let gaps = [];
+    let ordered = [];
     const usedEdges = new Set();
     if (best && best.a !== best.b) {
       const path = shortestPath(adj, best.a, best.b);
       if (path) {
         for (const step of path) usedEdges.add(step.e.i);
+        // The path in travel order, which a set cannot express. Anything that
+        // asks a question about the ends of the road - which settlement it
+        // starts at - needs the order, not just the membership.
+        ordered = path.map((s) => s.e).filter((e) => !e.bridge);
         ({ pieces, gaps } = assemblePath(path));
       }
     }
@@ -236,16 +247,31 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
       if (!longest) continue;
       pieces = [longest.coords.slice()];
       usedEdges.add(longest.i);
+      ordered = [longest];
     }
 
     const pavement = compEdges.filter((e) => !e.bridge);
+    // Two different lengths, and they answer two different questions.
+    //
+    // `edges` is every piece of pavement in the component: both carriageways
+    // of a divided highway, every ramp, every service lane. `pathEdges` is
+    // the road you would drive from one end to the other, once.
+    //
+    // Anything presented as the length of a route has to come from the second.
+    // The National Road Network draws each direction of a divided highway as
+    // its own centreline, so summing the first made Ontario's Highway 401
+    // 1,819 km against its published 828, and made Nova Scotia's per-province
+    // bars total seven times the length of the routes above them.
+    const onPath = pavement.filter((e) => usedEdges.has(e.i));
     components.push({
       pieces,
       mainline: pieces.flat(),
       gaps: gaps.sort((a, b) => b - a),
       branches: pavement.filter((e) => !usedEdges.has(e.i)).map((e) => e.coords),
       edges: pavement,
+      pathEdges: ordered.length ? ordered : pavement,
       km: pavement.reduce((s, e) => s + e.km, 0),
+      pathKm: onPath.reduce((s, e) => s + e.km, 0),
     });
   }
 
@@ -326,6 +352,69 @@ export function stitchRoute(parts, { snapDeg = 0.0025, bridgeKm = 60, minCompone
   if (!keep.size) return [];
   const survivors = parts.filter((_, i) => keep.has(i));
   return stitchComponents(survivors, snapDeg, bridgeKm).filter((c) => c.km >= minComponentKm);
+}
+
+/**
+ * Stitch a bag of polylines and return the path between two given points.
+ *
+ * `stitchRoute` infers a route's ends from its geometry, which is right when
+ * the geometry is the route. It is wrong for a designation that overlays part
+ * of something longer: Alaska's unsigned Interstates are defined as stretches
+ * of the state routes they share pavement with, so A-3 is the Soldotna-to-
+ * Anchorage half of a state route that continues to Homer in one direction and
+ * the Yukon in the other. Here the termini are the input and the alignment
+ * falls out of the shortest path between them, so the road still comes from
+ * the source rather than being traced by hand.
+ */
+export function stitchBetween(parts, from, to, { snapDeg = 0.0025, bridgeKm = 60 } = {}) {
+  if (!parts.length) return null;
+  const { nodeCoord, edges, find } = buildGraph(parts, snapDeg, bridgeKm);
+
+  const adj = new Map();
+  for (const e of edges) {
+    if (!adj.has(e.a)) adj.set(e.a, []);
+    if (!adj.has(e.b)) adj.set(e.b, []);
+    adj.get(e.a).push({ to: e.b, e });
+    adj.get(e.b).push({ to: e.a, e });
+  }
+
+  const nearest = (pt) => {
+    let best = null;
+    for (const n of adj.keys()) {
+      const d = haversineKm(pt, nodeCoord[n]);
+      if (!best || d < best.d) best = { d, n };
+    }
+    return best;
+  };
+  const a = nearest(from);
+  const b = nearest(to);
+  if (!a || !b || a.n === b.n) return null;
+  if (find(a.n) !== find(b.n)) return { disconnected: true, snapKm: [a.d, b.d] };
+
+  const path = shortestPath(adj, a.n, b.n);
+  if (!path) return null;
+  const { pieces, gaps } = assemblePath(path);
+  if (!pieces.length) return null;
+
+  const used = new Set(path.map((s) => s.e.i));
+  const onPath = path.map((s) => s.e).filter((e) => !e.bridge);
+  return {
+    pieces,
+    mainline: pieces.flat(),
+    gaps: gaps.sort((x, y) => y - x),
+    branches: [],
+    edges: onPath,
+    // Already a single path from one terminus to the other, so the two
+    // measures coincide here; named for the caller's benefit.
+    pathEdges: onPath,
+    km: onPath.reduce((s, e) => s + e.km, 0),
+    pathKm: onPath.reduce((s, e) => s + e.km, 0),
+    // How far the declared termini sat from the nearest point of real
+    // pavement. A large number means the declaration and the geometry
+    // disagree, which the build reports rather than quietly accepting.
+    snapKm: [Math.round(a.d * 10) / 10, Math.round(b.d * 10) / 10],
+    usedEdges: used,
+  };
 }
 
 export function cumulativeKm(coords) {

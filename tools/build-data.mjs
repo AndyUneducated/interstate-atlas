@@ -14,9 +14,11 @@ import * as shapefile from 'shapefile';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import {
-  bboxOf, haversineKm, lineLengthKm, roundCoords, simplify, stitchComponents, stitchRoute,
+  bboxOf, haversineKm, lineLengthKm, roundCoords, simplify, stitchBetween, stitchComponents,
+  stitchRoute,
 } from './geo.mjs';
 import { STATE_CODE, statesTouch } from './states.mjs';
+import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'tools', 'src');
@@ -139,7 +141,10 @@ function compositionOf(edges) {
   for (const e of edges) {
     total += e.km;
     byType.set(e.props.type || 'Unknown', (byType.get(e.props.type || 'Unknown') || 0) + e.km);
-    const st = STATE_CODE[e.props.state];
+    // The American source names its states in full; the Canadian one is read
+    // per jurisdiction and already carries the two-letter code.
+    const raw = e.props.state;
+    const st = STATE_CODE[raw] || (/^[A-Z]{2}$/.test(raw || '') ? raw : null);
     if (st) byState.set(st, (byState.get(st) || 0) + e.km);
     if (e.props.divided === 'Divided') { divided += e.km; dividedKnown += e.km; }
     else if (e.props.divided === 'Undivided') dividedKnown += e.km;
@@ -285,6 +290,251 @@ function clusterByCorridor(pieces, tier) {
   return pieces.map((p) => [p]);
 }
 
+/**
+ * Build Alaska's four Interstates.
+ *
+ * They are the only Interstates that cannot be read out of a signed-route
+ * dataset, because they are unsigned: no marker, no atlas entry, no `class =
+ * Interstate` row anywhere in the source. Alaska is otherwise the emptiest part
+ * of the map - it has no US routes either, so at any zoom that shows the whole
+ * state there was nothing drawn on it at all.
+ *
+ * So they are declared in content/reference/alaska-interstates.json as the
+ * state routes they overlay plus their termini, and assembled here out of that
+ * same state-route geometry. Nothing is drawn by hand.
+ */
+async function buildAlaskaInterstates(groups, placeGrid) {
+  let spec;
+  try {
+    spec = JSON.parse(await readFile(join(ROOT, 'content', 'reference', 'alaska-interstates.json'), 'utf8'));
+  } catch {
+    console.log('  (no alaska-interstates.json; skipping)');
+    return [];
+  }
+
+  const out = [];
+  for (const [number, def] of Object.entries(spec.routes)) {
+    // Only Alaskan pavement: the component numbers are state-route numbers, and
+    // state routes are numbered per state, so route 1 exists in 40 states.
+    const parts = def.components.flatMap((num) => {
+      const g = groups.get(`state|${num}|AK`);
+      return g ? g.parts : [];
+    });
+    if (!parts.length) {
+      console.log(`  ${number}: no Alaska geometry for state routes ${def.components.join(', ')}`);
+      continue;
+    }
+
+    const comp = stitchBetween(parts, def.from, def.to, { bridgeKm: 60 });
+    if (!comp || comp.disconnected) {
+      console.log(`  ${number}: termini do not connect through the component routes`);
+      continue;
+    }
+    if (Math.max(...comp.snapKm) > 25) {
+      console.log(`  ${number}: declared terminus is ${Math.max(...comp.snapKm)} km off the pavement; skipped`);
+      continue;
+    }
+
+    const stats = compositionOf(comp.edges);
+    const flat = comp.pieces.flat();
+    out.push({
+      key: `interstate|${number}`,
+      system: 'interstate',
+      tier: 'primary',
+      number,
+      base: null,
+      label: number,
+      qualifier: null,
+      unsigned: true,
+      mi: Math.round(comp.pieces.reduce((s, p) => s + lineLengthKm(p), 0) / KM_PER_MI),
+      pavedMi: Math.round(comp.km / KM_PER_MI),
+      spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
+      bbox: bboxOf(comp.pieces).map((v) => Math.round(v * 1000) / 1000),
+      states: stats.states,
+      types: stats.types,
+      gradeSeparated: stats.gradeSeparated,
+      tolled: stats.tolled,
+      unpaved: stats.unpaved,
+      dividedShare: stats.dividedShare,
+      breaks: comp.pieces.length - 1,
+      gapMi: Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI),
+      // The declaration names the termini, so use those rather than whatever
+      // settlement happens to sit nearest the last coordinate.
+      start: { name: def.termini[0], st: 'AK', km: comp.snapKm[0] },
+      end: { name: def.termini[1], st: 'AK', km: comp.snapKm[1] },
+      _pieces: comp.pieces,
+      _branches: [],
+      _primarySt: 'AK',
+    });
+  }
+
+  if (out.length) {
+    console.log(`  ${out.length} unsigned Alaska Interstates: `
+      + out.map((r) => `${r.label} ${r.mi}mi`).join(', '));
+  }
+  return out;
+}
+
+/**
+ * What the Canadian road file records that the American one does not.
+ *
+ * The NRN carries lane count, posted speed and pavement status on every
+ * segment. Those are length-weighted here rather than averaged flat, so a
+ * 200 km two-lane run is not outvoted by a dozen short six-lane pieces through
+ * a city. Anything the source leaves blank stays blank: the share of the route
+ * each figure is actually based on travels with it, so a speed limit measured
+ * over 12% of a road can be presented as exactly that.
+ */
+function canadaMetrics(edges) {
+  let km = 0, tchKm = 0;
+  let laneKm = 0, laneWeighted = 0;
+  let speedKm = 0, speedWeighted = 0;
+  let pavedKm = 0, pavedKnown = 0;
+  for (const e of edges) {
+    km += e.km;
+    if (e.props.tch) tchKm += e.km;
+    if (e.props.lanes) { laneKm += e.km; laneWeighted += e.props.lanes * e.km; }
+    if (e.props.speed) { speedKm += e.km; speedWeighted += e.props.speed * e.km; }
+    if (e.props.paved === true) { pavedKm += e.km; pavedKnown += e.km; }
+    else if (e.props.paved === false) pavedKnown += e.km;
+  }
+  const share = (v) => Math.round((v / Math.max(km, 1e-9)) * 1000) / 10;
+  return {
+    km,
+    tchKm: Math.round(tchKm),
+    tchShare: share(tchKm),
+    lanes: laneKm > 0 ? Math.round((laneWeighted / laneKm) * 10) / 10 : null,
+    lanesCoverage: share(laneKm),
+    speedKph: speedKm > 0 ? Math.round(speedWeighted / speedKm) : null,
+    speedCoverage: share(speedKm),
+    pavedShare: pavedKnown > 0 ? Math.round((pavedKm / pavedKnown) * 1000) / 10 : null,
+    pavedCoverage: share(pavedKnown),
+  };
+}
+
+/** The settlement at one end of a Canadian route, from the road file itself. */
+function canadaTerminus(edges, atStart) {
+  const e = atStart ? edges[0] : edges[edges.length - 1];
+  const name = e?.props.lPlace || e?.props.rPlace;
+  if (!name) return null;
+  // The file records places as "Yukon, Unorganized" and the like for land
+  // outside any municipality, which is a jurisdiction rather than a place.
+  if (/unorganized|unincorporated|not applicable/i.test(name)) return null;
+  const st = e.props.state;
+  return { name: name.replace(/\s*\((RM|MD|ID|County|Municipality)[^)]*\)$/i, ''), st, km: 0 };
+}
+
+/**
+ * Build Canada.
+ *
+ * Structurally the same job as the American side and deliberately written to
+ * mirror it, so a Canadian route carries the same fields, gets the same
+ * treatment and lands in the same index. The differences are all in the
+ * source: route numbers restart at every provincial border, so every route is
+ * keyed by jurisdiction; there is no national signed system to key against;
+ * and the tier has to be measured rather than read, because carrying the
+ * Trans-Canada is something a road does for part of its length.
+ */
+async function buildCanada() {
+  const src = await loadCanada(ROOT);
+  if (!src) return { routes: [], register: null };
+
+  const routes = [];
+  let done = 0;
+  for (const grp of src.groups.values()) {
+    if (++done % 600 === 0) console.log(`  stitching ${done}/${src.groups.size}`);
+
+    const onNetwork = Boolean(grp.nhsTier);
+    const firstPass = stitchRoute(grp.parts, {
+      bridgeKm: onNetwork ? 60 : 30,
+      minComponentKm: 1.5,
+    });
+    if (!firstPass.length) continue;
+
+    // A designated route is one road, and its breaks are holes in the data or
+    // genuine ferry crossings - British Columbia's Highway 1 reaches Vancouver
+    // Island by ferry - so rebuild it as one corridor. An undesignated number
+    // that comes out in pieces is more often two unrelated stretches, so those
+    // are kept apart and numbered.
+    const clusters = onNetwork && firstPass.length > 1
+      ? [firstPass]
+      : firstPass.map((c) => [c]);
+
+    for (const members of clusters) {
+      let comp = members[0];
+      if (members.length > 1) {
+        const parts = members.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
+        comp = stitchComponents(parts, 0.0025, 1000).sort((a, b) => b.km - a.km)[0];
+      }
+      if (!comp || comp.km < 1.5) continue;
+
+      // Measured over the road as driven, not over every centreline in the
+      // corridor: the source draws each direction of a divided highway
+      // separately, so the two carriageways would otherwise both be counted.
+      const stats = compositionOf(comp.pathEdges);
+      const extra = canadaMetrics(comp.pathEdges);
+      const system = canadaSystem(grp, extra);
+      const pieces = orientMainline(comp.pieces);
+      const flat = pieces.flat();
+      const label = canadaLabel(grp, system);
+      const names = [...grp.names.en].filter((n) => !/^trans[- ]canada/i.test(n));
+
+      routes.push({
+        // Same shape as the American keys - system, number, jurisdiction - so
+        // id assignment, deduplication and per-jurisdiction splitting all work
+        // on Canadian routes without knowing they are Canadian. No province
+        // code collides with a state code, so the slugs stay unambiguous.
+        key: `${system}|${grp.number}|${grp.pr}`,
+        // Lower case to match the country codes the interface switches on,
+        // in the system table and in the region jumps.
+        country: 'ca',
+        system,
+        tier: system === 'provincial' ? 'state' : 'primary',
+        number: grp.number,
+        base: Number.parseInt(grp.number, 10) || null,
+        label: label.en,
+        labelZh: label.zh,
+        qualifier: null,
+        nhsTier: grp.nhsTier,
+        tchKm: extra.tchKm,
+        tchShare: extra.tchShare,
+        lanes: extra.lanes,
+        lanesCoverage: extra.lanesCoverage,
+        speedKph: extra.speedKph,
+        speedCoverage: extra.speedCoverage,
+        pavedShare: extra.pavedShare,
+        named: names.slice(0, 4),
+        mi: Math.round(pieces.reduce((s, p) => s + lineLengthKm(p), 0) / KM_PER_MI),
+        pavedMi: Math.round(comp.km / KM_PER_MI),
+        spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
+        bbox: bboxOf([...pieces, ...comp.branches]).map((v) => Math.round(v * 1000) / 1000),
+        states: stats.states,
+        types: stats.types,
+        gradeSeparated: stats.gradeSeparated,
+        // The NRN has no toll attribute on road segments; toll points are a
+        // separate layer. Reporting zero would read as "no tolls", which is
+        // not what the source says, so it reports nothing.
+        tolled: null,
+        unpaved: stats.unpaved,
+        dividedShare: stats.dividedShare,
+        breaks: comp.pieces.length - 1,
+        gapMi: Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI),
+        start: canadaTerminus(comp.pathEdges, true),
+        end: canadaTerminus(comp.pathEdges, false),
+        _pieces: pieces,
+        _branches: comp.branches,
+        _primarySt: grp.pr,
+      });
+    }
+  }
+
+  const by = { tch: 0, nhs: 0, provincial: 0 };
+  for (const r of routes) by[r.system]++;
+  console.log(`  ${routes.length} Canadian routes: Trans-Canada ${by.tch}, `
+    + `National Highway System ${by.nhs}, provincial ${by.provincial}`);
+  return { routes, register: src.register };
+}
+
 async function main() {
   console.log('reading roads shapefile...');
   const src = await shapefile.open(
@@ -374,7 +624,9 @@ async function main() {
       if (!comp || comp.km < 1.2) continue;
 
       const pieces = orientMainline(comp.pieces);
-      const stats = compositionOf(comp.edges);
+      // Over the driven path, so the per-state mileage sums to the length
+      // shown above it rather than to the length of every ramp as well.
+      const stats = compositionOf(comp.pathEdges);
       const primarySt = stats.states[0]?.st || 'XX';
       const flat = pieces.flat();
       const bbox = bboxOf([...pieces, ...comp.branches]);
@@ -411,6 +663,13 @@ async function main() {
     }
   }
 
+  console.log('composing unsigned Alaska Interstates...');
+  routes.push(...await buildAlaskaInterstates(groups, placeGrid));
+
+  console.log('\nreading Canadian road network...');
+  const canada = await buildCanada();
+  routes.push(...canada.routes);
+
   // Stable, readable ids. Interstates and US routes are unique nationally
   // unless the number is genuinely reused, in which case the state breaks the
   // tie (i-84-or versus i-84-ct).
@@ -442,6 +701,35 @@ async function main() {
     if (n > 1) r.id = `${r.id}-${n}`;
   }
 
+  // Tell namesakes apart by where they are.
+  //
+  // A number is not unique inside a jurisdiction. Kentucky 80 arrives in five
+  // disconnected stretches, and Ontario files county roads under the same
+  // numbers as its provincial highways, so "ON 4" is Highway 4 plus some
+  // thirty-five unrelated county roads that share the digit. The ids are
+  // distinct, but the labels were not, so a search for a number returned a
+  // column of identical rows and the reader had to click each one to find out
+  // which road it was.
+  //
+  // The disambiguator is the route's own terminus, which is measured rather
+  // than assigned, so nothing here invents a name for a road.
+  for (const rs of byKey.values()) {
+    if (rs.length < 2) continue;
+    for (const r of rs) {
+      const p = r.start?.name && r.start.name !== r.end?.name ? r.start : (r.end || r.start);
+      if (p?.name) r.where = p.name;
+    }
+    // Where two siblings would end up with the same disambiguator it says
+    // nothing, so fall back to naming both ends.
+    const seen = new Map();
+    for (const r of rs) seen.set(r.where, (seen.get(r.where) || 0) + 1);
+    for (const r of rs) {
+      if (r.where && seen.get(r.where) > 1 && r.start?.name && r.end?.name) {
+        r.where = `${r.start.name} – ${r.end.name}`;
+      }
+    }
+  }
+
   attachOfficial(routes, await loadOfficial());
 
   routes.sort((a, b) => b.mi - a.mi);
@@ -466,12 +754,26 @@ async function main() {
         breaks: r.breaks, gapMi: r.gapMi, np: main.length,
         states: r.states, types: r.types,
         start: r.start, end: r.end,
+        where: r.where ?? null,
+        unsigned: r.unsigned ?? null,
+        // Canada only: the designation tier, how much of the route carries the
+        // Trans-Canada, and the three things the NRN records that the American
+        // source does not. Each is null everywhere it does not apply, so the
+        // detail panel can simply ask.
+        cc: r.country ?? null,
+        nhsTier: r.nhsTier ?? null,
+        tchKm: r.tchKm ?? null, tchShare: r.tchShare ?? null,
+        lanes: r.lanes ?? null, lanesCov: r.lanesCoverage ?? null,
+        kph: r.speedKph ?? null, kphCov: r.speedCoverage ?? null,
+        pavedShare: r.pavedShare ?? null,
+        named: r.named ?? null,
       },
       geometry: { type: 'MultiLineString', coordinates: [...main, ...branches] },
     };
   };
 
   await mkdir(join(OUT, 'geo', 'state'), { recursive: true });
+  await mkdir(join(OUT, 'geo', 'provincial'), { recursive: true });
   const write = (path, data) => writeFile(path, JSON.stringify(data));
   const collection = (feats) => ({ type: 'FeatureCollection', features: feats });
 
@@ -479,14 +781,23 @@ async function main() {
     collection(routes.filter((r) => r.system === 'interstate').map((r) => featureOf(r, 0.004))));
   await write(join(OUT, 'geo', 'us.json'),
     collection(routes.filter((r) => r.system === 'us').map((r) => featureOf(r, 0.005))));
+  await write(join(OUT, 'geo', 'tch.json'),
+    collection(routes.filter((r) => r.system === 'tch').map((r) => featureOf(r, 0.004))));
+  await write(join(OUT, 'geo', 'nhs.json'),
+    collection(routes.filter((r) => r.system === 'nhs').map((r) => featureOf(r, 0.005))));
 
-  const byState = new Map();
-  for (const r of routes.filter((x) => x.system === 'state')) {
-    if (!byState.has(r._primarySt)) byState.set(r._primarySt, []);
-    byState.get(r._primarySt).push(r);
-  }
-  for (const [st, rs] of byState) {
-    await write(join(OUT, 'geo', 'state', `${st}.json`), collection(rs.map((r) => featureOf(r, 0.006))));
+  // The two big per-jurisdiction tiers load one jurisdiction at a time: all of
+  // them at once is 6,750 state routes and several thousand provincial ones,
+  // which is far more than any one view needs.
+  for (const [system, dir, tol] of [['state', 'state', 0.006], ['provincial', 'provincial', 0.006]]) {
+    const byJuris = new Map();
+    for (const r of routes.filter((x) => x.system === system)) {
+      if (!byJuris.has(r._primarySt)) byJuris.set(r._primarySt, []);
+      byJuris.get(r._primarySt).push(r);
+    }
+    for (const [st, rs] of byJuris) {
+      await write(join(OUT, 'geo', dir, `${st}.json`), collection(rs.map((r) => featureOf(r, tol))));
+    }
   }
 
   await write(join(OUT, 'geo', 'context.json'), collection([{
@@ -501,15 +812,20 @@ async function main() {
   // The index is deliberately lean: it exists so search and the dashboard can
   // reach all 7,500 routes without pulling any geometry. Detail lives in the
   // feature properties, fetched with the geometry when a system is switched on.
+  const SYS_CODE = {
+    interstate: 'i', us: 'u', state: 's', tch: 't', nhs: 'n', provincial: 'r',
+  };
   await write(join(OUT, 'index.json'), {
     generated: new Date().toISOString().slice(0, 10),
-    fields: ['id', 'label', 'sys', 'tier', 'st', 'mi', 'base', 'num', 'cx', 'cy', 'gs', 'ns'],
+    fields: ['id', 'label', 'sys', 'tier', 'st', 'mi', 'base', 'num', 'cx', 'cy', 'gs', 'ns', 'where'],
     routes: routes.map((r) => [
-      r.id, r.label, r.system[0], { primary: 'p', auxiliary: 'a', special: 'x', state: 's' }[r.tier],
+      r.id, r.label, SYS_CODE[r.system], { primary: 'p', auxiliary: 'a', special: 'x', state: 's' }[r.tier],
       r._primarySt, r.offMi ? Math.round(r.offMi) : r.mi, r.base, r.number,
       Math.round(((r.bbox[0] + r.bbox[2]) / 2) * 100) / 100,
       Math.round(((r.bbox[1] + r.bbox[3]) / 2) * 100) / 100,
-      r.gradeSeparated, r.states.length,
+      // Only set where a number is shared, so it costs nothing on the
+      // overwhelming majority of routes that need no disambiguation.
+      r.gradeSeparated, r.states.length, r.where ?? null,
     ]),
   });
 
@@ -521,7 +837,16 @@ async function main() {
   ));
 
   // --- dashboard aggregates ---
-  const stats = { bySystem: {}, byState: {}, byType: {}, source: 'Natural Earth 1:1M + US Census gazetteer' };
+  const stats = {
+    bySystem: {},
+    byState: {},
+    byType: {},
+    sources: {
+      us: 'Natural Earth 1:1M roads, US Census gazetteer, FHWA Route Log',
+      ca: 'Statistics Canada National Road Network, Transport Canada National Highway System',
+    },
+    canada: canada.register?.inventory ?? null,
+  };
   for (const r of routes) {
     const s = stats.bySystem[r.system] ||= { routes: 0, mi: 0, gsMi: 0, tollMi: 0 };
     s.routes++;
@@ -529,9 +854,12 @@ async function main() {
     s.gsMi += Math.round((r.gradeSeparated / 100) * r.mi);
     s.tollMi += Math.round((r.tolled / 100) * r.mi);
     for (const { st, mi } of r.states) {
-      const e = stats.byState[st] ||= { mi: 0, interstate: 0, us: 0, state: 0, routes: 0 };
+      // Per-system buckets are created on demand rather than declared, because
+      // the six systems are not shared between the two countries and naming
+      // them here once meant every Canadian mile landed on an absent key.
+      const e = stats.byState[st] ||= { cc: r.country ?? 'us', mi: 0, routes: 0 };
       e.mi += mi;
-      e[r.system] += mi;
+      e[r.system] = (e[r.system] || 0) + mi;
       e.routes++;
     }
     for (const [t, share] of Object.entries(r.types)) {

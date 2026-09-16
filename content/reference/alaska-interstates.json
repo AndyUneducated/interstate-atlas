@@ -1,0 +1,56 @@
+{
+  "note": "Alaska's four Interstates are unsigned. They carry no reassurance markers and no Alaskan refers to them by number, but they are federally designated components of the Interstate Highway System and FHWA's Route Log records their mileage. Because they are unsigned they appear in no road atlas and in no signed-route dataset, so they have to be declared rather than read out of the geometry.",
+  "declaration": "Each designation is expressed as the state routes it overlays plus its two termini, which is how both FHWA and Alaska DOT&PF describe them. The builder unions the component geometry and takes the path between the termini, so the alignment comes out of the same source as every other route rather than being drawn by hand. Mileage is not taken from here: it comes from the FHWA Route Log alongside every other Interstate.",
+  "sources": [
+    {
+      "title": "Interstate Highway System Section 106 Exemption Route List within Alaska",
+      "publisher": "Alaska Department of Transportation & Public Facilities",
+      "url": "https://dot.alaska.gov/stwddes/desenviron/assets/pdf/fed_intrstate_hwy_sec106_exmpt_ak.pdf",
+      "used_for": "which highways and which mileposts are Interstate System components"
+    },
+    {
+      "title": "Route Log and Finder List - Interstate System",
+      "publisher": "Federal Highway Administration",
+      "url": "https://www.fhwa.dot.gov/planning/national_highway_system/interstate_highway_system/",
+      "used_for": "official mileage and designation"
+    }
+  ],
+  "routes": {
+    "A-1": {
+      "termini": ["Anchorage", "Alcan Border"],
+      "named": ["Glenn Highway", "Richardson Highway", "Tok Cut-Off", "Alaska Highway"],
+      "components": ["1", "4", "2"],
+      "from": [-149.8664, 61.2175],
+      "to": [-141.0011, 62.6139],
+      "formed": 1976,
+      "freeway": "Grade-separated freeway from Mountain View Drive in Anchorage to the Parks Highway at Gateway; two lanes with passing lanes for the remaining 145 miles east."
+    },
+    "A-2": {
+      "termini": ["Tok", "Fairbanks"],
+      "named": ["Alaska Highway", "Richardson Highway"],
+      "components": ["2", "4"],
+      "from": [-142.9856, 63.3367],
+      "to": [-147.7164, 64.8378],
+      "formed": 1976,
+      "freeway": "Grade-separated in and around Fairbanks; two lanes elsewhere."
+    },
+    "A-3": {
+      "termini": ["Soldotna", "Anchorage"],
+      "named": ["Sterling Highway", "Seward Highway"],
+      "components": ["1"],
+      "from": [-151.0583, 60.4877],
+      "to": [-149.8664, 61.2175],
+      "formed": 1976,
+      "freeway": "Built to freeway standards through Anchorage; two lanes down the Kenai Peninsula."
+    },
+    "A-4": {
+      "termini": ["Gateway", "Fairbanks"],
+      "named": ["George Parks Highway"],
+      "components": ["3"],
+      "from": [-149.2586, 61.5703],
+      "to": [-147.7164, 64.8378],
+      "formed": 1976,
+      "freeway": "A short grade-separated section at Wasilla; two lanes for the rest of its length."
+    }
+  }
+}

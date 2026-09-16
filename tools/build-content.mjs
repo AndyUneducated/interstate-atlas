@@ -195,8 +195,24 @@ async function main() {
   timelineRoutes.sort((a, b) => a.year - b.year);
   timelineEvents.sort((a, b) => a.year - b.year);
   const years = [...timelineRoutes.map((r) => r.year), ...timelineEvents.map((e) => e.year)];
+
+  // FHWA's year-by-year mileage table rides along in the same file. It is the
+  // only complete account of how the system grew - there is no published
+  // opening date per route - so the buildout view needs both it and the dated
+  // routes above, and needs to be able to say how far apart the two are.
+  let mileage = null;
+  try {
+    const m = JSON.parse(await readFile(join(ROOT, 'content', 'reference', 'interstate-mileage.json'), 'utf8'));
+    mileage = { source: m.source, scope: m.scope, fields: m.fields, open: m.open };
+  } catch { warn('interstate-mileage.json', 'not found; the buildout view will not open'); }
+
+  const interstates = index.routes.filter((r) => r[2] === 'i').length;
   await writeFile(join(ROOT, 'data', 'timeline.json'), JSON.stringify({
     range: [Math.min(1956, ...years), Math.max(2026, ...years)],
+    // How much of the network the map can honestly light up, so the view can
+    // report its own coverage instead of implying it is complete.
+    coverage: { interstates, documented: timelineRoutes.length },
+    mileage,
     routes: timelineRoutes,
     events: timelineEvents,
   }));

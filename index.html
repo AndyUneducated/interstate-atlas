@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#05070c">
-<title>Interstate Atlas — the highway network of the United States</title>
-<meta name="description" content="An interactive atlas of the United States highway network: Interstates, US numbered routes and the state route systems. Route termini, roadway classification, elevation profiles and written profiles, in English and Chinese.">
+<title>Highway Atlas — the highway network of North America</title>
+<meta name="description" content="An interactive atlas of the North American highway network: the Interstates, the US numbered routes and every state route system, with the Trans-Canada Highway, Canada's National Highway System and every numbered provincial route. Route termini, roadway classification, elevation profiles and written profiles, in English and Chinese.">
 
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
@@ -29,7 +29,7 @@
       <path class="bm-crest" d="M50 18C40.4 23 29.6 25.1 19.2 24.7c0 27.9 5.4 49.1 30.8 72 25.4-22.9 30.8-44.1 30.8-72C70.4 25.1 59.6 23 50 18z"/>
       <path class="bm-lane" d="M50 78V34"/>
     </svg>
-    <p class="boot-title" id="bootTitle">INTERSTATE ATLAS</p>
+    <p class="boot-title" id="bootTitle">HIGHWAY ATLAS</p>
     <p class="boot-sub" id="bootSub">assembling the road network</p>
     <div class="boot-bar"><i id="bootBar"></i></div>
     <p class="boot-step" id="bootStep"></p>
@@ -44,8 +44,8 @@
       <path class="bm-lane" d="M12 16.8V7.2"/>
     </svg>
     <span class="brand-txt">
-      <span class="brand-name" data-i18n="app.name">INTERSTATE ATLAS</span>
-      <span class="brand-sub" data-i18n="app.tagline">the highway network of the United States</span>
+      <span class="brand-name" data-i18n="app.name">HIGHWAY ATLAS</span>
+      <span class="brand-sub" data-i18n="app.tagline">the highway network of North America</span>
     </span>
   </div>
 
@@ -145,6 +145,11 @@
 
 <!-- ── flythrough ───────────────────────────────────────────────────────── -->
 <div id="fly"></div>
+
+<!-- ── buildout timelapse ───────────────────────────────────────────────────
+     Docked rather than modal. The point of this control is to watch the map
+     change, so it cannot be allowed to cover the map. -->
+<div id="tlapse"></div>
 
 <!-- ── command palette ──────────────────────────────────────────────────── -->
 <div id="palette" class="hidden" role="dialog" aria-modal="true">

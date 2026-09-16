@@ -7,7 +7,9 @@
    each carries its own source line. Where no published figure exists the row
    says so rather than guessing. */
 
-import { t, getLang, stateName, miles, num } from './i18n.js';
+import {
+  t, getLang, stateName, miles, num, isProvince, ownerLabel,
+} from './i18n.js';
 import { app, shieldHtml, addToTrip, clearSelection, fitTo, loadDossier } from './app.js';
 import { startFly } from './fly.js';
 
@@ -46,9 +48,19 @@ function pick(obj) {
 
 /* ── pieces ───────────────────────────────────────────────────────────── */
 
-function terminusRow(kind, place, coord, dossierText) {
+/**
+ * One end of a route.
+ *
+ * The label follows the route's own orientation. A road that runs east to west
+ * has a western end, not a "southern / western end", and the vaguer wording
+ * was reading as hedging on routes where the answer is not in doubt. The
+ * orientation is measured off the mainline endpoints rather than inferred from
+ * the number's parity, so it is also right for the state, provincial and
+ * Canadian routes that follow no parity rule.
+ */
+function terminusRow(kind, place, coord, dossierText, axis) {
   const isFrom = kind === 'from';
-  const label = t(isFrom ? 'dt.from' : 'dt.to');
+  const label = t(`dt.${isFrom ? 'from' : 'to'}${axis || ''}`);
   const written = pick(dossierText);
   let body;
   if (written) {
@@ -100,6 +112,44 @@ function statesBlock(states) {
       <span class="bar"><i style="width:${Math.max(2, (s.mi / max) * 100)}%"></i></span>
       <em>${num(s.mi)}</em>
     </div>`).join('')}</div>`;
+}
+
+/**
+ * The facts a Canadian route has and an American one does not.
+ *
+ * Two of these are classifications rather than measurements and matter more
+ * than any number on the road: whether Transport Canada counts the route in
+ * the National Highway System, and whether it carries the Trans-Canada. The
+ * third, the paved share, is worth stating plainly because outside the settled
+ * band a designated highway is not necessarily paved, and the American data
+ * has no equivalent.
+ */
+function caFacts(p) {
+  if (p.cc !== 'ca') return '';
+  const rows = [];
+
+  // The designation, which is a decision by Transport Canada rather than
+  // anything measurable off the road, and the reason behind it.
+  if (p.nhsTier) {
+    rows.push([t('ca.nhs'),
+      `<b>${t(`ca.nhs.${p.nhsTier}`)}</b><span class="fig-s">${t(`ca.nhs.${p.nhsTier}Why`)}</span>`]);
+  }
+  // The Trans-Canada is a route carried by other highways rather than a
+  // highway of its own, so the useful figure is how much of this road it uses.
+  if (p.tchKm > 0) {
+    rows.push([t('ca.tch'), p.tchShare >= 99
+      ? t('ca.tchAll')
+      : t('ca.tchShare', { km: num(p.tchKm), pct: num(p.tchShare, 1) })]);
+  }
+  if (p.pavedShare != null && p.pavedShare < 99.5) {
+    rows.push([t('ca.paved'), `<b>${num(p.pavedShare, 1)}%</b>`]);
+  }
+  if (p.named?.length) {
+    rows.push([t('ca.named'), p.named.map((n) => esc(n)).join(' · ')]);
+  }
+  if (!rows.length) return '';
+  return `<div class="figs ca-facts">${rows.map(([k, v]) =>
+    `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}</div>`;
 }
 
 function section(key, bodyHtml, open = false) {
@@ -273,12 +323,33 @@ export async function renderDetail(id) {
   const startCoord = main[0]?.[0];
   const endCoord = main[main.length - 1]?.at(-1);
 
+  // Which way the road runs, from its own endpoints. Only used to pick the
+  // wording for the two terminus labels; an ambiguous route keeps the
+  // both-ways phrasing rather than being forced into one.
+  const axis = (() => {
+    if (!startCoord || !endCoord) return '';
+    const dLon = Math.abs(endCoord[0] - startCoord[0]) * Math.cos((startCoord[1] * Math.PI) / 180);
+    const dLat = Math.abs(endCoord[1] - startCoord[1]);
+    if (dLon > dLat * 1.6) return 'EW';
+    if (dLat > dLon * 1.6) return 'NS';
+    return '';
+  })();
+
   const dossier = await loadDossier(id);
   if (app.selected !== id) return; // selection moved on while fetching
 
+  // Which country's source this route came from decides which metrics exist,
+  // and the two sources do not carry the same attributes. Nothing is inferred
+  // across the border: an absent attribute reads as absent.
+  const ca = p.cc === 'ca' || isProvince(meta.st);
+
   const title = pick(dossier?.name) || meta.label;
+  // A route that shares its number says where it is, so the panel is not
+  // ambiguous about which of the namesakes is open.
   const subtitle = pick(dossier?.tagline)
-    || (meta.sys === 'state' ? stateName(meta.st) : t(`sys.${meta.sys}`));
+    || (meta.where
+      ? `${ownerLabel(meta.sys, meta.st)} · ${meta.where}`
+      : ownerLabel(meta.sys, meta.st));
 
   // Three lengths can be in play and they answer different questions, so the
   // headline takes the most authoritative available and the provenance section
@@ -316,19 +387,34 @@ export async function renderDetail(id) {
 
     <div class="dt-bd">
       <div class="termini">
-        ${terminusRow('from', start, startCoord, dossier?.termini?.start)}
-        ${terminusRow('to', end, endCoord, dossier?.termini?.end)}
+        ${terminusRow('from', start, startCoord, dossier?.termini?.start, axis)}
+        ${terminusRow('to', end, endCoord, dossier?.termini?.end, axis)}
       </div>
 
       <div class="mgrid">
         ${metric('dt.length', `${num(officialMi ?? p.mi)}<small>${t('unit.mi')}</small>`)}
-        ${metric('dt.states', num(states.length))}
+        ${metric(ca ? 'dt.provinces' : 'dt.states', num(states.length))}
         ${metric('dt.straight', `${num(p.spanMi)}<small>${t('unit.mi')}</small>`)}
         ${metric('dt.gradeSep', `${num(p.gs, p.gs % 1 ? 1 : 0)}<small>%</small>`)}
-        ${metric('dt.tolled', `${num(p.toll, p.toll % 1 ? 1 : 0)}<small>%</small>`)}
-        ${metric('dt.divided', p.div == null ? null : `${num(p.div, p.div % 1 ? 1 : 0)}<small>%</small>`)}
+        ${ca
+          // The Canadian source carries lane counts and posted speeds, which
+          // the American one does not; it carries no toll attribute at all, so
+          // a tolled share would be a flat and false zero rather than a
+          // measurement. Each tile says what share of the route it was
+          // measured over, because these attributes are optional at source
+          // and an average over a tenth of a road is not an average of it.
+          ? `${metric('ca.lanes', p.lanes == null ? null : num(p.lanes, p.lanes % 1 ? 1 : 0),
+            p.lanesCov != null && p.lanesCov < 98 ? t('ca.coverage', { pct: num(p.lanesCov) }) : null)}
+             ${metric('ca.speed', p.kph == null ? null : `${num(p.kph)}<small>km/h</small>`,
+            p.kphCov != null && p.kphCov < 98 ? t('ca.coverage', { pct: num(p.kphCov) }) : null)}`
+          : `${metric('dt.tolled', `${num(p.toll, p.toll % 1 ? 1 : 0)}<small>%</small>`)}
+             ${metric('dt.divided', p.div == null ? null : `${num(p.div, p.div % 1 ? 1 : 0)}<small>%</small>`)}`}
       </div>
 
+      ${caFacts(p)}
+      ${p.unsigned ? `<div class="figs ca-facts">
+        <div class="fig"><span class="fig-k">${t('dt.unsigned')}</span>
+        <span class="fig-v">${t('dt.unsignedWhy')}</span></div></div>` : ''}
       ${gapNote}
       <div id="dtSections"></div>
     </div>`;
@@ -410,9 +496,16 @@ export async function renderDetail(id) {
       <span class="src">${t('len.deltaWhy')}</span></span></div>` : ''}
   </div>` : '';
 
-  parts.push(section('data', `<div class="note">
+  // Every page says where its numbers came from, and for a Canadian route
+  // that is a different survey with different attributes - including one it
+  // does not have, which is worth saying out loud so a reader does not read
+  // the absent toll share as a road with no tolls on it.
+  const info = (key) => `<div class="note">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
-    <span>${t('note.derived')}</span></div>${lengthRows}`));
+    <span>${t(key)}</span></div>`;
+  parts.push(section('data',
+    info(ca ? 'ca.note.derived' : 'note.derived')
+    + (ca ? info('ca.tolls') : '') + lengthRows));
 
   sections.innerHTML = parts.join('');
 
