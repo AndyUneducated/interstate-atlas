@@ -106,9 +106,9 @@ Reassembling them is most of what `build-data.mjs` and `geo.mjs` do.
 flowchart TD
   A["road fragments<br/><i>~1M segments, 13 CA files + 1 US file</i>"]
   B["group by system + number + jurisdiction"]
-  C["snap endpoints to shared nodes<br/><i>by real distance, not grid cell</i>"]
+  C["snap endpoints to shared nodes<br/><i>by real distance, at the source's own precision</i>"]
   D["bridge genuine holes as graph edges<br/><i>flagged, never drawn, never counted</i>"]
-  E["longest-path search between terminal nodes"]
+  E["double sweep for the two ends<br/><i>farthest apart along the road</i>"]
   F{"one number,<br/>several components?"}
   G["merge — contiguous jurisdictions<br/>or a designated route"]
   H["keep apart — unrelated roads<br/>sharing a number"]
@@ -127,6 +127,24 @@ flowchart TD
 **Snapping by distance, not grid.** The two sides of a state line disagree by a few metres.
 A grid-cell hash puts those endpoints in different buckets whenever the line happens to
 fall near a cell boundary, which silently severs routes at arbitrary places.
+
+**Snapping at the source's precision, not a fixed one.** The tolerance is 275 m for Natural
+Earth and 22 m for the National Road Network, because the two sources are drawn to
+different accuracies. Too tight severs routes at the joins; too loose is worse and less
+obvious. The NRN draws each direction of a divided highway as its own centreline, often
+within 30 m of the other, so at 275 m the two carriageways weld into a single graph
+wherever they pass close — and the through path then zigzags between them, cutting every
+corner. That alone cost Highway 17 two thirds of its length.
+
+**Finding the ends by sweeping, not by looking for dead ends.** The two nodes farthest
+apart are found by walking to the most distant node from an arbitrary start, then to the
+most distant node from there. The obvious alternative — take the two dead ends with the
+greatest straight-line separation — is wrong on exactly the roads that matter most. On a
+divided freeway drawn with its ramps, nearly every node has degree three or more and the
+few degree-one nodes are ramp stubs. Highway 401 had precisely two of them, 2 km apart, so
+an 828 km motorway was reconstructed as the 3 km between two off-ramps, and it looked
+plausible enough in a list of route lengths to survive until someone checked it against a
+published figure.
 
 **Bridging holes.** Some routes genuinely disappear from the source for a stretch — I-90
 is missing the Indiana Toll Road and the Ohio Turnpike, a 420 km hole, because they are
@@ -148,6 +166,19 @@ each direction separately, so summing all of it made Ontario's Highway 401 1,819
 its published 828. Anything presented as a length is measured over the single path from one
 terminus to the other; `geo.mjs` returns both measures and the build is explicit about
 which it wants.
+
+### What this measure cannot do
+
+A path cannot visit a node twice, so a route that returns to where it started is measured
+across rather than around. Quebec's Route 132 loops the Gaspé peninsula and comes out at
+687 of its published 928 miles for that reason. This is a property of measuring a road as a
+journey, and the figure is reported as measured rather than corrected toward the published
+one.
+
+Where a number's pieces genuinely do not connect, they are kept as separate routes rather
+than merged or dropped. Sometimes that is missing data and sometimes it is the road: Route
+138's Lower North Shore section is reachable only by ferry, and it comes out as its own
+route because that is what it is.
 
 ---
 
@@ -245,6 +276,7 @@ one produced a visibly wrong atlas before it was handled.
 | StatCan NRN (ON) | county and municipal numbers in the same field as provincial highways, same road class | "ON 4" is Highway 4 plus ~35 unrelated county roads | kept, and the tier is named for it; each told apart by place |
 | StatCan NRN (all) | each direction of a divided highway is a separate centreline | Highway 401 measured 1,819 km against 828 published | lengths measured over the driven path |
 | Transport Canada NHS | StatCan's own NHS layers return nothing for NT and YT | two territories with published NHS mileage showed none | designation taken from Transport Canada's service instead |
+| StatCan NRN (ON, QC) | the 400-series and the autoroutes are fully numbered, but drawn as dense ladders of dual carriageway and ramp | almost no degree-one nodes, so a dead-end heuristic picked ramp stubs as termini — Highway 401 at 3 km | ends found by double sweep |
 | Natural Earth | fragments split at state lines and classification changes | routes severed into dozens of pieces | snapping and bridging, above |
 | Natural Earth | 1:1,000,000 generalisation | measured lengths run short on curves | reported alongside the published figure, with the difference named |
 

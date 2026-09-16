@@ -11,7 +11,7 @@ written record for the roads that have one.
 
 [![live site](https://img.shields.io/badge/live-andyuneducated.github.io%2Fhighway--atlas-35e7ff?style=for-the-badge)](https://andyuneducated.github.io/highway-atlas/)
 
-![routes](https://img.shields.io/badge/routes-11%2C400%2B-ffd166?style=flat-square)
+![routes](https://img.shields.io/badge/routes-10%2C657-ffd166?style=flat-square)
 ![countries](https://img.shields.io/badge/countries-US%20%C2%B7%20CA-ff4d6d?style=flat-square)
 ![jurisdictions](https://img.shields.io/badge/jurisdictions-64-4fe3b0?style=flat-square)
 ![languages](https://img.shields.io/badge/languages-English%20%C2%B7%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-a78bfa?style=flat-square)
@@ -41,14 +41,19 @@ written record for the roads that have one.
 
 ## Coverage
 
-| Country | System | Routes | Notes |
-| --- | --- | --- | --- |
-| 🇺🇸 | Interstate Highways | 324 | includes Alaska's four unsigned A-series and Hawaii's H-series |
-| 🇺🇸 | US Numbered Routes | 446 | |
-| 🇺🇸 | State Routes | 6,753 | 50 states, DC and Puerto Rico, loaded per state |
-| 🇨🇦 | Trans-Canada Highway | — | the designation, traced across the provincial highways that carry it |
-| 🇨🇦 | National Highway System | 274 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
-| 🇨🇦 | Provincial & Municipal Routes | — | 13 provinces and territories, loaded per jurisdiction |
+10,657 routes across 64 states, provinces and territories, measuring 493,115 miles of road.
+
+| Country | System | Routes | Miles | Notes |
+| --- | --- | --- | --- | --- |
+| 🇺🇸 | Interstate Highways | 324 | 46,664 | includes Alaska's four unsigned A-series and Hawaii's H-series |
+| 🇺🇸 | US Numbered Routes | 446 | 121,499 | the pre-1956 grid, numbered opposite to the Interstates |
+| 🇺🇸 | State Routes | 6,753 | 211,829 | 50 states, DC and Puerto Rico, loaded per state |
+| 🇨🇦 | Trans-Canada Highway | 26 | 7,418 | the designation, traced across the provincial highways that carry it |
+| 🇨🇦 | National Highway System | 357 | 35,208 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
+| 🇨🇦 | Provincial & Municipal Routes | 2,751 | 70,662 | 12 provinces and territories, loaded per jurisdiction |
+
+Nunavut has no numbered route in the national road file, and no road connects it to the
+rest of the country, so it appears in no tier.
 
 ## On accuracy
 
