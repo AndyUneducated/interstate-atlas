@@ -442,7 +442,10 @@ function assemblePath(steps) {
  * So find the components first with no bridging, discard the slivers, then
  * stitch what survives with the bridge budget applied.
  */
-export function stitchRoute(parts, { snapDeg = 0.0025, bridgeKm = 60, minComponentKm = 1.2 } = {}) {
+export function stitchRoute(parts, {
+  snapDeg = 0.0025, bridgeKm = 60, minComponentKm = 1.2,
+  dedupe = false, dedupeTolKm = 0.08,
+} = {}) {
   const first = stitchComponents(parts, snapDeg, 0);
   const keep = new Set();
   for (const comp of first) {
@@ -451,7 +454,178 @@ export function stitchRoute(parts, { snapDeg = 0.0025, bridgeKm = 60, minCompone
   }
   if (!keep.size) return [];
   const survivors = parts.filter((_, i) => keep.has(i));
-  return stitchComponents(survivors, snapDeg, bridgeKm).filter((c) => c.km >= minComponentKm);
+  const comps = stitchComponents(survivors, snapDeg, bridgeKm)
+    .filter((c) => c.km >= minComponentKm);
+  return dedupe ? withoutOppositeCarriageways(comps, dedupeTolKm) : comps;
+}
+
+/**
+ * Walk a polyline emitting a point every `stepKm`, with how far along it each
+ * point sits. Sampling by distance rather than by vertex matters because the
+ * geometry is thinned before stitching: vertices can be hundreds of metres
+ * apart on a straight section, so comparing vertex to vertex misses a
+ * carriageway 30 m away.
+ */
+function walkLine(piece, stepKm, emit) {
+  let along = 0;
+  let carry = 0;
+  for (let i = 1; i < piece.length; i++) {
+    const [a, b] = [piece[i - 1], piece[i]];
+    const seg = haversineKm(a, b);
+    if (seg <= 0) continue;
+    for (let d = stepKm - carry; d < seg; d += stepKm) {
+      const f = d / seg;
+      emit([a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f], along + d);
+    }
+    carry = (carry + seg) % stepKm;
+    along += seg;
+  }
+}
+
+/**
+ * How much of a polyline is laid on top of another part of itself.
+ *
+ * Some divided highways arrive from TIGER not as two lines but as one, drawn
+ * out along one carriageway and back down the other so that it returns to where
+ * it started. Albany's I-787 is a single ten-mile road recorded as a nineteen-
+ * mile closed loop; Oklahoma City's I-335 the same. There is no second
+ * component to discard, because the duplication is inside one feature, and no
+ * amount of graph work helps: the line really is that long.
+ *
+ * The distinguishing mark is that the two halves are in the same place. So:
+ * sample along the line, and for each point ask whether the line comes back
+ * within `tolKm` at a point at least `minAlongKm` further along itself. The
+ * along-the-line condition is what keeps this from misreading a mountain road.
+ * A switchback doubles back within a few hundred metres of itself and is
+ * genuine distance driven; a returning carriageway comes back miles later.
+ *
+ * Returns the length whose distance is being counted twice, so the caller can
+ * count it once.
+ */
+function doubledBackKm(piece, tolKm = 0.08, minAlongKm = 1.6) {
+  const step = tolKm / 2;
+  const pts = [];
+  walkLine(piece, step, (c, along) => pts.push({ c, along }));
+  if (pts.length < 4) return 0;
+
+  const cell = tolKm / 111.32;
+  const grid = new Map();
+  pts.forEach((p, i) => {
+    const k = `${Math.floor(p.c[0] / cell)},${Math.floor(p.c[1] / cell)}`;
+    let b = grid.get(k);
+    if (!b) grid.set(k, b = []);
+    b.push(i);
+  });
+
+  let doubled = 0;
+  for (const p of pts) {
+    const gx = Math.floor(p.c[0] / cell);
+    const gy = Math.floor(p.c[1] / cell);
+    let found = false;
+    for (let dx = -1; dx <= 1 && !found; dx++) {
+      for (let dy = -1; dy <= 1 && !found; dy++) {
+        for (const j of grid.get(`${gx + dx},${gy + dy}`) ?? []) {
+          const o = pts[j];
+          if (Math.abs(o.along - p.along) < minAlongKm) continue;
+          if (haversineKm(p.c, o.c) <= tolKm) { found = true; break; }
+        }
+      }
+    }
+    if (found) doubled += step;
+  }
+  // Each doubled stretch is found from both of its sides, so the sampled total
+  // already counts it twice; half of it is the distance to discount.
+  return doubled / 2;
+}
+
+/** The distance actually driven along a route, discounting doubled-back pavement. */
+export function drivenKm(pieces, tolKm = 0.08) {
+  let km = 0;
+  for (const piece of pieces) {
+    km += lineLengthKm(piece) - doubledBackKm(piece, tolKm);
+  }
+  return Math.max(0, km);
+}
+
+/**
+ * Drop the components that are the other side of a road already counted.
+ *
+ * A divided highway is two centrelines, and whether they end up as one
+ * component or two is not about the road but about whether the source files the
+ * connecting ramps under the same number. The Canadian network does, so its
+ * carriageways join at every interchange. TIGER does not - a ramp is its own
+ * named feature - so an American beltway arrives as two separate rings, each
+ * the full length of the road, and adding them up reports twice the highway.
+ * Columbus's I-270 measured 110 miles of a 55-mile loop, San Antonio's I-410
+ * 105 of 53.
+ *
+ * The test is coincidence rather than shape: sample along the shorter component
+ * and ask how much of it runs within 80 m of one already kept. Two carriageways
+ * of the same road are within a few tens of metres for nearly their whole
+ * length, while the genuinely separate pieces this must not touch - I-95 either
+ * side of its missing turnpikes, the two unrelated I-295s - are tens of miles
+ * apart. 80 m is wide enough to cover a divided highway's median and far too
+ * narrow to reach a different road.
+ *
+ * Only what is measured changes. The dropped carriageway is still drawn, so the
+ * map shows both sides of the road; it is counted once.
+ */
+function withoutOppositeCarriageways(comps, tolKm = 0.08) {
+  if (comps.length < 2) return comps;
+
+  const cell = tolKm / 111.32;
+  const kept = [];
+  const grid = new Map();
+
+  const walk = (piece, stepKm, emit) => {
+    walkLine(piece, stepKm, emit);
+    if (piece.length) emit(piece[piece.length - 1]);
+  };
+
+  const add = (comp) => {
+    for (const piece of comp.pieces) {
+      walk(piece, tolKm / 2, (c) => {
+        const k = `${Math.floor(c[0] / cell)},${Math.floor(c[1] / cell)}`;
+        let bucket = grid.get(k);
+        if (!bucket) grid.set(k, bucket = []);
+        bucket.push(c);
+      });
+    }
+  };
+
+  const coincidentShare = (comp) => {
+    let hit = 0;
+    let n = 0;
+    for (const piece of comp.pieces) {
+      walk(piece, 0.2, (p) => {
+        n++;
+        const gx = Math.floor(p[0] / cell);
+        const gy = Math.floor(p[1] / cell);
+        for (let dx = -1; dx <= 1; dx++) {
+          for (let dy = -1; dy <= 1; dy++) {
+            for (const q of grid.get(`${gx + dx},${gy + dy}`) ?? []) {
+              if (haversineKm(p, q) <= tolKm) { hit++; return; }
+            }
+          }
+        }
+      });
+    }
+    return n ? hit / n : 0;
+  };
+
+  // Longest first, so the side that is kept is the more completely drawn one.
+  for (const comp of [...comps].sort((a, b) => b.km - a.km)) {
+    if (kept.length && coincidentShare(comp) >= 0.6) {
+      // Counted once, drawn twice: the far carriageway moves to the branches,
+      // which are drawn with the route but never measured. Losing it would
+      // leave one side of every divided highway missing from the map.
+      kept[0].branches.push(...comp.pieces);
+      continue;
+    }
+    kept.push(comp);
+    add(comp);
+  }
+  return kept;
 }
 
 /**

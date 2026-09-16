@@ -53,28 +53,99 @@ const FORMER = /^(?:old|hst|hist|historic)\s+/i;
 // carriageway - "US Hwy 101 N" and "US Hwy 101 S" are one road - so both are
 // dropped, which is what lets the halves stitch together.
 const LEAD_DIR = /^(?:n|s|e|w|ne|nw|se|sw)\s+/i;
-const TRAIL_DIR = /\s*\b(?:n|s|e|w|nb|sb|eb|wb)\b\s*$/i;
+const TRAIL_DIR = /\s*\b(?:n|s|e|w|ne|nw|se|sw|nb|sb|eb|wb)\b\s*$/i;
 
-// What TIGER appends to a number to mean a related but separate route.
+// TIGER writes some numbers with a space inside them: Michigan's M-28 as
+// "State Hwy M 28", Massachusetts's Route 2A as "State Rte 2 A". Closing the
+// space makes the number one token. Two-letter words are left alone, so a
+// direction like "12 SW" is not glued into the number.
+const SPACED = [
+  [/\b([A-Z]) (\d)/gi, '$1$2'],
+  [/\b(\d) ([A-Z])(?![A-Za-z])/gi, '$1$2'],
+];
+
+// What TIGER appends to a number to mean a related but separate route. The
+// abbreviations are not consistent between states, hence the several spellings
+// of each.
 const QUALIFIERS = {
-  bus: 'business', busn: 'business', bypass: 'bypass', byp: 'bypass',
-  alt: 'alternate', trk: 'truck', truck: 'truck', spur: 'spur',
-  con: 'connector', conn: 'connector', loop: 'loop', hov: 'hov',
-  opt: 'optional', sci: 'scenic', scn: 'scenic',
+  bus: 'business', busn: 'business', business: 'business',
+  buslp: 'business', businesslp: 'business', busloop: 'business',
+  businessloop: 'business', buslp1: 'business',
+  bypass: 'bypass', byp: 'bypass', bypss: 'bypass',
+  alt: 'alternate', alternate: 'alternate',
+  trk: 'truck', truck: 'truck',
+  spur: 'spur', spr: 'spur',
+  con: 'connector', conn: 'connector', connector: 'connector',
+  loop: 'loop', lp: 'loop',
+  hov: 'hov', opt: 'optional', sci: 'scenic', scn: 'scenic', scenic: 'scenic',
 };
 
 const ROAD_WORD = '(?:hwy|highway|rte|route|rd|road)';
+const VARIANT = '(?:loop|lp|spur|spr|byp|bypass|bus|business|alt|alternate|trk|truck|conn|connector)';
+
+// A route number is mostly digits, but not always: Florida signs A1A, Michigan
+// signs its trunklines M-28, and a suffixed route is 2A. One optional letter
+// either side covers all three without matching words.
+const NUM = '[a-z]?\\d{1,4}[a-z]?';
+
+// Ordered: the first pattern that matches wins, so the more specific forms come
+// first. Each captures the number in group 1 and any trailing words in the
+// last group; `variant` marks the forms that put the variant before the number.
 const PATTERNS = [
-  // "I- 95", "I- 279 Hov". The space after the hyphen is TIGER's own.
-  { system: 'interstate', re: new RegExp(`^i-\\s*(\\d{1,3}[a-z]?)\\b\\s*(.*)$`, 'i') },
+  // "I- 95", "I- 279 Hov". The space after the hyphen is TIGER's own. Hawaii's
+  // Interstates are numbered H-1 to H-3, written variously as "I- H-1" and
+  // "I- H1"; both are normalised to H1 so the halves of the road meet.
+  { system: 'interstate', re: new RegExp(`^i-?\\s*h-?(\\d{1,3})\\b\\s*(.*)$`, 'i'), prefix: 'H' },
+  { system: 'interstate', re: new RegExp(`^i-?\\s*(\\d{1,3}[a-z]?)\\b\\s*(.*)$`, 'i') },
+
   // "US Hwy 1", "US Rte 66", "US Hwy 11/15"
-  { system: 'us', re: new RegExp(`^u\\.?s\\.?\\s*${ROAD_WORD}?\\s*(\\d{1,3}[a-z]?(?:/\\d{1,3}[a-z]?)*)\\b\\s*(.*)$`, 'i') },
+  { system: 'us', re: new RegExp(`^u\\.?s\\.?\\s*${ROAD_WORD}?\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
+
+  // Texas signs loops and spurs as their own designations - "State Loop 265"
+  // is not Highway 265 - and several states write the variant ahead of the
+  // number this way.
+  { system: 'state', re: new RegExp(`^(?:state|st)\\s+(${VARIANT})\\s*${ROAD_WORD}?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), variant: true },
+
+  // The same, without the word "state": "Bus Rte 209"
+  { system: 'state', re: new RegExp(`^(${VARIANT})\\s+(?:rte|route)\\s*(${NUM})\\b\\s*(.*)$`, 'i'), variant: true },
+
   // "State Rte 10", "State Hwy 125", "St Rte 44"
-  { system: 'state', re: new RegExp(`^(?:state|st)\\s*${ROAD_WORD}\\s*(\\d{1,4}[a-z]?(?:/\\d{1,4}[a-z]?)*)\\b\\s*(.*)$`, 'i') },
-  // Puerto Rico signs its routes as "PR-52"; Texas has "FM 1960" farm roads
-  // and Hawaii "HI 92". These are the state tier under a local name.
-  { system: 'state', re: new RegExp(`^(?:pr|hi)-\\s*(\\d{1,4}[a-z]?)\\b\\s*(.*)$`, 'i') },
+  { system: 'state', re: new RegExp(`^(?:state|st)\\s*${ROAD_WORD}\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
+
+  // A bare "Rte 16", which is how twenty-two states write some of their
+  // routes. Only "route", never a bare "Hwy 5" or "Rd 5", which are as often
+  // a local road's actual name.
+  { system: 'state', re: new RegExp(`^(?:rte|route)\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
 ];
+
+// Conventions that belong to one state, applied only there. Written narrowly on
+// purpose: a pattern like "two letters then a number" would read "Ox Rd 12" as
+// a state route in every state that has one.
+const LOCAL = {
+  // Alaska numbers its routes 1-11 and signs them as such; TIGER files the
+  // same roads under both "AK Rte 3" and "State Hwy 3".
+  AK: [{ system: 'state', re: new RegExp(`^ak\\s*-?\\s*${ROAD_WORD}?\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
+
+  // Puerto Rico's routes are carreteras, written as "PR- 52", "Carr 156",
+  // "Carr PR- 472" and "Carr Estatal 30". A carretera with a name rather than
+  // a number - "Carr Naranjos" - is a local road and is not a route.
+  PR: [{ system: 'state', re: new RegExp(`^(?:carr\\s*)?(?:pr|estatal|num)?\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
+
+  // The Farm to Market and Ranch to Market roads are a Texas system of their
+  // own, state-maintained and signed on their own shield. FM 1960 and State
+  // Highway 1960 are different roads, so the number carries the prefix.
+  TX: [
+    { system: 'state', re: new RegExp(`^(?:fm|f m)\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), prefix: 'FM' },
+    { system: 'state', re: new RegExp(`^(?:rm|ranch\\s*rd|ranch\\s*road)\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), prefix: 'RM' },
+  ],
+
+  HI: [{ system: 'state', re: new RegExp(`^hi\\s*-\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
+
+  // Missouri's supplemental routes are lettered rather than numbered - Route
+  // A, Route AB, Route NN - and there are some 1,600 miles of them. Letters
+  // only, so this cannot swallow a road whose name merely begins with "Route".
+  MO: [{ system: 'state', re: /^(?:state\s*)?(?:rte|route|hwy|highway)\s+([a-z]{1,3})\b\s*(.*)$/i }],
+};
 
 /**
  * The routes a TIGER road name designates, or an empty list.
@@ -84,8 +155,10 @@ const PATTERNS = [
  * else - and it is used as a guard rather than as the answer. The name is
  * authoritative about the number; RTTYP is authoritative about whether there is
  * a number to find at all.
+ *
+ * `st` admits the handful of conventions that exist in one state only.
  */
-export function parseName(fullname, rttyp) {
+export function parseName(fullname, rttyp, st = null) {
   const raw = String(fullname ?? '').trim();
   if (!raw) return [];
 
@@ -98,24 +171,30 @@ export function parseName(fullname, rttyp) {
   if (FORMER.test(raw)) return [];
   let name = raw.replace(LEAD_DIR, '').trim();
   name = name.replace(TRAIL_DIR, '').trim();
+  for (const [re, to] of SPACED) name = name.replace(re, to);
 
-  for (const { system, re } of PATTERNS) {
-    const m = re.exec(name);
+  for (const pat of [...PATTERNS, ...(LOCAL[st] ?? [])]) {
+    const m = pat.re.exec(name);
     if (!m) continue;
+
+    // Where the variant comes first the number is in the second group.
+    const numbers = pat.variant ? m[2] : m[1];
+    const leading = pat.variant ? m[1] : null;
+    const rest = (m[m.length - 1] || '').trim().toLowerCase().replace(/[^a-z]/g, '');
 
     // Trailing words after the number say which related route this is. An
     // unrecognised trailing word means the name is something else that merely
     // starts like a route - "State Highway Patrol Rd" - so it is not read as a
     // designation at all.
-    const rest = (m[2] || '').trim().toLowerCase().replace(/[^a-z]/g, '');
-    const qualifier = rest ? QUALIFIERS[rest] : null;
-    if (rest && !qualifier) return [];
+    const qualifier = leading ? QUALIFIERS[leading.toLowerCase()] ?? leading.toLowerCase()
+      : rest ? QUALIFIERS[rest] : null;
+    if (!leading && rest && !qualifier) return [];
 
     // A single feature can carry two numbers where routes run concurrently,
     // which TIGER writes as "US Hwy 11/15".
-    return m[1].split('/').map((n) => ({
-      system,
-      number: n.toUpperCase(),
+    return numbers.split('/').map((n) => ({
+      system: pat.system,
+      number: `${pat.prefix ?? ''}${n.toUpperCase()}`,
       qualifier,
     }));
   }
@@ -157,7 +236,7 @@ export async function fetchState(fips, { force = false } = {}) {
  * atlas draws at roughly 1:1,000,000 - but endpoints are never moved, so the
  * stitcher still joins fragment to fragment.
  */
-export async function readState(fips, { groups = new Map(), tol = 0.0002 } = {}) {
+export async function readState(fips, { groups = new Map(), tol = 0.0002, context = null } = {}) {
   const st = STATES[fips];
   const base = await fetchState(fips);
   const src = await shapefile.open(`${base}.shp`, `${base}.dbf`);
@@ -172,12 +251,22 @@ export async function readState(fips, { groups = new Map(), tol = 0.0002 } = {})
     const p = r.value.properties;
     const g = r.value.geometry;
     if (!g) continue;
-    const routes = parseName(p.FULLNAME, p.RTTYP);
-    if (!routes.length) continue;
+    const routes = parseName(p.FULLNAME, p.RTTYP, st);
 
     const parts = g.type === 'LineString' ? [g.coordinates]
       : g.type === 'MultiLineString' ? g.coordinates : [];
     if (!parts.length) continue;
+
+    // Unnumbered arterials are drawn as faint hairlines under the numbered
+    // network, so a city reads as a city rather than as whichever routes
+    // happen to pass through it. Only the primary ones, or the context would
+    // be denser than the subject.
+    if (!routes.length) {
+      if (context && p.MTFCC === 'S1100') {
+        for (const part of parts) if (part.length >= 2) context.push(part);
+      }
+      continue;
+    }
 
     // S1100 is a primary road - a motorway or a major arterial - and S1200 a
     // secondary one. The distinction is the only thing TIGER says about a

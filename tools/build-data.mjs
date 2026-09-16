@@ -1,23 +1,26 @@
-// Turns the Natural Earth North America roads shapefile into the route atlas
-// the site consumes: per-system GeoJSON for the map plus a metadata index.
+// Turns the national road files into the route atlas the site consumes:
+// per-system GeoJSON for the map plus a metadata index.
 //
 //   node tools/build-data.mjs
 //
-// Source (public domain): ne_10m_roads_north_america at 1:1,000,000 scale,
-// with US Census gazetteer places used to name route termini.
+// Sources, all public domain or open licence:
+//   - US Census TIGER/Line primary and secondary roads, per state
+//   - Statistics Canada National Road Network, per province and territory
+//   - Transport Canada's National Highway System, for the Canadian tiers
+//   - US Census gazetteer places, used to name route termini
 //
-// Every number written here comes from the shapefile's own attributes or from
-// the geometry. Editorial figures - cost, traffic, condition - are not invented
-// here; they live in content/ with their sources attached.
+// Every number written here comes from those files' own attributes or is
+// measured off the geometry. Editorial figures - cost, traffic, condition - are
+// not invented here; they live in content/ with their sources attached.
 
-import * as shapefile from 'shapefile';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import {
-  bboxOf, haversineKm, lineLengthKm, roundCoords, simplify, stitchBetween, stitchComponents,
-  stitchRoute,
+  bboxOf, drivenKm, haversineKm, lineLengthKm, roundCoords, simplify, stitchBetween,
+  stitchComponents, stitchRoute,
 } from './geo.mjs';
 import { STATE_CODE, statesTouch } from './states.mjs';
+import { readState, STATES, TIGER_YEAR } from './tiger.mjs';
 import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
@@ -25,27 +28,11 @@ const SRC = join(ROOT, 'tools', 'src');
 const OUT = join(ROOT, 'data');
 const KM_PER_MI = 1.609344;
 
-// Route-number prefixes that mark a signed variant rather than a through route.
-const QUALIFIERS = [
-  ['ALT', 'alternate'], ['BUS', 'business'], ['BYP', 'bypass'], ['TRK', 'truck'],
-  ['BR', 'business'], ['B', 'business'], ['U', 'unsigned'],
-];
-
-function parseNumber(raw) {
-  const num = String(raw ?? '').trim().toUpperCase();
-  if (!num) return null;
-  const plain = /^(\d+)([A-Z]*)$/.exec(num);
-  if (plain) return { base: plain[1], suffix: plain[2] || '', qualifier: null, raw: num };
-  const hawaii = /^H(\d+)$/.exec(num);
-  if (hawaii) return { base: num, suffix: '', qualifier: null, raw: num, hawaii: true };
-  for (const [prefix, kind] of QUALIFIERS) {
-    if (num.startsWith(prefix) && /^\d/.test(num.slice(prefix.length))) {
-      const rest = /^(\d+)([A-Z]*)$/.exec(num.slice(prefix.length));
-      if (rest) return { base: rest[1], suffix: rest[2] || '', qualifier: kind, raw: num };
-    }
-  }
-  return { base: num, suffix: '', qualifier: null, raw: num, malformed: true };
-}
+// TIGER is surveyed to the metre and draws each direction of a divided highway
+// as its own centreline, so endpoints are joined only where they genuinely
+// coincide. Natural Earth needed 275 m to close the gaps its generalisation
+// left; at that tolerance TIGER's two carriageways would weld into one road.
+const US_SNAP = 0.0002; // about 22 m
 
 // Primary routes carry one or two digits; three digits mean an auxiliary. The
 // distinction drives more than styling: auxiliary Interstate numbers are reused
@@ -69,7 +56,118 @@ function labelFor(system, parsed, stateCode) {
     const tag = { alternate: ' Alt', business: ' Bus', bypass: ' Byp', truck: ' Trk', unsigned: '' };
     return `US ${parsed.base}${parsed.suffix}${tag[parsed.qualifier] ?? ''}`;
   }
-  return `${stateCode} ${parsed.raw}`;
+  return `${stateCode} ${stateNumber(parsed.raw, stateCode)}`;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   What the states report about each road: HPMS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Attach FHWA's Highway Performance Monitoring System figures to each US route.
+ *
+ * HPMS is reported per state, so a route that crosses fifteen of them has
+ * fifteen records and no national one. They are combined in proportion to how
+ * much of the road this atlas measured in each state, which is the only
+ * weighting available that does not assume the states are equal: I-95 is 15
+ * miles of New Hampshire and 382 of Florida, and averaging those flat would let
+ * New Hampshire's traffic count matter as much as Florida's.
+ *
+ * Every figure carries the share of the route it was actually measured over.
+ * That is not decoration. Pavement roughness is collected on the National
+ * Highway System and patchily elsewhere, so a state route's roughness may
+ * describe a fifth of it, and a fifth presented as the whole is a fabrication
+ * of exactly the kind this atlas is meant not to commit.
+ */
+function attachHpms(routes, hpms) {
+  if (!hpms?.states) return;
+
+  // The two sides do not always spell a number alike. Michigan's trunklines
+  // are M-28 in the road file and 28 in HPMS; a route with a signed variant -
+  // a business loop - reports under its parent's number, which would silently
+  // attach the mainline's traffic to the spur, so those are left unjoined.
+  const hpmsNumber = (r, st) => {
+    if (r.qualifier) return null;
+    const num = String(r.number ?? '');
+    if (st === 'MI') return num.replace(/^M(\d)/, '$1');
+    return num;
+  };
+
+  let joined = 0;
+  const MEASURES = ['aadt', 'truck', 'iri', 'lanes', 'speed', 'rutting', 'cracking'];
+
+  for (const r of routes) {
+    if (r.country === 'ca') continue;
+    const parts = [];
+    for (const { st, mi } of r.states) {
+      const num = hpmsNumber(r, st);
+      if (!num) continue;
+      const rec = hpms.states[st]?.[`${r.system}|${num}`];
+      if (rec) parts.push({ mi, rec });
+    }
+    if (!parts.length) continue;
+
+    const measuredMi = parts.reduce((s, p) => s + p.mi, 0);
+    const out = {
+      // How much of the route the states reported on at all. A route half of
+      // whose length is in a state that does not identify its roads gets a
+      // figure drawn from the other half, and says so.
+      cover: Math.round((measuredMi / Math.max(r.mi, 1e-9)) * 100),
+    };
+
+    for (const name of MEASURES) {
+      let num = 0;
+      let den = 0;
+      for (const { mi, rec } of parts) {
+        const m = rec[name];
+        if (!m || m.v == null) continue;
+        // Weight by the length in that state that the measure itself covered,
+        // not by the state's whole length.
+        const w = mi * (m.cover / 100);
+        num += m.v * w;
+        den += w;
+      }
+      if (den <= 0) continue;
+      const round = name === 'aadt' ? 100 : name === 'truck' ? 10 : 1;
+      out[name] = {
+        v: Math.round((num / den) / round) * round,
+        cover: Math.min(100, Math.round((den / Math.max(r.mi, 1e-9)) * 100)),
+      };
+    }
+
+    for (const [name, field] of [['freeway', 'freeway'], ['tolled', 'tolled']]) {
+      let num = 0;
+      let den = 0;
+      for (const { mi, rec } of parts) {
+        if (rec[field] == null) continue;
+        num += rec[field] * mi;
+        den += mi;
+      }
+      if (den > 0) out[name] = Math.round((num / den) * 10) / 10;
+    }
+
+    out.aadtMax = Math.max(0, ...parts.map((p) => p.rec.aadtMax ?? 0)) || null;
+    out.futureAadt = Math.max(0, ...parts.map((p) => p.rec.futureAadt ?? 0)) || null;
+    out.improved = Math.max(0, ...parts.map((p) => p.rec.improved ?? 0)) || null;
+    out.signals = parts.reduce((s, p) => s + (p.rec.signals ?? 0), 0) || null;
+
+    r.hpms = out;
+    joined++;
+  }
+  console.log(`HPMS: joined ${joined} of ${routes.filter((r) => r.country !== 'ca').length} US routes`);
+}
+
+/**
+ * A state route number as it is signed, where the source writes it without its
+ * separator: Michigan's trunklines are M-28 and Texas's farm roads FM 1960.
+ * Florida's A1A and Missouri's lettered routes are already correct.
+ */
+function stateNumber(raw, stateCode) {
+  const farm = /^(FM|RM)(\d+)$/.exec(raw);
+  if (farm && stateCode === 'TX') return `${farm[1]} ${farm[2]}`;
+  const trunk = /^M(\d+)$/.exec(raw);
+  if (trunk && stateCode === 'MI') return `M-${trunk[1]}`;
+  return raw;
 }
 
 async function loadPlaces() {
@@ -186,8 +284,10 @@ async function loadOfficial() {
       return null;
     }
   };
-  const [mileage, cost] = await Promise.all([read('fhwa-mileage.json'), read('fhwa-cost.json')]);
-  return mileage ? { mileage, cost } : null;
+  const [mileage, cost, hpms] = await Promise.all([
+    read('fhwa-mileage.json'), read('fhwa-cost.json'), read('hpms.json'),
+  ]);
+  return mileage ? { mileage, cost, hpms } : null;
 }
 
 /**
@@ -229,6 +329,8 @@ function attachOfficial(routes, ref) {
     const hyphenated = String(number).replace(/^([A-Z]+)(\d)/, '$1-$2');
     return table[`I-${number}`] || table[number] || table[hyphenated] || null;
   };
+
+  attachHpms(routes, ref.hpms);
 
   for (const r of routes) {
     if (r.system !== 'interstate') continue;
@@ -325,7 +427,7 @@ async function buildAlaskaInterstates(groups, placeGrid) {
       continue;
     }
 
-    const comp = stitchBetween(parts, def.from, def.to, { bridgeKm: 60 });
+    const comp = stitchBetween(parts, def.from, def.to, { snapDeg: US_SNAP, bridgeKm: 60 });
     if (!comp || comp.disconnected) {
       console.log(`  ${number}: termini do not connect through the component routes`);
       continue;
@@ -346,7 +448,7 @@ async function buildAlaskaInterstates(groups, placeGrid) {
       label: number,
       qualifier: null,
       unsigned: true,
-      mi: Math.round(comp.pieces.reduce((s, p) => s + lineLengthKm(p), 0) / KM_PER_MI),
+      mi: Math.round(drivenKm(comp.pieces) / KM_PER_MI),
       pavedMi: Math.round(comp.km / KM_PER_MI),
       spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
       bbox: bboxOf(comp.pieces).map((v) => Math.round(v * 1000) / 1000),
@@ -436,24 +538,24 @@ function canadaTerminus(edges, atStart) {
  * Trans-Canada is something a road does for part of its length.
  */
 /**
- * How close two endpoints must be before they are treated as the same node,
- * for the Canadian sources. About 22 m, against 275 m on the American side.
+ * How close two endpoints must be before they are treated as the same node, for
+ * the Canadian source. The same 22 m as the American one, for the same reason.
  *
- * The two numbers differ because the two sources do. Natural Earth is
- * generalised to 1:1,000,000 and splits routes at state lines where the two
- * sides disagree by a couple of hundred metres, so it needs the loose
- * tolerance. The National Road Network is surveyed to 10 m and draws each
- * direction of a divided highway as its own centreline, often within 30 m of
- * the other - and at 275 m the two carriageways weld into one graph at every
- * point they pass close, after which the through path zigzags between them and
- * cuts every corner. That is what had Highway 401 at 773 km and Highway 17 at
- * 657 km of a 1,965 km road.
+ * Both national files are surveyed to around 10 m and draw each direction of a
+ * divided highway as its own centreline, often within 30 m of the other. At a
+ * loose tolerance the two carriageways weld into one graph at every point they
+ * pass close, after which the through path zigzags between them and cuts every
+ * corner: at 275 m, Highway 401 measured 773 km and Highway 17 measured 657 km
+ * of a 1,965 km road.
  *
- * Measured against published lengths, tightening this to 22 m takes 401 to
- * 821 km against 828, Highway 17 to 1,967 against 1,965, and Highway 11 to
- * 1,733 against 1,785.
+ * Measured against published lengths, 22 m takes 401 to 821 km against 828,
+ * Highway 17 to 1,967 against 1,965, and Highway 11 to 1,733 against 1,785.
+ *
+ * The loose tolerance was inherited from Natural Earth, which was generalised
+ * to 1:1,000,000 and split routes at state lines where the two sides disagreed
+ * by a couple of hundred metres. Nothing needs it now.
  */
-const CA_SNAP = 0.0002;
+const CA_SNAP = US_SNAP;
 
 async function buildCanada() {
   const src = await loadCanada(ROOT);
@@ -533,7 +635,7 @@ async function buildCanada() {
         speedCoverage: extra.speedCoverage,
         pavedShare: extra.pavedShare,
         named: names.slice(0, 4),
-        mi: Math.round(pieces.reduce((s, p) => s + lineLengthKm(p), 0) / KM_PER_MI),
+        mi: Math.round(drivenKm(pieces) / KM_PER_MI),
         pavedMi: Math.round(comp.km / KM_PER_MI),
         spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
         bbox: bboxOf([...pieces, ...comp.branches]).map((v) => Math.round(v * 1000) / 1000),
@@ -565,54 +667,70 @@ async function buildCanada() {
   return { routes, register: src.register };
 }
 
-async function main() {
-  console.log('reading roads shapefile...');
-  const src = await shapefile.open(
-    join(SRC, 'ne_10m_roads_north_america.shp'),
-    join(SRC, 'ne_10m_roads_north_america.dbf'),
-  );
+/**
+ * Write a TIGER designation back into the number string the rest of the build
+ * expects.
+ *
+ * TIGER keeps the number and the variant apart - 20 plus "business" - while
+ * Natural Earth wrote them together as "BUS20", and the ids, labels and tier
+ * rules were all built on the joined form. Rejoining here keeps a route's id
+ * stable across the change of source, so a link to /?r=i-bus20 still resolves.
+ */
+const QUALIFIER_PREFIX = {
+  business: 'BUS', alternate: 'ALT', bypass: 'BYP', truck: 'TRK',
+  spur: 'SPUR', connector: 'CONN', loop: 'LOOP', hov: 'HOV',
+  scenic: 'SCN', optional: 'OPT',
+};
 
+async function readUnitedStates(contextLines) {
   const groups = new Map();
-  const contextLines = [];
   let read = 0;
+  const fipsList = Object.keys(STATES);
 
-  while (true) {
-    const r = await src.read();
-    if (r.done) break;
-    const p = r.value.properties;
-    read++;
-    if (p.country !== 'United States') continue;
-    const g = r.value.geometry;
-    if (!g) continue;
-    const rawParts = g.type === 'LineString' ? [g.coordinates]
-      : g.type === 'MultiLineString' ? g.coordinates : [];
-
-    const system = p.class === 'Interstate' ? 'interstate'
-      : p.class === 'Federal' ? 'us'
-        : p.class === 'State' ? 'state' : null;
-
-    if (!system || p.number == null) {
-      if (['Freeway', 'Tollway', 'Primary'].includes(p.type)) {
-        for (const part of rawParts) if (part.length >= 2) contextLines.push(part);
-      }
-      continue;
-    }
-
-    const parsed = parseNumber(p.number);
-    if (!parsed) continue;
-    const tier = tierOf(system, parsed);
-    const st = STATE_CODE[p.state] || 'XX';
-    // State routes and signed variants repeat from state to state, so they are
-    // keyed per state. Interstates and US routes are keyed nationally.
-    const key = (system === 'state' || tier === 'special')
-      ? `${system}|${parsed.raw}|${st}`
-      : `${system}|${parsed.raw}`;
-    if (!groups.has(key)) groups.set(key, { system, parsed, tier, parts: [] });
-    for (const part of rawParts) {
-      if (part.length < 2) continue;
-      groups.get(key).parts.push({ coords: part, props: p });
-    }
+  for (const fips of fipsList) {
+    const before = groups.size;
+    const res = await readState(fips, { groups, tol: 0.0002, context: contextLines });
+    read += res.read;
+    console.log(`  ${res.st}  ${String(res.read).padStart(7)} features -> `
+      + `${String(groups.size - before).padStart(4)} new route numbers`);
   }
+
+  // Reshape into what the stitching loop consumes: a parsed number, a tier,
+  // and the geometry.
+  const out = new Map();
+  for (const grp of groups.values()) {
+    const raw = `${grp.qualifier ? QUALIFIER_PREFIX[grp.qualifier] ?? '' : ''}${grp.number}`;
+    // A number is not always digits: Hawaii's Interstates are H1 to H3,
+    // Florida signs A1A, Michigan signs M-28, Missouri letters its
+    // supplemental routes, and a suffixed route is 2A.
+    const m = /^([A-Z]*\d+)([A-Z]*)$/.exec(grp.number);
+    const parsed = {
+      base: m ? m[1] : grp.number,
+      suffix: m ? m[2] || '' : '',
+      qualifier: grp.qualifier,
+      raw,
+      hawaii: grp.system === 'interstate' && /^H\d/.test(grp.number),
+      malformed: !m,
+    };
+    const tier = tierOf(grp.system, parsed);
+    const key = (grp.system === 'state' || tier === 'special')
+      ? `${grp.system}|${raw}|${grp.st ?? 'XX'}`
+      : `${grp.system}|${raw}`;
+
+    // Two TIGER keys can land on one route: a state route and its business
+    // spur are separate numbers to TIGER but the same designation once the
+    // qualifier is folded back into the number.
+    const existing = out.get(key);
+    if (existing) existing.parts.push(...grp.parts);
+    else out.set(key, { system: grp.system, parsed, tier, parts: grp.parts, names: grp.names });
+  }
+  return { groups: out, read };
+}
+
+async function main() {
+  console.log('reading TIGER/Line roads, by state...');
+  const contextLines = [];
+  const { groups, read } = await readUnitedStates(contextLines);
 
   console.log(`read ${read} features -> ${groups.size} route groups`);
   console.log('loading gazetteer places...');
@@ -628,7 +746,9 @@ async function main() {
   for (const [key, grp] of groups) {
     if (++done % 900 === 0) console.log(`  ${done}/${groups.size}`);
 
-    const firstPass = stitchRoute(grp.parts, { bridgeKm: grp.tier === 'state' ? 40 : 60 });
+    const firstPass = stitchRoute(grp.parts, {
+      snapDeg: US_SNAP, bridgeKm: grp.tier === 'state' ? 40 : 60, dedupe: true,
+    });
     if (!firstPass.length) continue;
     for (const piece of firstPass) {
       const comp = compositionOf(piece.edges);
@@ -670,9 +790,11 @@ async function main() {
         label: labelFor(grp.system, grp.parsed, primarySt),
         qualifier: grp.parsed.qualifier || null,
         // Two different questions. `mi` is how far you drive end to end, the
-        // mainline only. `pavedMi` adds the spurs and old alignments filed
-        // under the same number, which is what the source's total describes.
-        mi: Math.round(pieces.reduce((s, p) => s + lineLengthKm(p), 0) / KM_PER_MI),
+        // mainline only, discounting any stretch where the source folded both
+        // carriageways into one line. `pavedMi` adds the spurs and old
+        // alignments filed under the same number, which is what the source's
+        // own total describes.
+        mi: Math.round(drivenKm(pieces) / KM_PER_MI),
         pavedMi: Math.round(comp.km / KM_PER_MI),
         spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
         bbox: bbox.map((v) => Math.round(v * 1000) / 1000),
@@ -786,6 +908,10 @@ async function main() {
         start: r.start, end: r.end,
         where: r.where ?? null,
         unsigned: r.unsigned ?? null,
+        // What the state reported to FHWA about this road: traffic, pavement
+        // roughness, lanes, speeds, tolls. Null on Canadian routes and on the
+        // US routes HPMS does not identify.
+        hpms: r.hpms ?? null,
         // Canada only: the designation tier, how much of the route carries the
         // Trans-Canada, and the three things the NRN records that the American
         // source does not. Each is null everywhere it does not apply, so the
@@ -872,7 +998,7 @@ async function main() {
     byState: {},
     byType: {},
     sources: {
-      us: 'Natural Earth 1:1M roads, US Census gazetteer, FHWA Route Log',
+      us: `US Census TIGER/Line ${TIGER_YEAR} roads, US Census gazetteer, FHWA Route Log`,
       ca: 'Statistics Canada National Road Network, Transport Canada National Highway System',
     },
     canada: canada.register?.inventory ?? null,
