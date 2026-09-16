@@ -148,6 +148,10 @@ export const STRINGS = {
 
     'note.derived': 'Length, endpoints, state mileage and roadway class on this page are measured from the mapped geometry (Natural Earth, 1:1,000,000). Treat them as close rather than survey-exact.',
     'note.gaps': 'The source map has {n} break(s) along this route, {mi} mi in total, where the roadway is filed under another classification. Those stretches are missing from the drawn line and from the length above.',
+    // Canada's breaks are as often water as missing data: Highway 1 crosses to
+    // Vancouver Island by ferry and Route 138 reaches the Lower North Shore the
+    // same way, and calling those a filing error would be wrong.
+    'note.gaps.ca': 'The route comes through in {n} piece(s), with {mi} mi unaccounted for between them. Some of that is road filed under another classification in the source; some of it is water, since designated routes cross to Vancouver Island and along the Lower North Shore by ferry. Neither is drawn, and neither is in the length above.',
     'note.noDossier': 'No written profile yet for this route. The figures above are measured from the map data.',
 
     'elev.none': 'No elevation profile generated for this route.',
@@ -392,6 +396,7 @@ export const STRINGS = {
 
     'note.derived': '本页的长度、起止点、各州里程与路段等级，均由地图几何数据（Natural Earth，1:1,000,000）实测得出，属接近值，并非测绘精度。',
     'note.gaps': '原始地图数据在本路线上有 {n} 处断口，合计约 {mi} 英里，这些路段在原始数据中被归入了其他分类。上方的长度和图上的线条都不包含这些路段。',
+    'note.gaps.ca': '本路线由 {n} 段构成，段与段之间另有约 {mi} 英里无法计入。其中一部分是在原始数据中被归入其他分类的路段，另一部分则是水域——获得指定的路线要靠渡轮前往温哥华岛，以及沿下北岸通行。两者都不绘制，也都不计入上方的长度。',
     'note.noDossier': '此路线暂无撰写好的详情。上方数字均由地图数据实测得出。',
 
     'elev.none': '此路线尚未生成高程剖面。',

@@ -132,7 +132,7 @@ function caFacts(p) {
   // anything measurable off the road, and the reason behind it.
   if (p.nhsTier) {
     rows.push([t('ca.nhs'),
-      `<b>${t(`ca.nhs.${p.nhsTier}`)}</b><span class="fig-s">${t(`ca.nhs.${p.nhsTier}Why`)}</span>`]);
+      `<b>${t(`ca.nhs.${p.nhsTier}`)}</b><br><span class="fig-s">${t(`ca.nhs.${p.nhsTier}Why`)}</span>`]);
   }
   // The Trans-Canada is a route carried by other highways rather than a
   // highway of its own, so the useful figure is how much of this road it uses.
@@ -358,7 +358,7 @@ export async function renderDetail(id) {
   const officialSrc = dossier?.mileageSource || (p.offMi != null ? t('src.routelog') : null);
   const gapNote = p.breaks > 0
     ? `<div class="note gap"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17v.1"/><circle cx="12" cy="12" r="9"/></svg>
-       <span>${t('note.gaps', { n: p.breaks, mi: num(p.gapMi) })}</span></div>` : '';
+       <span>${t(ca ? 'note.gaps.ca' : 'note.gaps', { n: p.breaks, mi: num(p.gapMi) })}</span></div>` : '';
 
   host.innerHTML = `
     <div class="dt-hd">
