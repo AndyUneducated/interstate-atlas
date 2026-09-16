@@ -9,7 +9,7 @@ the Interstates, the US numbered routes, every state route system, the Trans-Can
 Highway, Canada's National Highway System and every numbered provincial route — with a
 written record for the roads that have one.
 
-[![live site](https://img.shields.io/badge/live-andyuneducated.github.io%2Fhighway--atlas-35e7ff?style=for-the-badge)](https://andyuneducated.github.io/highway-atlas/)
+[![live site](https://img.shields.io/badge/live-andyuneducated.github.io%2Finterstate--atlas-35e7ff?style=for-the-badge)](https://andyuneducated.github.io/interstate-atlas/)
 
 ![routes](https://img.shields.io/badge/routes-10%2C657-ffd166?style=flat-square)
 ![countries](https://img.shields.io/badge/countries-US%20%C2%B7%20CA-ff4d6d?style=flat-square)

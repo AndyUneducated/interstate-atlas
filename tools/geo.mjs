@@ -214,7 +214,7 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
       adj.get(e.b).push({ to: e.a, e });
     }
 
-    const best = farthestPair(adj);
+    const best = farthestPair(adj, nodeCoord);
 
     let pieces = [];
     let gaps = [];
@@ -334,42 +334,63 @@ function dijkstra(adj, start) {
 }
 
 /**
- * The two nodes farthest apart *along the road*, by a double sweep: walk from
- * any node to the most distant one, then from there to the most distant one
- * again.
+ * The route's two ends: the pair of nodes lying farthest apart on the map,
+ * found by a geometric double sweep - step out from the component's centre to
+ * the most distant node, then from there to the most distant node again.
  *
- * What this replaced was the bug that made Ontario's Highway 401 two miles
- * long. That code took the two dead ends with the greatest straight-line
- * separation to be the route's ends, which holds only where the dead ends are
- * the ends of the road. On a divided freeway drawn with its ramps, nearly
- * every node has degree three or more and the handful of degree-one nodes are
- * ramp stubs: the 401's graph had exactly two of them, 2 km apart, so a
- * 828 km highway was reconstructed as the 3 km between two off-ramps. Highway
- * 400 escaped only because it had fewer than two dead ends, which tripped the
- * fallback that considered every node.
+ * Both halves of this matter, and each replaced a bug that produced a
+ * confidently wrong number.
  *
- * A double sweep cannot fail that way, because it measures along the graph
- * rather than across the map and starts from no assumption about which nodes
- * are special. It is exact on a tree and a good approximation otherwise, and
- * it costs two Dijkstra runs instead of a quadratic scan over node pairs.
+ * *Every node is a candidate.* The original code considered only dead ends,
+ * which holds when the dead ends are the ends of the road. On a divided
+ * freeway drawn with its ramps, nearly every node has degree three or more and
+ * the few degree-one nodes are ramp stubs. Ontario's Highway 401 had exactly
+ * two of them, 2 km apart, so an 828 km motorway came back as the 3 km between
+ * two off-ramps.
+ *
+ * *The sweep measures across the map, not along the road.* Sweeping by road
+ * distance instead looks more principled and is wrong here, because the
+ * longest simple path through a dual carriageway runs out along one side and
+ * back down the other. That path repeats no node, so nothing rules it out, and
+ * it is close to twice the length of the road: Rhode Island's Interstates came
+ * to 141 miles against a published 71. Choosing the ends geographically and
+ * then routing between them by road gives the journey rather than the tour.
+ *
+ * Both sweeps are linear, so this also costs less than the quadratic scan over
+ * node pairs it replaced.
  */
-function farthestPair(adj) {
+function farthestPair(adj, nodeCoord) {
   const nodes = [...adj.keys()];
   if (nodes.length < 2) return null;
 
-  // Seeding from a dead end where one exists puts the first sweep at an
-  // extremity, which makes the second exact more often.
-  const seed = nodes.find((n) => adj.get(n).length === 1) ?? nodes[0];
-
-  const pick = (from) => {
-    const { dist } = dijkstra(adj, from);
-    let node = from, d = -1;
-    for (const [n, v] of dist) if (v > d) { node = n; d = v; }
+  const far = (from) => {
+    const origin = nodeCoord[from];
+    let node = from;
+    let d = -1;
+    for (const n of nodes) {
+      const v = haversineKm(origin, nodeCoord[n]);
+      if (v > d) { node = n; d = v; }
+    }
     return { node, d };
   };
 
-  const a = pick(seed);
-  const b = pick(a.node);
+  // Starting from the centroid rather than an arbitrary node, so the first
+  // sweep lands on a genuine extremity instead of wherever the source happened
+  // to begin drawing.
+  let cx = 0;
+  let cy = 0;
+  for (const n of nodes) { cx += nodeCoord[n][0]; cy += nodeCoord[n][1]; }
+  const centre = [cx / nodes.length, cy / nodes.length];
+
+  let seed = nodes[0];
+  let seedD = -1;
+  for (const n of nodes) {
+    const v = haversineKm(centre, nodeCoord[n]);
+    if (v > seedD) { seed = n; seedD = v; }
+  }
+
+  const a = far(seed);
+  const b = far(a.node);
   return { a: a.node, b: b.node, d: b.d };
 }
 
