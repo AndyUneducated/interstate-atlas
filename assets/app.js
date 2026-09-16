@@ -8,7 +8,7 @@ import {
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen, refreshPlannerIfOpen } from './sheets.js';
 import { startFly, stopFly, isFlying } from './fly.js';
-import { openTimelapse, closeTimelapse, isTimelapseOn } from './timelapse.js';
+import { openTimelapse } from './timelapse.js';
 
 /**
  * The six route systems, grouped by country.
@@ -753,7 +753,12 @@ const REGIONS = [
   { group: 'us', key: 'ak', i18n: 'jump.ak', st: 'AK', bounds: [[-169.5, 52.0], [-129.5, 71.5]] },
   { group: 'us', key: 'hi', i18n: 'jump.hi', st: 'HI', bounds: [[-160.4, 18.8], [-154.7, 22.4]] },
   { group: 'us', key: 'pr', i18n: 'jump.pr', st: 'PR', bounds: [[-67.4, 17.85], [-65.2, 18.6]] },
-  { group: 'ca', key: 'ca', i18n: 'jump.ca', bounds: [[-141, 41.5], [-52.5, 70]] },
+  // Stops at 62°N rather than at the top of the country. Nunavut has no
+  // numbered route at all and the two other territories have 24 between them,
+  // so framing to 70° spends two thirds of the screen on empty ground and
+  // squeezes the corridor every road is in into a strip. The territories have
+  // their own jump for anyone who wants them.
+  { group: 'ca', key: 'ca', i18n: 'jump.ca', bounds: [[-141, 42], [-52.5, 62]] },
   { group: 'ca', key: 'cawest', i18n: 'jump.cawest', bounds: [[-139, 48.2], [-94, 60.5]] },
   { group: 'ca', key: 'caeast', i18n: 'jump.caeast', bounds: [[-95.5, 41.6], [-52.5, 62]] },
   { group: 'ca', key: 'canorth', i18n: 'jump.canorth', bounds: [[-141, 58], [-61, 71]] },
@@ -943,16 +948,17 @@ function renderResults() {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = `res${app.selected === r.id ? ' sel' : ''}`;
-    // A state or provincial route wants its jurisdiction named; a national
-    // route wants the shape of its run, since its name already says the
-    // system. Either way, a route sharing its number with another leads with
-    // the place that tells them apart, because without it the rows are
-    // indistinguishable and the reader has to open each one.
-    const sub = r.where
-      ? `${stateName(r.st)} · ${r.where}`
-      : isPerJuris(r.sys)
-        ? stateName(r.st)
-        : `${r.ns} ${t(isProvince(r.st) ? 'dt.provinces' : 'dt.states').toLowerCase()}`
+    // What tells this row from the one under it. A jurisdiction's own route
+    // wants the jurisdiction; so does any Canadian route, because the
+    // Trans-Canada changes number at nearly every border and five different
+    // roads are all signed TCH 1. An American national route wants the shape
+    // of its run instead, since its number is unique already. And a route
+    // sharing a number inside one jurisdiction adds the place that tells the
+    // namesakes apart.
+    const byJurisdiction = isPerJuris(r.sys) || isProvince(r.st);
+    const sub = r.where ? `${stateName(r.st)} · ${r.where}`
+      : byJurisdiction ? stateName(r.st)
+        : `${r.ns === 1 ? t('sub.state') : t('sub.states', { n: r.ns })}`
           + ` · ${r.gs}% ${t('dt.gradeSep').toLowerCase()}`;
     const written = writtenIds.has(r.id)
       ? `<span class="res-pen" title="${t('search.written')}"></span>` : '';
@@ -1139,10 +1145,9 @@ function wire() {
   }
   // The buildout view docks over the map instead of opening a sheet, because
   // a modal that covers the map cannot show the map changing.
-  document.getElementById('btnTimeline').addEventListener('click', () => {
-    document.getElementById('btnTimeline').classList.toggle('on', !isTimelapseOn());
-    openTimelapse();
-  });
+  // openTimelapse toggles, and it owns the button's lit state so that closing
+  // from the scrubber's own dismiss button leaves the two in step.
+  document.getElementById('btnTimeline').addEventListener('click', openTimelapse);
 
   document.getElementById('palQ').addEventListener('input', renderPalette);
   document.getElementById('palette').addEventListener('click', (e) => {
@@ -1204,9 +1209,17 @@ async function main() {
     },
   });
 
-  const interstate = await (await fetch('data/geo/interstate.json')).json();
-  app.loaded.add('interstate');
-  addSystemLayers('interstate', interstate);
+  // Every system that starts switched on gets drawn, rather than the
+  // Interstates alone. The Trans-Canada is also on by default, and loading
+  // only the Interstates left its button lit above an empty map - and its
+  // routes selectable from search but invisible until something else
+  // happened to switch the layer on.
+  const startOn = SYSTEMS.filter((s) => s.on && s.src);
+  const payloads = await Promise.all(startOn.map((s) => fetch(s.src).then((r) => r.json())));
+  startOn.forEach((s, i) => {
+    app.loaded.add(s.id);
+    addSystemLayers(s.id, payloads[i]);
+  });
   ensureSelectionLayers();
   renderMapLabels();
 

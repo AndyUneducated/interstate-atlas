@@ -214,18 +214,7 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
       adj.get(e.b).push({ to: e.a, e });
     }
 
-    // Prefer dead ends as candidate termini; a ring road has none, so fall back
-    // to every node in the component.
-    let terminals = [...adj.keys()].filter((n) => adj.get(n).length === 1);
-    if (terminals.length < 2) terminals = [...adj.keys()];
-
-    let best = null;
-    for (let i = 0; i < terminals.length; i++) {
-      for (let j = i + 1; j < terminals.length; j++) {
-        const d = haversineKm(nodeCoord[terminals[i]], nodeCoord[terminals[j]]);
-        if (!best || d > best.d) best = { d, a: terminals[i], b: terminals[j] };
-      }
-    }
+    const best = farthestPair(adj);
 
     let pieces = [];
     let gaps = [];
@@ -279,23 +268,113 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
   return components;
 }
 
-function shortestPath(adj, start, goal) {
-  // Dijkstra; components are small enough that a linear scan for the minimum is fine.
+// A bridged gap costs more than the straight line it spans, so a route is only
+// carried across one where there is genuinely no pavement to follow. Without
+// the penalty a bridge is always the cheaper option - a straight line between
+// two points can never be longer than a road between them - so any bridge
+// running parallel to real road would be preferred to the road.
+const cost = (e) => (e.bridge ? e.km * 4 + 2 : e.km);
+
+// Dijkstra from one node to every node it can reach, over a binary heap.
+//
+// The heap matters: this runs three times per route across 11,000 routes, and
+// the largest components hold tens of thousands of nodes. Scanning for the
+// minimum instead made the whole build quadratic in the size of the biggest
+// road in the network.
+function dijkstra(adj, start) {
   const dist = new Map([[start, 0]]);
   const prev = new Map();
-  const visited = new Set();
-  while (true) {
-    let cur = null, curD = Infinity;
-    for (const [n, d] of dist) if (!visited.has(n) && d < curD) { cur = n; curD = d; }
-    if (cur === null) return null;
-    if (cur === goal) break;
-    visited.add(cur);
+  const done = new Set();
+  const heap = [{ n: start, d: 0 }];
+
+  const push = (item) => {
+    heap.push(item);
+    let i = heap.length - 1;
+    while (i > 0) {
+      const p = (i - 1) >> 1;
+      if (heap[p].d <= heap[i].d) break;
+      [heap[p], heap[i]] = [heap[i], heap[p]];
+      i = p;
+    }
+  };
+  const pop = () => {
+    const top = heap[0];
+    const last = heap.pop();
+    if (heap.length) {
+      heap[0] = last;
+      let i = 0;
+      for (;;) {
+        const l = 2 * i + 1, r = l + 1;
+        let m = i;
+        if (l < heap.length && heap[l].d < heap[m].d) m = l;
+        if (r < heap.length && heap[r].d < heap[m].d) m = r;
+        if (m === i) break;
+        [heap[m], heap[i]] = [heap[i], heap[m]];
+        i = m;
+      }
+    }
+    return top;
+  };
+
+  while (heap.length) {
+    const { n: cur, d: curD } = pop();
+    if (done.has(cur)) continue;
+    done.add(cur);
     for (const { to, e } of adj.get(cur) || []) {
-      if (visited.has(to)) continue;
-      const nd = curD + e.km;
-      if (nd < (dist.get(to) ?? Infinity)) { dist.set(to, nd); prev.set(to, { from: cur, e }); }
+      if (done.has(to)) continue;
+      const nd = curD + cost(e);
+      if (nd < (dist.get(to) ?? Infinity)) {
+        dist.set(to, nd);
+        prev.set(to, { from: cur, e });
+        push({ n: to, d: nd });
+      }
     }
   }
+  return { dist, prev };
+}
+
+/**
+ * The two nodes farthest apart *along the road*, by a double sweep: walk from
+ * any node to the most distant one, then from there to the most distant one
+ * again.
+ *
+ * What this replaced was the bug that made Ontario's Highway 401 two miles
+ * long. That code took the two dead ends with the greatest straight-line
+ * separation to be the route's ends, which holds only where the dead ends are
+ * the ends of the road. On a divided freeway drawn with its ramps, nearly
+ * every node has degree three or more and the handful of degree-one nodes are
+ * ramp stubs: the 401's graph had exactly two of them, 2 km apart, so a
+ * 828 km highway was reconstructed as the 3 km between two off-ramps. Highway
+ * 400 escaped only because it had fewer than two dead ends, which tripped the
+ * fallback that considered every node.
+ *
+ * A double sweep cannot fail that way, because it measures along the graph
+ * rather than across the map and starts from no assumption about which nodes
+ * are special. It is exact on a tree and a good approximation otherwise, and
+ * it costs two Dijkstra runs instead of a quadratic scan over node pairs.
+ */
+function farthestPair(adj) {
+  const nodes = [...adj.keys()];
+  if (nodes.length < 2) return null;
+
+  // Seeding from a dead end where one exists puts the first sweep at an
+  // extremity, which makes the second exact more often.
+  const seed = nodes.find((n) => adj.get(n).length === 1) ?? nodes[0];
+
+  const pick = (from) => {
+    const { dist } = dijkstra(adj, from);
+    let node = from, d = -1;
+    for (const [n, v] of dist) if (v > d) { node = n; d = v; }
+    return { node, d };
+  };
+
+  const a = pick(seed);
+  const b = pick(a.node);
+  return { a: a.node, b: b.node, d: b.d };
+}
+
+function shortestPath(adj, start, goal) {
+  const { prev } = dijkstra(adj, start);
   const steps = [];
   let n = goal;
   while (n !== start) {

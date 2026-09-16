@@ -209,16 +209,42 @@ await step('dashboard', async () => {
 });
 await shot('04-dashboard.png');
 
-await step('timeline opens', async () => {
-  await page.click('#shClose');
+// Closing whatever sheet the previous step opened. Not every step leaves one
+// open, and a step must not fail because the thing it is tidying up after is
+// already tidy.
+const dismissSheet = async () => {
+  const close = page.locator('#shClose');
+  if (await close.count()) await close.click().catch(() => {});
+};
+
+await step('buildout scrubber opens and scrubs', async () => {
+  await dismissSheet();
   await page.click('#btnTimeline');
-  await page.waitForSelector('#tlBody', { timeout: 8000 });
-  await page.waitForTimeout(600);
+  await page.waitForSelector('#tlapse .tlx-year', { timeout: 8000 });
+  await page.waitForTimeout(500);
+
+  // Scrubbing has to move the year and the mileage with it, not just the
+  // slider: the curve, the headline figure and the map filter are all driven
+  // off the same value and a break between them would be invisible otherwise.
+  const before = await page.locator('#tlapse .tlx-year').textContent();
+  await page.locator('#tlxRange').fill('1975');
+  await page.waitForTimeout(700);
+  const after = await page.locator('#tlapse .tlx-year').textContent();
+  if (after !== '1975') throw new Error(`year reads ${after} after scrubbing to 1975`);
+  if (before === after) throw new Error('year did not move');
+  const open = await page.locator('#tlapse .tlx-v').first().textContent();
+  if (!/\d/.test(open)) throw new Error(`no mileage figure at 1975: ${open}`);
 });
 await shot('05-timeline.png');
 
+await step('buildout scrubber closes', async () => {
+  await page.click('#tlxClose');
+  await page.waitForTimeout(400);
+  if (await page.locator('#tlapse .tlx-year').count()) throw new Error('scrubber still up');
+});
+
 await step('command palette', async () => {
-  await page.click('#shClose');
+  await dismissSheet();
   await page.keyboard.press('/');
   await page.waitForSelector('#palette:not(.hidden)', { timeout: 6000 });
   await page.fill('#palQ', 'US 66');

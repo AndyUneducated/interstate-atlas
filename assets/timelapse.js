@@ -275,8 +275,15 @@ export async function openTimelapse() {
   ensureFlashLayers();
   render();
   document.body.classList.add('tlapse-on');
+  lightButton(true);
   setYear(state.min);
   play();
+}
+
+// The toolbar button and the scrubber can each be the thing that closes it, so
+// the lit state is set here rather than by whichever one was clicked.
+function lightButton(lit) {
+  document.getElementById('btnTimeline')?.classList.toggle('on', lit);
 }
 
 export function closeTimelapse() {
@@ -285,6 +292,7 @@ export function closeTimelapse() {
   on = false;
   state = null;
   document.body.classList.remove('tlapse-on');
+  lightButton(false);
   document.getElementById('tlapse').innerHTML = '';
   const map = app.map;
   if (!map) return;

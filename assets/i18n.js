@@ -46,6 +46,8 @@ export const STRINGS = {
     'sys.provincial.meta': 'every numbered route, load by province',
     'sys.routes': '{n} routes',
     'sys.miles': '{n} mi',
+    'sub.state': 'one state',
+    'sub.states': '{n} states',
     'sys.pickState': 'Choose a state',
     'sys.allStates': 'All states',
     'sys.pickProvince': 'Choose a province',
@@ -288,6 +290,8 @@ export const STRINGS = {
     'sys.provincial.meta': '收录全部编号路线，按省加载',
     'sys.routes': '{n} 条',
     'sys.miles': '{n} 英里',
+    'sub.state': '1 个州',
+    'sub.states': '{n} 个州',
     'sys.pickState': '选择州',
     'sys.allStates': '全部州',
     'sys.pickProvince': '选择省份',
@@ -577,8 +581,18 @@ export function stateName(code) {
  * national systems it is the system itself. This is the line under every
  * search result, palette hit and table row, so it lives in one place.
  */
+/**
+ * What to name a route by, beside its number.
+ *
+ * Per-jurisdiction systems obviously want their jurisdiction. So do Canada's
+ * two national tiers, which is less obvious: the Trans-Canada is a designation
+ * carried by provincial highways and it changes number at nearly every border,
+ * so five separate roads are all signed "TCH 1" and only the province tells
+ * them apart. An American national route needs none of this, because its
+ * number is unique and its name already says which system it belongs to.
+ */
 export function ownerLabel(sys, code) {
-  if (sys === 'state' || sys === 'provincial') return stateName(code);
+  if (sys === 'state' || sys === 'provincial' || isProvince(code)) return stateName(code);
   return t(`sys.${sys}`);
 }
 

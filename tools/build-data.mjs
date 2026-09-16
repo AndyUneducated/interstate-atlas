@@ -435,6 +435,26 @@ function canadaTerminus(edges, atStart) {
  * and the tier has to be measured rather than read, because carrying the
  * Trans-Canada is something a road does for part of its length.
  */
+/**
+ * How close two endpoints must be before they are treated as the same node,
+ * for the Canadian sources. About 22 m, against 275 m on the American side.
+ *
+ * The two numbers differ because the two sources do. Natural Earth is
+ * generalised to 1:1,000,000 and splits routes at state lines where the two
+ * sides disagree by a couple of hundred metres, so it needs the loose
+ * tolerance. The National Road Network is surveyed to 10 m and draws each
+ * direction of a divided highway as its own centreline, often within 30 m of
+ * the other - and at 275 m the two carriageways weld into one graph at every
+ * point they pass close, after which the through path zigzags between them and
+ * cuts every corner. That is what had Highway 401 at 773 km and Highway 17 at
+ * 657 km of a 1,965 km road.
+ *
+ * Measured against published lengths, tightening this to 22 m takes 401 to
+ * 821 km against 828, Highway 17 to 1,967 against 1,965, and Highway 11 to
+ * 1,733 against 1,785.
+ */
+const CA_SNAP = 0.0002;
+
 async function buildCanada() {
   const src = await loadCanada(ROOT);
   if (!src) return { routes: [], register: null };
@@ -446,6 +466,7 @@ async function buildCanada() {
 
     const onNetwork = Boolean(grp.nhsTier);
     const firstPass = stitchRoute(grp.parts, {
+      snapDeg: CA_SNAP,
       bridgeKm: onNetwork ? 60 : 30,
       minComponentKm: 1.5,
     });
@@ -461,11 +482,19 @@ async function buildCanada() {
       : firstPass.map((c) => [c]);
 
     for (const members of clusters) {
-      let comp = members[0];
+      let comps = members;
       if (members.length > 1) {
         const parts = members.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
-        comp = stitchComponents(parts, 0.0025, 1000).sort((a, b) => b.km - a.km)[0];
+        // 120 km spans the longest crossing a Canadian designated route
+        // actually makes - Highway 1's ferry from Horseshoe Bay to Nanaimo is
+        // about 50 - while refusing the absurd ones. A 1,000 km budget here
+        // had the stitcher bridge Highway 17 across 726 km of Lake Superior
+        // and report 230 km of a 1,965 km road.
+        comps = stitchComponents(parts, CA_SNAP, 120).sort((a, b) => b.km - a.km);
       }
+      // Whatever will not join stays as its own route rather than being
+      // dropped. Keeping only the longest piece silently deleted road.
+      for (const comp of comps) {
       if (!comp || comp.km < 1.5) continue;
 
       // Measured over the road as driven, not over every centreline in the
@@ -525,6 +554,7 @@ async function buildCanada() {
         _branches: comp.branches,
         _primarySt: grp.pr,
       });
+      }
     }
   }
 
