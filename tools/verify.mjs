@@ -474,6 +474,45 @@ await step('provincial highways load by province', async () => {
 });
 await shot('15-ontario.png');
 
+await step('a route in a publishing province carries traffic', async () => {
+  // Five of thirteen jurisdictions publish counts, each read out of a field
+  // that was not designed to be read that way - Quebec's route number out of a
+  // linear reference, Alberta's out of a column that shifts position, New
+  // Brunswick's out of a control-section key. Any of those feeds can change
+  // shape without warning, and the failure mode is silent: the join produces
+  // nothing and the panel simply stops showing a block that used to be there.
+  // Highway 401 is the check because it is the busiest road in the country and
+  // Ontario has published its volume every year for three decades.
+  await page.keyboard.press('Escape');
+  await page.fill('#q', 'ON 401');
+  await page.waitForTimeout(700);
+  await page.locator('#results .res').first().click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(2200);
+
+  const box = page.locator('.fig-box', { hasText: /province measures/i });
+  if (!await box.count()) throw new Error('no provincial traffic block on Ontario 401');
+  const text = await box.first().textContent();
+
+  // Read the traffic row itself rather than the block, whose subtitle carries
+  // the count year and would otherwise pass for a volume.
+  const row = box.first().locator('.fig', { has: page.locator('.fig-k') })
+    .filter({ hasText: /traffic|车流/i }).first();
+  if (!await row.count()) throw new Error(`no traffic row in the block: ${text.slice(0, 200)}`);
+  const value = await row.locator('.fig-v').textContent();
+  const aadt = Number((/([\d,]{5,})/.exec(value)?.[1] ?? '').replace(/,/g, ''));
+  if (!aadt) throw new Error(`no traffic figure on the 401: ${value}`);
+  // The 401 carried 73,700 a day averaged over its length at the last build, so
+  // anything under ten thousand means the join has broken rather than moved.
+  if (aadt < 10000) throw new Error(`implausible AADT on the 401: ${aadt}`);
+  // The licence has to travel with the figure; Ontario's is the one that is
+  // unstated, and dropping that caveat is the quiet failure worth catching.
+  if (!/licence|Ministry of Transportation/i.test(text)) {
+    throw new Error('traffic figure shown without naming its source');
+  }
+});
+await shot('16-ontario-401-traffic.png');
+
 console.log(`\nsteps failed:    ${failures}`);
 console.log(`console errors:  ${errors.length}`);
 for (const e of [...new Set(errors)].slice(0, 25)) console.log(`  ! ${e.slice(0, 300)}`);

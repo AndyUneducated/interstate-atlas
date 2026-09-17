@@ -82,6 +82,24 @@ Coverage is uneven by design — pavement condition is surveyed thoroughly on th
 Highway System and patchily elsewhere — so every one of these figures states the share of
 the route it was measured over, and nothing is filled in where a state reported nothing.
 
+Canada has no equivalent. There is no national traffic collection, because counting is
+provincial and each province decides for itself whether to publish, in what form and under
+what terms. Five publish route-level counts in bulk and are read here; eight do not, and
+their routes carry no traffic figure rather than an inferred one. The asymmetry is real and
+the site states it rather than papering over it.
+
+| Jurisdiction | Counts published in bulk | Read here |
+| --- | --- | --- |
+| Quebec | WFS, updated daily, CC-BY, with heavy-vehicle share | ✅ |
+| Ontario | 2024 spreadsheet, no licence stated by the publisher | ✅ |
+| Alberta | 2025 spreadsheet, per-highway weighted, with vehicle classification | ✅ |
+| Nova Scotia | 2005–2025 census, Open Government Licence, with truck share and speeds | ✅ |
+| New Brunswick | 2023 count stations, Open Government Licence | ✅ |
+| British Columbia | interactive map only; the catalogue's copy stops at 2010 | ❌ |
+| Saskatchewan | PDF map | ❌ |
+| Manitoba | web application and PDF | ❌ |
+| NL, PEI, YT, NT, NU | no machine-readable traffic publication found | ❌ |
+
 **Published.** Official Interstate mileage comes from the FHWA Route Log and Finder List;
 Canadian designations and network mileage come from Transport Canada. Everything in a
 written dossier — costs, traffic counts, construction dates, condition — carries its own
@@ -119,6 +137,11 @@ and each road is listed with the place that identifies it.
 | [Statistics Canada National Road Network](https://www.statcan.gc.ca/en/lode/databases/odr) (NRN) | route geometry, road class, lanes, posted speed, surface, place names | Open Government Licence – Canada |
 | [Transport Canada National Highway System](https://open.canada.ca/data/en/dataset/2dac78ba-8b48-4bec-8290-cbdda8474f97) | Core / Feeder / Northern and Remote designation | Open Government Licence – Canada |
 | Transport Canada *NHS Annual Report* 2017 | published NHS mileage by jurisdiction and tier | Open Government Licence – Canada |
+| [Québec *Débit de circulation*](https://www.donneesquebec.ca/recherche/dataset/debit-de-circulation) | DJMA and heavy-vehicle share, Quebec | CC-BY 4.0 |
+| [Ontario *Provincial Highways Traffic Volumes*](https://www.library.mto.gov.on.ca/SydneyPLUS/TechPubs/Portal/tp/tvSplash.aspx) 2024 | AADT, Ontario | no licence stated by the publisher |
+| [Alberta *Traffic volumes on links in the highway network*](https://open.alberta.ca/opendata/traffic-volumes-on-links-in-the-highway-network) 2025 | WAADT and commercial share, Alberta | Open Government Licence – Alberta |
+| [Nova Scotia *Traffic Volumes – Provincial Highway System*](https://data.novascotia.ca/Roads-Driving-and-Transport/Traffic-Volumes-Provincial-Highway-System/8524-ec3n) | AADT, truck share, 85th-percentile speed | Open Government Licence – Nova Scotia |
+| [New Brunswick *AADT counts at point locations*](https://gnb.socrata.com/datasets/gdx2-xdus) 2023 | AADT, New Brunswick | Open Government Licence – New Brunswick |
 
 ### Both
 
@@ -155,6 +178,7 @@ node tools/fetch-fhwa.mjs        # FHWA Route Log → content/reference/
 node tools/fetch-hpms.mjs        # HPMS traffic and condition, grouped server-side
 node tools/fetch-canada.mjs      # StatCan NRN, 13 provinces and territories (~1.5 GB)
 node tools/fetch-canada-nhs.mjs  # Transport Canada NHS designations
+node tools/fetch-canada-traffic.mjs  # provincial traffic counts, 5 provinces
 
 # TIGER/Line downloads itself on first build, per state, into tools/src/tiger/ (~300 MB)
 

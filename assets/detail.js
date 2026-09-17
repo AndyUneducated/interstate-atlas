@@ -184,6 +184,69 @@ function hpmsFacts(p) {
 }
 
 /**
+ * What the province measured about this road, for the provinces that publish it.
+ *
+ * The American counterpart above is one federal collection with one method, so
+ * it can be presented as a single block with a single caveat. This cannot.
+ * Canada has no national traffic collection: five provinces publish route-level
+ * counts in bulk and eight do not, and the five do not agree on method, on
+ * currency, or on licence. So the block names the province, the year, the
+ * method and the terms every time, and the eight that publish nothing get no
+ * block rather than a blank one - the About page is where the absence is
+ * explained, because it is a fact about Canada and not about this road.
+ */
+function provincialTraffic(p) {
+  const tr = p.traffic;
+  const meta = app.stats?.caTraffic;
+  if (!tr || !meta) return '';
+
+  const rows = [];
+  const cov = (m) => (m && m.cover != null && m.cover < 98
+    ? ` <span class="fig-cov" title="${esc(t('ca.coverage', { pct: num(m.cover) }))}">${num(m.cover)}%</span>`
+    : '');
+
+  if (tr.aadt) rows.push([t('hp.traffic'), `${t('hp.trafficVal', { n: num(tr.aadt.v) })}${cov(tr.aadt)}`]);
+
+  // The provinces publish heavy vehicles as a share of the flow, where HPMS
+  // publishes a count. Shown as the share it is, not converted into a count
+  // that nobody counted.
+  if (tr.truck) {
+    rows.push([t('hp.trucks'),
+      `${t('ca.tr.trucksVal', { pct: num(tr.truck.v, 1) })}${cov(tr.truck)}`]);
+  }
+
+  // Nova Scotia alone publishes speeds, and publishes the 85th percentile -
+  // the speed most of the traffic is at or below - which is a different thing
+  // from the American pages' posted limit and is labelled as one.
+  if (tr.speed) {
+    rows.push([t('ca.tr.speed'), `${num(tr.speed.v)}<small>km/h</small>`
+      + `<br><span class="fig-s">${t('ca.tr.speedWhy')}</span>`]);
+  }
+
+  if (!rows.length) return '';
+
+  // One line per province behind the figures, each with its own terms. Ontario
+  // publishes these for public use but states no licence, and saying so is the
+  // point: the reader can then decide what the figure is worth.
+  for (const st of tr.from ?? []) {
+    const m = meta[st];
+    if (!m) continue;
+    rows.push(['', `<span class="src">${m.url
+      ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.source)}</a>`
+      : esc(m.source)} · ${esc(m.licence)}</span>`]);
+  }
+
+  const span = tr.yearTo && tr.yearTo !== tr.year ? `${tr.year}–${tr.yearTo}` : String(tr.year ?? '');
+  const how = tr.stations
+    ? t('ca.tr.stations', { n: num(tr.stations) })
+    : t('ca.tr.weighted');
+  return figBox(t('ca.tr.title'),
+    `${t('ca.tr.sub', { year: span, how })}`
+    + (rows.some(([, v]) => v.includes('fig-cov')) ? ` ${t('hp.covWhy')}` : '')
+    + (tr.cover < 90 ? ` ${t('hp.partial', { pct: num(tr.cover) })}` : ''), rows);
+}
+
+/**
  * What Canada publishes about the network this road belongs to.
  *
  * The national report counts kilometres by tier and province, never by route,
@@ -532,6 +595,7 @@ export async function renderDetail(id) {
       </div>
 
       ${hpmsFacts(p)}
+      ${provincialTraffic(p)}
       ${caFacts(p)}
       ${caInventory(p)}
       ${p.unsigned ? `<div class="figs ca-facts">

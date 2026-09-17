@@ -174,6 +174,100 @@ function attachHpms(routes, hpms) {
   console.log(`HPMS: joined ${joined} of ${routes.filter((r) => r.country !== 'ca').length} US routes`);
 }
 
+/* ══════════════════════════════════════════════════════════════════════════
+   What the provinces measure
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/**
+ * Attach provincial traffic counts to each Canadian route.
+ *
+ * The same shape as the HPMS join above, and for the same reason - a route that
+ * crosses provinces has a record from each, combined in proportion to how much
+ * of the road is in each - but the resemblance ends there. HPMS is one national
+ * collection; this is five provinces that each decided separately to publish,
+ * in five formats, under four licences and one silence. Five of thirteen
+ * jurisdictions, so most Canadian routes get nothing and have to say so.
+ *
+ * Kept separate from `hpms` rather than folded into it, because the two are not
+ * the same claim. HPMS is a federal reporting requirement with a defined
+ * method; these are provincial publications whose methods differ from each
+ * other, and the panel names the province and the year behind every figure.
+ */
+function attachCanadianTraffic(routes, ca) {
+  if (!ca?.provinces) return;
+  const MEASURES = ['aadt', 'truck', 'speed'];
+  const STEPS = { aadt: 100, truck: 0.1, speed: 1 };
+  let joined = 0;
+
+  for (const r of routes) {
+    if (r.country !== 'ca') continue;
+    const parts = [];
+    for (const { st, mi } of r.states) {
+      const prov = ca.provinces[st];
+      const rec = prov?.routes?.[String(r.number ?? '')];
+      if (rec) parts.push({ st, mi, rec, method: prov.method });
+    }
+    if (!parts.length) continue;
+
+    const measuredMi = parts.reduce((s, p) => (
+      s + (p.rec.km == null ? p.mi : Math.min(p.mi, p.rec.km / KM_PER_MI))), 0);
+    const out = {
+      cover: Math.min(100, Math.round((measuredMi / Math.max(r.mi, 1e-9)) * 100)),
+      from: parts.map((p) => p.st),
+      // A station average and a length-weighted one are different kinds of
+      // figure, so the panel says which it is rather than blending the label.
+      method: [...new Set(parts.map((p) => p.method))].join('+'),
+    };
+
+    for (const name of MEASURES) {
+      let num = 0;
+      let den = 0;
+      for (const { mi, rec } of parts) {
+        const m = rec[name];
+        if (!m || m.v == null) continue;
+        // How much road the province actually counted, capped at how much of
+        // the route is in that province. Without the cap a route that the
+        // province counted along its whole length would claim full coverage of
+        // each of the fragments this atlas splits it into; without the figure
+        // at all, a province that counted a third of a road would claim to
+        // have counted the whole of it.
+        const counted = rec.km == null ? mi : Math.min(mi, rec.km / KM_PER_MI);
+        const w = m.cover == null ? counted : counted * (m.cover / 100);
+        if (w <= 0) continue;
+        num += m.v * w;
+        den += w;
+      }
+      if (den <= 0) continue;
+      const step = STEPS[name];
+      out[name] = {
+        v: Number((Math.round((num / den) / step) * step)
+          .toFixed(Math.max(0, -Math.floor(Math.log10(step))))),
+        cover: Math.min(100, Math.round((den / Math.max(r.mi, 1e-9)) * 100)),
+      };
+    }
+
+    // Where the counts are points rather than stretches, how many there were is
+    // the only sense of how well covered the road is, so it replaces the share.
+    const stations = parts
+      .filter((p) => p.method === 'stations')
+      .reduce((s, p) => s + (p.rec.n ?? 0), 0);
+    if (stations) out.stations = stations;
+
+    // The oldest year behind any of it, since that is the point past which the
+    // combined figure stops being current.
+    const years = parts.map((p) => p.rec.yearFrom ?? p.rec.year).filter(Boolean);
+    if (years.length) out.year = Math.min(...years);
+    const latest = parts.map((p) => p.rec.year).filter(Boolean);
+    if (latest.length) out.yearTo = Math.max(...latest);
+
+    if (out.aadt) { r.traffic = out; joined++; }
+  }
+
+  const total = routes.filter((r) => r.country === 'ca').length;
+  console.log(`provincial traffic: joined ${joined} of ${total} Canadian routes`
+    + ` (${Math.round((joined / Math.max(total, 1)) * 100)}%)`);
+}
+
 /**
  * A state route number as it is signed, where the source writes it without its
  * separator: Michigan's trunklines are M-28 and Texas's farm roads FM 1960.
@@ -313,10 +407,11 @@ async function loadOfficial() {
       return null;
     }
   };
-  const [mileage, cost, hpms] = await Promise.all([
+  const [mileage, cost, hpms, caTraffic] = await Promise.all([
     read('fhwa-mileage.json'), read('fhwa-cost.json'), read('hpms.json'),
+    read('ca-traffic.json'),
   ]);
-  return mileage ? { mileage, cost, hpms } : null;
+  return mileage ? { mileage, cost, hpms, caTraffic } : null;
 }
 
 /**
@@ -379,6 +474,7 @@ function attachOfficial(routes, ref) {
   };
 
   attachHpms(routes, ref.hpms);
+  attachCanadianTraffic(routes, ref.caTraffic);
 
   for (const r of routes) {
     if (r.system !== 'interstate') continue;
@@ -994,6 +1090,10 @@ async function main() {
         kph: r.speedKph ?? null, kphCov: r.speedCoverage ?? null,
         pavedShare: r.pavedShare ?? null,
         named: r.named ?? null,
+        // What the province measured: traffic, and where published, truck share
+        // and speed. Only five provinces publish counts in bulk, so this is
+        // null on most Canadian routes and on all American ones.
+        traffic: r.traffic ?? null,
       },
       geometry: { type: 'MultiLineString', coordinates: [...main, ...branches] },
     };
@@ -1076,6 +1176,16 @@ async function main() {
     // The year the states' measurements describe, so a page can date them
     // rather than let a traffic count read as current.
     hpmsYear: HPMS_YEAR,
+    // Who published each province's traffic counts, under what terms, and by
+    // what method. Carried once here rather than on each of a thousand routes,
+    // and carried at all because a figure whose source the reader cannot see is
+    // worth less than no figure.
+    caTraffic: official?.caTraffic
+      ? Object.fromEntries(Object.entries(official.caTraffic.provinces).map(([st, p]) => [st, {
+        name: p.name, source: p.source, url: p.url, licence: p.licence,
+        measure: p.measure, method: p.method, note: p.note ?? null,
+      }]))
+      : null,
     canada: canada.register?.inventory ?? null,
     // How far the measured lengths land from the official register, so the
     // interface can state its own accuracy instead of asserting a figure that

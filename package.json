@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "fetch": "node tools/fetch-source.mjs && node tools/fetch-fhwa.mjs && node tools/fetch-hpms.mjs",
-    "fetch:ca": "node tools/fetch-canada.mjs && node tools/fetch-canada-nhs.mjs",
+    "fetch:ca": "node tools/fetch-canada.mjs && node tools/fetch-canada-nhs.mjs && node tools/fetch-canada-traffic.mjs",
     "build": "node tools/build-data.mjs && node tools/build-content.mjs",
     "build:elevation": "node tools/build-elevation.mjs",
     "serve": "node tools/serve.mjs",
