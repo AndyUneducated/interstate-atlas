@@ -21,7 +21,12 @@
 
 import { writeFile, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { STATES } from './tiger.mjs';
+
+// The reporting year these figures describe, which the site states rather than
+// letting a 2024 traffic count read as today's.
+export const HPMS_YEAR = 2024;
 
 const BASE = 'https://data.transportation.gov/resource/42um-tgh5.json';
 const OUT = join('content', 'reference', 'hpms.json');
@@ -119,6 +124,17 @@ const WEIGHTED = {
   cracking: 'cracking_percent',
 };
 
+/**
+ * How precisely each measure is worth reporting, in the measure's own unit.
+ *
+ * Exported because the build averages these a second time, across the states a
+ * route runs through, and has to round the same way; a rut rounded to the inch
+ * in either place is a rut reported as nothing.
+ */
+export const STEPS = {
+  aadt: 100, truck: 10, iri: 1, lanes: 0.1, speed: 1, rutting: 0.01, cracking: 0.1,
+};
+
 const select = (keys) => [
   keys,
   'sum(sectionlength) as mi',
@@ -154,14 +170,17 @@ const n = (v) => (v == null || v === '' ? null : Number(v));
 const year = (v) => (v ? Number(String(v).slice(0, 4)) || null : null);
 
 // A weighted mean, with the share of the route it was measured over. Rounded to
-// the precision the underlying measure actually carries: traffic counts to the
-// hundred, roughness and speeds to the whole unit.
-function mean(row, name, mi, { round = 1 } = {}) {
+// the step the underlying measure actually carries: traffic to the hundred,
+// roughness and speeds to the whole unit, rut depth to the hundredth of an inch.
+// A rut is a tenth of an inch deep, so rounding it like a speed limit would
+// report every road in the country as perfectly flat.
+function mean(row, name, mi, { step = 1 } = {}) {
   const w = row[`${name}_w`];
   const known = row[`${name}_mi`];
   if (!w || !known || known <= 0) return null;
+  const dp = Math.max(0, -Math.floor(Math.log10(step)));
   return {
-    v: Math.round((w / known) / round) * round,
+    v: Number((Math.round((w / known) / step) * step).toFixed(dp)),
     cover: Math.min(100, Math.round((known / Math.max(mi, 1e-9)) * 100)),
   };
 }
@@ -202,14 +221,14 @@ function finish(acc) {
   return {
     mi: Math.round(mi * 10) / 10,
     sections: acc.sections,
-    aadt: mean(acc, 'aadt', mi, { round: 100 }),
+    aadt: mean(acc, 'aadt', mi, { step: STEPS.aadt }),
     aadtMax: acc.aadt_max || null,
-    truck: mean(acc, 'truck', mi, { round: 10 }),
-    iri: mean(acc, 'iri', mi),
-    lanes: mean(acc, 'lanes', mi),
-    speed: mean(acc, 'speed', mi),
-    rutting: mean(acc, 'rutting', mi),
-    cracking: mean(acc, 'cracking', mi),
+    truck: mean(acc, 'truck', mi, { step: STEPS.truck }),
+    iri: mean(acc, 'iri', mi, { step: STEPS.iri }),
+    lanes: mean(acc, 'lanes', mi, { step: STEPS.lanes }),
+    speed: mean(acc, 'speed', mi, { step: STEPS.speed }),
+    rutting: mean(acc, 'rutting', mi, { step: STEPS.rutting }),
+    cracking: mean(acc, 'cracking', mi, { step: STEPS.cracking }),
     freeway: share(acc.freeway_mi),
     tolled: share(acc.toll_mi),
     nhs: share(acc.nhs_mi),
@@ -268,7 +287,8 @@ async function main() {
 
   await mkdir(join('content', 'reference'), { recursive: true });
   await writeFile(OUT, `${JSON.stringify({
-    source: 'FHWA Highway Performance Monitoring System, 2024 release',
+    source: `FHWA Highway Performance Monitoring System, ${HPMS_YEAR} release`,
+    year: HPMS_YEAR,
     url: 'https://data.transportation.gov/Roadways-and-Bridges/HPMS-Spatial-All-Sections-2024/42um-tgh5',
     retrieved: new Date().toISOString().slice(0, 10),
     note: 'Aggregated per route per state from section-level records. Each '
@@ -281,7 +301,5 @@ async function main() {
   console.log(`\nwrote ${OUT}: ${routes} route records across ${Object.keys(byState).length} states`);
 }
 
-if (import.meta.url.endsWith(process.argv[1].replace(/\\/g, '/').replace(/^/, ''))
-  || process.argv[1].endsWith('fetch-hpms.mjs')) {
-  await main();
-}
+// Only fetch when run directly. The build imports this module for STEPS.
+if (import.meta.url === pathToFileURL(process.argv[1]).href) await main();

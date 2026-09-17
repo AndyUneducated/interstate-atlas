@@ -31,6 +31,19 @@ function perpDist(p, a, b, kx) {
   return Math.hypot(px - (ax + t * dx), py - (ay + t * dy));
 }
 
+// The point on segment a-b closest to p, with how far along the segment it
+// falls. Same local scaling as perpDist, so the projection is metric rather
+// than degree-shaped.
+function projectOnSegment(p, a, b) {
+  const kx = Math.cos(p[1] * DEG) || 1;
+  const ax = a[0] * kx, ay = a[1];
+  const dx = b[0] * kx - ax, dy = b[1] - ay;
+  if (dx === 0 && dy === 0) return { t: 0, coord: a };
+  let t = ((p[0] * kx - ax) * dx + (p[1] - ay) * dy) / (dx * dx + dy * dy);
+  t = Math.max(0, Math.min(1, t));
+  return { t, coord: [(ax + t * dx) / kx, ay + t * dy] };
+}
+
 // Iterative Douglas-Peucker. `tolDeg` is a latitude-degree tolerance.
 export function simplify(coords, tolDeg) {
   if (coords.length <= 2) return coords.slice();
@@ -101,7 +114,7 @@ export function bboxDistanceKm(a, b) {
  * mainline. Everything left over is kept as branch geometry: still drawn, but
  * not treated as part of the through route.
  */
-function buildGraph(parts, snapDeg, bridgeKm) {
+function buildGraph(parts, snapDeg, bridgeKm, { bridgeToAnyNode = false } = {}) {
   const buckets = new Map();
   const nodeCoord = [];
 
@@ -167,11 +180,18 @@ function buildGraph(parts, snapDeg, bridgeKm) {
     }
     const deadEnds = [...degree.keys()].filter((n) => degree.get(n) === 1);
 
+    // A hole is normally bounded by two dead ends, and pairing only those keeps
+    // a bridge from cutting a corner between two roads that merely pass close.
+    // But where one route simply stops against the flank of another - which is
+    // what a junction between two different numbers looks like, and what leaves
+    // Alaska's A-1 in two pieces at Delta Junction - the far side of the hole
+    // is an ordinary mid-road node. Callers that already know the pieces are
+    // one road can say so and have the hole closed anyway.
+    const targets = bridgeToAnyNode ? [...degree.keys()] : deadEnds;
     const candidates = [];
-    for (let i = 0; i < deadEnds.length; i++) {
-      for (let j = i + 1; j < deadEnds.length; j++) {
-        const a = deadEnds[i], b = deadEnds[j];
-        if (find(a) === find(b)) continue;
+    for (const a of deadEnds) {
+      for (const b of targets) {
+        if (a === b || find(a) === find(b)) continue;
         const km = haversineKm(nodeCoord[a], nodeCoord[b]);
         if (km <= bridgeKm) candidates.push({ a, b, km });
       }
@@ -194,8 +214,8 @@ function buildGraph(parts, snapDeg, bridgeKm) {
   return { nodeCoord, edges, find };
 }
 
-export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
-  const { nodeCoord, edges, find } = buildGraph(parts, snapDeg, bridgeKm);
+export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0, opts = {}) {
+  const { nodeCoord, edges, find } = buildGraph(parts, snapDeg, bridgeKm, opts);
 
   const groups = new Map();
   for (const e of edges) {
@@ -221,7 +241,7 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0) {
     let ordered = [];
     const usedEdges = new Set();
     if (best && best.a !== best.b) {
-      const path = shortestPath(adj, best.a, best.b);
+      const path = closeRing(adj, shortestPath(adj, best.a, best.b), best.a, best.b);
       if (path) {
         for (const step of path) usedEdges.add(step.e.i);
         // The path in travel order, which a set cannot express. Anything that
@@ -407,6 +427,114 @@ function shortestPath(adj, start, goal) {
   return steps.reverse();
 }
 
+/**
+ * Carry the path the rest of the way round, when the road is a ring.
+ *
+ * A beltway has no two ends, so asking for the path between its two most
+ * separated points returns an arc and files the remaining three-quarters of
+ * the road as branches. Indianapolis's I-465 measured 8 miles of a 53-mile
+ * loop that way, Atlanta's I-285 29 of 63.
+ *
+ * So look for a second way back that shares no pavement with the first. On a
+ * ring there is one and it is the rest of the ring. On an ordinary road there
+ * is none, because removing the road removes the only route between its ends.
+ *
+ * The case this must not mistake for a ring is a divided highway whose two
+ * carriageways join at both ends, where the way back is the other side of the
+ * same road: real pavement, but not more of the road, and adding it would
+ * report double.
+ *
+ * So the way back is searched for in a graph with the road just walked taken
+ * out of it — not merely the same edges, but the same pavement, because the
+ * opposite carriageway is a different edge lying on top of the one already
+ * counted. What is left is only road the path has not been down, and a way
+ * through it is the rest of the ring or nothing.
+ *
+ * Both cases turn up. Indianapolis's I-465 arrives as two separate rings and
+ * the duplicate is dropped before this runs, leaving one clean loop to close.
+ * Baltimore's I-695 arrives as a single component with both carriageways
+ * inside it, and striking out only the edges walked left the twin in place as
+ * the shortest way home: rejecting it and taking the next way round measured
+ * the beltway twice, and accepting it measured 23 miles of a 46-mile road.
+ * Striking out the pavement gets one lap of it either way.
+ */
+function closeRing(adj, path, a, b, tolKm = 0.08) {
+  if (!path?.length) return path;
+  const out = assemblePath(path).pieces;
+  if (!out.length) return path;
+
+  const near = proximityIndex(out, tolKm);
+  const walked = new Set(path.map((s) => s.e.i));
+  const onPath = new Map();
+  const isOnPath = (e) => {
+    if (!onPath.has(e.i)) onPath.set(e.i, shareNear([e.coords], near) >= 0.6);
+    return onPath.get(e.i);
+  };
+
+  const residual = new Map();
+  for (const [n, links] of adj) {
+    residual.set(n, links.filter((l) => !walked.has(l.e.i) && !isOnPath(l.e)));
+  }
+
+  const back = shortestPath(residual, b, a);
+  return back?.length ? [...path, ...back] : path;
+}
+
+// Sample a polyline every `stepKm`, ending on its last vertex so a short piece
+// is still represented.
+function sampleLine(piece, stepKm, emit) {
+  walkLine(piece, stepKm, emit);
+  if (piece.length) emit(piece[piece.length - 1]);
+}
+
+/**
+ * "Is this point on one of those polylines?", answered many times over.
+ *
+ * Built once and asked repeatedly, because the callers ask about every edge of
+ * a road against the same set of lines, and rebuilding the grid for each would
+ * make the comparison quadratic in the size of a city's beltway.
+ */
+function proximityIndex(pieces, tolKm) {
+  const cell = tolKm / 111.32;
+  const grid = new Map();
+  for (const piece of pieces) {
+    sampleLine(piece, tolKm / 2, (c) => {
+      const k = `${Math.floor(c[0] / cell)},${Math.floor(c[1] / cell)}`;
+      let bucket = grid.get(k);
+      if (!bucket) grid.set(k, bucket = []);
+      bucket.push(c);
+    });
+  }
+  return (p) => {
+    const gx = Math.floor(p[0] / cell);
+    const gy = Math.floor(p[1] / cell);
+    for (let dx = -1; dx <= 1; dx++) {
+      for (let dy = -1; dy <= 1; dy++) {
+        for (const q of grid.get(`${gx + dx},${gy + dy}`) ?? []) {
+          if (haversineKm(p, q) <= tolKm) return true;
+        }
+      }
+    }
+    return false;
+  };
+}
+
+// What fraction of a set of polylines runs within the indexed distance of
+// another set, by sampled length. Two carriageways of one road score near 1;
+// two roads that merely cross score near 0.
+function shareNear(pieces, near) {
+  let hit = 0;
+  let n = 0;
+  for (const piece of pieces) {
+    sampleLine(piece, 0.2, (p) => { n++; if (near(p)) hit++; });
+  }
+  return n ? hit / n : 0;
+}
+
+function coincidentShare(pieces, against, tolKm) {
+  return shareNear(pieces, proximityIndex(against, tolKm));
+}
+
 // Walk the chosen path, emitting one continuous piece per run of real pavement
 // and breaking whenever the path steps across a bridged gap.
 function assemblePath(steps) {
@@ -483,68 +611,73 @@ function walkLine(piece, stepKm, emit) {
 }
 
 /**
- * How much of a polyline is laid on top of another part of itself.
+ * How far each piece of pavement on a path is actually driven.
  *
  * Some divided highways arrive from TIGER not as two lines but as one, drawn
- * out along one carriageway and back down the other so that it returns to where
- * it started. Albany's I-787 is a single ten-mile road recorded as a nineteen-
- * mile closed loop; Oklahoma City's I-335 the same. There is no second
- * component to discard, because the duplication is inside one feature, and no
- * amount of graph work helps: the line really is that long.
+ * out along one carriageway and back down the other so that it returns to
+ * where it started. Albany's I-787 is a single ten-mile road recorded as a
+ * nineteen-mile closed loop; Oklahoma City's I-335 the same. There is no
+ * second component to discard, because the duplication is inside the path
+ * itself, and no amount of graph work helps: the line really is that long.
  *
- * The distinguishing mark is that the two halves are in the same place. So:
- * sample along the line, and for each point ask whether the line comes back
+ * The distinguishing mark is that the two passes are in the same place. So:
+ * sample along the path, and for each point ask whether the path comes back
  * within `tolKm` at a point at least `minAlongKm` further along itself. The
- * along-the-line condition is what keeps this from misreading a mountain road.
+ * along-the-path condition is what keeps this from misreading a mountain road.
  * A switchback doubles back within a few hundred metres of itself and is
  * genuine distance driven; a returning carriageway comes back miles later.
  *
- * Returns the length whose distance is being counted twice, so the caller can
- * count it once.
+ * The answer is per edge rather than a single total because everything the
+ * panel says about a route — the miles in each state, the share that is
+ * freeway, the share that is tolled — is added up from the edges. Discount
+ * only the total and the per-state figures sum to twice the length printed
+ * above them: the Capital Beltway read 68 miles with 128 miles of state
+ * mileage under it. Where the two passes are separate edges, as they usually
+ * are, each gives up half the overlap; they are in the same place, so they
+ * are in the same state and the same classification, and the totals come out
+ * right either way.
  */
-function doubledBackKm(piece, tolKm = 0.08, minAlongKm = 1.6) {
+export function drivenEdgeKm(edges, tolKm = 0.08, minAlongKm = 1.6) {
   const step = tolKm / 2;
   const pts = [];
-  walkLine(piece, step, (c, along) => pts.push({ c, along }));
-  if (pts.length < 4) return 0;
-
-  const cell = tolKm / 111.32;
-  const grid = new Map();
-  pts.forEach((p, i) => {
-    const k = `${Math.floor(p.c[0] / cell)},${Math.floor(p.c[1] / cell)}`;
-    let b = grid.get(k);
-    if (!b) grid.set(k, b = []);
-    b.push(i);
+  let along = 0;
+  edges.forEach((e, i) => {
+    if (e.bridge) return;
+    walkLine(e.coords, step, (c, d) => pts.push({ c, along: along + d, e: i }));
+    along += e.km;
   });
 
-  let doubled = 0;
-  for (const p of pts) {
-    const gx = Math.floor(p.c[0] / cell);
-    const gy = Math.floor(p.c[1] / cell);
-    let found = false;
-    for (let dx = -1; dx <= 1 && !found; dx++) {
-      for (let dy = -1; dy <= 1 && !found; dy++) {
-        for (const j of grid.get(`${gx + dx},${gy + dy}`) ?? []) {
-          const o = pts[j];
-          if (Math.abs(o.along - p.along) < minAlongKm) continue;
-          if (haversineKm(p.c, o.c) <= tolKm) { found = true; break; }
+  const doubled = new Float64Array(edges.length);
+  if (pts.length >= 4) {
+    const cell = tolKm / 111.32;
+    const grid = new Map();
+    pts.forEach((p, i) => {
+      const k = `${Math.floor(p.c[0] / cell)},${Math.floor(p.c[1] / cell)}`;
+      let b = grid.get(k);
+      if (!b) grid.set(k, b = []);
+      b.push(i);
+    });
+
+    for (const p of pts) {
+      const gx = Math.floor(p.c[0] / cell);
+      const gy = Math.floor(p.c[1] / cell);
+      let found = false;
+      for (let dx = -1; dx <= 1 && !found; dx++) {
+        for (let dy = -1; dy <= 1 && !found; dy++) {
+          for (const j of grid.get(`${gx + dx},${gy + dy}`) ?? []) {
+            const o = pts[j];
+            if (Math.abs(o.along - p.along) < minAlongKm) continue;
+            if (haversineKm(p.c, o.c) <= tolKm) { found = true; break; }
+          }
         }
       }
+      if (found) doubled[p.e] += step;
     }
-    if (found) doubled += step;
   }
-  // Each doubled stretch is found from both of its sides, so the sampled total
-  // already counts it twice; half of it is the distance to discount.
-  return doubled / 2;
-}
 
-/** The distance actually driven along a route, discounting doubled-back pavement. */
-export function drivenKm(pieces, tolKm = 0.08) {
-  let km = 0;
-  for (const piece of pieces) {
-    km += lineLengthKm(piece) - doubledBackKm(piece, tolKm);
-  }
-  return Math.max(0, km);
+  // Each overlap is found from both of its sides, so the sampled total counts
+  // it twice; half of it is the distance to discount.
+  return edges.map((e, i) => (e.bridge ? 0 : Math.max(0, e.km - doubled[i] / 2)));
 }
 
 /**
@@ -573,49 +706,12 @@ export function drivenKm(pieces, tolKm = 0.08) {
 function withoutOppositeCarriageways(comps, tolKm = 0.08) {
   if (comps.length < 2) return comps;
 
-  const cell = tolKm / 111.32;
   const kept = [];
-  const grid = new Map();
-
-  const walk = (piece, stepKm, emit) => {
-    walkLine(piece, stepKm, emit);
-    if (piece.length) emit(piece[piece.length - 1]);
-  };
-
-  const add = (comp) => {
-    for (const piece of comp.pieces) {
-      walk(piece, tolKm / 2, (c) => {
-        const k = `${Math.floor(c[0] / cell)},${Math.floor(c[1] / cell)}`;
-        let bucket = grid.get(k);
-        if (!bucket) grid.set(k, bucket = []);
-        bucket.push(c);
-      });
-    }
-  };
-
-  const coincidentShare = (comp) => {
-    let hit = 0;
-    let n = 0;
-    for (const piece of comp.pieces) {
-      walk(piece, 0.2, (p) => {
-        n++;
-        const gx = Math.floor(p[0] / cell);
-        const gy = Math.floor(p[1] / cell);
-        for (let dx = -1; dx <= 1; dx++) {
-          for (let dy = -1; dy <= 1; dy++) {
-            for (const q of grid.get(`${gx + dx},${gy + dy}`) ?? []) {
-              if (haversineKm(p, q) <= tolKm) { hit++; return; }
-            }
-          }
-        }
-      });
-    }
-    return n ? hit / n : 0;
-  };
+  const counted = [];
 
   // Longest first, so the side that is kept is the more completely drawn one.
   for (const comp of [...comps].sort((a, b) => b.km - a.km)) {
-    if (kept.length && coincidentShare(comp) >= 0.6) {
+    if (kept.length && coincidentShare(comp.pieces, counted, tolKm) >= 0.6) {
       // Counted once, drawn twice: the far carriageway moves to the branches,
       // which are drawn with the route but never measured. Losing it would
       // leave one side of every divided highway missing from the map.
@@ -623,9 +719,88 @@ function withoutOppositeCarriageways(comps, tolKm = 0.08) {
       continue;
     }
     kept.push(comp);
-    add(comp);
+    counted.push(...comp.pieces);
   }
   return kept;
+}
+
+/**
+ * Cut fragments so that every place they meet is capable of being a node.
+ *
+ * The graph is built from fragment endpoints, so a road that ends against the
+ * middle of another one joins nothing — and that is exactly what a junction
+ * between two different route numbers looks like in the source. Alaska's A-1
+ * failed on it: the Alaska Highway ends on the flank of the Richardson Highway
+ * at Delta Junction, the Richardson runs through without a vertex break, and
+ * the two halves of the Interstate sat in different components 200 km apart.
+ *
+ * The named points are cut for a second reason. A declared terminus is a
+ * place, not a fragment end, and snapping it to the nearest fragment end put
+ * A-3's start 94 km down the Kenai Peninsula from Soldotna. Cutting the
+ * pavement at the vertex nearest the place puts a node where the place is.
+ *
+ * Only `stitchBetween` needs this. A route stitched from its own fragments
+ * meets itself end to end, because the source splits one road at its own
+ * junctions; it is unioning several numbered routes that produces the T.
+ */
+export function nodeParts(parts, points = [], joinKm = 0.4) {
+  // The cut has to land on the line, not on the nearest vertex. Simplification
+  // strips vertices from anything straight, so where the Alaska Highway runs
+  // past Tok the pavement is within 100 m of the Tok Cut-Off's last point
+  // while the nearest surviving vertex is 5 km down the road. Projecting onto
+  // the segment puts the node where the roads actually meet and adds no error:
+  // the inserted point already lies on the line being cut.
+  const nearestOn = (pt, skip) => {
+    let best = null;
+    for (let i = 0; i < parts.length; i++) {
+      if (i === skip) continue;
+      const coords = parts[i].coords;
+      for (let j = 0; j < coords.length - 1; j++) {
+        const hit = projectOnSegment(pt, coords[j], coords[j + 1]);
+        const d = haversineKm(pt, hit.coord);
+        if (!best || d < best.d) best = { d, i, j, t: hit.t, coord: hit.coord };
+      }
+    }
+    return best;
+  };
+
+  const cuts = parts.map(() => []);
+  // A declared terminus is a place, not a fragment end, so it is always cut in:
+  // snapping A-3's start to the nearest fragment end put it 94 km down the
+  // Kenai Peninsula from Soldotna.
+  for (const pt of points) {
+    const hit = nearestOn(pt, -1);
+    if (hit) cuts[hit.i].push(hit);
+  }
+  // Where one road stops against the flank of another, which is what a junction
+  // between two different numbers looks like in the source.
+  for (let i = 0; i < parts.length; i++) {
+    const coords = parts[i].coords;
+    for (const end of [coords[0], coords[coords.length - 1]]) {
+      const hit = nearestOn(end, i);
+      if (hit && hit.d <= joinKm) cuts[hit.i].push(hit);
+    }
+  }
+
+  const out = [];
+  for (let i = 0; i < parts.length; i++) {
+    if (!cuts[i].length) { out.push(parts[i]); continue; }
+    const coords = parts[i].coords;
+    const at = cuts[i].sort((a, b) => a.j - b.j || a.t - b.t);
+    let run = [coords[0]];
+    let k = 0;
+    for (let j = 0; j < coords.length - 1; j++) {
+      while (k < at.length && at[k].j === j) {
+        const { coord } = at[k++];
+        if (haversineKm(run[run.length - 1], coord) > 1e-6) run.push(coord);
+        if (run.length >= 2) out.push({ ...parts[i], coords: run });
+        run = [coord];
+      }
+      run.push(coords[j + 1]);
+    }
+    if (run.length >= 2) out.push({ ...parts[i], coords: run });
+  }
+  return out;
 }
 
 /**
@@ -642,7 +817,8 @@ function withoutOppositeCarriageways(comps, tolKm = 0.08) {
  */
 export function stitchBetween(parts, from, to, { snapDeg = 0.0025, bridgeKm = 60 } = {}) {
   if (!parts.length) return null;
-  const { nodeCoord, edges, find } = buildGraph(parts, snapDeg, bridgeKm);
+  const { nodeCoord, edges, find } = buildGraph(nodeParts(parts, [from, to]),
+    snapDeg, bridgeKm, { bridgeToAnyNode: true });
 
   const adj = new Map();
   for (const e of edges) {

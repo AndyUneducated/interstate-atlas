@@ -16,11 +16,12 @@
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import {
-  bboxOf, drivenKm, haversineKm, lineLengthKm, roundCoords, simplify, stitchBetween,
+  bboxOf, drivenEdgeKm, haversineKm, lineLengthKm, roundCoords, simplify, stitchBetween,
   stitchComponents, stitchRoute,
 } from './geo.mjs';
 import { STATE_CODE, statesTouch } from './states.mjs';
-import { readState, STATES, TIGER_YEAR } from './tiger.mjs';
+import { readState, setSuffixedInterstates, STATES, TIGER_YEAR } from './tiger.mjs';
+import { STEPS as HPMS_STEPS, HPMS_YEAR } from './fetch-hpms.mjs';
 import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
@@ -94,7 +95,7 @@ function attachHpms(routes, hpms) {
   };
 
   let joined = 0;
-  const MEASURES = ['aadt', 'truck', 'iri', 'lanes', 'speed', 'rutting', 'cracking'];
+  const MEASURES = Object.keys(HPMS_STEPS);
 
   for (const r of routes) {
     if (r.country === 'ca') continue;
@@ -128,9 +129,10 @@ function attachHpms(routes, hpms) {
         den += w;
       }
       if (den <= 0) continue;
-      const round = name === 'aadt' ? 100 : name === 'truck' ? 10 : 1;
+      const step = HPMS_STEPS[name];
       out[name] = {
-        v: Math.round((num / den) / round) * round,
+        v: Number((Math.round((num / den) / step) * step)
+          .toFixed(Math.max(0, -Math.floor(Math.log10(step))))),
         cover: Math.min(100, Math.round((den / Math.max(r.mi, 1e-9)) * 100)),
       };
     }
@@ -146,12 +148,27 @@ function attachHpms(routes, hpms) {
       if (den > 0) out[name] = Math.round((num / den) * 10) / 10;
     }
 
-    out.aadtMax = Math.max(0, ...parts.map((p) => p.rec.aadtMax ?? 0)) || null;
-    out.futureAadt = Math.max(0, ...parts.map((p) => p.rec.futureAadt ?? 0)) || null;
+    // Counts to the hundred, like the averages. A forecast carried to the
+    // single vehicle reads as a measurement of something nobody measured.
+    const peak = (field) => {
+      const v = Math.max(0, ...parts.map((p) => p.rec[field] ?? 0));
+      return v ? Math.round(v / 100) * 100 : null;
+    };
+    out.aadtMax = peak('aadtMax');
+    out.futureAadt = peak('futureAadt');
     out.improved = Math.max(0, ...parts.map((p) => p.rec.improved ?? 0)) || null;
     out.signals = parts.reduce((s, p) => s + (p.rec.signals ?? 0), 0) || null;
 
     r.hpms = out;
+
+    // How much of a road is built to motorway standard, and how much is tolled,
+    // used to come from Natural Earth's guess at a road's type. TIGER says only
+    // whether a road is primary or secondary, so those figures would now read
+    // zero everywhere. HPMS carries FHWA's own functional classification and
+    // the states' toll reporting, which is what these were always meant to be.
+    if (out.freeway != null && out.cover >= 25) r.gradeSeparated = out.freeway;
+    if (out.tolled != null && out.cover >= 25) r.tolled = out.tolled;
+
     joined++;
   }
   console.log(`HPMS: joined ${joined} of ${routes.filter((r) => r.country !== 'ca').length} US routes`);
@@ -236,21 +253,30 @@ function compositionOf(edges) {
   const byType = new Map();
   const byState = new Map();
   let divided = 0, dividedKnown = 0, total = 0;
-  for (const e of edges) {
-    total += e.km;
-    byType.set(e.props.type || 'Unknown', (byType.get(e.props.type || 'Unknown') || 0) + e.km);
+  // Measured over the road as driven: where the source folded both directions
+  // of a divided highway into one line, the second pass is discounted here too
+  // rather than only in the headline length.
+  const driven = drivenEdgeKm(edges);
+  edges.forEach((e, i) => {
+    const km = driven[i];
+    if (km <= 0) return;
+    total += km;
+    byType.set(e.props.type || 'Unknown', (byType.get(e.props.type || 'Unknown') || 0) + km);
     // The American source names its states in full; the Canadian one is read
     // per jurisdiction and already carries the two-letter code.
     const raw = e.props.state;
     const st = STATE_CODE[raw] || (/^[A-Z]{2}$/.test(raw || '') ? raw : null);
-    if (st) byState.set(st, (byState.get(st) || 0) + e.km);
-    if (e.props.divided === 'Divided') { divided += e.km; dividedKnown += e.km; }
-    else if (e.props.divided === 'Undivided') dividedKnown += e.km;
-  }
+    if (st) byState.set(st, (byState.get(st) || 0) + km);
+    if (e.props.divided === 'Divided') { divided += km; dividedKnown += km; }
+    else if (e.props.divided === 'Undivided') dividedKnown += km;
+  });
   const pct = (v) => Math.round((v / Math.max(1e-9, total)) * 1000) / 10;
   const types = {};
   for (const [t, km] of [...byType.entries()].sort((a, b) => b[1] - a[1])) types[t] = pct(km);
   return {
+    // The driven length of everything counted below, so a route's length and
+    // its per-jurisdiction breakdown are the same measurement by construction.
+    km: total,
     types,
     states: [...byState.entries()].sort((a, b) => b[1] - a[1])
       .map(([st, km]) => ({ st, mi: Math.max(1, Math.round(km / KM_PER_MI)) })),
@@ -259,6 +285,9 @@ function compositionOf(edges) {
     tolled: pct(byType.get('Tollway') || 0),
     unpaved: pct(byType.get('Unpaved') || 0),
     dividedShare: dividedKnown > 0 ? Math.round((divided / dividedKnown) * 1000) / 10 : null,
+    // Not every segment says whether it is divided, and the share above is
+    // taken over the ones that do, so it travels with the length it describes.
+    dividedCov: total > 0 ? Math.round((dividedKnown / total) * 100) : null,
   };
 }
 
@@ -288,6 +317,22 @@ async function loadOfficial() {
     read('fhwa-mileage.json'), read('fhwa-cost.json'), read('hpms.json'),
   ]);
   return mileage ? { mileage, cost, hpms } : null;
+}
+
+/**
+ * The Interstate numbers that end in a letter, per the register.
+ *
+ * It spells two of the five as suffixes and three as words - "I-35E" but
+ * "I-69 West" - so both forms are read, and the answer is the number the rest
+ * of the build uses: 35E, 69W.
+ */
+function letteredInterstates(ref) {
+  const out = new Set();
+  for (const key of Object.keys(ref?.mileage?.routes ?? {})) {
+    const m = /^i-\s*(\d{1,3})\s*(?:([a-z])[a-z]*)$/i.exec(key.trim());
+    if (m) out.add(`${m[1]}${m[2].toUpperCase()}`);
+  }
+  return out;
 }
 
 /**
@@ -323,11 +368,14 @@ function attachOfficial(routes, ref) {
   // the numbers arrive here: Hawaii's three Interstates are signed H-1, H-2 and
   // H-3 and filed that way by FHWA, but reach this point as H1, H2 and H3.
   // Without the hyphen none of them join, which costs the atlas the single
-  // best-documented construction cost in the system.
+  // best-documented construction cost in the system. The register also writes
+  // the Texas I-69 branches out in words where it writes I-35's as letters.
+  const WORDED = { C: 'Central', E: 'East', W: 'West' };
   const lookup = (table, number) => {
     if (!table) return null;
     const hyphenated = String(number).replace(/^([A-Z]+)(\d)/, '$1-$2');
-    return table[`I-${number}`] || table[number] || table[hyphenated] || null;
+    const worded = String(number).replace(/^(\d{1,3})([CEW])$/, (_, n, l) => `I-${n} ${WORDED[l]}`);
+    return table[`I-${number}`] || table[number] || table[hyphenated] || table[worded] || null;
   };
 
   attachHpms(routes, ref.hpms);
@@ -448,7 +496,7 @@ async function buildAlaskaInterstates(groups, placeGrid) {
       label: number,
       qualifier: null,
       unsigned: true,
-      mi: Math.round(drivenKm(comp.pieces) / KM_PER_MI),
+      mi: Math.round(stats.km / KM_PER_MI),
       pavedMi: Math.round(comp.km / KM_PER_MI),
       spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
       bbox: bboxOf(comp.pieces).map((v) => Math.round(v * 1000) / 1000),
@@ -458,6 +506,7 @@ async function buildAlaskaInterstates(groups, placeGrid) {
       tolled: stats.tolled,
       unpaved: stats.unpaved,
       dividedShare: stats.dividedShare,
+      dividedCov: stats.dividedCov,
       breaks: comp.pieces.length - 1,
       gapMi: Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI),
       // The declaration names the termini, so use those rather than whatever
@@ -635,7 +684,7 @@ async function buildCanada() {
         speedCoverage: extra.speedCoverage,
         pavedShare: extra.pavedShare,
         named: names.slice(0, 4),
-        mi: Math.round(drivenKm(pieces) / KM_PER_MI),
+        mi: Math.round(stats.km / KM_PER_MI),
         pavedMi: Math.round(comp.km / KM_PER_MI),
         spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
         bbox: bboxOf([...pieces, ...comp.branches]).map((v) => Math.round(v * 1000) / 1000),
@@ -648,6 +697,7 @@ async function buildCanada() {
         tolled: null,
         unpaved: stats.unpaved,
         dividedShare: stats.dividedShare,
+        dividedCov: stats.dividedCov,
         breaks: comp.pieces.length - 1,
         gapMi: Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI),
         start: canadaTerminus(comp.pathEdges, true),
@@ -728,6 +778,12 @@ async function readUnitedStates(contextLines) {
 }
 
 async function main() {
+  // Read before the geometry rather than after it: the register is the only
+  // thing that knows I-35E is a route and I-35N is a direction, and the road
+  // names cannot be parsed correctly without it.
+  const official = await loadOfficial();
+  setSuffixedInterstates(letteredInterstates(official));
+
   console.log('reading TIGER/Line roads, by state...');
   const contextLines = [];
   const { groups, read } = await readUnitedStates(contextLines);
@@ -757,20 +813,34 @@ async function main() {
 
     const clusters = clusterByCorridor(firstPass, grp.tier);
 
+    // Re-stitch each corridor at once with a budget wide enough to span its
+    // holes, so the end-to-end path still comes out of a single search and the
+    // pieces arrive in travel order.
+    //
+    // A hole in a corridor is usually a concurrency: where I-74 runs along
+    // I-465 round Indianapolis the pavement is filed under the other number,
+    // so I-74 stops against the flank of a road rather than at a dead end. The
+    // cluster has already decided these pieces are one road, which is the
+    // condition for bridging to a mid-road node, and with it I-74 comes out at
+    // 414 miles from Davenport to Cincinnati instead of 186 miles ending at an
+    // interchange outside Indianapolis.
+    //
+    // Whatever still will not join stays as its own route rather than being
+    // dropped, as the Canadian half already does: keeping only the longest
+    // deleted 228 miles of I-74 along with the rest of what would not bridge.
+    const corridors = [];
     for (const members of clusters) {
-      // Re-stitch the whole corridor at once with a budget wide enough to span
-      // its holes, so the end-to-end path still comes out of a single search
-      // and the pieces arrive in travel order.
-      let comp;
-      if (members.length > 1) {
-        const parts = members.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
-        const restitched = stitchComponents(parts, 0.0025, 1000);
-        comp = restitched.sort((a, b) => b.km - a.km)[0];
-        const gapMi = Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI);
-        merges.push({ key, pieces: members.length, mi: Math.round(comp.km / KM_PER_MI), gapMi });
-      } else {
-        comp = members[0];
-      }
+      if (members.length === 1) { corridors.push(members[0]); continue; }
+      const parts = members.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
+      const comps = stitchComponents(parts, US_SNAP, 1000, { bridgeToAnyNode: true })
+        .filter((c) => c.km >= 1.2);
+      if (!comps.length) continue;
+      const gapMi = Math.round(comps[0].gaps.reduce((s, g) => s + g, 0) / KM_PER_MI);
+      merges.push({ key, pieces: members.length, mi: Math.round(comps[0].km / KM_PER_MI), gapMi });
+      corridors.push(...comps);
+    }
+
+    for (const comp of corridors) {
       if (!comp || comp.km < 1.2) continue;
 
       const pieces = orientMainline(comp.pieces);
@@ -794,7 +864,7 @@ async function main() {
         // carriageways into one line. `pavedMi` adds the spurs and old
         // alignments filed under the same number, which is what the source's
         // own total describes.
-        mi: Math.round(drivenKm(pieces) / KM_PER_MI),
+        mi: Math.round(stats.km / KM_PER_MI),
         pavedMi: Math.round(comp.km / KM_PER_MI),
         spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
         bbox: bbox.map((v) => Math.round(v * 1000) / 1000),
@@ -804,6 +874,7 @@ async function main() {
         tolled: stats.tolled,
         unpaved: stats.unpaved,
         dividedShare: stats.dividedShare,
+        dividedCov: stats.dividedCov,
         breaks: comp.pieces.length - 1,
         gapMi: Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI),
         start: nearestPlace(placeGrid, flat[0]),
@@ -882,7 +953,7 @@ async function main() {
     }
   }
 
-  attachOfficial(routes, await loadOfficial());
+  attachOfficial(routes, official);
 
   routes.sort((a, b) => b.mi - a.mi);
   console.log(`built ${routes.length} routes (${merges.length} corridors rebuilt across data gaps)`);
@@ -902,7 +973,7 @@ async function main() {
         id: r.id, sys: r.system, tier: r.tier, label: r.label, st: r._primarySt,
         num: r.number, base: r.base, mi: r.mi, pavedMi: r.pavedMi, offMi: r.offMi ?? null,
         offCostK: r.offCostK ?? null, offCostWhole: r.offCostWhole ?? null, spanMi: r.spanMi,
-        gs: r.gradeSeparated, toll: r.tolled, unpaved: r.unpaved, div: r.dividedShare,
+        gs: r.gradeSeparated, toll: r.tolled, unpaved: r.unpaved, div: r.dividedShare, divCov: r.dividedCov,
         breaks: r.breaks, gapMi: r.gapMi, np: main.length,
         states: r.states, types: r.types,
         start: r.start, end: r.end,
@@ -998,10 +1069,19 @@ async function main() {
     byState: {},
     byType: {},
     sources: {
-      us: `US Census TIGER/Line ${TIGER_YEAR} roads, US Census gazetteer, FHWA Route Log`,
+      us: `US Census TIGER/Line ${TIGER_YEAR} roads, US Census gazetteer, FHWA Route Log, `
+        + `FHWA HPMS ${HPMS_YEAR}`,
       ca: 'Statistics Canada National Road Network, Transport Canada National Highway System',
     },
+    // The year the states' measurements describe, so a page can date them
+    // rather than let a traffic count read as current.
+    hpmsYear: HPMS_YEAR,
     canada: canada.register?.inventory ?? null,
+    // How far the measured lengths land from the official register, so the
+    // interface can state its own accuracy instead of asserting a figure that
+    // was true of some earlier build. The list of worst offenders stays in the
+    // build log; the summary is the part a reader needs.
+    accuracy: accuracySummary(routes),
   };
   for (const r of routes) {
     const s = stats.bySystem[r.system] ||= { routes: 0, mi: 0, gsMi: 0, tollMi: 0 };
@@ -1038,27 +1118,51 @@ async function main() {
       + `${r.start?.name ?? '?'}, ${r.start?.st ?? '?'} -> ${r.end?.name ?? '?'}, ${r.end?.st ?? '?'}`);
   }
 
-  // How closely the stitched geometry tracks the official register, across
-  // every route the register covers. This is the pipeline's accuracy check:
-  // the geometry is 1:1M generalised, so a few per cent under is expected,
-  // and anything wilder means the stitcher took a wrong turn.
-  const checked = routes.filter((r) => r.offMi > 5).map((r) => ({
-    r, err: ((r.mi - r.offMi) / r.offMi) * 100,
-  }));
-  if (checked.length) {
-    const errs = checked.map((c) => c.err).sort((a, b) => a - b);
-    const pct = (q) => errs[Math.floor((errs.length - 1) * q)].toFixed(1);
-    const within = (n) => Math.round((errs.filter((e) => Math.abs(e) <= n).length / errs.length) * 100);
-    console.log(`\naccuracy vs FHWA over ${checked.length} routes:`);
-    console.log(`  median ${pct(0.5)}%   p10 ${pct(0.1)}%   p90 ${pct(0.9)}%`);
-    console.log(`  within 5%: ${within(5)}%   within 10%: ${within(10)}%   within 25%: ${within(25)}%`);
-    const worst = checked.sort((a, b) => Math.abs(b.err) - Math.abs(a.err)).slice(0, 12);
+  const acc = accuracy(routes);
+  if (acc) {
+    console.log(`\naccuracy vs FHWA over ${acc.routes} routes:`);
+    console.log(`  median ${acc.median}%   p10 ${acc.p10}%   p90 ${acc.p90}%`);
+    console.log(`  within 5%: ${acc.within5}%   within 10%: ${acc.within10}%   within 25%: ${acc.within25}%`);
     console.log('  largest disagreements:');
-    for (const { r, err } of worst) {
+    for (const { r, err } of acc.worst) {
       console.log(`    ${r.id.padEnd(12)} ${String(r.mi).padStart(5)} vs ${String(Math.round(r.offMi)).padStart(5)}`
         + ` ${err.toFixed(0).padStart(5)}%  ${r.states.map((s) => s.st).join('/')}`);
     }
   }
+}
+
+/**
+ * How closely the stitched geometry tracks the official register, across every
+ * route the register covers.
+ *
+ * This is the pipeline's accuracy check — anything wilder than a few per cent
+ * means the stitcher took a wrong turn — and it is also what the site tells
+ * readers about itself. Reporting it from the build rather than from a
+ * sentence typed into the interface means the claim cannot drift away from the
+ * data: when the geometry improves, the page saying how good it is improves
+ * with it, and when it regresses, that shows too.
+ */
+function accuracy(routes) {
+  const checked = routes.filter((r) => r.offMi > 5).map((r) => ({
+    r, err: ((r.mi - r.offMi) / r.offMi) * 100,
+  }));
+  if (!checked.length) return null;
+  const errs = checked.map((c) => c.err).sort((a, b) => a - b);
+  const pct = (q) => Number(errs[Math.floor((errs.length - 1) * q)].toFixed(1));
+  const within = (n) => Math.round((errs.filter((e) => Math.abs(e) <= n).length / errs.length) * 100);
+  return {
+    routes: checked.length,
+    median: pct(0.5), p10: pct(0.1), p90: pct(0.9),
+    within5: within(5), within10: within(10), within25: within(25),
+    worst: [...checked].sort((a, b) => Math.abs(b.err) - Math.abs(a.err)).slice(0, 12),
+  };
+}
+
+function accuracySummary(routes) {
+  const a = accuracy(routes);
+  if (!a) return null;
+  const { worst, ...summary } = a;
+  return summary;
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

@@ -55,6 +55,30 @@ const FORMER = /^(?:old|hst|hist|historic)\s+/i;
 const LEAD_DIR = /^(?:n|s|e|w|ne|nw|se|sw)\s+/i;
 const TRAIL_DIR = /\s*\b(?:n|s|e|w|ne|nw|se|sw|nb|sb|eb|wb)\b\s*$/i;
 
+/**
+ * Interstates whose number ends in a letter, as the FHWA register spells them.
+ *
+ * Five roads in the country are signed this way, and TIGER writes the letter
+ * as a separate word for some of them: Texas files the Dallas half of I-35 as
+ * "I- 35 E" and Minnesota files part of Minneapolis's as "I- 35 W". That is
+ * indistinguishable, as text, from the carriageway markers in the same file -
+ * "I- 35 N" is northbound I-35, and there is no such route as I-35N - so the
+ * letter cannot be judged on its own. The register settles it: a letter that
+ * makes a designation the FHWA lists is part of the number, and every other
+ * trailing letter is a direction and gets dropped with the rest of them.
+ *
+ * Getting this wrong is quiet and expensive. Texas's I-35E and I-35W were
+ * folded into I-35 and vanished from the atlas entirely, and Minnesota's
+ * I-35W kept only the fragments TIGER happened to spell without the space,
+ * measuring nine miles of a forty-two-mile road.
+ */
+const SUFFIXED = new Set();
+export function setSuffixedInterstates(numbers) {
+  SUFFIXED.clear();
+  for (const n of numbers) SUFFIXED.add(String(n).toUpperCase());
+}
+const SPACED_SUFFIX = /^(i-?\s*)(\d{1,3})\s+([a-z])\b/i;
+
 // TIGER writes some numbers with a space inside them: Michigan's M-28 as
 // "State Hwy M 28", Massachusetts's Route 2A as "State Rte 2 A". Closing the
 // space makes the number one token. Two-letter words are left alone, so a
@@ -170,6 +194,9 @@ export function parseName(fullname, rttyp, st = null) {
 
   if (FORMER.test(raw)) return [];
   let name = raw.replace(LEAD_DIR, '').trim();
+  // Before the trailing direction goes, rescue the few letters that are not one.
+  name = name.replace(SPACED_SUFFIX, (m, pre, num, letter) => (
+    SUFFIXED.has(`${num}${letter}`.toUpperCase()) ? `${pre}${num}${letter}` : m));
   name = name.replace(TRAIL_DIR, '').trim();
   for (const [re, to] of SPACED) name = name.replace(re, to);
 

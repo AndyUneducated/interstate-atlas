@@ -60,6 +60,13 @@ const TYPE_OF_CLASS = {
   'Winter Road': 'Winter',
 };
 
+// NRN traffic direction, read as whether the road is divided.
+const DIVIDED = {
+  'Same direction': 'Divided',
+  'Opposite direction': 'Divided',
+  'Both directions': 'Undivided',
+};
+
 /**
  * Quebec signs and names its highways in French, and the road file carries
  * both. The French name is the one on the sign, so it leads; the English name
@@ -198,7 +205,12 @@ async function readProvince(pr, register, onProgress) {
     const props = {
       type: paved === 'Unpaved' ? 'Unpaved' : (TYPE_OF_CLASS[roadclass] || 'Unknown'),
       state: pr,
-      divided: clean(p.TRAFFICDIR) === 'Same direction' ? 'Divided' : null,
+      // A carriageway carrying one direction of travel belongs to a divided
+      // road; one carrying both is undivided. The source says which way a
+      // segment is digitised relative to traffic, so "same" and "opposite"
+      // are the same fact stated twice, and both mean divided. "Unknown"
+      // stays out of the count rather than being read as undivided.
+      divided: DIVIDED[clean(p.TRAFFICDIR)] ?? null,
       roadclass,
       lanes,
       speed,

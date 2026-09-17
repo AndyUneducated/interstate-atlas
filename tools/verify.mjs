@@ -405,6 +405,26 @@ await step('Alaska has its four unsigned Interstates', async () => {
   }
 });
 
+await step('a US route shows what the states measured', async () => {
+  // These come from HPMS rather than from the geometry, and they are joined by
+  // designation. A parser change on either side breaks the join silently: the
+  // panel keeps working and simply stops saying anything about traffic.
+  await dismissSheet();
+  await page.fill('#q', 'I-95');
+  await page.waitForTimeout(700);
+  await page.locator('#results .res').first().click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1200);
+  const keys = await page.locator('.fig-box .fig-k').allTextContents();
+  for (const want of [/traffic/i, /pavement/i]) {
+    if (!keys.some((k) => want.test(k))) {
+      throw new Error(`no ${want} row among ${JSON.stringify(keys)}`);
+    }
+  }
+  const lanes = await page.locator('.mgrid .m-k').allTextContents();
+  if (!lanes.some((k) => /lanes/i.test(k))) throw new Error('no lane count on a US route');
+});
+
 await step('Trans-Canada draws by default', async () => {
   await page.click('[data-jump="ca"]');
   await page.waitForTimeout(2600);
