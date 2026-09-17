@@ -28,6 +28,7 @@ import { app, toast, enableSystem, select } from './app.js';
 
 const SYSTEM_LAYERS = ['rt-interstate', 'rt-interstate-glow', 'rt-interstate-label'];
 const FLASH_SRC = 'tl-flash';
+const GHOST = 'tl-ghost';
 
 let on = false;
 let state = null;
@@ -77,6 +78,40 @@ function atYear(rows, year) {
 }
 
 /* ── map ───────────────────────────────────────────────────────────────── */
+
+/**
+ * The system as it stands today, drawn faint and unfiltered underneath.
+ *
+ * Without it the early years are an almost empty screen: 1961 has one route
+ * whose completion is documented, so the map went dark and the reader lost any
+ * sense of where in the country the lit road was. The ghost is not a claim
+ * about what existed in the year on the playhead - it is the finished network,
+ * there to be filled in, and the panel says as much.
+ */
+function ensureGhostLayer() {
+  const map = app.map;
+  if (map.getLayer(GHOST) || !map.getLayer('rt-interstate')) return;
+  map.addLayer({
+    id: GHOST,
+    type: 'line',
+    source: 'rt-interstate',
+    layout: { 'line-cap': 'round', 'line-join': 'round', visibility: 'none' },
+    paint: {
+      'line-color': '#35e7ff',
+      'line-width': ['interpolate', ['linear'], ['zoom'], 3, 0.8, 8, 1.6],
+      'line-opacity': 0.16,
+    },
+    // Under the live layers, so a route that lights up is not dimmed by its
+    // own ghost lying on top of it.
+  }, map.getLayer('rt-interstate-glow') ? 'rt-interstate-glow' : 'rt-interstate');
+}
+
+function ghost(show) {
+  const map = app.map;
+  if (map?.getLayer(GHOST)) {
+    map.setLayoutProperty(GHOST, 'visibility', show ? 'visible' : 'none');
+  }
+}
 
 function ensureFlashLayers() {
   const map = app.map;
@@ -272,7 +307,9 @@ export async function openTimelapse() {
   state.year = state.min;
 
   on = true;
+  ensureGhostLayer();
   ensureFlashLayers();
+  ghost(true);
   render();
   document.body.classList.add('tlapse-on');
   lightButton(true);
@@ -296,6 +333,7 @@ export function closeTimelapse() {
   document.getElementById('tlapse').innerHTML = '';
   const map = app.map;
   if (!map) return;
+  ghost(false);
   for (const layer of SYSTEM_LAYERS) {
     if (map.getLayer(layer)) map.setFilter(layer, null);
   }

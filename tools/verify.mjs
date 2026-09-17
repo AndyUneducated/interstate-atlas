@@ -234,6 +234,17 @@ await step('buildout scrubber opens and scrubs', async () => {
   if (before === after) throw new Error('year did not move');
   const open = await page.locator('#tlapse .tlx-v').first().textContent();
   if (!/\d/.test(open)) throw new Error(`no mileage figure at 1975: ${open}`);
+
+  // The early years light up almost nothing - 1961 has one documented route -
+  // so the present-day network is drawn faintly underneath to place them. If
+  // that layer stops being added, the view still works and silently becomes a
+  // black rectangle in every year before about 1970.
+  const ghost = await page.evaluate(() => {
+    const m = window.__map;
+    return m.getLayer('tl-ghost') ? (m.getLayoutProperty('tl-ghost', 'visibility') ?? 'visible') : null;
+  });
+  if (ghost === 'none') throw new Error('ghost network hidden while the scrubber is open');
+  if (ghost === null) throw new Error('ghost network layer missing');
 });
 await shot('05-timeline.png');
 
@@ -241,6 +252,11 @@ await step('buildout scrubber closes', async () => {
   await page.click('#tlxClose');
   await page.waitForTimeout(400);
   if (await page.locator('#tlapse .tlx-year').count()) throw new Error('scrubber still up');
+  // Leaving the ghost behind would dim the whole Interstate layer for the rest
+  // of the session, which reads as a rendering fault rather than as a leftover.
+  const ghost = await page.evaluate(() => (window.__map.getLayer('tl-ghost')
+    ? window.__map.getLayoutProperty('tl-ghost', 'visibility') : 'none'));
+  if (ghost !== 'none') throw new Error('ghost network still drawn after closing');
 });
 
 await step('command palette', async () => {
