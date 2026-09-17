@@ -502,9 +502,20 @@ await step('a route in a publishing province carries traffic', async () => {
   const value = await row.locator('.fig-v').textContent();
   const aadt = Number((/([\d,]{5,})/.exec(value)?.[1] ?? '').replace(/,/g, ''));
   if (!aadt) throw new Error(`no traffic figure on the 401: ${value}`);
-  // The 401 carried 73,700 a day averaged over its length at the last build, so
-  // anything under ten thousand means the join has broken rather than moved.
-  if (aadt < 10000) throw new Error(`implausible AADT on the 401: ${aadt}`);
+    // The 401 carried 73,700 a day averaged over its length at the last build, so
+    // anything under ten thousand means the join has broken rather than moved.
+    if (aadt < 10000) throw new Error(`implausible AADT on the 401: ${aadt}`);
+
+    // The average is a figure about 828 km of road, most of it rural, and on its
+    // own it makes the busiest highway in North America look ordinary. The peak
+    // is what the road is known for - 511,400 through Toronto at the 2024 count -
+    // and it comes from a different column of the ministry's file, so it can drop
+    // out while the average stays put.
+    const peak = Math.max(...[...value.matchAll(/([\d,]{5,})/g)]
+      .map((m) => Number(m[1].replace(/,/g, ''))));
+    if (!peak || peak < aadt * 2) {
+      throw new Error(`no busiest-point volume beside the 401's average: ${value}`);
+    }
   // The licence has to travel with the figure; Ontario's is the one that is
   // unstated, and dropping that caveat is the quiet failure worth catching.
   if (!/licence|Ministry of Transportation/i.test(text)) {

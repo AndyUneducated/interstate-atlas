@@ -205,7 +205,14 @@ function provincialTraffic(p) {
     ? ` <span class="fig-cov" title="${esc(t('ca.coverage', { pct: num(m.cover) }))}">${num(m.cover)}%</span>`
     : '');
 
-  if (tr.aadt) rows.push([t('hp.traffic'), `${t('hp.trafficVal', { n: num(tr.aadt.v) })}${cov(tr.aadt)}`]);
+  if (tr.aadt) {
+    rows.push([t('hp.traffic'),
+      `${t('hp.trafficVal', { n: num(tr.aadt.v) })}${cov(tr.aadt)}`
+      // Only where the busiest point is meaningfully above the average, so a
+      // road of even flow is not given a second figure that says nothing.
+      + (tr.aadtMax && tr.aadtMax > tr.aadt.v * 1.2
+        ? `<br><span class="fig-s">${t('hp.peak', { n: num(tr.aadtMax) })}</span>` : '')]);
+  }
 
   // The provinces publish heavy vehicles as a share of the flow, where HPMS
   // publishes a count. Shown as the share it is, not converted into a count
@@ -228,13 +235,21 @@ function provincialTraffic(p) {
   // One line per province behind the figures, each with its own terms. Ontario
   // publishes these for public use but states no licence, and saying so is the
   // point: the reader can then decide what the figure is worth.
+  const notes = [];
   for (const st of tr.from ?? []) {
     const m = meta[st];
     if (!m) continue;
     rows.push(['', `<span class="src">${m.url
       ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.source)}</a>`
       : esc(m.source)} · ${esc(m.licence)}</span>`]);
+    // What the province says about its own figures - which road gets credited
+    // for a concurrency, which highways it leaves out, how it combines
+    // directions. These change the meaning of the number above them, so they
+    // are translated rather than passed through from the source in English.
+    const note = t(`ca.tr.note.${st}`);
+    if (note && note !== `ca.tr.note.${st}`) notes.push(note);
   }
+  if (notes.length) rows.push(['', `<span class="fig-s">${notes.map(esc).join(' ')}</span>`]);
 
   const span = tr.yearTo && tr.yearTo !== tr.year ? `${tr.year}–${tr.yearTo}` : String(tr.year ?? '');
   const how = tr.stations
@@ -584,7 +599,12 @@ export async function renderDetail(id) {
           ? `${metric('ca.lanes', p.lanes == null ? null : num(p.lanes, p.lanes % 1 ? 1 : 0),
             p.lanesCov != null && p.lanesCov < 98 ? t('ca.coverage', { pct: num(p.lanesCov) }) : null)}
              ${metric('ca.speed', p.kph == null ? null : `${num(p.kph)}<small>km/h</small>`,
-            p.kphCov != null && p.kphCov < 98 ? t('ca.coverage', { pct: num(p.kphCov) }) : null)}`
+            // Averaged along the road, so a route signed at 100 for most of its
+            // length and 110 for the rest reads 104 - a number no sign shows.
+            // The tile says so rather than passing the mean off as a limit.
+            [t('ca.speedAvg'),
+              p.kphCov != null && p.kphCov < 98 ? t('ca.coverage', { pct: num(p.kphCov) }) : '',
+            ].filter(Boolean).join(' '))}`
           // TIGER carries no lane attribute, so the American lane count is the
           // states' own, and says what share of the road it was counted over.
           // Posted speeds are reported far more patchily, so they sit in the

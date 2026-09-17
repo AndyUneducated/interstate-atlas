@@ -100,6 +100,14 @@ the site states it rather than papering over it.
 | Manitoba | web application and PDF | ❌ |
 | NL, PEI, YT, NT, NU | no machine-readable traffic publication found | ❌ |
 
+Each figure is an average along the route, weighted by length, shown beside the volume at
+the road's busiest point where the two differ — Highway 401 averages 73,700 vehicles a day
+over its 828 km but carries 511,400 between Highway 427 and Renforth Drive, the heaviest
+traffic on any road in North America. Ontario's Highway 407 is the one conspicuous blank: the
+tolled section runs under a 99-year concession and is excluded from the ministry's counts,
+and the figure its operator publishes is average workday trips, which is not a daily volume
+and is not shown here as though it were.
+
 **Published.** Official Interstate mileage comes from the FHWA Route Log and Finder List;
 Canadian designations and network mileage come from Transport Canada. Everything in a
 written dossier — costs, traffic counts, construction dates, condition — carries its own

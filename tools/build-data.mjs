@@ -246,6 +246,12 @@ function attachCanadianTraffic(routes, ca) {
       };
     }
 
+    // The busiest single place on the road, which for a long urban freeway is a
+    // different order of number from its average and is the figure the road is
+    // actually known for.
+    const peak = Math.max(0, ...parts.map((p) => p.rec.aadtMax ?? 0));
+    if (peak) out.aadtMax = peak;
+
     // Where the counts are points rather than stretches, how many there were is
     // the only sense of how well covered the road is, so it replaces the share.
     const stations = parts

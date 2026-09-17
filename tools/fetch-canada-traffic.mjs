@@ -52,7 +52,10 @@ const num = (v) => {
  * figure describes a fifth of the road rather than presenting it as the whole.
  */
 class Route {
-  constructor() { this.km = 0; this.n = 0; this.w = {}; this.d = {}; this.years = new Set(); }
+  constructor() {
+    this.km = 0; this.n = 0; this.w = {}; this.d = {}; this.years = new Set();
+    this.peak = 0;
+  }
 
   add(km, values, year) {
     // A count with no length behind it still counts as an observation, but it
@@ -60,6 +63,11 @@ class Route {
     this.km += km ?? 0;
     this.n += 1;
     if (year) this.years.add(year);
+    // The busiest place on a road is often the only thing about its traffic
+    // anybody remembers - Highway 401 averages well under a hundred thousand
+    // across its length and carries half a million through Toronto - so the
+    // maximum is kept beside the mean rather than averaged away.
+    if (values.aadt > this.peak) this.peak = values.aadt;
     for (const [k, v] of Object.entries(values)) {
       if (v == null) continue;
       const weight = km ?? 1;
@@ -71,6 +79,8 @@ class Route {
   finish({ weighted = true } = {}) {
     const out = { n: this.n };
     if (weighted && this.km > 0) out.km = Math.round(this.km * 10) / 10;
+    // To the hundred, like the averages, so it reads as the estimate it is.
+    if (this.peak > 0) out.aadtMax = Math.round(this.peak / 100) * 100;
     const years = [...this.years].sort();
     if (years.length) {
       out.year = years[years.length - 1];
@@ -194,7 +204,10 @@ async function ontario() {
     method: 'weighted',
     note: 'Where two Ontario highways overlap, the ministry credits the volume '
       + 'to the lower-numbered one, or to the freeway where a freeway and a '
-      + 'non-freeway meet.',
+      + 'non-freeway meet. Highway 407 is absent: the tolled section is operated '
+      + 'under concession and excluded from the ministry\'s figures, and its '
+      + 'operator reports average workday trips, which is not a daily volume '
+      + 'and is not shown here as one.',
     routes: finish(acc),
   };
 }
