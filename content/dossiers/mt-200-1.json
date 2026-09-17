@@ -1,5 +1,6 @@
 {
   "id": "mt-200-1",
+  "route": { "anchor": [-109.43, 47.06] },
   "name": { "en": "Montana Highway 200", "zh": "蒙大拿 200 号公路" },
   "tagline": { "en": "Idaho line to North Dakota, mostly two lanes, mostly alone", "zh": "自爱达荷州界至北达科他，多为双车道，多半孤身一人" },
   "termini": {

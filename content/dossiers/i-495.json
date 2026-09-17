@@ -1,5 +1,6 @@
 {
-  "id": "i-495-md",
+  "id": "i-495",
+  "route": { "anchor": [-77.199, 38.968] },
   "name": { "en": "Interstate 495", "zh": "495 号州际公路" },
   "tagline": { "en": "The Capital Beltway — the ring that named a political class", "zh": "首都环线：一条环路，命名了一个政治阶层" },
   "officialMi": 31.49,

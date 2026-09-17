@@ -1,5 +1,6 @@
 {
   "id": "wi-13",
+  "route": { "anchor": [-89.82, 44.38] },
   "name": { "en": "WIS 13 — the POW/MIA Memorial Highway", "zh": "WIS 13（战俘／失踪军人纪念公路）" },
   "tagline": { "en": "Wisconsin Dells to Superior, with a detour around the Bayfield peninsula", "zh": "自威斯康星戴尔斯至苏必利尔，绕行贝菲尔德半岛" },
   "termini": {

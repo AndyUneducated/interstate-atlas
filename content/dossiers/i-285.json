@@ -1,5 +1,6 @@
 {
   "id": "i-285",
+  "route": { "anchor": [-84.39, 33.75] },
   "name": { "en": "Interstate 285", "zh": "285 号州际公路" },
   "tagline": { "en": "The Perimeter — the bypass that became Atlanta's main road", "zh": "环城线——绕城公路，最后成了亚特兰大的主干道" },
   "officialMi": 62.65,

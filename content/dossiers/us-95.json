@@ -1,5 +1,6 @@
 {
   "id": "us-95",
+  "route": { "anchor": [-114.78, 32.49] },
   "name": { "en": "U.S. Route 95", "zh": "95 号美国国道" },
   "tagline": { "en": "Border to border, Idaho's North and South Highway writ large", "zh": "边境到边境，爱达荷南北公路的放大版" },
   "officialMi": 1689,

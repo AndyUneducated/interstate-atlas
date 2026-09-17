@@ -1,5 +1,6 @@
 {
   "id": "us-90",
+  "route": { "anchor": [-104.83, 31.04] },
   "name": { "en": "U.S. Route 90", "zh": "90 号美国国道" },
   "tagline": { "en": "The Old Spanish Trail, from West Texas to the Atlantic", "zh": "古西班牙之路，自西得州通向大西洋" },
   "designatedYear": 1926,

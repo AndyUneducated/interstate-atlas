@@ -1,5 +1,6 @@
 {
   "id": "ks-4",
+  "route": { "anchor": [-100.91, 38.48] },
   "name": { "en": "K-4 — the long way across Kansas", "zh": "K-4——横穿堪萨斯的长路" },
   "tagline": { "en": "Scott City to Nortonville, the state's longest state highway", "zh": "自斯科特城至诺顿维尔，全州最长的州道" },
   "designatedYear": 1927,

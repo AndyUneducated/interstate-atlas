@@ -1,5 +1,6 @@
 {
   "id": "us-101",
+  "route": { "anchor": [-118.24, 34.05] },
   "name": { "en": "U.S. Route 101", "zh": "101 号美国国道" },
   "tagline": { "en": "El Camino Real, the Redwood Highway, the Pacific shore", "zh": "王家大道、红木公路与太平洋岸" },
   "designatedYear": 1926,

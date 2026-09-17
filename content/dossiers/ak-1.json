@@ -1,5 +1,6 @@
 {
   "id": "ak-1",
+  "route": { "anchor": [-151.55, 59.64] },
   "name": { "en": "Alaska Route 1 — Sterling, Seward, Glenn and Tok Cut-Off", "zh": "阿拉斯加 1 号公路（斯特灵、苏华德、格伦公路与托克支线）" },
   "tagline": { "en": "Homer to Tok by way of Anchorage, under four different names", "zh": "从霍默经安克雷奇到托克，沿途换过四个路名" },
   "termini": {

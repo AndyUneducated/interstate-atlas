@@ -1,5 +1,6 @@
 {
   "id": "az-87",
+  "route": { "anchor": [-111.43, 32.71] },
   "name": { "en": "Arizona State Route 87 — the Beeline Highway", "zh": "亚利桑那 87 号州道（蜂线公路）" },
   "tagline": { "en": "Saguaro to ponderosa in sixty miles of divided mountain road", "zh": "六十英里分隔式山地公路，从巨人柱到黄松林" },
   "termini": {

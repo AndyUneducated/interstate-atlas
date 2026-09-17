@@ -1,5 +1,6 @@
 {
   "id": "ne-2-1",
+  "route": { "anchor": [-99.64, 41.4] },
   "name": { "en": "Nebraska Highway 2 — the Sandhills Journey", "zh": "内布拉斯加 2 号公路（沙丘之旅）" },
   "tagline": { "en": "272 miles of grass-stabilised dunes, cattle and coal trains", "zh": "272 英里的固沙草丘、牛群与运煤列车" },
   "termini": {

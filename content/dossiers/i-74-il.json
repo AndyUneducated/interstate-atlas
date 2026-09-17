@@ -1,5 +1,6 @@
 {
   "id": "i-74-il",
+  "route": { "anchor": [-89.59, 40.69] },
   "name": { "en": "Interstate 74", "zh": "74 号州际公路" },
   "tagline": { "en": "Quad Cities to Cincinnati, diagonal across the corn belt", "zh": "从四城区到辛辛那提，斜切玉米带" },
   "officialMi": 391.3,

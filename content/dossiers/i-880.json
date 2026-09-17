@@ -1,5 +1,6 @@
 {
   "id": "i-880",
+  "route": { "anchor": [-122.26, 37.8] },
   "name": { "en": "Interstate 880", "zh": "880 号州际公路" },
   "tagline": { "en": "The Nimitz Freeway — the East Bay road that fell down in 1989", "zh": "尼米兹高速：1989 年塌掉的那条东湾公路" },
   "officialMi": 46.03,

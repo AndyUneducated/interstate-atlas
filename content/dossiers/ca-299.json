@@ -1,5 +1,6 @@
 {
   "id": "ca-299",
+  "route": { "anchor": [-124.06, 40.87] },
   "name": { "en": "California State Route 299 — the Trinity Highway", "zh": "加利福尼亚 299 号州道（三一公路）" },
   "tagline": { "en": "Redwood coast to the Nevada line across the north of the state", "zh": "自红杉海岸横贯加州北部直抵内华达州界" },
   "termini": {

@@ -1,5 +1,6 @@
 {
   "id": "ny-28-1",
+  "route": { "anchor": [-74.65, 42.15] },
   "name": { "en": "New York State Route 28 — the Central Adirondack Trail", "zh": "纽约 28 号州道（阿迪朗达克中部小径）" },
   "tagline": { "en": "A C-shaped route from the Catskills round to the Hudson", "zh": "自卡茨基尔绕行至哈德逊河的 C 形路线" },
   "termini": {

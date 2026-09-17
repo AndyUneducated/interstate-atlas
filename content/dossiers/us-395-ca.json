@@ -1,5 +1,6 @@
 {
   "id": "us-395-ca",
+  "route": { "anchor": [-117.3, 34.43] },
   "name": { "en": "U.S. Route 395", "zh": "395 号美国国道" },
   "tagline": { "en": "The inland north–south road, Mojave to the Kettle River", "zh": "内陆南北通道，自莫哈韦至凯特尔河" },
   "designatedYear": 1926,

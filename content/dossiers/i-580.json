@@ -1,5 +1,6 @@
 {
   "id": "i-580",
+  "route": { "anchor": [-122.53, 37.97] },
   "name": { "en": "Interstate 580", "zh": "580 号州际公路" },
   "tagline": { "en": "San Rafael to the Central Valley, through the Bay Area's worst knot", "zh": "从圣拉斐尔到中央谷地，穿过湾区最乱的那个结" },
   "officialMi": 76.13,

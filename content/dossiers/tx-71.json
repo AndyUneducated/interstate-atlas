@@ -1,5 +1,6 @@
 {
   "id": "tx-71",
+  "route": { "anchor": [-97.74, 30.27] },
   "name": { "en": "Texas State Highway 71 — the 10th Mountain Division Highway", "zh": "得克萨斯 71 号州道（第 10 山地师公路）" },
   "tagline": { "en": "Brady to the Gulf coastal plain, through Austin's airport", "zh": "自布雷迪至墨西哥湾沿海平原，穿过奥斯汀机场" },
   "officialMi": 253.199,

@@ -1,5 +1,6 @@
 {
   "id": "i-87",
+  "route": { "anchor": [-73.76, 42.65] },
   "name": { "en": "Interstate 87", "zh": "87 号州际公路" },
   "tagline": { "en": "The Bronx to Canada by Thruway and Northway", "zh": "自布朗克斯经收费高速与北路直抵加拿大" },
   "officialMi": 333.65,

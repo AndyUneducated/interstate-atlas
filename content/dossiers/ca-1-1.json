@@ -1,5 +1,6 @@
 {
   "id": "ca-1-1",
+  "route": { "anchor": [-121.9, 36.37] },
   "name": { "en": "California State Route 1 — the Pacific Coast Highway", "zh": "加利福尼亚 1 号州道（太平洋海岸公路）" },
   "tagline": { "en": "A shelf blasted along the edge of the continent", "zh": "在大陆边缘炸出来的一道路台" },
   "sections": [

@@ -19,6 +19,119 @@ const SECTION_KEYS = new Set([
   'character', 'engineering', 'history', 'money', 'traffic', 'condition', 'drive',
 ]);
 
+// Fields of a row in data/index.json, which is a positional array.
+const IX = { id: 0, label: 1, sys: 2, st: 4, mi: 5, num: 7, cx: 8, cy: 9 };
+const SYS_CODE = { interstate: 'i', us: 'u', state: 's', tch: 't', nhs: 'n', provincial: 'r' };
+
+// Where a route's geometry lives, which is by system and then by jurisdiction
+// for the two tiers too large to load whole.
+function geoFile(row) {
+  const st = row[IX.st];
+  return {
+    i: 'interstate.json', u: 'us.json', t: 'tch.json', n: 'nhs.json',
+    s: `state/${st}.json`, r: `provincial/${st}.json`,
+  }[row[IX.sys]];
+}
+
+const geoCache = new Map();
+async function geometryOf(row) {
+  const file = geoFile(row);
+  if (!geoCache.has(file)) {
+    const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', file), 'utf8'));
+    geoCache.set(file, new Map(fc.features.map((f) => [f.properties.id, f.geometry.coordinates])));
+  }
+  return geoCache.get(file).get(row[IX.id]) || [];
+}
+
+/** How far an anchor is from the nearest point of a route, in km. */
+async function anchorDistanceKm(row, [ax, ay]) {
+  const scale = Math.cos((ay * Math.PI) / 180);
+  let best = Infinity;
+  for (const line of await geometryOf(row)) {
+    for (const [x, y] of line) {
+      const d = (((x - ax) * scale) ** 2) + ((y - ay) ** 2);
+      if (d < best) best = d;
+    }
+  }
+  return Math.sqrt(best) * 111.32;
+}
+
+/**
+ * Which road a dossier is about.
+ *
+ * A route's id is assigned by the build, and where one number covers several
+ * disconnected roads it has to be made unique somehow — by the state carrying
+ * the most of it, or failing that by mileage rank. Neither is a property of
+ * the road. Both moved when the American geometry changed source, and twenty-
+ * six hand-written profiles silently stopped being shown: the file was still
+ * there, the id it named no longer existed.
+ *
+ * So a dossier names its road the way a person would, and the build looks it
+ * up: a system, a number, and where it is. The filename carries the first two
+ * (`i-285`, `us-12-mt`, `ca-33-1`) and is enough on its own for all but the
+ * numbers used more than once. Those add an `anchor`, a coordinate the road
+ * passes near — a fact about the road, which survives any amount of
+ * re-splitting.
+ */
+function selectorFrom(slug, declared) {
+  if (declared?.num) {
+    return {
+      sys: declared.sys ? SYS_CODE[declared.sys] : null,
+      st: declared.st || null,
+      num: String(declared.num).toLowerCase(),
+      anchor: declared.anchor || null,
+    };
+  }
+  const parts = slug.split('-');
+  const lead = parts[0];
+  const sys = lead === 'i' ? 'i' : lead === 'us' ? 'u' : null;
+  // A state-route slug opens with its jurisdiction; an Interstate or US slug
+  // may close with one, to tell namesakes apart.
+  let st = sys ? null : lead.toUpperCase();
+  const rest = parts.slice(1);
+  if (rest.length === 2 && /^[a-z]{2}$/.test(rest[1])) st = rest[1].toUpperCase();
+  return { sys, st, num: rest[0], anchor: declared?.anchor || null };
+}
+
+async function resolve(sel, routes) {
+  let pool = routes.filter((r) => String(r[IX.num]).toLowerCase() === sel.num
+    && (!sel.sys || r[IX.sys] === sel.sys));
+  if (!pool.length) return { error: `nothing numbered ${sel.num} in the atlas` };
+
+  // The jurisdiction in a slug is a hint, not a filter: it records which state
+  // held most of the road when the id was minted, and that can change without
+  // the road changing. Narrow by it when it still matches, ignore it when it
+  // does not and the number is unambiguous anyway.
+  if (sel.st) {
+    const narrowed = pool.filter((r) => r[IX.st] === sel.st);
+    if (narrowed.length) pool = narrowed;
+  }
+  if (pool.length === 1 && !sel.anchor) return { row: pool[0] };
+
+  const listing = () => pool.map((r) => `      ${r[IX.id]}  ${r[IX.label]}  ${r[IX.st]}`
+    + `  ${r[IX.mi]} mi  centred ${r[IX.cx]}, ${r[IX.cy]}`).join('\n');
+
+  if (!sel.anchor) {
+    return {
+      error: `${pool.length} roads carry this number — add "route": { "num": "${sel.num}",`
+        + ` "anchor": [lon, lat] } naming a point on the one this is about:\n${listing()}`,
+    };
+  }
+
+  const measured = [];
+  for (const r of pool) measured.push([await anchorDistanceKm(r, sel.anchor), r]);
+  measured.sort((a, b) => a[0] - b[0]);
+  // A wrong anchor has to be an error rather than a nearest guess, or a typo
+  // quietly publishes a profile about one road onto another.
+  if (measured[0][0] > 25) {
+    return {
+      error: `the anchor is ${Math.round(measured[0][0])} km from the nearest road carrying`
+        + ` this number, so it names none of them:\n${listing()}`,
+    };
+  }
+  return { row: measured[0][1] };
+}
+
 const problems = [];
 const warnings = [];
 
@@ -62,7 +175,7 @@ async function main() {
   }
 
   const index = JSON.parse(await readFile(join(ROOT, 'data', 'index.json'), 'utf8'));
-  const knownIds = new Set(index.routes.map((r) => r[0]));
+  const takenBy = new Map();
 
   // Routes that carry an official construction cost from FHWA's route-by-route
   // table. Several dossiers were written before that table was wired in and
@@ -98,11 +211,18 @@ async function main() {
       continue;
     }
 
-    const id = d.id || file.replace(/\.json$/, '');
-    if (!knownIds.has(id)) {
-      fail(file, `id "${id}" does not match any route in data/index.json`);
+    const slug = file.replace(/\.json$/, '');
+    const hit = await resolve(selectorFrom(slug, d.route), index.routes);
+    if (hit.error) { fail(file, hit.error); continue; }
+    const id = hit.row[IX.id];
+    if (takenBy.has(id)) {
+      fail(file, `resolves to ${id}, which ${takenBy.get(id)} already claims`);
       continue;
     }
+    takenBy.set(id, file);
+    // Published under the route's id, because that is what the site looks up,
+    // and carrying it inside so the timeline can light the road on the map.
+    d = { ...d, id };
 
     checkLocalised(file, 'name', d.name);
     checkLocalised(file, 'tagline', d.tagline);
@@ -161,8 +281,9 @@ async function main() {
     }
 
     if (d.completedYear != null) {
-      const row = index.routes.find((r) => r[0] === id);
-      timelineRoutes.push({ id, label: row[1], year: d.completedYear, mi: row[5] });
+      timelineRoutes.push({
+        id, label: hit.row[IX.label], year: d.completedYear, mi: hit.row[IX.mi],
+      });
     }
     for (const ev of d.timeline || []) {
       if (typeof ev.year !== 'number') { fail(file, 'timeline entry without a year'); continue; }
@@ -173,7 +294,8 @@ async function main() {
     await writeFile(join(OUT, `${id}.json`), JSON.stringify(d));
     publishedIds.push(id);
     published++;
-    const sys = id.startsWith('i-') ? 'interstate' : id.startsWith('us-') ? 'us' : 'state';
+    const sys = { i: 'interstate', u: 'us', t: 'tch', n: 'nhs', r: 'provincial' }[hit.row[IX.sys]]
+      ?? 'state';
     bySystem[sys] = (bySystem[sys] || 0) + 1;
   }
 

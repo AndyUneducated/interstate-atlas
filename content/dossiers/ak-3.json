@@ -1,5 +1,6 @@
 {
   "id": "ak-3",
+  "route": { "anchor": [-148.87, 63.73] },
   "name": { "en": "Alaska Route 3 — the George Parks Highway", "zh": "阿拉斯加 3 号公路（乔治·帕克斯公路）" },
   "tagline": { "en": "Anchorage to Fairbanks, and the only road to Denali", "zh": "从安克雷奇到费尔班克斯，也是通往迪纳利的唯一道路" },
   "officialMi": 323,
