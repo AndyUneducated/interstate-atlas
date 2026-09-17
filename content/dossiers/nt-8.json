@@ -1,0 +1,68 @@
+{
+  "id": "nt-8",
+  "route": { "anchor": [-134.88, 67.44] },
+  "name": { "en": "NWT Highway 8 — the Dempster Highway", "zh": "西北地区 8 号公路——邓普斯特公路" },
+  "tagline": { "en": "Ninety-six per cent gravel, and two rivers with no bridge over them", "zh": "百分之九十六是砾石路，还有两条没有桥的河" },
+  "termini": {
+    "start": { "en": "The Yukon boundary at Dempster kilometre 465, continuing from Yukon Highway 5", "zh": "邓普斯特公路 465 公里桩处的育空界，上接育空 5 号公路" },
+    "end": { "en": "Inuvik, at the junction with Highway 10 to Tuktoyaktuk", "zh": "伊努维克，与通往图克托亚图克的 10 号公路交汇处" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "The Northwest Territories publishes exactly what its 272.5 kilometres of the Dempster are made of: 10.3 kilometres of pavement, 91.5 kilometres of dust-controlled gravel, and 170.7 kilometres of plain untreated gravel. That is 96 per cent gravel, and the paved portion is essentially the approach to Inuvik.",
+        "The road also crosses the Peel and the Mackenzie, and there is no bridge over either. Traffic uses ferries in summer and ice bridges in winter, which means the route is severed twice a year during freeze-up and break-up, for weeks at a time, with nothing to do about it but wait.",
+        "Fort McPherson and Tsiigehtchic sit on this section, and for both of them the highway is the only year-round land connection to anywhere — except when it isn't."
+      ],
+      "zh": [
+        "西北地区明确公布了境内 272.5 公里邓普斯特公路的构成：10.3 公里铺装路面、91.5 公里经抑尘处理的砾石路、170.7 公里未作处理的砾石路。砾石路占比 96%，而铺装路段基本上就是伊努维克的进城引道。",
+        "这条路还要跨越皮尔河与马更些河，而两条河上都没有桥。夏季靠渡轮，冬季靠冰桥，这意味着每年封冻期与解冻期各有一次交通中断，一次持续数周，除了等待别无他法。",
+        "麦克弗森堡与齐格奇克都位于这一路段，对这两地而言，这条公路是全年唯一的陆路通道——除了它不通的那些日子。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The traffic counters tell the story of the road in five numbers. At Inuvik, 2,510 vehicles a day. At the airport access, 1,450. South of Cabin Creek, 170. North of the Fort McPherson access, 90. And ten kilometres west of Midway Lake, sixty — about one vehicle every twenty-four minutes.",
+        "Those are 2017 figures, and the department is candid about them: only around 35 per cent of the potential data that year was useable, blamed on ageing counters, broken induction loops and failed batteries and data modules. Missing volumes were estimated from previous years, and every published value is rounded to the nearest ten. It is a reminder that data coverage thins out the same way pavement does."
+      ],
+      "zh": [
+        "五个观测数字讲完了这条路的故事。伊努维克，日均 2,510 辆；机场引道处，1,450 辆；卡宾溪以南，170 辆；麦克弗森堡引道以北，90 辆；中途湖以西十公里处，60 辆——约每二十四分钟一辆。",
+        "这些是 2017 年的数据，而该部门对其质量直言不讳：当年仅约 35% 的潜在数据可用，原因是计数器老化、感应线圈损坏、电池与数据模块失效。缺失的流量数据依据往年估算，所有公布值均取整至十位。这提醒我们：数据的覆盖，会和路面一样越往北越稀薄。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "272.5 km, broken down by surface: 10.3 km paved, 91.5 km dust-controlled gravel, 170.7 km untreated gravel", "zh": "272.5 公里，按路面类型划分：铺装 10.3 公里、抑尘砾石 91.5 公里、未处理砾石 170.7 公里" },
+      "source": "Northwest Territories Department of Infrastructure, 2017 Highway Traffic, Table 1"
+    },
+    {
+      "label": { "en": "Busiest point", "zh": "流量最高点" },
+      "value": { "en": "2,510 vehicles a day 1.3 km south of Inuvik in 2017, rising to 3,310 in peak summer — up from 1,370 in 2008", "zh": "2017 年伊努维克以南 1.3 公里处日均 2,510 辆，夏季高峰 3,310 辆；2008 年为 1,370 辆" },
+      "source": "Northwest Territories Department of Infrastructure, 2017 Highway Traffic, Table 3"
+    },
+    {
+      "label": { "en": "Quietest point", "zh": "流量最低点" },
+      "value": { "en": "60 vehicles a day 10 km west of Midway Lake in 2017, down from 70 in 2008. All NWT figures are estimated and rounded to the nearest ten.", "zh": "2017 年中途湖以西 10 公里处日均 60 辆，2008 年为 70 辆。西北地区所有数据均为估算值并取整至十位。" },
+      "source": "Northwest Territories Department of Infrastructure, 2017 Highway Traffic, Table 3"
+    },
+    {
+      "label": { "en": "River crossings", "zh": "过河方式" },
+      "value": { "en": "The Peel and the Mackenzie are crossed by ferry in summer and ice bridge in winter. There is no permanent structure over either, so the route closes during freeze-up and break-up each year.", "zh": "皮尔河与马更些河夏季通渡轮、冬季走冰桥。两河均无永久性桥梁，因此每年封冻期与解冻期路线均会中断。" },
+      "source": "Northwest Territories Department of Infrastructure"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No figure is published for the Northwest Territories portion alone. Figures for the whole Dempster, $100 to $132 million, are recorded on the Yukon Highway 5 page.", "zh": "西北地区段无单独公开数据。邓普斯特公路全线的造价数字（1 亿至 1.32 亿元）记录在育空 5 号公路页面。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1958, "en": "Ottawa plans a road from Dawson City to Aklavik; the northern terminus is later changed to the new town of Inuvik.", "zh": "渥太华规划一条自道森市通往阿克拉维克的道路，北端终点后改为新建的伊努维克镇。" },
+    { "year": 1978, "en": "The final section is completed, crews having worked from both ends.", "zh": "自两端相向施工的队伍完成最后一段。" },
+    { "year": 1979, "en": "The highway opens on 18 August, with an interim ferry placed on the Peel River.", "zh": "8 月 18 日公路通车，皮尔河上先行投入一艘临时渡轮。" },
+    { "year": 2017, "en": "The Inuvik–Tuktoyaktuk Highway opens as Highway 10, extending the road network from the end of this one to the Arctic Ocean.", "zh": "伊努维克—图克托亚图克公路作为 10 号公路通车，自本路终点继续延伸至北冰洋。" }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "ab-1",
+  "route": { "anchor": [-115.57, 51.18] },
+  "name": { "en": "Trans-Canada Highway 1 in Alberta", "zh": "艾伯塔省横加公路 1 号" },
+  "tagline": { "en": "Over the highest point on the route, on the only stretch Ottawa maintains", "zh": "翻越全线最高点，且是渥太华唯一亲自养护的路段" },
+  "termini": {
+    "start": { "en": "The British Columbia boundary at Kicking Horse Pass, 1,627 m above sea level on the Continental Divide", "zh": "大陆分水岭上的踢马山口，海拔 1,627 米，为不列颠哥伦比亚省界" },
+    "end": { "en": "The Saskatchewan boundary east of Medicine Hat", "zh": "梅迪辛哈特以东的萨斯喀彻温省界" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Alberta's Highway 1 runs from the Continental Divide to the prairie in a little over 450 kilometres, and it changes character completely on the way. It starts at Kicking Horse Pass, the highest point on the entire Trans-Canada Highway at 1,627 metres, drops through Banff National Park along the Bow River, passes through Calgary, and is arrow-straight and treeless by Medicine Hat.",
+        "The mountain section is the one part of the road the federal government builds and maintains itself. Under the 1949 Act, Ottawa paid the whole cost of the sections inside national parks rather than the usual half, and Transport Canada still states that the Government of Canada is solely responsible for maintaining and repairing the Trans-Canada Highway inside national parks. Everywhere else in Alberta the road is the province's.",
+        "The Banff section is also the most heavily engineered piece of wildlife infrastructure on any Canadian highway: the twinned road through the park is fenced along its length and crossed by a series of overpasses and underpasses built so that bears, elk and wolves can get over a road they would otherwise be killed on."
+      ],
+      "zh": [
+        "艾伯塔的 1 号公路自大陆分水岭到大草原，四百五十余公里，沿途性格完全改变。它起于踢马山口——海拔 1,627 米，为整条横加公路的最高点——沿弓河穿过班夫国家公园下行，经卡尔加里，到梅迪辛哈特时已是笔直无树的坦途。",
+        "山地路段是这条路上唯一由联邦政府亲自建设并养护的部分。依 1949 年法案，国家公园内的路段由渥太华全额承担，而非通常的一半；加拿大交通部至今仍表明，国家公园内横加公路的养护与维修由加拿大政府独力负责。艾伯塔境内其余路段则归该省。",
+        "班夫路段同时也是加拿大所有公路中野生动物设施工程量最大的一段：穿越园区的复线公路全程设围栏，并建有一系列上跨与下穿通道，好让熊、马鹿与狼能够越过这条否则会要它们命的路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Alberta signed on 25 April 1950 with six other provinces. Its 282 miles were among the less contentious to build — the pass was already a rail and road corridor, and had been since the Canadian Pacific Railway took the same line in the 1880s.",
+        "Kicking Horse Pass was designated a national historic site in 1971, the same year Rogers Pass was and the same year construction under the Trans-Canada Highway Act finally ended."
+      ],
+      "zh": [
+        "艾伯塔于 1950 年 4 月 25 日与另外六省同日签约。其 282 英里路段在建设上争议较少——早在 1880 年代加拿大太平洋铁路取道于此以来，这处山口就已是铁路与公路共用的通道。",
+        "踢马山口于 1971 年被列为国家历史遗址，与罗杰斯山口同年，也正是《横加公路法》下的建设最终结束的那一年。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length in Alberta", "zh": "艾伯塔境内长度" },
+      "value": { "en": "282 miles (454 km) of the main route", "zh": "主线 282 英里（454 公里）" },
+      "source": "Canada Year Book 1967, p. 805, Dominion Bureau of Statistics"
+    },
+    {
+      "label": { "en": "Highest point on the Trans-Canada Highway", "zh": "横加公路最高点" },
+      "value": { "en": "Kicking Horse Pass, 1,627 m, on the Continental Divide at the Alberta–British Columbia boundary between Banff and Yoho national parks", "zh": "踢马山口，海拔 1,627 米，位于班夫与幽鹤两座国家公园之间、艾伯塔与不列颠哥伦比亚交界的大陆分水岭上" },
+      "source": "Parks Canada, Yoho National Park overview map, 2022"
+    },
+    {
+      "label": { "en": "Federal share inside national parks", "zh": "国家公园内的联邦分担比例" },
+      "value": { "en": "100 per cent, against up to 50 per cent elsewhere. Ottawa spent $76.6 million on the national park sections, over and above the $825 million paid to the provinces.", "zh": "100%，而其余路段至多 50%。渥太华在国家公园路段的支出为 7,660 万加元，此外另向各省拨付 8.25 亿加元。" },
+      "source": "Canada Year Book 1962, p. 783; Department of Public Works final report 1971, via MacLeod (TAC, 2014)"
+    },
+    {
+      "label": { "en": "Construction cost in Alberta", "zh": "艾伯塔境内造价" },
+      "why": { "en": "No public figure. The per-province breakdown exists only in the Department of Public Works' 1971 final report, which has not been digitised.", "zh": "无公开数据。分省明细仅见于公共工程部 1971 年的最终报告，该报告未数字化。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1950, "en": "Alberta signs its Trans-Canada Highway agreement on 25 April.", "zh": "4 月 25 日，艾伯塔签署横加公路协议。" },
+    { "year": 1971, "en": "Kicking Horse Pass is designated a national historic site, in the year construction under the Act ends.", "zh": "踢马山口被列为国家历史遗址，同年法案之下的建设结束。" }
+  ]
+}

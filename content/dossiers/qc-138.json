@@ -1,0 +1,84 @@
+{
+  "id": "qc-138",
+  "route": { "anchor": [-68.15, 49.22] },
+  "name": { "en": "Route 138", "zh": "138 号公路" },
+  "tagline": { "en": "The north-shore road that officially does not reach its own far end", "zh": "这条北岸公路，官方承认它到不了自己的另一端" },
+  "termini": {
+    "start": { "en": "Dundee, at the New York state line in Montérégie, south-west of Montreal", "zh": "蒙特利尔西南 Montérégie 地区的 Dundee，纽约州界处" },
+    "end": { "en": "Kegaska, on the Lower North Shore — described by the ferry operator as the gateway to the Basse-Côte-Nord, where Route 138 ends. The road resumes about 400 km further east and runs on to Blanc-Sablon at the Labrador border.", "zh": "下北岸的 Kegaska——渡轮运营方称其为「下北岸的门户，138 号公路在此终止」。约 400 公里之外，这条路重新出现，一直通到拉布拉多边界的 Blanc-Sablon。" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Route 138 follows the north shore of the St. Lawrence for the length of Quebec, from the New York border below Montreal to the edge of Labrador. For most of that it is an ordinary two-lane provincial road. At its eastern end it stops being a road at all.",
+        "The Government of Quebec states the gap in its own words: between Kegaska and Vieux-Fort there are about 400 kilometres not attached to Route 138 and therefore not attached to the rest of the province. The regional county municipality there is characterised, officially, as having a road network unconnected to the rest of Quebec. About 5,000 people live in the affected area, across five municipalities, an unorganised territory and two Indigenous communities.",
+        "This is why the detail panel shows a break rather than a route that quietly ends early. The road on either side of the gap carries the same number and is the same road in intent; what is missing is pavement that has never been built."
+      ],
+      "zh": [
+        "138 号公路沿圣劳伦斯河北岸纵贯魁北克，自蒙特利尔以南的纽约州界，直抵拉布拉多边缘。其中大部分是一条普通的双车道省道。而在东端，它干脆就不再是一条路了。",
+        "魁北克政府以自己的措辞记录了这处缺口：在 Kegaska 与 Vieux-Fort 之间，约有 400 公里不与 138 号公路相连，因而也不与该省其余部分相连。当地的区域县市在官方表述中被描述为「路网与魁北克其余部分不相连」。受影响地区约有 5,000 名居民，分布在五个市镇、一片无建制地域与两个原住民社区。",
+        "这正是详情面板会显示断口、而不是让路线悄悄提前结束的原因。缺口两侧的路挂着同一个编号，在意图上也是同一条路；缺的是从未建成的那段路面。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The link across the gap is a ship. The NM Bella Desgagnés, run by Relais Nordik under agreement with the Société des traversiers du Québec, is the supply and passenger service for the communities without road access, calling at Kegaska, La Romaine, Tête-à-la-Baleine, La Tabatière, Harrington Harbour, Saint-Augustin and Blanc-Sablon. A voyage from Rimouski to Blanc-Sablon takes six to eight days, seven on average.",
+        "There is a second discontinuity much further west, at the Saguenay, where the road is carried by the Tadoussac–Baie-Sainte-Catherine ferry. Quebec has an active file on a possible bridge there.",
+        "Neither crossing is drawn on this map or counted in the distance. The national road file records ferry connections as a separate class of feature from road segments, and this atlas draws only the roads."
+      ],
+      "zh": [
+        "跨越缺口的连接靠的是船。NM Bella Desgagnés 号由 Relais Nordik 依与 Société des traversiers du Québec（魁北克渡轮公司）的协议运营，为没有公路可达的社区提供补给与客运，停靠 Kegaska、La Romaine、Tête-à-la-Baleine、La Tabatière、Harrington Harbour、Saint-Augustin 与 Blanc-Sablon。自 Rimouski 至 Blanc-Sablon 的航程需六至八天，平均七天。",
+        "在西侧更远处，萨格奈河口还有第二处中断，由 Tadoussac 至 Baie-Sainte-Catherine 的渡轮承接。魁北克正在推进一项关于在此建桥的研究。",
+        "两处渡轮均不绘于本图，也不计入里程。国家道路数据把渡轮连接线单列为与路段不同的要素类别，而本图谱只绘制道路。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Quebec has been extending the road east for years, and in 2025 it changed what it was doing. The extension project was reworked into an intervention plan, which the transport minister explained in the National Assembly in May 2026 would include some road sections while others would be crossed by ferry. A road for the roughly 400 kilometres between Blanc-Sablon and Kegaska, he said, would cost several billion dollars.",
+        "Two sections are being built. Between Kegaska and La Romaine, 49 kilometres: the stretch from the Washicoutai River to La Romaine was finished in 2024 and the bridge over the river at the end of 2025, with finishing work such as guardrails in 2026. Between Tête-à-la-Baleine and La Tabatière, 30 kilometres. Quebec and Canada together have put $695 million into the two.",
+        "The work rests on framework agreements signed in 2021 with the Conseil des Innus d'Unamen Shipu and the Conseil de la Première Nation des Innus de Nutashkuan. The first made the Kegaska–La Romaine construction possible; the second allowed the paving between Nutashkuan and Kegaska in 2023."
+      ],
+      "zh": [
+        "魁北克多年来一直在向东延伸这条路，而 2025 年它改变了做法。延伸工程被重新拟定为一份「干预计划」；2026 年 5 月，交通部长在省议会解释说，该计划将包含若干公路路段，其余路段则以渡轮通过。他表示，要在 Blanc-Sablon 与 Kegaska 之间修出约 400 公里的公路，将耗资「数十亿加元」。",
+        "目前有两段在建。Kegaska 至 La Romaine，49 公里：自 Washicoutai 河至 La Romaine 的一段已于 2024 年完工，跨该河的桥梁于 2025 年年末建成，2026 年进行护栏等收尾工程。Tête-à-la-Baleine 至 La Tabatière，30 公里。魁北克与加拿大两级政府为这两段合计投入 6.95 亿加元。",
+        "这些工程建立在 2021 年与 Conseil des Innus d'Unamen Shipu 及 Conseil de la Première Nation des Innus de Nutashkuan 签署的框架协议之上。前者使 Kegaska 至 La Romaine 的施工成为可能，后者促成了 2023 年 Nutashkuan 与 Kegaska 之间的铺装。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "The gap", "zh": "缺口" },
+      "value": { "en": "About 400 km between Kegaska and Vieux-Fort is not attached to Route 138 and therefore not to the rest of the province, affecting about 5,000 residents across five municipalities, an unorganised territory and two Indigenous communities", "zh": "Kegaska 与 Vieux-Fort 之间约 400 公里不与 138 号公路相连，因而也不与该省其余部分相连；受影响居民约 5,000 人，分布于五个市镇、一片无建制地域与两个原住民社区" },
+      "source": "Gouvernement du Québec, Prolongement de la route 138 en Basse-Côte-Nord"
+    },
+    {
+      "label": { "en": "Sections under construction", "zh": "在建路段" },
+      "value": { "en": "Kegaska–La Romaine, 49 km, and Tête-à-la-Baleine–La Tabatière, 30 km, for $695 million from the governments of Quebec and Canada", "zh": "Kegaska 至 La Romaine 49 公里，Tête-à-la-Baleine 至 La Tabatière 30 公里；魁北克与加拿大两级政府投入 6.95 亿加元" },
+      "source": "Le Nord-Côtier, 19 June 2026, reporting the Minister of Transport and Sustainable Mobility"
+    },
+    {
+      "label": { "en": "Busiest section", "zh": "最繁忙路段" },
+      "value": { "en": "77,000 vehicles a day in 2024 at the Montreal end, on the Mercier Bridge approach corridor — not on the North Shore", "zh": "2024 年蒙特利尔一端日均 77,000 辆，位于梅西耶桥接线走廊，而非北岸路段" },
+      "source": "Ministère des Transports et de la Mobilité durable du Québec, Débit de circulation dataset, 2024"
+    },
+    {
+      "label": { "en": "Ferry to the roadless communities", "zh": "通往无路社区的渡轮" },
+      "value": { "en": "The NM Bella Desgagnés, six to eight days from Rimouski to Blanc-Sablon, seven on average", "zh": "NM Bella Desgagnés 号，自 Rimouski 至 Blanc-Sablon 需六至八天，平均七天" },
+      "source": "Relais Nordik, Itinéraires et escales"
+    },
+    {
+      "label": { "en": "Official length", "zh": "官方里程" },
+      "why": { "en": "No route-wide figure. Quebec's transport ministry publishes the size of the gap rather than a total for the road, and no ministry statement of Route 138's full length was found.", "zh": "无全线数据。魁北克交通部公布的是缺口的长度而非全路总长，也未见该部对 138 号公路全长的任何表述。" }
+    }
+  ],
+  "timeline": [
+    { "year": 2021, "en": "Quebec signs framework agreements with the Conseil des Innus d'Unamen Shipu and the Conseil de la Première Nation des Innus de Nutashkuan, enabling the eastern extensions.", "zh": "魁北克与 Conseil des Innus d'Unamen Shipu 及 Conseil de la Première Nation des Innus de Nutashkuan 签署框架协议，为东段延伸铺路。" },
+    { "year": 2023, "en": "Paving is completed between Nutashkuan and Kegaska.", "zh": "Nutashkuan 与 Kegaska 之间的铺装完工。" },
+    { "year": 2024, "en": "The section from the Washicoutai River to La Romaine is finished.", "zh": "自 Washicoutai 河至 La Romaine 的路段完工。" },
+    { "year": 2025, "en": "The bridge over the Washicoutai River is completed, and the extension project is reworked into an intervention plan rather than a continuous road.", "zh": "跨 Washicoutai 河的桥梁建成；延伸工程被改为「干预计划」，不再以修成连续公路为目标。" },
+    { "year": 2026, "en": "The transport minister tells the National Assembly that some sections will be crossed by ferry, and that a road for the whole 400 km would cost several billion dollars.", "zh": "交通部长在省议会表示，部分路段将以渡轮通过；若要修通全部 400 公里公路，将耗资数十亿加元。" }
+  ]
+}

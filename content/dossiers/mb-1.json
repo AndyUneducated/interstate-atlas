@@ -1,0 +1,57 @@
+{
+  "id": "mb-1",
+  "route": { "anchor": [-98.29, 49.97] },
+  "name": { "en": "Trans-Canada Highway 1 in Manitoba", "zh": "马尼托巴省横加公路 1 号" },
+  "tagline": { "en": "Where the highway splits in two and goes north as well as west", "zh": "公路在此一分为二，除了向西，也向北" },
+  "termini": {
+    "start": { "en": "The Saskatchewan boundary west of Virden", "zh": "弗登以西的萨斯喀彻温省界" },
+    "end": { "en": "The Ontario boundary east of Falcon Lake, where PTH 1 becomes Highway 17", "zh": "猎鹰湖以东的安大略省界，PTH 1 在此变为 17 号公路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Manitoba's Provincial Trunk Highway 1 crosses the province from Saskatchewan to the Ontario border through Brandon, Portage la Prairie and Winnipeg. At Portage la Prairie the Trans-Canada does something it does nowhere else: it divides. Highway 16, the Yellowhead, leaves here for Saskatoon, Edmonton, Jasper and eventually the Pacific at Prince Rupert, and both branches carry the designation.",
+        "Manitoba puts the Trans-Canada shield on more numbers than any province except Ontario and Quebec: the main line as PTH 1, the Yellowhead as 16, a branch through Portage la Prairie and Brandon as 1A, and the southern half of the Winnipeg Perimeter Highway as 100. The designation goes round the city rather than through it.",
+        "East of Winnipeg the prairie ends abruptly. The road enters the Canadian Shield at the Whiteshell, and from there to Ontario it is rock, lake and forest — the beginning of the 1,900 kilometres of shield country that separates the prairies from southern Ontario."
+      ],
+      "zh": [
+        "马尼托巴的省级干线公路 1 号自萨斯喀彻温横贯全省至安大略省界，途经布兰登、波蒂奇拉普雷里与温尼伯。在波蒂奇拉普雷里，横加公路做了一件别处从未做过的事：它分岔了。16 号黄头公路由此北上，通往萨斯卡通、埃德蒙顿、贾斯珀，最终抵达太平洋岸的鲁珀特王子港；两条支线都挂横加公路的牌。",
+        "除安大略与魁北克外，马尼托巴给横加公路标志挂上的编号最多：主线为 PTH 1，黄头公路为 16，经波蒂奇拉普雷里与布兰登的支线为 1A，温尼伯环城公路南半环为 100。指定路线绕城而过，不穿城而行。",
+        "温尼伯以东，草原戛然而止。公路自白壳地区进入加拿大地盾，自此至安大略尽是岩石、湖泊与森林——这是隔开草原三省与安大略南部、长达 1,900 公里地盾地带的开端。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Manitoba signed on 25 April 1950 with six other provinces and built 309 miles of main route.",
+        "The Yellowhead branch took longer to become one road. It was officially opened in 1970, but it was not numbered 16 throughout until the four western provinces agreed to harmonise in 1977–78; Manitoba's portion had been PTH 4, and Saskatchewan's had been Highways 5 and 14. It is a small illustration of the general rule that Canada's highway numbering is negotiated between provinces rather than assigned nationally."
+      ],
+      "zh": [
+        "马尼托巴于 1950 年 4 月 25 日与另外六省同日签约，建成主线 309 英里。",
+        "黄头支线成为一条完整的路则花了更久。它于 1970 年正式通车，但直到 1977 至 1978 年西部四省议定统一编号，全线才都编为 16 号；此前马尼托巴段是 PTH 4，萨斯喀彻温段是 5 号与 14 号。这个小例子印证了一条通则：加拿大的公路编号由各省协商而定，而非由全国统一指派。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length in Manitoba", "zh": "马尼托巴境内长度" },
+      "value": { "en": "309 miles (497 km) of the main route", "zh": "主线 309 英里（497 公里）" },
+      "source": "Canada Year Book 1967, p. 805, Dominion Bureau of Statistics"
+    },
+    {
+      "label": { "en": "Route numbers carrying the designation", "zh": "承载指定路线的编号" },
+      "value": { "en": "Five — PTH 1, 16 (Yellowhead), 1A, 100 (south Winnipeg Perimeter) and 101", "zh": "五个：PTH 1、16（黄头公路）、1A、100（温尼伯环城南段）与 101" },
+      "source": "Statistics Canada, National Road Network, Trans-Canada Highway layer, queried September 2026"
+    },
+    {
+      "label": { "en": "Construction cost in Manitoba", "zh": "马尼托巴境内造价" },
+      "why": { "en": "No public figure. The per-province breakdown exists only in the Department of Public Works' 1971 final report, which has not been digitised.", "zh": "无公开数据。分省明细仅见于公共工程部 1971 年的最终报告，该报告未数字化。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1950, "en": "Manitoba signs its Trans-Canada Highway agreement on 25 April.", "zh": "4 月 25 日，马尼托巴签署横加公路协议。" },
+    { "year": 1970, "en": "The Yellowhead Highway is officially opened as a northern route across western Canada, branching from the main line at Portage la Prairie.", "zh": "黄头公路作为横贯加拿大西部的北线正式通车，自波蒂奇拉普雷里与主线分岔。" },
+    { "year": 1977, "en": "The western provinces begin numbering the Yellowhead 16 throughout; Manitoba's portion had been PTH 4.", "zh": "西部各省开始将黄头公路全线编为 16 号；马尼托巴段此前为 PTH 4。" }
+  ]
+}

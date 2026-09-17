@@ -1,0 +1,68 @@
+{
+  "id": "yt-5",
+  "route": { "anchor": [-136.72, 66.37] },
+  "name": { "en": "Yukon Highway 5 — the Dempster Highway", "zh": "育空 5 号公路——邓普斯特公路" },
+  "tagline": { "en": "Twenty years to build a road to an oilfield that turned out not to be there", "zh": "花二十年修一条通往油田的路，而那片油田并不存在" },
+  "termini": {
+    "start": { "en": "The Klondike Highway about 40 km east of Dawson City", "zh": "道森市以东约 40 公里的克朗代克公路交汇处" },
+    "end": { "en": "The Northwest Territories boundary at Dempster kilometre 465, where the road continues as NWT Highway 8 to Inuvik", "zh": "邓普斯特公路 465 公里桩处的西北地区界，其后接西北地区 8 号公路通往伊努维克" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "The Dempster runs 465 kilometres across the Yukon without meeting another highway. Not a junction, not a numbered side road — from the Klondike Highway to the territorial boundary there is nothing to turn onto. It crosses Tombstone Territorial Park, the Ogilvie Mountains and the Richardsons, and it is gravel.",
+        "Traffic figures from the Northwest Territories side give the best sense of how empty it is, because the Yukon's own counts could not be obtained. Ten kilometres west of Midway Lake, the counter recorded sixty vehicles a day in 2017 — one about every twenty-four minutes.",
+        "It is the only road in Canada that crosses the Arctic Circle, and until the Inuvik–Tuktoyaktuk Highway opened it was as far north as the country's road network reached."
+      ],
+      "zh": [
+        "邓普斯特公路在育空境内绵延 465 公里，全程不与任何其他公路相交。没有立交，没有编号支线——自克朗代克公路到地区界，无处可拐。它穿越墓碑地区公园、奥格尔维山脉与理查森山脉，路面是砾石。",
+        "由于未能取得育空方面自己的观测数据，西北地区一侧的流量数字最能说明它有多空旷。2017 年，中途湖以西十公里处的计数器记录到日均六十辆车——约每二十四分钟一辆。",
+        "它是加拿大唯一一条跨越北极圈的公路；在伊努维克—图克托亚图克公路通车之前，这里就是加拿大公路网所能到达的最北端。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "In 1958, with oil and gas exploration expanding in the Mackenzie Delta, Ottawa decided to build a road from Dawson City to the Arctic coast. It became the first and the flagship of John Diefenbaker's Roads to Resources programme. The industry was talking about $150 to $250 million of exploration investment; Northern Affairs Minister Alvin Hamilton said $5 to $8 million would finish the road in four or five years.",
+        "Oil was found on the Eagle Plain on 17 August 1959 and construction began. By 1962 it had stopped, 115 kilometres in. Hamilton had been replaced, the wells had disappointed, the Eagle Plains discovery turned out to have no commercial potential, and Ottawa and the Yukon could not agree on who paid. The road sat half-built through the 1960s with seasonal maintenance, acquiring its name — after Inspector William Dempster of the Mounted Police, who in 1911 found what had become of the Lost Patrol — in 1963 or 1964, depending on which account you follow.",
+        "What restarted it was not oil in the Yukon but oil in Alaska. The Prudhoe Bay discovery of 1968 made Arctic sovereignty urgent, a Mackenzie Valley pipeline looked plausible, and construction resumed in 1970. Crews working from both ends met between the Eagle River and the Richardson Mountains in 1978. The highway opened on 18 August 1979 — Discovery Day — at Flat Creek, twenty years and around $100 to $132 million after the first bulldozer, and by then nobody was building the pipeline."
+      ],
+      "zh": [
+        "1958 年，随着马更些三角洲油气勘探扩大，渥太华决定修建一条自道森市通往北冰洋沿岸的道路。它成为迪芬贝克「通往资源之路」计划中的首个项目与旗舰工程。当时业界谈论的勘探投资额为 1.5 亿至 2.5 亿元；北方事务部长阿尔文·汉密尔顿称，只需 500 万至 800 万元，四五年即可修通。",
+        "1959 年 8 月 17 日，鹰原发现石油，工程随即开工。到 1962 年，工程在修成 115 公里后停工：汉密尔顿已被更换，钻井结果令人失望，鹰原的发现被认定不具商业开采价值，渥太华与育空又在出资问题上谈不拢。整个 1960 年代，这条半成品道路只做季节性养护，并在 1963 或 1964 年（取决于采信哪一种记载）获得了现名——以皇家骑警警官威廉·邓普斯特命名，他在 1911 年查明了「失踪巡逻队」的下场。",
+        "让工程重启的不是育空的石油，而是阿拉斯加的石油。1968 年普拉德霍湾的发现使北极主权问题变得紧迫，马更些河谷输油管道看上去可行，工程遂于 1970 年复工。1978 年，自两端相向施工的队伍在鹰河与理查森山脉之间会合。1979 年 8 月 18 日——「发现日」——公路在平溪通车；距第一台推土机动工已过二十年，耗资约 1 亿至 1.32 亿元，而那时已经没人要修那条管道了。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "465 km in the Yukon, of a route usually given as 730 to 737 km end to end. Yukon Highways and Public Works publishes network totals and per-highway spending but no per-highway length, so the Yukon figure cannot be cited to the territory.", "zh": "育空境内 465 公里；全线长度通常记为 730 至 737 公里。育空公路与公共工程部只公布路网总量与分路支出，不公布分路长度，因此育空段的数字无法引述该地区官方来源。" },
+      "source": "Published route lists; no territorial figure available"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "value": { "en": "Between $100 million and $132 million, in the dollars of the day. Neither figure traces to a government account, and the original 1959 estimate was $5 to $8 million.", "zh": "按当时币值计，介于 1 亿至 1.32 亿元之间。两个数字均无法追溯至政府账目；而 1959 年最初的估算是 500 万至 800 万元。" },
+      "source": "The Canadian Encyclopedia ($100 million); Yukon News, 4 March 2015 ($132 million)"
+    },
+    {
+      "label": { "en": "Maintenance", "zh": "养护" },
+      "value": { "en": "The Yukon budgeted $7.526 million for the Dempster in 2025–26, second only to the Alaska Highway among territorial roads.", "zh": "2025–26 年度，育空为邓普斯特公路编列预算 752.6 万元，在该地区各条道路中仅次于阿拉斯加公路。" },
+      "source": "Government of Yukon, Highways and Public Works 2025-26 Supplementary Information"
+    },
+    {
+      "label": { "en": "Highest point", "zh": "最高点" },
+      "why": { "en": "No published figure. Neither the Yukon nor the Northwest Territories publishes summit elevations for this road.", "zh": "无公开数据。育空与西北地区均未公布这条路的山口海拔。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1958, "en": "Ottawa decides to build a road from Dawson City to the Arctic; survey work begins.", "zh": "渥太华决定修建自道森市通往北极的道路，勘测工作启动。" },
+    { "year": 1959, "en": "Oil is found on the Eagle Plain on 17 August and the first 48 km are begun, as the flagship of Diefenbaker's Roads to Resources.", "zh": "8 月 17 日鹰原发现石油，最初 48 公里开工，成为迪芬贝克「通往资源之路」的旗舰工程。" },
+    { "year": 1962, "en": "Construction stops after 115 km of roadbed, the Eagle Plains discovery having proved commercially worthless.", "zh": "在修成 115 公里路基后停工，鹰原的发现被证明毫无商业价值。" },
+    { "year": 1964, "en": "The road is named the Dempster Highway, after Inspector William Dempster of the Mounted Police. Some accounts date the naming to September 1963.", "zh": "该路以皇家骑警警官威廉·邓普斯特命名。另有记载称命名于 1963 年 9 月。" },
+    { "year": 1970, "en": "Construction resumes, prompted by the Prudhoe Bay oil discovery and the prospect of a Mackenzie Valley pipeline.", "zh": "受普拉德霍湾石油发现与马更些河谷输油管道前景推动，工程复工。" },
+    { "year": 1978, "en": "Crews working from both ends meet between the Eagle River and the Richardson Mountains.", "zh": "自两端相向施工的队伍在鹰河与理查森山脉之间会合。" },
+    { "year": 1979, "en": "The Dempster Highway opens at Flat Creek on 18 August, Discovery Day.", "zh": "8 月 18 日「发现日」，邓普斯特公路在平溪通车。" }
+  ]
+}

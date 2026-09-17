@@ -1,0 +1,88 @@
+{
+  "id": "on-qew",
+  "route": { "anchor": [-79.7, 43.43] },
+  "name": { "en": "Queen Elizabeth Way", "zh": "伊丽莎白女王大道" },
+  "tagline": { "en": "Named for a queen who was not Elizabeth II, and numbered not at all", "zh": "以一位并非伊丽莎白二世的王后命名，而且根本没有编号" },
+  "termini": {
+    "start": { "en": "The Peace Bridge plaza at Fort Erie, on the New York border", "zh": "伊利堡的和平桥广场，紧邻纽约州界" },
+    "end": { "en": "Highway 427 in Etobicoke, where the road continues as the city-owned Gardiner Expressway", "zh": "怡陶碧谷的 427 号公路交汇处，其后接由市政拥有的加德纳高速公路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "The QEW is the one Ontario freeway of 400-series standard that carries a name instead of a number. The ministry files it first in its traffic tables, ahead of Highway 401, and codes it internally as highway 1 — but nothing on the ground has ever been signed that way.",
+        "It is named for Queen Elizabeth, the consort of King George VI, later the Queen Mother. Not Elizabeth II, who was thirteen years old at the naming.",
+        "Between Fort Erie and Toronto it changes character several times: a quiet border approach carrying 13,400 vehicles a day at the Peace Bridge, a Niagara route, and then the Hamilton–Toronto corridor where it becomes one of the busiest roads in the country, peaking at 257,900 vehicles a day through Oakville."
+      ],
+      "zh": [
+        "在安大略达到 400 系标准的高速公路中，伊丽莎白女王大道是唯一以名称而非编号标识的一条。交通部在其流量统计表中把它排在最前，位列 401 号公路之前，内部编码记作 1 号公路——但实际路面上从未按这个编号设过标牌。",
+        "它以乔治六世的王后伊丽莎白命名，即后来的王太后。不是伊丽莎白二世——命名之时，她才十三岁。",
+        "自伊利堡至多伦多，它的性格数度变换：先是和平桥处日均 13,400 辆的静僻边境引道，继而是尼亚加拉地区的通道，再到汉密尔顿—多伦多走廊，成为全国最繁忙的道路之一，在奥克维尔一带峰值达日均 257,900 辆。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "It began as The Middle Road, a country lane between Toronto and Hamilton widened from 1931 as a Depression relief project, employing seventy-four men to grade it into four lanes. In 1934 Thomas McQuesten and Robert Melville Smith reworked the plan into something new to the continent: a divided, limited-access intercity highway, drawing on what was being built on the German autobahns.",
+        "The Toronto–Burlington section opened at the end of 1937. On 7 June 1939, during the royal tour, the King and Queen's car passed through a light beam near the Henley Bridge in St. Catharines; two Union Jacks swung aside to reveal a sign reading The Queen Elizabeth Way. That ceremony named only the St. Catharines–Niagara Falls segment — the whole Toronto–Niagara Falls route took the name on 23 August 1940, when McQuesten cut a ribbon at the same bridge. The route was extended to Fort Erie in 1941 and four-laned all the way by 1956.",
+        "Exactly what it was first at is disputed, and the disagreement is worth keeping rather than resolving. The Canadian Encyclopedia calls it Canada's first four-lane controlled-access superhighway. Other accounts call it the first divided intercity freeway in North America, dating that to 1939. The Simcoe County Museum says it was the first divided highway to open in North America, in 1937, but \"was not a true freeway until the 1950s\". All three are secondary sources and none of them agrees with the others on the claim or the year."
+      ],
+      "zh": [
+        "它的前身是「中路」，一条多伦多与汉密尔顿之间的乡间小道，自 1931 年起作为大萧条救济工程加宽，雇用七十四名工人将其平整为四车道。1934 年，托马斯·麦奎斯滕与罗伯特·梅尔维尔·史密斯重拟方案，做出了北美前所未见的东西：一条分隔式、有限出入的城际公路，其构想取自当时德国高速公路的建设经验。",
+        "多伦多至伯灵顿段于 1937 年年底通车。1939 年 6 月 7 日王室巡访期间，国王与王后的座车在圣凯瑟琳斯亨利桥附近通过一道光束，两面英国国旗随之向两侧展开，露出一块写着「伊丽莎白女王大道」的标牌。那场仪式所命名的其实只有圣凯瑟琳斯至尼亚加拉瀑布城一段——多伦多至尼亚加拉瀑布城的全线获此名，是在 1940 年 8 月 23 日，麦奎斯滕在同一座桥上剪彩之时。1941 年延伸至伊利堡，至 1956 年全线拓为四车道。",
+        "至于它究竟「首创」了什么，说法不一，而这种分歧值得保留而非强行统一。《加拿大百科全书》称它是加拿大第一条四车道全控制出入的超级公路。另一些记载称它是北美第一条分隔式城际高速公路，并将时间定在 1939 年。西姆科县博物馆则说它是北美第一条通车的分隔式公路，时间为 1937 年，但「直到 1950 年代才真正成为高速公路」。三者都是二手文献，且在名目与年份上互不一致。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The original light standards carried a stylised ER monogram, for Elizabeth Regina. Replicas now stand on three bridges — over the Credit River in Mississauga, Bronte Creek in Oakville and Twelve Mile Creek in St. Catharines — and, since 2002, along Highway 420 and Falls Avenue in Niagara Falls, which is the road's own abandoned original ending.",
+        "A monument marked the highway's start at the Humber River: a column by the architect William Lyon Somerville, with a base by the Toronto sculptor Frances Loring, who modelled the royal profiles with Florence Wyle and chose for the base \"a snarling, defiant British lion, eight feet high!\" Widening in the early 1970s moved it to Sir Casimir Gzowski Park, and Elizabeth II rededicated it fifty years after the highway opened.",
+        "When the Toronto–Burlington section first opened, motorists are said to have driven around the cloverleaf at Highway 10 repeatedly, for the novelty of it, and to have saluted the monument as they passed."
+      ],
+      "zh": [
+        "最初的灯杆上带有风格化的「ER」花押字，取自拉丁文 Elizabeth Regina（伊丽莎白女王）。如今有三座桥上立有复制品——米西索加的克雷迪特河桥、奥克维尔的布朗特溪桥、圣凯瑟琳斯的十二哩溪桥——2002 年起，尼亚加拉瀑布城的 420 号公路与瀑布大道沿线也设置了复制品，而那里正是这条路被弃用的原始终点。",
+        "公路在汉伯河的起点处曾立有一座纪念碑：由建筑师威廉·莱昂·萨默维尔设计的立柱，基座由多伦多雕塑家弗朗西丝·洛林创作，她与弗洛伦斯·怀尔共同塑造了王室侧面像，并为基座选定了「一头咆哮而不屈的英国雄狮，八英尺高！」。1970 年代初的拓宽工程将其迁至卡齐米尔·格佐夫斯基爵士公园；公路通车五十年后，伊丽莎白二世为它重新揭幕。",
+        "据说多伦多至伯灵顿段刚通车时，驾车者会在 10 号公路的苜蓿叶立交上一圈又一圈地绕行，只为图个新鲜；经过纪念碑时，还会向它行礼致意。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Busiest point", "zh": "流量最高点" },
+      "value": { "en": "257,900 vehicles a day in 2024 between Third Line Road and Dorval Road in Oakville. The same section read 234,100 in 2019. The location of the maximum moved between 2016 and 2019 — before that it was a little further east.", "zh": "2024 年，奥克维尔 Third Line Road 至 Dorval Road 之间日均 257,900 辆。同一路段 2019 年为 234,100 辆。峰值位置在 2016 至 2019 年间发生移动——此前它还要往东一些。" },
+      "source": "Ontario Ministry of Transportation, Provincial Highways Traffic Volumes 2024, AADT Only"
+    },
+    {
+      "label": { "en": "Quietest point", "zh": "流量最低点" },
+      "value": { "en": "13,400 vehicles a day at the Fort Erie–Peace Bridge plaza in 2024, a twentieth of the Oakville figure", "zh": "2024 年伊利堡—和平桥广场日均 13,400 辆，为奥克维尔数字的二十分之一" },
+      "source": "Ontario Ministry of Transportation, Provincial Highways Traffic Volumes 2024, AADT Only"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "145.6 km, summed from the 57 reporting sections in Ontario's 2024 traffic-volume file. The ministry publishes no stated route total.", "zh": "145.6 公里，由安大略 2024 年交通量文件中的 57 个统计区间累加而得。该部不公布全路总长。" },
+      "source": "Ontario Ministry of Transportation, Provincial Highways Traffic Volumes 2024, AADT Only (computed)"
+    },
+    {
+      "label": { "en": "Number", "zh": "编号" },
+      "value": { "en": "None. It is the only freeway of its class in Ontario that is named rather than numbered; the ministry's traffic tables list it by name, at the head of the 400-series.", "zh": "无。它是安大略同级高速公路中唯一以名称而非编号标识的一条；交通部的流量统计表按名称列出它，位于 400 系各路之前。" },
+      "source": "Ontario Ministry of Transportation, Provincial Highways Traffic Volumes 2024, AADT Only"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No public figure. It was built between about 1931 and 1956, first as a Depression relief project and then through a long series of departmental contracts, with no per-route capital accounting published, and it has been reconstructed continuously since.", "zh": "无公开数据。它自约 1931 年建至 1956 年，先是大萧条救济工程，其后是一长串公路厅合同，从未公布按路线归集的资本开支；此后又持续改建至今。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1931, "en": "The Middle Road between Toronto and Hamilton begins to be widened as a Depression relief project.", "zh": "多伦多至汉密尔顿的「中路」作为大萧条救济工程开始加宽。" },
+    { "year": 1934, "en": "Thomas McQuesten and Robert Melville Smith rework the plan into a divided, limited-access intercity highway.", "zh": "托马斯·麦奎斯滕与罗伯特·梅尔维尔·史密斯将方案改为分隔式、有限出入的城际公路。" },
+    { "year": 1937, "en": "The Toronto–Burlington section opens at the end of the year.", "zh": "年底，多伦多至伯灵顿段通车。" },
+    { "year": 1939, "en": "The King and Queen unveil the name at the Henley Bridge in St. Catharines on 7 June, for the Niagara segment only.", "zh": "6 月 7 日，国王与王后在圣凯瑟琳斯亨利桥揭出路名，当时仅指尼亚加拉段。" },
+    { "year": 1940, "en": "The name is extended to the whole Toronto–Niagara Falls route on 23 August; fifty-eight kilometres are paved in ten weeks that spring and summer.", "zh": "8 月 23 日，路名扩及多伦多至尼亚加拉瀑布城全线；当年春夏十周内铺筑五十八公里。" },
+    { "year": 1941, "en": "The route is extended to Fort Erie, bypassing the original Niagara Falls ending, which survives as Highway 420.", "zh": "线路延伸至伊利堡，绕开原尼亚加拉瀑布城终点，后者留存为 420 号公路。" },
+    { "year": 1956, "en": "Four lanes of pavement are completed all the way to Fort Erie.", "zh": "四车道路面全线铺至伊利堡。" },
+    { "year": 1958, "en": "The route is realigned onto the Freeman Diversion at Burlington, begun the day the Burlington Bay Skyway opened, 31 October.", "zh": "线路改走伯灵顿的弗里曼改线段，工程于 10 月 31 日——伯灵顿湾跨海高架桥通车当日——开工。" },
+    { "year": 1989, "en": "Elizabeth II rededicates the highway's monument, fifty years after the naming, in its new home at Sir Casimir Gzowski Park.", "zh": "命名五十年后，伊丽莎白二世在纪念碑迁址后的卡齐米尔·格佐夫斯基爵士公园为其重新揭幕。" }
+  ]
+}

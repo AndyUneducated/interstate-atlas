@@ -1,0 +1,67 @@
+{
+  "id": "ns-104",
+  "route": { "anchor": [-63.28, 45.37] },
+  "name": { "en": "Trans-Canada Highway 104 in Nova Scotia", "zh": "新斯科舍省横加公路 104 号" },
+  "tagline": { "en": "Mainland Nova Scotia's share, ending at a causeway built into the deepest water of any in the world", "zh": "新斯科舍大陆部分的路段，终于一条建在全球最深水域中的堤道" },
+  "termini": {
+    "start": { "en": "The New Brunswick boundary at Amherst, opposite Aulac, where Route 2 becomes Highway 104", "zh": "阿默斯特的新不伦瑞克省界，对岸为奥拉克，2 号公路在此变为 104 号公路" },
+    "end": { "en": "The Canso Causeway at Port Hastings, where the designation crosses to Cape Breton Island and continues as Highway 105", "zh": "黑斯廷斯港的坎索堤道，指定路线由此跨往布雷顿角岛，续为 105 号公路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Nova Scotia carries the Trans-Canada on three numbers and Highway 104 is the longest. It enters from New Brunswick at the Isthmus of Chignecto — the narrow neck of land that is the province's only land connection to the rest of the continent — runs past Truro and New Glasgow, and ends at the Canso Causeway.",
+        "The other two are Highway 105, which carries the designation the length of Cape Breton Island to the ferry at North Sydney, and Highway 106, a short spur to the Caribou ferry terminal for the crossing to Prince Edward Island.",
+        "The province was the last of the Atlantic provinces to sign. It told Ottawa in 1950 that it was willing to sign at a later date and did so on 15 May 1952."
+      ],
+      "zh": [
+        "新斯科舍用三个编号承载横加公路，其中 104 号最长。它自希格内克托地峡进入本省——这条狭窄的陆颈是该省与大陆唯一的陆上连接——经特鲁罗与新格拉斯哥，止于坎索堤道。",
+        "另外两条是：105 号公路，纵贯布雷顿角岛，通往北悉尼的渡轮码头；以及 106 号公路，一条通往卡里布渡轮码头的短支线，由此渡往爱德华王子岛。",
+        "该省是大西洋诸省中最后签约的。1950 年它告知渥太华愿意日后再签，最终于 1952 年 5 月 15 日签署。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Canso Causeway that ends Highway 104 replaced the railway and highway ferries across the Strait of Canso. Its foundation rests 66 metres below the surface, which makes it, on Parks Canada's own plaque, the world's deepest causeway. More than nine million tonnes of rock were dumped into the strait between 1952 and 1955, quarried from Cape Porcupine on the mainland shore.",
+        "Parks Canada credits the project with proving the feasibility of deep-water construction on an unprecedented scale, against strong tidal currents and severe ice. The building of the causeway was designated a national historic event in 2005, for having united Cape Breton physically, economically and symbolically with the rest of Canada."
+      ],
+      "zh": [
+        "104 号公路终点处的坎索堤道，取代了横渡坎索海峡的铁路与公路渡轮。其基础坐落于水面以下 66 米处——按加拿大公园管理局自己的纪念牌所述，这是世界上水最深的堤道。1952 至 1955 年间，九百余万吨石料被倾入海峡，石料采自大陆一侧的豪猪角。",
+        "加拿大公园管理局认为，该工程在强潮流与严重冰情之下，证明了前所未有规模的深水施工是可行的。堤道的建设于 2005 年被定为国家历史事件，理由是它使布雷顿角在实体上、经济上与象征意义上都与加拿大其余部分连为一体。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length in Nova Scotia", "zh": "新斯科舍境内长度" },
+      "value": { "en": "318 miles (512 km) of the main route, across all the numbers carrying it", "zh": "主线 318 英里（512 公里），为承载该路线的各编号合计" },
+      "source": "Canada Year Book 1967, p. 805, Dominion Bureau of Statistics"
+    },
+    {
+      "label": { "en": "Agreement signed", "zh": "协议签署" },
+      "value": { "en": "15 May 1952 — the last Atlantic province to sign, having told Ottawa in 1950 it was willing to sign later", "zh": "1952 年 5 月 15 日；该省 1950 年曾告知渥太华愿意日后再签，为大西洋诸省中最后签署者" },
+      "source": "MacLeod, Transportation Association of Canada, 2014; Canada Year Book 1951, p. 633"
+    },
+    {
+      "label": { "en": "Route numbers carrying the designation", "zh": "承载指定路线的编号" },
+      "value": { "en": "Three — 104 on the mainland, 105 on Cape Breton Island, and 106 as the spur to the Caribou ferry", "zh": "三条：大陆部分为 104 号，布雷顿角岛为 105 号，通往卡里布渡轮的支线为 106 号" },
+      "source": "Statistics Canada, National Road Network, Trans-Canada Highway layer, queried September 2026"
+    },
+    {
+      "label": { "en": "Canso Causeway", "zh": "坎索堤道" },
+      "value": { "en": "Foundation 66 m below the surface — the world's deepest causeway — built with more than 9 million tonnes of rock fill between 1952 and 1955; designated a national historic event in 2005", "zh": "基础位于水面以下 66 米，为世界上水最深的堤道；1952 至 1955 年间以九百余万吨石料填筑；2005 年被定为国家历史事件" },
+      "source": "Parks Canada, Building of the Canso Causeway National Historic Event, plaque text, designated 3 August 2005"
+    },
+    {
+      "label": { "en": "Construction cost in Nova Scotia", "zh": "新斯科舍境内造价" },
+      "why": { "en": "No public figure. The per-province breakdown exists only in the Department of Public Works' 1971 final report, which has not been digitised.", "zh": "无公开数据。分省明细仅见于公共工程部 1971 年的最终报告，该报告未数字化。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1952, "en": "Nova Scotia signs its Trans-Canada Highway agreement on 15 May, the last Atlantic province to do so.", "zh": "5 月 15 日，新斯科舍签署横加公路协议，为大西洋诸省中最后签署者。" },
+    { "year": 1955, "en": "The Canso Causeway opens, replacing the ferry to Cape Breton Island and putting the designated route on land the whole way to North Sydney.", "zh": "坎索堤道通车，取代通往布雷顿角岛的渡轮，使指定路线得以全程经陆路抵达北悉尼。" },
+    { "year": 2005, "en": "The building of the Canso Causeway is designated a national historic event on 3 August.", "zh": "8 月 3 日，坎索堤道的建设被定为国家历史事件。" }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "nl-1",
+  "route": { "anchor": [-54.61, 48.95] },
+  "name": { "en": "Trans-Canada Highway 1 in Newfoundland and Labrador", "zh": "纽芬兰与拉布拉多省横加公路 1 号" },
+  "tagline": { "en": "The eastern end, reached by a ferry the constitution requires", "zh": "东端所在；抵达它的渡轮，由宪法规定必须开行" },
+  "termini": {
+    "start": { "en": "The Marine Atlantic terminal at Port aux Basques, at the south-west corner of the island, where the ferry from North Sydney lands", "zh": "岛西南角的巴斯克港大西洋海运码头，自北悉尼开来的渡轮在此靠岸" },
+    "end": { "en": "The interchange of the Outer Ring Road with Route 30 at Logy Bay Road, in north-east St. John's", "zh": "圣约翰斯东北部，外环路与 30 号公路在洛吉湾路的互通处" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Route 1 crosses Newfoundland corner to corner, from the ferry terminal at Port aux Basques to the far side of St. John's, and for most of that distance there is nothing else. It is the island's only continuous road, the spine every other route feeds into, and the reason the outports are reachable by car at all.",
+        "It is also the only part of the Trans-Canada Highway whose connection to the rest of the country is written into the constitution. Term 32(1) of the 1949 Terms of Union obliges Canada to maintain a steamship service between North Sydney and Port aux Basques and, once the road to Port aux Basques was built, to make suitable provision for carrying motor vehicles on it. The Federal Court of Appeal calls it the constitutional route. It is seven hours across.",
+        "The ferry is not in the length below, because the national road file records ferry connections as a separate class of feature and this atlas draws only the roads."
+      ],
+      "zh": [
+        "1 号公路自西南角的巴斯克港渡轮码头斜贯纽芬兰岛，直抵圣约翰斯的另一端，沿途大部分路段之外别无他路。它是岛上唯一一条连续的公路，是其余所有路线汇入的主干，也是那些偏远渔村之所以能开车抵达的原因。",
+        "它还是横加公路上唯一一段与全国其余部分的连接写进宪法的路。1949 年《联邦条款》第 32(1) 条规定，加拿大须维持北悉尼与巴斯克港之间的轮船航线，并在通往巴斯克港的公路建成后，为其提供适当的汽车运载安排。联邦上诉法院称之为「宪法航线」。全程七小时。",
+        "渡轮不计入下方里程：国家道路数据把渡轮连接线单列为一类要素，而本图谱只绘制道路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Newfoundland signed its Trans-Canada Highway agreement in June 1950, eighteen months after joining Canada. Building the road was straightforward compared with paying for it: at the standard fifty per cent federal share the province could not afford its half, and by 1962, when the highway was declared open at Rogers Pass, about 600 of Newfoundland's 980 kilometres were still gravel.",
+        "The deadlock broke when Ottawa agreed to fund ninety per cent of the cost of finishing the island's section. The province put the deal on signs along the road: We'll finish the drive in '65, thanks to Mr. Pearson. The paving was completed, by the accounts that survive, on 27 November 1965.",
+        "The ceremony came the following summer. On 12 July 1966 a convoy from St. John's led by Premier Joey Smallwood met one from Port aux Basques carrying Prime Minister Lester Pearson, at a spot near Grand Falls thereafter called Pearson's Peak. A granite shaft was unveiled to mark the official opening of the Trans-Canada Highway in Newfoundland. It was later removed, having fallen into disrepair."
+      ],
+      "zh": [
+        "纽芬兰于 1950 年 6 月签署横加公路协议，此时它加入加拿大才十八个月。相比筹钱，修路反倒简单：按联邦分担一半的通例，该省拿不出自己那一半；到 1962 年罗杰斯山口宣布通车时，纽芬兰全长 980 公里中仍有约 600 公里是碎石路面。",
+        "僵局在渥太华同意为该省收尾工程承担九成费用后打破。省里把这笔交易写在了路边的标语上：「六五通车，多谢皮尔逊先生。」据留存的记载，铺装工程于 1965 年 11 月 27 日完成。",
+        "仪式在次年夏天举行。1966 年 7 月 12 日，省长乔伊·斯莫尔伍德率领的车队自圣约翰斯出发，与载着总理莱斯特·皮尔逊、自巴斯克港出发的车队在大瀑布城附近会合，该处此后被称为「皮尔逊峰」。一座花岗岩碑柱揭幕，纪念横加公路在纽芬兰正式通车。碑后来因年久失修而被拆除。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "St. John's has two Mile Zeros and the highway ends at neither. The plaque tourists photograph is at 10 New Gower Street beside City Hall, on the alignment the highway used before 1998, and the city's arena is named Mile One Centre after it. A separate memorial at 2 Water Street marks the start of Terry Fox's Marathon of Hope, which began at the Atlantic in 1980 and was to have ended at the Mile 0 monument in Victoria.",
+        "The legal terminus is neither of those. Between 1998 and 2003 the Outer Ring Road was extended in phases around the north of the city, and Route 1 now ends at its interchange with Route 30 at Logy Bay Road, a few kilometres from the water and nowhere near a plaque.",
+        "The journalist Walter Stewart noticed the oddity as early as 1965, calling it the world's only national roadway with two beginnings and no end: you start at Mile 0 on Water Street, drive across the country, and arrive at a sign in Victoria that also reads Mile 0."
+      ],
+      "zh": [
+        "圣约翰斯有两个「零英里」，而公路哪一个都不在。游客拍照的那块牌匾位于市政厅旁的新高尔街 10 号，处在 1998 年以前的旧线上，该市的体育馆「一英里中心」即由此得名。水街 2 号另有一处纪念标志，标记特里·福克斯「希望马拉松」的起点——他 1980 年自大西洋岸出发，原本要在维多利亚的零英里碑收尾。",
+        "法定终点两者皆非。1998 至 2003 年间，外环路分期向城北延伸，1 号公路如今止于它与 30 号公路在洛吉湾路的互通，距海岸数公里，附近并无任何牌匾。",
+        "记者沃尔特·斯图尔特早在 1965 年就注意到这桩怪事，称它是世界上唯一一条有两个起点、却没有终点的国道：你从水街的零英里出发，横穿全国，抵达维多利亚，看到的路牌上写的还是零英里。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length in Newfoundland", "zh": "纽芬兰境内长度" },
+      "value": { "en": "540 miles (869 km) of the main route, as published while the road was being finished", "zh": "主线 540 英里（869 公里），为工程收尾期间公布的数字" },
+      "source": "Canada Year Book 1967, p. 805, Dominion Bureau of Statistics"
+    },
+    {
+      "label": { "en": "Federal share of the island's section", "zh": "本岛路段的联邦分担比例" },
+      "value": { "en": "90 per cent, after Ottawa raised its contribution from the standard half to break the deadlock over finishing the road", "zh": "九成；渥太华将通常的一半提高到此比例，以打破收尾工程的僵局" },
+      "source": "The Globe and Mail, “Of moose, a monument and a devastated port town”"
+    },
+    {
+      "label": { "en": "Ferry crossing", "zh": "渡轮航段" },
+      "value": { "en": "178 km (96 nautical miles) from North Sydney to Port aux Basques, about 7 hours, sailing year round", "zh": "自北悉尼至巴斯克港 178 公里（96 海里），航时约 7 小时，全年通航" },
+      "source": "Marine Atlantic, Sailing Routes"
+    },
+    {
+      "label": { "en": "Unpaved in 1962", "zh": "1962 年未铺装里程" },
+      "value": { "en": "About 600 km of the island's 980 km were still gravel when the highway was declared open at Rogers Pass", "zh": "罗杰斯山口宣布通车时，全岛 980 公里中仍有约 600 公里为碎石路面" },
+      "source": "Mark Richardson, markrichardson.ca; no government figure for the 1962 unpaved mileage was located"
+    },
+    {
+      "label": { "en": "Date paving was completed", "zh": "铺装完工日期" },
+      "value": { "en": "27 November 1965, by press and popular history accounts. No government source records the date.", "zh": "据媒体与通俗史料记载为 1965 年 11 月 27 日。无任何政府文献记录该日期。" },
+      "source": "markrichardson.ca; Downhome Magazine; Mark Richardson, The Drive Across Canada"
+    }
+  ],
+  "timeline": [
+    { "year": 1949, "en": "Term 32(1) of the Terms of Union obliges Canada to maintain a steamship service to Port aux Basques and, once the road is built, to carry motor vehicles on it.", "zh": "《联邦条款》第 32(1) 条规定，加拿大须维持通往巴斯克港的轮船航线，并在公路建成后承运汽车。" },
+    { "year": 1950, "en": "Newfoundland signs its Trans-Canada Highway agreement with Ottawa in June.", "zh": "6 月，纽芬兰与渥太华签署横加公路协议。" },
+    { "year": 1962, "en": "The highway is declared open at Rogers Pass while roughly 600 km of Newfoundland's section is still gravel.", "zh": "横加公路在罗杰斯山口宣布通车，而纽芬兰境内尚有约 600 公里为碎石路面。" },
+    { "year": 1965, "en": "Paving is completed on 27 November, on the strength of Ottawa's agreement to pay ninety per cent.", "zh": "11 月 27 日铺装完工，仰赖渥太华同意承担九成费用。" },
+    { "year": 1966, "en": "Premier Smallwood and Prime Minister Pearson meet at Pearson's Peak near Grand Falls on 12 July to open the highway in Newfoundland.", "zh": "7 月 12 日，省长斯莫尔伍德与总理皮尔逊在大瀑布城附近的皮尔逊峰会合，为纽芬兰段公路剪彩。" },
+    { "year": 1998, "en": "The Outer Ring Road begins opening in phases around the north of St. John's, eventually moving the eastern terminus away from the downtown plaque.", "zh": "外环路开始分期绕圣约翰斯北侧通车，最终把东端终点移离市中心的牌匾处。" }
+  ]
+}
