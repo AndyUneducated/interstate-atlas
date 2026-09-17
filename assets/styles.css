@@ -643,16 +643,19 @@ body.tlapse-on #detail { bottom: 108px; }
   box-shadow: inset 0 0 0 1.5px rgba(238, 243, 248, 0.5);
 }
 
-/* British Columbia sets a dogwood blossom above the number. */
+/* British Columbia's marker is a white bullet with blue numerals.
+   This carried a dogwood blossom until it was checked: the Pacific dogwood is
+   the province's floral emblem, and no government source puts it on a route
+   marker. BC's own list of official numbered routes says only "the standard
+   British Columbia marker" and does not draw it. The blue-on-white bullet is
+   what the sign references describe; the coat of arms they place at the top of
+   it is not drawn here, because at marker size it would be a smudge and its
+   shape could not be verified either. */
 .shield-bc {
-  color: #eaf2ff;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='rgba(234,242,255,0.8)'%3E%3Cpath d='M12 3.4c1.5 0 2.7 2 2.7 4.2S13.5 11 12 11s-2.7-1.2-2.7-3.4S10.5 3.4 12 3.4z'/%3E%3Cpath d='M12 20.6c-1.5 0-2.7-2-2.7-4.2S10.5 13 12 13s2.7 1.2 2.7 3.4-1.2 4.2-2.7 4.2z'/%3E%3Cpath d='M3.4 12c0-1.5 2-2.7 4.2-2.7S11 10.5 11 12s-1.2 2.7-3.4 2.7S3.4 13.5 3.4 12z'/%3E%3Cpath d='M20.6 12c0 1.5-2 2.7-4.2 2.7S13 13.5 13 12s1.2-2.7 3.4-2.7 4.2 1.2 4.2 2.7z'/%3E%3C/g%3E%3C/svg%3E")
-      center top 1px / auto 8px no-repeat,
-    linear-gradient(180deg, #27405f 0%, #14253b 100%);
-  border-radius: 4px;
-  box-shadow: inset 0 0 0 1.5px rgba(234, 242, 255, 0.5);
-  padding: 8px 5px 0; align-content: end;
+  color: #1d4f8c;
+  background: #f2f6fb;
+  border-radius: 4px 4px 10px 10px;
+  box-shadow: inset 0 0 0 1.5px #1d4f8c;
 }
 
 /* Alberta's is a plain rounded shield, black on white. */
@@ -665,7 +668,6 @@ body.tlapse-on #detail { bottom: 108px; }
 
 /* At marker size the emblems would be a smudge, so they scale with the box. */
 .shield-lg.shield-on { padding-top: 10px; background-size: auto 8px, auto; }
-.shield-lg.shield-bc { padding-top: 13px; background-size: auto 12px, auto; }
 
 .shield-lg.shield-i { padding-top: 7px; }
 .shield-lg.shield-i::before { height: 8px; }

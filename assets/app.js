@@ -903,9 +903,15 @@ const SHIELD_CLASS = {
 
 // Four Canadian provinces sign a marker distinctive enough to be worth drawing
 // rather than tinting: Ontario's crown over the number on its King's Highways,
-// Quebec's green autoroute plate, British Columbia's dogwood blossom, and
+// Quebec's green autoroute plate, British Columbia's blue-on-white bullet, and
 // Alberta's black-on-white rounded shield. The rest sign a plain white square
 // or circle that the tinted default already reads as.
+//
+// Alberta's is the only one of the four drawn from a published specification -
+// its sign catalogue gives the colours and the millimetre dimensions. The other
+// three are drawn from descriptions, because Ontario's fabrication patterns are
+// in a manual that was not retrieved, Quebec's are sold rather than published,
+// and British Columbia's catalogue could not be read. None of them is traced.
 //
 // Quebec is the one that depends on the number rather than the province, since
 // an autoroute and a route nationale carry different signs in the same
