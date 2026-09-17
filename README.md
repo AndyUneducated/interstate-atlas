@@ -11,7 +11,7 @@ written record for the roads that have one.
 
 [![live site](https://img.shields.io/badge/live-andyuneducated.github.io%2Finterstate--atlas-35e7ff?style=for-the-badge)](https://andyuneducated.github.io/interstate-atlas/)
 
-![routes](https://img.shields.io/badge/routes-10%2C657-ffd166?style=flat-square)
+![routes](https://img.shields.io/badge/routes-19%2C146-ffd166?style=flat-square)
 ![countries](https://img.shields.io/badge/countries-US%20%C2%B7%20CA-ff4d6d?style=flat-square)
 ![jurisdictions](https://img.shields.io/badge/jurisdictions-64-4fe3b0?style=flat-square)
 ![languages](https://img.shields.io/badge/languages-English%20%C2%B7%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-a78bfa?style=flat-square)
@@ -29,7 +29,7 @@ written record for the roads that have one.
 | | |
 | --- | --- |
 | **Map** | MapLibre GL over a dark vector basemap, with satellite and terrain alternatives and every route in the network selectable. |
-| **Route detail** | Termini, length, per-jurisdiction mileage, roadway classification, grade separation, lane counts and posted speeds where recorded — and for curated routes a written account of how the road came to be, what it cost, what it carries and what condition it is in. |
+| **Route detail** | Termini, length, per-jurisdiction mileage, roadway classification and grade separation measured off the geometry; alongside them, what the states and provinces themselves measured — traffic, heavy-truck volume, pavement roughness, rutting and cracking, lanes, posted speeds — each stating the share of the road it covers. For curated routes, a written account of how the road came to be, what it cost, what it carries and what condition it is in. |
 | **Buildout scrubber** | A docked timeline over the live map: drag through 1960–1997 and watch FHWA's mileage curve fill while documented routes light up as they open. |
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
@@ -41,16 +41,16 @@ written record for the roads that have one.
 
 ## Coverage
 
-10,657 routes across 64 states, provinces and territories, measuring 493,115 miles of road.
+19,146 routes across 64 states, provinces and territories, measuring 669,227 miles of road.
 
 | Country | System | Routes | Miles | Notes |
 | --- | --- | --- | --- | --- |
-| 🇺🇸 | Interstate Highways | 324 | 46,664 | includes Alaska's four unsigned A-series and Hawaii's H-series |
-| 🇺🇸 | US Numbered Routes | 446 | 121,499 | the pre-1956 grid, numbered opposite to the Interstates |
-| 🇺🇸 | State Routes | 6,753 | 211,829 | 50 states, DC and Puerto Rico, loaded per state |
-| 🇨🇦 | Trans-Canada Highway | 26 | 7,418 | the designation, traced across the provincial highways that carry it |
-| 🇨🇦 | National Highway System | 357 | 35,208 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
-| 🇨🇦 | Provincial & Municipal Routes | 2,751 | 70,662 | 12 provinces and territories, loaded per jurisdiction |
+| 🇺🇸 | Interstate Highways | 461 | 50,461 | includes Alaska's four unsigned A-series and Hawaii's H-series |
+| 🇺🇸 | US Numbered Routes | 1,051 | 155,337 | the pre-1956 grid, numbered opposite to the Interstates |
+| 🇺🇸 | State Routes | 14,500 | 353,699 | 50 states, DC and Puerto Rico, loaded per state |
+| 🇨🇦 | Trans-Canada Highway | 26 | 7,131 | the designation, traced across the provincial highways that carry it |
+| 🇨🇦 | National Highway System | 357 | 33,860 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
+| 🇨🇦 | Provincial & Municipal Routes | 2,751 | 68,739 | 12 provinces and territories, loaded per jurisdiction |
 
 Nunavut has no numbered route in the national road file, and no road connects it to the
 rest of the country, so it appears in no tier.
@@ -61,17 +61,31 @@ This is the part worth reading before trusting a number on the site.
 
 Two kinds of figure appear, and they are never mixed:
 
-**Measured.** Length, endpoints, per-jurisdiction mileage, straight-line span, roadway-class
-composition, lane counts and posted speeds are computed here from public road geometry.
-They are close, not survey-exact — generalised geometry cuts corners, so measured lengths
-tend to run slightly short. Across the routes where an official figure exists to check
-against, the median disagreement is −0.6%, two-thirds land within 5% and four-fifths within
-10%. Every page carrying these numbers says so.
+**Measured.** Length, endpoints, per-jurisdiction mileage, straight-line span and
+roadway-class composition are computed here from surveyed road geometry, thinned for
+drawing but not redrawn. A route is measured along the single path from one end of it to
+the other, so a divided highway counts once rather than once per carriageway. Across the
+262 routes where an official figure exists to check against, the median disagreement is
+−0.2%: three-fifths land within 5%, four-fifths within 10%.
+
+The larger disagreements are mostly explained rather than wrong, and the site explains them
+instead of splitting the difference. FHWA credits pavement shared by two Interstates to one
+of them, so where I-90 runs along the Indiana Toll Road with I-80 those miles are I-80's in
+the register and both roads' here — which is why I-90 measures 13.7% longer than published.
+The register also has slips of its own: it gives Knoxville's I-640, a beltway of about seven
+miles, as 77.29. Both figures are always shown, and neither is bent toward the other.
+
+**Reported.** Traffic volume, heavy-truck volume, pavement roughness, rutting, cracking,
+lane counts, posted speeds and the year a road was last improved are what the states
+measured and reported to FHWA, joined to a route by its designation and never by position.
+Coverage is uneven by design — pavement condition is surveyed thoroughly on the National
+Highway System and patchily elsewhere — so every one of these figures states the share of
+the route it was measured over, and nothing is filled in where a state reported nothing.
 
 **Published.** Official Interstate mileage comes from the FHWA Route Log and Finder List;
-Canadian designations come from Transport Canada. Everything in a written dossier — costs,
-traffic counts, construction dates, condition — carries its own source line naming the
-publication and its date.
+Canadian designations and network mileage come from Transport Canada. Everything in a
+written dossier — costs, traffic counts, construction dates, condition — carries its own
+source line naming the publication and its date.
 
 Where no published figure exists, the site says so explicitly rather than estimating. A
 1,900-mile Interstate assembled over six decades by sixteen jurisdictions has no single
@@ -92,7 +106,8 @@ and each road is listed with the place that identifies it.
 
 | Source | Used for | Licence |
 | --- | --- | --- |
-| [Natural Earth](https://www.naturalearthdata.com/) 1:10m North America roads | route geometry, roadway class | public domain |
+| [US Census TIGER/Line](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) 2025 primary and secondary roads, 52 files | route geometry and designations | public domain |
+| [FHWA HPMS](https://data.transportation.gov/Roadways-and-Bridges/HPMS-Spatial-All-Sections-2024/42um-tgh5) *Spatial All Sections* 2024 | traffic counts, truck volumes, pavement roughness, rutting, cracking, lanes, speed limits, tolls, year last improved | US government work |
 | [US Census Gazetteer](https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html) 2023 places | terminus naming (32,329 places) | public domain |
 | [FHWA Route Log and Finder List](https://www.fhwa.dot.gov/planning/national_highway_system/interstate_highway_system/routefinder/) | official Interstate mileage, urban areas served | US government work |
 | FHWA *Interstate System Mileage Open to Traffic*, 1960–1997 | the buildout curve | US government work |
@@ -121,7 +136,7 @@ atlas should not stop working because someone else's origin is having a bad day.
 | | Package | Version | Role |
 | --- | --- | --- | --- |
 | **Served** | [maplibre-gl](https://maplibre.org/) | 4.7.1 | map rendering, vendored into `assets/vendor/` — the only thing the browser loads |
-| **Build** | [shapefile](https://github.com/mbostock/shapefile) | ^0.6.6 | reads the Natural Earth and NRN shapefiles |
+| **Build** | [shapefile](https://github.com/mbostock/shapefile) | ^0.6.6 | reads the TIGER/Line and NRN shapefiles |
 | **Build** | [pngjs](https://github.com/pngjs/pngjs) | ^7.0.0 | decodes Terrain-RGB elevation tiles |
 | **Dev only** | [playwright-core](https://playwright.dev/) | ^1.63.0 | headless verification |
 
@@ -135,10 +150,13 @@ in plain Node, with no dependencies of their own.
 npm install
 
 # acquire — slow, run rarely; everything lands in tools/src/ (gitignored)
-node tools/fetch-source.mjs      # Natural Earth + Census gazetteer
+node tools/fetch-source.mjs      # Census gazetteer
 node tools/fetch-fhwa.mjs        # FHWA Route Log → content/reference/
+node tools/fetch-hpms.mjs        # HPMS traffic and condition, grouped server-side
 node tools/fetch-canada.mjs      # StatCan NRN, 13 provinces and territories (~1.5 GB)
 node tools/fetch-canada-nhs.mjs  # Transport Canada NHS designations
+
+# TIGER/Line downloads itself on first build, per state, into tools/src/tiger/ (~300 MB)
 
 # build — deterministic, offline
 node tools/build-data.mjs        # geometry → data/geo/, index.json, stats.json  (~25 min)

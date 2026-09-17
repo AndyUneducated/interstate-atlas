@@ -27,6 +27,8 @@ Creative Commons Attribution 4.0 International (CC BY 4.0).
 https://creativecommons.org/licenses/by/4.0/
 
 Underlying data retains the licences of its sources, listed in README.md:
-Natural Earth (public domain), US Census Gazetteer (public domain),
-FHWA Route Log and Finder List (US government work), Terrain Tiles
-(AWS Open Data), OpenFreeMap.
+US Census TIGER/Line and Gazetteer (public domain), FHWA Route Log and
+Finder List and Highway Performance Monitoring System (US government
+works), Statistics Canada National Road Network and Transport Canada
+National Highway System (Open Government Licence - Canada), Terrain
+Tiles (AWS Open Data), OpenFreeMap, Esri World Imagery.

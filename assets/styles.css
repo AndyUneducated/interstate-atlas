@@ -511,9 +511,13 @@ body.tlapse-on #detail { bottom: 108px; }
 .jur { border: 0; background: var(--panel-solid); }
 
 /* search */
+/* The panel's own card: search, then what the search found, taking whatever
+   height is left over. */
+.card-find { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+
 .search { position: relative; }
 .search input {
-  width: 100%; height: 42px; padding: 0 38px 0 38px; background: transparent;
+  width: 100%; height: 42px; padding: 0 68px 0 38px; background: transparent;
   border: 0; border-bottom: 1px solid var(--line); outline: none;
   font-size: 13.5px; letter-spacing: 0.01em;
 }
@@ -523,7 +527,10 @@ body.tlapse-on #detail { bottom: 108px; }
   position: absolute; left: 13px; top: 13px; width: 16px; height: 16px;
   stroke: var(--ink-faint); fill: none; stroke-width: 1.7; pointer-events: none;
 }
-.search .clr { position: absolute; right: 8px; top: 9px; width: 24px; height: 24px; }
+.search .clr { position: absolute; right: 36px; top: 9px; width: 24px; height: 24px; }
+/* The panel folds away from its own top corner, which is where the way back
+   in reappears. */
+.search .fold { position: absolute; right: 7px; top: 8px; width: 26px; height: 26px; }
 
 .results { overflow-y: auto; flex: 1; min-height: 0; }
 .res-empty { padding: 26px 14px; text-align: center; color: var(--ink-faint); font-size: 12px; }
@@ -782,6 +789,32 @@ body.tlapse-on #detail { bottom: 108px; }
 .fig-k { flex: none; width: 116px; font-size: 11.5px; color: var(--ink-faint); line-height: 1.5; }
 .fig-v { flex: 1; font-size: 12.5px; line-height: 1.55; color: #cfdcec; }
 .fig-v b { font-family: var(--mono); color: var(--ink); font-weight: 600; }
+/* the aside under a figure: what share of the road it covers, why it matters */
+.fig-s { font-size: 11px; color: var(--ink-faint); line-height: 1.5; }
+/* How much of the road a figure was measured over. A badge rather than a
+   sentence: it belongs on nearly every row, and five repetitions of "measured
+   over 81% of the route" buried the figures they qualify. */
+.fig-cov {
+  font-family: var(--mono); font-size: 9.5px; color: var(--ink-faint);
+  padding: 1px 4px; border-radius: 4px; background: rgba(120, 170, 220, 0.09);
+  white-space: nowrap; vertical-align: 1px; cursor: help;
+}
+.figs-h {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-dim); font-weight: 500;
+}
+
+/* a titled block of figures from a source other than the map: what the states
+   measured, what the country reports about the network as a whole */
+.fig-box {
+  margin-top: 14px; padding: 13px 14px; border-radius: var(--r-sm);
+  background: rgba(120, 170, 220, 0.045); border: 1px solid var(--line);
+}
+.fig-box .fig-k { width: 104px; }
+.fig-box .figs-h + .fig-s { margin: -3px 0 2px; }
+.iri-good { color: var(--lime); }
+.iri-fair { color: var(--amber); }
+.iri-poor { color: var(--red); }
 .src {
   display: block; font-family: var(--mono); font-size: 9.5px; color: var(--ink-faint);
   margin-top: 2px; letter-spacing: 0.02em;
@@ -953,6 +986,7 @@ body.tlapse-on #detail { bottom: 108px; }
 .hbar-t { flex: 1; height: 8px; background: var(--bg-2); border-radius: 4px; overflow: hidden; }
 .hbar-t i { display: block; height: 100%; border-radius: 4px; transition: width 0.7s var(--ease); }
 .hbar-v { font-family: var(--mono); font-size: 10.5px; color: var(--ink); width: 66px; text-align: right; flex: none; }
+.hbar-note { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: 11px; line-height: 1.55; color: var(--ink-dim); }
 
 .stmap svg { display: block; width: 100%; height: auto; }
 .stmap path { stroke: var(--bg); stroke-width: 0.7; transition: fill 0.25s, opacity 0.2s; cursor: pointer; }

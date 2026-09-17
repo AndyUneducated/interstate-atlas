@@ -12,5 +12,9 @@ tools/elev.log
 tools/serve.pid
 
 # Build logs and one-off diagnostic scripts.
-tools/*.log
+*.log
 tools/probe-*.mjs
+
+# Source-checked research notes gathered while writing the route profiles. The
+# citations that survived the writing are in the profiles themselves.
+research/

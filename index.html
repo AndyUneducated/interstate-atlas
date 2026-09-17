@@ -99,28 +99,20 @@
   </div>
 </header>
 
-<!-- ── left shell ───────────────────────────────────────────────────────── -->
+<!-- ── left shell ───────────────────────────────────────────────────────────
+     Finding a road comes first, because it is what almost everyone opens this
+     to do. The systems below it decide what is drawn, which is a thing you
+     adjust once and then leave alone. -->
 <div id="shell">
-  <section class="card" aria-labelledby="sysTitle">
-    <div class="card-hd">
-      <h2 id="sysTitle" data-i18n="sys.title">Route systems</h2>
-      <span class="sp"></span>
-      <button class="btn btn-ico" id="btnCollapse" type="button" title="Toggle panel">
-        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="1.7"><path d="M15 6l-6 6 6 6"/></svg>
-      </button>
-    </div>
-    <div class="sys-list" id="sysList"></div>
-    <!-- Alaska, Hawaii and Puerto Rico are all in the data and all off the
-         edge of the opening view, which made them look absent. -->
-    <div class="jumps" id="jumps"></div>
-  </section>
-
-  <section class="card" style="display:flex;flex-direction:column;flex:1;min-height:0">
+  <section class="card card-find">
     <div class="search">
       <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
       <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Search routes">
       <button class="btn btn-ico clr" id="qClear" type="button" hidden>
         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <button class="btn btn-ico fold" id="btnCollapse" type="button" title="Hide panel" aria-label="Hide panel">
+        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="1.7"><path d="M15 6l-6 6 6 6"/></svg>
       </button>
     </div>
     <div class="card-hd" style="border-top:0">
@@ -130,6 +122,16 @@
     </div>
     <div class="results" id="results"></div>
   </section>
+
+  <section class="card" aria-labelledby="sysTitle">
+    <div class="card-hd">
+      <h2 id="sysTitle" data-i18n="sys.title">Route systems</h2>
+    </div>
+    <div class="sys-list" id="sysList"></div>
+    <!-- Alaska, Hawaii and Puerto Rico are all in the data and all off the
+         edge of the opening view, which made them look absent. -->
+    <div class="jumps" id="jumps"></div>
+  </section>
 </div>
 
 <!-- Lives outside #shell on purpose: the collapse control is inside the panel
@@ -137,7 +139,7 @@
      take with it. -->
 <button id="shellOpen" type="button" title="Show route panel" aria-label="Show route panel">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-  <span class="so-txt" data-i18n="sys.title">Route systems</span>
+  <span class="so-txt" data-i18n="nav.findRoute">Find a route</span>
 </button>
 
 <!-- ── route detail ─────────────────────────────────────────────────────── -->

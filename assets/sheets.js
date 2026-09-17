@@ -110,19 +110,49 @@ function numberingDiagram(sys) {
     grid.push(`<line class="nb-grid-line" x1="0" y1="${yOf(lat).toFixed(1)}" x2="${VW}" y2="${yOf(lat).toFixed(1)}"/>`);
   }
 
+  // Every route gets a line; not every route can get a label. East of the
+  // Mississippi the spacing between numbers is a few pixels, and labelling all
+  // of them turned the top of the diagram into a smear. Labels are placed in
+  // order of importance — the multiples of five are the long-haul spines the
+  // panel beside this is explaining — and any that would collide with one
+  // already placed is dropped. The line stays, so nothing disappears.
+  const labeller = (gap) => {
+    const placed = [];
+    return (pos, weight) => {
+      const at = placed.findIndex((p) => Math.abs(p - pos) < gap);
+      if (at >= 0) return false;
+      placed.push(pos);
+      return weight;
+    };
+  };
+  const byRank = (rs) => [...rs].sort((a, b) => (Number(a.base) % 5) - (Number(b.base) % 5));
+
   const lines = [];
+  const labels = [];
+  const fitsX = labeller(13);
+  for (const r of byRank(ns)) {
+    if (fitsX(xOf(r.cx))) {
+      labels.push(`<text class="nb-lab" data-n="${r.base}" x="${xOf(r.cx).toFixed(1)}" y="9" text-anchor="middle">${r.base}</text>`);
+    }
+  }
   for (const r of ns) {
     const x = xOf(r.cx);
     lines.push(`<line class="nb-route" data-n="${r.base}" data-id="${r.id}" stroke="${colour}"
-      x1="${x.toFixed(1)}" y1="14" x2="${x.toFixed(1)}" y2="${VH - 6}"/>`);
-    lines.push(`<text class="nb-lab" data-n="${r.base}" x="${x.toFixed(1)}" y="9" text-anchor="middle">${r.base}</text>`);
+      x1="${x.toFixed(1)}" y1="14" x2="${x.toFixed(1)}" y2="${VH - 6}"><title>${r.label}</title></line>`);
+  }
+  const fitsY = labeller(9);
+  for (const r of byRank(ew)) {
+    if (fitsY(yOf(r.cy))) {
+      labels.push(`<text class="nb-lab" data-n="${r.base}" x="${VW - 15}" y="${(yOf(r.cy) + 3).toFixed(1)}">${r.base}</text>`);
+    }
   }
   for (const r of ew) {
     const y = yOf(r.cy);
     lines.push(`<line class="nb-route" data-n="${r.base}" data-id="${r.id}" stroke="${colour}" opacity="0.8"
-      x1="6" y1="${y.toFixed(1)}" x2="${(VW - 20).toFixed(1)}" y2="${y.toFixed(1)}"/>`);
-    lines.push(`<text class="nb-lab" data-n="${r.base}" x="${VW - 15}" y="${(y + 3).toFixed(1)}">${r.base}</text>`);
+      x1="6" y1="${y.toFixed(1)}" x2="${(VW - 20).toFixed(1)}" y2="${y.toFixed(1)}"><title>${r.label}</title></line>`);
   }
+  // Labels last, so they sit above every line rather than behind half of them.
+  lines.push(...labels);
 
   const west = ns[0];
   const east = ns[ns.length - 1];
@@ -277,7 +307,8 @@ const SYS_COLOUR = { interstate: '#35e7ff', us: '#ffb545', state: '#a98bff' };
 const CLASS_COLOUR = {
   Freeway: '#35e7ff', Tollway: '#ffb545', Primary: '#6ef7a5', Secondary: '#4f9ad8',
   'Other Paved': '#7a8ca6', Paved: '#7a8ca6', Unpaved: '#b98a5a', Ferry: '#a98bff',
-  Trail: '#8a6f4f', Unknown: '#4a5768',
+  Trail: '#8a6f4f', Local: '#5c6b7f', Ramp: '#6b7a8f', Winter: '#8fd4ff',
+  Unknown: '#4a5768',
 };
 
 function bars(rows, colourOf, maxOverride) {
@@ -327,7 +358,8 @@ function renderDashboard() {
       </div>
       <div class="dash-card">
         <h3>${t('dash.byClass')}</h3>
-        <div class="in">${bars(classRows, (r) => CLASS_COLOUR[r.cls] || '#4a5768')}</div>
+        <div class="in">${bars(classRows, (r) => CLASS_COLOUR[r.cls] || '#4a5768')}
+          <p class="hbar-note">${t('dash.byClass.note')}</p></div>
       </div>
       <div class="dash-card">
         <h3>${t('dash.byState')} · ${t('dash.mostMiles')}</h3>
@@ -489,28 +521,50 @@ function renderAbout() {
   const zh = getLang() === 'zh';
   const s = app.stats;
   const totalMi = Object.values(s.bySystem).reduce((a, b) => a + b.mi, 0);
+  const juris = Object.keys(s.byState).length;
+
+  // The accuracy sentence is built from the figure the last build measured,
+  // not from a claim typed in here, so it cannot quietly stop being true.
+  const a = s.accuracy;
+  const acc = {
+    en: a
+      ? `Across the ${num(a.routes)} routes where an official figure exists to check against,
+         the median disagreement is ${a.median > 0 ? '+' : ''}${a.median}%, and
+         ${a.within5}% land within 5%.`
+      : '',
+    zh: a
+      ? `在有官方里程可供核对的 ${num(a.routes)} 条路线上，实测值与官方值的中位差为
+         ${a.median > 0 ? '+' : ''}${a.median}%，其中 ${a.within5}% 的路线差距在 5% 以内。`
+      : '',
+  };
 
   const en = `
-    <p>This atlas draws every numbered highway in three systems — the Interstates, the US numbered routes, and the state route networks of all fifty states plus the District of Columbia and Puerto Rico. That comes to ${num(app.index.length)} routes and ${num(totalMi)} mapped miles.</p>
+    <p>This atlas draws every numbered highway in two countries: the Interstates, the US numbered routes and the state route networks of all fifty states plus the District of Columbia and Puerto Rico; and in Canada, the Trans-Canada Highway, Transport Canada’s National Highway System and every numbered provincial and municipal route. That comes to ${num(app.index.length)} routes and ${num(totalMi)} mapped miles across ${juris} states, provinces and territories.</p>
     <h4>Where the geometry comes from</h4>
-    <p>Road centrelines are from <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/roads/" target="_blank" rel="noopener">Natural Earth</a>’s North America roads supplement, a public-domain dataset at 1:1,000,000 scale. Route termini are named against the <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">US Census gazetteer</a>. The basemap is <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a> from OpenStreetMap data, and terrain comes from Mapzen tiles on AWS Open Data.</p>
-    <h4>What is measured and what is written</h4>
-    <p>Length, termini, state-by-state mileage and roadway classification are <strong>measured from the geometry</strong>. They are close but not survey-exact: at 1:1,000,000 a curve is smoothed, so measured mileage typically lands within about 2% of published figures. Where a published mileage exists it is shown alongside the measured one.</p>
-    <p>History, construction cost, traffic and pavement condition are <strong>written</strong>, and each figure carries its source. Where no public figure could be found, the row says “no public figure” rather than showing an estimate. Nothing on this site is modelled or inferred to fill a gap.</p>
+    <p>American road centrelines are from the <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener">US Census TIGER/Line</a> road files, read one state at a time; Canadian ones from Statistics Canada’s <a href="https://www.statcan.gc.ca/en/lode/databases/odr" target="_blank" rel="noopener">National Road Network</a>, read one province at a time. Both are surveyed rather than generalised, and both are thinned here for drawing. Termini are named against the <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">US Census gazetteer</a> and the place names in the Canadian file. The basemap is <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a> from OpenStreetMap data, satellite imagery is Esri World Imagery, and terrain comes from Mapzen tiles on AWS Open Data.</p>
+    <h4>Three kinds of number, never mixed</h4>
+    <p><strong>Measured</strong> — length, termini, mileage by state or province, roadway classification. Computed here from the geometry above, along the single path from one end of the road to the other, so a divided highway is counted once rather than twice. ${acc.en} Where an official figure exists it is shown beside the measured one, and the difference is explained rather than hidden.</p>
+    <p><strong>Reported</strong> — traffic, heavy-truck volume, pavement roughness, rutting, cracking, lanes, posted speeds. These are what the states measured and reported to FHWA, joined to a route by its designation and never by position. Coverage is uneven by design, so every figure states the share of the road it was measured over.</p>
+    <p><strong>Written</strong> — history, construction cost, what a road is like to drive. Each figure carries its source. Where no public figure could be found, the row says so rather than showing an estimate. Nothing here is modelled or inferred to fill a gap.</p>
+    <h4>Where the numbers disagree</h4>
+    <p>They are meant to. FHWA’s published mileage for an Interstate leaves out pavement it credits to another route: where I-90 runs along the Indiana Toll Road with I-80, those miles are counted under I-80 only, which is why the road measures longer here than the register says. And the register has its own slips — it gives Knoxville’s I-640, a beltway of about seven miles, as 77.29. Both figures are shown, and neither is bent toward the other.</p>
     <h4>The gaps are real</h4>
-    <p>The source data has holes. Some routes lose a stretch where the roadway is filed under a different classification — I-90 is missing the Indiana Toll Road and the Ohio Turnpike, a 420-kilometre hole. Those routes are still drawn as one road, because they are one road, but the missing pavement is left out of both the line and the mileage, and the detail panel says how much is absent.</p>
+    <p>A number does not always have pavement under it for its whole length. Sometimes the road is filed under another classification, sometimes it runs concurrently under a different number, and sometimes — Highway 1 to Vancouver Island, Route 138 along the Lower North Shore — the route crosses water by ferry. None of that is drawn or counted, and the detail panel says how much is missing.</p>
     <h4>Keyboard</h4>
     <p><b>/</b> or <b>Ctrl-K</b> command palette · <b>F</b> fly the selected route · <b>T</b> 3D terrain · <b>Esc</b> back out.</p>`;
 
   const cn = `
-    <p>本图谱绘制了三套系统中的所有编号公路：州际公路、美国国道，以及全部 50 个州加哥伦比亚特区、波多黎各的州级公路网，共 ${num(app.index.length)} 条路线、${num(totalMi)} 英里制图里程。</p>
+    <p>本图谱绘制两个国家的全部编号公路：美国的州际公路、美国国道，以及 50 个州加哥伦比亚特区、波多黎各的州级公路网；加拿大的横加公路、加拿大交通部《国家公路系统》，以及全部编号的省级与地方公路。合计 ${num(app.index.length)} 条路线、${num(totalMi)} 英里制图里程，覆盖 ${juris} 个州、省与地区。</p>
     <h4>几何数据来自哪里</h4>
-    <p>道路中心线取自 <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/roads/" target="_blank" rel="noopener">Natural Earth</a> 的北美道路增补数据集，公有领域，比例尺 1:1,000,000。起止点地名比对 <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">美国人口普查局地名库</a>。底图为基于 OpenStreetMap 数据的 <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a>，地形数据来自 AWS Open Data 上的 Mapzen 瓦片。</p>
-    <h4>哪些是实测，哪些是撰写</h4>
-    <p>长度、起止点、各州里程、路段等级构成，都是<strong>由几何数据实测得出</strong>。它们接近真实值，但不具备测绘精度：在 1:1,000,000 比例尺下弯道会被平滑处理，实测里程通常与官方公布值相差 2% 以内。凡有官方公布里程的，都与实测值并列显示。</p>
-    <p>历史、造价、车流量、路面状况属于<strong>撰写内容</strong>，每个数字都附有来源。凡是找不到公开数据的，该项直接写「无公开数据」，而不是给出估算值。本站不会用建模或推算去填补空缺。</p>
+    <p>美国的道路中心线取自 <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener">美国人口普查局 TIGER/Line</a> 道路数据，逐州读取；加拿大的取自加拿大统计局《<a href="https://www.statcan.gc.ca/en/lode/databases/odr" target="_blank" rel="noopener">国家道路网</a>》，逐省读取。两者都是实测数据而非小比例尺概化数据，本站为绘图做了抽稀。起止点地名比对 <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">美国人口普查局地名库</a> 与加拿大数据自带的地名。底图为基于 OpenStreetMap 数据的 <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a>，卫星影像为 Esri World Imagery，地形数据来自 AWS Open Data 上的 Mapzen 瓦片。</p>
+    <h4>三类数字，互不混用</h4>
+    <p><strong>实测</strong>——长度、起止点、各州或各省里程、路段等级构成。由上述几何数据在本站算出，沿着从一端到另一端的唯一路径量取，因此分向行驶的公路只计一次，不会算成两次。${acc.zh}凡有官方里程的，都与实测值并列显示，差异会加以说明，而不是藏起来。</p>
+    <p><strong>上报</strong>——车流量、货车流量、路面平整度、车辙、裂缝、车道数、限速。这些是各州自行实测后上报给美国联邦公路管理局的数据，按公路编号与路线匹配，绝不按位置套用。其采集覆盖本就不均，因此每项数据都注明覆盖了全线多少比例。</p>
+    <p><strong>撰写</strong>——历史、造价、这条路开起来是什么感觉。每个数字都附有来源。凡是找不到公开数据的，该项直接写明，而不是给出估算值。本站不会用建模或推算去填补空缺。</p>
+    <h4>数字为什么会互相矛盾</h4>
+    <p>这本就是应该的。美国联邦公路管理局公布的州际公路里程，会把共线路段的里程记在另一条路名下：I-90 与 I-80 共用印第安纳收费公路的那段，只计入 I-80，因此本站量得的 I-90 比官方名录更长。名录自身也有疏漏——诺克斯维尔的 I-640 是一条约 7 英里的环路，名录却写作 77.29 英里。两个数字都会显示，也都不会向对方靠拢。</p>
     <h4>断口是真实存在的</h4>
-    <p>原始数据存在缺口。有些路线的某些路段在原始数据中被归入了其他分类——例如 I-90 缺失了印第安纳收费公路和俄亥俄收费公路，形成一个 420 公里的断口。这类路线仍作为一条路呈现，因为它们本来就是一条路；但缺失的路段既不画在线上，也不计入里程，详情面板会明确说明缺失了多少。</p>
+    <p>一个编号并不总能在全线都有路面对应。有时是路段在原始数据中被归入了其他分类，有时是与另一编号共线，有时——比如 1 号公路通往温哥华岛、138 号公路沿下北岸——则是要靠渡轮跨越水域。这些都不绘制、也不计入里程，详情面板会说明缺失了多少。</p>
     <h4>键盘快捷键</h4>
     <p><b>/</b> 或 <b>Ctrl-K</b> 命令面板 · <b>F</b> 巡航所选路线 · <b>T</b> 三维地形 · <b>Esc</b> 返回。</p>`;
 

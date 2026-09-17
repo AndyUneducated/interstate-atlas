@@ -87,9 +87,12 @@ function terminusRow(kind, place, coord, dossierText, axis) {
 
 function metric(key, value, sub) {
   const na = value == null;
+  // A coverage note belongs to a figure. Printed under "no public figure" it
+  // reads as a contradiction: nothing measured, measured over 0% of the route.
+  const note = na ? null : sub;
   return `<div class="m">
     <span class="m-k">${t(key)}</span>
-    <div class="m-v${na ? ' na' : ''}">${na ? t('dt.unknown') : value}${sub ? `<small>${sub}</small>` : ''}</div>
+    <div class="m-v${na ? ' na' : ''}">${na ? t('dt.unknown') : value}${note ? `<small>${note}</small>` : ''}</div>
   </div>`;
 }
 
@@ -115,14 +118,119 @@ function statesBlock(states) {
 }
 
 /**
+ * What the states reported about this road, where they reported anything.
+ *
+ * Every other figure on this page is read off a map. These were collected by
+ * driving the road, which makes them the only answer here to the questions
+ * people actually ask about a highway: how busy is it, and what state is the
+ * surface in. Each one states the share of the route it covers, because the
+ * states collect pavement condition thoroughly on the National Highway System
+ * and patchily elsewhere, and an average over a fifth of a road is not the
+ * road's average.
+ */
+function hpmsFacts(p) {
+  const h = p.hpms;
+  if (!h) return '';
+  const rows = [];
+  // Every figure here is measured over a different share of the road, and
+  // spelling that out on each line buried the figures under five repetitions
+  // of the same sentence. The share is a badge instead, explained once above.
+  const cov = (m) => (m && m.cover < 98
+    ? ` <span class="fig-cov" title="${esc(t('ca.coverage', { pct: num(m.cover) }))}">${num(m.cover)}%</span>`
+    : '');
+
+  if (h.aadt) {
+    rows.push([t('hp.traffic'),
+      `${t('hp.trafficVal', { n: num(h.aadt.v) })}${cov(h.aadt)}`
+      + (h.aadtMax && h.aadtMax > h.aadt.v * 1.2
+        ? `<br><span class="fig-s">${t('hp.peak', { n: num(h.aadtMax) })}</span>` : '')]);
+  }
+
+  if (h.truck && h.aadt?.v > 0) {
+    rows.push([t('hp.trucks'),
+      `${t('hp.trucksVal', {
+        n: num(h.truck.v),
+        pct: num(Math.round((h.truck.v / h.aadt.v) * 1000) / 10, 1),
+      })}${cov(h.truck)}`]);
+  }
+
+  // FHWA's own thresholds for pavement ride quality, so the number is given a
+  // meaning rather than left as an index nobody reads in inches per mile.
+  if (h.iri) {
+    const grade = h.iri.v < 95 ? 'good' : h.iri.v <= 170 ? 'fair' : 'poor';
+    rows.push([t('hp.pavement'),
+      `<b class="iri-${grade}">${t(`hp.${grade}`)}</b> · ${t('hp.iriVal', { n: num(h.iri.v) })}${cov(h.iri)}`
+      + `<br><span class="fig-s">${t('hp.iriWhy')}</span>`]);
+  }
+
+  if (h.rutting && h.cracking) {
+    rows.push([t('hp.wear'), `${t('hp.wearVal', {
+      rut: num(h.rutting.v, 2), crack: num(h.cracking.v, 1),
+    })}${cov(h.rutting)}`]);
+  }
+
+  if (h.speed) rows.push([t('hp.speed'), `${num(h.speed.v)} ${t('unit.mph')}${cov(h.speed)}`]);
+  if (h.improved) rows.push([t('hp.improved'), t('hp.improvedVal', { n: h.improved })]);
+  if (h.futureAadt && h.aadtMax && h.futureAadt > h.aadtMax) {
+    rows.push([t('hp.future'), t('hp.futureVal', { n: num(h.futureAadt) })]);
+  }
+
+  if (!rows.length) return '';
+  const badged = rows.some(([, v]) => v.includes('fig-cov'));
+  return figBox(t('hp.title'),
+    `${t('hp.sub', { year: app.stats?.hpmsYear ?? '' })}`
+    + (badged ? ` ${t('hp.covWhy')}` : '')
+    + (h.cover < 90 ? ` ${t('hp.partial', { pct: num(h.cover) })}` : ''), rows);
+}
+
+/**
+ * What Canada publishes about the network this road belongs to.
+ *
+ * The national report counts kilometres by tier and province, never by route,
+ * so this cannot be made into a figure about this highway and is not presented
+ * as one. It is here because it is the only published measure of the thing a
+ * Canadian route's designation places it inside.
+ */
+function caInventory(p) {
+  const inv = app.stats?.canada;
+  if (p.cc !== 'ca' || !p.nhsTier || !inv?.lengthKm) return '';
+  const by = inv.lengthKm.byJurisdiction || {};
+  const rows = [];
+  for (const { st } of p.states ?? []) {
+    const km = by[st]?.[p.nhsTier];
+    if (km == null) continue;
+    rows.push([stateName(st), `<b>${num(km)}</b> ${t('unit.km')}`]);
+  }
+  if (!rows.length) return '';
+
+  const total = Object.values(by).reduce((s, j) => s + (j[p.nhsTier] ?? 0), 0);
+  rows.push([t('ca.inv.national'), `<b>${num(Math.round(total))}</b> ${t('unit.km')}`]);
+  rows.push(['', `<span class="src">${esc(inv.source.title)}, `
+    + `${esc(inv.source.publisher)}</span>`]);
+
+  return figBox(t('ca.inv.title'),
+    `${t('ca.inv.sub')} ${t('ca.inv.tier', {
+      tier: t(`ca.nhs.${p.nhsTier}`), asOf: inv.lengthKm.asOf.slice(0, 4),
+    })}`, rows);
+}
+
+function figBox(title, sub, rows) {
+  return `<div class="figs fig-box">
+    <div class="figs-h">${title}</div>
+    <div class="fig-s">${sub}</div>
+    ${rows.map(([k, v]) => `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}
+  </div>`;
+}
+
+/**
  * The facts a Canadian route has and an American one does not.
  *
  * Two of these are classifications rather than measurements and matter more
  * than any number on the road: whether Transport Canada counts the route in
  * the National Highway System, and whether it carries the Trans-Canada. The
- * third, the paved share, is worth stating plainly because outside the settled
- * band a designated highway is not necessarily paved, and the American data
- * has no equivalent.
+ * paved share and the divided share are worth stating plainly because outside
+ * the settled band a designated highway is not necessarily paved, and the
+ * American source records neither.
  */
 function caFacts(p) {
   if (p.cc !== 'ca') return '';
@@ -143,6 +251,13 @@ function caFacts(p) {
   }
   if (p.pavedShare != null && p.pavedShare < 99.5) {
     rows.push([t('ca.paved'), `<b>${num(p.pavedShare, 1)}%</b>`]);
+  }
+  // Only the Canadian source says whether a road is divided; TIGER carries no
+  // such attribute, so this is one figure the American pages cannot show.
+  if (p.div != null) {
+    rows.push([t('dt.divided'), `<b>${num(p.div, p.div % 1 ? 1 : 0)}%</b>`
+      + (p.divCov != null && p.divCov < 98
+        ? `<span class="fig-s"> · ${t('ca.coverage', { pct: num(p.divCov) })}</span>` : '')]);
   }
   if (p.named?.length) {
     rows.push([t('ca.named'), p.named.map((n) => esc(n)).join(' · ')]);
@@ -407,11 +522,18 @@ export async function renderDetail(id) {
             p.lanesCov != null && p.lanesCov < 98 ? t('ca.coverage', { pct: num(p.lanesCov) }) : null)}
              ${metric('ca.speed', p.kph == null ? null : `${num(p.kph)}<small>km/h</small>`,
             p.kphCov != null && p.kphCov < 98 ? t('ca.coverage', { pct: num(p.kphCov) }) : null)}`
+          // TIGER carries no lane attribute, so the American lane count is the
+          // states' own, and says what share of the road it was counted over.
+          // Posted speeds are reported far more patchily, so they sit in the
+          // measured block below rather than in a tile this size.
           : `${metric('dt.tolled', `${num(p.toll, p.toll % 1 ? 1 : 0)}<small>%</small>`)}
-             ${metric('dt.divided', p.div == null ? null : `${num(p.div, p.div % 1 ? 1 : 0)}<small>%</small>`)}`}
+             ${metric('hp.lanes', p.hpms?.lanes ? num(p.hpms.lanes.v, p.hpms.lanes.v % 1 ? 1 : 0) : null,
+            p.hpms?.lanes && p.hpms.lanes.cover < 98 ? t('ca.coverage', { pct: num(p.hpms.lanes.cover) }) : null)}`}
       </div>
 
+      ${hpmsFacts(p)}
       ${caFacts(p)}
+      ${caInventory(p)}
       ${p.unsigned ? `<div class="figs ca-facts">
         <div class="fig"><span class="fig-k">${t('dt.unsigned')}</span>
         <span class="fig-v">${t('dt.unsignedWhy')}</span></div></div>` : ''}
@@ -505,7 +627,10 @@ export async function renderDetail(id) {
     <span>${t(key)}</span></div>`;
   parts.push(section('data',
     info(ca ? 'ca.note.derived' : 'note.derived')
-    + (ca ? info('ca.tolls') : '') + lengthRows));
+    + (ca ? info('ca.tolls') : '')
+    // The measured figures come from somewhere else entirely, so they get
+    // their own provenance rather than sheltering under the map's.
+    + (p.hpms ? info('hp.note') : '') + lengthRows));
 
   sections.innerHTML = parts.join('');
 
