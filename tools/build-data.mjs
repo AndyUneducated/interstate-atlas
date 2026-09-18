@@ -1030,8 +1030,8 @@ async function main() {
   //
   // A number is not unique inside a jurisdiction. Kentucky 80 arrives in five
   // disconnected stretches, and Ontario files county roads under the same
-  // numbers as its provincial highways, so "ON 4" is Highway 4 plus some
-  // thirty-five unrelated county roads that share the digit. The ids are
+  // numbers as its provincial highways, so "ON 21" is twenty-two separate
+  // roads with nothing in common but the digit. The ids are
   // distinct, but the labels were not, so a search for a number returned a
   // column of identical rows and the reader had to click each one to find out
   // which road it was.

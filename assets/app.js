@@ -106,8 +106,8 @@ async function loadIndex() {
     // Pre-lowered haystack so keystroke filtering stays cheap across 11,000
     // rows. The jurisdiction's full name is in it too, so "ontario" and
     // "saskatchewan" find their routes without the user knowing the code. So
-    // is the place a shared number is told apart by, so "ON 4 Chatham" picks
-    // the right one out of the thirty-eight roads Ontario numbers 4.
+    // is the place a shared number is told apart by, so "ON 21 Goderich" picks
+    // the right one out of the twenty-two Ontario roads numbered 21.
     hay: `${label} ${num} ${st} ${jurisdictionNames(st)} ${where || ''}`.toLowerCase(),
   }));
   for (const r of app.index) app.byId.set(r.id, r);

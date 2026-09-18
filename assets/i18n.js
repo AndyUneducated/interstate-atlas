@@ -42,7 +42,7 @@ export const STRINGS = {
     // "Municipal" is in the name because it is in the data: the national road
     // file records county and municipal route numbers in the same field as
     // provincial highway numbers, and they cannot be told apart by road class.
-    // Ontario numbers thirty-five county roads 4, alongside its Highway 4.
+    // Twenty-two separate Ontario roads carry the number 21.
     'sys.provincial': 'Provincial & Municipal Routes',
     'sys.interstate.meta': 'grade-separated freeway network',
     'sys.us.meta': 'the pre-1956 national grid',
@@ -124,7 +124,7 @@ export const STRINGS = {
     'ca.named': 'Also named',
     'ca.tolls': 'The national road file records toll points as a separate layer and puts no toll attribute on the roadway itself, so no toll share is shown for Canadian routes.',
     'ca.note.derived': 'Length, endpoints, provincial distances, lane counts, posted speeds and pavement status on this page come from Statistics Canada’s National Road Network, surveyed to about 10 m and generalised here for drawing. Designation comes from Transport Canada’s National Highway System.',
-    'ca.municipalWhy': 'Canada’s national road file records county and municipal route numbers in the same field as provincial highway numbers, and nothing in it distinguishes the two. Both are here rather than guessed at: Ontario numbers about thirty-five county roads 4, alongside its Highway 4, so a number can return several unrelated roads. Each one is listed with the place that tells it apart.',
+    'ca.municipalWhy': 'Canada’s national road file records county and municipal route numbers in the same field as provincial highway numbers, and nothing in it distinguishes the two. Both are here rather than guessed at: twenty-two separate Ontario roads are numbered 21, so a number can return several unrelated roads. Each one is listed with the place that tells it apart.',
     'ca.inv.title': 'The national network, as reported',
     'ca.inv.sub': 'Canada publishes its highway inventory by network tier and province rather than per route, so these are the figures for the network this road belongs to — not for this road.',
     'ca.inv.tier': '{tier} routes, as at the end of {asOf}.',
@@ -425,7 +425,7 @@ export const STRINGS = {
     'ca.named': '别名',
     'ca.tolls': '加拿大国家道路网数据把收费站单独作为一个图层，路段本身不带收费属性，因此加拿大路线不显示收费里程占比。',
     'ca.note.derived': '本页的长度、起止点、各省里程、车道数、限速与铺装状况，均来自加拿大统计局《国家道路网》（测绘精度约 10 米，本站为绘图做了简化）。路线等级来自加拿大交通部《国家公路系统》。',
-    'ca.municipalWhy': '加拿大国家道路网数据把县道、市镇道路的编号与省级公路编号记在同一字段，数据本身无法区分两者。本站两类都收录，而不作猜测：安大略省约有三十五条县道编号为 4，与该省 4 号公路并存，因此同一个编号可能对应多条互不相干的道路。列表中会用地名加以区分。',
+    'ca.municipalWhy': '加拿大国家道路网数据把县道、市镇道路的编号与省级公路编号记在同一字段，数据本身无法区分两者。本站两类都收录，而不作猜测：安大略省有二十二条互不相干的道路都编号为 21，因此同一个编号可能对应多条毫无关联的道路。列表中会用地名加以区分。',
     'ca.inv.title': '国家路网的公开统计',
     'ca.inv.sub': '加拿大的公路统计是按路网等级和省份发布的，而非逐条公路发布。因此以下数字描述的是这条路所属的那一层路网，而不是这条路本身。',
     'ca.inv.tier': '统计对象为{tier}，截至 {asOf} 年底。',
