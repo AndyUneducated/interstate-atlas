@@ -14,7 +14,12 @@
   --line-2: rgba(120, 170, 220, 0.28);
   --ink: #e8f1fb;
   --ink-dim: #8fa3bd;
-  --ink-faint: #5a6c85;
+  /* Every small label in the app is this colour, at 8.5-11px, on a dark plate.
+     It was #5a6c85, which measures 3.6:1 against the panel and fails AA at any
+     size; this is 4.9:1. The old value survives as --ink-ghost for the things
+     that are furniture rather than text. */
+  --ink-faint: #6e819b;
+  --ink-ghost: #5a6c85;
 
   --cyan: #35e7ff;
   --cyan-dim: #1a7d92;
@@ -37,12 +42,41 @@
   --mono: "SF Mono", "JetBrains Mono", "Cascadia Mono", ui-monospace, Menlo, Consolas, monospace;
   --sans: "Inter", "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, sans-serif;
 
-  --shell: 372px;
+  /* Fluid, because the map is the product. These were fixed at 372 and 440
+     until the stacked layout took over at 900px, which left a band around
+     1000px wide where the two panels between them reserved 812px and the map
+     got 208. Anything reading these in JS must measure the element, not assume
+     the maximum. */
+  --shell: clamp(298px, 25vw, 372px);
+  --detail: clamp(336px, 29vw, 440px);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Chinese needs both stacks named, not just the sans one. Most of this
+   interface's chrome - the brand, every tile label, every terminus key, the
+   result rows, the timeline readout - is set in --mono, and none of the Latin
+   monospace faces carry a CJK glyph, so half the app was falling through to
+   whatever face the browser happened to pick, at different metrics and weight
+   from the Latin beside it. */
 html[data-lang="zh"] {
   --sans: "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --mono: "SF Mono", "JetBrains Mono", "Cascadia Mono", ui-monospace,
+    "Sarasa Mono SC", "Noto Sans Mono CJK SC", "PingFang SC", "Microsoft YaHei", monospace;
+}
+
+/* Wide tracking and uppercase are Latin devices. Uppercase does nothing to an
+   ideograph, and the Chinese Layout Requirements put the ceiling for
+   inter-character spacing around a quarter em, well under the 0.2-0.3em these
+   labels use to look engineered in English. The 11px floor is because a
+   character with fifteen strokes needs more room than a capital H. */
+html[data-lang="zh"] :is(
+  .brand-name, .m-k, .term-k, .figs-h, .sect-hd h3, .card-hd h2, .dash-card h3,
+  .tlx-k, .fly-r-k, .jump, .sys-country, .sys-meta, .res-sub, .hbar-k,
+  .sh-hd h2, .pill, .chip, table.tbl th
+) {
+  letter-spacing: 0.06em;
+  text-transform: none;
+  font-size: max(11px, 1em);
 }
 
 * { box-sizing: border-box; }
@@ -120,13 +154,16 @@ a { color: var(--cyan); text-decoration: none; }
 .boot-mark circle, .boot-mark path { fill: none; stroke: var(--cyan); stroke-width: 1.5; }
 .boot-mark .ring { opacity: 0.3; animation: spin 3.4s linear infinite; transform-origin: 50% 50%; }
 .boot-mark .arc { stroke-linecap: round; animation: spin 1.5s var(--ease) infinite; transform-origin: 50% 50%; }
-.boot-mark .bm-crest { fill: rgba(53, 231, 255, 0.1); stroke-width: 2.4; }
+.boot-mark .bm-road { fill: rgba(53, 231, 255, 0.1); stroke-width: 1; }
+.boot-mark .bm-edge { stroke-width: 0.5; }
 /* The lane draws itself in while the data loads. */
 .boot-mark .bm-lane {
-  stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 7 6;
+  stroke-width: 1.1; stroke-linecap: round; stroke-dasharray: 2.6 2.2;
   animation: lane 1.1s linear infinite;
 }
-@keyframes lane { to { stroke-dashoffset: -13; } }
+/* One dash plus one gap, in the mark's own units - the boot mark is drawn
+   inside a scale(2.7), so this is 13 user units as it was before. */
+@keyframes lane { to { stroke-dashoffset: -4.8; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .boot-title {
@@ -152,9 +189,12 @@ a { color: var(--cyan); text-decoration: none; }
 
 #hud {
   position: fixed; inset: 10px 10px auto 10px; z-index: 20;
-  display: flex; gap: 10px; align-items: flex-start;
+  /* Wraps rather than crushing the brand into the button rows when the row
+     runs out of width. */
+  display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap;
   pointer-events: none; transition: opacity 0.6s var(--ease);
 }
+#hud .brand { flex: none; }
 #hud > * { pointer-events: auto; }
 
 .brand {
@@ -162,25 +202,33 @@ a { color: var(--cyan); text-decoration: none; }
   background: var(--panel); border: 1px solid var(--line);
   border-radius: var(--r-md); backdrop-filter: blur(16px) saturate(1.3);
 }
-.brand-mark { width: 21px; height: 21px; flex: none; overflow: visible; }
-/* The crest carries a faint fill so the silhouette survives at small sizes;
-   the lane is dashed, which is the whole idea of the mark. */
-.bm-crest {
-  fill: rgba(53, 231, 255, 0.14); stroke: var(--cyan); stroke-width: 1.5;
+.brand-mark { width: 22px; height: 22px; flex: none; overflow: visible; }
+/* The carriageway in perspective, filled faintly so the silhouette survives
+   at favicon size where an outline alone turns to mush. */
+.bm-road {
+  fill: rgba(53, 231, 255, 0.16); stroke: var(--cyan); stroke-width: 1.5;
   stroke-linejoin: round;
 }
-.bm-lane {
-  fill: none; stroke: var(--cyan); stroke-width: 1.6;
-  stroke-linecap: round; stroke-dasharray: 2.6 2.4;
+.bm-lane { fill: none; stroke: var(--cyan); stroke-width: 2.1; stroke-linecap: round; }
+/* The international boundary the road crosses, dashed as maps draw them. */
+.bm-edge {
+  fill: none; stroke: var(--ink-dim); stroke-width: 1;
+  stroke-dasharray: 2.8 2.4; opacity: 0.8;
 }
-.brand:hover .bm-crest { fill: rgba(53, 231, 255, 0.24); }
-.brand-mark, .brand:hover .bm-crest { transition: fill 0.25s; }
+.brand:hover .bm-road { fill: rgba(53, 231, 255, 0.26); }
+.brand:hover .bm-edge { stroke: var(--cyan); opacity: 0.6; }
+.bm-road, .bm-edge { transition: fill 0.25s, stroke 0.25s, opacity 0.25s; }
 .brand-txt { display: flex; flex-direction: column; line-height: 1.25; }
+/* Sans at a heavy weight reads as a logotype; monospace at 0.3em tracking,
+   which this was, reads as a terminal status line. */
 .brand-name {
-  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.3em;
-  text-transform: uppercase; color: var(--ink);
+  font-family: var(--sans); font-size: 13px; font-weight: 650;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink);
+  text-shadow: 0 0 20px rgba(53, 231, 255, 0.2);
 }
-.brand-sub { font-size: 10px; color: var(--ink-faint); letter-spacing: 0.04em; }
+html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
+.brand-sub { font-size: 10.5px; color: var(--ink-faint); letter-spacing: 0.04em; }
+.brand-sub-s { display: none; }
 
 .hud-sp { flex: 1; }
 
@@ -693,7 +741,7 @@ body.tlapse-on #detail { bottom: 108px; }
    ========================================================================== */
 
 #detail {
-  position: fixed; right: 10px; top: 62px; bottom: 10px; width: 440px; z-index: 16;
+  position: fixed; right: 10px; top: 62px; bottom: 10px; width: var(--detail); z-index: 16;
   display: flex; flex-direction: column;
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg);
   backdrop-filter: blur(20px) saturate(1.3); overflow: hidden;
@@ -743,6 +791,15 @@ body.tlapse-on #detail { bottom: 108px; }
 }
 .m-v { font-family: var(--mono); font-size: 17px; color: var(--ink); margin-top: 3px; letter-spacing: -0.02em; }
 .m-v small { font-size: 10px; color: var(--ink-faint); margin-left: 2px; letter-spacing: 0; }
+/* The unit sits against the number; the caveat gets its own line. Inline, a
+   coverage badge read as part of the figure - "5.8measured over 82%". */
+.m-v .m-n {
+  display: inline-block; margin: 3px 0 0; padding: 0 4px;
+  font-family: var(--mono); font-size: 9.5px; line-height: 1.5;
+  color: var(--ink-dim); background: rgba(120, 170, 220, 0.11);
+  border-radius: var(--r-sm);
+}
+.m[title] { cursor: help; }
 .m-v.na { font-size: 11px; color: var(--ink-faint); }
 
 /* section */
@@ -751,12 +808,21 @@ body.tlapse-on #detail { bottom: 108px; }
   display: flex; align-items: center; gap: 9px; width: 100%; padding: 12px 16px;
   text-align: left; transition: background 0.16s;
 }
+.sect-hd { cursor: pointer; }
 .sect-hd:hover { background: rgba(120, 170, 220, 0.045); }
+/* These read as captions rather than controls, which left the elevation
+   profile, the cities served and the whole provenance block sitting behind
+   headers nobody would think to press. Full-strength ink and a cyan chevron
+   make them look like what they are. */
 .sect-hd h3 {
   margin: 0; flex: 1; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--ink-dim); font-weight: 500;
+  text-transform: uppercase; color: var(--ink); font-weight: 500;
 }
-.sect-hd .cv { width: 13px; height: 13px; stroke: var(--ink-faint); fill: none; stroke-width: 2; transition: transform 0.28s var(--ease); }
+.sect-hd .cv {
+  width: 13px; height: 13px; stroke: var(--cyan); fill: none; stroke-width: 2;
+  opacity: 0.5; transition: transform 0.28s var(--ease), opacity 0.2s;
+}
+.sect-hd:hover .cv { opacity: 1; }
 .sect.open .sect-hd .cv { transform: rotate(180deg); }
 .sect-bd { display: none; padding: 0 16px 16px; }
 .sect.open .sect-bd { display: block; }
@@ -788,7 +854,14 @@ body.tlapse-on #detail { bottom: 108px; }
 /* sourced figure rows */
 .figs { display: flex; flex-direction: column; gap: 9px; }
 .fig { display: flex; gap: 11px; align-items: baseline; }
-.fig-k { flex: none; width: 116px; font-size: 11.5px; color: var(--ink-faint); line-height: 1.5; }
+/* Sized to the content, not to a guess. These were fixed widths picked against
+   the Chinese strings, so it was English that broke them: "Provincial &
+   Municipal Routes" and "Interstate Construction cost" both wrapped to three
+   lines against a two-word value. */
+.fig-k {
+  flex: none; width: auto; min-width: 84px; max-width: 150px;
+  font-size: 11.5px; color: var(--ink-faint); line-height: 1.5;
+}
 .fig-v { flex: 1; font-size: 12.5px; line-height: 1.55; color: #cfdcec; }
 .fig-v b { font-family: var(--mono); color: var(--ink); font-weight: 600; }
 /* the aside under a figure: what share of the road it covers, why it matters */
@@ -812,7 +885,7 @@ body.tlapse-on #detail { bottom: 108px; }
   margin-top: 14px; padding: 13px 14px; border-radius: var(--r-sm);
   background: rgba(120, 170, 220, 0.045); border: 1px solid var(--line);
 }
-.fig-box .fig-k { width: 104px; }
+.fig-box .fig-k { width: auto; min-width: 78px; }
 .fig-box .figs-h + .fig-s { margin: -3px 0 2px; }
 .iri-good { color: var(--lime); }
 .iri-fair { color: var(--amber); }
@@ -924,16 +997,27 @@ body.tlapse-on #detail { bottom: 108px; }
   transition: opacity 0.28s var(--ease), visibility 0.28s;
 }
 #sheet.hidden { opacity: 0; visibility: hidden; }
+/* A lit glass plate like every other surface in the app. This was opaque and
+   unblurred, with a radius and a heading style that appeared nowhere else, so
+   the overlays read as a generic modal dropped onto a neon map rather than as
+   part of it. */
 .sh {
   width: min(1080px, 96vw); max-height: 92vh; display: flex; flex-direction: column;
-  background: rgba(9, 13, 22, 0.97); border: 1px solid var(--line-2);
-  border-radius: 18px; box-shadow: 0 40px 110px rgba(0, 0, 0, 0.72);
+  background: rgba(9, 13, 22, 0.86); border: 1px solid var(--line-2);
+  backdrop-filter: blur(22px) saturate(1.3);
+  border-radius: var(--r-lg);
+  box-shadow: 0 40px 110px rgba(0, 0, 0, 0.72),
+    inset 0 1px 0 rgba(120, 170, 220, 0.09);
   overflow: hidden; transform: translateY(14px) scale(0.99);
   transition: transform 0.34s var(--ease);
 }
 #sheet:not(.hidden) .sh { transform: none; }
 .sh-hd { display: flex; align-items: center; gap: 14px; padding: 17px 20px; border-bottom: 1px solid var(--line); flex: none; }
-.sh-hd h2 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+/* Mono, uppercase and tracked, like every other heading in the product. */
+.sh-hd h2 {
+  margin: 0; font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink);
+}
 .sh-hd p { margin: 3px 0 0; font-size: 11.5px; color: var(--ink-dim); }
 .sh-hd .sp { flex: 1; }
 .sh-bd { flex: 1; overflow-y: auto; padding: 20px; }
@@ -971,7 +1055,7 @@ body.tlapse-on #detail { bottom: 108px; }
 
 .dash-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; margin-bottom: 20px; }
 .dash-top .m { padding: 14px 15px; }
-.dash-top .m-v { font-size: 21px; }
+.dash-top .m-v { font-size: 26px; text-shadow: 0 0 22px rgba(53, 231, 255, 0.18); }
 
 .dash-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
 .dash-card { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
@@ -984,7 +1068,10 @@ body.tlapse-on #detail { bottom: 108px; }
 
 .hbars { display: flex; flex-direction: column; gap: 8px; }
 .hbar { display: flex; align-items: center; gap: 10px; }
-.hbar-k { font-family: var(--mono); font-size: 10.5px; color: var(--ink-dim); width: 84px; flex: none; }
+.hbar-k {
+  font-family: var(--mono); font-size: 10.5px; color: var(--ink-dim);
+  width: auto; min-width: 84px; max-width: 148px; flex: none;
+}
 .hbar-t { flex: 1; height: 8px; background: var(--bg-2); border-radius: 4px; overflow: hidden; }
 .hbar-t i { display: block; height: 100%; border-radius: 4px; transition: width 0.7s var(--ease); }
 .hbar-v { font-family: var(--mono); font-size: 10.5px; color: var(--ink); width: 66px; text-align: right; flex: none; }
@@ -1117,14 +1204,17 @@ input[type="range"]::-moz-range-thumb {
    ========================================================================== */
 
 @media (max-width: 1180px) {
-  #detail { width: 400px; }
   .nb-wrap, .tp-wrap { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 900px) {
+/* The side-by-side layout stops working before it stops fitting, so the docked
+   one takes over at 1080 rather than 900. Between those two widths the map was
+   a strip between two panels. */
+@media (max-width: 1080px) {
   :root { --shell: 100vw; }
   #hud { inset: 8px 8px auto 8px; flex-wrap: wrap; }
   .brand-sub { display: none; }
+  .brand-sub-s { display: block; }
   #shell { left: 0; right: 0; top: auto; bottom: 0; width: 100vw; height: 58vh; }
   #shell .card { border-radius: var(--r-lg) var(--r-lg) 0 0; }
   #detail { left: 0; right: 0; top: auto; bottom: 0; width: 100vw; height: 74vh; border-radius: var(--r-lg) var(--r-lg) 0 0; }

@@ -1,8 +1,12 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <!-- A route shield with a carriageway running up through it: the two things
-       this atlas is made of. The crest is filled faintly so the mark still
-       reads at favicon size, where an outline alone turns to mush. -->
-  <path d="M12 2.4C9.7 3.6 7.1 4.1 4.6 4 4.6 10.7 5.9 15.8 12 21.3c6.1-5.5 7.4-10.6 7.4-17.3-2.5.1-5.1-.4-7.4-1.6z"
-        fill="rgba(53,231,255,0.14)" stroke="#35e7ff" stroke-width="1.5"/>
-  <path d="M12 16.8V7.2" stroke="#35e7ff" stroke-width="1.6" stroke-dasharray="2.6 2.4" opacity="0.95"/>
+  <!-- One road crossing one border: the two things this atlas is made of, and
+       the border is what makes it North American rather than American. The
+       carriageway is filled faintly so the silhouette still reads at favicon
+       size, where an outline alone turns to mush, and the centre line is three
+       explicit strokes rather than a dash pattern for the same reason. -->
+  <path d="M3.8 22 L10.1 5.4 H13.9 L20.2 22 Z"
+        fill="rgba(53,231,255,0.16)" stroke="#35e7ff" stroke-width="1.5"/>
+  <path d="M12 7.6v2.1M12 12.1v2.7M12 17.1v3.4" stroke="#35e7ff" stroke-width="2.1"/>
+  <path d="M1.6 11.4h20.8" stroke="#8fa3bd" stroke-width="1"
+        stroke-dasharray="2.8 2.4" opacity="0.8"/>
 </svg>

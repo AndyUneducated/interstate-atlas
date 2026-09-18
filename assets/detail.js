@@ -85,16 +85,29 @@ function terminusRow(kind, place, coord, dossierText, axis) {
   </div>`;
 }
 
-function metric(key, value, sub) {
+/**
+ * One figure in the tile grid, with an optional caveat.
+ *
+ * A tile is three centimetres wide and holds a number, so `sub` has to be a
+ * badge and not a sentence: "82%" fits beside the figure, and the sentence that
+ * explains what the 82% is goes in `tip`, where it has room. Getting this the
+ * wrong way round set a full clause inside a one-third-width tile and stretched
+ * the whole row to fit it.
+ */
+function metric(key, value, sub, tip) {
   const na = value == null;
   // A coverage note belongs to a figure. Printed under "no public figure" it
   // reads as a contradiction: nothing measured, measured over 0% of the route.
   const note = na ? null : sub;
-  return `<div class="m">
+  return `<div class="m"${tip && !na ? ` title="${esc(tip)}"` : ''}>
     <span class="m-k">${t(key)}</span>
-    <div class="m-v${na ? ' na' : ''}">${na ? t('dt.unknown') : value}${note ? `<small>${note}</small>` : ''}</div>
+    <div class="m-v${na ? ' na' : ''}">${na ? t('dt.unknown') : value}${
+  note ? `<small class="m-n">${note}</small>` : ''}</div>
   </div>`;
 }
+
+/** How much of the route a figure was measured over, as a badge not a clause. */
+const covBadge = (pct) => (pct != null && pct < 98 ? `${num(pct)}%` : null);
 
 function compositionBlock(types) {
   const entries = Object.entries(types || {}).filter(([, v]) => v > 0.05).sort((a, b) => b[1] - a[1]);
@@ -597,11 +610,13 @@ export async function renderDetail(id) {
           // measured over, because these attributes are optional at source
           // and an average over a tenth of a road is not an average of it.
           ? `${metric('ca.lanes', p.lanes == null ? null : num(p.lanes, p.lanes % 1 ? 1 : 0),
+            covBadge(p.lanesCov),
             p.lanesCov != null && p.lanesCov < 98 ? t('ca.coverage', { pct: num(p.lanesCov) }) : null)}
              ${metric('ca.speed', p.kph == null ? null : `${num(p.kph)}<small>km/h</small>`,
+            covBadge(p.kphCov),
             // Averaged along the road, so a route signed at 100 for most of its
             // length and 110 for the rest reads 104 - a number no sign shows.
-            // The tile says so rather than passing the mean off as a limit.
+            // Too long for the tile, so it is the tile's tooltip instead.
             [t('ca.speedAvg'),
               p.kphCov != null && p.kphCov < 98 ? t('ca.coverage', { pct: num(p.kphCov) }) : '',
             ].filter(Boolean).join(' '))}`
@@ -611,6 +626,7 @@ export async function renderDetail(id) {
           // measured block below rather than in a tile this size.
           : `${metric('dt.tolled', `${num(p.toll, p.toll % 1 ? 1 : 0)}<small>%</small>`)}
              ${metric('hp.lanes', p.hpms?.lanes ? num(p.hpms.lanes.v, p.hpms.lanes.v % 1 ? 1 : 0) : null,
+            covBadge(p.hpms?.lanes?.cover),
             p.hpms?.lanes && p.hpms.lanes.cover < 98 ? t('ca.coverage', { pct: num(p.hpms.lanes.cover) }) : null)}`}
       </div>
 

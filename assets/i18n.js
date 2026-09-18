@@ -7,6 +7,7 @@ export const STRINGS = {
   en: {
     'app.name': 'HIGHWAY ATLAS',
     'app.tagline': 'the highway network of North America',
+    'app.taglineShort': 'North America',
     'boot.title': 'HIGHWAY ATLAS',
     'boot.sub': 'assembling the road network',
     'boot.step.index': 'reading route index',
@@ -14,7 +15,10 @@ export const STRINGS = {
     'boot.step.map': 'initialising map surface',
     'boot.step.ready': 'ready',
 
-    'nav.search': 'Search',
+    // Not "Search": the sidebar has a search field, and two controls with the
+    // same name doing different things is worse than an unfamiliar word. This
+    // one reaches routes, views and jurisdictions alike.
+    'nav.search': 'Jump to',
     'nav.numbering': 'Numbering',
     'nav.dashboard': 'Statistics',
     'nav.timeline': 'Timeline',
@@ -25,6 +29,7 @@ export const STRINGS = {
     'nav.panel': 'Toggle panel',
     'nav.findRoute': 'Find a route',
     'nav.about': 'About',
+    'nav.langTitle': 'Switch language',
 
     'sys.title': 'Route systems',
     'sys.country.us': 'United States',
@@ -310,6 +315,7 @@ export const STRINGS = {
   zh: {
     'app.name': '北美公路图谱',
     'app.tagline': '北美国家公路网',
+    'app.taglineShort': '北美公路网',
     'boot.title': '北美公路图谱',
     'boot.sub': '正在装配公路网',
     'boot.step.index': '读取路线索引',
@@ -317,7 +323,7 @@ export const STRINGS = {
     'boot.step.map': '初始化地图',
     'boot.step.ready': '就绪',
 
-    'nav.search': '搜索',
+    'nav.search': '快速跳转',
     'nav.numbering': '编号规则',
     'nav.dashboard': '统计',
     'nav.timeline': '建设时间轴',
@@ -328,6 +334,7 @@ export const STRINGS = {
     'nav.panel': '收起面板',
     'nav.findRoute': '查找公路',
     'nav.about': '关于',
+    'nav.langTitle': '切换语言',
 
     'sys.title': '路网系统',
     'sys.country.us': '美国',

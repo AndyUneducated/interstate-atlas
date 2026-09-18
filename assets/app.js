@@ -580,6 +580,30 @@ function setTermini(f) {
   });
 }
 
+/** The width below which the panels dock to the bottom instead of the sides. */
+export const STACKED = 1080;
+
+/**
+ * Padding that lands a route in the gap the panels leave, not under one.
+ *
+ * The panel widths are fluid, so this measures them rather than naming them -
+ * at 1150px the sidebar is 288px wide and reserving the old hard-coded 400
+ * would push the route off to the right of the slot it is supposed to sit in.
+ * The detail panel is counted even when it is closed, so that opening it does
+ * not shift a route that was just framed.
+ */
+export function mapPad({ reserveDetail = true } = {}) {
+  if (window.innerWidth <= STACKED) return { top: 90, bottom: 70, left: 30, right: 30 };
+  const width = (id) => document.getElementById(id)?.offsetWidth ?? 0;
+  const GAP = 28;
+  return {
+    top: 90,
+    bottom: 70,
+    left: document.body.classList.contains('shell-off') ? 40 : width('shell') + GAP,
+    right: reserveDetail ? width('detail') + GAP : 80,
+  };
+}
+
 export function fitTo(f) {
   let minX = 180, minY = 90, maxX = -180, maxY = -90;
   for (const line of f.geometry.coordinates) {
@@ -590,9 +614,8 @@ export function fitTo(f) {
       if (y > maxY) maxY = y;
     }
   }
-  const wide = window.innerWidth > 900;
   app.map.fitBounds([[minX, minY], [maxX, maxY]], {
-    padding: { top: 90, bottom: 70, left: wide ? 400 : 30, right: wide ? 470 : 30 },
+    padding: mapPad(),
     duration: 1200,
     maxZoom: 11,
   });
@@ -785,7 +808,9 @@ function renderJumps() {
       b.textContent = t(r.i18n);
       b.addEventListener('click', async () => {
         app.map.fitBounds(r.bounds, {
-          padding: { top: 90, bottom: 70, left: document.body.classList.contains('shell-off') ? 40 : 400, right: 80 },
+          // No route is selected when you jump to a region, so the detail panel
+          // is not going to open over the view and needs no room reserved.
+          padding: mapPad({ reserveDetail: false }),
           duration: 1500,
         });
         // Flying somewhere with nothing drawn on it is how Alaska came to look
@@ -1107,7 +1132,7 @@ export function zoomToState(st) {
   }
   const pad = 0.6;
   app.map.fitBounds([[minX - pad, minY - pad], [maxX + pad, maxY + pad]], {
-    padding: { top: 90, bottom: 70, left: window.innerWidth > 900 ? 400 : 30, right: 80 },
+    padding: mapPad({ reserveDetail: false }),
     duration: 1200,
   });
 }

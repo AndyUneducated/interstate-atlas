@@ -26,8 +26,15 @@
     <svg class="boot-mark" viewBox="0 0 100 100" aria-hidden="true">
       <circle class="ring" cx="50" cy="50" r="42"/>
       <path class="arc" d="M50 8 a42 42 0 0 1 36 21"/>
-      <path class="bm-crest" d="M50 18C40.4 23 29.6 25.1 19.2 24.7c0 27.9 5.4 49.1 30.8 72 25.4-22.9 30.8-44.1 30.8-72C70.4 25.1 59.6 23 50 18z"/>
-      <path class="bm-lane" d="M50 78V34"/>
+      <!-- The same road and border as the header mark, scaled to sit inside
+           the ring. Here the centre line is one continuous stroke so it can
+           dash itself in while the data loads; at this size a dashed stroke
+           renders cleanly, which is exactly what it cannot do at 21px. -->
+      <g transform="translate(50 50) scale(2.7) translate(-12 -13.7)">
+        <path class="bm-road" d="M3.8 22 L10.1 5.4 H13.9 L20.2 22 Z"/>
+        <path class="bm-lane" d="M12 7.6V20.5"/>
+        <path class="bm-edge" d="M1.6 11.4h20.8"/>
+      </g>
     </svg>
     <p class="boot-title" id="bootTitle">HIGHWAY ATLAS</p>
     <p class="boot-sub" id="bootSub">assembling the road network</p>
@@ -39,13 +46,24 @@
 <!-- ── top bar ──────────────────────────────────────────────────────────── -->
 <header id="hud">
   <div class="brand">
+    <!-- One road crossing one border. The mark used to be a US highway
+         escutcheon, which said "United States" on a product whose own tagline
+         claims North America; the dashed rule is the cartographic convention
+         for an international boundary, and it is the border that makes the
+         road a continental one. The centre line is three explicit strokes
+         rather than a dasharray, because a dasharray on a stroke this short
+         renders as a smudge at favicon size. -->
     <svg viewBox="0 0 24 24" aria-hidden="true" class="brand-mark">
-      <path class="bm-crest" d="M12 2.4C9.7 3.6 7.1 4.1 4.6 4 4.6 10.7 5.9 15.8 12 21.3c6.1-5.5 7.4-10.6 7.4-17.3-2.5.1-5.1-.4-7.4-1.6z"/>
-      <path class="bm-lane" d="M12 16.8V7.2"/>
+      <path class="bm-road" d="M3.8 22 L10.1 5.4 H13.9 L20.2 22 Z"/>
+      <path class="bm-lane" d="M12 7.6v2.1M12 12.1v2.7M12 17.1v3.4"/>
+      <path class="bm-edge" d="M1.6 11.4h20.8"/>
     </svg>
     <span class="brand-txt">
       <span class="brand-name" data-i18n="app.name">HIGHWAY ATLAS</span>
       <span class="brand-sub" data-i18n="app.tagline">the highway network of North America</span>
+      <!-- The narrow layout used to hide the tagline outright, which left the
+           brand claiming less than the atlas covers. It shortens instead. -->
+      <span class="brand-sub brand-sub-s" data-i18n="app.taglineShort">North America</span>
     </span>
   </div>
 
@@ -72,6 +90,14 @@
       <svg viewBox="0 0 24 24"><path d="M6 19V7a3 3 0 0 1 6 0v10a3 3 0 0 0 6 0V5"/><circle cx="6" cy="20" r="1.6"/><circle cx="18" cy="4" r="1.6"/></svg>
       <span class="hud-label" data-i18n="nav.planner">Trip</span>
     </button>
+    <!-- About belongs with the other explanatory views, not with the base-map
+         controls. It holds the three-kinds-of-number explanation, the gaps in
+         Canadian traffic publication and the keyboard shortcuts, and behind an
+         unlabelled circled i nobody was going to find any of it. -->
+    <button class="btn" id="btnAbout" type="button">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
+      <span class="hud-label" data-i18n="nav.about">About</span>
+    </button>
   </nav>
 
   <div class="hud-group">
@@ -89,10 +115,7 @@
     <button class="btn btn-ico" id="btnTerrain" type="button" data-i18n-title="base.tilt" title="3D tilt">
       <svg viewBox="0 0 24 24"><path d="M3 16l9-5 9 5-9 5z"/><path d="M12 11V4"/><path d="M9 6.5L12 4l3 2.5"/></svg>
     </button>
-    <button class="btn btn-ico" id="btnAbout" type="button" title="About">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
-    </button>
-    <button class="btn" id="btnLang" type="button" title="Switch language">
+    <button class="btn" id="btnLang" type="button" data-i18n-title="nav.langTitle" title="Switch language">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.4 3 14.6 0 18M12 3c-3 3.4-3 14.6 0 18"/></svg>
       <span data-i18n="nav.lang">中文</span>
     </button>
