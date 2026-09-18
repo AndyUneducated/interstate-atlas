@@ -1,28 +1,61 @@
 <div align="center">
 
-# Highway Atlas
+<h1>Highway Atlas</h1>
 
-**the highway network of North America**
+<h3><em>the highway network of North America</em></h3>
 
+<p>
 An interactive, bilingual atlas of every numbered highway in the United States and Canada —
 the Interstates, the US numbered routes, every state route system, the Trans-Canada
 Highway, Canada's National Highway System and every numbered provincial route — with a
 written record for the roads that have one.
+</p>
 
-[![live site](https://img.shields.io/badge/live-andyuneducated.github.io%2Finterstate--atlas-35e7ff?style=for-the-badge)](https://andyuneducated.github.io/interstate-atlas/)
+[![live site](https://img.shields.io/badge/live-andyuneducated.github.io%2Finterstate--atlas-35e7ff?style=for-the-badge&logo=githubpages&logoColor=05070c&labelColor=0b1220)](https://andyuneducated.github.io/interstate-atlas/)
+[![architecture](https://img.shields.io/badge/docs-ARCHITECTURE-a78bfa?style=for-the-badge&logo=readthedocs&logoColor=05070c&labelColor=0b1220)](docs/ARCHITECTURE.md)
 
-![routes](https://img.shields.io/badge/routes-19%2C146-ffd166?style=flat-square)
-![countries](https://img.shields.io/badge/countries-US%20%C2%B7%20CA-ff4d6d?style=flat-square)
-![jurisdictions](https://img.shields.io/badge/jurisdictions-64-4fe3b0?style=flat-square)
-![languages](https://img.shields.io/badge/languages-English%20%C2%B7%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-a78bfa?style=flat-square)
-![runtime deps](https://img.shields.io/badge/runtime%20dependencies-1-35e7ff?style=flat-square)
-![build step](https://img.shields.io/badge/client%20build%20step-none-35e7ff?style=flat-square)
-![code](https://img.shields.io/badge/code-MIT-lightgrey?style=flat-square)
-![content](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey?style=flat-square)
+<br/>
+
+![routes](https://img.shields.io/badge/routes-19%2C146-ffd166?style=flat-square&labelColor=0b1220)
+![jurisdictions](https://img.shields.io/badge/jurisdictions-64-4fe3b0?style=flat-square&labelColor=0b1220)
+![systems](https://img.shields.io/badge/route%20systems-6-ffd166?style=flat-square&labelColor=0b1220)
+![countries](https://img.shields.io/badge/countries-US%20%C2%B7%20CA-ff4d6d?style=flat-square&labelColor=0b1220)
+![languages](https://img.shields.io/badge/languages-English%20%C2%B7%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-a78bfa?style=flat-square&labelColor=0b1220)
+
+![vanilla js](https://img.shields.io/badge/front%20end-vanilla%20ES%20modules-35e7ff?style=flat-square&labelColor=0b1220)
+![build step](https://img.shields.io/badge/client%20build%20step-none-35e7ff?style=flat-square&labelColor=0b1220)
+![browser deps](https://img.shields.io/badge/npm%20packages%20served-0-35e7ff?style=flat-square&labelColor=0b1220)
+![maplibre](https://img.shields.io/badge/MapLibre%20GL%20JS-4.7.1%20vendored-4fe3b0?style=flat-square&labelColor=0b1220)
+![build deps](https://img.shields.io/badge/npm%20dependencies-2%20build%20%C2%B7%201%20dev-ff9ecb?style=flat-square&labelColor=0b1220)
+
+![data](https://img.shields.io/badge/data-TIGER%2FLine%20%C2%B7%20HPMS%20%C2%B7%20StatCan%20NRN%20%C2%B7%20Transport%20Canada-4f9ad8?style=flat-square&labelColor=0b1220)
+![code licence](https://img.shields.io/badge/code-MIT-lightgrey?style=flat-square&labelColor=0b1220)
+![content licence](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey?style=flat-square&labelColor=0b1220)
+
+<sub><b>[Live site](https://andyuneducated.github.io/interstate-atlas/)</b> ·
+[Architecture](docs/ARCHITECTURE.md) ·
+[Coverage](#coverage) ·
+[On accuracy](#on-accuracy) ·
+[Data sources](#data-sources) ·
+[Dependencies](#dependencies) ·
+[Building](#building)</sub>
+
+<br/>
+
+[![The Interstate system and the Trans-Canada Highway drawn across North America](docs/img/hero.png)](https://andyuneducated.github.io/interstate-atlas/)
+
+<sub>The Interstates in cyan, the Trans-Canada in red, on the continent they actually cover.</sub>
 
 </div>
 
 ---
+
+> [!NOTE]
+> **Counts move; method does not.** Every route total, mileage and percentage on this page
+> is read back from the published build dated **2026-09-17** (`data/index.json`,
+> `data/stats.json`) and changes whenever the pipeline is re-run against fresher source
+> data. The rules those numbers obey — what counts as measured, what counts as published,
+> and what is never filled in — are in [On accuracy](#on-accuracy) and do not change.
 
 ## What it does
 
@@ -30,7 +63,7 @@ written record for the roads that have one.
 | --- | --- |
 | **Map** | MapLibre GL over a dark vector basemap, with satellite and terrain alternatives and every route in the network selectable. |
 | **Route detail** | Termini, length, per-jurisdiction mileage, roadway classification and grade separation measured off the geometry; alongside them, what the states and provinces themselves measured — traffic, heavy-truck volume, pavement roughness, rutting and cracking, lanes, posted speeds — each stating the share of the road it covers. For curated routes, a written account of how the road came to be, what it cost, what it carries and what condition it is in. |
-| **Buildout scrubber** | A docked timeline over the live map: drag through 1960–1997 and watch FHWA's mileage curve fill while documented routes light up as they open. |
+| **Buildout scrubber** | A docked timeline over the live map. The scrub track *is* FHWA's mileage curve, which runs 1960–1997; the playhead runs from 1956, the year of the Act, to the latest documented completion, and routes light up as their documented year arrives. |
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
 | **Statistics dashboard** | Network totals by system and by jurisdiction, both countries. |
@@ -39,9 +72,52 @@ written record for the roads that have one.
 | **Command palette** | <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to reach any route, jurisdiction or view. |
 | **Bilingual** | Full English and 简体中文 parity, enforced by a build check. Quebec routes keep their official French names in both modes, with an English gloss. |
 
+![Interstate 95 selected, with its termini, measured length and the figures the states reported](docs/img/detail.png)
+
+<sub>I-95 selected. The percentage beside a reported figure is the share of the route it was
+measured over — 81% for traffic, 96% for pavement — because partial coverage is stated rather
+than rounded up to the whole road.</sub>
+
+## How it fits together
+
+Nothing is computed in the browser that could be computed once, offline. Government open
+data is downloaded by the `fetch-*` scripts, turned into routes by the `build-*` scripts,
+and committed to `data/` as plain JSON. The site is those files plus an HTML page and six
+ES modules, served as-is.
+
+```mermaid
+flowchart LR
+  SRC["Government open data<br/><i>US Census · FHWA<br/>StatCan · Transport Canada<br/>5 provincial DOTs</i>"]
+  FETCH["tools/fetch-*.mjs<br/><i>network, run rarely</i>"]
+  RAW["tools/src/<br/><i>shapefiles, gitignored</i>"]
+  REF["content/reference/<br/><i>small extracts, committed</i>"]
+  PROSE["content/dossiers/<br/><i>hand-written, bilingual</i>"]
+  BUILD["tools/build-*.mjs<br/><i>offline, deterministic</i>"]
+  DATA["data/<br/><i>static JSON, committed</i>"]
+  SITE["index.html + assets/<br/><i>no bundler, no transpile</i>"]
+  PAGES(["GitHub Pages<br/><i>static hosting</i>"])
+
+  SRC --> FETCH
+  FETCH --> RAW
+  FETCH --> REF
+  RAW --> BUILD
+  REF --> BUILD
+  PROSE --> BUILD
+  BUILD --> DATA
+  DATA --> PAGES
+  SITE --> PAGES
+```
+
+The interesting half is `build-data.mjs`: the source files are not routes but road
+fragments, and reassembling them is most of the work. That is the subject of
+**[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**, which has the detailed pipeline
+diagram, the stitching algorithm step by step, the client module graph, and a table of
+every source quirk that produced a visibly wrong atlas before it was handled.
+
 ## Coverage
 
-19,146 routes across 64 states, provinces and territories, measuring 669,227 miles of road.
+19,146 routes across 64 states, provinces and territories, measuring 669,227 miles of
+road, in the build dated 2026-09-17.
 
 | Country | System | Routes | Miles | Notes |
 | --- | --- | --- | --- | --- |
@@ -102,11 +178,12 @@ the site states it rather than papering over it.
 
 Each figure is an average along the route, weighted by length, shown beside the volume at
 the road's busiest point where the two differ — Highway 401 averages 73,700 vehicles a day
-over its 828 km but carries 511,400 between Highway 427 and Renforth Drive, the heaviest
-traffic on any road in North America. Ontario's Highway 407 is the one conspicuous blank: the
-tolled section runs under a 99-year concession and is excluded from the ministry's counts,
-and the figure its operator publishes is average workday trips, which is not a daily volume
-and is not shown here as though it were.
+along its length but carries 511,400 between Highway 427 and Renforth Drive, which is the
+highest single-point count anywhere in this atlas, on either side of the border. Ontario's
+Highway 407 is the one conspicuous blank: the tolled section runs under a 99-year
+concession and is excluded from the ministry's counts, and the figure its operator
+publishes is average workday trips, which is not a daily volume and is not shown here as
+though it were.
 
 **Published.** Official Interstate mileage comes from the FHWA Route Log and Finder List;
 Canadian designations and network mileage come from Transport Canada. Everything in a
@@ -122,8 +199,8 @@ the build otherwise.
 
 The same honesty applies to what the data cannot distinguish. Canada's national road file
 records county and municipal route numbers in the same field as provincial highway numbers,
-with nothing to tell them apart — Ontario numbers some thirty-five county roads 4, next to
-its Highway 4. Both are published here rather than guessed at, the tier is named for it,
+with nothing to tell them apart — twenty-two separate Ontario roads carry the number 21.
+Both are published here rather than guessed at, the tier is named for it,
 and each road is listed with the place that identifies it.
 
 ## Data sources
@@ -161,37 +238,68 @@ and each road is listed with the place that identifies it.
 
 ## Dependencies
 
-The site ships one third-party library, vendored rather than loaded from a CDN — a static
+Three npm packages in total, none of them served to the browser.
+
+| Scope | Package | Declared | Used by | What for |
+| --- | --- | --- | --- | --- |
+| `dependencies` | [shapefile](https://github.com/mbostock/shapefile) | `^0.6.6` | `tools/tiger.mjs`, `tools/canada.mjs` | streams the TIGER/Line and NRN `.shp`/`.dbf` pairs; both readers open them a feature at a time so a 417 MB province need not be held in memory |
+| `dependencies` | [pngjs](https://github.com/pngjs/pngjs) | `^7.0.0` | `tools/build-elevation.mjs` | decodes Terrarium terrain tiles, which pack metres above sea level into RGB |
+| `devDependencies` | [playwright-core](https://playwright.dev/) | `^1.63.0` | `tools/verify.mjs` | drives the real site in headless Chromium |
+
+**Nothing from npm reaches the browser.** The one third-party library the page loads is
+MapLibre GL JS, vendored into the repository rather than fetched from a CDN — a static
 atlas should not stop working because someone else's origin is having a bad day.
 
-| | Package | Version | Role |
+| | Version | Path | Loaded by |
 | --- | --- | --- | --- |
-| **Served** | [maplibre-gl](https://maplibre.org/) | 4.7.1 | map rendering, vendored into `assets/vendor/` — the only thing the browser loads |
-| **Build** | [shapefile](https://github.com/mbostock/shapefile) | ^0.6.6 | reads the TIGER/Line and NRN shapefiles |
-| **Build** | [pngjs](https://github.com/pngjs/pngjs) | ^7.0.0 | decodes Terrain-RGB elevation tiles |
-| **Dev only** | [playwright-core](https://playwright.dev/) | ^1.63.0 | headless verification |
+| [MapLibre GL JS](https://maplibre.org/) | 4.7.1 | `assets/vendor/maplibre-gl.js`, `assets/vendor/maplibre-gl.css` | a plain `<script>` and `<link>` in `index.html` |
 
-No API keys. No client build step. No framework. Route stitching, shortest-path search,
-Douglas–Peucker simplification, the gazetteer index and the ZIP reader are all written here
-in plain Node, with no dependencies of their own.
+Everything else the build needs is written here in plain Node with no dependencies of its
+own: route stitching and the shortest-path search (`tools/geo.mjs`), Douglas–Peucker
+simplification, the gazetteer spatial index, the ZIP reader (`tools/unzip.mjs`, which
+handles Zip64 because the Canadian archives cross 4 GB uncompressed) and an `.xlsx` reader
+(`tools/xlsx.mjs`, narrow enough to read the two provincial spreadsheets and nothing else).
+
+The page itself needs no API key and no account. At runtime it does talk to three public
+tile services, all of them optional to the atlas's own data:
+
+| Service | When | Needed for |
+| --- | --- | --- |
+| [OpenFreeMap](https://openfreemap.org/) `tiles.openfreemap.org` | always | the dark vector basemap under the routes |
+| [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) `s3.amazonaws.com` | on demand | hillshading and the 3D terrain mesh |
+| [Esri World Imagery](https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9) `server.arcgisonline.com` | on demand | the satellite basemap |
 
 ## Building
+
+There is no build step for the site — `index.html` and `assets/` are served exactly as
+they sit in the repository. The scripts below rebuild the *data*, and only need running
+when the upstream sources change.
+
+| Script | Does | Writes |
+| --- | --- | --- |
+| `npm run fetch` | downloads the Census gazetteer, the FHWA Route Log and HPMS | `tools/src/`, `content/reference/` |
+| `npm run fetch:ca` | downloads the StatCan NRN, the Transport Canada NHS and provincial traffic | `tools/src/ca/`, `content/reference/` |
+| `npm run build` | `build-data.mjs`, then `build-content.mjs` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/dossiers/`, `data/timeline.json` |
+| `npm run build:elevation` | samples terrain along curated routes | `data/elevation/` |
+| `npm run serve` | serves the repository on `http://localhost:8787` | — |
+| `npm test` | i18n parity, then content validation | — |
+| `npm run verify` | drives the served site in headless Chromium | `tools/shots/` (gitignored) |
 
 ```sh
 npm install
 
-# acquire — slow, run rarely; everything lands in tools/src/ (gitignored)
-node tools/fetch-source.mjs      # Census gazetteer
-node tools/fetch-fhwa.mjs        # FHWA Route Log → content/reference/
+# acquire — slow, run rarely
+node tools/fetch-source.mjs      # Census gazetteer → tools/src/
+node tools/fetch-fhwa.mjs        # FHWA Route Log and cost tables → content/reference/
 node tools/fetch-hpms.mjs        # HPMS traffic and condition, grouped server-side
 node tools/fetch-canada.mjs      # StatCan NRN, 13 provinces and territories (~1.5 GB)
 node tools/fetch-canada-nhs.mjs  # Transport Canada NHS designations
 node tools/fetch-canada-traffic.mjs  # provincial traffic counts, 5 provinces
 
-# TIGER/Line downloads itself on first build, per state, into tools/src/tiger/ (~300 MB)
+# TIGER/Line downloads itself on first build, per state, into tools/src/tiger/
 
 # build — deterministic, offline
-node tools/build-data.mjs        # geometry → data/geo/, index.json, stats.json  (~25 min)
+node tools/build-data.mjs        # geometry → data/geo/, index.json, stats.json
 node tools/build-content.mjs     # validate prose → data/dossiers/, timeline.json
 node tools/build-elevation.mjs   # sample terrain → data/elevation/
 
@@ -201,20 +309,41 @@ node tools/check-i18n.mjs        # English/Chinese parity
 node tools/verify.mjs            # headless run-through, screenshots to tools/shots/
 ```
 
-`tools/src/` (source downloads) and `tools/cache/` (terrain tiles) are gitignored. The
-first elevation run fetches a few thousand tiles and is slow; reruns are cached.
+`node tools/build-data.mjs` is much the slowest step — it is a shortest-path search over a
+graph built from every road fragment in two countries, and takes tens of minutes. It needs
+no network once the sources are on disk, and given the same inputs it produces the same
+output. `tools/src/` (source downloads) and `tools/cache/` (terrain tiles) are gitignored;
+the first elevation run fetches a few thousand tiles and is slow, and reruns are cached.
 
-## How it works
+## Repository layout
 
-The source data is not routes. It is a pile of road fragments, split at every jurisdiction
-line and wherever a classification changes, with no notion that they belong to the same
-road. Reassembling them — and deciding when two pieces carrying the same number are one
-road and when they are two — is most of the work.
+| Path | Committed | What it holds |
+| --- | --- | --- |
+| `index.html` | ✅ | the whole page: markup, no templating, no bundler |
+| `assets/*.js` | ✅ | six ES modules, loaded directly by the browser |
+| `assets/vendor/` | ✅ | MapLibre GL JS 4.7.1 |
+| `tools/fetch-*.mjs` | ✅ | acquisition — the only scripts that touch the network |
+| `tools/build-*.mjs` | ✅ | the pipeline — offline and deterministic |
+| `tools/geo.mjs`, `tiger.mjs`, `canada.mjs` | ✅ | the geospatial algorithms and the two source readers |
+| `content/dossiers/` | ✅ | hand-written route profiles, English and Chinese |
+| `content/reference/` | ✅ | small sourced extracts: FHWA mileage and cost, HPMS, NHS register, provincial traffic |
+| `data/` | ✅ | the build's output, and the only thing the site reads |
+| `docs/` | ✅ | the architecture document and the two images on this page |
+| `tools/src/`, `tools/cache/`, `tools/shots/` | ❌ | downloads, tile cache and verification screenshots |
 
-**[→ docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** covers the pipeline, the measured/published
-rule the design exists to serve, the stitching algorithm, the client's loading strategy,
-and a table of every source quirk that produced a visibly wrong atlas before it was
-handled.
+## The parts that do not change
+
+Rebuilds move every number on this page. These are the rules they move under.
+
+| Rule | Where it is enforced |
+| --- | --- |
+| A figure is either **measured** from geometry or **published** by an authority, never a blend of the two | `build-data.mjs` computes the first; `content/` carries the second with its source |
+| A published figure carries a source, or an explanation of why none exists | `build-content.mjs` fails the build otherwise |
+| Every English string has a Chinese counterpart, with matching placeholders | `check-i18n.mjs` fails otherwise |
+| Reported figures are joined to routes by **designation, never by position** | `attachHpms` and `attachCanadianTraffic` in `build-data.mjs` |
+| Any figure covering part of a road states the share it covers | every HPMS and provincial measure carries a `cover` field |
+| A route's length is measured along the path you would drive, once — not over every centreline in the corridor | `stitchRoute` and `drivenEdgeKm` in `geo.mjs` |
+| Where a source says nothing, the site says nothing | no defaulting to zero; `null` survives to the panel |
 
 ## Licence
 
