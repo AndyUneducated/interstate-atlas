@@ -764,6 +764,30 @@ export function toggleTerrain(force) {
   toast(t(next ? 'toast.terrainOn' : 'toast.terrainOff'));
 }
 
+/**
+ * Take the interface off the map.
+ *
+ * Every panel here is an overlay on the thing people came to look at, and on a
+ * laptop the header, the sidebar and an open detail panel between them cover
+ * about half of it. This fades the lot and leaves the map, which is also what
+ * you want before a screenshot.
+ *
+ * Anything modal is closed on the way in rather than hidden, because a sheet
+ * faded to nothing but still open would swallow the next Escape and leave the
+ * reader pressing a key that appeared to do nothing.
+ */
+function toggleZen(next = !document.body.classList.contains('zen')) {
+  if (next) {
+    if (isSheetOpen()) closeSheet();
+    closePalette();
+  }
+  document.body.classList.toggle('zen', next);
+  document.getElementById('btnZen').classList.toggle('on', next);
+  if (next) toast(t('toast.zen'));
+}
+
+export const isZen = () => document.body.classList.contains('zen');
+
 /* ── region jumps ─────────────────────────────────────────────────────── */
 
 // The opening view frames the settled band of both countries, which is where
@@ -868,6 +892,31 @@ function renderSystems() {
       host.appendChild(btn);
     }
   }
+  renderLegend();
+}
+
+/**
+ * What the colours mean, for when the panel that said so is folded away.
+ *
+ * Collapsing the sidebar takes the system list with it, and with it the only
+ * key to six line colours on a map that is otherwise unlabelled below zoom 7.
+ * A reader who folded the panel to see more map was left with cyan, amber and
+ * pink lines and nothing to tell them apart.
+ *
+ * Only the systems actually drawn are listed, so this is a key to what is on
+ * the screen rather than a second copy of the switch panel; it is inert, and
+ * the way back to the switches is the button directly above it.
+ */
+function renderLegend() {
+  const host = document.getElementById('legend');
+  if (!host) return;
+  const on = SYSTEMS.filter((s) => app.systems.get(s.id).on);
+  if (!on.length) { host.innerHTML = ''; host.hidden = true; return; }
+  host.hidden = false;
+  host.innerHTML = `<p class="lg-h">${t('legend.title')}</p>`
+    + on.map((s) => `<p class="lg-r">`
+      + `<i class="lg-dot" style="--sys-col:${s.colour}"></i>`
+      + `<span>${t(`sys.${s.id}`)}</span></p>`).join('');
 }
 
 /* ── search + results ─────────────────────────────────────────────────── */
@@ -969,6 +1018,18 @@ function renderResults() {
     ? t('search.count', { n: rows.length.toLocaleString(), total: total.toLocaleString() })
     : '';
 
+  // What the list is, when nobody asked it anything. Unsearched, it is the
+  // longest roads in whichever systems are switched on, which is a choice the
+  // list was making silently - a reader could reasonably have read the opening
+  // list as "the important ones" or as all of them.
+  const sort = document.getElementById('resSort');
+  if (sort) {
+    sort.textContent = query ? t('search.sortMatch') : t('search.sortLong');
+    sort.title = query ? t('search.sortMatchWhy') : t('search.sortLongWhy');
+  }
+  const colMi = document.getElementById('resColMi');
+  if (colMi) colMi.textContent = t('search.colMi');
+
   if (!rows.length) {
     host.innerHTML = `<p class="res-empty">${query ? t('search.none') : t('search.hint')}</p>`;
     return;
@@ -979,6 +1040,7 @@ function renderResults() {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = `res${app.selected === r.id ? ' sel' : ''}`;
+    b.dataset.id = r.id;
     // What tells this row from the one under it. A jurisdiction's own route
     // wants the jurisdiction; so does any Canadian route, because the
     // Trans-Canada changes number at nearly every border and five different
@@ -1004,6 +1066,31 @@ function renderResults() {
   }
   host.innerHTML = '';
   host.appendChild(frag);
+  revealSelected(host);
+}
+
+/**
+ * Keep the list pointed at whatever the map is showing.
+ *
+ * Clicking a road on the map opened its panel and marked its row, but the row
+ * could be four hundred pixels below the fold, so the list sat on something
+ * unrelated and the two halves of the screen disagreed about what was selected.
+ *
+ * `block: 'nearest'` is doing real work here: it scrolls only when the row is
+ * actually out of view, so choosing a row from the list - which re-renders
+ * through this same path - does not yank the list around under the pointer.
+ * The brief flash is for the other direction, where the row has just arrived
+ * from somewhere off-screen and needs to announce itself.
+ */
+function revealSelected(host) {
+  const sel = host.querySelector('.res.sel');
+  if (!sel) return;
+  const before = host.scrollTop;
+  sel.scrollIntoView({ block: 'nearest' });
+  if (host.scrollTop !== before) {
+    sel.classList.add('just');
+    setTimeout(() => sel.classList.remove('just'), 900);
+  }
 }
 
 /* ── toast ────────────────────────────────────────────────────────────── */
@@ -1169,6 +1256,8 @@ function wire() {
   });
 
   document.getElementById('btnTerrain').addEventListener('click', () => toggleTerrain());
+  document.getElementById('btnZen').addEventListener('click', () => toggleZen());
+  document.getElementById('zenOut').addEventListener('click', () => toggleZen(false));
   document.getElementById('btnPalette').addEventListener('click', openPalette);
   for (const [btn, key] of [['btnNumbering', 'numbering'], ['btnDash', 'dashboard'],
     ['btnPlanner', 'planner'], ['btnAbout', 'about']]) {
@@ -1201,7 +1290,10 @@ function wire() {
       openPalette(); e.preventDefault(); return;
     }
     if (e.key === 'Escape') {
-      if (isSheetOpen()) closeSheet();
+      // Ahead of the rest, because with the interface hidden it is the only
+      // state the reader can see they are in.
+      if (isZen()) toggleZen(false);
+      else if (isSheetOpen()) closeSheet();
       else if (isFlying()) stopFly();
       else if (app.selected) clearSelection();
       return;
@@ -1210,6 +1302,7 @@ function wire() {
     if (e.key === 'f' && app.selected) startFly(app.selected);
     if (e.key === 't') toggleTerrain();
     if (e.key === '3') toggleTerrain();
+    if (e.key === 'z') toggleZen();
   });
 }
 

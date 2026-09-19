@@ -327,6 +327,67 @@ html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
 body.shell-off #shellOpen { opacity: 1; pointer-events: auto; transform: none; }
 body.is-booting #shellOpen { opacity: 0 !important; pointer-events: none; }
 
+/* The colour key, which only exists while the panel that normally carries it
+   is folded away. Sits directly under the way back in, so the key and the
+   switches that change it are in the same place. */
+#legend {
+  position: fixed; left: 10px; top: 108px; z-index: 15;
+  padding: 9px 12px 10px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--r-lg); backdrop-filter: blur(18px) saturate(1.3);
+  opacity: 0; pointer-events: none; transform: translateX(-10px);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+body.shell-off #legend { opacity: 1; transform: none; }
+body.is-booting #legend, body.zen #legend { opacity: 0 !important; }
+.lg-h {
+  margin: 0 0 6px; font-family: var(--mono); font-size: 8.5px;
+  letter-spacing: 0.19em; text-transform: uppercase; color: var(--ink-faint);
+}
+.lg-r {
+  display: flex; align-items: center; gap: 8px; margin: 0;
+  font-family: var(--mono); font-size: 10px; color: var(--ink-dim); line-height: 1.85;
+}
+.lg-dot {
+  width: 14px; height: 2.5px; border-radius: 2px; flex: none;
+  background: var(--sys-col); box-shadow: 0 0 7px var(--sys-col);
+}
+
+/* ── the interface, out of the way ────────────────────────────────────────
+   Everything this site draws sits on top of a map, and the map is the thing.
+   This takes the panels, the bar and the header off it in one gesture. The
+   chrome is faded and made inert rather than removed, so nothing re-lays-out
+   and coming back is the same animation in reverse. */
+body.zen :is(#hud, #shell, #shellOpen, #detail, #tlapse, #fly) {
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+}
+#zenOut {
+  position: fixed; z-index: 30; left: 50%; bottom: 22px; transform: translate(-50%, 14px);
+  display: flex; align-items: center; gap: 9px; height: 36px; padding: 0 14px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--r-lg); backdrop-filter: blur(18px) saturate(1.3);
+  color: var(--ink-dim); font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), color 0.2s;
+}
+#zenOut svg {
+  width: 14px; height: 14px; flex: none;
+  stroke: currentColor; fill: none; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+#zenOut kbd {
+  font-family: var(--mono); font-size: 9px; padding: 2px 5px;
+  border: 1px solid var(--line-2); border-radius: var(--r-sm); color: var(--ink-faint);
+}
+#zenOut:hover { color: var(--cyan); border-color: var(--line-2); }
+/* Present but faint, so it does not become a second piece of chrome; it comes
+   up to full on approach. */
+body.zen #zenOut { opacity: 0.45; pointer-events: auto; transform: translate(-50%, 0); }
+body.zen #zenOut:hover, body.zen #zenOut:focus-visible { opacity: 1; }
+body.is-booting #zenOut { opacity: 0 !important; pointer-events: none; }
+
 .card {
   background: var(--panel); border: 1px solid var(--line);
   border-radius: var(--r-lg); backdrop-filter: blur(18px) saturate(1.3);
@@ -430,6 +491,15 @@ body.tlapse-on #detail { bottom: 108px; }
 .tlx-play .i-pause { display: none; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; }
 #tlapse.playing .tlx-play .i-play { display: none; }
 #tlapse.playing .tlx-play .i-pause { display: block; }
+/* A run that has reached the end shows a rewind, because pressing play there
+   starts again from 1956 and the arrow alone implied it would carry on. */
+#tlapse .tlx-play .i-replay { display: none; }
+#tlapse.ended .tlx-play .i-play { display: none; }
+#tlapse.ended .tlx-play .i-replay { display: block; }
+#tlapse.ended .tlx-play {
+  color: var(--ink-dim); background: rgba(120, 170, 220, 0.07);
+}
+#tlapse.ended .tlx-play:hover { color: var(--cyan); background: rgba(53, 231, 255, 0.15); }
 
 .tlx-year {
   font-family: var(--mono); font-size: 27px; line-height: 1;
@@ -580,6 +650,17 @@ body.tlapse-on #detail { bottom: 108px; }
    in reappears. */
 .search .fold { position: absolute; right: 7px; top: 8px; width: 26px; height: 26px; }
 
+/* Says what the list is sorted by and what the right-hand number means, once,
+   instead of a unit repeated down three hundred rows. */
+.res-cols {
+  display: flex; align-items: baseline; gap: 8px; padding: 5px 13px 6px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.res-cols #resSort { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: help; }
+.res-cols-mi { flex: none; }
+
 .results { overflow-y: auto; flex: 1; min-height: 0; }
 .res-empty { padding: 26px 14px; text-align: center; color: var(--ink-faint); font-size: 12px; }
 
@@ -590,6 +671,13 @@ body.tlapse-on #detail { bottom: 108px; }
 }
 .res:hover, .res.cursor { background: rgba(120, 170, 220, 0.075); }
 .res.sel { background: rgba(53, 231, 255, 0.1); }
+/* Only when the row was scrolled to from the map, so the eye is told where in
+   a list of three hundred the thing it just clicked has turned up. */
+.res.just { animation: resJust 0.9s var(--ease); }
+@keyframes resJust {
+  0%, 30% { background: rgba(53, 231, 255, 0.34); }
+  100% { background: rgba(53, 231, 255, 0.1); }
+}
 
 /* Route shields, drawn in CSS to match the real signs. */
 /* Route markers size themselves to the number they carry. A fixed box suited
@@ -783,8 +871,31 @@ body.tlapse-on #detail { bottom: 108px; }
 .term-c { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); margin-top: 2px; }
 
 /* metric grid */
-.mgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
-.m { background: var(--panel-solid); padding: 11px 12px; }
+/* Six across two rows of three, until the length was lifted out of it; five is
+   an awkward number for three columns, so the track is six and the tiles claim
+   two each on the first row and three each on the second. Two rows, no hole. */
+.mgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); }
+.m { background: var(--panel-solid); padding: 11px 12px; grid-column: span 2; }
+.m:nth-child(4), .m:nth-child(5) { grid-column: span 3; }
+
+/* the length, given the weight it carries */
+.mhero {
+  background: var(--panel-solid); padding: 13px 14px 12px;
+  border-bottom: 1px solid var(--line);
+  background-image: radial-gradient(120% 140% at 0% 0%, rgba(53, 231, 255, 0.11), transparent 62%);
+}
+.mhero-v {
+  font-family: var(--mono); font-size: 30px; line-height: 1.05; color: var(--ink);
+  margin-top: 4px; letter-spacing: -0.035em;
+  text-shadow: 0 0 26px rgba(53, 231, 255, 0.22);
+}
+.mhero-v small {
+  font-size: 13px; color: var(--ink-faint); margin-left: 3px; letter-spacing: 0;
+}
+.mhero-s {
+  display: block; margin-top: 4px;
+  font-family: var(--mono); font-size: 10px; color: var(--ink-faint);
+}
 .m-k {
   font-family: var(--mono); font-size: 9px; letter-spacing: 0.13em;
   text-transform: uppercase; color: var(--ink-faint); display: block;

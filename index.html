@@ -115,6 +115,11 @@
     <button class="btn btn-ico" id="btnTerrain" type="button" data-i18n-title="base.tilt" title="3D tilt">
       <svg viewBox="0 0 24 24"><path d="M3 16l9-5 9 5-9 5z"/><path d="M12 11V4"/><path d="M9 6.5L12 4l3 2.5"/></svg>
     </button>
+    <!-- Everything here is in front of the map, and sometimes the map is what
+         you want. -->
+    <button class="btn btn-ico" id="btnZen" type="button" data-i18n-title="nav.zen" title="Hide the interface">
+      <svg viewBox="0 0 24 24"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></svg>
+    </button>
     <button class="btn" id="btnLang" type="button" data-i18n-title="nav.langTitle" title="Switch language">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.4 3 14.6 0 18M12 3c-3 3.4-3 14.6 0 18"/></svg>
       <span data-i18n="nav.lang">中文</span>
@@ -143,6 +148,13 @@
       <span class="sp"></span>
       <span class="sys-count" id="resCount"></span>
     </div>
+    <!-- The right-hand column was a bare number against every row, and the
+         order of an unsearched list was not stated anywhere. Both are said
+         once, here, rather than repeated down the list. -->
+    <div class="res-cols">
+      <span id="resSort"></span>
+      <span class="res-cols-mi" id="resColMi">Miles</span>
+    </div>
     <div class="results" id="results"></div>
   </section>
 
@@ -163,6 +175,18 @@
 <button id="shellOpen" type="button" title="Show route panel" aria-label="Show route panel">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
   <span class="so-txt" data-i18n="nav.findRoute">Find a route</span>
+</button>
+
+<!-- Only ever seen with the panel folded away, where it is the sole remaining
+     key to the line colours. -->
+<div id="legend" aria-hidden="true"></div>
+
+<!-- The way out of a hidden interface has to be part of the hidden interface's
+     replacement, or the only way back is a reload. -->
+<button id="zenOut" type="button" data-i18n-title="nav.zenOut" title="Show the interface">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H5.5A1.5 1.5 0 0 0 4 5.5V9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></svg>
+  <span data-i18n="nav.zenOut">Show the interface</span>
+  <kbd>Z</kbd>
 </button>
 
 <!-- ── route detail ─────────────────────────────────────────────────────── -->

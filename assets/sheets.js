@@ -551,7 +551,7 @@ function renderAbout() {
     <h4>The gaps are real</h4>
     <p>A number does not always have pavement under it for its whole length. Sometimes the road is filed under another classification, sometimes it runs concurrently under a different number, and sometimes — Highway 1 to Vancouver Island, Route 138 along the Lower North Shore — the route crosses water by ferry. None of that is drawn or counted, and the detail panel says how much is missing.</p>
     <h4>Keyboard</h4>
-    <p><b>/</b> or <b>Ctrl-K</b> command palette · <b>F</b> fly the selected route · <b>T</b> 3D terrain · <b>Esc</b> back out.</p>`;
+    <p><b>/</b> or <b>Ctrl-K</b> command palette · <b>F</b> fly the selected route · <b>T</b> 3D terrain · <b>Z</b> hide the interface · <b>Esc</b> back out.</p>`;
 
   const cn = `
     <p>本图谱绘制两个国家的全部编号公路：美国的州际公路、美国国道，以及 50 个州加哥伦比亚特区、波多黎各的州级公路网；加拿大的横加公路、加拿大交通部《国家公路系统》，以及全部编号的省级与地方公路。合计 ${num(app.index.length)} 条路线、${num(totalMi)} 英里制图里程，覆盖 ${juris} 个州、省与地区。</p>
@@ -566,7 +566,7 @@ function renderAbout() {
     <h4>断口是真实存在的</h4>
     <p>一个编号并不总能在全线都有路面对应。有时是路段在原始数据中被归入了其他分类，有时是与另一编号共线，有时——比如 1 号公路通往温哥华岛、138 号公路沿下北岸——则是要靠渡轮跨越水域。这些都不绘制、也不计入里程，详情面板会说明缺失了多少。</p>
     <h4>键盘快捷键</h4>
-    <p><b>/</b> 或 <b>Ctrl-K</b> 命令面板 · <b>F</b> 巡航所选路线 · <b>T</b> 三维地形 · <b>Esc</b> 返回。</p>`;
+    <p><b>/</b> 或 <b>Ctrl-K</b> 命令面板 · <b>F</b> 巡航所选路线 · <b>T</b> 三维地形 · <b>Z</b> 隐藏界面 · <b>Esc</b> 返回。</p>`;
 
   return frame('about.title', 'about.sub',
     `<div class="nb-note" style="max-width:74ch">${zh ? cn : en}</div>`);

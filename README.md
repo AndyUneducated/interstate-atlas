@@ -70,6 +70,7 @@ written record for the roads that have one.
 | **Elevation profiles** | Sampled from open terrain data for curated routes. |
 | **Trip planner** | Chain routes into an itinerary. |
 | **Command palette** | <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to reach any route, jurisdiction or view. |
+| **Map on its own** | <kbd>Z</kbd> fades every panel off the map and back again. |
 | **Bilingual** | Full English and 简体中文 parity, enforced by a build check. Quebec routes keep their official French names in both modes, with an English gloss. |
 
 ![Interstate 95 selected, with its termini, measured length and the figures the states reported](docs/img/detail.png)

@@ -524,6 +524,194 @@ await step('a route in a publishing province carries traffic', async () => {
 });
 await shot('16-ontario-401-traffic.png');
 
+await step('the length is the headline, not one tile of six', async () => {
+  // The panel's six equal tiles were levelled so that how long the road is sat
+  // in the same box as its tolled share. If the hero disappears the page has
+  // silently gone back to that, and the grid would also be left with five
+  // tiles in a layout built for six.
+  await page.keyboard.press('Escape');
+  await page.fill('#q', 'I-90');
+  await page.waitForTimeout(700);
+  await page.locator('#results .res').first().click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1600);
+
+  const hero = page.locator('#detail .mhero').first();
+  if (!await hero.count()) throw new Error('no headline length on the detail panel');
+  const mi = Number(((await hero.locator('.mhero-v').textContent()) || '')
+    .replace(/[^\d]/g, ''));
+  // I-90 is the longest Interstate, 3,020 miles by the Route Log.
+  if (!(mi > 2500 && mi < 3500)) throw new Error(`implausible headline length: ${mi}`);
+  // Kilometres beside it, because half this atlas is signed in them.
+  if (!/km/.test(await hero.locator('.mhero-s').textContent())) {
+    throw new Error('headline length gives no kilometres');
+  }
+  // The hero has to be visibly bigger than the tiles or it is not a hierarchy.
+  const sizes = await page.evaluate(() => [
+    parseFloat(getComputedStyle(document.querySelector('#detail .mhero-v')).fontSize),
+    parseFloat(getComputedStyle(document.querySelector('#detail .m-v')).fontSize),
+  ]);
+  if (!(sizes[0] > sizes[1] * 1.4)) {
+    throw new Error(`headline not dominant: ${sizes[0]}px vs ${sizes[1]}px`);
+  }
+  // Five tiles over two rows of a six-column track; a sixth would mean the
+  // length got put back into the grid as well as above it. Scoped to the first
+  // grid, because the elevation block further down the panel is another one.
+  const tiles = await page.locator('#detail .mgrid').first().locator('.m').count();
+  if (tiles !== 5) throw new Error(`expected 5 tiles beside the headline, got ${tiles}`);
+});
+
+await step('the list says how it is sorted and what its number is', async () => {
+  await page.keyboard.press('Escape');
+  await page.fill('#q', '');
+  await page.waitForTimeout(600);
+  const unsearched = await page.locator('#resSort').textContent();
+  if (!unsearched.trim()) throw new Error('unsearched list does not say how it is ordered');
+  // The right-hand column was a bare number with no unit anywhere on screen.
+  const col = await page.locator('#resColMi').textContent();
+  if (!col.trim()) throw new Error('the mileage column is unlabelled');
+  // And the explanation of what an unsearched list contains has to be reachable.
+  const why = await page.getAttribute('#resSort', 'title');
+  if (!why || why.length < 20) throw new Error('no explanation of the default list');
+
+  await page.fill('#q', 'I-5');
+  await page.waitForTimeout(700);
+  const searched = await page.locator('#resSort').textContent();
+  if (searched === unsearched) throw new Error('sort label does not change when searching');
+});
+
+await step('choosing a route on the map moves the list to it', async () => {
+  // The two halves of the screen used to disagree: the map drew the selection
+  // and the panel described it, while the list sat wherever it had been left.
+  await page.keyboard.press('Escape');
+  await page.fill('#q', '');
+  await page.waitForTimeout(800);
+  await page.locator('#results').evaluate((el) => { el.scrollTop = 0; });
+
+  // A route far enough down the unsearched list to be off-screen.
+  const target = await page.evaluate(() => {
+    const rows = [...document.querySelectorAll('#results .res')];
+    const host = document.getElementById('results');
+    const hit = rows.find((r) => r.offsetTop > host.clientHeight + 300);
+    return hit ? hit.querySelector('.res-name')?.textContent?.trim() : null;
+  });
+  if (!target) throw new Error('list too short to test scrolling');
+
+  await page.evaluate((label) => {
+    const row = [...document.querySelectorAll('#results .res')]
+      .find((r) => r.querySelector('.res-name')?.textContent?.trim() === label);
+    window.__select(row.dataset.id);
+  }, target);
+  await page.waitForTimeout(2200);
+
+  const visible = await page.evaluate(() => {
+    const sel = document.querySelector('#results .res.sel');
+    if (!sel) return 'none';
+    const host = document.getElementById('results');
+    const a = sel.getBoundingClientRect();
+    const b = host.getBoundingClientRect();
+    return a.top >= b.top - 2 && a.bottom <= b.bottom + 2 ? 'in view' : 'off screen';
+  });
+  if (visible !== 'in view') throw new Error(`selected row is ${visible} after a map pick`);
+});
+
+await step('folding the panel leaves a key to the colours', async () => {
+  // Collapsing took the system list away with it, and with it the only thing
+  // saying which colour is which on a map that is unlabelled when zoomed out.
+  await page.keyboard.press('Escape');
+  await page.click('#btnCollapse');
+  await page.waitForTimeout(900);
+  const legend = await page.evaluate(() => {
+    const el = document.getElementById('legend');
+    if (!el) return null;
+    return {
+      shown: Number(getComputedStyle(el).opacity) > 0.5,
+      rows: el.querySelectorAll('.lg-r').length,
+      on: document.querySelectorAll('#sysList .sys.on').length,
+      colours: [...el.querySelectorAll('.lg-dot')]
+        .map((d) => getComputedStyle(d).backgroundColor),
+    };
+  });
+  if (!legend) throw new Error('no legend element');
+  if (!legend.shown) throw new Error('legend not visible with the panel folded');
+  // A key to what is drawn, so it has to track the switches rather than list
+  // all six: by this point in the run earlier steps have turned several on.
+  if (legend.rows !== legend.on) {
+    throw new Error(`legend lists ${legend.rows} systems but ${legend.on} are drawn`);
+  }
+  if (!legend.rows) throw new Error('legend is empty with systems drawn');
+  if (new Set(legend.colours).size !== legend.rows) {
+    throw new Error('legend swatches share a colour');
+  }
+
+  await page.click('#shellOpen');
+  await page.waitForTimeout(800);
+  const after = await page.evaluate(() => Number(getComputedStyle(document.getElementById('legend')).opacity));
+  if (after > 0.5) throw new Error('legend still showing once the panel is back');
+});
+await shot('17-collapsed-legend.png');
+
+await step('the interface can be taken off the map and brought back', async () => {
+  await page.keyboard.press('z');
+  await page.waitForTimeout(900);
+  const hidden = await page.evaluate(() => ({
+    zen: document.body.classList.contains('zen'),
+    hud: Number(getComputedStyle(document.getElementById('hud')).opacity),
+    shell: Number(getComputedStyle(document.getElementById('shell')).opacity),
+    out: Number(getComputedStyle(document.getElementById('zenOut')).opacity),
+    // Hidden chrome must not still be catching clicks meant for the map.
+    clicks: getComputedStyle(document.getElementById('hud')).pointerEvents,
+  }));
+  if (!hidden.zen) throw new Error('z did not hide the interface');
+  if (hidden.hud > 0.05 || hidden.shell > 0.05) throw new Error('chrome still visible');
+  if (hidden.clicks !== 'none') throw new Error('hidden chrome still takes clicks');
+  if (hidden.out < 0.1) throw new Error('no way back from a hidden interface');
+});
+await shot('18-zen.png');
+
+await step('escape brings the interface back', async () => {
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(900);
+  const back = await page.evaluate(() => ({
+    zen: document.body.classList.contains('zen'),
+    hud: Number(getComputedStyle(document.getElementById('hud')).opacity),
+  }));
+  if (back.zen || back.hud < 0.9) throw new Error('escape did not restore the interface');
+});
+
+await step('the buildout run stops at the end rather than looping', async () => {
+  // It used to wrap straight back to an empty 1956 map, so a reader glancing
+  // away could not tell the start of a run from the end of one.
+  await page.click('#btnTimeline');
+  await page.waitForSelector('#tlxRange', { timeout: 15000 });
+  const max = Number(await page.getAttribute('#tlxRange', 'max'));
+  await page.evaluate((y) => {
+    const r = document.getElementById('tlxRange');
+    r.value = String(y);
+    r.dispatchEvent(new Event('input', { bubbles: true }));
+  }, max - 2);
+  await page.waitForTimeout(400);
+  await page.click('#tlxPlay');
+  await page.waitForTimeout(9000);
+
+  const end = await page.evaluate(() => ({
+    year: Number(document.querySelector('.tlx-year')?.textContent),
+    playing: document.getElementById('tlapse').classList.contains('playing'),
+    ended: document.getElementById('tlapse').classList.contains('ended'),
+  }));
+  if (end.year !== max) throw new Error(`run settled on ${end.year}, expected ${max}`);
+  if (end.playing) throw new Error('still playing past the end');
+  if (!end.ended) throw new Error('finished run does not offer to rewind');
+
+  // And the rewind has to actually rewind, or the control does nothing.
+  await page.click('#tlxPlay');
+  await page.waitForTimeout(700);
+  const year = await page.evaluate(() => Number(document.querySelector('.tlx-year')?.textContent));
+  if (year > 1962) throw new Error(`play on a finished run did not rewind, at ${year}`);
+  await page.click('#tlxClose');
+  await page.waitForTimeout(500);
+});
+
 console.log(`\nsteps failed:    ${failures}`);
 console.log(`console errors:  ${errors.length}`);
 for (const e of [...new Set(errors)].slice(0, 25)) console.log(`  ! ${e.slice(0, 300)}`);

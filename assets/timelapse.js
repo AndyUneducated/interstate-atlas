@@ -228,9 +228,17 @@ function paint() {
 function paintEvents(year) {
   const host = document.getElementById('tlxEvents');
   if (!host) return;
+  // Dragging the scrubber calls this on every pointer move, and rebuilding the
+  // same markup restarted the entrance animation on each one, so a slow drag
+  // across a year strobed. Only touch the DOM when what it would say changes -
+  // which includes the language, since these entries are written in both.
+  const lang = getLang();
+  const key = `${year}|${lang}`;
+  if (state.evKey === key) return;
+  state.evKey = key;
+
   const hits = state.events.filter((e) => e.year === year);
   if (!hits.length) { host.hidden = true; host.innerHTML = ''; return; }
-  const lang = getLang();
   host.hidden = false;
   host.innerHTML = hits.slice(0, 3).map((e) => `
     <div class="tlx-ev${e.system ? ' sys' : ''}">
@@ -241,7 +249,9 @@ function paintEvents(year) {
     + (hits.length > 3 ? `<p class="tlx-ev-more">${t('tlx.more', { n: hits.length - 3 })}</p>` : '');
 
   for (const b of host.querySelectorAll('[data-go]')) {
-    b.addEventListener('click', () => select(b.dataset.go));
+    // Opening the road an entry is about is an act of reading, and playback
+    // would otherwise carry on and take the entry off the screen mid-sentence.
+    b.addEventListener('click', () => { pause(); select(b.dataset.go); });
   }
 }
 
@@ -252,22 +262,54 @@ const labelOf = (id) => app.byId.get(id)?.label || id;
 
 function setYear(year) {
   state.year = Math.min(Math.max(Math.round(year), state.min), state.max);
+  // Scrubbing back off the end puts the control back into "play" rather than
+  // leaving it offering to rewind a run that is no longer at its end.
+  if (state.year < state.max) document.getElementById('tlapse')?.classList.remove('ended');
   paint();
 }
 
+/* A year of nothing much, a year a documented route opened, and a year with
+   something on the record are three different amounts of reading, and were
+   all given the same 460 ms. The events in particular were unreadable: the
+   panel carries several hundred sourced notes and playback flicked through
+   them faster than a sentence can be read, which made them decoration. */
+const STEP_MS = 420;
+const OPEN_MS = 820;
+const EVENT_MS = 2100;
+
+function dwell(year) {
+  if (state.events.some((e) => e.year === year)) return EVENT_MS;
+  if (state.routes.some((r) => r.year === year)) return OPEN_MS;
+  return STEP_MS;
+}
+
+/**
+ * Run the years forward, and stop at the end.
+ *
+ * This used to wrap straight back to 1956, which meant a reader who looked away
+ * came back to an empty map and no way to tell whether they were watching the
+ * start or the end of the run. It now finishes on the completed network and
+ * stays there, which is also the state worth leaving on screen. Pressing play
+ * on a finished run rewinds, so the control never does nothing.
+ */
 function play() {
   if (state.timer) return;
-  document.getElementById('tlapse').classList.add('playing');
-  state.timer = setInterval(() => {
-    let y = state.year + 1;
-    if (y > state.max) y = state.min;
-    setYear(y);
-  }, 460);
+  if (state.year >= state.max) setYear(state.min);
+  const el = document.getElementById('tlapse');
+  el.classList.add('playing');
+  el.classList.remove('ended');
+  const tick = () => {
+    if (!on) return;
+    setYear(state.year + 1);
+    if (state.year >= state.max) { pause(); el.classList.add('ended'); return; }
+    state.timer = setTimeout(tick, dwell(state.year));
+  };
+  state.timer = setTimeout(tick, dwell(state.year));
 }
 
 function pause() {
   if (!state.timer) return;
-  clearInterval(state.timer);
+  clearTimeout(state.timer);
   state.timer = null;
   document.getElementById('tlapse').classList.remove('playing');
 }
@@ -303,6 +345,7 @@ export async function openTimelapse() {
     max: Math.max(rows[rows.length - 1][0], routes[routes.length - 1].year),
     year: 0,
     timer: null,
+    evKey: null,
   };
   state.year = state.min;
 
@@ -366,6 +409,10 @@ function render() {
       <button class="tlx-play" id="tlxPlay" type="button" aria-label="${t('tl.play')}">
         <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5l12 7-12 7z"/></svg>
         <svg class="i-pause" viewBox="0 0 24 24"><path d="M9 5v14M16 5v14"/></svg>
+        <svg class="i-replay" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1"/><path d="M3.2 4.3v4.6h4.6"/>
+        </svg>
       </button>
       <b class="tlx-year">${min}</b>
     </div>

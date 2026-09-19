@@ -32,6 +32,10 @@ export const STRINGS = {
     'nav.langTitle': 'Switch language',
 
     'sys.title': 'Route systems',
+    'legend.title': 'On the map',
+    'nav.zen': 'Hide the interface — Z',
+    'nav.zenOut': 'Show the interface',
+    'toast.zen': 'Interface hidden — press Z or Escape to bring it back',
     'sys.country.us': 'United States',
     'sys.country.ca': 'Canada',
     'sys.interstate': 'Interstate Highways',
@@ -63,6 +67,11 @@ export const STRINGS = {
     'search.none': 'Nothing matches that.',
     'search.hint': 'Type a route number, a name, or a state.',
     'search.count': '{n} of {total} routes',
+    'search.colMi': 'Miles',
+    'search.sortLong': 'Longest first',
+    'search.sortLongWhy': 'With nothing typed, the list is every route in the systems you have switched on, longest first. Searching looks through all of them, switched on or not.',
+    'search.sortMatch': 'Closest match first',
+    'search.sortMatchWhy': 'An exact number comes first, then mainline routes ahead of their branches, then longer roads ahead of shorter ones.',
 
     'pal.placeholder': 'Jump to a route, a state, or a view…',
     'pal.routes': 'Routes',
@@ -175,6 +184,11 @@ export const STRINGS = {
     'search.written': 'Has a written route dossier',
     'len.official': 'Official length',
     'len.measured': 'Measured here',
+    // Captions for the headline figure. Short, because they sit under a very
+    // large number; the section further down gives both lengths and the gap.
+    'len.heroOfficial': 'official length',
+    'len.heroTiger': 'measured off the Census centreline',
+    'len.heroNrn': 'measured off the national road network',
     'len.measuredSrc': 'End-to-end along the mapped centreline, counting each carriageway once',
     'len.delta': 'Difference',
     // The usual reason the two disagree is a rule, not an error, and saying so
@@ -337,6 +351,10 @@ export const STRINGS = {
     'nav.langTitle': '切换语言',
 
     'sys.title': '路网系统',
+    'legend.title': '当前图层',
+    'nav.zen': '隐藏界面 — Z',
+    'nav.zenOut': '显示界面',
+    'toast.zen': '界面已隐藏 — 按 Z 或 Esc 键恢复',
     'sys.country.us': '美国',
     'sys.country.ca': '加拿大',
     'sys.interstate': '州际公路',
@@ -364,6 +382,11 @@ export const STRINGS = {
     'search.none': '没有匹配的路线。',
     'search.hint': '可输入公路编号、名称或州名。',
     'search.count': '{total} 条路线中的 {n} 条',
+    'search.colMi': '英里',
+    'search.sortLong': '按里程由长到短',
+    'search.sortLongWhy': '未输入内容时，列表显示已开启的路网系统中的全部路线，按里程由长到短排列。搜索则会检索所有路线，无论其所属系统是否开启。',
+    'search.sortMatch': '按匹配度排序',
+    'search.sortMatchWhy': '编号完全匹配的排在最前，其次是主线路线（优先于其支线），再次按里程由长到短。',
 
     'pal.placeholder': '跳转到路线、州或视图…',
     'pal.routes': '路线',
@@ -473,6 +496,9 @@ export const STRINGS = {
     'search.written': '已撰写详细介绍',
     'len.official': '官方里程',
     'len.measured': '本站实测',
+    'len.heroOfficial': '官方公布里程',
+    'len.heroTiger': '基于人口普查局路网中心线量得',
+    'len.heroNrn': '基于国家道路网数据量得',
     'len.measuredSrc': '沿地图中心线端到端量算，分向车道只计一次',
     'len.delta': '差值',
     'len.deltaWhy': '两条州际公路共用同一段路面时，官方名录只把这段里程记在其中一条名下，而端到端量算会为两条都计入。较小的差值属于测绘细节。此外，官方名录本身也有已知的疏漏。',

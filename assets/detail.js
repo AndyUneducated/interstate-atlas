@@ -109,6 +109,32 @@ function metric(key, value, sub, tip) {
 /** How much of the route a figure was measured over, as a badge not a clause. */
 const covBadge = (pct) => (pct != null && pct < 98 ? `${num(pct)}%` : null);
 
+const KM_PER_MI = 1.609344;
+
+/**
+ * The length, at the size it is actually read at.
+ *
+ * Six tiles of equal weight meant that how long the road is — the one figure
+ * almost everybody opens a highway page for — sat in the same box, in the same
+ * type, as what share of it is tolled. This lifts it out of the grid and the
+ * other five stay in it.
+ *
+ * The caption says which of the two lengths this is, because they differ and
+ * the page refuses to pretend otherwise; the provenance section below gives
+ * both and explains the gap. Kilometres sit beside the miles unconditionally:
+ * half this atlas is Canadian, where the road is signed and measured in them,
+ * and a Canadian reader should not have to convert the headline figure.
+ */
+function heroLength(p, officialMi, ca) {
+  const mi = officialMi ?? p.mi;
+  return `<div class="mhero">
+    <span class="m-k">${t('dt.length')}</span>
+    <div class="mhero-v">${num(mi)}<small>${t('unit.mi')}</small></div>
+    <span class="mhero-s">${num(Math.round(mi * KM_PER_MI))} km · ${
+  officialMi != null ? t('len.heroOfficial') : t(ca ? 'len.heroNrn' : 'len.heroTiger')}</span>
+  </div>`;
+}
+
 function compositionBlock(types) {
   const entries = Object.entries(types || {}).filter(([, v]) => v > 0.05).sort((a, b) => b[1] - a[1]);
   if (!entries.length) return '';
@@ -597,8 +623,9 @@ export async function renderDetail(id) {
         ${terminusRow('to', end, endCoord, dossier?.termini?.end, axis)}
       </div>
 
+      ${heroLength(p, officialMi, ca)}
+
       <div class="mgrid">
-        ${metric('dt.length', `${num(officialMi ?? p.mi)}<small>${t('unit.mi')}</small>`)}
         ${metric(ca ? 'dt.provinces' : 'dt.states', num(states.length))}
         ${metric('dt.straight', `${num(p.spanMi)}<small>${t('unit.mi')}</small>`)}
         ${metric('dt.gradeSep', `${num(p.gs, p.gs % 1 ? 1 : 0)}<small>%</small>`)}
