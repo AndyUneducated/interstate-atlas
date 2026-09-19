@@ -1,10 +1,14 @@
-// Downloads the upstream source data into tools/src/.
+// Downloads the US Census place gazetteer into tools/src/.
 //
 //   node tools/fetch-source.mjs
 //
-// These files total roughly 120 MB and are not committed. Both sources are
-// free of licence restrictions: Natural Earth is public domain and US Census
-// gazetteer files are US Government works.
+// About 6 MB, not committed, a US Government work and so free of licence
+// restriction. It is the name-and-coordinate list the build uses to say which
+// places a route passes through and where its ends are.
+//
+// This script used to pull Natural Earth's road and populated-place layers too.
+// TIGER/Line replaced them as the geometry source and nothing reads them now,
+// so they are no longer fetched.
 
 import { mkdir, writeFile, stat } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -14,12 +18,6 @@ import { pipeline } from 'node:stream/promises';
 import { createInflateRaw } from 'node:zlib';
 
 const SRC = join(import.meta.dirname, 'src');
-const NE = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/10m_cultural';
-
-const FILES = [
-  ...['shp', 'dbf', 'prj', 'cpg'].map((e) => ({ url: `${NE}/ne_10m_roads_north_america.${e}`, name: `ne_10m_roads_north_america.${e}` })),
-  ...['shp', 'dbf', 'prj'].map((e) => ({ url: `${NE}/ne_10m_populated_places.${e}`, name: `ne_10m_populated_places.${e}` })),
-];
 
 const GAZ = {
   url: 'https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2023_Gazetteer/2023_Gaz_place_national.zip',
@@ -30,21 +28,7 @@ async function exists(path) {
   try { await stat(path); return true; } catch { return false; }
 }
 
-async function download(url, dest) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText} for ${url}`);
-  await pipeline(Readable.fromWeb(res.body), createWriteStream(dest));
-}
-
 await mkdir(SRC, { recursive: true });
-
-for (const f of FILES) {
-  const dest = join(SRC, f.name);
-  if (await exists(dest)) { console.log(`have   ${f.name}`); continue; }
-  process.stdout.write(`fetch  ${f.name} ... `);
-  await download(f.url, dest);
-  console.log('ok');
-}
 
 const gazDest = join(SRC, GAZ.name);
 if (await exists(gazDest)) {

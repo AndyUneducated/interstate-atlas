@@ -11,8 +11,9 @@
 // The archives total about 1.5 GB because each one ships an English and a
 // French copy of the same shapefiles. Only the English road-segment layer is
 // extracted - the French route names are fields inside it, not a separate file
-// - so the archives are discarded once unpacked and the footprint on disk ends
-// up far smaller than the download.
+// - and the archive is deleted once unpacked. Shapefiles are uncompressed, so
+// what lands on disk is still far larger than what came down the wire: about
+// 5.4 GB, most of it Ontario, Quebec and Alberta.
 
 import { mkdir, writeFile, stat, rm, readFile } from 'node:fs/promises';
 import { join } from 'node:path';

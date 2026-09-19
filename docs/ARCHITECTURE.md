@@ -123,7 +123,7 @@ not a separate stage.
 
 | Script | Network | Reads | Writes |
 | --- | :---: | --- | --- |
-| `fetch-source.mjs` | ✅ | Census gazetteer archive, plus the Natural Earth files the pipeline used before TIGER/Line and no longer reads | `tools/src/` |
+| `fetch-source.mjs` | ✅ | Census gazetteer archive | `tools/src/` |
 | `fetch-fhwa.mjs` | ✅ | FHWA Route Log and Finder List pages | `content/reference/fhwa-mileage.json`, `fhwa-cost.json` |
 | `fetch-hpms.mjs` | ✅ | the HPMS query API, grouped and summed server-side | `content/reference/hpms.json` |
 | `fetch-canada.mjs` | ✅ | StatCan NRN, one archive per jurisdiction | `tools/src/ca/` |

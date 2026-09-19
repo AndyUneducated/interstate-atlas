@@ -38,7 +38,8 @@ written record for the roads that have one.
 [On accuracy](#on-accuracy) ·
 [Data sources](#data-sources) ·
 [Dependencies](#dependencies) ·
-[Building](#building)</sub>
+[Building](#building) ·
+[Second machine](#working-on-a-second-machine)</sub>
 
 <br/>
 
@@ -315,6 +316,39 @@ graph built from every road fragment in two countries, and takes tens of minutes
 no network once the sources are on disk, and given the same inputs it produces the same
 output. `tools/src/` (source downloads) and `tools/cache/` (terrain tiles) are gitignored;
 the first elevation run fetches a few thousand tiles and is slow, and reruns are cached.
+
+## Working on a second machine
+
+A fresh clone serves the site immediately — `data/` is committed — but cannot *rebuild*
+the data until the sources are back on disk. Two commands put them there:
+
+```sh
+npm run fetch      # Census gazetteer, FHWA Route Log, HPMS
+npm run fetch:ca   # StatCan NRN, Transport Canada NHS, provincial traffic
+```
+
+TIGER/Line is in neither: `tiger.mjs` downloads a state the first time the build reads
+one. Budget about 6 GB of disk and an afternoon.
+
+| Path | On disk | Comes from |
+| --- | --- | --- |
+| `tools/src/ca/` | ~5.4 GB | `fetch-canada.mjs` — a 1.5 GB download that inflates on unpacking, because shapefiles are uncompressed |
+| `tools/src/tiger/` | ~476 MB | the build itself, one state at a time |
+| `tools/src/2023_Gaz_place_national.txt` | 6 MB | `fetch-source.mjs` |
+| `tools/cache/` | ~96 MB | `build-elevation.mjs`, only if terrain profiles are rebuilt |
+
+Both fetchers are resumable — they skip whatever is already on disk and print what
+failed — so a dropped connection costs one re-run rather than the whole download.
+
+None of this is committed, and none of it can be: GitHub rejects any file over 100 MB
+and caps a single push at 2 GB, ten of these files are over 100 MB, and this repository
+is a Pages source, for which the recommended ceiling is 1 GB.
+
+Re-fetching reproduces the US data exactly, because `TIGER_YEAR` is pinned and the Census
+keeps past years. It does not reproduce the Canadian data exactly: StatCan publishes the
+current edition of each province at an address with no version in it, so a later fetch
+can return a newer road network and move the mileage. `tools/src/ca/editions.json`
+records which edition of each province produced the data now in `data/`.
 
 ## Repository layout
 
