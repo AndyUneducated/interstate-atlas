@@ -1270,15 +1270,32 @@ input[type="range"]::-moz-range-thumb {
    Flythrough
    ========================================================================== */
 
+/* Parked off the bottom of the screen until a flythrough fills it.
+   The offset has to clear the panel's own height plus the gap it sits above,
+   and the panel is empty until the first run - 28px of padding and border,
+   not the ~100px it becomes - so a percentage of its own height is not enough
+   on its own. It left a 7px strip of empty frame centred at the bottom of the
+   map, over the timeline and swallowing drags. Hence both: an offset that is
+   correct at any height, and opacity and visibility so that nothing shows
+   even if some future content makes the offset wrong again. */
 #fly {
-  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%) translateY(140%);
+  --fly-gap: 18px;
+  position: fixed; left: 50%; bottom: var(--fly-gap);
+  transform: translateX(-50%) translateY(calc(100% + var(--fly-gap)));
   z-index: 30; width: min(560px, calc(100vw - 24px));
   background: var(--panel); border: 1px solid var(--line-2); border-radius: var(--r-lg);
   backdrop-filter: blur(20px) saturate(1.3); padding: 13px 16px;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
-  transition: transform 0.5s var(--ease);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  /* Visibility flips only after the slide has finished, so leaving still reads
+     as leaving rather than as the panel blinking out. */
+  transition: transform 0.5s var(--ease), opacity 0.3s var(--ease), visibility 0s linear 0.5s;
 }
-#fly.on { transform: translateX(-50%); }
+#fly.on {
+  transform: translateX(-50%);
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transition: transform 0.5s var(--ease), opacity 0.3s var(--ease), visibility 0s;
+}
 .fly-top { display: flex; align-items: center; gap: 13px; }
 .fly-sh { flex: none; }
 .fly-txt { flex: 1; min-width: 0; }
@@ -1330,7 +1347,8 @@ input[type="range"]::-moz-range-thumb {
   #shell .card { border-radius: var(--r-lg) var(--r-lg) 0 0; }
   #detail { left: 0; right: 0; top: auto; bottom: 0; width: 100vw; height: 74vh; border-radius: var(--r-lg) var(--r-lg) 0 0; }
   #detail.hidden { transform: translateY(calc(100% + 14px)); }
-  #fly { bottom: 8px; }
+  /* Setting the gap rather than `bottom` keeps the parked offset in step. */
+  #fly { --fly-gap: 8px; }
   .hud-label { display: none; }
   .btn { padding: 0 9px; }
 }

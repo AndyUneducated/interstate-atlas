@@ -133,6 +133,39 @@ await step('results list populated', async () => {
   if (n < 10) throw new Error(`only ${n} results`);
 });
 
+await step('nothing is parked half on the screen', async () => {
+  // The flythrough panel hid itself by sliding down 140% of its own height,
+  // which is only enough once it has content in it. Empty, on a fresh load, it
+  // was 28px tall and the slide left a 7px strip of blank frame across the
+  // bottom of the map - above the timeline, and eating drags, because it also
+  // had no pointer-events guard. Anything held off-screen is checked here
+  // rather than only the one that broke.
+  const bad = await page.evaluate(() => {
+    const out = [];
+    for (const id of ['fly', 'toast', 'zenOut', 'detail', 'tlapse']) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const cs = getComputedStyle(el);
+      const hidden = cs.display === 'none' || cs.visibility === 'hidden'
+        || Number(cs.opacity) === 0;
+      if (hidden) continue;
+      const r = el.getBoundingClientRect();
+      if (!r.width || !r.height) continue;
+      // On screen at all is fine; straddling an edge is what is not.
+      const clipped = r.bottom > innerHeight + 0.5 || r.top < -0.5
+        || r.right > innerWidth + 0.5 || r.left < -0.5;
+      const onScreen = r.bottom > 0 && r.top < innerHeight;
+      if (clipped && onScreen) {
+        out.push(`#${id} straddles the viewport edge at `
+          + `${Math.round(r.x)},${Math.round(r.y)} ${Math.round(r.width)}x${Math.round(r.height)}`
+          + ` (viewport ${innerWidth}x${innerHeight}, pointer-events ${cs.pointerEvents})`);
+      }
+    }
+    return out;
+  });
+  if (bad.length) throw new Error(bad.join('; '));
+});
+
 await page.waitForTimeout(2500);
 await shot('01-overview.png');
 
