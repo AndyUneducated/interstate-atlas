@@ -3,15 +3,15 @@
  "agency": "SICT",
  "url": "https://www.datos.gob.mx/dataset/datos_viales",
  "downloaded": {
-  "survey": "https://www.datos.gob.mx/datastore/dump/4b293d4f-a82d-4deb-8f12-0af5591af1ec",
-  "panel": "https://www.datos.gob.mx/datastore/dump/31babb3f-449a-44b6-914a-3ec405d06adb",
-  "via": "portal"
+  "survey": "https://repodatos.atdt.gob.mx/api_update/secretaria_comunicaciones/datos_viales/datos_viales_2024.csv",
+  "panel": "https://repodatos.atdt.gob.mx/api_update/secretaria_comunicaciones/datos_viales/Datos_viales_2013_2024.csv",
+  "via": "publisher"
  },
  "licence": "Términos de Libre Uso MX",
- "citation": "Datos viales, SICT, https://www.datos.gob.mx/dataset/datos_viales, 2026-09-20",
+ "citation": "Datos viales, SICT, https://www.datos.gob.mx/dataset/datos_viales, 2026-09-22",
  "measure": "TDPA (tránsito diario promedio anual), equivalent to AADT",
  "method": "stations",
- "retrieved": "2026-09-20",
+ "retrieved": "2026-09-22",
  "updated": "2026-04-16",
  "coverageKm": 73000,
  "note": "Point counting stations on the paved national network, not sections. Figures are per station, at the kilometre post given; no route-level average is computed, because averaging points into a road means assuming the traffic on the pavement between them. The per-route block is a station count and the spread across those stations.",

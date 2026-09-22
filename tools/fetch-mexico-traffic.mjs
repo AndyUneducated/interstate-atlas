@@ -55,6 +55,7 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { normaliseRoute, state } from './mexico.mjs';
+import { decode, parseCsv } from './csv.mjs';
 
 const OUT = join('content', 'reference', 'mx-traffic.json');
 
@@ -90,46 +91,6 @@ const num = (v) => {
   const n = Number(String(v).replace(/[\s,]/g, ''));
   return Number.isFinite(n) ? n : null;
 };
-
-/**
- * Decode a CSV the publisher did not label.
- *
- * Latin-1 is common enough in Mexican government CSVs that assuming UTF-8 is
- * the classic way to lose every accent in the file, so the encoding is
- * established rather than declared: UTF-8 is tried strictly, and a file that
- * is not valid UTF-8 is read as Windows-1252, which is the superset of Latin-1
- * that Excel writes. Which one it turned out to be is recorded in the output.
- */
-function decode(buf) {
-  try {
-    return { text: new TextDecoder('utf-8', { fatal: true }).decode(buf).replace(/^\uFEFF/, ''), encoding: 'utf-8' };
-  } catch {
-    return { text: new TextDecoder('windows-1252').decode(buf), encoding: 'windows-1252' };
-  }
-}
-
-/** A CSV with quoted fields and CRLF line endings, as rows of strings. */
-function parseCsv(text) {
-  const rows = [];
-  let row = [];
-  let field = '';
-  let quoted = false;
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i];
-    if (quoted) {
-      if (c !== '"') field += c;
-      else if (text[i + 1] === '"') { field += '"'; i++; }
-      else quoted = false;
-    } else if (c === '"') quoted = true;
-    else if (c === ',') { row.push(field); field = ''; }
-    else if (c === '\n') { row.push(field); field = ''; if (row.some((v) => v !== '')) rows.push(row); row = []; }
-    else if (c !== '\r') field += c;
-  }
-  if (field !== '' || row.length) { row.push(field); if (row.some((v) => v !== '')) rows.push(row); }
-
-  const head = (rows.shift() ?? []).map((h) => h.trim().toLowerCase());
-  return rows.map((r) => Object.fromEntries(head.map((h, i) => [h, r[i] ?? ''])));
-}
 
 /**
  * The two resources the dataset publishes, as the portal currently lists them.
