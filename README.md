@@ -281,6 +281,10 @@ when the upstream sources change.
 | --- | --- | --- |
 | `npm run fetch` | downloads the Census gazetteer, the FHWA Route Log and HPMS | `tools/src/`, `content/reference/` |
 | `npm run fetch:ca` | downloads the StatCan NRN, the Transport Canada NHS and provincial traffic | `tools/src/ca/`, `content/reference/` |
+| `npm run fetch:qc` | scrapes the MTQ répertoire for autoroute opening years | `content/reference/qc-autoroutes.json` |
+| `npm run fetch:mx` | downloads the INEGI Red Nacional de Caminos and the SICT traffic panel | `tools/src/mx/`, `content/reference/` |
+| `npm run fetch:mx:check` | preflight only: what is reachable, how big, and whether it can resume | — |
+| `npm run fetch:all` | every acquisition step above, in order | all of the above |
 | `npm run build` | `build-data.mjs`, then `build-content.mjs` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/dossiers/`, `data/timeline.json` |
 | `npm run build:elevation` | samples terrain along curated routes | `data/elevation/` |
 | `npm run serve` | serves the repository on `http://localhost:8787` | — |
@@ -290,26 +294,17 @@ when the upstream sources change.
 ```sh
 npm install
 
-# acquire — slow, run rarely
-node tools/fetch-source.mjs      # Census gazetteer → tools/src/
-node tools/fetch-fhwa.mjs        # FHWA Route Log and cost tables → content/reference/
-node tools/fetch-hpms.mjs        # HPMS traffic and condition, grouped server-side
-node tools/fetch-canada.mjs      # StatCan NRN, 13 provinces and territories (~1.5 GB)
-node tools/fetch-canada-nhs.mjs  # Transport Canada NHS designations
-node tools/fetch-canada-traffic.mjs  # provincial traffic counts, 5 provinces
+npm run fetch:all       # acquire everything — slow, run rarely
+npm run build           # geometry and prose — deterministic, offline
+npm run build:elevation # optional: sample terrain along curated routes
 
-# TIGER/Line downloads itself on first build, per state, into tools/src/tiger/
-
-# build — deterministic, offline
-node tools/build-data.mjs        # geometry → data/geo/, index.json, stats.json
-node tools/build-content.mjs     # validate prose → data/dossiers/, timeline.json
-node tools/build-elevation.mjs   # sample terrain → data/elevation/
-
-# run and check
-node tools/serve.mjs             # http://localhost:8787
-node tools/check-i18n.mjs        # English/Chinese parity
-node tools/verify.mjs            # headless run-through, screenshots to tools/shots/
+npm run serve           # http://localhost:8787
+npm test                # i18n parity, then content validation
+npm run verify          # headless run-through against the served site
 ```
+
+TIGER/Line is the exception to `fetch:all`: it downloads itself per state on the first
+build, into `tools/src/tiger/`, so the first `npm run build` needs the network.
 
 `node tools/build-data.mjs` is much the slowest step — it is a shortest-path search over a
 graph built from every road fragment in two countries, and takes tens of minutes. It needs
