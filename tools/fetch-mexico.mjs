@@ -380,10 +380,23 @@ async function fetchLayer(layer, resource, check) {
   let downloaded = null;
   if (!(await exists(zip))) downloaded = await download(resource.url, zip, label, check);
 
-  process.stdout.write(`\r  ${label}  unpacking...                    `);
-  const entries = await listEntries(zip);
-  const wanted = entries.filter((e) => SHAPE_PARTS.test(e.name));
-  if (!wanted.some((e) => /\.shp$/i.test(e.name))) throw new Error(`no shapefile inside ${layer.key}.zip`);
+  // An archive that will not open is thrown away rather than kept. Where the
+  // server states no length there is nothing to check a transfer against, so
+  // a truncated file reaches this point looking finished; leaving it on disk
+  // would make every later run skip the download and fail here again, on the
+  // same broken bytes, forever.
+  let entries;
+  let wanted;
+  try {
+    process.stdout.write(`\r  ${label}  unpacking...                    `);
+    entries = await listEntries(zip);
+    wanted = entries.filter((e) => SHAPE_PARTS.test(e.name));
+    if (!wanted.some((e) => /\.shp$/i.test(e.name))) throw new Error(`no shapefile inside ${layer.key}.zip`);
+  } catch (e) {
+    await rm(zip, { force: true });
+    await log(`${label.trim()} unusable archive discarded: ${e.message}`);
+    throw new Error(`${e.message} - the archive was discarded; re-run to download it again`);
+  }
 
   // Everything is renamed to the layer key. The archives name their files for
   // the edition - rvrnc23gw one year, red_vial the next - so reading them back
