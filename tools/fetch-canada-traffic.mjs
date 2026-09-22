@@ -63,7 +63,7 @@ const OUT = join('content', 'reference', 'ca-traffic.json');
 // day - and rounding that to the nearest hundred reports an open highway as
 // carrying nobody. The territory publishes to the nearest ten, so that is what
 // it is kept at.
-const STEPS = { aadt: 100, truck: 0.1, speed: 1 };
+const STEPS = { aadt: 100, summer: 100, winter: 100, truck: 0.1, speed: 1 };
 
 const num = (v) => {
   if (v == null || v === '') return null;
@@ -145,26 +145,47 @@ const finish = (acc, opts) => Object.fromEntries(
 /**
  * A route's traffic over several years.
  *
- * Kept apart from Route because the two answer different questions and have
- * different denominators. Route describes one year in as much detail as the
- * province supplies; this describes one measure across years, weighted the
- * same way within each year so that the years are comparable with each other
- * even where coverage changed between them.
+ * Kept apart from Route because the two answer different questions. Route
+ * describes one year in as much detail as the province supplies; this
+ * describes one measure across years.
+ *
+ * Every point carries how many observations are behind it, because in a long
+ * series that is not a detail. Alberta's history runs from 1962, and the set
+ * of sites counted in 1962 is not the set counted in 2025: the early years
+ * are a handful of busy places and the later ones are the whole province. A
+ * mean over that reports Highway 2 as carrying 14,700 in 1962 and 7,100 in
+ * 1980, which is not a road that got quieter, it is a road that acquired
+ * rural counting sites. So the count travels with the figure, and where there
+ * are no lengths to weight by the figure is a median, which a shifting set of
+ * sites moves far less than it moves a mean.
+ *
+ * Where the province does publish lengths - Quebec, Prince Edward Island -
+ * the series is length-weighted, matching how that province's headline figure
+ * is built so the two are the same kind of number.
  */
 class Series {
-  constructor() { this.w = new Map(); this.d = new Map(); }
+  constructor() { this.byYear = new Map(); }
 
   add(year, value, weight = 1) {
     if (!year || value == null) return;
-    this.w.set(year, (this.w.get(year) ?? 0) + value * weight);
-    this.d.set(year, (this.d.get(year) ?? 0) + weight);
+    if (!this.byYear.has(year)) this.byYear.set(year, []);
+    this.byYear.get(year).push([value, weight]);
   }
 
-  finish(step = STEPS.aadt) {
+  finish({ step = STEPS.aadt, median = false } = {}) {
     const out = {};
-    for (const [year, w] of [...this.w].sort((a, b) => a[0] - b[0])) {
-      const d = this.d.get(year);
-      if (d) out[year] = Math.round((w / d) / step) * step;
+    for (const [year, points] of [...this.byYear].sort((a, b) => a[0] - b[0])) {
+      let v;
+      if (median) {
+        const s = points.map(([x]) => x).sort((a, b) => a - b);
+        const mid = s.length >> 1;
+        v = s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2;
+      } else {
+        const d = points.reduce((a, [, w]) => a + w, 0);
+        if (!d) continue;
+        v = points.reduce((a, [x, w]) => a + x * w, 0) / d;
+      }
+      out[year] = [points.length, Math.round(v / step) * step];
     }
     return Object.keys(out).length > 1 ? out : null;
   }
@@ -176,9 +197,9 @@ const trend = (acc, key) => {
 };
 
 /** Hangs each route's series off the route record the province already built. */
-function withTrend(routes, series, step) {
+function withTrend(routes, series, opts) {
   for (const [id, s] of series) {
-    const t = s.finish(step);
+    const t = s.finish(opts);
     if (t && routes[id]) routes[id].trend = t;
   }
   return routes;
@@ -195,9 +216,21 @@ const qcRoute = (rtss) => {
   return code > 0 && code < 1000 ? String(code) : null;
 };
 
+// Quebec publishes more than the one annual figure the atlas was reading.
+// Each section carries ten years of it, and three measures rather than one:
+// DJMA over the whole year, DJME over June to September and DJMH over
+// December to March. On a road into the Laurentians or along the Gaspé the
+// summer figure is the one that describes the traffic anybody experiences,
+// and the annual mean is the one that hides it - so both seasons are kept.
+const QC_YEARS = 10;
+
 async function quebec() {
-  const fields = ['rtss_debut', 'djma_annee_1', 'val_djma_annee_1', 'val_cam_annee_1'];
+  const fields = [
+    'rtss_debut', 'val_cam_annee_1', 'val_djme_annee_1', 'val_djmh_annee_1',
+    ...Array.from({ length: QC_YEARS }, (_, i) => [`djma_annee_${i + 1}`, `val_djma_annee_${i + 1}`]).flat(),
+  ];
   const acc = collect();
+  const series = new Map();
   let start = 0;
   const page = 5000;
 
@@ -223,8 +256,20 @@ async function quebec() {
       if (!(km > 0)) continue;
       into(acc, route).add(km, {
         aadt,
+        summer: num(f.properties.val_djme_annee_1),
+        winter: num(f.properties.val_djmh_annee_1),
         truck: num(f.properties.val_cam_annee_1),
       }, num(f.properties.djma_annee_1));
+
+      // The ten columns are positions, not years: each section states the year
+      // its own column one describes, and they do not all state the same one.
+      for (let i = 1; i <= QC_YEARS; i++) {
+        trend(series, route).add(
+          num(f.properties[`djma_annee_${i}`]),
+          num(f.properties[`val_djma_annee_${i}`]),
+          km,
+        );
+      }
     }
     if (feats.length < page) break;
     start += feats.length;
@@ -237,7 +282,15 @@ async function quebec() {
     licence: 'CC-BY 4.0',
     measure: 'DJMA (débit journalier moyen annuel)',
     method: 'weighted',
-    routes: finish(acc),
+    seasons: {
+      summer: 'DJME (débit journalier moyen estival), June to September',
+      winter: 'DJMH (débit journalier moyen hivernal), December to March',
+    },
+    note: 'Volumes are the total across both directions, as the ministry publishes '
+      + 'them. The ten-year series is built from each section\'s own year labels '
+      + 'rather than from the column positions, because the columns are positions '
+      + 'and sections were not all last counted in the same year.',
+    routes: withTrend(finish(acc), series),
   };
 }
 
@@ -294,6 +347,71 @@ async function ontario() {
 const AB_COL = { hwy: 1, suffix: 2, len: 10, waadt: 11, commercial: 18 };
 const AB_YEAR = 2025;
 
+/**
+ * Alberta's traffic volume history, 1962 to 2025.
+ *
+ * The longest series any jurisdiction in this atlas publishes, on either side
+ * of any border, and it is a formatted report rather than a table: title
+ * rows, a year row that does not line up with the columns it labels, and one
+ * row per counting site rather than per highway.
+ *
+ * Only columns the year row actually labels are read, and the label has to
+ * agree with the column's position - column k is year 1955 + k - so a layout
+ * that shifts fails loudly instead of moving six decades of traffic one year
+ * sideways.
+ *
+ * That rule also settles the first column, which is a trap. The workbook is
+ * titled 1962-2025 and there is an unlabelled AADT column sitting immediately
+ * before 1963, which invites reading it as 1962. It is not. 1963 carries 275
+ * values, 1964 carries 346, and the count climbs smoothly to about 6,950 by
+ * 2025 as the counting programme grew - while the unlabelled column carries
+ * 7,089 of the file's 7,094 rows, every site at once. It is a summary of each
+ * site rather than a year, the file does not say what it summarises, and
+ * reading it as 1962 would invent a year in which Alberta counted its whole
+ * network and then stopped. So the series here begins at 1963, despite the
+ * title on the cover.
+ *
+ * These are sites, not sections: there is no length in the file, so each
+ * point is a median across the sites counted on that highway that year. The
+ * headline Alberta figure is length-weighted and comes from a different
+ * collection, so the last point of the series is not the same measure.
+ */
+const AB_HISTORY = 'https://open.alberta.ca/dataset/38bf49b8-78fa-4480-8044-7635b252f13a'
+  + '/resource/042d5491-0f0f-4cf3-b9c8-85e7567318a4'
+  + '/download/tec-traffic-volume-history-complete.xlsx';
+const AB_HIST_COL = { hwy: 1, suffix: 2, first: 7 };
+const AB_EPOCH = 1955;
+
+async function albertaHistory() {
+  const [sheet] = await fetchWorkbook(AB_HISTORY);
+  const years = sheet.rows.find((r) => num(r[AB_HIST_COL.first + 1]) === AB_EPOCH + AB_HIST_COL.first + 1);
+  if (!years) throw new Error('no year row; the history layout has changed');
+
+  const dated = new Map();
+  for (let k = AB_HIST_COL.first; k < years.length; k++) {
+    const label = num(years[k]);
+    if (label == null) continue;
+    if (label !== AB_EPOCH + k) {
+      throw new Error(`year row says ${label} in column ${k}, expected ${AB_EPOCH + k}`);
+    }
+    dated.set(k, label);
+  }
+  if (dated.size < 50) throw new Error(`only ${dated.size} years labelled; expected the full history`);
+
+  const series = new Map();
+  for (const row of sheet.rows) {
+    const hwy = num(row[AB_HIST_COL.hwy]);
+    if (!hwy) continue;
+    const suffix = String(row[AB_HIST_COL.suffix] ?? '').trim();
+    const route = `${hwy}${/^[A-Za-z]$/.test(suffix) ? suffix.toUpperCase() : ''}`;
+    for (const [k, year] of dated) {
+      const aadt = num(row[k]);
+      if (aadt) trend(series, route).add(year, aadt);
+    }
+  }
+  return series;
+}
+
 async function alberta() {
   const url = 'https://open.alberta.ca/dataset/06a254aa-4cec-4d89-9d93-34845b4873f1'
     + '/resource/777c6e10-ce41-40c5-a3de-bf8af81626eb'
@@ -322,7 +440,17 @@ async function alberta() {
     licence: 'Open Government Licence – Alberta',
     measure: 'WAADT (weighted annual average daily traffic)',
     method: 'weighted',
-    routes: finish(acc),
+    trendFrom: 'Traffic volume history, a separate collection of counting sites with '
+      + 'no section lengths. The workbook is titled 1962-2025 but only labels its '
+      + 'columns from 1963, and the unlabelled column before them holds a value for '
+      + 'almost every site in the file rather than for the few counted that early, '
+      + 'so it is a per-site summary and is not read as a year. Each point is the '
+      + 'median across the sites '
+      + 'counted on that highway that year, with the number of them, because the '
+      + 'set of sites grew enormously over the period and a mean would read that '
+      + 'growth as a change in traffic. The last point is not the length-weighted '
+      + 'figure above and will not equal it.',
+    routes: withTrend(finish(acc), await albertaHistory(), { median: true }),
   };
 }
 
@@ -599,7 +727,7 @@ async function northwestTerritories() {
       + 'ferry movements and weigh scales. Shown as the estimate it is published as, '
       + 'and not weighted by length, which the table does not carry.',
     highways: Object.fromEntries(described),
-    routes: withTrend(finish(acc, { weighted: false, steps: NT_STEPS }), series, NT_STEPS.aadt),
+    routes: withTrend(finish(acc, { weighted: false, steps: NT_STEPS }), series, { step: NT_STEPS.aadt }),
   };
 }
 
