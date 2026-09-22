@@ -36,9 +36,10 @@
 // The shape of the source
 // ───────────────────────
 // One PDF per federal entity, thirty-two of them, plus an introduction volume
-// and a volume of permanent-count-station volumes that this script does not
-// read. Each state volume opens with an index that groups the state's highways
-// under headings and gives each one an official key:
+// and one further volume that this script does not read - the permanent
+// counting stations in the 2024 edition, the toll plazas in the 2025 one.
+// Each state volume opens with an index that groups the state's highways under
+// headings and gives each one an official key:
 //
 //   RED FEDERAL LIBRE                                    free federal
 //   RED FEDERAL DE CUOTA                                 tolled federal
@@ -93,11 +94,17 @@ const PAGE = `${SITE}/index.php/infraestructura/direccion-general-de-servicios-t
 const SRC = join(import.meta.dirname, 'src', 'mx', 'dv');
 const OUT = join('content', 'reference', 'mx-designations.json');
 
-// The heading row that marks an index page, and the cell that marks a column.
-const INDEX_HEAD = /NO\.?\s*INDICE\s*CARRETERA/i;
+// The heading that marks an index page and opens a column. Only the "NO.
+// INDICE" half is matched: the 2024 edition sets the whole heading as one run
+// of text, and the 2025 edition splits "CARRETERA" into a run of its own, so
+// requiring both would see no index at all in the newer volumes.
+const INDEX_HEAD = /^NO\.?\s*INDICE/i;
 const RUTA_HEAD = /^RUTA$/i;
-// The running footer, which every page of every volume carries.
-const FOOTER = /^Índice$/i;
+// Page furniture: a row made of nothing but page numbers and the word Índice.
+// Recognised by content rather than by position, because the 2024 volumes
+// carry the word and the 2025 volumes carry only the number. A real road row
+// always has a name, so this cannot swallow one.
+const FURNITURE = /^(?:Índice|\d+)(?:\s+(?:Índice|\d+))*$/i;
 // Headings arrive wrapped in dashes: ---RED ESTATAL LIBRE---
 const SECTION = /^-{2,}\s*(.+?)\s*-{2,}$/;
 
@@ -179,29 +186,60 @@ function readKey(ruta) {
   };
 }
 
-/** The state volumes the edition's landing page currently lists. */
+/**
+ * The state volumes one edition's landing page lists.
+ *
+ * The filenames are not parsed against a pattern, because the publisher
+ * changes it: the 2024 edition names its volumes `30_VER_DV2024.pdf` and the
+ * 2025 edition names the same state `30_DV2025_Veracruz.pdf` - abbreviation
+ * swapped for the spelled-out name and the order reversed. So only the two
+ * things that have stayed put are relied on, the two-digit INEGI key that
+ * starts the filename and the DVyyyy token somewhere inside it, and whatever
+ * else is in there is carried along as a label.
+ */
 async function resolveVolumes(year) {
   const res = await fetch(`${PAGE}/${year}`);
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} from the Datos Viales ${year} page`);
   const html = await res.text();
 
   const found = new Map();
-  for (const m of html.matchAll(/["']([^"']*Datos_Viales_\d{4}\/(\d{2})_([A-Za-z]+)_DV(\d{4})\.pdf)["']/g)) {
-    const [, href, key, abbr, edition] = m;
-    // 00 is the introduction and 33 the permanent-count-station volume;
-    // neither is a federal entity and neither carries a highway index.
+  for (const m of html.matchAll(/["']([^"']*Datos_Viales_(\d{4})\/(\d{2})_([^"'/]+?)\.pdf)["']/gi)) {
+    const [, href, folder, key, tail] = m;
+    // 00 is the introduction, and 33 is a volume of its own that has been the
+    // permanent counting stations in one edition and the toll plazas in the
+    // next. Neither is a federal entity and neither carries a highway index.
     const st = state(key);
     if (!st || st.code === 'FED') continue;
+    const edition = Number(/DV(\d{4})/i.exec(tail)?.[1] ?? folder);
+    const label = tail.replace(/_?DV\d{4}_?/i, '') || key;
     found.set(key, {
       key,
       state: st,
-      abbr,
-      edition: Number(edition),
+      label,
+      edition,
       url: href.startsWith('http') ? href : `${SITE}${href.startsWith('/') ? '' : '/'}${href}`,
-      file: join(SRC, `${key}_${abbr}_DV${edition}.pdf`),
+      file: join(SRC, `${key}_${label}_DV${edition}.pdf`),
     });
   }
   return [...found.values()].sort((a, b) => a.key.localeCompare(b.key));
+}
+
+/**
+ * The most recent edition on the site.
+ *
+ * Found by asking rather than by being told, so that the next December's
+ * publication is picked up without an edit. Walks back from this year because
+ * an edition is named for the year it is published in, not the year it counts
+ * traffic for, so the current year's volume may not exist yet.
+ */
+async function latestEdition(from) {
+  for (let year = from; year >= 2024; year--) {
+    try {
+      const volumes = await resolveVolumes(year);
+      if (volumes.length) return { year, volumes };
+    } catch { /* that edition is not published under this path */ }
+  }
+  throw new Error('no Datos Viales edition could be resolved');
 }
 
 /** The volume on disk, downloaded if it is not there yet. */
@@ -250,22 +288,13 @@ async function readIndexPage(page) {
   }
 
   const headY = Math.max(...heads.map((h) => h.y));
-
-  // Page furniture. Every page of the volume carries the running footer
-  // "Índice" and the publication's own page number, on one baseline below the
-  // body. Located by that word rather than by a height threshold, so a volume
-  // typeset with different margins does not start swallowing real rows.
-  const footY = Math.min(...items.filter((it) => FOOTER.test(it.text) && it.y < headY)
-    .map((it) => it.y), Infinity);
-
   const rows = [];
   for (const col of bounds) {
     const byRow = new Map();
     for (const it of items) {
       // Above the heading is the running title; the heading row itself is not
-      // data; below the body is the running footer.
+      // data. The running footer is dropped below, by what it says.
       if (it.y >= headY - ROW_TOLERANCE) continue;
-      if (Math.abs(it.y - footY) <= ROW_TOLERANCE) continue;
       if (it.x < col.from || it.x >= col.to) continue;
       const key = [...byRow.keys()].find((y) => Math.abs(y - it.y) <= ROW_TOLERANCE) ?? it.y;
       (byRow.get(key) ?? byRow.set(key, []).get(key)).push(it);
@@ -301,6 +330,7 @@ async function readVolume(vol, data) {
 
     for (const { cells, ruta } of rows) {
       const joined = cells.map((c) => c.text).join(' ').replace(/\s+/g, ' ').trim();
+      if (FURNITURE.test(joined)) continue;
       const head = SECTION.exec(joined);
       if (head) {
         section = { title: head[1], ...readSection(head[1]) };
@@ -332,9 +362,12 @@ const tally = (roads) => {
 
 async function main() {
   const check = process.argv.includes('--check');
-  const year = Number(process.argv.find((a) => /^\d{4}$/.test(a)) ?? 2024);
+  const asked = Number(process.argv.find((a) => /^\d{4}$/.test(a)));
 
-  const volumes = await resolveVolumes(year);
+  const { year, volumes } = asked
+    ? { year: asked, volumes: await resolveVolumes(asked) }
+    : await latestEdition(new Date().getUTCFullYear());
+
   console.log(`SICT Datos Viales ${year}: ${volumes.length} state volumes listed\n`);
   if (volumes.length !== 32) {
     console.log(`  note: 32 federal entities expected, ${volumes.length} found\n`);
@@ -426,7 +459,8 @@ async function main() {
     edition: year,
     retrieved,
     read: 'The highway index at the front of each state volume. The traffic tables '
-      + 'and the permanent-count-station volume are not read here.',
+      + 'inside the volumes, and the separate volume published alongside them, are '
+      + 'not read here.',
     coverageKm: 73000,
     purpose: 'An independent statement of which Mexican highways carry a route '
       + 'designation, against which the Red Nacional de Caminos CODIGO column can '
@@ -451,9 +485,13 @@ async function main() {
         sample: unparsed.slice(0, 40),
       },
       unrecognisedSections: Object.fromEntries(unrecognised),
-      alsoPublished: 'The same edition includes an introduction volume and a volume of '
-        + 'traffic volumes recorded at permanent counting stations, neither of which '
-        + 'is read by this script.',
+      alsoPublished: 'Each edition includes an introduction volume and one further '
+        + 'volume, neither read by this script: traffic recorded at the permanent '
+        + 'counting stations in the 2024 edition, the toll plazas in the 2025 one.',
+      editionYear: 'Editions are named for the year they are published in, not the '
+        + 'year they describe, and the designations here are those the named edition '
+        + 'lists. Anything joining this to the traffic release should establish the '
+        + 'data year from the publisher rather than from the edition number.',
     },
     finding: {
       statesWithNumberedStateRoutes: numberedStates,

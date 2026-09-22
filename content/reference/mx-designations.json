@@ -1,19 +1,19 @@
 {
- "source": "Secretaría de Infraestructura, Comunicaciones y Transportes (SICT), Dirección General de Servicios Técnicos, Datos Viales 2024",
+ "source": "Secretaría de Infraestructura, Comunicaciones y Transportes (SICT), Dirección General de Servicios Técnicos, Datos Viales 2025",
  "agency": "SICT",
- "url": "https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2024",
+ "url": "https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2025",
  "licence": null,
  "licenceNote": "No licence statement appears on the per-state PDFs or on the page listing them. The Datos Viales traffic release on datos.gob.mx carries Términos de Libre Uso MX; whether it extends to these volumes is not stated.",
- "citation": "Datos Viales 2024, SICT, https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2024, 2026-09-22",
- "edition": 2024,
+ "citation": "Datos Viales 2025, SICT, https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2025, 2026-09-22",
+ "edition": 2025,
  "retrieved": "2026-09-22",
- "read": "The highway index at the front of each state volume. The traffic tables and the permanent-count-station volume are not read here.",
+ "read": "The highway index at the front of each state volume. The traffic tables inside the volumes, and the separate volume published alongside them, are not read here.",
  "coverageKm": 73000,
  "purpose": "An independent statement of which Mexican highways carry a route designation, against which the Red Nacional de Caminos CODIGO column can be checked. Read for designations only; lengths and geometry stay with the RNC.",
  "limitations": {
   "notAnInventory": "Datos Viales covers the network SICT surveys traffic on, about 73,000 km. A highway absent from it is not thereby undesignated, so this source can confirm that a number exists but cannot prove that none does.",
   "sharedKeys": {
-   "rows": 100,
+   "rows": 107,
    "note": "Keys naming more than one jurisdiction without a number for each, such as MEX-OAX-161. The source does not say which prefix the number belongs to, so these are flagged rather than resolved."
   },
   "unparsedRows": {
@@ -23,13 +23,14 @@
    "sample": []
   },
   "unrecognisedSections": {},
-  "alsoPublished": "The same edition includes an introduction volume and a volume of traffic volumes recorded at permanent counting stations, neither of which is read by this script."
+  "alsoPublished": "Each edition includes an introduction volume and one further volume, neither read by this script: traffic recorded at the permanent counting stations in the 2024 edition, the toll plazas in the 2025 one.",
+  "editionYear": "Editions are named for the year they are published in, not the year they describe, and the designations here are those the named edition lists. Anything joining this to the traffic release should establish the data year from the publisher rather than from the edition number."
  },
  "finding": {
   "statesWithNumberedStateRoutes": 28,
   "statesTotal": 32,
-  "stateTierRoads": 704,
-  "stateTierNumbered": 240,
+  "stateTierRoads": 711,
+  "stateTierNumbered": 243,
   "note": "Where this source and the Red Nacional de Caminos agree that a state highway carries no number, two agencies working from different methods say the same thing, and the absence of a number is a fact about the road rather than a gap in the data."
  },
  "fields": [
@@ -46,22 +47,22 @@
   "10": {
    "state": "Durango",
    "code": "DUR",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/10_DGO_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/10_DV2025_Durango.pdf",
    "pages": 34,
    "indexPages": 1,
    "roads": 41,
-   "numbered": 35,
-   "unnumbered": 6,
+   "numbered": 38,
+   "unnumbered": 3,
    "byJuris": {
     "federal": {
      "roads": 29,
-     "numbered": 27,
-     "unnumbered": 2
+     "numbered": 28,
+     "unnumbered": 1
     },
     "state": {
      "roads": 12,
-     "numbered": 8,
-     "unnumbered": 4
+     "numbered": 10,
+     "unnumbered": 2
     }
    },
    "unparsedRows": 0
@@ -69,22 +70,22 @@
   "11": {
    "state": "Guanajuato",
    "code": "GUA",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/11_GTO_DV2024.pdf",
-   "pages": 50,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/11_DV2025_Guanajuato.pdf",
+   "pages": 52,
    "indexPages": 1,
-   "roads": 61,
-   "numbered": 42,
-   "unnumbered": 19,
+   "roads": 62,
+   "numbered": 41,
+   "unnumbered": 21,
    "byJuris": {
     "federal": {
-     "roads": 35,
-     "numbered": 35,
+     "roads": 34,
+     "numbered": 34,
      "unnumbered": 0
     },
     "state": {
-     "roads": 22,
+     "roads": 24,
      "numbered": 3,
-     "unnumbered": 19
+     "unnumbered": 21
     },
     "mixed": {
      "roads": 4,
@@ -97,16 +98,16 @@
   "12": {
    "state": "Guerrero",
    "code": "GRO",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/12_GRO_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/12_DV2025_Guerrero.pdf",
    "pages": 32,
    "indexPages": 1,
-   "roads": 35,
-   "numbered": 26,
+   "roads": 36,
+   "numbered": 27,
    "unnumbered": 9,
    "byJuris": {
     "federal": {
-     "roads": 24,
-     "numbered": 24,
+     "roads": 25,
+     "numbered": 25,
      "unnumbered": 0
     },
     "state": {
@@ -125,22 +126,22 @@
   "13": {
    "state": "Hidalgo",
    "code": "HID",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/13_HGO_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/13_DV2025_Hidalgo.pdf",
    "pages": 38,
    "indexPages": 1,
    "roads": 40,
-   "numbered": 24,
-   "unnumbered": 16,
+   "numbered": 23,
+   "unnumbered": 17,
    "byJuris": {
     "federal": {
-     "roads": 19,
-     "numbered": 18,
+     "roads": 18,
+     "numbered": 17,
      "unnumbered": 1
     },
     "state": {
-     "roads": 20,
+     "roads": 21,
      "numbered": 6,
-     "unnumbered": 14
+     "unnumbered": 15
     },
     "mixed": {
      "roads": 1,
@@ -153,17 +154,17 @@
   "14": {
    "state": "Jalisco",
    "code": "JAL",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/14_JAL_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/14_DV2025_Jalisco.pdf",
    "pages": 58,
    "indexPages": 1,
-   "roads": 68,
-   "numbered": 48,
-   "unnumbered": 20,
+   "roads": 69,
+   "numbered": 51,
+   "unnumbered": 18,
    "byJuris": {
     "federal": {
-     "roads": 39,
-     "numbered": 38,
-     "unnumbered": 1
+     "roads": 41,
+     "numbered": 41,
+     "unnumbered": 0
     },
     "state": {
      "roads": 26,
@@ -171,9 +172,9 @@
      "unnumbered": 18
     },
     "mixed": {
-     "roads": 3,
+     "roads": 2,
      "numbered": 2,
-     "unnumbered": 1
+     "unnumbered": 0
     }
    },
    "unparsedRows": 0
@@ -181,22 +182,22 @@
   "15": {
    "state": "México",
    "code": "MEX",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/15_MEX_DV2024.pdf",
-   "pages": 94,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/15_DV2025_Mexico.pdf",
+   "pages": 96,
    "indexPages": 1,
-   "roads": 120,
-   "numbered": 70,
-   "unnumbered": 50,
+   "roads": 122,
+   "numbered": 76,
+   "unnumbered": 46,
    "byJuris": {
     "federal": {
-     "roads": 34,
-     "numbered": 29,
-     "unnumbered": 5
+     "roads": 35,
+     "numbered": 35,
+     "unnumbered": 0
     },
     "state": {
-     "roads": 80,
+     "roads": 81,
      "numbered": 36,
-     "unnumbered": 44
+     "unnumbered": 45
     },
     "mixed": {
      "roads": 6,
@@ -209,8 +210,8 @@
   "16": {
    "state": "Michoacán",
    "code": "MIC",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/16_MICH_DV2024.pdf",
-   "pages": 52,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/16_DV2025_Michoacan.pdf",
+   "pages": 54,
    "indexPages": 1,
    "roads": 63,
    "numbered": 38,
@@ -237,7 +238,7 @@
   "17": {
    "state": "Morelos",
    "code": "MOR",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/17_MOR_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/17_DV2025_Morelos.pdf",
    "pages": 42,
    "indexPages": 1,
    "roads": 49,
@@ -265,8 +266,8 @@
   "18": {
    "state": "Nayarit",
    "code": "NAY",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/18_NAY_DV2024.pdf",
-   "pages": 30,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/18_DV2025_Nayarit.pdf",
+   "pages": 32,
    "indexPages": 1,
    "roads": 38,
    "numbered": 30,
@@ -293,7 +294,7 @@
   "19": {
    "state": "Nuevo León",
    "code": "NLE",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/19_NL_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/19_DV2025_Nuevo_Leon.pdf",
    "pages": 40,
    "indexPages": 1,
    "roads": 52,
@@ -316,8 +317,8 @@
   "20": {
    "state": "Oaxaca",
    "code": "OAX",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/20_OAX_DV2024.pdf",
-   "pages": 40,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/20_DV2025_Oaxaca.pdf",
+   "pages": 36,
    "indexPages": 1,
    "roads": 41,
    "numbered": 32,
@@ -344,22 +345,22 @@
   "21": {
    "state": "Puebla",
    "code": "PUE",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/21_PUE_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/21_DV2025_Puebla.pdf",
    "pages": 50,
    "indexPages": 1,
    "roads": 52,
-   "numbered": 34,
-   "unnumbered": 18,
+   "numbered": 33,
+   "unnumbered": 19,
    "byJuris": {
     "federal": {
-     "roads": 30,
-     "numbered": 30,
+     "roads": 29,
+     "numbered": 29,
      "unnumbered": 0
     },
     "state": {
-     "roads": 19,
+     "roads": 20,
      "numbered": 1,
-     "unnumbered": 18
+     "unnumbered": 19
     },
     "mixed": {
      "roads": 3,
@@ -372,8 +373,8 @@
   "22": {
    "state": "Querétaro",
    "code": "QUE",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/22_QRO_DV2024.pdf",
-   "pages": 32,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/22_DV2025_Queretaro.pdf",
+   "pages": 34,
    "indexPages": 1,
    "roads": 32,
    "numbered": 18,
@@ -400,7 +401,7 @@
   "23": {
    "state": "Quintana Roo",
    "code": "ROO",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/23_QR_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/23_DV2025_Quintana_Roo.pdf",
    "pages": 30,
    "indexPages": 1,
    "roads": 35,
@@ -428,7 +429,7 @@
   "24": {
    "state": "San Luis Potosí",
    "code": "SLP",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/24_SLP_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/24_DV2025_San_Luis_Potosi.pdf",
    "pages": 40,
    "indexPages": 1,
    "roads": 49,
@@ -456,8 +457,8 @@
   "25": {
    "state": "Sinaloa",
    "code": "SIN",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/25_SIN_DV2024.pdf",
-   "pages": 32,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/25_DV2025_Sinaloa.pdf",
+   "pages": 34,
    "indexPages": 1,
    "roads": 37,
    "numbered": 34,
@@ -479,16 +480,16 @@
   "26": {
    "state": "Sonora",
    "code": "SON",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/26_SON_DV2024.pdf",
-   "pages": 32,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/26_DV2025_Sonora.pdf",
+   "pages": 30,
    "indexPages": 1,
-   "roads": 38,
-   "numbered": 34,
+   "roads": 37,
+   "numbered": 33,
    "unnumbered": 4,
    "byJuris": {
     "federal": {
-     "roads": 20,
-     "numbered": 20,
+     "roads": 19,
+     "numbered": 19,
      "unnumbered": 0
     },
     "state": {
@@ -507,7 +508,7 @@
   "27": {
    "state": "Tabasco",
    "code": "TAB",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/27_TAB_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/27_DV2025_Tabasco.pdf",
    "pages": 38,
    "indexPages": 1,
    "roads": 47,
@@ -530,11 +531,11 @@
   "28": {
    "state": "Tamaulipas",
    "code": "TAM",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/28_TAMPS_DV2024.pdf",
-   "pages": 46,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/28_DV2025_Tamaulipas.pdf",
+   "pages": 48,
    "indexPages": 1,
-   "roads": 64,
-   "numbered": 45,
+   "roads": 65,
+   "numbered": 46,
    "unnumbered": 19,
    "byJuris": {
     "federal": {
@@ -548,8 +549,8 @@
      "unnumbered": 15
     },
     "mixed": {
-     "roads": 1,
-     "numbered": 1,
+     "roads": 2,
+     "numbered": 2,
      "unnumbered": 0
     }
    },
@@ -558,22 +559,22 @@
   "29": {
    "state": "Tlaxcala",
    "code": "TLA",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/29_TLAX_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/29_DV2025_Tlaxcala.pdf",
    "pages": 32,
    "indexPages": 1,
    "roads": 32,
-   "numbered": 25,
-   "unnumbered": 7,
+   "numbered": 24,
+   "unnumbered": 8,
    "byJuris": {
     "federal": {
-     "roads": 23,
-     "numbered": 23,
+     "roads": 22,
+     "numbered": 22,
      "unnumbered": 0
     },
     "state": {
-     "roads": 5,
+     "roads": 6,
      "numbered": 0,
-     "unnumbered": 5
+     "unnumbered": 6
     },
     "mixed": {
      "roads": 4,
@@ -586,7 +587,7 @@
   "30": {
    "state": "Veracruz",
    "code": "VER",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/30_VER_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/30_DV2025_Veracruz.pdf",
    "pages": 72,
    "indexPages": 1,
    "roads": 94,
@@ -614,8 +615,8 @@
   "31": {
    "state": "Yucatán",
    "code": "YUC",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/31_YUC_DV2024.pdf",
-   "pages": 48,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/31_DV2025_Yucatan.pdf",
+   "pages": 46,
    "indexPages": 1,
    "roads": 64,
    "numbered": 33,
@@ -642,7 +643,7 @@
   "32": {
    "state": "Zacatecas",
    "code": "ZAC",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/32_ZAC_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/32_DV2025_Zacatecas.pdf",
    "pages": 38,
    "indexPages": 1,
    "roads": 47,
@@ -655,14 +656,9 @@
      "unnumbered": 0
     },
     "state": {
-     "roads": 15,
+     "roads": 16,
      "numbered": 4,
-     "unnumbered": 11
-    },
-    "mixed": {
-     "roads": 1,
-     "numbered": 0,
-     "unnumbered": 1
+     "unnumbered": 12
     }
    },
    "unparsedRows": 0
@@ -670,16 +666,16 @@
   "01": {
    "state": "Aguascalientes",
    "code": "AGU",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/01_AGS_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/01_DV2025_Aguascalientes.pdf",
    "pages": 38,
    "indexPages": 1,
-   "roads": 53,
-   "numbered": 34,
+   "roads": 54,
+   "numbered": 35,
    "unnumbered": 19,
    "byJuris": {
     "federal": {
-     "roads": 15,
-     "numbered": 15,
+     "roads": 16,
+     "numbered": 16,
      "unnumbered": 0
     },
     "state": {
@@ -693,7 +689,7 @@
   "02": {
    "state": "Baja California",
    "code": "BCN",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/02_BC_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/02_DV2025_Baja_California.pdf",
    "pages": 26,
    "indexPages": 1,
    "roads": 29,
@@ -716,8 +712,8 @@
   "03": {
    "state": "Baja California Sur",
    "code": "BCS",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/03_BCS_DV2024.pdf",
-   "pages": 28,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/03_DV2025_Baja_California_Sur.pdf",
+   "pages": 30,
    "indexPages": 1,
    "roads": 39,
    "numbered": 28,
@@ -744,7 +740,7 @@
   "04": {
    "state": "Campeche",
    "code": "CAM",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/04_CAMP_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/04_DV2025_Campeche.pdf",
    "pages": 22,
    "indexPages": 1,
    "roads": 21,
@@ -767,22 +763,22 @@
   "05": {
    "state": "Coahuila",
    "code": "COA",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/05_COA_DV2024.pdf",
-   "pages": 40,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/05_DV2025_Coahuila.pdf",
+   "pages": 42,
    "indexPages": 1,
    "roads": 51,
-   "numbered": 46,
-   "unnumbered": 5,
+   "numbered": 48,
+   "unnumbered": 3,
    "byJuris": {
     "federal": {
      "roads": 28,
-     "numbered": 27,
-     "unnumbered": 1
+     "numbered": 28,
+     "unnumbered": 0
     },
     "state": {
      "roads": 23,
-     "numbered": 19,
-     "unnumbered": 4
+     "numbered": 20,
+     "unnumbered": 3
     }
    },
    "unparsedRows": 0
@@ -790,8 +786,8 @@
   "06": {
    "state": "Colima",
    "code": "COL",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/06_COL_DV2024.pdf",
-   "pages": 32,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/06_DV2025_Colima.pdf",
+   "pages": 34,
    "indexPages": 1,
    "roads": 44,
    "numbered": 29,
@@ -813,7 +809,7 @@
   "07": {
    "state": "Chiapas",
    "code": "CHP",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/07_CHIS_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/07_DV2025_Chiapas.pdf",
    "pages": 42,
    "indexPages": 1,
    "roads": 53,
@@ -836,7 +832,7 @@
   "08": {
    "state": "Chihuahua",
    "code": "CHH",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/08_CHIH_DV2024.pdf",
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/08_DV2025_Chihuahua.pdf",
    "pages": 36,
    "indexPages": 1,
    "roads": 47,
@@ -864,8 +860,8 @@
   "09": {
    "state": "Ciudad de México",
    "code": "CMX",
-   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2024/09_CDMX_DV2024.pdf",
-   "pages": 20,
+   "url": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGST/Datos_Viales_2025/09_DV2025_Ciudad_de_Mexico.pdf",
+   "pages": 22,
    "indexPages": 1,
    "roads": 15,
    "numbered": 11,
@@ -1011,10 +1007,10 @@
    11,
    "federal",
    "free",
-   "Ojo Caliente - Malpaso",
-   "MEX-070",
+   "Libramiento Surponiente de Aguascalientes",
+   "MEX-045",
    [
-    "MEX-070"
+    "MEX-045"
    ],
    null
   ],
@@ -1023,7 +1019,7 @@
    12,
    "federal",
    "free",
-   "Ojuelos - Aguascalientes",
+   "Ojo Caliente - Malpaso",
    "MEX-070",
    [
     "MEX-070"
@@ -1035,6 +1031,18 @@
    13,
    "federal",
    "free",
+   "Ojuelos - Aguascalientes",
+   "MEX-070",
+   [
+    "MEX-070"
+   ],
+   null
+  ],
+  [
+   "AGU",
+   14,
+   "federal",
+   "free",
    "Providencia - Luis Moya",
    "MEX-071",
    [
@@ -1044,7 +1052,7 @@
   ],
   [
    "AGU",
-   14,
+   15,
    "federal",
    "free",
    "Ramal a Aeropuerto de Aguascalientes",
@@ -1056,7 +1064,7 @@
   ],
   [
    "AGU",
-   15,
+   16,
    "federal",
    "free",
    "Rincón de Romos - Ciénega Grande",
@@ -1068,7 +1076,7 @@
   ],
   [
    "AGU",
-   16,
+   17,
    "state",
    "free",
    "Aguascalientes - Ent. Cd. de Los Niños",
@@ -1078,7 +1086,7 @@
   ],
   [
    "AGU",
-   17,
+   18,
    "state",
    "free",
    "Aguascalientes - Jesús María",
@@ -1090,7 +1098,7 @@
   ],
   [
    "AGU",
-   18,
+   19,
    "state",
    "free",
    "Aguascalientes - José María Morelos",
@@ -1100,7 +1108,7 @@
   ],
   [
    "AGU",
-   19,
+   20,
    "state",
    "free",
    "Carboneras - Villa Juárez",
@@ -1112,7 +1120,7 @@
   ],
   [
    "AGU",
-   20,
+   21,
    "state",
    "free",
    "Cosío - Santa María de La Paz",
@@ -1122,7 +1130,7 @@
   ],
   [
    "AGU",
-   21,
+   22,
    "state",
    "free",
    "Crucero Ojo de Agua de Crucitas - Santa Rosa",
@@ -1132,7 +1140,7 @@
   ],
   [
    "AGU",
-   22,
+   23,
    "state",
    "free",
    "El Tanque - San José de La Ordeña",
@@ -1142,7 +1150,7 @@
   ],
   [
    "AGU",
-   23,
+   24,
    "state",
    "free",
    "El Taray - T. C.(Ramal Aeropuerto de Aguascalientes)",
@@ -1154,7 +1162,7 @@
   ],
   [
    "AGU",
-   24,
+   25,
    "state",
    "free",
    "Ent. Arellano - El Retoño",
@@ -1164,7 +1172,7 @@
   ],
   [
    "AGU",
-   25,
+   26,
    "state",
    "free",
    "Ent. Buenavista - Gracias a Dios",
@@ -1174,7 +1182,7 @@
   ],
   [
    "AGU",
-   26,
+   27,
    "state",
    "free",
    "Ent. El Novillo - Villa Juárez",
@@ -1186,7 +1194,7 @@
   ],
   [
    "AGU",
-   27,
+   28,
    "state",
    "free",
    "Ent. La Calavera - Ent. San Pedro",
@@ -1198,7 +1206,7 @@
   ],
   [
    "AGU",
-   28,
+   29,
    "state",
    "free",
    "Ent. La Chirida - San Francisco de Los Romo",
@@ -1208,7 +1216,7 @@
   ],
   [
    "AGU",
-   29,
+   30,
    "state",
    "free",
    "Ent. Pabellón de Arteaga - California",
@@ -1218,7 +1226,7 @@
   ],
   [
    "AGU",
-   30,
+   31,
    "state",
    "free",
    "Ent. Pabellón de Arteaga - San José de Gracia",
@@ -1230,7 +1238,7 @@
   ],
   [
    "AGU",
-   31,
+   32,
    "state",
    "free",
    "Ent. Rincón de Romos - La Boquilla",
@@ -1240,7 +1248,7 @@
   ],
   [
    "AGU",
-   32,
+   33,
    "state",
    "free",
    "Ent. San Carlos - Ent. El Milagro",
@@ -1252,7 +1260,7 @@
   ],
   [
    "AGU",
-   33,
+   34,
    "state",
    "free",
    "Ent. San Felipe - Jesús María",
@@ -1262,7 +1270,7 @@
   ],
   [
    "AGU",
-   34,
+   35,
    "state",
    "free",
    "Ent. San Isidro - Ent. El Salitre",
@@ -1274,7 +1282,7 @@
   ],
   [
    "AGU",
-   35,
+   36,
    "state",
    "free",
    "Est. Coyotes - Ent. San Bartolo",
@@ -1286,7 +1294,7 @@
   ],
   [
    "AGU",
-   36,
+   37,
    "state",
    "free",
    "Fracc. Ojo Caliente - El Conejal",
@@ -1298,7 +1306,7 @@
   ],
   [
    "AGU",
-   37,
+   38,
    "state",
    "free",
    "Jesús María - Palomas",
@@ -1310,7 +1318,7 @@
   ],
   [
    "AGU",
-   38,
+   39,
    "state",
    "free",
    "La Panadera - Palo Alto",
@@ -1322,7 +1330,7 @@
   ],
   [
    "AGU",
-   39,
+   40,
    "state",
    "free",
    "La Punta - Mesillas",
@@ -1334,7 +1342,7 @@
   ],
   [
    "AGU",
-   40,
+   41,
    "state",
    "free",
    "La Rinconada - El Terrero del Refugio",
@@ -1346,7 +1354,7 @@
   ],
   [
    "AGU",
-   41,
+   42,
    "state",
    "free",
    "Las Norias de Ojo Caliente - La Luz",
@@ -1358,7 +1366,7 @@
   ],
   [
    "AGU",
-   42,
+   43,
    "state",
    "free",
    "Libramiento San Francisco de Los Romo",
@@ -1368,7 +1376,7 @@
   ],
   [
    "AGU",
-   43,
+   44,
    "state",
    "free",
    "Pabellón de Hidalgo - Rincón de Romos",
@@ -1378,7 +1386,7 @@
   ],
   [
    "AGU",
-   44,
+   45,
    "state",
    "free",
    "Pilotos - Los Campos",
@@ -1390,7 +1398,7 @@
   ],
   [
    "AGU",
-   45,
+   46,
    "state",
    "free",
    "Pocitos - Granja Miravalle",
@@ -1402,7 +1410,7 @@
   ],
   [
    "AGU",
-   46,
+   47,
    "state",
    "free",
    "Ramal a San Pedro Piedra Gorda",
@@ -1412,7 +1420,7 @@
   ],
   [
    "AGU",
-   47,
+   48,
    "state",
    "free",
    "San Gil - Jarillas",
@@ -1424,7 +1432,7 @@
   ],
   [
    "AGU",
-   48,
+   49,
    "state",
    "free",
    "San Isidro El Grande - Bajío de San José",
@@ -1436,7 +1444,7 @@
   ],
   [
    "AGU",
-   49,
+   50,
    "state",
    "free",
    "San Rafael - Villa García",
@@ -1446,7 +1454,7 @@
   ],
   [
    "AGU",
-   50,
+   51,
    "state",
    "free",
    "Santa Rosa - Pabellón de Hidalgo",
@@ -1456,7 +1464,7 @@
   ],
   [
    "AGU",
-   51,
+   52,
    "state",
    "free",
    "T. Caldera - Ent. Ojo de Agua de Los Montes",
@@ -1466,7 +1474,7 @@
   ],
   [
    "AGU",
-   52,
+   53,
    "state",
    "free",
    "Viñedos de California - Adolfo López Mateos",
@@ -1476,13 +1484,13 @@
   ],
   [
    "AGU",
-   53,
+   54,
    "state",
    "toll",
-   "Libramiento Surponiente de Aguascalientes (Cuota)",
-   "MEX-A40",
+   "Libramiento Poniente de Aguascalientes (Cuota)",
+   "AGS-D",
    [],
-   true
+   null
   ],
   [
    "BCN",
@@ -2567,8 +2575,10 @@
    "federal",
    "free",
    "Ent. La Cuchilla - San Pedro de las Colonias",
-   "MEX",
-   [],
+   "MEX-040",
+   [
+    "MEX-040"
+   ],
    null
   ],
   [
@@ -2672,6 +2682,18 @@
    13,
    "federal",
    "free",
+   "Nuevo Laredo - Piedras Negras",
+   "MEX-002",
+   [
+    "MEX-002"
+   ],
+   null
+  ],
+  [
+   "COA",
+   14,
+   "federal",
+   "free",
    "Ojo Caliente - Santa Cruz",
    "MEX-057",
    [
@@ -2681,22 +2703,10 @@
   ],
   [
    "COA",
-   14,
-   "federal",
-   "free",
-   "Piedras Negras - Cd. Acuña",
-   "MEX-002",
-   [
-    "MEX-002"
-   ],
-   null
-  ],
-  [
-   "COA",
    15,
    "federal",
    "free",
-   "Piedras Negras - Nuevo Laredo",
+   "Piedras Negras - Cd. Acuña",
    "MEX-002",
    [
     "MEX-002"
@@ -2757,11 +2767,11 @@
    "federal",
    "free",
    "Torreón - San Pedro de las Colonias",
-   "MEX-030",
+   "COA-MEX-030",
    [
     "MEX-030"
    ],
-   null
+   true
   ],
   [
    "COA",
@@ -2968,10 +2978,13 @@
    38,
    "state",
    "free",
-   "Libramiento de Torreón",
-   "COA",
-   [],
-   null
+   "Libramiento de Torreón-Gómez Palacio-Lerdo",
+   "COA-DGO-MEX-040-049",
+   [
+    "MEX-040",
+    "MEX-049"
+   ],
+   true
   ],
   [
    "COA",
@@ -3132,7 +3145,7 @@
    1,
    "federal",
    "free",
-   "Cd. Guzmán - Colima",
+   "Colima - Cd. Guzmán",
    "MEX-054",
    [
     "MEX-054"
@@ -3490,18 +3503,6 @@
    32,
    "state",
    "free",
-   "Quesería - El Naranjal",
-   "COL-001",
-   [
-    "COL-001"
-   ],
-   null
-  ],
-  [
-   "COL",
-   33,
-   "state",
-   "free",
    "Ramal a Aeropuerto de Colima",
    "COL",
    [],
@@ -3509,7 +3510,7 @@
   ],
   [
    "COL",
-   34,
+   33,
    "state",
    "free",
    "Ramal a Aeropuerto Manzanillo",
@@ -3519,7 +3520,7 @@
   ],
   [
    "COL",
-   35,
+   34,
    "state",
    "free",
    "Ramal a Camotlán de Miraflores",
@@ -3529,7 +3530,7 @@
   ],
   [
    "COL",
-   36,
+   35,
    "state",
    "free",
    "Ramal a Ixtlahuacán",
@@ -3541,7 +3542,7 @@
   ],
   [
    "COL",
-   37,
+   36,
    "state",
    "free",
    "Ramal a Las Brisas",
@@ -3551,7 +3552,7 @@
   ],
   [
    "COL",
-   38,
+   37,
    "state",
    "free",
    "Ramal a Los Tepames",
@@ -3563,7 +3564,7 @@
   ],
   [
    "COL",
-   39,
+   38,
    "state",
    "free",
    "Ramal a Rancho Valle Nuevo",
@@ -3573,7 +3574,7 @@
   ],
   [
    "COL",
-   40,
+   39,
    "state",
    "free",
    "Ramal a Rincón de López",
@@ -3583,13 +3584,25 @@
   ],
   [
    "COL",
-   41,
+   40,
    "state",
    "free",
    "Ramal a Tecuanillo",
    "COL-009",
    [
     "COL-009"
+   ],
+   null
+  ],
+  [
+   "COL",
+   41,
+   "state",
+   "free",
+   "T. C. (Guadalajara - Colima Cuota) - Quesería",
+   "COL-001",
+   [
+    "COL-001"
    ],
    null
   ],
@@ -4304,10 +4317,10 @@
    8,
    "federal",
    "free",
-   "Gómez Palacio - Jiménez",
-   "MEX-049",
+   "Ent. Nuevo Palomas - Hidalgo del Parral (Vía Corta)",
+   "MEX-024",
    [
-    "MEX-049"
+    "MEX-024"
    ],
    null
   ],
@@ -4316,10 +4329,10 @@
    9,
    "federal",
    "free",
-   "Hidalgo del Parral - Ent. Nuevo Palomas (Vía Corta)",
-   "MEX-024",
+   "Gómez Palacio - Jiménez",
+   "MEX-049",
    [
-    "MEX-024"
+    "MEX-049"
    ],
    null
   ],
@@ -4376,7 +4389,7 @@
    14,
    "federal",
    "free",
-   "La Junta - Yécora",
+   "La Junta - Lim. Edos. Term. Chih. Ppia. Son (Yécora)",
    "MEX-016",
    [
     "MEX-016"
@@ -4530,6 +4543,16 @@
    27,
    "state",
    "free",
+   "Camargo - Jiménez",
+   "CHIH-049",
+   [],
+   null
+  ],
+  [
+   "CHH",
+   28,
+   "state",
+   "free",
    "Cuauhtémoc - Buenaventura",
    "CHIH",
    [],
@@ -4537,7 +4560,7 @@
   ],
   [
    "CHH",
-   28,
+   29,
    "state",
    "free",
    "Delicias - Saucillo",
@@ -4547,7 +4570,7 @@
   ],
   [
    "CHH",
-   29,
+   30,
    "state",
    "free",
    "Ent. Peña Blanca - Ent. La Concha",
@@ -4557,21 +4580,11 @@
   ],
   [
    "CHH",
-   30,
+   31,
    "state",
    "free",
    "Ent. Puerto Justo - Ent. Guachochic",
    "CHIH",
-   [],
-   null
-  ],
-  [
-   "CHH",
-   31,
-   "state",
-   "free",
-   "Jiménez - Camargo",
-   "CHIH-049",
    [],
    null
   ],
@@ -4660,7 +4673,7 @@
    40,
    "state",
    "free",
-   "T. C. (Jiménez - Camargo) - Ojinaga",
+   "T. C. (Camargo - Jiménez) - Ojinaga",
    "CHIH-018",
    [],
    null
@@ -5035,7 +5048,7 @@
    11,
    "federal",
    "free",
-   "Gómez Palacio - Tlahualillo",
+   "Gómez Palacio - Tlahualillo de Zaragoza",
    "MEX-040",
    [
     "MEX-040"
@@ -5083,9 +5096,11 @@
    15,
    "federal",
    "free",
-   "Libramiento Cuencamé",
-   "MEX",
-   [],
+   "Libramiento Exterior Cuencamé",
+   "MEX-049",
+   [
+    "MEX-049"
+   ],
    null
   ],
   [
@@ -5319,8 +5334,8 @@
    35,
    "state",
    "free",
-   "Libramiento de Torreón",
-   "COA",
+   "Libramiento Cuencamé",
+   "DGO",
    [],
    null
   ],
@@ -5329,10 +5344,13 @@
    36,
    "state",
    "free",
-   "Libramiento Exterior Cuencamé",
-   "DGO",
-   [],
-   null
+   "Libramiento de Torreón-Gómez Palacio-Lerdo",
+   "COA-DGO-MEX-040-049",
+   [
+    "MEX-040",
+    "MEX-049"
+   ],
+   true
   ],
   [
    "DUR",
@@ -5374,9 +5392,11 @@
    "state",
    "free",
    "Tlahualillo de Zaragoza - T.C. Gómez Palacio - Jiménez",
-   "DGO",
-   [],
-   null
+   "MEX-040-DGO",
+   [
+    "MEX-040"
+   ],
+   true
   ],
   [
    "DUR",
@@ -5515,10 +5535,10 @@
    11,
    "federal",
    "free",
-   "León - Aguascalientes",
-   "MEX-045",
+   "Las Adjuntas - T. C. (Manuel Doblado - La Piedad)",
+   "MEX-084",
    [
-    "MEX-045"
+    "MEX-084"
    ],
    null
   ],
@@ -5527,7 +5547,7 @@
    12,
    "federal",
    "free",
-   "Libramiento de Salamanca",
+   "León - Aguascalientes",
    "MEX-045",
    [
     "MEX-045"
@@ -5659,18 +5679,6 @@
    23,
    "federal",
    "free",
-   "Ramal a Las Adjuntas",
-   "MEX-084",
-   [
-    "MEX-084"
-   ],
-   null
-  ],
-  [
-   "GUA",
-   24,
-   "federal",
-   "free",
    "Ramal a San José Iturbide",
    "MEX-057",
    [
@@ -5680,7 +5688,7 @@
   ],
   [
    "GUA",
-   25,
+   24,
    "federal",
    "free",
    "Salvatierra - Ent. Yuriria",
@@ -5692,7 +5700,7 @@
   ],
   [
    "GUA",
-   26,
+   25,
    "federal",
    "free",
    "San Luis de La Paz - Cañada de Moreno",
@@ -5704,7 +5712,7 @@
   ],
   [
    "GUA",
-   27,
+   26,
    "federal",
    "free",
    "San Luis de La Paz - Guanajuato",
@@ -5716,7 +5724,7 @@
   ],
   [
    "GUA",
-   28,
+   27,
    "federal",
    "toll",
    "Lagos de Moreno - Villa de Arriaga (Cuota)",
@@ -5728,7 +5736,7 @@
   ],
   [
    "GUA",
-   29,
+   28,
    "federal",
    "toll",
    "León - Aguascalientes (Cuota)",
@@ -5740,7 +5748,7 @@
   ],
   [
    "GUA",
-   30,
+   29,
    "federal",
    "toll",
    "Libramiento Norte de la Piedad (Cuota)",
@@ -5752,7 +5760,7 @@
   ],
   [
    "GUA",
-   31,
+   30,
    "federal",
    "toll",
    "Libramiento Poniente de Irapuato (Cuota)",
@@ -5764,7 +5772,7 @@
   ],
   [
    "GUA",
-   32,
+   31,
    "federal",
    "toll",
    "Morelia - Salamanca (Cuota)",
@@ -5776,7 +5784,7 @@
   ],
   [
    "GUA",
-   33,
+   32,
    "federal",
    "toll",
    "Palmillas - Apaseo el Grande (Cuota)",
@@ -5788,7 +5796,7 @@
   ],
   [
    "GUA",
-   34,
+   33,
    "federal",
    "toll",
    "Querétaro - Irapuato (Cuota)",
@@ -5800,7 +5808,7 @@
   ],
   [
    "GUA",
-   35,
+   34,
    "federal",
    "toll",
    "Salamanca - León (Cuota)",
@@ -5808,6 +5816,16 @@
    [
     "MEX-045D"
    ],
+   null
+  ],
+  [
+   "GUA",
+   35,
+   "state",
+   "free",
+   "Coroneo - La Sabanilla",
+   "GTO",
+   [],
    null
   ],
   [
@@ -5889,7 +5907,7 @@
    43,
    "state",
    "free",
-   "Libramiento de Salvatierra",
+   "Libramiento de Salamanca",
    "GTO",
    [],
    null
@@ -5899,7 +5917,7 @@
    44,
    "state",
    "free",
-   "Libramiento de San Felipe Torres Mochas",
+   "Libramiento de Salvatierra",
    "GTO",
    [],
    null
@@ -5909,7 +5927,7 @@
    45,
    "state",
    "free",
-   "Libramiento de San Luis de La Paz",
+   "Libramiento de San Felipe Torres Mochas",
    "GTO",
    [],
    null
@@ -5919,7 +5937,7 @@
    46,
    "state",
    "free",
-   "Manuel Doblado - Plan de Ayala",
+   "Libramiento de San Luis de La Paz",
    "GTO",
    [],
    null
@@ -5929,7 +5947,7 @@
    47,
    "state",
    "free",
-   "Nuevo Libramiento de León",
+   "Manuel Doblado - Plan de Ayala",
    "GTO",
    [],
    null
@@ -5939,7 +5957,7 @@
    48,
    "state",
    "free",
-   "Ramal a San Diego de La Unión",
+   "Nuevo Libramiento de León",
    "GTO",
    [],
    null
@@ -5949,7 +5967,7 @@
    49,
    "state",
    "free",
-   "Romita - El Saucillo",
+   "Ramal a San Diego de La Unión",
    "GTO",
    [],
    null
@@ -5959,7 +5977,7 @@
    50,
    "state",
    "free",
-   "Salamanca - Juventino Rosas",
+   "Romita - El Saucillo",
    "GTO",
    [],
    null
@@ -5969,7 +5987,7 @@
    51,
    "state",
    "free",
-   "Salvatierra - Cortázar",
+   "Salamanca - Juventino Rosas",
    "GTO",
    [],
    null
@@ -5979,7 +5997,7 @@
    52,
    "state",
    "free",
-   "San Luis de La Paz - San José Iturbide",
+   "Salvatierra - Cortázar",
    "GTO",
    [],
    null
@@ -5989,7 +6007,7 @@
    53,
    "state",
    "free",
-   "Silao - La Romita",
+   "San Luis de La Paz - San José Iturbide",
    "GTO",
    [],
    null
@@ -5999,7 +6017,7 @@
    54,
    "state",
    "free",
-   "Silao - Los Arrastres",
+   "Silao - La Romita",
    "GTO",
    [],
    null
@@ -6009,14 +6027,24 @@
    55,
    "state",
    "free",
-   "T. C. (Villa del Pueblito - Huimilpan) - Coroneo",
+   "Silao - Los Arrastres",
+   "GTO",
+   [],
+   null
+  ],
+  [
+   "GUA",
+   56,
+   "state",
+   "free",
+   "T. C. (Villa del Pueblito - Huimilpan) - La Sabanilla",
    "QRO-GTO",
    [],
    true
   ],
   [
    "GUA",
-   56,
+   57,
    "state",
    "toll",
    "Guanajuato - Silao (Cuota)",
@@ -6028,7 +6056,7 @@
   ],
   [
    "GUA",
-   57,
+   58,
    "state",
    "toll",
    "Libramiento de Celaya (Cuota)",
@@ -6038,7 +6066,7 @@
   ],
   [
    "GUA",
-   58,
+   59,
    "mixed",
    null,
    "Celaya - Dolores Hidalgo",
@@ -6050,7 +6078,7 @@
   ],
   [
    "GUA",
-   59,
+   60,
    "mixed",
    null,
    "Cortázar - Valle de Santiago",
@@ -6062,7 +6090,7 @@
   ],
   [
    "GUA",
-   60,
+   61,
    "mixed",
    null,
    "Guanajuato - Los Infantes",
@@ -6074,7 +6102,7 @@
   ],
   [
    "GUA",
-   61,
+   62,
    "mixed",
    null,
    "Tepatitlán - Las Adjuntas",
@@ -6330,6 +6358,18 @@
    21,
    "federal",
    "toll",
+   "Libramiento Poniente de Acapulco (Cuota)",
+   "MEX-200D",
+   [
+    "MEX-200D"
+   ],
+   null
+  ],
+  [
+   "GRO",
+   22,
+   "federal",
+   "toll",
    "Nueva Italia - Lázaro Cárdenas (Cuota)",
    "MEX-037D",
    [
@@ -6339,7 +6379,7 @@
   ],
   [
    "GRO",
-   22,
+   23,
    "federal",
    "toll",
    "Puente de Ixtla - Iguala (Cuota)",
@@ -6351,7 +6391,7 @@
   ],
   [
    "GRO",
-   23,
+   24,
    "federal",
    "toll",
    "Rancho Viejo - Taxco (Cuota)",
@@ -6363,7 +6403,7 @@
   ],
   [
    "GRO",
-   24,
+   25,
    "federal",
    "toll",
    "Zacapalco - Rancho Viejo (Cuota)",
@@ -6375,7 +6415,7 @@
   ],
   [
    "GRO",
-   25,
+   26,
    "state",
    "free",
    "Acapulco - Aeropuerto Acapulco",
@@ -6385,7 +6425,7 @@
   ],
   [
    "GRO",
-   26,
+   27,
    "state",
    "free",
    "Ent. Potrero - Lomas de Chapultepec",
@@ -6395,7 +6435,7 @@
   ],
   [
    "GRO",
-   27,
+   28,
    "state",
    "free",
    "Las Petaquillas - Quechultenango",
@@ -6405,7 +6445,7 @@
   ],
   [
    "GRO",
-   28,
+   29,
    "state",
    "free",
    "Pie de La Cuesta - Barra de Coyuca",
@@ -6415,7 +6455,7 @@
   ],
   [
    "GRO",
-   29,
+   30,
    "state",
    "free",
    "Ramal a Cocula",
@@ -6425,7 +6465,7 @@
   ],
   [
    "GRO",
-   30,
+   31,
    "state",
    "free",
    "T. C. (Iguala - Chilpancingo) - Atenango del Río",
@@ -6437,7 +6477,7 @@
   ],
   [
    "GRO",
-   31,
+   32,
    "state",
    "free",
    "Taxco - Ixcateopan",
@@ -6447,7 +6487,7 @@
   ],
   [
    "GRO",
-   32,
+   33,
    "state",
    "free",
    "Teloloapan - Apaxtla de Castrejón",
@@ -6457,7 +6497,7 @@
   ],
   [
    "GRO",
-   33,
+   34,
    "state",
    "free",
    "Tlapa de Comonfort - Marquelia",
@@ -6467,7 +6507,7 @@
   ],
   [
    "GRO",
-   34,
+   35,
    "state",
    "toll",
    "Puerto Marqués - La Venta (Cuota)",
@@ -6477,7 +6517,7 @@
   ],
   [
    "GRO",
-   35,
+   36,
    "mixed",
    null,
    "Toluca - Axixintla",
@@ -6693,18 +6733,6 @@
    "HID",
    18,
    "federal",
-   "toll",
-   "Tlaxco - Tejocotal (Cuota)",
-   "MEX-119D",
-   [
-    "MEX-119D"
-   ],
-   null
-  ],
-  [
-   "HID",
-   19,
-   "federal",
    "mixed",
    "México - Querétaro (Cuota)",
    "MEX-057-MEX-057D",
@@ -6716,10 +6744,20 @@
   ],
   [
    "HID",
-   20,
+   19,
    "state",
    "free",
    "Actopan - Progreso",
+   "HGO",
+   [],
+   null
+  ],
+  [
+   "HID",
+   20,
+   "state",
+   "free",
+   "Cd. Sahagún - Ent. Emiliano Zapata",
    "HGO",
    [],
    null
@@ -6741,16 +6779,6 @@
    22,
    "state",
    "free",
-   "Ent. Emiliano Zapata - Cd. Sahagún",
-   "HGO",
-   [],
-   null
-  ],
-  [
-   "HID",
-   23,
-   "state",
-   "free",
    "Ent. Tepeji del Río - Tlahuelilpan",
    "HGO-017",
    [
@@ -6760,7 +6788,7 @@
   ],
   [
    "HID",
-   24,
+   23,
    "state",
    "free",
    "Ent. Tolman - Cd. Sahagún",
@@ -6772,7 +6800,7 @@
   ],
   [
    "HID",
-   25,
+   24,
    "state",
    "free",
    "Francisco I. Madero - Tula de Allende",
@@ -6782,7 +6810,7 @@
   ],
   [
    "HID",
-   26,
+   25,
    "state",
    "free",
    "Huichapan - Tecozautla",
@@ -6794,7 +6822,7 @@
   ],
   [
    "HID",
-   27,
+   26,
    "state",
    "free",
    "Jilotepec - Maravillas",
@@ -6804,7 +6832,7 @@
   ],
   [
    "HID",
-   28,
+   27,
    "state",
    "free",
    "Libramiento de Atotonilco El Grande",
@@ -6814,7 +6842,7 @@
   ],
   [
    "HID",
-   29,
+   28,
    "state",
    "free",
    "Lolotla - Atlapexco",
@@ -6824,7 +6852,7 @@
   ],
   [
    "HID",
-   30,
+   29,
    "state",
    "free",
    "Los Reyes - El Tephé",
@@ -6834,7 +6862,7 @@
   ],
   [
    "HID",
-   31,
+   30,
    "state",
    "free",
    "Otumba - Tizayuca",
@@ -6844,7 +6872,7 @@
   ],
   [
    "HID",
-   32,
+   31,
    "state",
    "free",
    "Ramal a El Chico",
@@ -6854,7 +6882,7 @@
   ],
   [
    "HID",
-   33,
+   32,
    "state",
    "free",
    "Ramal a Pachuca",
@@ -6864,7 +6892,7 @@
   ],
   [
    "HID",
-   34,
+   33,
    "state",
    "free",
    "San Alejo - Huayacocotla",
@@ -6877,7 +6905,7 @@
   ],
   [
    "HID",
-   35,
+   34,
    "state",
    "free",
    "San Felipe Orizatlán - Huejutla de Reyes",
@@ -6887,7 +6915,7 @@
   ],
   [
    "HID",
-   36,
+   35,
    "state",
    "free",
    "Santo Domingo - T. C. (México - Querétaro)",
@@ -6899,7 +6927,7 @@
   ],
   [
    "HID",
-   37,
+   36,
    "state",
    "free",
    "T. C. (Los Reyes - El Tephé) - Tizayuca",
@@ -6909,7 +6937,7 @@
   ],
   [
    "HID",
-   38,
+   37,
    "state",
    "free",
    "Tepeji del Río - T.C. (México - Querétaro)",
@@ -6919,13 +6947,23 @@
   ],
   [
    "HID",
-   39,
+   38,
    "state",
    "free",
    "Tlahuelilpan - San Agustín Tlaxiaca",
    "HGO",
    [],
    null
+  ],
+  [
+   "HID",
+   39,
+   "state",
+   "toll",
+   "Tlaxco - Tejocotal (Cuota)",
+   "PUE-TLAX-HGO-D",
+   [],
+   true
   ],
   [
    "HID",
@@ -6966,7 +7004,7 @@
    3,
    "federal",
    "free",
-   "Cd. Guzmán - Colima",
+   "Colima - Cd. Guzmán",
    "MEX-054",
    [
     "MEX-054"
@@ -7279,6 +7317,18 @@
    29,
    "federal",
    "free",
+   "Tepatitlán - Yahualica",
+   "MEX-071",
+   [
+    "MEX-071"
+   ],
+   null
+  ],
+  [
+   "JAL",
+   30,
+   "federal",
+   "free",
    "Tepic - Puerto Vallarta",
    "MEX-200",
    [
@@ -7288,7 +7338,7 @@
   ],
   [
    "JAL",
-   30,
+   31,
    "federal",
    "toll",
    "Guadalajara - Colima (Cuota)",
@@ -7300,7 +7350,7 @@
   ],
   [
    "JAL",
-   31,
+   32,
    "federal",
    "toll",
    "Guadalajara - Tepic (Cuota)",
@@ -7312,7 +7362,7 @@
   ],
   [
    "JAL",
-   32,
+   33,
    "federal",
    "toll",
    "Lagos de Moreno - Villa de Arriaga (Cuota)",
@@ -7324,7 +7374,7 @@
   ],
   [
    "JAL",
-   33,
+   34,
    "federal",
    "toll",
    "León - Aguascalientes (Cuota)",
@@ -7336,7 +7386,7 @@
   ],
   [
    "JAL",
-   34,
+   35,
    "federal",
    "toll",
    "Libramiento Norte de la Piedad (Cuota)",
@@ -7348,17 +7398,19 @@
   ],
   [
    "JAL",
-   35,
+   36,
    "federal",
    "toll",
    "Libramiento Sur de Guadalajara (Cuota)",
-   "MEX-D",
-   [],
+   "MEX-090D",
+   [
+    "MEX-090D"
+   ],
    null
   ],
   [
    "JAL",
-   36,
+   37,
    "federal",
    "toll",
    "Maravatío - Zapotlanejo (Cuota)",
@@ -7370,7 +7422,7 @@
   ],
   [
    "JAL",
-   37,
+   38,
    "federal",
    "toll",
    "San Juan de los Lagos - Encarnación de Díaz (Cuota)",
@@ -7382,7 +7434,19 @@
   ],
   [
    "JAL",
-   38,
+   39,
+   "federal",
+   "toll",
+   "Tepic - Puerto Vallarta (Cuota)",
+   "MEX-200D",
+   [
+    "MEX-200D"
+   ],
+   null
+  ],
+  [
+   "JAL",
+   40,
    "federal",
    "toll",
    "Zapotlanejo - Guadalajara (Cuota)",
@@ -7394,7 +7458,7 @@
   ],
   [
    "JAL",
-   39,
+   41,
    "federal",
    "toll",
    "Zapotlanejo - Lagos de Moreno (Cuota)",
@@ -7406,7 +7470,7 @@
   ],
   [
    "JAL",
-   40,
+   42,
    "state",
    "free",
    "Acatlán de Juárez - Cd. Guzmán",
@@ -7416,27 +7480,17 @@
   ],
   [
    "JAL",
-   41,
-   "state",
-   "free",
-   "Autlán de Navarro - T. C. (Acatlán de Juárez - Colima)",
-   "JAL",
-   [],
-   null
-  ],
-  [
-   "JAL",
-   42,
-   "state",
-   "free",
-   "Cd. Guzmán - La Mesa y El Fresnito",
-   "JAL",
-   [],
-   null
-  ],
-  [
-   "JAL",
    43,
+   "state",
+   "free",
+   "Autlán de Navarro - T. C. (Colima - Cd. Guzmán)",
+   "JAL",
+   [],
+   null
+  ],
+  [
+   "JAL",
+   44,
    "state",
    "free",
    "Crucero de Santa María - Ameca",
@@ -7446,7 +7500,7 @@
   ],
   [
    "JAL",
-   44,
+   45,
    "state",
    "free",
    "El Desperdicio - Encarnación de Díaz",
@@ -7458,7 +7512,7 @@
   ],
   [
    "JAL",
-   45,
+   46,
    "state",
    "free",
    "El Refugio - San Marcos",
@@ -7470,7 +7524,7 @@
   ],
   [
    "JAL",
-   46,
+   47,
    "state",
    "free",
    "Encarnación de Díaz - San Juan de los Lagos",
@@ -7482,7 +7536,7 @@
   ],
   [
    "JAL",
-   47,
+   48,
    "state",
    "free",
    "Ent. Jalostotitlán - Villa Hidalgo",
@@ -7494,7 +7548,7 @@
   ],
   [
    "JAL",
-   48,
+   49,
    "state",
    "free",
    "Ent. Ojo Caliente - Ent. Ojuelos de Jalisco",
@@ -7504,17 +7558,17 @@
   ],
   [
    "JAL",
-   49,
+   50,
    "state",
    "free",
-   "Ixtlahuacán del Río - T. C. (Tepatitlán - Jaralillo)",
+   "Ixtlahuacán del Río - T. C. (Tepatitlán - Yahualica)",
    "JAL",
    [],
    null
   ],
   [
    "JAL",
-   50,
+   51,
    "state",
    "free",
    "Jalostotitlán - Purísima de Bustos",
@@ -7524,7 +7578,7 @@
   ],
   [
    "JAL",
-   51,
+   52,
    "state",
    "free",
    "Lagos de Moreno - Unión de San Antonio",
@@ -7534,7 +7588,7 @@
   ],
   [
    "JAL",
-   52,
+   53,
    "state",
    "free",
    "León - San Felipe Torres Mochas",
@@ -7544,7 +7598,7 @@
   ],
   [
    "JAL",
-   53,
+   54,
    "state",
    "free",
    "Libramiento de Mazamitla",
@@ -7554,7 +7608,7 @@
   ],
   [
    "JAL",
-   54,
+   55,
    "state",
    "free",
    "Libramiento de Zapotlanejo",
@@ -7564,7 +7618,7 @@
   ],
   [
    "JAL",
-   55,
+   56,
    "state",
    "free",
    "Mascota - Puerto Vallarta",
@@ -7574,7 +7628,7 @@
   ],
   [
    "JAL",
-   56,
+   57,
    "state",
    "free",
    "Mazamitla - Tuxcueca",
@@ -7584,7 +7638,7 @@
   ],
   [
    "JAL",
-   57,
+   58,
    "state",
    "free",
    "Pilotos - Los Campos",
@@ -7596,7 +7650,7 @@
   ],
   [
    "JAL",
-   58,
+   59,
    "state",
    "free",
    "Ramal a Jesús María",
@@ -7608,7 +7662,7 @@
   ],
   [
    "JAL",
-   59,
+   60,
    "state",
    "free",
    "Ramal a Tapalpa",
@@ -7620,7 +7674,7 @@
   ],
   [
    "JAL",
-   60,
+   61,
    "state",
    "free",
    "Ramal a Teocuitatlán de Corona",
@@ -7630,7 +7684,7 @@
   ],
   [
    "JAL",
-   61,
+   62,
    "state",
    "free",
    "San Clemente - Ent. Las Cruces",
@@ -7640,7 +7694,7 @@
   ],
   [
    "JAL",
-   62,
+   63,
    "state",
    "free",
    "San Isidro El Grande - Bajío de San José",
@@ -7652,7 +7706,7 @@
   ],
   [
    "JAL",
-   63,
+   64,
    "state",
    "free",
    "Sayula - Venustiano Carranza",
@@ -7662,7 +7716,7 @@
   ],
   [
    "JAL",
-   64,
+   65,
    "state",
    "free",
    "Tototlán - Ocotlán",
@@ -7672,7 +7726,7 @@
   ],
   [
    "JAL",
-   65,
+   66,
    "state",
    "free",
    "Valle de Guadalupe - Mexticacán",
@@ -7682,10 +7736,20 @@
   ],
   [
    "JAL",
-   66,
+   67,
+   "state",
+   "free",
+   "Yahualica - Jaralillo",
+   "JAL-ZAC",
+   [],
+   true
+  ],
+  [
+   "JAL",
+   68,
    "mixed",
    null,
-   "San Miguel El Alto - La Barca",
+   "La Barca - San Miguel El Alto",
    "JAL-005-MEX-071",
    [
     "JAL-005",
@@ -7695,17 +7759,7 @@
   ],
   [
    "JAL",
-   67,
-   "mixed",
-   null,
-   "Tepatitlán - Jaralillo",
-   "MEX-JAL-ZAC",
-   [],
-   true
-  ],
-  [
-   "JAL",
-   68,
+   69,
    "mixed",
    null,
    "Tepatitlán - Las Adjuntas",
@@ -7853,6 +7907,30 @@
    12,
    "federal",
    "free",
+   "Ramal a Base Militar Santa Lucía",
+   "MEX-085",
+   [
+    "MEX-085"
+   ],
+   null
+  ],
+  [
+   "MEX",
+   13,
+   "federal",
+   "free",
+   "Ramal al Aeropuerto Internacional Felipe Angeles",
+   "MEX-085",
+   [
+    "MEX-085"
+   ],
+   null
+  ],
+  [
+   "MEX",
+   14,
+   "federal",
+   "free",
    "San Bernardino - Tepexpan",
    "MEX-142",
    [
@@ -7862,7 +7940,7 @@
   ],
   [
    "MEX",
-   13,
+   15,
    "federal",
    "free",
    "San Gregorio - Oaxtepec",
@@ -7874,7 +7952,7 @@
   ],
   [
    "MEX",
-   14,
+   16,
    "federal",
    "free",
    "Santa Bárbara - Izúcar de Matamoros",
@@ -7887,7 +7965,7 @@
   ],
   [
    "MEX",
-   15,
+   17,
    "federal",
    "free",
    "T. C. (San Gregorio - Oaxtepec) - Juchitepec",
@@ -7899,7 +7977,7 @@
   ],
   [
    "MEX",
-   16,
+   18,
    "federal",
    "free",
    "T. C. (Santa Bárbara - Huajuapan) - Tlamacas",
@@ -7911,7 +7989,7 @@
   ],
   [
    "MEX",
-   17,
+   19,
    "federal",
    "free",
    "Toluca - Cd. Altamirano",
@@ -7923,7 +8001,7 @@
   ],
   [
    "MEX",
-   18,
+   20,
    "federal",
    "free",
    "Toluca - Morelia",
@@ -7935,17 +8013,7 @@
   ],
   [
    "MEX",
-   19,
-   "federal",
-   "free",
-   "Tonanitla - AIFA",
-   "MEX",
-   [],
-   null
-  ],
-  [
-   "MEX",
-   20,
+   21,
    "federal",
    "free",
    "Venta de Carpio - T. C. (Pachuca - Túxpam)",
@@ -7957,17 +8025,19 @@
   ],
   [
    "MEX",
-   21,
+   22,
    "federal",
    "free",
    "Via Perimetral AIFA",
-   "MEX",
-   [],
+   "MEX-085",
+   [
+    "MEX-085"
+   ],
    null
   ],
   [
    "MEX",
-   22,
+   23,
    "federal",
    "toll",
    "Atlacomulco - Maravatío (Cuota)",
@@ -7979,7 +8049,7 @@
   ],
   [
    "MEX",
-   23,
+   24,
    "federal",
    "toll",
    "Chamapa - Lechería (Cuota)",
@@ -7991,7 +8061,7 @@
   ],
   [
    "MEX",
-   24,
+   25,
    "federal",
    "toll",
    "Ecatepec - Pirámides (Cuota)",
@@ -8003,17 +8073,19 @@
   ],
   [
    "MEX",
-   25,
+   26,
    "federal",
    "toll",
    "La Marquesa - Lerma (Cuota)",
-   "MEX-D",
-   [],
+   "MEX-015D",
+   [
+    "MEX-015D"
+   ],
    null
   ],
   [
    "MEX",
-   26,
+   27,
    "federal",
    "toll",
    "Libramiento Amecameca - Nepantla (Cuota)",
@@ -8025,7 +8097,7 @@
   ],
   [
    "MEX",
-   27,
+   28,
    "federal",
    "toll",
    "Libramiento Norte de la Ciudad de México (Cuota)",
@@ -8037,7 +8109,7 @@
   ],
   [
    "MEX",
-   28,
+   29,
    "federal",
    "toll",
    "México - Pachuca (Cuota)",
@@ -8049,7 +8121,7 @@
   ],
   [
    "MEX",
-   29,
+   30,
    "federal",
    "toll",
    "México - Puebla (Cuota)",
@@ -8061,7 +8133,7 @@
   ],
   [
    "MEX",
-   30,
+   31,
    "federal",
    "toll",
    "México - Toluca (Cuota)",
@@ -8073,7 +8145,7 @@
   ],
   [
    "MEX",
-   31,
+   32,
    "federal",
    "toll",
    "Peñón - Texcoco (Cuota)",
@@ -8085,27 +8157,31 @@
   ],
   [
    "MEX",
-   32,
-   "federal",
-   "toll",
-   "Ramal al AIFA (Cuota)",
-   "MEX-D",
-   [],
-   null
-  ],
-  [
-   "MEX",
    33,
    "federal",
    "toll",
-   "T. Aut. (Peñón-Texcoco) - Ent. Acolman",
-   "MEX-D",
-   [],
+   "Ramal al AIFA (Cuota)",
+   "MEX-057D",
+   [
+    "MEX-057D"
+   ],
    null
   ],
   [
    "MEX",
    34,
+   "federal",
+   "toll",
+   "T. Aut. (Peñón-Texcoco) - Ent. Acolman",
+   "MEX-136D",
+   [
+    "MEX-136D"
+   ],
+   null
+  ],
+  [
+   "MEX",
+   35,
    "federal",
    "mixed",
    "México - Querétaro (Cuota)",
@@ -8118,7 +8194,7 @@
   ],
   [
    "MEX",
-   35,
+   36,
    "state",
    "free",
    "Acambay - San José Ixtapa",
@@ -8128,7 +8204,7 @@
   ],
   [
    "MEX",
-   36,
+   37,
    "state",
    "free",
    "Amomolulco - T. C. (Toluca - Palmillas)",
@@ -8140,7 +8216,7 @@
   ],
   [
    "MEX",
-   37,
+   38,
    "state",
    "free",
    "Amomolulco - Texcalyacac",
@@ -8150,7 +8226,7 @@
   ],
   [
    "MEX",
-   38,
+   39,
    "state",
    "free",
    "Chalco - Mixquic",
@@ -8160,7 +8236,7 @@
   ],
   [
    "MEX",
-   39,
+   40,
    "state",
    "free",
    "Chalco - San Mateo Tezoquiapan",
@@ -8170,7 +8246,7 @@
   ],
   [
    "MEX",
-   40,
+   41,
    "state",
    "free",
    "Chalco - Tláhuac",
@@ -8180,7 +8256,7 @@
   ],
   [
    "MEX",
-   41,
+   42,
    "state",
    "free",
    "Cuadrilla de López - Zacazonapan",
@@ -8192,7 +8268,7 @@
   ],
   [
    "MEX",
-   42,
+   43,
    "state",
    "free",
    "Cuautitlán - Zumpango de Ocampo",
@@ -8204,7 +8280,7 @@
   ],
   [
    "MEX",
-   43,
+   44,
    "state",
    "free",
    "Dos Casas - Ixtapan del Oro",
@@ -8216,7 +8292,7 @@
   ],
   [
    "MEX",
-   44,
+   45,
    "state",
    "free",
    "Ent. Cruz de La Misión - San Nicolás Coatepec",
@@ -8228,7 +8304,7 @@
   ],
   [
    "MEX",
-   45,
+   46,
    "state",
    "free",
    "Ent. La Puerta - San Miguel Totolmaloya",
@@ -8240,7 +8316,7 @@
   ],
   [
    "MEX",
-   46,
+   47,
    "state",
    "free",
    "Ent. Tolman - Cd. Sahagún",
@@ -8252,7 +8328,7 @@
   ],
   [
    "MEX",
-   47,
+   48,
    "state",
    "free",
    "Ixtlahuaca de Rayón - Naucalpan",
@@ -8264,7 +8340,7 @@
   ],
   [
    "MEX",
-   48,
+   49,
    "state",
    "free",
    "Ixtlahuaca de Rayón - San Felipe del Progreso",
@@ -8274,7 +8350,7 @@
   ],
   [
    "MEX",
-   49,
+   50,
    "state",
    "free",
    "Jilotepec - Maravillas",
@@ -8284,7 +8360,7 @@
   ],
   [
    "MEX",
-   50,
+   51,
    "state",
    "free",
    "Jilotepec - San Agustín",
@@ -8294,7 +8370,7 @@
   ],
   [
    "MEX",
-   51,
+   52,
    "state",
    "free",
    "La Marquesa - Río Hondo",
@@ -8306,7 +8382,7 @@
   ],
   [
    "MEX",
-   52,
+   53,
    "state",
    "free",
    "La Marquesa - Tenango de Arista",
@@ -8318,7 +8394,7 @@
   ],
   [
    "MEX",
-   53,
+   54,
    "state",
    "free",
    "Las Juntas - Ixtapan de La Sal",
@@ -8330,7 +8406,7 @@
   ],
   [
    "MEX",
-   54,
+   55,
    "state",
    "free",
    "Lechería - Apaxco",
@@ -8342,7 +8418,7 @@
   ],
   [
    "MEX",
-   55,
+   56,
    "state",
    "free",
    "Los Reyes - El Tephé",
@@ -8352,7 +8428,7 @@
   ],
   [
    "MEX",
-   56,
+   57,
    "state",
    "free",
    "Mexicalcingo - Xalatlaco",
@@ -8364,7 +8440,7 @@
   ],
   [
    "MEX",
-   57,
+   58,
    "state",
    "free",
    "Nicolás Romero - T. C. (Ixtlahuaca de R. - Naucalpan)",
@@ -8376,7 +8452,7 @@
   ],
   [
    "MEX",
-   58,
+   59,
    "state",
    "free",
    "Ocoyoacac - Santiago Tianguistenco",
@@ -8386,7 +8462,7 @@
   ],
   [
    "MEX",
-   59,
+   60,
    "state",
    "free",
    "Otumba - Tizayuca",
@@ -8396,7 +8472,7 @@
   ],
   [
    "MEX",
-   60,
+   61,
    "state",
    "free",
    "Polotitlán - Taxhie",
@@ -8408,7 +8484,7 @@
   ],
   [
    "MEX",
-   61,
+   62,
    "state",
    "free",
    "Puente Grande - San José del Vidrio",
@@ -8420,7 +8496,7 @@
   ],
   [
    "MEX",
-   62,
+   63,
    "state",
    "free",
    "Ramal a C.I.C.I.T.E.C.",
@@ -8430,7 +8506,7 @@
   ],
   [
    "MEX",
-   63,
+   64,
    "state",
    "free",
    "San Alejo - Los Sabinos",
@@ -8442,7 +8518,7 @@
   ],
   [
    "MEX",
-   64,
+   65,
    "state",
    "free",
    "San Felipe del Progreso - Carmona",
@@ -8454,7 +8530,7 @@
   ],
   [
    "MEX",
-   65,
+   66,
    "state",
    "free",
    "San Luis Mextepec - Valle de Bravo",
@@ -8466,7 +8542,7 @@
   ],
   [
    "MEX",
-   66,
+   67,
    "state",
    "free",
    "San Martín de Las Pirámides - San Miguel Atlamajac",
@@ -8476,7 +8552,7 @@
   ],
   [
    "MEX",
-   67,
+   68,
    "state",
    "free",
    "San Pedro Barrientos - Ecatepec",
@@ -8486,7 +8562,7 @@
   ],
   [
    "MEX",
-   68,
+   69,
    "state",
    "free",
    "Santa Elena - Coacalco",
@@ -8496,7 +8572,7 @@
   ],
   [
    "MEX",
-   69,
+   70,
    "state",
    "free",
    "Santa María Ajoloapan - Tianguistongo",
@@ -8506,7 +8582,7 @@
   ],
   [
    "MEX",
-   70,
+   71,
    "state",
    "free",
    "Santiago Tianguistenco - Chalma",
@@ -8518,7 +8594,7 @@
   ],
   [
    "MEX",
-   71,
+   72,
    "state",
    "free",
    "Santo Domingo - T. C. (México - Querétaro)",
@@ -8530,7 +8606,7 @@
   ],
   [
    "MEX",
-   72,
+   73,
    "state",
    "free",
    "T. C. (Atlacomulco - Morelia) - San Felipe del Progreso",
@@ -8540,7 +8616,7 @@
   ],
   [
    "MEX",
-   73,
+   74,
    "state",
    "free",
    "T. C. (Atlacomulco - Morelia) - Temascalcingo",
@@ -8552,7 +8628,7 @@
   ],
   [
    "MEX",
-   74,
+   75,
    "state",
    "free",
    "T. C. (Chalco - Mixquic) - Temamatla",
@@ -8562,7 +8638,7 @@
   ],
   [
    "MEX",
-   75,
+   76,
    "state",
    "free",
    "T. C. (Dos Casas - Ixtapan del Oro) - Donato Guerra",
@@ -8574,7 +8650,7 @@
   ],
   [
    "MEX",
-   76,
+   77,
    "state",
    "free",
    "T. C. (El Monumento - Tingambato) - Donato Guerra",
@@ -8584,7 +8660,7 @@
   ],
   [
    "MEX",
-   77,
+   78,
    "state",
    "free",
    "T. C. (Ixtlahuaca de Rayón - Naucalpan) - Mayorazgo",
@@ -8596,7 +8672,7 @@
   ],
   [
    "MEX",
-   78,
+   79,
    "state",
    "free",
    "T. C. (Ixtlahuaca de Rayón - Naucalpan) - Temoaya",
@@ -8606,7 +8682,7 @@
   ],
   [
    "MEX",
-   79,
+   80,
    "state",
    "free",
    "T. C. (Los Reyes - El Tephé) - Tianguistongo",
@@ -8616,7 +8692,7 @@
   ],
   [
    "MEX",
-   80,
+   81,
    "state",
    "free",
    "T. C. (Los Reyes - El Tephé) - Tizayuca",
@@ -8626,7 +8702,7 @@
   ],
   [
    "MEX",
-   81,
+   82,
    "state",
    "free",
    "T. C. (México - Mixquic) - San Pablo Atlazalpan",
@@ -8638,7 +8714,7 @@
   ],
   [
    "MEX",
-   82,
+   83,
    "state",
    "free",
    "T. C. (México - Puebla (Libre)) - San Vicente",
@@ -8648,7 +8724,7 @@
   ],
   [
    "MEX",
-   83,
+   84,
    "state",
    "free",
    "T. C. (Santa Bárbara - Huajuapan) - Tepetlixpa",
@@ -8658,7 +8734,7 @@
   ],
   [
    "MEX",
-   84,
+   85,
    "state",
    "free",
    "T. C. (Toluca - Cd. Altamirano) - Valle de Bravo",
@@ -8668,7 +8744,7 @@
   ],
   [
    "MEX",
-   85,
+   86,
    "state",
    "free",
    "T. C. (Toluca - Morelia) - Almoloya de Juárez",
@@ -8680,7 +8756,7 @@
   ],
   [
    "MEX",
-   86,
+   87,
    "state",
    "free",
    "T. C. (Toluca - Morelia) - San Nicolás Guadalupe",
@@ -8692,7 +8768,7 @@
   ],
   [
    "MEX",
-   87,
+   88,
    "state",
    "free",
    "T. C. (Toluca - Palmillas) - Agostadero",
@@ -8702,7 +8778,7 @@
   ],
   [
    "MEX",
-   88,
+   89,
    "state",
    "free",
    "T. C. (Toluca - Palmillas) - Jiquipilco",
@@ -8714,7 +8790,7 @@
   ],
   [
    "MEX",
-   89,
+   90,
    "state",
    "free",
    "T. C. (Toluca - Palmillas) - Jocotitlán",
@@ -8724,7 +8800,7 @@
   ],
   [
    "MEX",
-   90,
+   91,
    "state",
    "free",
    "T. C. (V. Victoria - El Oro de Hidalgo) - Angangueo",
@@ -8736,7 +8812,7 @@
   ],
   [
    "MEX",
-   91,
+   92,
    "state",
    "free",
    "Tecámac - Ent. Atlatongo",
@@ -8746,7 +8822,7 @@
   ],
   [
    "MEX",
-   92,
+   93,
    "state",
    "free",
    "Tejupilco de Hidalgo - Tlatlaya",
@@ -8758,7 +8834,7 @@
   ],
   [
    "MEX",
-   93,
+   94,
    "state",
    "free",
    "Temascaltepec de González - El Fresno",
@@ -8770,7 +8846,7 @@
   ],
   [
    "MEX",
-   94,
+   95,
    "state",
    "free",
    "Temascaltepec de González - Zuluapan",
@@ -8782,7 +8858,7 @@
   ],
   [
    "MEX",
-   95,
+   96,
    "state",
    "free",
    "Tenancingo - Chalma",
@@ -8792,7 +8868,7 @@
   ],
   [
    "MEX",
-   96,
+   97,
    "state",
    "free",
    "Tenancingo - San Simón El Alto",
@@ -8802,7 +8878,7 @@
   ],
   [
    "MEX",
-   97,
+   98,
    "state",
    "free",
    "Tenancingo de Degollado - San Andrés Nicolás Bravo",
@@ -8812,7 +8888,7 @@
   ],
   [
    "MEX",
-   98,
+   99,
    "state",
    "free",
    "Tenango del Aire - Amecameca",
@@ -8822,7 +8898,7 @@
   ],
   [
    "MEX",
-   99,
+   100,
    "state",
    "free",
    "Teoloyucan - Jaltenco",
@@ -8832,7 +8908,7 @@
   ],
   [
    "MEX",
-   100,
+   101,
    "state",
    "free",
    "Tepexpan - San Juan Teotihuacán",
@@ -8842,7 +8918,7 @@
   ],
   [
    "MEX",
-   101,
+   102,
    "state",
    "free",
    "Texcaltitlán - Zacualpan",
@@ -8854,7 +8930,7 @@
   ],
   [
    "MEX",
-   102,
+   103,
    "state",
    "free",
    "Texcoco - San Miguel Tlaixpan",
@@ -8864,7 +8940,7 @@
   ],
   [
    "MEX",
-   103,
+   104,
    "state",
    "free",
    "Tlalnepantla - San Gabriel",
@@ -8877,7 +8953,7 @@
   ],
   [
    "MEX",
-   104,
+   105,
    "state",
    "free",
    "Villa del Carbón - Atlacomulco",
@@ -8889,7 +8965,7 @@
   ],
   [
    "MEX",
-   105,
+   106,
    "state",
    "free",
    "Villa Victoria - El Oro de Hidalgo",
@@ -8902,7 +8978,7 @@
   ],
   [
    "MEX",
-   106,
+   107,
    "state",
    "free",
    "Xalatlaco - El Ajusco",
@@ -8912,7 +8988,7 @@
   ],
   [
    "MEX",
-   107,
+   108,
    "state",
    "toll",
    "La Venta - Chamapa (Cuota)",
@@ -8922,7 +8998,7 @@
   ],
   [
    "MEX",
-   108,
+   109,
    "state",
    "toll",
    "Lerma - Tenango (Cuota)",
@@ -8932,7 +9008,7 @@
   ],
   [
    "MEX",
-   109,
+   110,
    "state",
    "toll",
    "Libramiento Nororiente de Toluca (Cuota)",
@@ -8942,7 +9018,7 @@
   ],
   [
    "MEX",
-   110,
+   111,
    "state",
    "toll",
    "Ramal a Valle de Bravo (Cuota)",
@@ -8952,7 +9028,7 @@
   ],
   [
    "MEX",
-   111,
+   112,
    "state",
    "toll",
    "Ramal al Circuito Exterior Mexiquense (Cuota)",
@@ -8962,7 +9038,7 @@
   ],
   [
    "MEX",
-   112,
+   113,
    "state",
    "toll",
    "Toluca - Ixtapan de La Sal (Cuota)",
@@ -8972,7 +9048,17 @@
   ],
   [
    "MEX",
-   113,
+   114,
+   "state",
+   "toll",
+   "Toluca - Naucalpan (Cuota)",
+   "EM-D",
+   [],
+   null
+  ],
+  [
+   "MEX",
+   115,
    "state",
    "toll",
    "Toluca - Zitácuaro (Cuota)",
@@ -8982,7 +9068,7 @@
   ],
   [
    "MEX",
-   114,
+   116,
    "state",
    "toll",
    "Viaducto Bicentenario",
@@ -8992,7 +9078,7 @@
   ],
   [
    "MEX",
-   115,
+   117,
    "mixed",
    null,
    "Atlacomulco - Morelia",
@@ -9005,7 +9091,7 @@
   ],
   [
    "MEX",
-   116,
+   118,
    "mixed",
    null,
    "Circuito Exterior Mexiquense (Cuota)",
@@ -9017,7 +9103,7 @@
   ],
   [
    "MEX",
-   117,
+   119,
    "mixed",
    null,
    "El Monumento - Tingambato",
@@ -9027,7 +9113,7 @@
   ],
   [
    "MEX",
-   118,
+   120,
    "mixed",
    null,
    "Toluca - Axixintla",
@@ -9039,7 +9125,7 @@
   ],
   [
    "MEX",
-   119,
+   121,
    "mixed",
    null,
    "Toluca - Palmillas",
@@ -9051,7 +9137,7 @@
   ],
   [
    "MEX",
-   120,
+   122,
    "mixed",
    null,
    "Tres Marías - Santa Martha",
@@ -9858,7 +9944,7 @@
    8,
    "federal",
    "free",
-   "Ramal a Michapa",
+   "Michapa - T. C. (Cuernavaca - Chilpancingo)",
    "MEX-166",
    [
     "MEX-166"
@@ -9908,9 +9994,9 @@
    "federal",
    "toll",
    "Jantetelco - El Higuerón (Cuota)",
-   "MEX-037-D",
+   "MEX-094D",
    [
-    "MEX-037"
+    "MEX-094D"
    ],
    null
   ],
@@ -10493,7 +10579,7 @@
    15,
    "federal",
    "free",
-   "Santa Cruz - San Blas",
+   "San Blas - Santa Cruz",
    "MEX-015",
    [
     "MEX-015"
@@ -10577,7 +10663,7 @@
    22,
    "federal",
    "toll",
-   "Jala - Puerto Vallarta (Cuota)",
+   "Jala - Las Caleras (Cuota)",
    "MEX-070D",
    [
     "MEX-070D"
@@ -10601,10 +10687,10 @@
    24,
    "federal",
    "toll",
-   "Ramal a Compostela (Cuota)",
-   "MEX-200D",
+   "Ramal a Tequepexpan",
+   "MEX-015D",
    [
-    "MEX-200D"
+    "MEX-015D"
    ],
    null
   ],
@@ -10613,10 +10699,10 @@
    25,
    "federal",
    "toll",
-   "Ramal a Tequepexpan",
-   "MEX-015D",
+   "Tepic - Puerto Vallarta (Cuota)",
+   "MEX-200D",
    [
-    "MEX-015D"
+    "MEX-200D"
    ],
    null
   ],
@@ -10713,7 +10799,7 @@
    34,
    "state",
    "free",
-   "Ramal a Ixtapan de La Concepción",
+   "Ramal a Ixtapa de La Concepción",
    "NAY",
    [],
    null
@@ -10919,10 +11005,10 @@
    14,
    "federal",
    "free",
-   "Paras - Nueva Ciudad Guerrero",
-   "MEX-030",
+   "Nuevo Laredo - Piedras Negras",
+   "MEX-002",
    [
-    "MEX-030"
+    "MEX-002"
    ],
    null
   ],
@@ -10931,10 +11017,10 @@
    15,
    "federal",
    "free",
-   "Piedras Negras - Nuevo Laredo",
-   "MEX-002",
+   "Paras - Nueva Ciudad Guerrero",
+   "MEX-030",
    [
-    "MEX-002"
+    "MEX-030"
    ],
    null
   ],
@@ -12167,18 +12253,6 @@
   [
    "PUE",
    30,
-   "federal",
-   "toll",
-   "Tlaxco - Tejocotal (Cuota)",
-   "MEX-119D",
-   [
-    "MEX-119D"
-   ],
-   null
-  ],
-  [
-   "PUE",
-   31,
    "state",
    "free",
    "Amayuca - Izúcar de Matamoros",
@@ -12190,7 +12264,7 @@
   ],
   [
    "PUE",
-   32,
+   31,
    "state",
    "free",
    "Azumbilla - Alcomunga",
@@ -12200,7 +12274,7 @@
   ],
   [
    "PUE",
-   33,
+   32,
    "state",
    "free",
    "Cholula - Puebla (Vía Quetzalcóatl)",
@@ -12210,7 +12284,7 @@
   ],
   [
    "PUE",
-   34,
+   33,
    "state",
    "free",
    "Cuacnopalan - Santa Catarina Los Reyes",
@@ -12220,7 +12294,7 @@
   ],
   [
    "PUE",
-   35,
+   34,
    "state",
    "free",
    "Cuapiaxtla - Acatlán de Osorio",
@@ -12230,7 +12304,7 @@
   ],
   [
    "PUE",
-   36,
+   35,
    "state",
    "free",
    "Izúcar de Matamoros - Tepexi de Rodríguez",
@@ -12240,7 +12314,7 @@
   ],
   [
    "PUE",
-   37,
+   36,
    "state",
    "free",
    "Ramal a Aeropuerto Hnos. Serdán",
@@ -12250,7 +12324,7 @@
   ],
   [
    "PUE",
-   38,
+   37,
    "state",
    "free",
    "Ramal a Jolalpan",
@@ -12260,7 +12334,7 @@
   ],
   [
    "PUE",
-   39,
+   38,
    "state",
    "free",
    "Ramal a Tetela de Ocampo",
@@ -12270,7 +12344,7 @@
   ],
   [
    "PUE",
-   40,
+   39,
    "state",
    "free",
    "Ramal a Zihuateutla",
@@ -12280,7 +12354,7 @@
   ],
   [
    "PUE",
-   41,
+   40,
    "state",
    "free",
    "Ramal a Zoquitlán",
@@ -12290,7 +12364,7 @@
   ],
   [
    "PUE",
-   42,
+   41,
    "state",
    "free",
    "San Juan Ixcaquixtla - Pino Suárez",
@@ -12300,7 +12374,7 @@
   ],
   [
    "PUE",
-   43,
+   42,
    "state",
    "free",
    "Tecamachalco - Cañada Morelos",
@@ -12310,7 +12384,7 @@
   ],
   [
    "PUE",
-   44,
+   43,
    "state",
    "free",
    "Tecamachalco - Quecholac",
@@ -12320,7 +12394,7 @@
   ],
   [
    "PUE",
-   45,
+   44,
    "state",
    "free",
    "Zacatlán - Zapotitlán",
@@ -12330,7 +12404,7 @@
   ],
   [
    "PUE",
-   46,
+   45,
    "state",
    "toll",
    "Atlixco - Jantetelco (Cuota)",
@@ -12340,7 +12414,7 @@
   ],
   [
    "PUE",
-   47,
+   46,
    "state",
    "toll",
    "Libres - Teziutlán (Cuota)",
@@ -12350,7 +12424,7 @@
   ],
   [
    "PUE",
-   48,
+   47,
    "state",
    "toll",
    "Puebla - Atlixco (Cuota)",
@@ -12360,13 +12434,23 @@
   ],
   [
    "PUE",
-   49,
+   48,
    "state",
    "toll",
    "Puebla - Tlaxcala (Cuota)",
    "PUE-D",
    [],
    null
+  ],
+  [
+   "PUE",
+   49,
+   "state",
+   "toll",
+   "Tlaxco - Tejocotal (Cuota)",
+   "PUE-TLAX-HGO-D",
+   [],
+   true
   ],
   [
    "PUE",
@@ -12734,7 +12818,7 @@
    30,
    "state",
    "free",
-   "T. C. (Villa del Pueblito - Huimilpan) - Coroneo",
+   "T. C. (Villa del Pueblito - Huimilpan) - La Sabanilla",
    "QRO-GTO",
    [],
    true
@@ -12803,18 +12887,6 @@
    4,
    "federal",
    "free",
-   "Polyuc - T. C. (Reforma Agraria - Puerto Juárez)",
-   "MEX-293",
-   [
-    "MEX-293"
-   ],
-   null
-  ],
-  [
-   "ROO",
-   5,
-   "federal",
-   "free",
    "Ramal a Puerto Morelos",
    "MEX",
    [],
@@ -12822,7 +12894,7 @@
   ],
   [
    "ROO",
-   6,
+   5,
    "federal",
    "free",
    "Ramal a Punta Piedra",
@@ -12832,7 +12904,7 @@
   ],
   [
    "ROO",
-   7,
+   6,
    "federal",
    "free",
    "Ramal a Subteniente López",
@@ -12844,13 +12916,25 @@
   ],
   [
    "ROO",
-   8,
+   7,
    "federal",
    "free",
    "Reforma Agraria - Puerto Juárez",
    "MEX-307",
    [
     "MEX-307"
+   ],
+   null
+  ],
+  [
+   "ROO",
+   8,
+   "federal",
+   "free",
+   "T. C. (Reforma Agraria - Puerto Juárez) - Polyuc",
+   "MEX-293",
+   [
+    "MEX-293"
    ],
    null
   ],
@@ -13149,18 +13233,6 @@
    1,
    "federal",
    "free",
-   "Antiguo Morelos - Ent. El Huizache",
-   "MEX-080",
-   [
-    "MEX-080"
-   ],
-   null
-  ],
-  [
-   "SLP",
-   2,
-   "federal",
-   "free",
    "Carbonera - T. C. (Ent. Morelos - Saltillo)",
    "MEX-062",
    [
@@ -13170,7 +13242,7 @@
   ],
   [
    "SLP",
-   3,
+   2,
    "federal",
    "free",
    "Cd. Valles - Cd. Victoria",
@@ -13182,7 +13254,7 @@
   ],
   [
    "SLP",
-   4,
+   3,
    "federal",
    "free",
    "Cd. Valles - San Luis Potosí",
@@ -13194,7 +13266,7 @@
   ],
   [
    "SLP",
-   5,
+   4,
    "federal",
    "free",
    "Cd. Valles - Tampico",
@@ -13206,7 +13278,7 @@
   ],
   [
    "SLP",
-   6,
+   5,
    "federal",
    "free",
    "El Clarín - Agua Buena",
@@ -13218,7 +13290,7 @@
   ],
   [
    "SLP",
-   7,
+   6,
    "federal",
    "free",
    "Ent. Ahualulco - Ent. La Bonita",
@@ -13230,13 +13302,25 @@
   ],
   [
    "SLP",
-   8,
+   7,
    "federal",
    "free",
    "Ent. de Zaragoza - San Felipe",
    "MEX-037",
    [
     "MEX-037"
+   ],
+   null
+  ],
+  [
+   "SLP",
+   8,
+   "federal",
+   "free",
+   "Ent. El Huizache - Antiguo Morelos",
+   "MEX-080",
+   [
+    "MEX-080"
    ],
    null
   ],
@@ -13689,7 +13773,7 @@
    46,
    "state",
    "toll",
-   "Cerritos - Rioverde (Cuota)",
+   "Rioverde - Cerritos (Cuota)",
    "SLP-D",
    [],
    null
@@ -14173,6 +14257,18 @@
    1,
    "federal",
    "free",
+   "Agua Prieta - Imuris",
+   "MEX-002",
+   [
+    "MEX-002"
+   ],
+   null
+  ],
+  [
+   "SON",
+   2,
+   "federal",
+   "free",
    "Guaymas - Hermosillo",
    "MEX-015",
    [
@@ -14182,25 +14278,13 @@
   ],
   [
    "SON",
-   2,
-   "federal",
-   "free",
-   "Hermosillo - Yécora",
-   "MEX-016",
-   [
-    "MEX-016"
-   ],
-   null
-  ],
-  [
-   "SON",
    3,
    "federal",
    "free",
-   "Imuris - Agua Prieta",
-   "MEX-002",
+   "Hermosillo - Lim. Edos. Term. Son. Ppia. Chih. (Yécora)",
+   "MEX-016",
    [
-    "MEX-002"
+    "MEX-016"
    ],
    null
   ],
@@ -14221,18 +14305,6 @@
    5,
    "federal",
    "free",
-   "La Junta - Yécora",
-   "MEX-016",
-   [
-    "MEX-016"
-   ],
-   null
-  ],
-  [
-   "SON",
-   6,
-   "federal",
-   "free",
    "Magdalena de Kino - Nogales",
    "MEX-015",
    [
@@ -14242,7 +14314,7 @@
   ],
   [
    "SON",
-   7,
+   6,
    "federal",
    "free",
    "Moctezuma - Agua Prieta",
@@ -14254,7 +14326,7 @@
   ],
   [
    "SON",
-   8,
+   7,
    "federal",
    "free",
    "Ramal a Naco",
@@ -14266,7 +14338,7 @@
   ],
   [
    "SON",
-   9,
+   8,
    "federal",
    "free",
    "Ramal a Puerta de México",
@@ -14278,7 +14350,7 @@
   ],
   [
    "SON",
-   10,
+   9,
    "federal",
    "free",
    "Sonoita - Mexicali",
@@ -14290,7 +14362,7 @@
   ],
   [
    "SON",
-   11,
+   10,
    "federal",
    "free",
    "Sonoita - Puerto Peñasco",
@@ -14302,7 +14374,7 @@
   ],
   [
    "SON",
-   12,
+   11,
    "federal",
    "toll",
    "Cd. Obregón - Guaymas (Cuota)",
@@ -14314,7 +14386,7 @@
   ],
   [
    "SON",
-   13,
+   12,
    "federal",
    "toll",
    "Hermosillo - Magdalena de Kino (Cuota)",
@@ -14326,7 +14398,7 @@
   ],
   [
    "SON",
-   14,
+   13,
    "federal",
    "toll",
    "Libramiento de Ciudad Obregón (Cuota)",
@@ -14338,7 +14410,7 @@
   ],
   [
    "SON",
-   15,
+   14,
    "federal",
    "toll",
    "Libramiento de Empalme - Guaymas (Cuota)",
@@ -14350,7 +14422,7 @@
   ],
   [
    "SON",
-   16,
+   15,
    "federal",
    "toll",
    "Libramiento de Hermosillo (Cuota)",
@@ -14362,7 +14434,7 @@
   ],
   [
    "SON",
-   17,
+   16,
    "federal",
    "toll",
    "Libramiento de Magdalena de Kino (Cuota)",
@@ -14374,7 +14446,7 @@
   ],
   [
    "SON",
-   18,
+   17,
    "federal",
    "toll",
    "Libramiento de Nogales (Cuota)",
@@ -14386,7 +14458,7 @@
   ],
   [
    "SON",
-   19,
+   18,
    "federal",
    "toll",
    "Los Mochis - Cd. Obregón (Cuota)",
@@ -14398,7 +14470,7 @@
   ],
   [
    "SON",
-   20,
+   19,
    "federal",
    "mixed",
    "Santa Ana - Sonoita",
@@ -14410,7 +14482,7 @@
   ],
   [
    "SON",
-   21,
+   20,
    "state",
    "free",
    "Altar - Sáric",
@@ -14422,7 +14494,7 @@
   ],
   [
    "SON",
-   22,
+   21,
    "state",
    "free",
    "Caborca - El Desemboque",
@@ -14434,7 +14506,7 @@
   ],
   [
    "SON",
-   23,
+   22,
    "state",
    "free",
    "Calle 36 Norte - Puerto de La Libertad",
@@ -14446,7 +14518,7 @@
   ],
   [
    "SON",
-   24,
+   23,
    "state",
    "free",
    "Esperanza - Presa Álvaro Obregón",
@@ -14458,7 +14530,7 @@
   ],
   [
    "SON",
-   25,
+   24,
    "state",
    "free",
    "Hermosillo - Bahía Kino",
@@ -14470,7 +14542,7 @@
   ],
   [
    "SON",
-   26,
+   25,
    "state",
    "free",
    "Hermosillo - Sahuaripa",
@@ -14482,7 +14554,7 @@
   ],
   [
    "SON",
-   27,
+   26,
    "state",
    "free",
    "Hornos - San Nicolás",
@@ -14494,7 +14566,7 @@
   ],
   [
    "SON",
-   28,
+   27,
    "state",
    "free",
    "Huatabampo - Bacabachi",
@@ -14506,7 +14578,7 @@
   ],
   [
    "SON",
-   29,
+   28,
    "state",
    "free",
    "La Alameda - El Sahuaro",
@@ -14518,7 +14590,7 @@
   ],
   [
    "SON",
-   30,
+   29,
    "state",
    "free",
    "Mazocahui - Cananea",
@@ -14530,7 +14602,7 @@
   ],
   [
    "SON",
-   31,
+   30,
    "state",
    "free",
    "Navojoa - Álamos",
@@ -14542,7 +14614,7 @@
   ],
   [
    "SON",
-   32,
+   31,
    "state",
    "free",
    "Navojoa - Yavaros",
@@ -14554,7 +14626,7 @@
   ],
   [
    "SON",
-   33,
+   32,
    "state",
    "free",
    "Nogales - San Antonio",
@@ -14564,7 +14636,7 @@
   ],
   [
    "SON",
-   34,
+   33,
    "state",
    "free",
    "Ramal a Aeropuerto de Guaymas",
@@ -14574,7 +14646,7 @@
   ],
   [
    "SON",
-   35,
+   34,
    "state",
    "free",
    "San Luis Río Colorado - Golfo de Santa Clara",
@@ -14586,7 +14658,7 @@
   ],
   [
    "SON",
-   36,
+   35,
    "state",
    "free",
    "Sonoita - Pitiquito",
@@ -14596,7 +14668,7 @@
   ],
   [
    "SON",
-   37,
+   36,
    "state",
    "toll",
    "San Luis Río Colorado - Golfo de Santa Clara (Cuota)",
@@ -14606,7 +14678,7 @@
   ],
   [
    "SON",
-   38,
+   37,
    "mixed",
    null,
    "T. C. (Hermosillo - Nogales) - Huásabas",
@@ -15140,18 +15212,6 @@
    3,
    "federal",
    "free",
-   "Antiguo Morelos - Ent. El Huizache",
-   "MEX-080",
-   [
-    "MEX-080"
-   ],
-   null
-  ],
-  [
-   "TAM",
-   4,
-   "federal",
-   "free",
    "Cd. Valles - Cd. Victoria",
    "MEX-085",
    [
@@ -15161,7 +15221,7 @@
   ],
   [
    "TAM",
-   5,
+   4,
    "federal",
    "free",
    "Cd. Valles - Tampico",
@@ -15173,7 +15233,7 @@
   ],
   [
    "TAM",
-   6,
+   5,
    "federal",
    "free",
    "Cd. Victoria - Matamoros",
@@ -15186,7 +15246,7 @@
   ],
   [
    "TAM",
-   7,
+   6,
    "federal",
    "free",
    "Cd. Victoria - Soto La Marina",
@@ -15198,7 +15258,7 @@
   ],
   [
    "TAM",
-   8,
+   7,
    "federal",
    "free",
    "Ciudad Victoria - Monterrey",
@@ -15210,12 +15270,24 @@
   ],
   [
    "TAM",
-   9,
+   8,
    "federal",
    "free",
    "Corredor Internacional Reynosa",
    "MEX",
    [],
+   null
+  ],
+  [
+   "TAM",
+   9,
+   "federal",
+   "free",
+   "Ent. El Huizache - Antiguo Morelos",
+   "MEX-080",
+   [
+    "MEX-080"
+   ],
    null
   ],
   [
@@ -15418,6 +15490,18 @@
    26,
    "federal",
    "free",
+   "Nuevo Laredo - Piedras Negras",
+   "MEX-002",
+   [
+    "MEX-002"
+   ],
+   null
+  ],
+  [
+   "TAM",
+   27,
+   "federal",
+   "free",
    "Paras - Nueva Ciudad Guerrero",
    "MEX-030",
    [
@@ -15427,25 +15511,13 @@
   ],
   [
    "TAM",
-   27,
+   28,
    "federal",
    "free",
    "Petrocel - Puerto Industrial Altamira",
    "MEX-080",
    [
     "MEX-080"
-   ],
-   null
-  ],
-  [
-   "TAM",
-   28,
-   "federal",
-   "free",
-   "Piedras Negras - Nuevo Laredo",
-   "MEX-002",
-   [
-    "MEX-002"
    ],
    null
   ],
@@ -15668,7 +15740,7 @@
    48,
    "state",
    "free",
-   "Libramiento de Cd. Victoria",
+   "Las Yescas - Valle Hermoso",
    "TAM",
    [],
    null
@@ -15678,6 +15750,16 @@
    49,
    "state",
    "free",
+   "Libramiento de Cd. Victoria",
+   "TAM",
+   [],
+   null
+  ],
+  [
+   "TAM",
+   50,
+   "state",
+   "free",
    "Libramiento de Mier",
    "TAMPS",
    [],
@@ -15685,7 +15767,7 @@
   ],
   [
    "TAM",
-   50,
+   51,
    "state",
    "free",
    "Libramiento de Nuevo Laredo",
@@ -15695,7 +15777,7 @@
   ],
   [
    "TAM",
-   51,
+   52,
    "state",
    "free",
    "Libramiento de Nuevo Laredo II",
@@ -15705,7 +15787,7 @@
   ],
   [
    "TAM",
-   52,
+   53,
    "state",
    "free",
    "Libramiento de Río Bravo",
@@ -15715,7 +15797,7 @@
   ],
   [
    "TAM",
-   53,
+   54,
    "state",
    "free",
    "Los Guerra - Los Herreras",
@@ -15725,7 +15807,7 @@
   ],
   [
    "TAM",
-   54,
+   55,
    "state",
    "free",
    "Peña Blanca - Cd. Camargo",
@@ -15735,7 +15817,7 @@
   ],
   [
    "TAM",
-   55,
+   56,
    "state",
    "free",
    "Potrero Nuevo - Rancho El Mezquital",
@@ -15745,7 +15827,7 @@
   ],
   [
    "TAM",
-   56,
+   57,
    "state",
    "free",
    "Ramal a Gómez Farías",
@@ -15757,7 +15839,7 @@
   ],
   [
    "TAM",
-   57,
+   58,
    "state",
    "free",
    "Ramal a Xicoténcatl",
@@ -15767,7 +15849,7 @@
   ],
   [
    "TAM",
-   58,
+   59,
    "state",
    "free",
    "San Fernando - Carboneras",
@@ -15777,7 +15859,7 @@
   ],
   [
    "TAM",
-   59,
+   60,
    "state",
    "free",
    "Soto La Marina - La Pesca",
@@ -15789,7 +15871,7 @@
   ],
   [
    "TAM",
-   60,
+   61,
    "state",
    "free",
    "T. C. (Valle Hermoso - Empalme) - Matamoros",
@@ -15801,7 +15883,7 @@
   ],
   [
    "TAM",
-   61,
+   62,
    "state",
    "free",
    "T. C. Libramiento Cd. Victoria - San Antonio",
@@ -15813,7 +15895,7 @@
   ],
   [
    "TAM",
-   62,
+   63,
    "state",
    "free",
    "Valle Hermoso - Empalme",
@@ -15825,20 +15907,22 @@
   ],
   [
    "TAM",
-   63,
-   "state",
-   "free",
-   "Valle Hermoso - Las Yescas",
-   "TAM",
-   [],
-   null
-  ],
-  [
-   "TAM",
    64,
    "mixed",
    null,
-   "Santander Jiménez - Ent. El Ojito",
+   "Ent. El Ojito - Abasolo",
+   "MEX-107-TAM",
+   [
+    "MEX-107"
+   ],
+   true
+  ],
+  [
+   "TAM",
+   65,
+   "mixed",
+   null,
+   "Santander Jiménez - Abasolo",
    "MEX-107-TAM",
    [
     "MEX-107"
@@ -15862,7 +15946,7 @@
    2,
    "federal",
    "free",
-   "Apizaco - San Pablo Apetatitlán",
+   "Apizaco - Tejocotal",
    "MEX-119",
    [
     "MEX-119"
@@ -15874,18 +15958,6 @@
    3,
    "federal",
    "free",
-   "Apizaco - Tejocotal",
-   "MEX-119",
-   [
-    "MEX-119"
-   ],
-   null
-  ],
-  [
-   "TLA",
-   4,
-   "federal",
-   "free",
    "Huamantla - La Venta",
    "MEX-136",
    [
@@ -15895,7 +15967,7 @@
   ],
   [
    "TLA",
-   5,
+   4,
    "federal",
    "free",
    "Huamantla - Terrenate",
@@ -15907,7 +15979,7 @@
   ],
   [
    "TLA",
-   6,
+   5,
    "federal",
    "free",
    "Libramiento de Apizaco",
@@ -15919,7 +15991,7 @@
   ],
   [
    "TLA",
-   7,
+   6,
    "federal",
    "free",
    "Libramiento de Santiago Tlalpan",
@@ -15931,7 +16003,7 @@
   ],
   [
    "TLA",
-   8,
+   7,
    "federal",
    "free",
    "Libramiento Huamantla",
@@ -15943,7 +16015,7 @@
   ],
   [
    "TLA",
-   9,
+   8,
    "federal",
    "free",
    "Libramiento Hueyotlipan",
@@ -15955,7 +16027,7 @@
   ],
   [
    "TLA",
-   10,
+   9,
    "federal",
    "free",
    "Los Reyes - Zacatepec",
@@ -15967,7 +16039,7 @@
   ],
   [
    "TLA",
-   11,
+   10,
    "federal",
    "free",
    "Puebla - Belem",
@@ -15979,7 +16051,7 @@
   ],
   [
    "TLA",
-   12,
+   11,
    "federal",
    "free",
    "Puebla - Tlaxcala",
@@ -15991,7 +16063,7 @@
   ],
   [
    "TLA",
-   13,
+   12,
    "federal",
    "free",
    "Ramal a San Felipe de Hidalgo",
@@ -16003,7 +16075,7 @@
   ],
   [
    "TLA",
-   14,
+   13,
    "federal",
    "free",
    "San Martín Texmelucan - Tlaxcala",
@@ -16015,10 +16087,22 @@
   ],
   [
    "TLA",
+   14,
+   "federal",
+   "free",
+   "San Pablo Apetatitlán - Apizaco",
+   "MEX-119",
+   [
+    "MEX-119"
+   ],
+   null
+  ],
+  [
+   "TLA",
    15,
    "federal",
    "free",
-   "Tetlatlahuca - Santa Ana Chiautempan",
+   "T. C. (Puebla - Tlaxcala) - Villa Alta",
    "MEX-119",
    [
     "MEX-119"
@@ -16030,7 +16114,7 @@
    16,
    "federal",
    "free",
-   "Tlaxcala - Belem",
+   "Tetlatlahuca - Santa Ana Chiautempan",
    "MEX-119",
    [
     "MEX-119"
@@ -16042,7 +16126,7 @@
    17,
    "federal",
    "free",
-   "Villa Alta - T. C. (Puebla - Tlaxcala)",
+   "Tlaxcala - Belem",
    "MEX-119",
    [
     "MEX-119"
@@ -16112,18 +16196,6 @@
   [
    "TLA",
    23,
-   "federal",
-   "toll",
-   "Tlaxco - Tejocotal (Cuota)",
-   "MEX-119D",
-   [
-    "MEX-119D"
-   ],
-   null
-  ],
-  [
-   "TLA",
-   24,
    "state",
    "free",
    "Ramal a Altzayanca de Hidalgo",
@@ -16133,7 +16205,7 @@
   ],
   [
    "TLA",
-   25,
+   24,
    "state",
    "free",
    "Ramal a San Pedro Ecatepec",
@@ -16143,7 +16215,7 @@
   ],
   [
    "TLA",
-   26,
+   25,
    "state",
    "free",
    "Ramal a Xalostoc",
@@ -16153,7 +16225,7 @@
   ],
   [
    "TLA",
-   27,
+   26,
    "state",
    "free",
    "Xalostoc - Terrenate",
@@ -16163,13 +16235,23 @@
   ],
   [
    "TLA",
-   28,
+   27,
    "state",
    "toll",
    "Puebla - Tlaxcala (Cuota)",
    "PUE-D",
    [],
    null
+  ],
+  [
+   "TLA",
+   28,
+   "state",
+   "toll",
+   "Tlaxco - Tejocotal (Cuota)",
+   "PUE-TLAX-HGO-D",
+   [],
+   true
   ],
   [
    "TLA",
@@ -16908,7 +16990,7 @@
    59,
    "federal",
    "toll",
-   "Tihuatlán - Túxpam",
+   "Tihuatlán - Túxpam (Cuota)",
    "MEX-130D",
    [
     "MEX-130D"
@@ -17592,7 +17674,7 @@
    27,
    "state",
    "free",
-   "Citilcum - Tixkochoh",
+   "Calotmul - Sucilá",
    "YUC",
    [],
    null
@@ -17602,7 +17684,7 @@
    28,
    "state",
    "free",
-   "Dzemul - Xtampú",
+   "Citilcum - Tixkochoh",
    "YUC",
    [],
    null
@@ -17612,7 +17694,7 @@
    29,
    "state",
    "free",
-   "Dzidzantún - Santa Clara",
+   "Dzemul - Xtampú",
    "YUC",
    [],
    null
@@ -17620,6 +17702,16 @@
   [
    "YUC",
    30,
+   "state",
+   "free",
+   "Dzidzantún - Santa Clara",
+   "YUC",
+   [],
+   null
+  ],
+  [
+   "YUC",
+   31,
    "state",
    "free",
    "Hoctún - Cenotillo",
@@ -17631,7 +17723,7 @@
   ],
   [
    "YUC",
-   31,
+   32,
    "state",
    "free",
    "Holcá - Sotuta",
@@ -17641,7 +17733,7 @@
   ],
   [
    "YUC",
-   32,
+   33,
    "state",
    "free",
    "Hunucmá - Umán",
@@ -17651,7 +17743,7 @@
   ],
   [
    "YUC",
-   33,
+   34,
    "state",
    "free",
    "Izamal - Dzilam González",
@@ -17661,7 +17753,7 @@
   ],
   [
    "YUC",
-   34,
+   35,
    "state",
    "free",
    "Kantunil - Izamal",
@@ -17671,7 +17763,7 @@
   ],
   [
    "YUC",
-   35,
+   36,
    "state",
    "free",
    "Kinchil - Umán",
@@ -17681,7 +17773,7 @@
   ],
   [
    "YUC",
-   36,
+   37,
    "state",
    "free",
    "Libramiento de Peto",
@@ -17693,7 +17785,7 @@
   ],
   [
    "YUC",
-   37,
+   38,
    "state",
    "free",
    "Libramiento Norte de Motul",
@@ -17703,7 +17795,7 @@
   ],
   [
    "YUC",
-   38,
+   39,
    "state",
    "free",
    "Mérida - Acanceh",
@@ -17713,7 +17805,7 @@
   ],
   [
    "YUC",
-   39,
+   40,
    "state",
    "free",
    "Mérida - Oxkutzcab",
@@ -17725,7 +17817,7 @@
   ],
   [
    "YUC",
-   40,
+   41,
    "state",
    "free",
    "Mérida - Timucuy",
@@ -17735,7 +17827,7 @@
   ],
   [
    "YUC",
-   41,
+   42,
    "state",
    "free",
    "Motul - Puerto Telchac",
@@ -17747,7 +17839,7 @@
   ],
   [
    "YUC",
-   42,
+   43,
    "state",
    "free",
    "Muna - Maxcanú",
@@ -17757,7 +17849,7 @@
   ],
   [
    "YUC",
-   43,
+   44,
    "state",
    "free",
    "Oxkutzcab - Xul",
@@ -17769,7 +17861,7 @@
   ],
   [
    "YUC",
-   44,
+   45,
    "state",
    "free",
    "Piste - Dzitás",
@@ -17781,7 +17873,7 @@
   ],
   [
    "YUC",
-   45,
+   46,
    "state",
    "free",
    "Progreso - Telchac Puerto",
@@ -17793,7 +17885,7 @@
   ],
   [
    "YUC",
-   46,
+   47,
    "state",
    "free",
    "Ramal a Chankom",
@@ -17803,7 +17895,7 @@
   ],
   [
    "YUC",
-   47,
+   48,
    "state",
    "free",
    "Ramal a Dzonot Carretero",
@@ -17813,7 +17905,7 @@
   ],
   [
    "YUC",
-   48,
+   49,
    "state",
    "free",
    "Ramal a San Felipe",
@@ -17823,7 +17915,7 @@
   ],
   [
    "YUC",
-   49,
+   50,
    "state",
    "free",
    "Ramal a Tedzidz",
@@ -17833,7 +17925,7 @@
   ],
   [
    "YUC",
-   50,
+   51,
    "state",
    "free",
    "Ramal a Yaxcabá",
@@ -17845,20 +17937,10 @@
   ],
   [
    "YUC",
-   51,
-   "state",
-   "free",
-   "Sinanché - Xitibcanul",
-   "YUC",
-   [],
-   null
-  ],
-  [
-   "YUC",
    52,
    "state",
    "free",
-   "Sucilá - Calotmul",
+   "Sinanché - Xitibcanul",
    "YUC",
    [],
    null
@@ -18514,21 +18596,21 @@
    "ZAC",
    46,
    "state",
+   "free",
+   "Yahualica - Jaralillo",
+   "JAL-ZAC",
+   [],
+   true
+  ],
+  [
+   "ZAC",
+   47,
+   "state",
    "toll",
    "Libramiento Noreste de Zacatecas (Cuota)",
    "ZAC-D",
    [],
    null
-  ],
-  [
-   "ZAC",
-   47,
-   "mixed",
-   null,
-   "Tepatitlán - Jaralillo",
-   "MEX-JAL-ZAC",
-   [],
-   true
   ]
  ]
 }
