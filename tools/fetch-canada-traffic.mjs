@@ -5,20 +5,41 @@
 // The American half of this atlas can say how busy a road is because HPMS is a
 // single national collection every state reports into. Canada has no such
 // thing. Traffic counting is provincial, and each province decides on its own
-// whether to publish, in what form, and under what terms. So this is five
-// separate feeds in five separate shapes, and the result is deliberately
-// partial: five of thirteen jurisdictions, covering most of the country's
-// traffic but nothing like all of its road.
+// whether to publish, in what form, and under what terms. So this is seven
+// separate feeds in seven separate shapes, and the result is still partial:
+// seven of thirteen jurisdictions.
 //
 // What is not here, and why, because the gaps are part of the answer:
 //
-//   British Columbia  counts continuously and publishes the current year only
-//                     through an interactive map, with no bulk download; the
-//                     open-data catalogue's copy stops at 2010.
-//   Saskatchewan      publishes as a PDF map.
-//   Manitoba          publishes through a web application and a PDF.
-//   NL, PEI, NT,      no machine-readable traffic publication found.
-//   YT, NU
+//   British Columbia  counts continuously at some 900 sites and publishes none
+//                     of it in bulk. The open-data catalogue holds four files,
+//                     annual volumes to 2010 and monthly permanent-counter
+//                     volumes to June 2011, none touched since 2022. The live
+//                     programme is catalogued with the licence "Access Only"
+//                     and a single resource that is an application URL, so the
+//                     province has explicitly published it as viewer-only.
+//   Saskatchewan      publishes an annual traffic volume map as a PDF and
+//                     nothing else; a search of its GeoHub records API for
+//                     "traffic" returns nothing. The map does distinguish
+//                     continuous-classifier sites and carries truck AADT for
+//                     them, so there is a truck source here worth reading if
+//                     PDF map extraction ever becomes worth the risk.
+//   Manitoba          publishes through a web application, plus flow-map PDFs
+//                     for 2004-2019 and 2023 - the province states that none
+//                     were produced for 2020, 2021 or 2022 - and truck flow
+//                     maps for 2008 and 2013 only.
+//   NL, YT, NU        no traffic publication found. Newfoundland's own
+//                     departmental annual reports enumerate its data holdings
+//                     and contain no traffic series; Yukon collects counts but
+//                     releases them only on request; Nunavut has no
+//                     inter-community highway to count.
+//
+// Two of those gaps were wrong and are now filled. The Northwest Territories
+// publishes a per-highway series back to 2011 through its Bureau of
+// Statistics, and Prince Edward Island publishes four years of AADT as
+// queryable tables rather than only through the viewer its website advertises.
+// Both were previously recorded here as having nothing, which is the kind of
+// mistake that turns into a permanent hole because nobody looks twice.
 //
 // Every figure here is joined to a route by the province's own route number -
 // or, in New Brunswick, by the route encoded in its control-section key, which
@@ -35,6 +56,13 @@ const OUT = join('content', 'reference', 'ca-traffic.json');
 
 // Rounded the way the underlying measure is actually carried, matching how the
 // HPMS figures are rounded so the two read as the same kind of number.
+//
+// A jurisdiction may override the volume step, and one has to. Rounding to the
+// hundred suits roads carrying tens of thousands, but the Northwest
+// Territories counts in tens - the Tłı̨chǫ Highway averages thirty vehicles a
+// day - and rounding that to the nearest hundred reports an open highway as
+// carrying nobody. The territory publishes to the nearest ten, so that is what
+// it is kept at.
 const STEPS = { aadt: 100, truck: 0.1, speed: 1 };
 
 const num = (v) => {
@@ -76,11 +104,12 @@ class Route {
     }
   }
 
-  finish({ weighted = true } = {}) {
+  finish({ weighted = true, steps = null } = {}) {
+    const S = steps ? { ...STEPS, ...steps } : STEPS;
     const out = { n: this.n };
     if (weighted && this.km > 0) out.km = Math.round(this.km * 10) / 10;
-    // To the hundred, like the averages, so it reads as the estimate it is.
-    if (this.peak > 0) out.aadtMax = Math.round(this.peak / 100) * 100;
+    // On the same step as the averages, so it reads as the estimate it is.
+    if (this.peak > 0) out.aadtMax = Math.round(this.peak / S.aadt) * S.aadt;
     const years = [...this.years].sort();
     if (years.length) {
       out.year = years[years.length - 1];
@@ -89,7 +118,7 @@ class Route {
     for (const [k, w] of Object.entries(this.w)) {
       const d = this.d[k];
       if (!d) continue;
-      const step = STEPS[k] ?? 1;
+      const step = S[k] ?? 1;
       const dp = Math.max(0, -Math.floor(Math.log10(step)));
       out[k] = {
         v: Number((Math.round((w / d) / step) * step).toFixed(dp)),
@@ -112,6 +141,48 @@ const into = (acc, key) => {
 const finish = (acc, opts) => Object.fromEntries(
   [...acc].map(([k, r]) => [k, r.finish(opts)]).filter(([, v]) => v.aadt),
 );
+
+/**
+ * A route's traffic over several years.
+ *
+ * Kept apart from Route because the two answer different questions and have
+ * different denominators. Route describes one year in as much detail as the
+ * province supplies; this describes one measure across years, weighted the
+ * same way within each year so that the years are comparable with each other
+ * even where coverage changed between them.
+ */
+class Series {
+  constructor() { this.w = new Map(); this.d = new Map(); }
+
+  add(year, value, weight = 1) {
+    if (!year || value == null) return;
+    this.w.set(year, (this.w.get(year) ?? 0) + value * weight);
+    this.d.set(year, (this.d.get(year) ?? 0) + weight);
+  }
+
+  finish(step = STEPS.aadt) {
+    const out = {};
+    for (const [year, w] of [...this.w].sort((a, b) => a[0] - b[0])) {
+      const d = this.d.get(year);
+      if (d) out[year] = Math.round((w / d) / step) * step;
+    }
+    return Object.keys(out).length > 1 ? out : null;
+  }
+}
+
+const trend = (acc, key) => {
+  if (!acc.has(key)) acc.set(key, new Series());
+  return acc.get(key);
+};
+
+/** Hangs each route's series off the route record the province already built. */
+function withTrend(routes, series, step) {
+  for (const [id, s] of series) {
+    const t = s.finish(step);
+    if (t && routes[id]) routes[id].trend = t;
+  }
+  return routes;
+}
 
 // ---------------------------------------------------------------- Quebec
 
@@ -417,8 +488,225 @@ async function newBrunswick() {
   };
 }
 
+// --------------------------------------------------- Northwest Territories
+
+// One table, one column per highway, one row per year. Two things about it
+// have to be read out of the sheet rather than assumed.
+//
+// The column headings carry their footnote markers welded on. The Tłı̨chǫ
+// Highway, number 9, is headed "Highway 92" because footnote 2 records that
+// it opened on 30 November 2021 - and an atlas that read that heading as
+// written would invent a Highway 92 and hang a real series off it. The sheet
+// also lists every highway it covers, in full, with its name and its extent,
+// so the headings are resolved against that list and a heading that does not
+// land on a listed highway is refused.
+//
+// And every value in it is an estimate. Footnote 3 says so: the territory
+// rounds to the nearest ten and models the gaps, because the counter network
+// is 22 portable units on the numbered highways and the 2024 report puts
+// useable coverage at about 85%. So this is the publisher's own estimate,
+// published as one, and it is labelled that way rather than set beside the
+// counted figures as though it were the same kind of number.
+const NT_TABLE = 'Table 107-Estimated Traffic on Northwest Territories Highways, 2011 to 2024.xlsx';
+const NT_DESCRIBED = /^Highway\s+(\d+)\s*-\s*(.+)$/;
+// To the ten, which is what the territory itself publishes to.
+const NT_STEPS = { aadt: 10 };
+
+async function northwestTerritories() {
+  const [sheet] = await fetchWorkbook(`https://www.statsnwt.ca/Transportation/${encodeURIComponent(NT_TABLE)}`);
+  const flat = sheet.rows.map((r) => r.map((c) => String(c ?? '').replace(/\s+/g, ' ').trim()));
+
+  // The authoritative set of highways, from the sheet's own description block.
+  const described = new Map();
+  for (const row of flat) {
+    for (const cell of row) {
+      const m = NT_DESCRIBED.exec(cell);
+      if (m) described.set(m[1], m[2]);
+    }
+  }
+  if (!described.size) throw new Error('the sheet no longer lists its highways; headings cannot be checked');
+
+  // The heading row is the one that opens the table.
+  const head = flat.findIndex((r) => r[0]?.toLowerCase() === 'date');
+  if (head < 0) throw new Error('no Date heading row');
+
+  // A heading is the word Highway, its number, and possibly a footnote marker
+  // welded to the number. The whole number is tried first and then the number
+  // without its last digit, so "92" resolves to 9 and "10" stays 10.
+  //
+  // The word has to be there. The first column's heading is the bare string
+  // "3" - its label went into a merged cell and only its footnote survived -
+  // and a match loose enough to read that as a highway number reads it as
+  // Highway 3, which silently files the Mackenzie Highway's traffic under the
+  // Yellowknife Highway and averages the two together.
+  const column = new Map();
+  for (let c = 1; c < flat[head].length; c++) {
+    const digits = /highway\s*(\d+)/i.exec(flat[head][c])?.[1];
+    if (!digits) continue;
+    const id = [digits, digits.slice(0, -1)].find((d) => d && described.has(d));
+    if (id) column.set(c, id);
+  }
+  // Whichever described highway no heading claimed is the one whose label was
+  // lost to the merged cell. Its column is found by looking at the body rather
+  // than by counting from the edge: exactly one unclaimed column should carry
+  // numbers, and that is it.
+  const unclaimed = [...described.keys()].filter((id) => ![...column.values()].includes(id));
+  const spare = [...Array(flat[head].length).keys()].slice(1)
+    .filter((c) => !column.has(c) && flat.slice(head + 1).some((r) => num(r[0]) && num(r[c]) != null));
+  if (unclaimed.length === 1 && spare.length === 1) column.set(spare[0], unclaimed[0]);
+
+  const twice = [...column.values()].filter((id, i, all) => all.indexOf(id) !== i);
+  if (twice.length) throw new Error(`two columns claim highway ${twice.join(', ')}`);
+  if (column.size !== described.size) {
+    throw new Error(`${described.size} highways described but ${column.size} columns resolved`);
+  }
+
+  const acc = collect();
+  const series = new Map();
+  let latest = 0;
+  for (const row of flat.slice(head + 1)) {
+    const year = num(row[0]);
+    if (!year || year < 1900) continue;
+    latest = Math.max(latest, year);
+    for (const [c, id] of column) {
+      // "-" is nil and ".." is not available; neither is a zero.
+      const aadt = num(row[c]);
+      if (aadt == null) continue;
+      trend(series, id).add(year, aadt);
+    }
+  }
+  for (const row of flat.slice(head + 1)) {
+    if (num(row[0]) !== latest) continue;
+    for (const [c, id] of column) {
+      const aadt = num(row[c]);
+      // Point-in-time territorial figures with no section length behind them.
+      if (aadt != null) into(acc, id).add(null, { aadt }, latest);
+    }
+  }
+
+  return {
+    name: { en: 'Northwest Territories', fr: 'Territoires du Nord-Ouest' },
+    source: 'GNWT Bureau of Statistics, Estimated Traffic on Northwest Territories Highways '
+      + '(Department of Infrastructure)',
+    url: 'https://www.statsnwt.ca/Transportation/',
+    licence: 'Open Government Licence – Northwest Territories',
+    measure: 'AADT',
+    method: 'territorial estimate',
+    estimated: true,
+    note: 'Every figure is the territory\'s own estimate, rounded to the nearest ten. '
+      + 'The counter network is small and the annual Highway Traffic Report puts '
+      + 'useable coverage near 85%, with the remainder modelled from previous years, '
+      + 'ferry movements and weigh scales. Shown as the estimate it is published as, '
+      + 'and not weighted by length, which the table does not carry.',
+    highways: Object.fromEntries(described),
+    routes: withTrend(finish(acc, { weighted: false, steps: NT_STEPS }), series, NT_STEPS.aadt),
+  };
+}
+
+// ------------------------------------------------- Prince Edward Island
+
+// Four years, each published as its own table rather than as a series, and
+// none of them visible from the province's own traffic page - which offers an
+// interactive viewer covering 2015 to 2022 and does not mention that four of
+// those years are also queryable. The tables carry a section length, which is
+// what lets these be weighted like the larger provinces rather than averaging
+// sections of unequal length.
+//
+// The four years are not the same shape, so no field name is written down
+// here: each layer is asked what it holds. 2015 calls its length column
+// Length_in_Metres and the others call it Length_Metres, and - the one that
+// matters - only 2018 carries a Route_Number column at all.
+//
+// For the three years without one the route is read out of Road_ID, whose
+// first three digits are the route and whose last two are the section. That
+// decoding is verified rather than assumed, against the one year that
+// publishes both: over 644 rows of 2018 it agrees on 643. The exception is
+// Road_ID 26601 against Route_Number 239, where the province's own two
+// columns disagree with each other; 2018 is taken from the published route
+// number, so the disagreement affects only whichever earlier-year rows carry
+// the same identifier, and it is reported rather than decided.
+//
+// The province states an annual cadence and has not met it: nothing after 2018
+// has been released, though the viewer has it. That is recorded rather than
+// smoothed over, because a four-year-old figure presented without its date
+// would read as current.
+const PE_YEARS = {
+  2015: 'OD0063_2015_Traffic_Volumes',
+  2016: 'OD0064_2016_Traffic_Volumes',
+  2017: 'OD0065_2017_Traffic_Volumes',
+  2018: 'OD0068_2018_Traffic_Volumes',
+};
+const PE_HOST = 'https://services9.arcgis.com/zow9Ot3ujGSyJI3C/arcgis/rest/services';
+const PE_ROAD_ID = /^(\d{3})(\d{2})$/;
+
+const peRoute = (roadId) => {
+  const m = PE_ROAD_ID.exec(String(roadId ?? '').trim());
+  const route = m ? Number(m[1]) : null;
+  return route > 0 ? String(route) : null;
+};
+
+async function princeEdwardIsland() {
+  const acc = collect();
+  const series = new Map();
+  const latest = Math.max(...Object.keys(PE_YEARS).map(Number));
+  const derived = [];
+
+  for (const [year, service] of Object.entries(PE_YEARS)) {
+    const layer = `${PE_HOST}/${service}/FeatureServer/0`;
+    const meta = await (await fetch(`${layer}?f=json`)).json();
+    if (meta.error) throw new Error(`${year}: ${meta.error.message}`);
+    const has = new Set((meta.fields ?? []).map((f) => f.name));
+
+    const lengthField = ['Length_Metres', 'Length_in_Metres'].find((f) => has.has(f));
+    if (!lengthField) throw new Error(`${year}: no length column`);
+    const routeField = has.has('Route_Number') ? 'Route_Number' : null;
+    if (!routeField) derived.push(Number(year));
+
+    // The geometry is carried as a string field that dwarfs the data, so it is
+    // left behind: the join is on the route number, as everywhere else here.
+    const fields = [routeField ?? 'Road_ID', 'Annual_Average_Daily_Traffic', lengthField];
+    const res = await fetch(`${layer}/query?where=1%3D1&f=json&returnGeometry=false`
+      + `&outFields=${fields.join(',')}&resultRecordCount=5000`);
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${year}`);
+    const body = await res.json();
+    if (body.error) throw new Error(`${year}: ${body.error.message}`);
+
+    for (const { attributes: a } of body.features ?? []) {
+      const route = routeField
+        ? (num(a[routeField]) != null ? String(num(a[routeField])) : null)
+        : peRoute(a.Road_ID);
+      const aadt = num(a.Annual_Average_Daily_Traffic);
+      const km = (num(a[lengthField]) ?? 0) / 1000;
+      if (!route || !aadt || !(km > 0)) continue;
+      trend(series, route).add(Number(year), aadt, km);
+      if (Number(year) === latest) into(acc, route).add(km, { aadt }, latest);
+    }
+  }
+
+  return {
+    name: { en: 'Prince Edward Island', fr: 'Île-du-Prince-Édouard' },
+    source: 'Prince Edward Island Department of Transportation and Infrastructure, '
+      + 'Traffic Volumes',
+    url: 'https://www.princeedwardisland.ca/en/service/view-pei-traffic-volumes',
+    licence: 'Open Government Licence – Prince Edward Island',
+    measure: 'AADT',
+    method: 'weighted',
+    routeFrom: derived.length
+      ? `Route_Number where published (${latest}); read from the first three digits of `
+        + `Road_ID for ${derived.join(', ')}, a decoding checked against ${latest} `
+        + 'where both columns exist and agreeing on 643 of 644 rows'
+      : 'Route_Number',
+    note: 'Published one year at a time as four separate tables, 2015 to 2018. The '
+      + 'province states an annual cadence but has released nothing since, although '
+      + 'its own viewer covers through 2022, so the latest figure here is '
+      + `${latest} and should be read as that year rather than as current.`,
+    routes: withTrend(finish(acc), series),
+  };
+}
+
 const PROVINCES = {
   QC: quebec, ON: ontario, AB: alberta, NS: novaScotia, NB: newBrunswick,
+  PE: princeEdwardIsland, NT: northwestTerritories,
 };
 
 /**
@@ -483,12 +771,13 @@ async function main() {
     source: 'Provincial open data; see each province for its own source and licence',
     retrieved: new Date().toISOString().slice(0, 10),
     note: 'Canada has no national equivalent to the United States\' HPMS. These '
-      + 'are the five provinces that publish route-level traffic counts in bulk, '
-      + 'each in its own form and under its own terms. British Columbia, '
-      + 'Saskatchewan and Manitoba publish only through maps, applications or '
-      + 'PDFs; the remaining jurisdictions do not publish machine-readable '
-      + 'counts. Figures are joined to routes by the province\'s route number, '
-      + 'never by position.',
+      + 'are the jurisdictions that publish route-level traffic in bulk, each in '
+      + 'its own form and under its own terms. British Columbia, Saskatchewan and '
+      + 'Manitoba publish only through maps, applications or PDFs; Newfoundland, '
+      + 'Yukon and Nunavut publish nothing. Figures are joined to routes by the '
+      + 'jurisdiction\'s own route number, never by position. Northwest '
+      + 'Territories figures are the territory\'s published estimates rather than '
+      + 'counts, and are marked as such.',
     provinces: out,
   }, null, 1)}\n`);
 
