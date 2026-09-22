@@ -21,14 +21,35 @@
 // residue of failing the other test, because the field also says Municipal,
 // Particular and Otro, and those are caminos rather than highways.
 //
-// What the state tier is NOT is a census of Mexico's state highways. CODIGO
-// is a per-state inventory key, and how completely a state filled it in
-// varies from 93% of its carretera kilometres in Chihuahua to 0.7% in
-// Tlaxcala. Veracruz has more state carretera kilometres than any other state
-// and yields fifteen numbered routes. So a per-state route count measures
-// that state's coding practice, and the two must not be compared. The tier is
-// "numbered state roads as the RNC codes them" and should be described that
-// way wherever it is totalled.
+// What the state tier is NOT is a census of Mexico's state highways, and the
+// reason is worth stating precisely, because the obvious reading of it is
+// wrong.
+//
+// The share of a state's carretera kilometres that carries a parseable CODIGO
+// runs from 93% in Chihuahua to 0.7% in Tlaxcala. Veracruz has more
+// state-administered carretera kilometre than any other state and yields
+// fifteen numbered routes. That looks like patchy data entry, and INEGI's own
+// technical document invites the reading: §6.1 item 7 says state and
+// municipal codes were compiled with state governments "en la medida de lo
+// posible".
+//
+// It is not patchy data entry. SICT's Datos Viales 2024, which enumerates
+// every highway it counts traffic on and gives each an official RUTA key,
+// says the same thing independently. Oaxaca's RED ESTATAL LIBRE is seven
+// roads and every one of them is keyed bare "OAX". Veracruz's is thirty-one
+// roads of which six carry a number. Tlaxcala's is four, all bare "TLAX".
+// These states do not designate numbered state highways, so there is no
+// missing number to go and find - the road is real, the number was never
+// assigned.
+//
+// Two consequences. A per-state route count is not comparable with another
+// state's, because it is partly a count of whether that state numbers its
+// roads at all. And the absence is a finding rather than a gap: the atlas can
+// say so, with a citation, instead of apologising for it.
+//
+//   SICT, Dirección General de Servicios Técnicos, Datos Viales 2024,
+//   per-state PDFs under micrs.sct.gob.mx. Oaxaca and Veracruz sheets read
+//   2026-09-22.
 //
 // The RNC is a routable network rather than a drawn map, and it is richer than
 // either northern source: every segment carries its lane count, surface
