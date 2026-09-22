@@ -12,23 +12,7 @@ import {
 } from './i18n.js';
 import { app, shieldHtml, addToTrip, clearSelection, fitTo, loadDossier } from './app.js';
 import { startFly } from './fly.js';
-
-const SECTION_ORDER = [
-  'character', 'engineering', 'history', 'money', 'traffic', 'condition', 'drive',
-];
-
-const CLASS_COLOUR = {
-  Freeway: '#35e7ff',
-  Tollway: '#ffb545',
-  Primary: '#6ef7a5',
-  Secondary: '#4f9ad8',
-  'Other Paved': '#7a8ca6',
-  Paved: '#7a8ca6',
-  Unpaved: '#b98a5a',
-  Ferry: '#a98bff',
-  Trail: '#8a6f4f',
-  Unknown: '#4a5768',
-};
+import { CLASS_COLOUR, SECTION_ORDER, KM_PER_MI } from './schema.js';
 
 function esc(s) {
   return String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -108,8 +92,6 @@ function metric(key, value, sub, tip) {
 
 /** How much of the route a figure was measured over, as a badge not a clause. */
 const covBadge = (pct) => (pct != null && pct < 98 ? `${num(pct)}%` : null);
-
-const KM_PER_MI = 1.609344;
 
 /**
  * The length, at the size it is actually read at.

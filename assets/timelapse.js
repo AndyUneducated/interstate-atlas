@@ -26,7 +26,11 @@
 import { t, num, getLang } from './i18n.js';
 import { app, toast, enableSystem, select } from './app.js';
 
-const SYSTEM_LAYERS = ['rt-interstate', 'rt-interstate-glow', 'rt-interstate-label'];
+/* The scrubber only ever filters the Interstate layers - it is a buildout of
+   that system and of nothing else - so it names them directly rather than
+   walking the registry. */
+const I = 'rt-us-interstate';
+const SYSTEM_LAYERS = [I, `${I}-glow`, `${I}-label`];
 const FLASH_SRC = 'tl-flash';
 const GHOST = 'tl-ghost';
 
@@ -100,11 +104,11 @@ function atYear(rows, year) {
  */
 function ensureGhostLayer() {
   const map = app.map;
-  if (map.getLayer(GHOST) || !map.getLayer('rt-interstate')) return;
+  if (map.getLayer(GHOST) || !map.getLayer(I)) return;
   map.addLayer({
     id: GHOST,
     type: 'line',
-    source: 'rt-interstate',
+    source: I,
     layout: { 'line-cap': 'round', 'line-join': 'round', visibility: 'none' },
     paint: {
       'line-color': '#35e7ff',
@@ -113,7 +117,7 @@ function ensureGhostLayer() {
     },
     // Under the live layers, so a route that lights up is not dimmed by its
     // own ghost lying on top of it.
-  }, map.getLayer('rt-interstate-glow') ? 'rt-interstate-glow' : 'rt-interstate');
+  }, map.getLayer(`${I}-glow`) ? `${I}-glow` : I);
 }
 
 function ghost(show) {
@@ -159,7 +163,7 @@ function ensureFlashLayers() {
 function flash(ids) {
   const map = app.map;
   if (!map?.getSource(FLASH_SRC)) return;
-  const src = map.getSource('rt-interstate');
+  const src = map.getSource(I);
   const all = src?._data?.features || [];
   const features = all.filter((f) => ids.includes(f.properties.id));
   map.getSource(FLASH_SRC).setData({ type: 'FeatureCollection', features });
@@ -184,7 +188,7 @@ function flash(ids) {
 
 function applyYear(year) {
   const map = app.map;
-  if (!map?.getLayer('rt-interstate')) return;
+  if (!map?.getLayer(I)) return;
   const open = state.routes.filter((r) => r.year <= year);
   const ids = open.map((r) => r.id);
   for (const layer of SYSTEM_LAYERS) {
@@ -339,7 +343,7 @@ export async function openTimelapse() {
   }
 
   // The Interstates have to be drawn for there to be anything to animate.
-  if (!app.loaded.has('interstate')) await enableSystem('interstate');
+  if (!app.loaded.has('us-interstate')) await enableSystem('us-interstate');
 
   const rows = tl.mileage.open;
   const routes = tl.routes.filter((r) => r.year).sort((a, b) => a.year - b.year);

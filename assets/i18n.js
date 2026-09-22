@@ -3,6 +3,8 @@
 
    Placeholders look like {n} and are filled positionally by t(). */
 
+import { isPerJuris } from './schema.js';
+
 export const STRINGS = {
   en: {
     'app.name': 'HIGHWAY ATLAS',
@@ -38,22 +40,22 @@ export const STRINGS = {
     'toast.zen': 'Interface hidden — press Z or Escape to bring it back',
     'sys.country.us': 'United States',
     'sys.country.ca': 'Canada',
-    'sys.interstate': 'Interstate Highways',
-    'sys.us': 'US Numbered Routes',
-    'sys.state': 'State Routes',
-    'sys.tch': 'Trans-Canada Highway',
-    'sys.nhs': 'National Highway System',
+    'sys.us-interstate': 'Interstate Highways',
+    'sys.us-numbered': 'US Numbered Routes',
+    'sys.us-state': 'State Routes',
+    'sys.ca-tch': 'Trans-Canada Highway',
+    'sys.ca-nhs': 'National Highway System',
     // "Municipal" is in the name because it is in the data: the national road
     // file records county and municipal route numbers in the same field as
     // provincial highway numbers, and they cannot be told apart by road class.
     // Twenty-two separate Ontario roads carry the number 21.
-    'sys.provincial': 'Provincial & Municipal Routes',
-    'sys.interstate.meta': 'grade-separated freeway network',
-    'sys.us.meta': 'the pre-1956 national grid',
-    'sys.state.meta': 'load by state',
-    'sys.tch.meta': 'one road, a different number in each province',
-    'sys.nhs.meta': 'the designated national network',
-    'sys.provincial.meta': 'every numbered route, load by province',
+    'sys.ca-provincial': 'Provincial & Municipal Routes',
+    'sys.us-interstate.meta': 'grade-separated freeway network',
+    'sys.us-numbered.meta': 'the pre-1956 national grid',
+    'sys.us-state.meta': 'load by state',
+    'sys.ca-tch.meta': 'one road, a different number in each province',
+    'sys.ca-nhs.meta': 'the designated national network',
+    'sys.ca-provincial.meta': 'every numbered route, load by province',
     'sys.routes': '{n} routes',
     'sys.miles': '{n} mi',
     'sub.state': 'one state',
@@ -366,18 +368,18 @@ export const STRINGS = {
     'toast.zen': '界面已隐藏 — 按 Z 或 Esc 键恢复',
     'sys.country.us': '美国',
     'sys.country.ca': '加拿大',
-    'sys.interstate': '州际公路',
-    'sys.us': '美国国道',
-    'sys.state': '州级公路',
-    'sys.tch': '横加公路',
-    'sys.nhs': '国家公路系统',
-    'sys.provincial': '省级及地方编号公路',
-    'sys.interstate.meta': '全立体交叉高速公路网',
-    'sys.us.meta': '1956 年之前的国家路网',
-    'sys.state.meta': '按州加载',
-    'sys.tch.meta': '同一条路，每个省一个编号',
-    'sys.nhs.meta': '联邦与各省共同划定的国家路网',
-    'sys.provincial.meta': '收录全部编号路线，按省加载',
+    'sys.us-interstate': '州际公路',
+    'sys.us-numbered': '美国国道',
+    'sys.us-state': '州级公路',
+    'sys.ca-tch': '横加公路',
+    'sys.ca-nhs': '国家公路系统',
+    'sys.ca-provincial': '省级及地方编号公路',
+    'sys.us-interstate.meta': '全立体交叉高速公路网',
+    'sys.us-numbered.meta': '1956 年之前的国家路网',
+    'sys.us-state.meta': '按州加载',
+    'sys.ca-tch.meta': '同一条路，每个省一个编号',
+    'sys.ca-nhs.meta': '联邦与各省共同划定的国家路网',
+    'sys.ca-provincial.meta': '收录全部编号路线，按省加载',
     'sys.routes': '{n} 条',
     'sys.miles': '{n} 英里',
     'sub.state': '1 个州',
@@ -740,7 +742,7 @@ export function stateName(code) {
  * number is unique and its name already says which system it belongs to.
  */
 export function ownerLabel(sys, code) {
-  if (sys === 'state' || sys === 'provincial' || isProvince(code)) return stateName(code);
+  if (isPerJuris(sys) || isProvince(code)) return stateName(code);
   return t(`sys.${sys}`);
 }
 

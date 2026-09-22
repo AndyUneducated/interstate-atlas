@@ -34,7 +34,7 @@ const OUT = join('content', 'reference', 'hpms.json');
 // HPMS's own code for how a route is signed. 5 is an off-Interstate business
 // marker, which this atlas folds into the Interstate it belongs to; 6 and above
 // are county, township and municipal, which it does not carry.
-const SIGNING = { 2: 'interstate', 3: 'us', 4: 'state', 5: 'interstate' };
+const SIGNING = { 2: 'us-interstate', 3: 'us-numbered', 4: 'us-state', 5: 'us-interstate' };
 
 /**
  * Where `route_signing` is not usable, read the designation out of `route_id`.
@@ -64,7 +64,7 @@ const ID_FORMATS = {
   TX: {
     re: /^(IH|US|SH|FM|RM|SL|SS|BI|BU|BS)(\d{4})/,
     map: {
-      IH: 'interstate', BI: 'interstate', US: 'us', BU: 'us',
+      IH: 'us-interstate', BI: 'us-interstate', US: 'us-numbered', BU: 'us-numbered',
       SH: 'state', FM: 'state', RM: 'state', SL: 'state', SS: 'state', BS: 'state',
     },
     // Texas's farm and ranch roads are a system of their own, so their numbers
@@ -75,14 +75,14 @@ const ID_FORMATS = {
   // "I90 EB", "US20 WB", "SR28 NB"
   MA: {
     re: /^(I|US|SR)(\d{1,4})/,
-    map: { I: 'interstate', US: 'us', SR: 'state' },
+    map: { I: 'us-interstate', US: 'us-numbered', SR: 'us-state' },
     where: starts(['I', 'US', 'SR']),
   },
   // "03000IS00695--2-----", "18000MD00005--2-----": five digits of county,
   // then the type, then the number.
   MD: {
     re: /^\d{5}(IS|US|MD)(\d{5})/,
-    map: { IS: 'interstate', US: 'us', MD: 'state' },
+    map: { IS: 'us-interstate', US: 'us-numbered', MD: 'us-state' },
     where: "(route_id like '_____IS%' OR route_id like '_____US%' "
       + "OR route_id like '_____MD%')",
   },

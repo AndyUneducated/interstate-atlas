@@ -3,6 +3,7 @@
 
 import { t, getLang, stateName, miles, num, isProvince, ownerLabel } from './i18n.js';
 import { app, select, loadState, zoomToState } from './app.js';
+import { SYSTEMS, CLASS_COLOUR } from './schema.js';
 
 let current = null;
 
@@ -133,7 +134,7 @@ function boxOf(routes, pad = 0.6) {
 
 function numberingDiagram(sys, opts = {}) {
   const box = opts.box ?? US_BOX;
-  const colour = opts.colour ?? (sys === 'interstate' ? '#35e7ff' : '#ffb545');
+  const colour = opts.colour ?? (sys === 'us-interstate' ? '#35e7ff' : '#ffb545');
   const pick = opts.pick ?? ((o) => gridRoutes(sys, o));
   const ns = pick('ns');
   const ew = pick('ew');
@@ -213,8 +214,8 @@ function numberingDiagram(sys, opts = {}) {
 function renderNumbering() {
   const body = `
     <div class="nb-tabs">
-      <button class="btn on" data-nb="interstate" type="button">${t('nb.tab.i')}</button>
-      <button class="btn" data-nb="us" type="button">${t('nb.tab.us')}</button>
+      <button class="btn on" data-nb="us-interstate" type="button">${t('nb.tab.i')}</button>
+      <button class="btn" data-nb="us-numbered" type="button">${t('nb.tab.us')}</button>
       <button class="btn" data-nb="aux" type="button">${t('nb.tab.aux')}</button>
       <button class="btn" data-nb="ca" type="button"><i class="flagdot flag-ca"></i>${t('nb.tab.ca')}</button>
     </div>
@@ -227,7 +228,7 @@ function nbPane(kind) {
   if (kind === 'ca') return nbCanadaPane();
   const d = numberingDiagram(kind);
   const zh = getLang() === 'zh';
-  const isI = kind === 'interstate';
+  const isI = kind === 'us-interstate';
 
   const rules = isI
     ? [
@@ -266,7 +267,7 @@ function nbPane(kind) {
 function nbAuxPane() {
   const zh = getLang() === 'zh';
   // Real examples pulled from the index so the counts are not asserted blindly.
-  const aux = app.index.filter((r) => r.sys === 'interstate' && r.tier === 'auxiliary');
+  const aux = app.index.filter((r) => r.sys === 'us-interstate' && r.tier === 'auxiliary');
   const byParent = new Map();
   for (const r of aux) {
     const parent = String(r.base).slice(-2);
@@ -352,7 +353,7 @@ function nbCanadaPane() {
   // network is; letting the data set the frame spends the width on the part
   // that has something in it.
   const qc = [...qcAutoroutes('ns'), ...qcAutoroutes('ew')];
-  const d = numberingDiagram('provincial', {
+  const d = numberingDiagram('ca-provincial', {
     box: qc.length ? boxOf(qc) : QC_BOX,
     colour: '#a98bff', pick: qcAutoroutes, lonStep: 2, latStep: 1,
     gapX: 22, gapY: 13,
@@ -362,7 +363,7 @@ function nbCanadaPane() {
   // the claim that it changes number at provincial lines is shown in the data.
   const tch = new Map();
   for (const r of app.index) {
-    if (r.sys !== 'tch' || !r.st) continue;
+    if (r.sys !== 'ca-tch' || !r.st) continue;
     const prev = tch.get(r.st);
     if (!prev || r.mi > prev.mi) tch.set(r.st, r);
   }
@@ -427,7 +428,7 @@ function nbCanadaPane() {
 /* Switching language rebuilds the whole sheet, and this used to reopen on the
    first tab - so a reader part-way through the Canada pane was thrown back to
    the Interstates for the crime of wanting to read it in the other language. */
-let nbTab = 'interstate';
+let nbTab = 'us-interstate';
 
 function wireNumbering() {
   const body = document.getElementById('nbBody');
@@ -463,13 +464,10 @@ function wireNumbering() {
    Statistics dashboard
    ══════════════════════════════════════════════════════════════════════ */
 
-const SYS_COLOUR = { interstate: '#35e7ff', us: '#ffb545', state: '#a98bff' };
-const CLASS_COLOUR = {
-  Freeway: '#35e7ff', Tollway: '#ffb545', Primary: '#6ef7a5', Secondary: '#4f9ad8',
-  'Other Paved': '#7a8ca6', Paved: '#7a8ca6', Unpaved: '#b98a5a', Ferry: '#a98bff',
-  Trail: '#8a6f4f', Local: '#5c6b7f', Ramp: '#6b7a8f', Winter: '#8fd4ff',
-  Unknown: '#4a5768',
-};
+/* Straight off the system registry, so a country added to the atlas cannot
+   reach the dashboard without a colour. The Canadian tiers used to fall
+   through this table and draw their bars with `undefined` as a fill. */
+const SYS_COLOUR = Object.fromEntries(SYSTEMS.map((s) => [s.id, s.colour]));
 
 function bars(rows, colourOf, maxOverride) {
   const max = maxOverride ?? Math.max(...rows.map((r) => r.v));
@@ -639,7 +637,7 @@ function wirePlanner() { paintPlanner(); }
    ══════════════════════════════════════════════════════════════════════ */
 
 function renderJurisdictions(sys) {
-  const ca = sys === 'provincial';
+  const ca = sys === 'ca-provincial';
   const rows = Object.entries(app.stats.byState)
     .filter(([code]) => isProvince(code) === ca)
     .sort((a, b) => stateName(a[0]).localeCompare(stateName(b[0]), getLang() === 'zh' ? 'zh' : 'en'));
@@ -659,8 +657,8 @@ function renderJurisdictions(sys) {
       <span>${t('ca.municipalWhy')}</span></div>` : ''}`);
 }
 
-const renderStates = () => renderJurisdictions('state');
-const renderProvinces = () => renderJurisdictions('provincial');
+const renderStates = () => renderJurisdictions('us-state');
+const renderProvinces = () => renderJurisdictions('ca-provincial');
 
 function wireStates() {
   for (const btn of document.querySelectorAll('[data-load]')) {

@@ -10,27 +10,17 @@
 
 import { readdir, readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
+import { IX, SECTION_KEYS, geoPath, system, systemOfCode } from '../assets/schema.js';
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'content', 'dossiers');
 const OUT = join(ROOT, 'data', 'dossiers');
 
-const SECTION_KEYS = new Set([
-  'character', 'engineering', 'history', 'money', 'traffic', 'condition', 'drive',
-]);
-
-// Fields of a row in data/index.json, which is a positional array.
-const IX = { id: 0, label: 1, sys: 2, st: 4, mi: 5, num: 7, cx: 8, cy: 9 };
-const SYS_CODE = { interstate: 'i', us: 'u', state: 's', tch: 't', nhs: 'n', provincial: 'r' };
-
 // Where a route's geometry lives, which is by system and then by jurisdiction
-// for the two tiers too large to load whole.
+// for the tiers too large to load whole.
 function geoFile(row) {
-  const st = row[IX.st];
-  return {
-    i: 'interstate.json', u: 'us.json', t: 'tch.json', n: 'nhs.json',
-    s: `state/${st}.json`, r: `provincial/${st}.json`,
-  }[row[IX.sys]];
+  const s = systemOfCode(row[IX.sys]);
+  return s ? geoPath(s.id, row[IX.st]) : null;
 }
 
 const geoCache = new Map();
@@ -84,7 +74,8 @@ function selectorFrom(slug, declared) {
   }
   const parts = slug.split('-');
   const lead = parts[0];
-  const sys = lead === 'i' ? 'i' : lead === 'us' ? 'u' : null;
+  const sys = lead === 'i' ? system('us-interstate').code
+    : lead === 'us' ? system('us-numbered').code : null;
   // A state-route slug opens with its jurisdiction; an Interstate or US slug
   // may close with one, to tell namesakes apart.
   let st = sys ? null : lead.toUpperCase();
@@ -294,8 +285,7 @@ async function main() {
     await writeFile(join(OUT, `${id}.json`), JSON.stringify(d));
     publishedIds.push(id);
     published++;
-    const sys = { i: 'interstate', u: 'us', t: 'tch', n: 'nhs', r: 'provincial' }[hit.row[IX.sys]]
-      ?? 'state';
+    const sys = systemOfCode(hit.row[IX.sys])?.id ?? 'us-state';
     bySystem[sys] = (bySystem[sys] || 0) + 1;
   }
 

@@ -28,12 +28,10 @@
   --red: #ff5d73;
   --violet: #a98bff;
 
-  --i-col: #35e7ff;
-  --us-col: #ffb545;
-  --st-col: #a98bff;
-  --tch-col: #ff4d6d;
-  --nhs-col: #4fe3b0;
-  --pr-col: #ff9ecb;
+  /* Per-system colours are not declared here. They live in the system
+     registry in assets/schema.js, and the sidebar sets --sys-col per button
+     from it, so a system cannot exist without a colour or drift from the one
+     its map layer is drawn in. */
 
   --r-sm: 4px;
   --r-md: 8px;

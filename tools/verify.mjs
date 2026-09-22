@@ -16,7 +16,7 @@ await mkdir(SHOTS, { recursive: true });
 // no hand-written dossier. Chosen here rather than in the page so the search
 // does not fill the console with the 404s it probes for.
 const NO_DOSSIER_COSTED = await (async () => {
-  const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', 'interstate.json'), 'utf8'));
+  const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', 'us', 'interstate.json'), 'utf8'));
   for (const f of fc.features) {
     if (!f.properties.offCostK) continue;
     try {
@@ -121,7 +121,7 @@ await step('boot completes', async () => {
 await step('interstates rendered', async () => {
   const n = await page.evaluate(() => {
     const m = window.__map;
-    return m ? m.querySourceFeatures('rt-interstate').length : -1;
+    return m ? m.querySourceFeatures('rt-us-interstate').length : -1;
   });
   if (n === -1) throw new Error('map not exposed');
   if (n === 0) throw new Error('no interstate features rendered');
@@ -304,8 +304,8 @@ await step('command palette', async () => {
 });
 
 await step('US routes layer toggles on', async () => {
-  await page.click('.sys[data-sys="us"]');
-  await waitForSource('rt-us');
+  await page.click('.sys[data-sys="us-numbered"]');
+  await waitForSource('rt-us-numbered');
 });
 await shot('06-us-routes.png');
 
@@ -365,7 +365,7 @@ await step('terrain toggles back off', async () => {
 });
 
 await step('state routes load', async () => {
-  await page.click('.sys[data-sys="state"]');
+  await page.click('.sys[data-sys="us-state"]');
   await page.waitForSelector('[data-load="CA"]', { timeout: 10000 });
   await page.click('[data-load="CA"]');
   await waitForSource('st-CA');
@@ -445,7 +445,7 @@ await step('Alaska has its four unsigned Interstates', async () => {
   // Alaska's Interstates carry no shields, so they cannot be read out of the
   // geometry and are declared instead. If that declaration stops being
   // applied, Alaska silently goes back to looking like it has no Interstates.
-  const found = await page.evaluate(() => (window.__map.getSource('rt-interstate')?._data.features || [])
+  const found = await page.evaluate(() => (window.__map.getSource('rt-us-interstate')?._data.features || [])
     .filter((f) => f.properties.label?.startsWith('A-'))
     .map((f) => f.properties.label).sort());
   const want = ['A-1', 'A-2', 'A-3', 'A-4'];
@@ -477,7 +477,7 @@ await step('a US route shows what the states measured', async () => {
 await step('Trans-Canada draws by default', async () => {
   await page.click('[data-jump="ca"]');
   await page.waitForTimeout(2600);
-  const n = await waitForSource('rt-tch');
+  const n = await waitForSource('rt-ca-tch');
   if (n < 5) throw new Error(`only ${n} Trans-Canada routes`);
 });
 await shot('13-canada.png');
@@ -500,7 +500,7 @@ await shot('14-canada-detail.png');
 
 await step('provincial highways load by province', async () => {
   await page.keyboard.press('Escape');
-  await page.click('.sys[data-sys="provincial"]');
+  await page.click('.sys[data-sys="ca-provincial"]');
   await page.waitForSelector('[data-load="ON"]', { timeout: 10000 });
   await page.click('[data-load="ON"]');
   await waitForSource('st-ON');

@@ -308,14 +308,14 @@ export async function loadCanada(root, { onProvince, only } = {}) {
  * that is half Trans-Canada never has to pretend otherwise.
  */
 export function canadaSystem(grp, { tchKm, km }) {
-  if (tchKm >= 25 && tchKm / Math.max(km, 1e-9) >= 0.35) return 'tch';
-  return grp.nhsTier ? 'nhs' : 'provincial';
+  if (tchKm >= 25 && tchKm / Math.max(km, 1e-9) >= 0.35) return 'ca-tch';
+  return grp.nhsTier ? 'ca-nhs' : 'ca-provincial';
 }
 
 /** The label a Canadian route carries, in each language. */
 export function canadaLabel(grp, system) {
   const { number, pr } = grp;
-  if (system === 'tch') return { en: `TCH ${number}`, zh: `横加公路 ${number}` };
+  if (system === 'ca-tch') return { en: `TCH ${number}`, zh: `横加公路 ${number}` };
   // Quebec signs its freeways as autoroutes - "A-20", not "Route 20" - and the
   // number says which is which: 1-99 and 400 up are autoroutes, 100-399 are
   // ordinary routes. So A-40 and A-440 are freeways while Route 132 and Route

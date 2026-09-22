@@ -1,0 +1,7361 @@
+{
+ "counts": {
+  "read": 4349691,
+  "notOpen": 261,
+  "carreteras": 333852,
+  "numbered": 191971,
+  "unplaceable": 133,
+  "suffixD": 41,
+  "peajeYes": 16629,
+  "tollAgree": 175301,
+  "tollDisagree": 16670
+ },
+ "tipoAll": {
+  "Calle": 2203977,
+  "Camino": 688230,
+  "Avenida": 414887,
+  "Carretera": 333968,
+  "Privada": 234816,
+  "Boulevard": 87357,
+  "Cerrada": 53879,
+  "Andador": 52593,
+  "Retorno U": 44374,
+  "Enlace": 41910,
+  "Glorieta": 32743,
+  "Prolongación": 30557,
+  "Circuito": 29175,
+  "Vereda": 28473,
+  "Callejón": 20895,
+  "Calzada": 18931,
+  "Peatonal": 6429,
+  "Otro": 6276,
+  "Periférico": 6212,
+  "Eje vial": 5681,
+  "Retorno": 5103,
+  "Diagonal": 1211,
+  "Viaducto": 740,
+  "Ampliación": 395,
+  "Circunvalación": 251,
+  "Pasaje": 245,
+  "Continuación": 172,
+  "Corredor": 155,
+  "Rampa de frenado": 56
+ },
+ "administraAll": {
+  "(blank)": 3684332,
+  "Municipal": 288736,
+  "Estatal": 189937,
+  "Federal": 121208,
+  "Particular": 62539,
+  "Otro": 2939
+ },
+ "jurisdiAll": {
+  "N/A": 3392971,
+  "N/D": 356839,
+  "Fed.": 121208,
+  "Chis.": 37449,
+  "Ver.": 31726,
+  "B.C.": 28023,
+  "Gto.": 28014,
+  "Oax.": 26856,
+  "Sin.": 26684,
+  "Chih.": 26205,
+  "Mex.": 25248,
+  "Zac.": 23000,
+  "Pue.": 22889,
+  "Jal.": 20349,
+  "Mich.": 19465,
+  "S.L.P.": 17916,
+  "Gro.": 16673,
+  "Hgo.": 16613,
+  "N.L.": 12425,
+  "Son.": 11683,
+  "Tab.": 10729,
+  "Tamps.": 10642,
+  "Qro.": 9945,
+  "Dgo.": 8604,
+  "Coah.": 7157,
+  "Yuc.": 7058,
+  "Nay.": 6103,
+  "Ags.": 5646,
+  "Mor.": 3986,
+  "Camp.": 3983,
+  "B.C.S.": 3665,
+  "Q.Roo.": 3511,
+  "Col.": 2626,
+  "Tlax.": 2122,
+  "CDMX": 1678
+ },
+ "administraCarretera": {
+  "Estatal": 170747,
+  "Federal": 120882,
+  "Municipal": 35133,
+  "(blank)": 7055,
+  "Otro": 35
+ },
+ "jurisdiCarretera": {
+  "Fed.": 120882,
+  "Ver.": 15856,
+  "Mich.": 13500,
+  "Mex.": 13480,
+  "Chis.": 12873,
+  "Gto.": 11689,
+  "Jal.": 10132,
+  "Chih.": 8511,
+  "Pue.": 8433,
+  "S.L.P.": 7861,
+  "Sin.": 7485,
+  "Tab.": 7390,
+  "Gro.": 7220,
+  "Zac.": 7114,
+  "Oax.": 7093,
+  "N/D": 7055,
+  "Yuc.": 6779,
+  "Hgo.": 6593,
+  "N.L.": 6291,
+  "Son.": 5851,
+  "Tamps.": 5428,
+  "Qro.": 4643,
+  "Coah.": 4173,
+  "Dgo.": 3745,
+  "Mor.": 3694,
+  "Camp.": 3586,
+  "Q.Roo.": 3191,
+  "B.C.": 2696,
+  "Ags.": 2537,
+  "Nay.": 2422,
+  "Col.": 2350,
+  "Tlax.": 1695,
+  "B.C.S.": 1084,
+  "CDMX": 485,
+  "N/A": 35
+ },
+ "administraNumbered": {
+  "Federal": 114501,
+  "Estatal": 74724,
+  "Municipal": 2746
+ },
+ "administraByTipo": {
+  "Periférico": {
+   "(blank)": 6212
+  },
+  "Calle": {
+   "(blank)": 2203977
+  },
+  "Avenida": {
+   "(blank)": 414887
+  },
+  "Circuito": {
+   "(blank)": 29175
+  },
+  "Viaducto": {
+   "(blank)": 740
+  },
+  "Calzada": {
+   "(blank)": 18931
+  },
+  "Eje vial": {
+   "(blank)": 5681
+  },
+  "Enlace": {
+   "(blank)": 41910
+  },
+  "Retorno U": {
+   "(blank)": 44374
+  },
+  "Boulevard": {
+   "(blank)": 87357
+  },
+  "Carretera": {
+   "Estatal": 170769,
+   "Federal": 120967,
+   "Municipal": 35133,
+   "(blank)": 7064,
+   "Otro": 35
+  },
+  "Privada": {
+   "(blank)": 234816
+  },
+  "Retorno": {
+   "(blank)": 5103
+  },
+  "Prolongación": {
+   "(blank)": 30557
+  },
+  "Corredor": {
+   "(blank)": 155
+  },
+  "Callejón": {
+   "(blank)": 20895
+  },
+  "Glorieta": {
+   "(blank)": 32743
+  },
+  "Camino": {
+   "(blank)": 349775,
+   "Municipal": 253603,
+   "Particular": 62539,
+   "Estatal": 19168,
+   "Otro": 2904,
+   "Federal": 241
+  },
+  "Cerrada": {
+   "(blank)": 53879
+  },
+  "Otro": {
+   "(blank)": 6276
+  },
+  "Andador": {
+   "(blank)": 52593
+  },
+  "Vereda": {
+   "(blank)": 28473
+  },
+  "Diagonal": {
+   "(blank)": 1211
+  },
+  "Rampa de frenado": {
+   "(blank)": 56
+  },
+  "Peatonal": {
+   "(blank)": 6429
+  },
+  "Continuación": {
+   "(blank)": 172
+  },
+  "Ampliación": {
+   "(blank)": 395
+  },
+  "Circunvalación": {
+   "(blank)": 251
+  },
+  "Pasaje": {
+   "(blank)": 245
+  }
+ },
+ "nonCarreteraCodigo": {
+  "Camino": 427
+ },
+ "groupTotals": {
+  "all": 2701,
+  "federal": 152,
+  "state": 2549
+ },
+ "stateTipoComposition": {
+  "Carretera": 77470
+ },
+ "federalTipoComposition": {
+  "Carretera": 114501
+ },
+ "stateKmStats": {
+  "n": 2549,
+  "sum": 45854.031,
+  "min": 0.019,
+  "p25": 2.99,
+  "median": 7.285,
+  "p75": 20.3,
+  "p95": 66.703,
+  "max": 653.032
+ },
+ "federalKmStats": {
+  "n": 152,
+  "sum": 61923.044,
+  "min": 0.254,
+  "p25": 36.571,
+  "median": 113.491,
+  "p75": 413.241,
+  "p95": 2118.841,
+  "max": 5086.269
+ },
+ "stateSegStats": {
+  "n": 2549,
+  "sum": 77470,
+  "min": 1,
+  "p25": 5,
+  "median": 13,
+  "p75": 34,
+  "p95": 115,
+  "max": 835
+ },
+ "stateByDigits": {
+  "1": 96,
+  "2": 786,
+  "3": 1627,
+  "4": 40
+ },
+ "stateByPrefix": {
+  "PUE": 292,
+  "CHH": 291,
+  "JAL": 237,
+  "EM": 208,
+  "ZAC": 188,
+  "NLE": 181,
+  "AGU": 167,
+  "SIN": 166,
+  "MIC": 164,
+  "TAM": 150,
+  "SON": 127,
+  "COA": 67,
+  "QUE": 60,
+  "BCN": 51,
+  "SLP": 30,
+  "DUR": 21,
+  "HID": 19,
+  "MOR": 17,
+  "VER": 15,
+  "GUA": 14,
+  "COL": 14,
+  "YUC": 12,
+  "CHP": 11,
+  "GRO": 9,
+  "ROO": 8,
+  "OAX": 6,
+  "CMX": 5,
+  "CAM": 5,
+  "BCS": 5,
+  "NAY": 4,
+  "TLA": 3,
+  "TAB": 2
+ },
+ "prefixTable": [
+  {
+   "prefix": "AGU",
+   "groups": 167,
+   "km": 989.8,
+   "ge1km": 144,
+   "ge5km": 61,
+   "ge10km": 29,
+   "ge25km": 4,
+   "ge50km": 1,
+   "d1": 9,
+   "d2": 88,
+   "d3": 70,
+   "d4": 0
+  },
+  {
+   "prefix": "BCN",
+   "groups": 51,
+   "km": 613.4,
+   "ge1km": 48,
+   "ge5km": 31,
+   "ge10km": 15,
+   "ge25km": 5,
+   "ge50km": 3,
+   "d1": 8,
+   "d2": 35,
+   "d3": 8,
+   "d4": 0
+  },
+  {
+   "prefix": "BCS",
+   "groups": 5,
+   "km": 388.4,
+   "ge1km": 5,
+   "ge5km": 5,
+   "ge10km": 4,
+   "ge25km": 2,
+   "ge50km": 2,
+   "d1": 2,
+   "d2": 1,
+   "d3": 2,
+   "d4": 0
+  },
+  {
+   "prefix": "CAM",
+   "groups": 5,
+   "km": 165.9,
+   "ge1km": 3,
+   "ge5km": 3,
+   "ge10km": 3,
+   "ge25km": 3,
+   "ge50km": 2,
+   "d1": 0,
+   "d2": 1,
+   "d3": 4,
+   "d4": 0
+  },
+  {
+   "prefix": "CHH",
+   "groups": 291,
+   "km": 5271.6,
+   "ge1km": 267,
+   "ge5km": 141,
+   "ge10km": 92,
+   "ge25km": 43,
+   "ge50km": 25,
+   "d1": 9,
+   "d2": 86,
+   "d3": 196,
+   "d4": 0
+  },
+  {
+   "prefix": "CHP",
+   "groups": 11,
+   "km": 742.7,
+   "ge1km": 10,
+   "ge5km": 9,
+   "ge10km": 9,
+   "ge25km": 9,
+   "ge50km": 7,
+   "d1": 0,
+   "d2": 3,
+   "d3": 8,
+   "d4": 0
+  },
+  {
+   "prefix": "CMX",
+   "groups": 5,
+   "km": 13.6,
+   "ge1km": 3,
+   "ge5km": 2,
+   "ge10km": 0,
+   "ge25km": 0,
+   "ge50km": 0,
+   "d1": 0,
+   "d2": 2,
+   "d3": 3,
+   "d4": 0
+  },
+  {
+   "prefix": "COA",
+   "groups": 67,
+   "km": 1994.7,
+   "ge1km": 65,
+   "ge5km": 51,
+   "ge10km": 42,
+   "ge25km": 22,
+   "ge50km": 10,
+   "d1": 4,
+   "d2": 49,
+   "d3": 14,
+   "d4": 0
+  },
+  {
+   "prefix": "COL",
+   "groups": 14,
+   "km": 279,
+   "ge1km": 14,
+   "ge5km": 12,
+   "ge10km": 10,
+   "ge25km": 5,
+   "ge50km": 1,
+   "d1": 2,
+   "d2": 8,
+   "d3": 4,
+   "d4": 0
+  },
+  {
+   "prefix": "DUR",
+   "groups": 21,
+   "km": 715.1,
+   "ge1km": 20,
+   "ge5km": 15,
+   "ge10km": 13,
+   "ge25km": 11,
+   "ge50km": 4,
+   "d1": 0,
+   "d2": 8,
+   "d3": 13,
+   "d4": 0
+  },
+  {
+   "prefix": "EM",
+   "groups": 208,
+   "km": 3001.5,
+   "ge1km": 193,
+   "ge5km": 127,
+   "ge10km": 78,
+   "ge25km": 37,
+   "ge50km": 13,
+   "d1": 6,
+   "d2": 22,
+   "d3": 141,
+   "d4": 39
+  },
+  {
+   "prefix": "GRO",
+   "groups": 9,
+   "km": 88.6,
+   "ge1km": 9,
+   "ge5km": 2,
+   "ge10km": 1,
+   "ge25km": 1,
+   "ge50km": 1,
+   "d1": 1,
+   "d2": 6,
+   "d3": 2,
+   "d4": 0
+  },
+  {
+   "prefix": "GUA",
+   "groups": 14,
+   "km": 716.3,
+   "ge1km": 13,
+   "ge5km": 10,
+   "ge10km": 10,
+   "ge25km": 9,
+   "ge50km": 7,
+   "d1": 0,
+   "d2": 10,
+   "d3": 4,
+   "d4": 0
+  },
+  {
+   "prefix": "HID",
+   "groups": 19,
+   "km": 242.7,
+   "ge1km": 17,
+   "ge5km": 9,
+   "ge10km": 6,
+   "ge25km": 5,
+   "ge50km": 0,
+   "d1": 0,
+   "d2": 8,
+   "d3": 10,
+   "d4": 1
+  },
+  {
+   "prefix": "JAL",
+   "groups": 237,
+   "km": 3993.1,
+   "ge1km": 227,
+   "ge5km": 161,
+   "ge10km": 112,
+   "ge25km": 53,
+   "ge50km": 16,
+   "d1": 1,
+   "d2": 6,
+   "d3": 230,
+   "d4": 0
+  },
+  {
+   "prefix": "MIC",
+   "groups": 164,
+   "km": 2479.6,
+   "ge1km": 146,
+   "ge5km": 88,
+   "ge10km": 51,
+   "ge25km": 27,
+   "ge50km": 14,
+   "d1": 9,
+   "d2": 77,
+   "d3": 78,
+   "d4": 0
+  },
+  {
+   "prefix": "MOR",
+   "groups": 17,
+   "km": 307.8,
+   "ge1km": 13,
+   "ge5km": 12,
+   "ge10km": 10,
+   "ge25km": 6,
+   "ge50km": 0,
+   "d1": 5,
+   "d2": 7,
+   "d3": 5,
+   "d4": 0
+  },
+  {
+   "prefix": "NAY",
+   "groups": 4,
+   "km": 58.8,
+   "ge1km": 4,
+   "ge5km": 4,
+   "ge10km": 3,
+   "ge25km": 0,
+   "ge50km": 0,
+   "d1": 1,
+   "d2": 2,
+   "d3": 1,
+   "d4": 0
+  },
+  {
+   "prefix": "NLE",
+   "groups": 181,
+   "km": 3286.8,
+   "ge1km": 169,
+   "ge5km": 117,
+   "ge10km": 77,
+   "ge25km": 34,
+   "ge50km": 15,
+   "d1": 9,
+   "d2": 82,
+   "d3": 90,
+   "d4": 0
+  },
+  {
+   "prefix": "OAX",
+   "groups": 6,
+   "km": 267.7,
+   "ge1km": 3,
+   "ge5km": 3,
+   "ge10km": 3,
+   "ge25km": 2,
+   "ge50km": 2,
+   "d1": 0,
+   "d2": 1,
+   "d3": 5,
+   "d4": 0
+  },
+  {
+   "prefix": "PUE",
+   "groups": 292,
+   "km": 3531.3,
+   "ge1km": 276,
+   "ge5km": 174,
+   "ge10km": 97,
+   "ge25km": 35,
+   "ge50km": 13,
+   "d1": 8,
+   "d2": 50,
+   "d3": 234,
+   "d4": 0
+  },
+  {
+   "prefix": "QUE",
+   "groups": 60,
+   "km": 1169.8,
+   "ge1km": 57,
+   "ge5km": 39,
+   "ge10km": 31,
+   "ge25km": 15,
+   "ge50km": 5,
+   "d1": 0,
+   "d2": 6,
+   "d3": 54,
+   "d4": 0
+  },
+  {
+   "prefix": "ROO",
+   "groups": 8,
+   "km": 321.9,
+   "ge1km": 8,
+   "ge5km": 7,
+   "ge10km": 6,
+   "ge25km": 4,
+   "ge50km": 4,
+   "d1": 2,
+   "d2": 3,
+   "d3": 3,
+   "d4": 0
+  },
+  {
+   "prefix": "SIN",
+   "groups": 166,
+   "km": 2854.4,
+   "ge1km": 157,
+   "ge5km": 112,
+   "ge10km": 81,
+   "ge25km": 34,
+   "ge50km": 10,
+   "d1": 1,
+   "d2": 1,
+   "d3": 164,
+   "d4": 0
+  },
+  {
+   "prefix": "SLP",
+   "groups": 30,
+   "km": 1170.2,
+   "ge1km": 30,
+   "ge5km": 28,
+   "ge10km": 22,
+   "ge25km": 13,
+   "ge50km": 10,
+   "d1": 5,
+   "d2": 25,
+   "d3": 0,
+   "d4": 0
+  },
+  {
+   "prefix": "SON",
+   "groups": 127,
+   "km": 4829.6,
+   "ge1km": 127,
+   "ge5km": 111,
+   "ge10km": 86,
+   "ge25km": 50,
+   "ge50km": 22,
+   "d1": 4,
+   "d2": 52,
+   "d3": 71,
+   "d4": 0
+  },
+  {
+   "prefix": "TAB",
+   "groups": 2,
+   "km": 70.1,
+   "ge1km": 2,
+   "ge5km": 2,
+   "ge10km": 2,
+   "ge25km": 1,
+   "ge50km": 1,
+   "d1": 1,
+   "d2": 1,
+   "d3": 0,
+   "d4": 0
+  },
+  {
+   "prefix": "TAM",
+   "groups": 150,
+   "km": 2770.1,
+   "ge1km": 140,
+   "ge5km": 95,
+   "ge10km": 78,
+   "ge25km": 41,
+   "ge50km": 12,
+   "d1": 8,
+   "d2": 89,
+   "d3": 53,
+   "d4": 0
+  },
+  {
+   "prefix": "TLA",
+   "groups": 3,
+   "km": 11.8,
+   "ge1km": 1,
+   "ge5km": 1,
+   "ge10km": 1,
+   "ge25km": 0,
+   "ge50km": 0,
+   "d1": 0,
+   "d2": 0,
+   "d3": 3,
+   "d4": 0
+  },
+  {
+   "prefix": "VER",
+   "groups": 15,
+   "km": 313.3,
+   "ge1km": 13,
+   "ge5km": 10,
+   "ge10km": 8,
+   "ge25km": 4,
+   "ge50km": 2,
+   "d1": 0,
+   "d2": 6,
+   "d3": 9,
+   "d4": 0
+  },
+  {
+   "prefix": "YUC",
+   "groups": 12,
+   "km": 342.5,
+   "ge1km": 12,
+   "ge5km": 11,
+   "ge10km": 9,
+   "ge25km": 4,
+   "ge50km": 2,
+   "d1": 0,
+   "d2": 6,
+   "d3": 6,
+   "d4": 0
+  },
+  {
+   "prefix": "ZAC",
+   "groups": 188,
+   "km": 2852,
+   "ge1km": 179,
+   "ge5km": 120,
+   "ge10km": 72,
+   "ge25km": 32,
+   "ge50km": 9,
+   "d1": 1,
+   "d2": 45,
+   "d3": 142,
+   "d4": 0
+  }
+ ],
+ "survival": [
+  {
+   "minKm": 0,
+   "state": 2549,
+   "federal": 152
+  },
+  {
+   "minKm": 1,
+   "state": 2375,
+   "federal": 149
+  },
+  {
+   "minKm": 5,
+   "state": 1573,
+   "federal": 146
+  },
+  {
+   "minKm": 10,
+   "state": 1061,
+   "federal": 143
+  },
+  {
+   "minKm": 25,
+   "state": 511,
+   "federal": 125
+  },
+  {
+   "minKm": 50,
+   "state": 213,
+   "federal": 107
+  },
+  {
+   "minKm": 100,
+   "state": 54,
+   "federal": 84
+  }
+ ],
+ "segSurvival": [
+  {
+   "minSegs": 1,
+   "state": 2549,
+   "federal": 152
+  },
+  {
+   "minSegs": 2,
+   "state": 2410,
+   "federal": 150
+  },
+  {
+   "minSegs": 3,
+   "state": 2233,
+   "federal": 150
+  },
+  {
+   "minSegs": 5,
+   "state": 1981,
+   "federal": 149
+  },
+  {
+   "minSegs": 10,
+   "state": 1523,
+   "federal": 147
+  },
+  {
+   "minSegs": 20,
+   "state": 1018,
+   "federal": 143
+  },
+  {
+   "minSegs": 50,
+   "state": 427,
+   "federal": 119
+  }
+ ],
+ "singleSegmentStateGroups": 139,
+ "stateGroupsUnder1km": 174,
+ "stateSharingFedNumber": {
+  "n": 1137,
+  "km": 25778.2,
+  "sample": [
+   {
+    "key": "state|EM-003",
+    "segs": 121,
+    "km": 78.149,
+    "administra": {
+     "Estatal": 121
+    },
+    "jurisdi": {
+     "MEX": 121
+    },
+    "topNames": [
+     "Ixtlahuaca de Rayón - Naucalpan",
+     "T.C. (Villa Victoria - El Oro de Hidalgo) - Angangueo"
+    ]
+   },
+   {
+    "key": "state|EM-043",
+    "segs": 36,
+    "km": 18.048,
+    "administra": {
+     "Estatal": 36
+    },
+    "jurisdi": {
+     "MEX": 36
+    },
+    "topNames": [
+     "Nicolás Romero - T.C. (Ixtlahuaca de Rayón. - Naucalpan)",
+     "Nicolás Romero - T.C. (Ixtlahuaca de Rayón - Naucalpan)"
+    ]
+   },
+   {
+    "key": "state|EM-057",
+    "segs": 88,
+    "km": 53.801,
+    "administra": {
+     "Estatal": 88
+    },
+    "jurisdi": {
+     "MEX": 88
+    },
+    "topNames": [
+     "La Venta - Lechería",
+     "(La Puerta - Sultepec) - Ent. Km. 5+000 (Tejupilco - Amatepec)"
+    ]
+   },
+   {
+    "key": "state|EM-228",
+    "segs": 13,
+    "km": 9.911,
+    "administra": {
+     "Municipal": 13
+    },
+    "jurisdi": {
+     "MEX": 13
+    },
+    "topNames": [
+     "Llano Grande - Agua Bendita",
+     "Llano Grande - Santa Cruz Ayotuxco (Canales)"
+    ]
+   },
+   {
+    "key": "state|CMX-057",
+    "segs": 11,
+    "km": 5.401,
+    "administra": {
+     "Estatal": 11
+    },
+    "jurisdi": {
+     "CMX": 11
+    },
+    "topNames": [
+     "La Venta - Lechería"
+    ]
+   },
+   {
+    "key": "state|EM-221",
+    "segs": 4,
+    "km": 2.302,
+    "administra": {
+     "Municipal": 4
+    },
+    "jurisdi": {
+     "MEX": 4
+    },
+    "topNames": [
+     "E.C. (Llano Grande - Agua Bendita) - E.C. (Huixquilucan - El Laurel)",
+     "Camino al Laurel"
+    ]
+   },
+   {
+    "key": "state|GRO-095",
+    "segs": 36,
+    "km": 4.063,
+    "administra": {
+     "Estatal": 36
+    },
+    "jurisdi": {
+     "GRO": 36
+    },
+    "topNames": [
+     "Federal México - Acapulco",
+     "Maxitunel"
+    ]
+   },
+   {
+    "key": "state|EM-001",
+    "segs": 80,
+    "km": 108.872,
+    "administra": {
+     "Estatal": 80
+    },
+    "jurisdi": {
+     "MEX": 80
+    },
+    "topNames": [
+     "San Antonio del Rosario - Zacualpan"
+    ]
+   },
+   {
+    "key": "state|EM-002",
+    "segs": 75,
+    "km": 56.137,
+    "administra": {
+     "Estatal": 75
+    },
+    "jurisdi": {
+     "MEX": 75
+    },
+    "topNames": [
+     "(Toluca - Cd. Altamirano) - Cerro del Campo - San Pedro Limón - Lim. Méx. /Gro.",
+     "(Toluca - Cd. Altamirano) - Cerro del Campo - San Pedro Limón - Lim. Méx. / Gro."
+    ]
+   },
+   {
+    "key": "state|GRO-001",
+    "segs": 75,
+    "km": 61.919,
+    "administra": {
+     "Estatal": 75
+    },
+    "jurisdi": {
+     "GRO": 75
+    },
+    "topNames": [
+     "T.C. (Iguala - Chilpancingo) - Atenango del Río",
+     "San Antonio del Rosario - Zacualpan"
+    ]
+   },
+   {
+    "key": "state|GRO-093",
+    "segs": 43,
+    "km": 3.041,
+    "administra": {
+     "Estatal": 43
+    },
+    "jurisdi": {
+     "GRO": 43
+    },
+    "topNames": [
+     "Chilpancingo - Jilotepec"
+    ]
+   },
+   {
+    "key": "state|GRO-092",
+    "segs": 12,
+    "km": 7.105,
+    "administra": {
+     "Estatal": 12
+    },
+    "jurisdi": {
+     "GRO": 12
+    },
+    "topNames": [
+     "Zacapalco - Taxco"
+    ]
+   },
+   {
+    "key": "state|GRO-099",
+    "segs": 9,
+    "km": 1.751,
+    "administra": {
+     "Estatal": 9
+    },
+    "jurisdi": {
+     "GRO": 9
+    },
+    "topNames": [
+     "Zacapalco - Taxco"
+    ]
+   },
+   {
+    "key": "state|MOR-014",
+    "segs": 131,
+    "km": 21.513,
+    "administra": {
+     "Estatal": 131
+    },
+    "jurisdi": {
+     "MOR": 131
+    },
+    "topNames": [
+     "Tejalpa - Jojutla"
+    ]
+   },
+   {
+    "key": "state|MOR-008",
+    "segs": 49,
+    "km": 6.578,
+    "administra": {
+     "Estatal": 49
+    },
+    "jurisdi": {
+     "MOR": 49
+    },
+    "topNames": [
+     "Pilares - T.C. (Xoxocotla - Tilzapotla)"
+    ]
+   },
+   {
+    "key": "state|MOR-002",
+    "segs": 224,
+    "km": 48.277,
+    "administra": {
+     "Estatal": 224
+    },
+    "jurisdi": {
+     "MOR": 224
+    },
+    "topNames": [
+     "T.C. (San Gregorio - Oaxtepec) - Jojutla",
+     "Atlatlahucan - Tlayacapan"
+    ]
+   },
+   {
+    "key": "state|EM-185",
+    "segs": 31,
+    "km": 28.617,
+    "administra": {
+     "Estatal": 31
+    },
+    "jurisdi": {
+     "MEX": 31
+    },
+    "topNames": [
+     "(El Capulín - Chalma) - San Andrés Nicolás Bravo"
+    ]
+   },
+   {
+    "key": "state|MOR-185",
+    "segs": 7,
+    "km": 0.733,
+    "administra": {
+     "Estatal": 7
+    },
+    "jurisdi": {
+     "MOR": 7
+    },
+    "topNames": [
+     "(El Capulín - Chalma) - San Andrés Nicolás Bravo"
+    ]
+   },
+   {
+    "key": "state|MOR-009",
+    "segs": 79,
+    "km": 36.622,
+    "administra": {
+     "Estatal": 79
+    },
+    "jurisdi": {
+     "MOR": 79
+    },
+    "topNames": [
+     "Temilpa - Tepalcingo"
+    ]
+   },
+   {
+    "key": "state|MOR-031",
+    "segs": 224,
+    "km": 42.964,
+    "administra": {
+     "Estatal": 224
+    },
+    "jurisdi": {
+     "MOR": 224
+    },
+    "topNames": [
+     "Amayuca - Izúcar de Matamoros"
+    ]
+   },
+   {
+    "key": "state|MOR-010",
+    "segs": 120,
+    "km": 22.76,
+    "administra": {
+     "Estatal": 120
+    },
+    "jurisdi": {
+     "MOR": 120
+    },
+    "topNames": [
+     "Ramal a Tetela del Volcán"
+    ]
+   },
+   {
+    "key": "state|MOR-017",
+    "segs": 91,
+    "km": 12.791,
+    "administra": {
+     "Estatal": 91
+    },
+    "jurisdi": {
+     "MOR": 91
+    },
+    "topNames": [
+     "Amayuca - Tlacotepec"
+    ]
+   },
+   {
+    "key": "state|MOR-113",
+    "segs": 5,
+    "km": 0.295,
+    "administra": {
+     "Estatal": 5
+    },
+    "jurisdi": {
+     "MOR": 5
+    },
+    "topNames": [
+     "San Gregorio - Oaxtepec"
+    ]
+   },
+   {
+    "key": "state|EM-055",
+    "segs": 364,
+    "km": 135.434,
+    "administra": {
+     "Estatal": 364
+    },
+    "jurisdi": {
+     "MEX": 364
+    },
+    "topNames": [
+     "Toluca - Palmillas"
+    ]
+   },
+   {
+    "key": "state|EM-053",
+    "segs": 19,
+    "km": 10.747,
+    "administra": {
+     "Estatal": 19
+    },
+    "jurisdi": {
+     "MEX": 19
+    },
+    "topNames": [
+     "T.C. (Toluca - Palmillas) - Jiquipilco"
+    ]
+   },
+   {
+    "key": "state|EM-200",
+    "segs": 82,
+    "km": 39.235,
+    "administra": {
+     "Estatal": 82
+    },
+    "jurisdi": {
+     "MEX": 82
+    },
+    "topNames": [
+     "Santiago Tianguistenco - Chalma"
+    ]
+   },
+   {
+    "key": "state|EM-202",
+    "segs": 99,
+    "km": 33.783,
+    "administra": {
+     "Estatal": 99
+    },
+    "jurisdi": {
+     "MEX": 99
+    },
+    "topNames": [
+     "(México - Toluca) - Tenango del Valle"
+    ]
+   },
+   {
+    "key": "state|EM-211",
+    "segs": 36,
+    "km": 8.881,
+    "administra": {
+     "Estatal": 36
+    },
+    "jurisdi": {
+     "MEX": 36
+    },
+    "topNames": [
+     "(Toluca - Metepec - Tenango) - Calimaya - Zaragoza"
+    ]
+   },
+   {
+    "key": "state|EM-005",
+    "segs": 19,
+    "km": 2.177,
+    "administra": {
+     "Estatal": 19
+    },
+    "jurisdi": {
+     "MEX": 19
+    },
+    "topNames": [
+     "La Marquesa - Río Hondo",
+     "La Marquesa"
+    ]
+   },
+   {
+    "key": "state|EM-205",
+    "segs": 11,
+    "km": 3.223,
+    "administra": {
+     "Estatal": 11
+    },
+    "jurisdi": {
+     "MEX": 11
+    },
+    "topNames": [
+     "(Mexicaltzingo - Xalatlaco) - Texcalyacac"
+    ]
+   },
+   {
+    "key": "state|EM-196",
+    "segs": 11,
+    "km": 5.89,
+    "administra": {
+     "Estatal": 11
+    },
+    "jurisdi": {
+     "MEX": 11
+    },
+    "topNames": [
+     "Santa Mónica - Santa Cruz Tezontepec"
+    ]
+   },
+   {
+    "key": "state|EM-036",
+    "segs": 94,
+    "km": 101.98,
+    "administra": {
+     "Estatal": 94
+    },
+    "jurisdi": {
+     "MEX": 94
+    },
+    "topNames": [
+     "La Puerta - Sultepec - San Miguel Totolmaloya"
+    ]
+   },
+   {
+    "key": "state|EM-198",
+    "segs": 17,
+    "km": 8.406,
+    "administra": {
+     "Estatal": 17
+    },
+    "jurisdi": {
+     "MEX": 17
+    },
+    "topNames": [
+     "(Santiago Tianguistenco - Chalma) - Zempoala"
+    ]
+   },
+   {
+    "key": "state|EM-134",
+    "segs": 9,
+    "km": 1.036,
+    "administra": {
+     "Estatal": 9
+    },
+    "jurisdi": {
+     "MEX": 9
+    },
+    "topNames": [
+     "Naucalpan - Toluca"
+    ]
+   },
+   {
+    "key": "state|EM-015",
+    "segs": 2,
+    "km": 0.06,
+    "administra": {
+     "Estatal": 2
+    },
+    "jurisdi": {
+     "MEX": 2
+    },
+    "topNames": [
+     "Toluca - México",
+     "México - Toluca"
+    ]
+   },
+   {
+    "key": "state|EM-099",
+    "segs": 73,
+    "km": 54.096,
+    "administra": {
+     "Estatal": 73
+    },
+    "jurisdi": {
+     "MEX": 73
+    },
+    "topNames": [
+     "(La Puerta - Sultepec) - Las Juntas - Ixtapan"
+    ]
+   },
+   {
+    "key": "state|EM-092",
+    "segs": 63,
+    "km": 39.15,
+    "administra": {
+     "Estatal": 63
+    },
+    "jurisdi": {
+     "MEX": 63
+    },
+    "topNames": [
+     "(La Puerta - Sultepec) - Vuelta del Agua - Zacualpan"
+    ]
+   },
+   {
+    "key": "state|EM-071",
+    "segs": 23,
+    "km": 32.181,
+    "administra": {
+     "Estatal": 23
+    },
+    "jurisdi": {
+     "MEX": 23
+    },
+    "topNames": [
+     "(El Fresno - Temascaltepec) - San Pedro Tenayac - Zacazonapan"
+    ]
+   },
+   {
+    "key": "state|EM-166",
+    "segs": 39,
+    "km": 36.413,
+    "administra": {
+     "Estatal": 39
+    },
+    "jurisdi": {
+     "MEX": 39
+    },
+    "topNames": [
+     "Tenancingo - Zumpahuacan - San Gaspar - San Andrés Nicolás Bravo"
+    ]
+   },
+   {
+    "key": "state|EM-083",
+    "segs": 28,
+    "km": 29.845,
+    "administra": {
+     "Estatal": 28
+    },
+    "jurisdi": {
+     "MEX": 28
+    },
+    "topNames": [
+     "(Toluca - Temascaltepec) - Valle de Bravo"
+    ]
+   }
+  ]
+ },
+ "stateNotSharingFedNumber": 1412,
+ "federalGroups": [
+  {
+   "key": "federal|MEX-015",
+   "segs": 7775,
+   "km": 5086.269,
+   "administra": {
+    "Federal": 7775
+   },
+   "jurisdi": {
+    "FED": 7775
+   }
+  },
+  {
+   "key": "federal|MEX-180",
+   "segs": 6534,
+   "km": 3390.918,
+   "administra": {
+    "Federal": 6534
+   },
+   "jurisdi": {
+    "FED": 6534
+   }
+  },
+  {
+   "key": "federal|MEX-045",
+   "segs": 6417,
+   "km": 3297.531,
+   "administra": {
+    "Federal": 6417
+   },
+   "jurisdi": {
+    "FED": 6417
+   }
+  },
+  {
+   "key": "federal|MEX-040",
+   "segs": 3795,
+   "km": 3178.832,
+   "administra": {
+    "Federal": 3795
+   },
+   "jurisdi": {
+    "FED": 3795
+   }
+  },
+  {
+   "key": "federal|MEX-200",
+   "segs": 7687,
+   "km": 2917.141,
+   "administra": {
+    "Federal": 7687
+   },
+   "jurisdi": {
+    "FED": 7687
+   }
+  },
+  {
+   "key": "federal|MEX-057",
+   "segs": 3995,
+   "km": 2651.172,
+   "administra": {
+    "Federal": 3995
+   },
+   "jurisdi": {
+    "FED": 3995
+   }
+  },
+  {
+   "key": "federal|MEX-002",
+   "segs": 3629,
+   "km": 2586.097,
+   "administra": {
+    "Federal": 3629
+   },
+   "jurisdi": {
+    "FED": 3629
+   }
+  },
+  {
+   "key": "federal|MEX-001",
+   "segs": 3302,
+   "km": 2118.841,
+   "administra": {
+    "Federal": 3302
+   },
+   "jurisdi": {
+    "FED": 3302
+   }
+  },
+  {
+   "key": "federal|MEX-085",
+   "segs": 5069,
+   "km": 2027.818,
+   "administra": {
+    "Federal": 5069
+   },
+   "jurisdi": {
+    "FED": 5069
+   }
+  },
+  {
+   "key": "federal|MEX-190",
+   "segs": 4557,
+   "km": 1603.52,
+   "administra": {
+    "Federal": 4557
+   },
+   "jurisdi": {
+    "FED": 4557
+   }
+  },
+  {
+   "key": "federal|MEX-054",
+   "segs": 2399,
+   "km": 1486.032,
+   "administra": {
+    "Federal": 2399
+   },
+   "jurisdi": {
+    "FED": 2399
+   }
+  },
+  {
+   "key": "federal|MEX-080",
+   "segs": 2668,
+   "km": 1413.567,
+   "administra": {
+    "Federal": 2668
+   },
+   "jurisdi": {
+    "FED": 2668
+   }
+  },
+  {
+   "key": "federal|MEX-070",
+   "segs": 2415,
+   "km": 1270.53,
+   "administra": {
+    "Federal": 2415
+   },
+   "jurisdi": {
+    "FED": 2415
+   }
+  },
+  {
+   "key": "federal|MEX-049",
+   "segs": 1294,
+   "km": 1225.481,
+   "administra": {
+    "Federal": 1294
+   },
+   "jurisdi": {
+    "FED": 1294
+   }
+  },
+  {
+   "key": "federal|MEX-095",
+   "segs": 2327,
+   "km": 1145.267,
+   "administra": {
+    "Federal": 2327
+   },
+   "jurisdi": {
+    "FED": 2327
+   }
+  },
+  {
+   "key": "federal|MEX-150",
+   "segs": 2009,
+   "km": 1127.294,
+   "administra": {
+    "Federal": 2009
+   },
+   "jurisdi": {
+    "FED": 2009
+   }
+  },
+  {
+   "key": "federal|MEX-307",
+   "segs": 1869,
+   "km": 944.9,
+   "administra": {
+    "Federal": 1869
+   },
+   "jurisdi": {
+    "FED": 1869
+   }
+  },
+  {
+   "key": "federal|MEX-145",
+   "segs": 1254,
+   "km": 888.188,
+   "administra": {
+    "Federal": 1254
+   },
+   "jurisdi": {
+    "FED": 1254
+   }
+  },
+  {
+   "key": "federal|MEX-016",
+   "segs": 1015,
+   "km": 858.037,
+   "administra": {
+    "Federal": 1015
+   },
+   "jurisdi": {
+    "FED": 1015
+   }
+  },
+  {
+   "key": "federal|MEX-186",
+   "segs": 1785,
+   "km": 811.093,
+   "administra": {
+    "Federal": 1785
+   },
+   "jurisdi": {
+    "FED": 1785
+   }
+  },
+  {
+   "key": "federal|MEX-037",
+   "segs": 1256,
+   "km": 795.077,
+   "administra": {
+    "Federal": 1256
+   },
+   "jurisdi": {
+    "FED": 1256
+   }
+  },
+  {
+   "key": "federal|MEX-120",
+   "segs": 1754,
+   "km": 765.895,
+   "administra": {
+    "Federal": 1754
+   },
+   "jurisdi": {
+    "FED": 1754
+   }
+  },
+  {
+   "key": "federal|MEX-024",
+   "segs": 828,
+   "km": 720.563,
+   "administra": {
+    "Federal": 828
+   },
+   "jurisdi": {
+    "FED": 828
+   }
+  },
+  {
+   "key": "federal|MEX-023",
+   "segs": 1418,
+   "km": 714.149,
+   "administra": {
+    "Federal": 1418
+   },
+   "jurisdi": {
+    "FED": 1418
+   }
+  },
+  {
+   "key": "federal|MEX-051",
+   "segs": 1117,
+   "km": 610.595,
+   "administra": {
+    "Federal": 1117
+   },
+   "jurisdi": {
+    "FED": 1117
+   }
+  },
+  {
+   "key": "federal|MEX-140",
+   "segs": 1245,
+   "km": 607.326,
+   "administra": {
+    "Federal": 1245
+   },
+   "jurisdi": {
+    "FED": 1245
+   }
+  },
+  {
+   "key": "federal|MEX-175",
+   "segs": 1223,
+   "km": 584.415,
+   "administra": {
+    "Federal": 1223
+   },
+   "jurisdi": {
+    "FED": 1223
+   }
+  },
+  {
+   "key": "federal|MEX-030",
+   "segs": 734,
+   "km": 571.524,
+   "administra": {
+    "Federal": 734
+   },
+   "jurisdi": {
+    "FED": 734
+   }
+  },
+  {
+   "key": "federal|MEX-101",
+   "segs": 1079,
+   "km": 534.875,
+   "administra": {
+    "Federal": 1079
+   },
+   "jurisdi": {
+    "FED": 1079
+   }
+  },
+  {
+   "key": "federal|MEX-110",
+   "segs": 1271,
+   "km": 525.327,
+   "administra": {
+    "Federal": 1271
+   },
+   "jurisdi": {
+    "FED": 1271
+   }
+  },
+  {
+   "key": "federal|MEX-005",
+   "segs": 752,
+   "km": 483.938,
+   "administra": {
+    "Federal": 752
+   },
+   "jurisdi": {
+    "FED": 752
+   }
+  },
+  {
+   "key": "federal|MEX-125",
+   "segs": 678,
+   "km": 483.852,
+   "administra": {
+    "Federal": 678
+   },
+   "jurisdi": {
+    "FED": 678
+   }
+  },
+  {
+   "key": "federal|MEX-185",
+   "segs": 1375,
+   "km": 471.845,
+   "administra": {
+    "Federal": 1375
+   },
+   "jurisdi": {
+    "FED": 1375
+   }
+  },
+  {
+   "key": "federal|MEX-134",
+   "segs": 851,
+   "km": 465.473,
+   "administra": {
+    "Federal": 851
+   },
+   "jurisdi": {
+    "FED": 851
+   }
+  },
+  {
+   "key": "federal|MEX-184",
+   "segs": 626,
+   "km": 433.876,
+   "administra": {
+    "Federal": 626
+   },
+   "jurisdi": {
+    "FED": 626
+   }
+  },
+  {
+   "key": "federal|MEX-135",
+   "segs": 438,
+   "km": 431.966,
+   "administra": {
+    "Federal": 438
+   },
+   "jurisdi": {
+    "FED": 438
+   }
+  },
+  {
+   "key": "federal|MEX-136",
+   "segs": 1164,
+   "km": 426.116,
+   "administra": {
+    "Federal": 1164
+   },
+   "jurisdi": {
+    "FED": 1164
+   }
+  },
+  {
+   "key": "federal|MEX-127",
+   "segs": 905,
+   "km": 413.241,
+   "administra": {
+    "Federal": 905
+   },
+   "jurisdi": {
+    "FED": 905
+   }
+  },
+  {
+   "key": "federal|MEX-014",
+   "segs": 622,
+   "km": 405.211,
+   "administra": {
+    "Federal": 622
+   },
+   "jurisdi": {
+    "FED": 622
+   }
+  },
+  {
+   "key": "federal|MEX-132",
+   "segs": 618,
+   "km": 380.785,
+   "administra": {
+    "Federal": 618
+   },
+   "jurisdi": {
+    "FED": 618
+   }
+  },
+  {
+   "key": "federal|MEX-043",
+   "segs": 518,
+   "km": 349.171,
+   "administra": {
+    "Federal": 518
+   },
+   "jurisdi": {
+    "FED": 518
+   }
+  },
+  {
+   "key": "federal|MEX-130",
+   "segs": 1244,
+   "km": 343.719,
+   "administra": {
+    "Federal": 1244
+   },
+   "jurisdi": {
+    "FED": 1244
+   }
+  },
+  {
+   "key": "federal|MEX-090",
+   "segs": 845,
+   "km": 322.3,
+   "administra": {
+    "Federal": 845
+   },
+   "jurisdi": {
+    "FED": 845
+   }
+  },
+  {
+   "key": "federal|MEX-010",
+   "segs": 585,
+   "km": 312.399,
+   "administra": {
+    "Federal": 585
+   },
+   "jurisdi": {
+    "FED": 585
+   }
+  },
+  {
+   "key": "federal|MEX-003",
+   "segs": 552,
+   "km": 308.159,
+   "administra": {
+    "Federal": 552
+   },
+   "jurisdi": {
+    "FED": 552
+   }
+  },
+  {
+   "key": "federal|MEX-105",
+   "segs": 652,
+   "km": 288.013,
+   "administra": {
+    "Federal": 652
+   },
+   "jurisdi": {
+    "FED": 652
+   }
+  },
+  {
+   "key": "federal|MEX-176",
+   "segs": 700,
+   "km": 275.714,
+   "administra": {
+    "Federal": 700
+   },
+   "jurisdi": {
+    "FED": 700
+   }
+  },
+  {
+   "key": "federal|MEX-195",
+   "segs": 701,
+   "km": 265.376,
+   "administra": {
+    "Federal": 701
+   },
+   "jurisdi": {
+    "FED": 701
+   }
+  },
+  {
+   "key": "federal|MEX-261",
+   "segs": 517,
+   "km": 264.671,
+   "administra": {
+    "Federal": 517
+   },
+   "jurisdi": {
+    "FED": 517
+   }
+  },
+  {
+   "key": "federal|MEX-093",
+   "segs": 438,
+   "km": 254.813,
+   "administra": {
+    "Federal": 438
+   },
+   "jurisdi": {
+    "FED": 438
+   }
+  },
+  {
+   "key": "federal|MEX-019",
+   "segs": 484,
+   "km": 249.257,
+   "administra": {
+    "Federal": 484
+   },
+   "jurisdi": {
+    "FED": 484
+   }
+  },
+  {
+   "key": "federal|MEX-295",
+   "segs": 425,
+   "km": 244.526,
+   "administra": {
+    "Federal": 425
+   },
+   "jurisdi": {
+    "FED": 425
+   }
+  },
+  {
+   "key": "federal|MEX-035",
+   "segs": 535,
+   "km": 241.103,
+   "administra": {
+    "Federal": 535
+   },
+   "jurisdi": {
+    "FED": 535
+   }
+  },
+  {
+   "key": "federal|MEX-055",
+   "segs": 533,
+   "km": 221.371,
+   "administra": {
+    "Federal": 533
+   },
+   "jurisdi": {
+    "FED": 533
+   }
+  },
+  {
+   "key": "federal|MEX-179",
+   "segs": 166,
+   "km": 210.397,
+   "administra": {
+    "Federal": 166
+   },
+   "jurisdi": {
+    "FED": 166
+   }
+  },
+  {
+   "key": "federal|MEX-199",
+   "segs": 349,
+   "km": 207.349,
+   "administra": {
+    "Federal": 349
+   },
+   "jurisdi": {
+    "FED": 349
+   }
+  },
+  {
+   "key": "federal|MEX-129",
+   "segs": 589,
+   "km": 204.159,
+   "administra": {
+    "Federal": 589
+   },
+   "jurisdi": {
+    "FED": 589
+   }
+  },
+  {
+   "key": "federal|MEX-187",
+   "segs": 630,
+   "km": 201.222,
+   "administra": {
+    "Federal": 630
+   },
+   "jurisdi": {
+    "FED": 630
+   }
+  },
+  {
+   "key": "federal|MEX-017",
+   "segs": 200,
+   "km": 185.859,
+   "administra": {
+    "Federal": 200
+   },
+   "jurisdi": {
+    "FED": 200
+   }
+  },
+  {
+   "key": "federal|MEX-196",
+   "segs": 145,
+   "km": 180.068,
+   "administra": {
+    "Federal": 145
+   },
+   "jurisdi": {
+    "FED": 145
+   }
+  },
+  {
+   "key": "federal|MEX-063",
+   "segs": 183,
+   "km": 174.152,
+   "administra": {
+    "Federal": 183
+   },
+   "jurisdi": {
+    "FED": 183
+   }
+  },
+  {
+   "key": "federal|MEX-147",
+   "segs": 289,
+   "km": 171.899,
+   "administra": {
+    "Federal": 289
+   },
+   "jurisdi": {
+    "FED": 289
+   }
+  },
+  {
+   "key": "federal|MEX-047",
+   "segs": 113,
+   "km": 170.129,
+   "administra": {
+    "Federal": 113
+   },
+   "jurisdi": {
+    "FED": 113
+   }
+  },
+  {
+   "key": "federal|MEX-071",
+   "segs": 482,
+   "km": 168.052,
+   "administra": {
+    "Federal": 482
+   },
+   "jurisdi": {
+    "FED": 482
+   }
+  },
+  {
+   "key": "federal|MEX-182",
+   "segs": 232,
+   "km": 164.676,
+   "administra": {
+    "Federal": 232
+   },
+   "jurisdi": {
+    "FED": 232
+   }
+  },
+  {
+   "key": "federal|MEX-160",
+   "segs": 441,
+   "km": 159.756,
+   "administra": {
+    "Federal": 441
+   },
+   "jurisdi": {
+    "FED": 441
+   }
+  },
+  {
+   "key": "federal|MEX-119",
+   "segs": 741,
+   "km": 159.452,
+   "administra": {
+    "Federal": 741
+   },
+   "jurisdi": {
+    "FED": 741
+   }
+  },
+  {
+   "key": "federal|MEX-131",
+   "segs": 478,
+   "km": 154.694,
+   "administra": {
+    "Federal": 478
+   },
+   "jurisdi": {
+    "FED": 478
+   }
+  },
+  {
+   "key": "federal|MEX-083",
+   "segs": 150,
+   "km": 149.694,
+   "administra": {
+    "Federal": 150
+   },
+   "jurisdi": {
+    "FED": 150
+   }
+  },
+  {
+   "key": "federal|MEX-053",
+   "segs": 203,
+   "km": 148.655,
+   "administra": {
+    "Federal": 203
+   },
+   "jurisdi": {
+    "FED": 203
+   }
+  },
+  {
+   "key": "federal|MEX-020",
+   "segs": 171,
+   "km": 145.578,
+   "administra": {
+    "Federal": 171
+   },
+   "jurisdi": {
+    "FED": 171
+   }
+  },
+  {
+   "key": "federal|MEX-203",
+   "segs": 155,
+   "km": 127.149,
+   "administra": {
+    "Federal": 155
+   },
+   "jurisdi": {
+    "FED": 155
+   }
+  },
+  {
+   "key": "federal|MEX-084",
+   "segs": 322,
+   "km": 125.716,
+   "administra": {
+    "Federal": 322
+   },
+   "jurisdi": {
+    "FED": 322
+   }
+  },
+  {
+   "key": "federal|MEX-115",
+   "segs": 486,
+   "km": 124.589,
+   "administra": {
+    "Federal": 486
+   },
+   "jurisdi": {
+    "FED": 486
+   }
+  },
+  {
+   "key": "federal|MEX-126",
+   "segs": 245,
+   "km": 121.835,
+   "administra": {
+    "Federal": 245
+   },
+   "jurisdi": {
+    "FED": 245
+   }
+  },
+  {
+   "key": "federal|MEX-062",
+   "segs": 80,
+   "km": 113.491,
+   "administra": {
+    "Federal": 80
+   },
+   "jurisdi": {
+    "FED": 80
+   }
+  },
+  {
+   "key": "federal|MEX-188",
+   "segs": 143,
+   "km": 113.175,
+   "administra": {
+    "Federal": 143
+   },
+   "jurisdi": {
+    "FED": 143
+   }
+  },
+  {
+   "key": "federal|MEX-097",
+   "segs": 185,
+   "km": 111.774,
+   "administra": {
+    "Federal": 185
+   },
+   "jurisdi": {
+    "FED": 185
+   }
+  },
+  {
+   "key": "federal|MEX-281",
+   "segs": 199,
+   "km": 110.978,
+   "administra": {
+    "Federal": 199
+   },
+   "jurisdi": {
+    "FED": 199
+   }
+  },
+  {
+   "key": "federal|MEX-198",
+   "segs": 201,
+   "km": 110.24,
+   "administra": {
+    "Federal": 201
+   },
+   "jurisdi": {
+    "FED": 201
+   }
+  },
+  {
+   "key": "federal|MEX-211",
+   "segs": 239,
+   "km": 107.248,
+   "administra": {
+    "Federal": 239
+   },
+   "jurisdi": {
+    "FED": 239
+   }
+  },
+  {
+   "key": "federal|MEX-029",
+   "segs": 188,
+   "km": 105.251,
+   "administra": {
+    "Federal": 188
+   },
+   "jurisdi": {
+    "FED": 188
+   }
+  },
+  {
+   "key": "federal|MEX-293",
+   "segs": 133,
+   "km": 101.919,
+   "administra": {
+    "Federal": 133
+   },
+   "jurisdi": {
+    "FED": 133
+   }
+  },
+  {
+   "key": "federal|MEX-117",
+   "segs": 401,
+   "km": 101.541,
+   "administra": {
+    "Federal": 401
+   },
+   "jurisdi": {
+    "FED": 401
+   }
+  },
+  {
+   "key": "federal|MEX-069",
+   "segs": 131,
+   "km": 97.394,
+   "administra": {
+    "Federal": 131
+   },
+   "jurisdi": {
+    "FED": 131
+   }
+  },
+  {
+   "key": "federal|MEX-058",
+   "segs": 114,
+   "km": 93.39,
+   "administra": {
+    "Federal": 114
+   },
+   "jurisdi": {
+    "FED": 114
+   }
+  },
+  {
+   "key": "federal|MEX-041",
+   "segs": 202,
+   "km": 93.249,
+   "administra": {
+    "Federal": 202
+   },
+   "jurisdi": {
+    "FED": 202
+   }
+  },
+  {
+   "key": "federal|MEX-034",
+   "segs": 103,
+   "km": 93.218,
+   "administra": {
+    "Federal": 103
+   },
+   "jurisdi": {
+    "FED": 103
+   }
+  },
+  {
+   "key": "federal|MEX-008",
+   "segs": 94,
+   "km": 91.27,
+   "administra": {
+    "Federal": 94
+   },
+   "jurisdi": {
+    "FED": 94
+   }
+  },
+  {
+   "key": "federal|MEX-022",
+   "segs": 158,
+   "km": 90.705,
+   "administra": {
+    "Federal": 158
+   },
+   "jurisdi": {
+    "FED": 158
+   }
+  },
+  {
+   "key": "federal|MEX-081",
+   "segs": 159,
+   "km": 87.933,
+   "administra": {
+    "Federal": 159
+   },
+   "jurisdi": {
+    "FED": 159
+   }
+  },
+  {
+   "key": "federal|MEX-044",
+   "segs": 139,
+   "km": 80.991,
+   "administra": {
+    "Federal": 139
+   },
+   "jurisdi": {
+    "FED": 139
+   }
+  },
+  {
+   "key": "federal|MEX-036",
+   "segs": 25,
+   "km": 79.445,
+   "administra": {
+    "Federal": 25
+   },
+   "jurisdi": {
+    "FED": 25
+   }
+  },
+  {
+   "key": "federal|MEX-201",
+   "segs": 224,
+   "km": 78.438,
+   "administra": {
+    "Federal": 224
+   },
+   "jurisdi": {
+    "FED": 224
+   }
+  },
+  {
+   "key": "federal|MEX-076",
+   "segs": 88,
+   "km": 68.372,
+   "administra": {
+    "Federal": 88
+   },
+   "jurisdi": {
+    "FED": 88
+   }
+  },
+  {
+   "key": "federal|MEX-091",
+   "segs": 146,
+   "km": 67.521,
+   "administra": {
+    "Federal": 146
+   },
+   "jurisdi": {
+    "FED": 146
+   }
+  },
+  {
+   "key": "federal|MEX-225",
+   "segs": 147,
+   "km": 66.719,
+   "administra": {
+    "Federal": 147
+   },
+   "jurisdi": {
+    "FED": 147
+   }
+  },
+  {
+   "key": "federal|MEX-144",
+   "segs": 92,
+   "km": 64.63,
+   "administra": {
+    "Federal": 92
+   },
+   "jurisdi": {
+    "FED": 92
+   }
+  },
+  {
+   "key": "federal|MEX-121",
+   "segs": 441,
+   "km": 64.417,
+   "administra": {
+    "Federal": 441
+   },
+   "jurisdi": {
+    "FED": 441
+   }
+  },
+  {
+   "key": "federal|MEX-166",
+   "segs": 190,
+   "km": 63.445,
+   "administra": {
+    "Federal": 190
+   },
+   "jurisdi": {
+    "FED": 190
+   }
+  },
+  {
+   "key": "federal|MEX-092",
+   "segs": 39,
+   "km": 62.215,
+   "administra": {
+    "Federal": 39
+   },
+   "jurisdi": {
+    "FED": 39
+   }
+  },
+  {
+   "key": "federal|MEX-113",
+   "segs": 163,
+   "km": 61.085,
+   "administra": {
+    "Federal": 163
+   },
+   "jurisdi": {
+    "FED": 163
+   }
+  },
+  {
+   "key": "federal|MEX-098",
+   "segs": 203,
+   "km": 60.436,
+   "administra": {
+    "Federal": 203
+   },
+   "jurisdi": {
+    "FED": 203
+   }
+  },
+  {
+   "key": "federal|MEX-087",
+   "segs": 188,
+   "km": 58.338,
+   "administra": {
+    "Federal": 188
+   },
+   "jurisdi": {
+    "FED": 188
+   }
+  },
+  {
+   "key": "federal|MEX-027",
+   "segs": 33,
+   "km": 52.825,
+   "administra": {
+    "Federal": 33
+   },
+   "jurisdi": {
+    "FED": 33
+   }
+  },
+  {
+   "key": "federal|MEX-202",
+   "segs": 120,
+   "km": 51.599,
+   "administra": {
+    "Federal": 120
+   },
+   "jurisdi": {
+    "FED": 120
+   }
+  },
+  {
+   "key": "federal|MEX-025",
+   "segs": 183,
+   "km": 51.021,
+   "administra": {
+    "Federal": 183
+   },
+   "jurisdi": {
+    "FED": 183
+   }
+  },
+  {
+   "key": "federal|MEX-138",
+   "segs": 336,
+   "km": 49.92,
+   "administra": {
+    "Federal": 336
+   },
+   "jurisdi": {
+    "FED": 336
+   }
+  },
+  {
+   "key": "federal|MEX-305",
+   "segs": 32,
+   "km": 46.303,
+   "administra": {
+    "Federal": 32
+   },
+   "jurisdi": {
+    "FED": 32
+   }
+  },
+  {
+   "key": "federal|MEX-235",
+   "segs": 62,
+   "km": 45.489,
+   "administra": {
+    "Federal": 62
+   },
+   "jurisdi": {
+    "FED": 62
+   }
+  },
+  {
+   "key": "federal|MEX-240",
+   "segs": 26,
+   "km": 40.476,
+   "administra": {
+    "Federal": 26
+   },
+   "jurisdi": {
+    "FED": 26
+   }
+  },
+  {
+   "key": "federal|MEX-072",
+   "segs": 110,
+   "km": 39.806,
+   "administra": {
+    "Federal": 110
+   },
+   "jurisdi": {
+    "FED": 110
+   }
+  },
+  {
+   "key": "federal|MEX-102",
+   "segs": 66,
+   "km": 37.694,
+   "administra": {
+    "Federal": 66
+   },
+   "jurisdi": {
+    "FED": 66
+   }
+  },
+  {
+   "key": "federal|MEX-009",
+   "segs": 121,
+   "km": 36.571,
+   "administra": {
+    "Federal": 121
+   },
+   "jurisdi": {
+    "FED": 121
+   }
+  },
+  {
+   "key": "federal|MEX-048",
+   "segs": 47,
+   "km": 36.086,
+   "administra": {
+    "Federal": 47
+   },
+   "jurisdi": {
+    "FED": 47
+   }
+  },
+  {
+   "key": "federal|MEX-068",
+   "segs": 64,
+   "km": 34.968,
+   "administra": {
+    "Federal": 64
+   },
+   "jurisdi": {
+    "FED": 64
+   }
+  },
+  {
+   "key": "federal|MEX-073",
+   "segs": 57,
+   "km": 34.526,
+   "administra": {
+    "Federal": 57
+   },
+   "jurisdi": {
+    "FED": 57
+   }
+  },
+  {
+   "key": "federal|MEX-077",
+   "segs": 27,
+   "km": 34.095,
+   "administra": {
+    "Federal": 27
+   },
+   "jurisdi": {
+    "FED": 27
+   }
+  },
+  {
+   "key": "federal|MEX-111",
+   "segs": 98,
+   "km": 32.795,
+   "administra": {
+    "Federal": 98
+   },
+   "jurisdi": {
+    "FED": 98
+   }
+  },
+  {
+   "key": "federal|MEX-192",
+   "segs": 38,
+   "km": 32.689,
+   "administra": {
+    "Federal": 38
+   },
+   "jurisdi": {
+    "FED": 38
+   }
+  },
+  {
+   "key": "federal|MEX-082",
+   "segs": 30,
+   "km": 31.994,
+   "administra": {
+    "Federal": 30
+   },
+   "jurisdi": {
+    "FED": 30
+   }
+  },
+  {
+   "key": "federal|MEX-221",
+   "segs": 44,
+   "km": 30.908,
+   "administra": {
+    "Federal": 44
+   },
+   "jurisdi": {
+    "FED": 44
+   }
+  },
+  {
+   "key": "federal|MEX-061",
+   "segs": 63,
+   "km": 29.98,
+   "administra": {
+    "Federal": 63
+   },
+   "jurisdi": {
+    "FED": 63
+   }
+  },
+  {
+   "key": "federal|MEX-031",
+   "segs": 27,
+   "km": 28.628,
+   "administra": {
+    "Federal": 27
+   },
+   "jurisdi": {
+    "FED": 27
+   }
+  },
+  {
+   "key": "federal|MEX-205",
+   "segs": 54,
+   "km": 27.549,
+   "administra": {
+    "Federal": 54
+   },
+   "jurisdi": {
+    "FED": 54
+   }
+  },
+  {
+   "key": "federal|MEX-052",
+   "segs": 70,
+   "km": 23.523,
+   "administra": {
+    "Federal": 70
+   },
+   "jurisdi": {
+    "FED": 70
+   }
+  },
+  {
+   "key": "federal|MEX-163",
+   "segs": 20,
+   "km": 23.134,
+   "administra": {
+    "Federal": 20
+   },
+   "jurisdi": {
+    "FED": 20
+   }
+  },
+  {
+   "key": "federal|MEX-078",
+   "segs": 28,
+   "km": 22.532,
+   "administra": {
+    "Federal": 28
+   },
+   "jurisdi": {
+    "FED": 28
+   }
+  },
+  {
+   "key": "federal|MEX-265",
+   "segs": 10,
+   "km": 22.127,
+   "administra": {
+    "Federal": 10
+   },
+   "jurisdi": {
+    "FED": 10
+   }
+  },
+  {
+   "key": "federal|MEX-174",
+   "segs": 23,
+   "km": 21.193,
+   "administra": {
+    "Federal": 23
+   },
+   "jurisdi": {
+    "FED": 23
+   }
+  },
+  {
+   "key": "federal|MEX-228",
+   "segs": 38,
+   "km": 21.099,
+   "administra": {
+    "Federal": 38
+   },
+   "jurisdi": {
+    "FED": 38
+   }
+  },
+  {
+   "key": "federal|MEX-105D",
+   "segs": 41,
+   "km": 20.331,
+   "administra": {
+    "Federal": 41
+   },
+   "jurisdi": {
+    "FED": 41
+   }
+  },
+  {
+   "key": "federal|MEX-217",
+   "segs": 21,
+   "km": 19.757,
+   "administra": {
+    "Federal": 21
+   },
+   "jurisdi": {
+    "FED": 21
+   }
+  },
+  {
+   "key": "federal|MEX-107",
+   "segs": 29,
+   "km": 19.216,
+   "administra": {
+    "Federal": 29
+   },
+   "jurisdi": {
+    "FED": 29
+   }
+  },
+  {
+   "key": "federal|MEX-142",
+   "segs": 73,
+   "km": 18.759,
+   "administra": {
+    "Federal": 73
+   },
+   "jurisdi": {
+    "FED": 73
+   }
+  },
+  {
+   "key": "federal|MEX-088",
+   "segs": 62,
+   "km": 18.175,
+   "administra": {
+    "Federal": 62
+   },
+   "jurisdi": {
+    "FED": 62
+   }
+  },
+  {
+   "key": "federal|MEX-106",
+   "segs": 25,
+   "km": 17.131,
+   "administra": {
+    "Federal": 25
+   },
+   "jurisdi": {
+    "FED": 25
+   }
+  },
+  {
+   "key": "federal|MEX-172",
+   "segs": 51,
+   "km": 16.591,
+   "administra": {
+    "Federal": 51
+   },
+   "jurisdi": {
+    "FED": 51
+   }
+  },
+  {
+   "key": "federal|MEX-237",
+   "segs": 15,
+   "km": 14.788,
+   "administra": {
+    "Federal": 15
+   },
+   "jurisdi": {
+    "FED": 15
+   }
+  },
+  {
+   "key": "federal|MEX-260",
+   "segs": 23,
+   "km": 14.659,
+   "administra": {
+    "Federal": 23
+   },
+   "jurisdi": {
+    "FED": 23
+   }
+  },
+  {
+   "key": "federal|MEX-162",
+   "segs": 94,
+   "km": 14.099,
+   "administra": {
+    "Federal": 94
+   },
+   "jurisdi": {
+    "FED": 94
+   }
+  },
+  {
+   "key": "federal|MEX-178",
+   "segs": 30,
+   "km": 12.613,
+   "administra": {
+    "Federal": 30
+   },
+   "jurisdi": {
+    "FED": 30
+   }
+  },
+  {
+   "key": "federal|MEX-230",
+   "segs": 29,
+   "km": 12.075,
+   "administra": {
+    "Federal": 29
+   },
+   "jurisdi": {
+    "FED": 29
+   }
+  },
+  {
+   "key": "federal|MEX-011",
+   "segs": 27,
+   "km": 9.965,
+   "administra": {
+    "Federal": 27
+   },
+   "jurisdi": {
+    "FED": 27
+   }
+  },
+  {
+   "key": "federal|MEX-066",
+   "segs": 44,
+   "km": 8.382,
+   "administra": {
+    "Federal": 44
+   },
+   "jurisdi": {
+    "FED": 44
+   }
+  },
+  {
+   "key": "federal|MEX-007",
+   "segs": 1,
+   "km": 7.459,
+   "administra": {
+    "Federal": 1
+   },
+   "jurisdi": {
+    "FED": 1
+   }
+  },
+  {
+   "key": "federal|MEX-100",
+   "segs": 18,
+   "km": 4.054,
+   "administra": {
+    "Federal": 18
+   },
+   "jurisdi": {
+    "FED": 18
+   }
+  },
+  {
+   "key": "federal|MEX-232",
+   "segs": 7,
+   "km": 3.207,
+   "administra": {
+    "Federal": 7
+   },
+   "jurisdi": {
+    "FED": 7
+   }
+  },
+  {
+   "key": "federal|MEX-099",
+   "segs": 10,
+   "km": 1.984,
+   "administra": {
+    "Federal": 10
+   },
+   "jurisdi": {
+    "FED": 10
+   }
+  },
+  {
+   "key": "federal|MEX-161",
+   "segs": 6,
+   "km": 0.629,
+   "administra": {
+    "Federal": 6
+   },
+   "jurisdi": {
+    "FED": 6
+   }
+  },
+  {
+   "key": "federal|MEX-408",
+   "segs": 4,
+   "km": 0.309,
+   "administra": {
+    "Federal": 4
+   },
+   "jurisdi": {
+    "FED": 4
+   }
+  },
+  {
+   "key": "federal|MEX-038",
+   "segs": 1,
+   "km": 0.254,
+   "administra": {
+    "Federal": 1
+   },
+   "jurisdi": {
+    "FED": 1
+   }
+  }
+ ],
+ "cmx": [
+  {
+   "key": "state|CMX-057",
+   "segs": 11,
+   "km": 5.401,
+   "administra": {
+    "Estatal": 11
+   },
+   "jurisdi": {
+    "CMX": 11
+   },
+   "topNames": [
+    "La Venta - Lechería"
+   ],
+   "tipo": {
+    "Carretera": 11
+   },
+   "peaje": {
+    "Si": 11
+   },
+   "lanes": {
+    "2": 11
+   }
+  },
+  {
+   "key": "state|CMX-886",
+   "segs": 2,
+   "km": 0.605,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "CMX": 2
+   },
+   "topNames": [
+    "Chalco - Tláhuac"
+   ],
+   "tipo": {
+    "Carretera": 2
+   },
+   "peaje": {
+    "No": 2
+   },
+   "lanes": {
+    "2": 2
+   }
+  },
+  {
+   "key": "state|CMX-887",
+   "segs": 2,
+   "km": 0.2,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "CMX": 2
+   },
+   "topNames": [
+    "Chalco - Mixquic"
+   ],
+   "tipo": {
+    "Carretera": 2
+   },
+   "peaje": {
+    "No": 2
+   },
+   "lanes": {
+    "2": 2
+   }
+  },
+  {
+   "key": "state|CMX-328",
+   "segs": 1,
+   "km": 5.816,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "CMX": 1
+   },
+   "topNames": [
+    "Mexicaltzingo - Xalatlaco - El Ajusco"
+   ],
+   "tipo": {
+    "Carretera": 1
+   },
+   "peaje": {
+    "No": 1
+   },
+   "lanes": {
+    "2": 1
+   }
+  },
+  {
+   "key": "state|CMX-015",
+   "segs": 10,
+   "km": 1.534,
+   "administra": {
+    "Estatal": 10
+   },
+   "jurisdi": {
+    "CMX": 10
+   },
+   "topNames": [
+    "México - Toluca"
+   ],
+   "tipo": {
+    "Carretera": 10
+   },
+   "peaje": {
+    "No": 10
+   },
+   "lanes": {
+    "2": 10
+   }
+  }
+ ],
+ "em3043": [
+  {
+   "key": "state|EM-774",
+   "segs": 4,
+   "km": 4.224,
+   "administra": {
+    "Municipal": 4
+   },
+   "jurisdi": {
+    "MEX": 4
+   },
+   "topNames": [
+    "Km. 11.5 (Huixquilucan - Río Hondo) - Palo Solo",
+    "Km. 11.5 Huixquilucan - Río Hondo - Palo Solo"
+   ],
+   "tipo": {
+    "Carretera": 4
+   },
+   "peaje": {
+    "No": 4
+   },
+   "lanes": {
+    "2": 4
+   }
+  },
+  {
+   "key": "state|EM-228",
+   "segs": 13,
+   "km": 9.911,
+   "administra": {
+    "Municipal": 13
+   },
+   "jurisdi": {
+    "MEX": 13
+   },
+   "topNames": [
+    "Llano Grande - Agua Bendita",
+    "Llano Grande - Santa Cruz Ayotuxco (Canales)"
+   ],
+   "tipo": {
+    "Carretera": 13
+   },
+   "peaje": {
+    "No": 13
+   },
+   "lanes": {
+    "2": 13
+   }
+  },
+  {
+   "key": "state|EM-3043",
+   "segs": 9,
+   "km": 6.808,
+   "administra": {
+    "Municipal": 9
+   },
+   "jurisdi": {
+    "MEX": 9
+   },
+   "topNames": [
+    "Huixquilucan - Santiago Yancuitlalpan - Entronque Jesús del Monte",
+    "Huixquilucan - Santiago Yancuitlalpan - Ent. (Jesús del Monte)"
+   ],
+   "tipo": {
+    "Carretera": 9
+   },
+   "peaje": {
+    "No": 9
+   },
+   "lanes": {
+    "2": 9
+   }
+  },
+  {
+   "key": "state|EM-775",
+   "segs": 2,
+   "km": 0.827,
+   "administra": {
+    "Municipal": 2
+   },
+   "jurisdi": {
+    "MEX": 2
+   },
+   "topNames": [
+    "(blank)"
+   ],
+   "tipo": {
+    "Carretera": 2
+   },
+   "peaje": {
+    "No": 2
+   },
+   "lanes": {
+    "2": 2
+   }
+  },
+  {
+   "key": "state|EM-783",
+   "segs": 52,
+   "km": 18.939,
+   "administra": {
+    "Estatal": 52
+   },
+   "jurisdi": {
+    "MEX": 52
+   },
+   "topNames": [
+    "(México - Laredo) - Zumpango - Apaxco - Límite México - Hidalgo",
+    "(México - Laredo) - Zumpango - Apaxco - Limite México - Hidalgo"
+   ],
+   "tipo": {
+    "Carretera": 52
+   },
+   "peaje": {
+    "No": 52
+   },
+   "lanes": {
+    "2": 52
+   }
+  },
+  {
+   "key": "state|EM-791",
+   "segs": 11,
+   "km": 2.985,
+   "administra": {
+    "Estatal": 11
+   },
+   "jurisdi": {
+    "MEX": 11
+   },
+   "topNames": [
+    "(Los Reyes - Apaxco) - Tizayuca"
+   ],
+   "tipo": {
+    "Carretera": 11
+   },
+   "peaje": {
+    "No": 11
+   },
+   "lanes": {
+    "2": 11
+   }
+  },
+  {
+   "key": "state|EM-797",
+   "segs": 53,
+   "km": 14.993,
+   "administra": {
+    "Estatal": 53
+   },
+   "jurisdi": {
+    "MEX": 53
+   },
+   "topNames": [
+    "Cuautitlán - Zumpango"
+   ],
+   "tipo": {
+    "Carretera": 53
+   },
+   "peaje": {
+    "No": 53
+   },
+   "lanes": {
+    "2": 53
+   }
+  },
+  {
+   "key": "state|EM-787",
+   "segs": 35,
+   "km": 22.433,
+   "administra": {
+    "Estatal": 35
+   },
+   "jurisdi": {
+    "MEX": 35
+   },
+   "topNames": [
+    "(Los Reyes - Apaxco) - Hueypoxtla - Ent. Km. 58 (México - Pachuca)"
+   ],
+   "tipo": {
+    "Carretera": 35
+   },
+   "peaje": {
+    "No": 35
+   },
+   "lanes": {
+    "2": 35
+   }
+  },
+  {
+   "key": "state|EM-790",
+   "segs": 5,
+   "km": 6.089,
+   "administra": {
+    "Estatal": 5
+   },
+   "jurisdi": {
+    "MEX": 5
+   },
+   "topNames": [
+    "San Bartolo Cuautlalpan - Jilotzingo"
+   ],
+   "tipo": {
+    "Carretera": 5
+   },
+   "peaje": {
+    "No": 5
+   },
+   "lanes": {
+    "2": 5
+   }
+  },
+  {
+   "key": "state|EM-734",
+   "segs": 20,
+   "km": 7.038,
+   "administra": {
+    "Estatal": 20
+   },
+   "jurisdi": {
+    "MEX": 20
+   },
+   "topNames": [
+    "Tecamac - Zacualucan",
+    "Tecámac - Zacualucan"
+   ],
+   "tipo": {
+    "Carretera": 20
+   },
+   "peaje": {
+    "No": 20
+   },
+   "lanes": {
+    "2": 20
+   }
+  },
+  {
+   "key": "state|EM-794",
+   "segs": 11,
+   "km": 3.628,
+   "administra": {
+    "Estatal": 11
+   },
+   "jurisdi": {
+    "MEX": 11
+   },
+   "topNames": [
+    "(México - Pachuca) - San Andrés"
+   ],
+   "tipo": {
+    "Carretera": 11
+   },
+   "peaje": {
+    "No": 11
+   },
+   "lanes": {
+    "2": 11
+   }
+  },
+  {
+   "key": "state|EM-729",
+   "segs": 18,
+   "km": 14.158,
+   "administra": {
+    "Estatal": 18
+   },
+   "jurisdi": {
+    "MEX": 18
+   },
+   "topNames": [
+    "(Puente Grande - Villa del Carbón) - Arcos del Sitio"
+   ],
+   "tipo": {
+    "Carretera": 18
+   },
+   "peaje": {
+    "No": 18
+   },
+   "lanes": {
+    "2": 18
+   }
+  },
+  {
+   "key": "state|EM-781",
+   "segs": 48,
+   "km": 20.33,
+   "administra": {
+    "Estatal": 48
+   },
+   "jurisdi": {
+    "MEX": 48
+   },
+   "topNames": [
+    "Cuautitlán - Apaxco"
+   ],
+   "tipo": {
+    "Carretera": 48
+   },
+   "peaje": {
+    "No": 48
+   },
+   "lanes": {
+    "2": 48
+   }
+  },
+  {
+   "key": "state|EM-730",
+   "segs": 21,
+   "km": 9.76,
+   "administra": {
+    "Estatal": 21
+   },
+   "jurisdi": {
+    "MEX": 21
+   },
+   "topNames": [
+    "Puente Grande - Ent. Km. 27 (Tlalnepantla - Villa del Carbón)"
+   ],
+   "tipo": {
+    "Carretera": 21
+   },
+   "peaje": {
+    "No": 21
+   },
+   "lanes": {
+    "2": 21
+   }
+  },
+  {
+   "key": "state|EM-795",
+   "segs": 17,
+   "km": 4.297,
+   "administra": {
+    "Estatal": 17
+   },
+   "jurisdi": {
+    "MEX": 17
+   },
+   "topNames": [
+    "(México - Querétaro) - Huehuetoca"
+   ],
+   "tipo": {
+    "Carretera": 17
+   },
+   "peaje": {
+    "No": 17
+   },
+   "lanes": {
+    "2": 16,
+    "4": 1
+   }
+  },
+  {
+   "key": "state|EM-764",
+   "segs": 21,
+   "km": 11.425,
+   "administra": {
+    "Estatal": 21
+   },
+   "jurisdi": {
+    "MEX": 21
+   },
+   "topNames": [
+    "Nicolás Romero - Jilotzingo - Ent. Km. 56.6 (Ixtlahuaca - Naucalpan)"
+   ],
+   "tipo": {
+    "Carretera": 21
+   },
+   "peaje": {
+    "No": 21
+   },
+   "lanes": {
+    "2": 21
+   }
+  },
+  {
+   "key": "state|EM-780",
+   "segs": 4,
+   "km": 2.759,
+   "administra": {
+    "Estatal": 4
+   },
+   "jurisdi": {
+    "MEX": 4
+   },
+   "topNames": [
+    "Teoloyucan - Coyotepec - Huehuetoca"
+   ],
+   "tipo": {
+    "Carretera": 4
+   },
+   "peaje": {
+    "No": 4
+   },
+   "lanes": {
+    "2": 4
+   }
+  }
+ ],
+ "topStateByKm": [
+  {
+   "key": "state|SON-003",
+   "segs": 454,
+   "km": 653.032,
+   "administra": {
+    "Estatal": 454
+   },
+   "jurisdi": {
+    "SON": 454
+   },
+   "topNames": [
+    "San Luis Río Colorado - Golfo de Santa Clara",
+    "Estación Sahuaro - Ent. (Caborca - El Desemboque)",
+    "Puerto Libertad - Calle 36 Norte - E.C. (Hermosillo - Bahía de Kino)"
+   ]
+  },
+  {
+   "key": "state|CHH-025",
+   "segs": 498,
+   "km": 393.682,
+   "administra": {
+    "Estatal": 498
+   },
+   "jurisdi": {
+    "CHH": 498
+   },
+   "topNames": [
+    "San Pedro - Creel - Guachochi",
+    "Puerto Justo - Balleza - Guachochi",
+    "Guerrero - Ent. (Cuauhtémoc - Tomochi)"
+   ]
+  },
+  {
+   "key": "state|SON-117",
+   "segs": 325,
+   "km": 360.726,
+   "administra": {
+    "Estatal": 325
+   },
+   "jurisdi": {
+    "SON": 325
+   },
+   "topNames": [
+    "Esperanza - Presa Álvaro Obregón",
+    "Sahuaripa - San Nicolás",
+    "Esperanza - Hornos - San Nicolás"
+   ]
+  },
+  {
+   "key": "state|SON-069",
+   "segs": 268,
+   "km": 329.368,
+   "administra": {
+    "Estatal": 248,
+    "Municipal": 20
+   },
+   "jurisdi": {
+    "SON": 268
+   },
+   "topNames": [
+    "Agua Prieta - Bavispe",
+    "El Coyote - Huachinera - Bacerac - Bavispe - La Morita",
+    "Moctezuma - Huasabas - El Coyote"
+   ]
+  },
+  {
+   "key": "state|CHH-005",
+   "segs": 627,
+   "km": 289.871,
+   "administra": {
+    "Estatal": 627
+   },
+   "jurisdi": {
+    "CHH": 627
+   },
+   "topNames": [
+    "Cuauhtémoc - Álvaro Obregón",
+    "Álvaro Obregón - Soto Máynez",
+    "Soto Máynez - Gómez Farías - Buenaventura"
+   ]
+  },
+  {
+   "key": "state|BCS-001",
+   "segs": 196,
+   "km": 288.591,
+   "administra": {
+    "Estatal": 165,
+    "Municipal": 31
+   },
+   "jurisdi": {
+    "BCS": 196
+   },
+   "topNames": [
+    "Ciudad Insurgentes - Francisco Villa",
+    "Vizcaíno - Bahía Tortugas",
+    "Francisco Villa - La Purísima"
+   ]
+  },
+  {
+   "key": "state|NLE-001",
+   "segs": 504,
+   "km": 278.783,
+   "administra": {
+    "Estatal": 504
+   },
+   "jurisdi": {
+    "NLE": 504
+   },
+   "topNames": [
+    "Monterrey - Colombia",
+    "A Colombia"
+   ]
+  },
+  {
+   "key": "state|CHH-067",
+   "segs": 160,
+   "km": 238.819,
+   "administra": {
+    "Estatal": 160
+   },
+   "jurisdi": {
+    "CHH": 160
+   },
+   "topNames": [
+    "Ent. (Camargo - Jiménez) - La Perla - La Mula",
+    "La Mula - Ojinaga"
+   ]
+  },
+  {
+   "key": "state|COA-020",
+   "segs": 220,
+   "km": 236.659,
+   "administra": {
+    "Estatal": 220
+   },
+   "jurisdi": {
+    "COA": 220
+   },
+   "topNames": [
+    "Nueva Rosita - Boquillas del Carmen",
+    "Rosita - Múzquiz",
+    "Múzquiz - Boquillas"
+   ]
+  },
+  {
+   "key": "state|CHH-011",
+   "segs": 433,
+   "km": 225.52,
+   "administra": {
+    "Estatal": 433
+   },
+   "jurisdi": {
+    "CHH": 433
+   },
+   "topNames": [
+    "La Junta - Guerrero",
+    "Matachí - Madera",
+    "Guerrero - Matachí"
+   ]
+  },
+  {
+   "key": "state|ZAC-012",
+   "segs": 138,
+   "km": 216.869,
+   "administra": {
+    "Estatal": 138
+   },
+   "jurisdi": {
+    "ZAC": 138
+   },
+   "topNames": [
+    "Nieves - Mazapil - Concepción del Oro",
+    "San Gil - Jarillas"
+   ]
+  },
+  {
+   "key": "state|SON-104",
+   "segs": 117,
+   "km": 208.088,
+   "administra": {
+    "Estatal": 117
+   },
+   "jurisdi": {
+    "SON": 117
+   },
+   "topNames": [
+    "Hermosillo - El Novillo - Sahuaripa",
+    "Ramal a Entronque Carretera (Hermosillo - Sahuaripa)"
+   ]
+  },
+  {
+   "key": "state|DUR-044",
+   "segs": 154,
+   "km": 207.389,
+   "administra": {
+    "Estatal": 154
+   },
+   "jurisdi": {
+    "DUR": 154
+   },
+   "topNames": [
+    "Ceballos - El Mirador",
+    "Valparaíso - Huejuquilla - Límite Estados Zacatecas - Nayarit",
+    "El Mirador - San Bernardo"
+   ]
+  },
+  {
+   "key": "state|CHH-045",
+   "segs": 264,
+   "km": 200.645,
+   "administra": {
+    "Estatal": 260,
+    "Municipal": 4
+   },
+   "jurisdi": {
+    "CHH": 264
+   },
+   "topNames": [
+    "El Sueco - Villa Ahumada",
+    "Chihuahua - Sacramento",
+    "Km. 83.4 (Álvaro Obregón - Soto Máynez) - Ávila Camacho"
+   ]
+  },
+  {
+   "key": "state|SON-089",
+   "segs": 180,
+   "km": 196.066,
+   "administra": {
+    "Estatal": 180
+   },
+   "jurisdi": {
+    "SON": 180
+   },
+   "topNames": [
+    "Mazocahui - Arizpe - Cananea"
+   ]
+  },
+  {
+   "key": "state|NLE-100",
+   "segs": 256,
+   "km": 194.485,
+   "administra": {
+    "Estatal": 256
+   },
+   "jurisdi": {
+    "NLE": 256
+   },
+   "topNames": [
+    "Periférico del Área Metropolitana de Monterrey"
+   ]
+  },
+  {
+   "key": "state|SIN-124",
+   "segs": 519,
+   "km": 192.727,
+   "administra": {
+    "Estatal": 519
+   },
+   "jurisdi": {
+    "SIN": 519
+   },
+   "topNames": [
+    "Topolobampo - Choix",
+    "Macario Gaxiola"
+   ]
+  },
+  {
+   "key": "state|COA-091",
+   "segs": 59,
+   "km": 186.022,
+   "administra": {
+    "Estatal": 59
+   },
+   "jurisdi": {
+    "COA": 59
+   },
+   "topNames": [
+    "Finisterre - Química del Rey - Sierra Mojada",
+    "A Sierra Mojada"
+   ]
+  },
+  {
+   "key": "state|CHH-016",
+   "segs": 393,
+   "km": 182.633,
+   "administra": {
+    "Estatal": 371,
+    "Municipal": 22
+   },
+   "jurisdi": {
+    "CHH": 393
+   },
+   "topNames": [
+    "Chihuahua - Cuauhtémoc",
+    "Chihuahua - Ojinaga"
+   ]
+  },
+  {
+   "key": "state|SIN-001",
+   "segs": 227,
+   "km": 176.484,
+   "administra": {
+    "Estatal": 227
+   },
+   "jurisdi": {
+    "SIN": 227
+   },
+   "topNames": [
+    "Culiacán - Las Brisas",
+    "E.C. México 15 - San Francisco"
+   ]
+  },
+  {
+   "key": "state|NLE-003",
+   "segs": 197,
+   "km": 168.152,
+   "administra": {
+    "Estatal": 197
+   },
+   "jurisdi": {
+    "NLE": 197
+   },
+   "topNames": [
+    "Matehuala - Doctor Arroyo - La Poza"
+   ]
+  },
+  {
+   "key": "state|CHH-083",
+   "segs": 157,
+   "km": 163.201,
+   "administra": {
+    "Estatal": 155,
+    "Municipal": 2
+   },
+   "jurisdi": {
+    "CHH": 157
+   },
+   "topNames": [
+    "Nonoava - Norogachi - Rocheachi",
+    "El Mirador - San Francisco de Borja",
+    "San Francisco de Borja - Nonoava"
+   ]
+  },
+  {
+   "key": "state|OAX-131",
+   "segs": 171,
+   "km": 156.089,
+   "administra": {
+    "Estatal": 171
+   },
+   "jurisdi": {
+    "OAX": 171
+   },
+   "topNames": [
+    "T.C. (Oaxaca - Puerto Ángel) - Puerto Escondido"
+   ]
+  },
+  {
+   "key": "state|CHP-101",
+   "segs": 412,
+   "km": 145.722,
+   "administra": {
+    "Estatal": 412
+   },
+   "jurisdi": {
+    "CHP": 412
+   },
+   "topNames": [
+    "Chiapa de Corzo - Amatenango del Valle",
+    "La Angostura - San Francisco Pujiltic",
+    "(blank)"
+   ]
+  },
+  {
+   "key": "state|MIC-026",
+   "segs": 138,
+   "km": 141.197,
+   "administra": {
+    "Estatal": 138
+   },
+   "jurisdi": {
+    "MIC": 138
+   },
+   "topNames": [
+    "Huetamo - Santiago Conguripo - San Jerónimo - Churumuco - Zicuiran",
+    "Periférico Churumuco"
+   ]
+  },
+  {
+   "key": "state|SLP-080",
+   "segs": 142,
+   "km": 140.634,
+   "administra": {
+    "Estatal": 142
+   },
+   "jurisdi": {
+    "SLP": 142
+   },
+   "topNames": [
+    "San Luis Potosí - Villa de Arriaga",
+    "Supercarretera Cerritos - Tula",
+    "Ramal San Felipe"
+   ]
+  },
+  {
+   "key": "state|CHH-007",
+   "segs": 107,
+   "km": 138.519,
+   "administra": {
+    "Estatal": 107
+   },
+   "jurisdi": {
+    "CHH": 107
+   },
+   "topNames": [
+    "Ricardo Flores Magón - Galeana",
+    "Ojo Laguna - Ricardo Flores Magón"
+   ]
+  },
+  {
+   "key": "state|MIC-029",
+   "segs": 218,
+   "km": 135.897,
+   "administra": {
+    "Estatal": 209,
+    "Municipal": 9
+   },
+   "jurisdi": {
+    "MIC": 218
+   },
+   "topNames": [
+    "Tepalcatepec - Coalcoman - Aquila",
+    "Libramiento de Coalcomán"
+   ]
+  },
+  {
+   "key": "state|EM-055",
+   "segs": 364,
+   "km": 135.434,
+   "administra": {
+    "Estatal": 364
+   },
+   "jurisdi": {
+    "MEX": 364
+   },
+   "topNames": [
+    "Toluca - Palmillas"
+   ]
+  },
+  {
+   "key": "state|QUE-100",
+   "segs": 249,
+   "km": 134.323,
+   "administra": {
+    "Estatal": 249
+   },
+   "jurisdi": {
+    "QUE": 249
+   },
+   "topNames": [
+    "General Lázaro Cárdenas (El Colorado) - Higuerillas"
+   ]
+  },
+  {
+   "key": "state|CHH-015",
+   "segs": 170,
+   "km": 134.238,
+   "administra": {
+    "Estatal": 170
+   },
+   "jurisdi": {
+    "CHH": 170
+   },
+   "topNames": [
+    "Soto Máynez - Namiquipa - Buenaventura",
+    "Soto Máynez - Matachí",
+    "Namiquipa - Las Cruces"
+   ]
+  },
+  {
+   "key": "state|ZAC-144",
+   "segs": 178,
+   "km": 130.015,
+   "administra": {
+    "Estatal": 178
+   },
+   "jurisdi": {
+    "ZAC": 178
+   },
+   "topNames": [
+    "Ent. Ojocaliente - Ent. Ojuelos de Jalisco",
+    "Acceso a Pinos",
+    "E.C. (Zacatecas - Durango) - Atotonilco - Miguel Hidalgo"
+   ]
+  },
+  {
+   "key": "state|JAL-711",
+   "segs": 96,
+   "km": 129.047,
+   "administra": {
+    "Estatal": 96
+   },
+   "jurisdi": {
+    "JAL": 96
+   },
+   "topNames": [
+    "Bolaños - Tenzompa - Huejuquilla el Alto"
+   ]
+  },
+  {
+   "key": "state|MIC-025",
+   "segs": 150,
+   "km": 129.02,
+   "administra": {
+    "Estatal": 150
+   },
+   "jurisdi": {
+    "MIC": 150
+   },
+   "topNames": [
+    "Tiripetío - Carácuaro - Eréndira"
+   ]
+  },
+  {
+   "key": "state|JAL-071",
+   "segs": 241,
+   "km": 121.667,
+   "administra": {
+    "Estatal": 241
+   },
+   "jurisdi": {
+    "JAL": 241
+   },
+   "topNames": [
+    "San Miguel el Alto - La Barca",
+    "Tepatitlán - Jaralillo"
+   ]
+  },
+  {
+   "key": "state|CHH-050",
+   "segs": 103,
+   "km": 121.59,
+   "administra": {
+    "Estatal": 103
+   },
+   "jurisdi": {
+    "CHH": 103
+   },
+   "topNames": [
+    "Ent. (Chihuahua - Juárez) - El Terrero"
+   ]
+  },
+  {
+   "key": "state|SLP-017",
+   "segs": 63,
+   "km": 118.588,
+   "administra": {
+    "Estatal": 63
+   },
+   "jurisdi": {
+    "SLP": 63
+   },
+   "topNames": [
+    "Charcas - Villa Santo Domingo",
+    "Santo Domingo - Santa Matilde - San Juan del Salado",
+    "Illescas - Gámez"
+   ]
+  },
+  {
+   "key": "state|COA-057",
+   "segs": 122,
+   "km": 117.683,
+   "administra": {
+    "Municipal": 63,
+    "Estatal": 59
+   },
+   "jurisdi": {
+    "COA": 122
+   },
+   "topNames": [
+    "Agujita - Allende",
+    "Los Fundadores",
+    "Saltillo - Monclova"
+   ]
+  },
+  {
+   "key": "state|COA-105",
+   "segs": 139,
+   "km": 116.035,
+   "administra": {
+    "Estatal": 139
+   },
+   "jurisdi": {
+    "COA": 139
+   },
+   "topNames": [
+    "T.C. (Ent. Morelos - Saltillo) - Parras de la Fuente"
+   ]
+  },
+  {
+   "key": "state|JAL-555",
+   "segs": 200,
+   "km": 115.599,
+   "administra": {
+    "Estatal": 200
+   },
+   "jurisdi": {
+    "JAL": 200
+   },
+   "topNames": [
+    "Talpa de Allende - Llano Grande - Tomatlán"
+   ]
+  }
+ ],
+ "bottomStateByKm": [
+  {
+   "key": "state|ZAC-039",
+   "segs": 1,
+   "km": 0.019,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "ZAC": 1
+   },
+   "topNames": [
+    "E.C. (Aguascalientes - Zacatecas) Km. 60.8 - Zacatequillas - Límite del Estado"
+   ]
+  },
+  {
+   "key": "state|CHP-307",
+   "segs": 4,
+   "km": 0.037,
+   "administra": {
+    "Estatal": 4
+   },
+   "jurisdi": {
+    "CHP": 4
+   },
+   "topNames": [
+    "Benemérito de las Américas - Palenque"
+   ]
+  },
+  {
+   "key": "state|MIC-467",
+   "segs": 1,
+   "km": 0.038,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "MIC": 1
+   },
+   "topNames": [
+    "Ent. (Jiquilpan - Colima) - Ent. (Límite Jalisco y Michoacán)"
+   ]
+  },
+  {
+   "key": "state|ZAC-211",
+   "segs": 1,
+   "km": 0.042,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "ZAC": 1
+   },
+   "topNames": [
+    "Ojitos - Paradillas - San José de los Reyes"
+   ]
+  },
+  {
+   "key": "state|OAX-161",
+   "segs": 2,
+   "km": 0.043,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "OAX": 2
+   },
+   "topNames": [
+    "T.C. (Oaxaca - Puerto Ángel) - Puerto Escondido"
+   ]
+  },
+  {
+   "key": "state|ZAC-711",
+   "segs": 1,
+   "km": 0.045,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "ZAC": 1
+   },
+   "topNames": [
+    "Bolaños - Tenzompa - Huejuquilla el Alto"
+   ]
+  },
+  {
+   "key": "state|EM-015",
+   "segs": 2,
+   "km": 0.06,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "MEX": 2
+   },
+   "topNames": [
+    "Toluca - México",
+    "México - Toluca"
+   ]
+  },
+  {
+   "key": "state|ZAC-701",
+   "segs": 1,
+   "km": 0.076,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "ZAC": 1
+   },
+   "topNames": [
+    "T.C. Carretera 23 Momax - Colotlán (Los Reales) - Totatiche"
+   ]
+  },
+  {
+   "key": "state|CHH-321",
+   "segs": 1,
+   "km": 0.083,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "CHH": 1
+   },
+   "topNames": [
+    "Ramal a Los Ortega"
+   ]
+  },
+  {
+   "key": "state|NLE-210",
+   "segs": 1,
+   "km": 0.086,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "NLE": 1
+   },
+   "topNames": [
+    "Puente Vado Sobre Río San Juan - General Bravo"
+   ]
+  },
+  {
+   "key": "state|AGU-105",
+   "segs": 1,
+   "km": 0.101,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "AGU": 1
+   },
+   "topNames": [
+    "E.C. Km. 13.90 (Providencia - Luís Moya) - Colonia Gámez Orozco"
+   ]
+  },
+  {
+   "key": "state|HID-085",
+   "segs": 1,
+   "km": 0.121,
+   "administra": {
+    "Municipal": 1
+   },
+   "jurisdi": {
+    "HID": 1
+   },
+   "topNames": [
+    "Portezuelo - Ciudad Valles"
+   ]
+  },
+  {
+   "key": "state|EM-1032",
+   "segs": 4,
+   "km": 0.133,
+   "administra": {
+    "Estatal": 4
+   },
+   "jurisdi": {
+    "MEX": 4
+   },
+   "topNames": [
+    "(Mexicaltzingo - Tianguistenco) - Santa Cruz Atizapán - Santiago Tianguistenco"
+   ]
+  },
+  {
+   "key": "state|VER-219",
+   "segs": 1,
+   "km": 0.137,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "VER": 1
+   },
+   "topNames": [
+    "Cuetzalan - Tecuantepec"
+   ]
+  },
+  {
+   "key": "state|TAM-078",
+   "segs": 1,
+   "km": 0.139,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "TAM": 1
+   },
+   "topNames": [
+    "E.C. (Ciudad Victoria - Monterrey) Km. 14.5 - Ejido Ampliación el Refugio"
+   ]
+  },
+  {
+   "key": "state|JAL-125",
+   "segs": 2,
+   "km": 0.15,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "JAL": 2
+   },
+   "topNames": [
+    "Yurécuaro - La Concepción"
+   ]
+  },
+  {
+   "key": "state|AGU-075",
+   "segs": 1,
+   "km": 0.157,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "AGU": 1
+   },
+   "topNames": [
+    "E.C. Km. 11.7 (San José de Gracia - La Labor) - Paredes"
+   ]
+  },
+  {
+   "key": "state|PUE-210",
+   "segs": 4,
+   "km": 0.161,
+   "administra": {
+    "Estatal": 4
+   },
+   "jurisdi": {
+    "PUE": 4
+   },
+   "topNames": [
+    "Ent. (Amozoc - Teziutlán) - Yaonahuac"
+   ]
+  },
+  {
+   "key": "state|BCN-026",
+   "segs": 1,
+   "km": 0.17,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "BCN": 1
+   },
+   "topNames": [
+    "Ramal a Ejido Veracruz Número 1"
+   ]
+  },
+  {
+   "key": "state|CHH-040",
+   "segs": 4,
+   "km": 0.194,
+   "administra": {
+    "Estatal": 4
+   },
+   "jurisdi": {
+    "CHH": 4
+   },
+   "topNames": [
+    "Ent. (Jiménez - Chihuahua) - San Ignacio"
+   ]
+  },
+  {
+   "key": "state|NLE-029",
+   "segs": 1,
+   "km": 0.196,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "NLE": 1
+   },
+   "topNames": [
+    "Matehuala - La Poza"
+   ]
+  },
+  {
+   "key": "state|CMX-887",
+   "segs": 2,
+   "km": 0.2,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "CMX": 2
+   },
+   "topNames": [
+    "Chalco - Mixquic"
+   ]
+  },
+  {
+   "key": "state|HID-698",
+   "segs": 2,
+   "km": 0.203,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "HID": 2
+   },
+   "topNames": [
+    "(Villa del Carbón - Chapa de Mota) - San Luis Taxhimay - Lim. Edos. de México - Hidalgo"
+   ]
+  },
+  {
+   "key": "state|CHH-090",
+   "segs": 1,
+   "km": 0.234,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "CHH": 1
+   },
+   "topNames": [
+    "Ramal a Riva Palacio"
+   ]
+  },
+  {
+   "key": "state|PUE-431",
+   "segs": 3,
+   "km": 0.236,
+   "administra": {
+    "Estatal": 3
+   },
+   "jurisdi": {
+    "PUE": 3
+   },
+   "topNames": [
+    "San Miguel Xoxtla - Tlatenango"
+   ]
+  },
+  {
+   "key": "state|OAX-086",
+   "segs": 3,
+   "km": 0.237,
+   "administra": {
+    "Municipal": 3
+   },
+   "jurisdi": {
+    "OAX": 3
+   },
+   "topNames": [
+    "Salitrillo - San Miguel Ixtapa"
+   ]
+  },
+  {
+   "key": "state|SIN-356",
+   "segs": 2,
+   "km": 0.246,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "SIN": 2
+   },
+   "topNames": [
+    "Eldorado - El Higueral"
+   ]
+  },
+  {
+   "key": "state|TAM-059",
+   "segs": 1,
+   "km": 0.253,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "TAM": 1
+   },
+   "topNames": [
+    "E.C. (Barretal - Nuevo Padilla) Km. 18.2 - Ejido Corpus Christi"
+   ]
+  },
+  {
+   "key": "state|EM-472",
+   "segs": 1,
+   "km": 0.262,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "MEX": 1
+   },
+   "topNames": [
+    "Tlazala - Presa Iturbide - Ent. Km. 44 (Ixtlahuaca - Naucalpan)"
+   ]
+  },
+  {
+   "key": "state|EM-330",
+   "segs": 1,
+   "km": 0.266,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "MEX": 1
+   },
+   "topNames": [
+    "Tultepec - San Lucas Totolmaloya"
+   ]
+  },
+  {
+   "key": "state|CAM-221",
+   "segs": 5,
+   "km": 0.29,
+   "administra": {
+    "Municipal": 5
+   },
+   "jurisdi": {
+    "CAM": 5
+   },
+   "topNames": [
+    "Paso por Candelaria"
+   ]
+  },
+  {
+   "key": "state|MOR-113",
+   "segs": 5,
+   "km": 0.295,
+   "administra": {
+    "Estatal": 5
+   },
+   "jurisdi": {
+    "MOR": 5
+   },
+   "topNames": [
+    "San Gregorio - Oaxtepec"
+   ]
+  },
+  {
+   "key": "state|PUE-088",
+   "segs": 1,
+   "km": 0.3,
+   "administra": {
+    "Municipal": 1
+   },
+   "jurisdi": {
+    "PUE": 1
+   },
+   "topNames": [
+    "T.C. (Teziutlán - Nautla) - Atoluca"
+   ]
+  },
+  {
+   "key": "state|AGU-021",
+   "segs": 1,
+   "km": 0.308,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "AGU": 1
+   },
+   "topNames": [
+    "Acceso Oriente a Pabellón de Arteaga Km. 2.0 Corrales de Engorda"
+   ]
+  },
+  {
+   "key": "state|SIN-132",
+   "segs": 2,
+   "km": 0.323,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "SIN": 2
+   },
+   "topNames": [
+    "Ramal a Aeropista el Fuerte"
+   ]
+  },
+  {
+   "key": "state|TLA-136",
+   "segs": 1,
+   "km": 0.354,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "TLA": 1
+   },
+   "topNames": [
+    "Ramal a San Felipe Hidalgo"
+   ]
+  },
+  {
+   "key": "state|COA-089",
+   "segs": 2,
+   "km": 0.39,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "COA": 2
+   },
+   "topNames": [
+    "Ramal a el Manantial"
+   ]
+  },
+  {
+   "key": "state|AGU-114",
+   "segs": 1,
+   "km": 0.401,
+   "administra": {
+    "Estatal": 1
+   },
+   "jurisdi": {
+    "AGU": 1
+   },
+   "topNames": [
+    "La Dichosa - Santa María de Gallardo"
+   ]
+  },
+  {
+   "key": "state|CHH-315",
+   "segs": 3,
+   "km": 0.403,
+   "administra": {
+    "Estatal": 3
+   },
+   "jurisdi": {
+    "CHH": 3
+   },
+   "topNames": [
+    "Ent. Km. 362.5 (La Zarca - Hidalgo del Parral) - Los Charcos"
+   ]
+  },
+  {
+   "key": "state|AGU-091",
+   "segs": 2,
+   "km": 0.406,
+   "administra": {
+    "Estatal": 2
+   },
+   "jurisdi": {
+    "AGU": 2
+   },
+   "topNames": [
+    "E.C. Km. 3.8 (Jesús María - Palomas) - Los Cuartos"
+   ]
+  }
+ ],
+ "rejected": {
+  "S30": {
+   "n": 45,
+   "km": {
+    "n": 45,
+    "sum": 47.172,
+    "min": 0.0301,
+    "p25": 0.1333,
+    "median": 0.2091,
+    "p75": 0.5361,
+    "p95": 7.7927,
+    "max": 9.5442
+   },
+   "tipo": {
+    "Carretera": 45
+   },
+   "jurisdi": {
+    "Fed.": 45
+   },
+   "administra": {
+    "Federal": 45
+   },
+   "condPav": {
+    "Con pavimento": 45
+   },
+   "carriles": {
+    "1": 3,
+    "2": 39,
+    "4": 3
+   },
+   "peaje": {
+    "Si": 45
+   },
+   "nombre": {
+    "Libramiento Norponiente de Saltillo": 45
+   },
+   "distinctNames": 1
+  },
+  "G-21": {
+   "n": 10,
+   "km": {
+    "n": 10,
+    "sum": 22.076,
+    "min": 0.1637,
+    "p25": 0.4054,
+    "median": 2.8444,
+    "p75": 3.5734,
+    "p95": 6.1732,
+    "max": 6.1732
+   },
+   "tipo": {
+    "Carretera": 10
+   },
+   "jurisdi": {
+    "Coah.": 10
+   },
+   "administra": {
+    "Estatal": 10
+   },
+   "condPav": {
+    "Con pavimento": 10
+   },
+   "carriles": {
+    "2": 10
+   },
+   "peaje": {
+    "No": 10
+   },
+   "nombre": {
+    "Esmeralda - San José de Carranza": 10
+   },
+   "distinctNames": 1
+  },
+  "100-4": {
+   "n": 42,
+   "km": {
+    "n": 42,
+    "sum": 51.34,
+    "min": 0.0084,
+    "p25": 0.1514,
+    "median": 0.5372,
+    "p75": 1.5894,
+    "p95": 4.519,
+    "max": 6.9087
+   },
+   "tipo": {
+    "Carretera": 42
+   },
+   "jurisdi": {
+    "Gto.": 33,
+    "Qro.": 9
+   },
+   "administra": {
+    "Estatal": 42
+   },
+   "condPav": {
+    "Con pavimento": 42
+   },
+   "carriles": {
+    "2": 42
+   },
+   "peaje": {
+    "No": 42
+   },
+   "nombre": {
+    "Santa Catarina - Atarjea": 42
+   },
+   "distinctNames": 1
+  },
+  "Q20": {
+   "n": 325,
+   "km": {
+    "n": 325,
+    "sum": 107.049,
+    "min": 0.0049,
+    "p25": 0.0955,
+    "median": 0.2094,
+    "p75": 0.4388,
+    "p95": 0.9297,
+    "max": 2.2497
+   },
+   "tipo": {
+    "Carretera": 325
+   },
+   "jurisdi": {
+    "Fed.": 325
+   },
+   "administra": {
+    "Federal": 325
+   },
+   "condPav": {
+    "Con pavimento": 325
+   },
+   "carriles": {
+    "1": 40,
+    "2": 262,
+    "3": 21,
+    "4": 2
+   },
+   "peaje": {
+    "No": 325
+   },
+   "nombre": {
+    "Libramiento Surponiente de Querétaro": 324,
+    "Libramiento Surponiete de Querétaro": 1
+   },
+   "distinctNames": 2
+  },
+  "51-33": {
+   "n": 36,
+   "km": {
+    "n": 36,
+    "sum": 14.22,
+    "min": 0.028,
+    "p25": 0.0461,
+    "median": 0.2658,
+    "p75": 0.5994,
+    "p95": 1.6693,
+    "max": 2.7938
+   },
+   "tipo": {
+    "Carretera": 36
+   },
+   "jurisdi": {
+    "Gto.": 36
+   },
+   "administra": {
+    "Estatal": 36
+   },
+   "condPav": {
+    "Con pavimento": 36
+   },
+   "carriles": {
+    "1": 11,
+    "2": 25
+   },
+   "peaje": {
+    "No": 36
+   },
+   "nombre": {
+    "Comonfort - Neutla - Delgado": 34,
+    "(blank)": 2
+   },
+   "distinctNames": 2
+  },
+  "51-22": {
+   "n": 25,
+   "km": {
+    "n": 25,
+    "sum": 8.837,
+    "min": 0.0237,
+    "p25": 0.1314,
+    "median": 0.26,
+    "p75": 0.4894,
+    "p95": 1.033,
+    "max": 1.5287
+   },
+   "tipo": {
+    "Carretera": 25
+   },
+   "jurisdi": {
+    "Gto.": 25
+   },
+   "administra": {
+    "Estatal": 25
+   },
+   "condPav": {
+    "Con pavimento": 25
+   },
+   "carriles": {
+    "2": 25
+   },
+   "peaje": {
+    "No": 25
+   },
+   "nombre": {
+    "Acceso a Juan Martín": 19,
+    "San Lorenzo - Juan Martín": 6
+   },
+   "distinctNames": 2
+  },
+  "51-20": {
+   "n": 14,
+   "km": {
+    "n": 14,
+    "sum": 4.231,
+    "min": 0.0273,
+    "p25": 0.0592,
+    "median": 0.3148,
+    "p75": 0.4609,
+    "p95": 0.7927,
+    "max": 0.7927
+   },
+   "tipo": {
+    "Carretera": 14
+   },
+   "jurisdi": {
+    "Gto.": 14
+   },
+   "administra": {
+    "Estatal": 14
+   },
+   "condPav": {
+    "Con pavimento": 14
+   },
+   "carriles": {
+    "2": 14
+   },
+   "peaje": {
+    "No": 14
+   },
+   "nombre": {
+    "Rincón de Tamayo - E.C. (Celaya - Salvatierra)": 14
+   },
+   "distinctNames": 1
+  },
+  "87-0": {
+   "n": 104,
+   "km": {
+    "n": 104,
+    "sum": 49.921,
+    "min": 0.0072,
+    "p25": 0.1165,
+    "median": 0.3369,
+    "p75": 0.7362,
+    "p95": 1.3827,
+    "max": 1.7459
+   },
+   "tipo": {
+    "Carretera": 104
+   },
+   "jurisdi": {
+    "Gto.": 104
+   },
+   "administra": {
+    "Estatal": 104
+   },
+   "condPav": {
+    "Con pavimento": 104
+   },
+   "carriles": {
+    "2": 104
+   },
+   "peaje": {
+    "No": 104
+   },
+   "nombre": {
+    "León - Santa Rosa - Cd. Manuel Doblado": 104
+   },
+   "distinctNames": 1
+  },
+  "85-2": {
+   "n": 69,
+   "km": {
+    "n": 69,
+    "sum": 14.33,
+    "min": 0.0045,
+    "p25": 0.0412,
+    "median": 0.1,
+    "p75": 0.2767,
+    "p95": 0.7163,
+    "max": 1.5885
+   },
+   "tipo": {
+    "Carretera": 69
+   },
+   "jurisdi": {
+    "Gto.": 69
+   },
+   "administra": {
+    "Estatal": 69
+   },
+   "condPav": {
+    "Con pavimento": 69
+   },
+   "carriles": {
+    "1": 4,
+    "2": 65
+   },
+   "peaje": {
+    "No": 69
+   },
+   "nombre": {
+    "Los Ramírez - Santa Ana del Conde": 69
+   },
+   "distinctNames": 1
+  },
+  "87-3": {
+   "n": 48,
+   "km": {
+    "n": 48,
+    "sum": 41.659,
+    "min": 0.0119,
+    "p25": 0.1049,
+    "median": 0.3218,
+    "p75": 1.1955,
+    "p95": 3.4712,
+    "max": 9.5002
+   },
+   "tipo": {
+    "Carretera": 48
+   },
+   "jurisdi": {
+    "Gto.": 48
+   },
+   "administra": {
+    "Estatal": 48
+   },
+   "condPav": {
+    "Con pavimento": 48
+   },
+   "carriles": {
+    "2": 48
+   },
+   "peaje": {
+    "No": 48
+   },
+   "nombre": {
+    "Ocampo - E.C. (León - San Felipe)": 48
+   },
+   "distinctNames": 1
+  },
+  "45-3": {
+   "n": 76,
+   "km": {
+    "n": 76,
+    "sum": 16.337,
+    "min": 0.0085,
+    "p25": 0.0489,
+    "median": 0.1429,
+    "p75": 0.2906,
+    "p95": 0.5977,
+    "max": 1.54
+   },
+   "tipo": {
+    "Carretera": 76
+   },
+   "jurisdi": {
+    "Gto.": 76
+   },
+   "administra": {
+    "Estatal": 76
+   },
+   "condPav": {
+    "Con pavimento": 76
+   },
+   "carriles": {
+    "1": 10,
+    "2": 63,
+    "3": 3
+   },
+   "peaje": {
+    "No": 76
+   },
+   "nombre": {
+    "Ramal a Santa Ana del Conde": 76
+   },
+   "distinctNames": 1
+  },
+  "87-10": {
+   "n": 5,
+   "km": {
+    "n": 5,
+    "sum": 1.578,
+    "min": 0.0754,
+    "p25": 0.0793,
+    "median": 0.1833,
+    "p75": 0.2842,
+    "p95": 0.9561,
+    "max": 0.9561
+   },
+   "tipo": {
+    "Carretera": 5
+   },
+   "jurisdi": {
+    "Gto.": 5
+   },
+   "administra": {
+    "Estatal": 5
+   },
+   "condPav": {
+    "Con pavimento": 5
+   },
+   "carriles": {
+    "2": 5
+   },
+   "peaje": {
+    "No": 5
+   },
+   "nombre": {
+    "Ramal a San Jerónimo": 5
+   },
+   "distinctNames": 1
+  },
+  "87-5": {
+   "n": 3,
+   "km": {
+    "n": 3,
+    "sum": 0.681,
+    "min": 0.0127,
+    "p25": 0.0127,
+    "median": 0.0226,
+    "p75": 0.6458,
+    "p95": 0.6458,
+    "max": 0.6458
+   },
+   "tipo": {
+    "Carretera": 3
+   },
+   "jurisdi": {
+    "Gto.": 3
+   },
+   "administra": {
+    "Estatal": 3
+   },
+   "condPav": {
+    "Con pavimento": 3
+   },
+   "carriles": {
+    "2": 3
+   },
+   "peaje": {
+    "No": 3
+   },
+   "nombre": {
+    "Ramal a Ibarra": 3
+   },
+   "distinctNames": 1
+  },
+  "87-7": {
+   "n": 3,
+   "km": {
+    "n": 3,
+    "sum": 2.193,
+    "min": 0.1085,
+    "p25": 0.1085,
+    "median": 0.2094,
+    "p75": 1.8749,
+    "p95": 1.8749,
+    "max": 1.8749
+   },
+   "tipo": {
+    "Carretera": 3
+   },
+   "jurisdi": {
+    "Gto.": 3
+   },
+   "administra": {
+    "Estatal": 3
+   },
+   "condPav": {
+    "Con pavimento": 3
+   },
+   "carriles": {
+    "2": 3
+   },
+   "peaje": {
+    "No": 3
+   },
+   "nombre": {
+    "Jalostotitlán - Purísima de Bustos": 3
+   },
+   "distinctNames": 1
+  },
+  "51-35": {
+   "n": 51,
+   "km": {
+    "n": 51,
+    "sum": 37.004,
+    "min": 0.014,
+    "p25": 0.0714,
+    "median": 0.326,
+    "p75": 1.3054,
+    "p95": 2.4077,
+    "max": 3.5569
+   },
+   "tipo": {
+    "Carretera": 51
+   },
+   "jurisdi": {
+    "Gto.": 51
+   },
+   "administra": {
+    "Estatal": 51
+   },
+   "condPav": {
+    "Con pavimento": 51
+   },
+   "carriles": {
+    "2": 49,
+    "3": 2
+   },
+   "peaje": {
+    "No": 51
+   },
+   "nombre": {
+    "Ent. Begoña - Ent. Presa de Manantiales": 38,
+    "Guanajuato - San Miguel de Allende": 13
+   },
+   "distinctNames": 2
+  },
+  "110-4": {
+   "n": 16,
+   "km": {
+    "n": 16,
+    "sum": 10.896,
+    "min": 0.0981,
+    "p25": 0.278,
+    "median": 0.4071,
+    "p75": 0.8099,
+    "p95": 3.5175,
+    "max": 3.5175
+   },
+   "tipo": {
+    "Carretera": 16
+   },
+   "jurisdi": {
+    "Gto.": 16
+   },
+   "administra": {
+    "Estatal": 16
+   },
+   "condPav": {
+    "Con pavimento": 16
+   },
+   "carriles": {
+    "2": 16
+   },
+   "peaje": {
+    "No": 16
+   },
+   "nombre": {
+    "Adjuntas del Monte": 16
+   },
+   "distinctNames": 1
+  },
+  "110-8": {
+   "n": 12,
+   "km": {
+    "n": 12,
+    "sum": 2.052,
+    "min": 0.018,
+    "p25": 0.0451,
+    "median": 0.0837,
+    "p75": 0.1663,
+    "p95": 0.9844,
+    "max": 0.9844
+   },
+   "tipo": {
+    "Carretera": 12
+   },
+   "jurisdi": {
+    "Gto.": 12
+   },
+   "administra": {
+    "Estatal": 12
+   },
+   "condPav": {
+    "Con pavimento": 12
+   },
+   "carriles": {
+    "2": 10,
+    "3": 2
+   },
+   "peaje": {
+    "No": 12
+   },
+   "nombre": {
+    "Dolores Hidalgo - La Laja": 12
+   },
+   "distinctNames": 1
+  },
+  "110-6": {
+   "n": 73,
+   "km": {
+    "n": 73,
+    "sum": 29.817,
+    "min": 0.0096,
+    "p25": 0.1443,
+    "median": 0.2792,
+    "p75": 0.5707,
+    "p95": 1.2868,
+    "max": 1.3538
+   },
+   "tipo": {
+    "Carretera": 73
+   },
+   "jurisdi": {
+    "Gto.": 73
+   },
+   "administra": {
+    "Estatal": 73
+   },
+   "condPav": {
+    "Con pavimento": 73
+   },
+   "carriles": {
+    "2": 71,
+    "4": 2
+   },
+   "peaje": {
+    "No": 73
+   },
+   "nombre": {
+    "Ramal a San Diego de la Unión": 73
+   },
+   "distinctNames": 1
+  },
+  "110-3": {
+   "n": 33,
+   "km": {
+    "n": 33,
+    "sum": 29.53,
+    "min": 0.0387,
+    "p25": 0.0852,
+    "median": 0.3055,
+    "p75": 0.8784,
+    "p95": 3.451,
+    "max": 6.3727
+   },
+   "tipo": {
+    "Carretera": 33
+   },
+   "jurisdi": {
+    "Gto.": 33
+   },
+   "administra": {
+    "Estatal": 33
+   },
+   "condPav": {
+    "Con pavimento": 33
+   },
+   "carriles": {
+    "2": 33
+   },
+   "peaje": {
+    "No": 33
+   },
+   "nombre": {
+    "Cañada de Moreno - Victoria": 23,
+    "Victoria - Tierra Blanca": 10
+   },
+   "distinctNames": 2
+  },
+  "110-1": {
+   "n": 54,
+   "km": {
+    "n": 54,
+    "sum": 55.795,
+    "min": 0.0224,
+    "p25": 0.2187,
+    "median": 0.7427,
+    "p75": 1.4049,
+    "p95": 3.5992,
+    "max": 5.078
+   },
+   "tipo": {
+    "Carretera": 54
+   },
+   "jurisdi": {
+    "Gto.": 54
+   },
+   "administra": {
+    "Estatal": 54
+   },
+   "condPav": {
+    "Con pavimento": 54
+   },
+   "carriles": {
+    "2": 54
+   },
+   "peaje": {
+    "No": 54
+   },
+   "nombre": {
+    "Cañada de Moreno - Xichú": 54
+   },
+   "distinctNames": 1
+  },
+  "100-2": {
+   "n": 31,
+   "km": {
+    "n": 31,
+    "sum": 10.249,
+    "min": 0.0074,
+    "p25": 0.0481,
+    "median": 0.0996,
+    "p75": 0.4854,
+    "p95": 1.4348,
+    "max": 1.7461
+   },
+   "tipo": {
+    "Carretera": 31
+   },
+   "jurisdi": {
+    "Gto.": 31
+   },
+   "administra": {
+    "Estatal": 31
+   },
+   "condPav": {
+    "Con pavimento": 31
+   },
+   "carriles": {
+    "2": 31
+   },
+   "peaje": {
+    "No": 31
+   },
+   "nombre": {
+    "San José Iturbide - Estancia Begoña": 31
+   },
+   "distinctNames": 1
+  },
+  "57-2": {
+   "n": 11,
+   "km": {
+    "n": 11,
+    "sum": 14.259,
+    "min": 0.0232,
+    "p25": 0.3435,
+    "median": 0.6206,
+    "p75": 1.5895,
+    "p95": 4.9942,
+    "max": 4.9942
+   },
+   "tipo": {
+    "Carretera": 11
+   },
+   "jurisdi": {
+    "Gto.": 11
+   },
+   "administra": {
+    "Estatal": 11
+   },
+   "condPav": {
+    "Con pavimento": 11
+   },
+   "carriles": {
+    "2": 11
+   },
+   "peaje": {
+    "No": 11
+   },
+   "nombre": {
+    "Doctor Mora - Cieneguilla": 11
+   },
+   "distinctNames": 1
+  },
+  "110-2": {
+   "n": 24,
+   "km": {
+    "n": 24,
+    "sum": 18.82,
+    "min": 0.0263,
+    "p25": 0.113,
+    "median": 0.5433,
+    "p75": 1.0731,
+    "p95": 2.7455,
+    "max": 3.5062
+   },
+   "tipo": {
+    "Carretera": 24
+   },
+   "jurisdi": {
+    "Gto.": 24
+   },
+   "administra": {
+    "Estatal": 24
+   },
+   "condPav": {
+    "Con pavimento": 24
+   },
+   "carriles": {
+    "2": 24
+   },
+   "peaje": {
+    "No": 24
+   },
+   "nombre": {
+    "San Luis de la Paz - El Chupadero": 24
+   },
+   "distinctNames": 1
+  }
+ },
+ "codeXtabSample": [
+  {
+   "number": "015",
+   "segs": 8445,
+   "fed": 7775,
+   "nonFed": 670,
+   "km": 5421.4,
+   "admin": {
+    "Federal": 7775,
+    "Estatal": 670
+   },
+   "jur": {
+    "FED": 7775,
+    "NAY": 192,
+    "CHH": 170,
+    "BCN": 95,
+    "MIC": 54,
+    "TAM": 35,
+    "COA": 32,
+    "SLP": 31
+   }
+  },
+  {
+   "number": "200",
+   "segs": 8270,
+   "fed": 7687,
+   "nonFed": 583,
+   "km": 3221.4,
+   "admin": {
+    "Federal": 7687,
+    "Estatal": 527,
+    "Municipal": 56
+   },
+   "jur": {
+    "FED": 7687,
+    "QUE": 230,
+    "CHH": 83,
+    "MEX": 82,
+    "JAL": 56,
+    "NAY": 36,
+    "NLE": 25,
+    "MIC": 19
+   }
+  },
+  {
+   "number": "045",
+   "segs": 6867,
+   "fed": 6417,
+   "nonFed": 450,
+   "km": 3601.3,
+   "admin": {
+    "Federal": 6417,
+    "Estatal": 445,
+    "Municipal": 5
+   },
+   "jur": {
+    "FED": 6417,
+    "CHH": 264,
+    "COL": 65,
+    "ZAC": 41,
+    "NLE": 28,
+    "TAM": 20,
+    "HID": 10,
+    "MIC": 8
+   }
+  },
+  {
+   "number": "180",
+   "segs": 6726,
+   "fed": 6534,
+   "nonFed": 192,
+   "km": 3533.4,
+   "admin": {
+    "Federal": 6534,
+    "Estatal": 165,
+    "Municipal": 27
+   },
+   "jur": {
+    "FED": 6534,
+    "CAM": 96,
+    "YUC": 29,
+    "VER": 15,
+    "QUE": 14,
+    "NLE": 11,
+    "CHH": 10,
+    "ROO": 7
+   }
+  },
+  {
+   "number": "085",
+   "segs": 5474,
+   "fed": 5069,
+   "nonFed": 405,
+   "km": 2235.4,
+   "admin": {
+    "Federal": 5069,
+    "Estatal": 270,
+    "Municipal": 135
+   },
+   "jur": {
+    "FED": 5069,
+    "NLE": 143,
+    "GUA": 117,
+    "SON": 102,
+    "AGU": 17,
+    "CHH": 13,
+    "TAM": 5,
+    "COA": 4
+   }
+  },
+  {
+   "number": "001",
+   "segs": 4940,
+   "fed": 3302,
+   "nonFed": 1638,
+   "km": 3282.1,
+   "admin": {
+    "Federal": 3302,
+    "Estatal": 1603,
+    "Municipal": 35
+   },
+   "jur": {
+    "FED": 3302,
+    "NLE": 504,
+    "BCN": 293,
+    "SIN": 227,
+    "BCS": 196,
+    "MIC": 145,
+    "TAB": 81,
+    "MEX": 80
+   }
+  },
+  {
+   "number": "002",
+   "segs": 4791,
+   "fed": 3629,
+   "nonFed": 1162,
+   "km": 3042.5,
+   "admin": {
+    "Federal": 3629,
+    "Estatal": 1024,
+    "Municipal": 138
+   },
+   "jur": {
+    "FED": 3629,
+    "BCN": 229,
+    "MOR": 224,
+    "NLE": 203,
+    "TAM": 175,
+    "COA": 150,
+    "MEX": 75,
+    "AGU": 41
+   }
+  },
+  {
+   "number": "190",
+   "segs": 4646,
+   "fed": 4557,
+   "nonFed": 89,
+   "km": 1733.4,
+   "admin": {
+    "Federal": 4557,
+    "Estatal": 82,
+    "Municipal": 7
+   },
+   "jur": {
+    "FED": 4557,
+    "SON": 40,
+    "ZAC": 26,
+    "QUE": 9,
+    "CHH": 7,
+    "NLE": 6,
+    "MIC": 1
+   }
+  },
+  {
+   "number": "057",
+   "segs": 4513,
+   "fed": 3995,
+   "nonFed": 518,
+   "km": 2978.5,
+   "admin": {
+    "Federal": 3995,
+    "Estatal": 376,
+    "Municipal": 142
+   },
+   "jur": {
+    "FED": 3995,
+    "COA": 122,
+    "MIC": 104,
+    "MEX": 88,
+    "SLP": 79,
+    "TAM": 53,
+    "SON": 38,
+    "NLE": 22
+   }
+  },
+  {
+   "number": "040",
+   "segs": 4395,
+   "fed": 3795,
+   "nonFed": 600,
+   "km": 3411.5,
+   "admin": {
+    "Federal": 3795,
+    "Estatal": 391,
+    "Municipal": 209
+   },
+   "jur": {
+    "FED": 3795,
+    "NLE": 241,
+    "QUE": 209,
+    "PUE": 44,
+    "AGU": 30,
+    "TAM": 17,
+    "SON": 16,
+    "SLP": 13
+   }
+  },
+  {
+   "number": "080",
+   "segs": 2989,
+   "fed": 2668,
+   "nonFed": 321,
+   "km": 1860,
+   "admin": {
+    "Federal": 2668,
+    "Estatal": 316,
+    "Municipal": 5
+   },
+   "jur": {
+    "FED": 2668,
+    "SLP": 142,
+    "CHH": 51,
+    "COA": 47,
+    "SON": 34,
+    "DUR": 19,
+    "TAM": 16,
+    "PUE": 5
+   }
+  },
+  {
+   "number": "070",
+   "segs": 2811,
+   "fed": 2415,
+   "nonFed": 396,
+   "km": 1390.7,
+   "admin": {
+    "Federal": 2415,
+    "Estatal": 329,
+    "Municipal": 67
+   },
+   "jur": {
+    "FED": 2415,
+    "NLE": 175,
+    "COA": 126,
+    "SLP": 63,
+    "AGU": 13,
+    "MIC": 7,
+    "TAM": 6,
+    "CHH": 4
+   }
+  },
+  {
+   "number": "054",
+   "segs": 2607,
+   "fed": 2399,
+   "nonFed": 208,
+   "km": 1626.6,
+   "admin": {
+    "Federal": 2399,
+    "Estatal": 203,
+    "Municipal": 5
+   },
+   "jur": {
+    "FED": 2399,
+    "SON": 96,
+    "NLE": 37,
+    "ZAC": 19,
+    "MIC": 15,
+    "AGU": 10,
+    "COA": 9,
+    "JAL": 9
+   }
+  },
+  {
+   "number": "095",
+   "segs": 2501,
+   "fed": 2327,
+   "nonFed": 174,
+   "km": 1206.7,
+   "admin": {
+    "Federal": 2327,
+    "Estatal": 174
+   },
+   "jur": {
+    "FED": 2327,
+    "VER": 63,
+    "GRO": 36,
+    "ZAC": 29,
+    "CHH": 18,
+    "AGU": 13,
+    "MIC": 7,
+    "SON": 6
+   }
+  },
+  {
+   "number": "150",
+   "segs": 2119,
+   "fed": 2009,
+   "nonFed": 110,
+   "km": 1223.4,
+   "admin": {
+    "Federal": 2009,
+    "Estatal": 110
+   },
+   "jur": {
+    "FED": 2009,
+    "SIN": 35,
+    "PUE": 23,
+    "JAL": 12,
+    "QUE": 12,
+    "SON": 10,
+    "CHH": 9,
+    "MIC": 7
+   }
+  },
+  {
+   "number": "307",
+   "segs": 2014,
+   "fed": 1869,
+   "nonFed": 145,
+   "km": 1009.2,
+   "admin": {
+    "Federal": 1869,
+    "Estatal": 145
+   },
+   "jur": {
+    "FED": 1869,
+    "JAL": 58,
+    "PUE": 38,
+    "SIN": 33,
+    "ROO": 12,
+    "CHP": 4
+   }
+  },
+  {
+   "number": "005",
+   "segs": 1982,
+   "fed": 752,
+   "nonFed": 1230,
+   "km": 1107.1,
+   "admin": {
+    "Estatal": 1227,
+    "Federal": 752,
+    "Municipal": 3
+   },
+   "jur": {
+    "FED": 752,
+    "CHH": 627,
+    "MIC": 164,
+    "ROO": 120,
+    "NLE": 66,
+    "TAM": 52,
+    "SON": 52,
+    "COA": 39
+   }
+  },
+  {
+   "number": "016",
+   "segs": 1952,
+   "fed": 1015,
+   "nonFed": 937,
+   "km": 1344.8,
+   "admin": {
+    "Federal": 1015,
+    "Estatal": 915,
+    "Municipal": 22
+   },
+   "jur": {
+    "FED": 1015,
+    "CHH": 393,
+    "MIC": 160,
+    "COL": 153,
+    "TAM": 56,
+    "ROO": 50,
+    "NLE": 48,
+    "SON": 45
+   }
+  },
+  {
+   "number": "030",
+   "segs": 1949,
+   "fed": 734,
+   "nonFed": 1215,
+   "km": 896.5,
+   "admin": {
+    "Estatal": 1215,
+    "Federal": 734
+   },
+   "jur": {
+    "MIC": 835,
+    "FED": 734,
+    "COA": 143,
+    "CHH": 104,
+    "HID": 35,
+    "NLE": 31,
+    "TAM": 31,
+    "AGU": 14
+   }
+  },
+  {
+   "number": "120",
+   "segs": 1927,
+   "fed": 1754,
+   "nonFed": 173,
+   "km": 865.4,
+   "admin": {
+    "Federal": 1754,
+    "Estatal": 172,
+    "Municipal": 1
+   },
+   "jur": {
+    "FED": 1754,
+    "ZAC": 76,
+    "SON": 23,
+    "JAL": 21,
+    "PUE": 18,
+    "AGU": 16,
+    "SIN": 6,
+    "MIC": 6
+   }
+  },
+  {
+   "number": "023",
+   "segs": 1895,
+   "fed": 1418,
+   "nonFed": 477,
+   "km": 971.9,
+   "admin": {
+    "Federal": 1418,
+    "Estatal": 464,
+    "Municipal": 13
+   },
+   "jur": {
+    "FED": 1418,
+    "JAL": 112,
+    "NLE": 97,
+    "SLP": 56,
+    "ZAC": 55,
+    "TAM": 47,
+    "MIC": 37,
+    "CHH": 34
+   }
+  },
+  {
+   "number": "110",
+   "segs": 1877,
+   "fed": 1271,
+   "nonFed": 606,
+   "km": 832.4,
+   "admin": {
+    "Federal": 1271,
+    "Estatal": 590,
+    "Municipal": 16
+   },
+   "jur": {
+    "FED": 1271,
+    "GUA": 254,
+    "QUE": 92,
+    "SON": 82,
+    "CHH": 51,
+    "MIC": 42,
+    "COA": 41,
+    "AGU": 16
+   }
+  },
+  {
+   "number": "186",
+   "segs": 1842,
+   "fed": 1785,
+   "nonFed": 57,
+   "km": 825.1,
+   "admin": {
+    "Federal": 1785,
+    "Estatal": 49,
+    "Municipal": 8
+   },
+   "jur": {
+    "FED": 1785,
+    "NLE": 49,
+    "CAM": 6,
+    "PUE": 1,
+    "CHH": 1
+   }
+  },
+  {
+   "number": "003",
+   "segs": 1800,
+   "fed": 552,
+   "nonFed": 1248,
+   "km": 1469.7,
+   "admin": {
+    "Estatal": 1246,
+    "Federal": 552,
+    "Municipal": 2
+   },
+   "jur": {
+    "FED": 552,
+    "SON": 454,
+    "NLE": 197,
+    "BCN": 125,
+    "MEX": 121,
+    "MIC": 110,
+    "COL": 110,
+    "CHH": 36
+   }
+  },
+  {
+   "number": "101",
+   "segs": 1726,
+   "fed": 1079,
+   "nonFed": 647,
+   "km": 805.3,
+   "admin": {
+    "Federal": 1079,
+    "Estatal": 646,
+    "Municipal": 1
+   },
+   "jur": {
+    "FED": 1079,
+    "CHP": 412,
+    "PUE": 139,
+    "SON": 47,
+    "BCN": 20,
+    "NLE": 10,
+    "AGU": 9,
+    "TAM": 7
+   }
+  },
+  {
+   "number": "037",
+   "segs": 1542,
+   "fed": 1256,
+   "nonFed": 286,
+   "km": 970.6,
+   "admin": {
+    "Federal": 1256,
+    "Estatal": 286
+   },
+   "jur": {
+    "FED": 1256,
+    "GUA": 155,
+    "MIC": 71,
+    "CHH": 36,
+    "NLE": 16,
+    "ZAC": 4,
+    "AGU": 3,
+    "TAM": 1
+   }
+  },
+  {
+   "number": "185",
+   "segs": 1484,
+   "fed": 1375,
+   "nonFed": 109,
+   "km": 566.2,
+   "admin": {
+    "Federal": 1375,
+    "Estatal": 106,
+    "Municipal": 3
+   },
+   "jur": {
+    "FED": 1375,
+    "MEX": 31,
+    "COL": 21,
+    "TAM": 15,
+    "SON": 13,
+    "ZAC": 12,
+    "CHH": 8,
+    "MOR": 7
+   }
+  },
+  {
+   "number": "049",
+   "segs": 1473,
+   "fed": 1294,
+   "nonFed": 179,
+   "km": 1327.1,
+   "admin": {
+    "Federal": 1294,
+    "Estatal": 178,
+    "Municipal": 1
+   },
+   "jur": {
+    "FED": 1294,
+    "NLE": 92,
+    "SON": 32,
+    "ZAC": 29,
+    "TAM": 10,
+    "MIC": 9,
+    "AGU": 6,
+    "PUE": 1
+   }
+  },
+  {
+   "number": "051",
+   "segs": 1452,
+   "fed": 1117,
+   "nonFed": 335,
+   "km": 758.3,
+   "admin": {
+    "Federal": 1117,
+    "Estatal": 331,
+    "Municipal": 4
+   },
+   "jur": {
+    "FED": 1117,
+    "GUA": 171,
+    "HID": 75,
+    "CHH": 32,
+    "VER": 19,
+    "AGU": 12,
+    "MIC": 10,
+    "TAM": 7
+   }
+  },
+  {
+   "number": "140",
+   "segs": 1445,
+   "fed": 1245,
+   "nonFed": 200,
+   "km": 722.1,
+   "admin": {
+    "Federal": 1245,
+    "Estatal": 196,
+    "Municipal": 4
+   },
+   "jur": {
+    "FED": 1245,
+    "SON": 92,
+    "QUE": 86,
+    "TAM": 13,
+    "NLE": 4,
+    "CHH": 4,
+    "AGU": 1
+   }
+  },
+  {
+   "number": "130",
+   "segs": 1425,
+   "fed": 1244,
+   "nonFed": 181,
+   "km": 455.1,
+   "admin": {
+    "Federal": 1244,
+    "Estatal": 181
+   },
+   "jur": {
+    "FED": 1244,
+    "QUE": 44,
+    "SIN": 38,
+    "JAL": 32,
+    "CHH": 28,
+    "TAM": 21,
+    "NLE": 6,
+    "MIC": 5
+   }
+  },
+  {
+   "number": "175",
+   "segs": 1388,
+   "fed": 1223,
+   "nonFed": 165,
+   "km": 696.2,
+   "admin": {
+    "Federal": 1223,
+    "Estatal": 161,
+    "Municipal": 4
+   },
+   "jur": {
+    "FED": 1223,
+    "ZAC": 98,
+    "DUR": 33,
+    "TAM": 20,
+    "MIC": 6,
+    "CHH": 4,
+    "NLE": 4
+   }
+  },
+  {
+   "number": "136",
+   "segs": 1312,
+   "fed": 1164,
+   "nonFed": 148,
+   "km": 550,
+   "admin": {
+    "Federal": 1164,
+    "Estatal": 148
+   },
+   "jur": {
+    "FED": 1164,
+    "SON": 50,
+    "TAM": 36,
+    "SIN": 24,
+    "CHH": 16,
+    "MIC": 8,
+    "ZAC": 6,
+    "AGU": 4
+   }
+  },
+  {
+   "number": "145",
+   "segs": 1307,
+   "fed": 1254,
+   "nonFed": 53,
+   "km": 927.3,
+   "admin": {
+    "Federal": 1254,
+    "Estatal": 51,
+    "Municipal": 2
+   },
+   "jur": {
+    "FED": 1254,
+    "TAM": 30,
+    "AGU": 11,
+    "SIN": 5,
+    "OAX": 4,
+    "CHH": 2,
+    "NLE": 1
+   }
+  },
+  {
+   "number": "127",
+   "segs": 1212,
+   "fed": 905,
+   "nonFed": 307,
+   "km": 529.4,
+   "admin": {
+    "Federal": 905,
+    "Estatal": 290,
+    "Municipal": 17
+   },
+   "jur": {
+    "FED": 905,
+    "VER": 150,
+    "SON": 47,
+    "QUE": 36,
+    "MIC": 26,
+    "BCN": 25,
+    "CHH": 14,
+    "AGU": 5
+   }
+  },
+  {
+   "number": "014",
+   "segs": 1145,
+   "fed": 622,
+   "nonFed": 523,
+   "km": 678.8,
+   "admin": {
+    "Federal": 622,
+    "Estatal": 523
+   },
+   "jur": {
+    "FED": 622,
+    "SLP": 193,
+    "MOR": 131,
+    "MIC": 62,
+    "BCN": 35,
+    "NLE": 34,
+    "ZAC": 19,
+    "TAM": 18
+   }
+  },
+  {
+   "number": "025",
+   "segs": 1134,
+   "fed": 183,
+   "nonFed": 951,
+   "km": 773.3,
+   "admin": {
+    "Estatal": 936,
+    "Federal": 183,
+    "Municipal": 15
+   },
+   "jur": {
+    "CHH": 498,
+    "FED": 183,
+    "MIC": 150,
+    "COA": 97,
+    "NLE": 66,
+    "TAM": 53,
+    "SON": 20,
+    "SLP": 20
+   }
+  },
+  {
+   "number": "010",
+   "segs": 1057,
+   "fed": 585,
+   "nonFed": 472,
+   "km": 633.7,
+   "admin": {
+    "Federal": 585,
+    "Estatal": 471,
+    "Municipal": 1
+   },
+   "jur": {
+    "FED": 585,
+    "MOR": 120,
+    "ZAC": 78,
+    "MIC": 64,
+    "SON": 56,
+    "BCN": 38,
+    "CHH": 32,
+    "COA": 31
+   }
+  },
+  {
+   "number": "055",
+   "segs": 1036,
+   "fed": 533,
+   "nonFed": 503,
+   "km": 464.4,
+   "admin": {
+    "Federal": 533,
+    "Estatal": 500,
+    "Municipal": 3
+   },
+   "jur": {
+    "FED": 533,
+    "MEX": 364,
+    "SON": 46,
+    "CHH": 45,
+    "AGU": 21,
+    "PUE": 10,
+    "NLE": 9,
+    "TAM": 8
+   }
+  },
+  {
+   "number": "011",
+   "segs": 1031,
+   "fed": 27,
+   "nonFed": 1004,
+   "km": 608,
+   "admin": {
+    "Estatal": 992,
+    "Federal": 27,
+    "Municipal": 12
+   },
+   "jur": {
+    "CHH": 433,
+    "YUC": 129,
+    "ZAC": 110,
+    "QUE": 72,
+    "TAM": 67,
+    "SLP": 54,
+    "NLE": 45,
+    "MIC": 35
+   }
+  },
+  {
+   "number": "019",
+   "segs": 1015,
+   "fed": 484,
+   "nonFed": 531,
+   "km": 520.9,
+   "admin": {
+    "Estatal": 531,
+    "Federal": 484
+   },
+   "jur": {
+    "FED": 484,
+    "COL": 125,
+    "MIC": 105,
+    "CHH": 103,
+    "AGU": 64,
+    "TAM": 61,
+    "BCN": 50,
+    "NLE": 23
+   }
+  },
+  {
+   "number": "119",
+   "segs": 1004,
+   "fed": 741,
+   "nonFed": 263,
+   "km": 312.7,
+   "admin": {
+    "Federal": 741,
+    "Estatal": 243,
+    "Municipal": 20
+   },
+   "jur": {
+    "FED": 741,
+    "SON": 100,
+    "PUE": 77,
+    "CHH": 25,
+    "JAL": 20,
+    "COA": 12,
+    "TLA": 10,
+    "AGU": 7
+   }
+  },
+  {
+   "number": "024",
+   "segs": 994,
+   "fed": 828,
+   "nonFed": 166,
+   "km": 832.9,
+   "admin": {
+    "Federal": 828,
+    "Estatal": 163,
+    "Municipal": 3
+   },
+   "jur": {
+    "FED": 828,
+    "SLP": 89,
+    "CHH": 27,
+    "MEX": 15,
+    "TAM": 14,
+    "PUE": 7,
+    "BCN": 6,
+    "SON": 6
+   }
+  },
+  {
+   "number": "125",
+   "segs": 947,
+   "fed": 678,
+   "nonFed": 269,
+   "km": 644.2,
+   "admin": {
+    "Federal": 678,
+    "Estatal": 262,
+    "Municipal": 7
+   },
+   "jur": {
+    "FED": 678,
+    "OAX": 150,
+    "ZAC": 56,
+    "SON": 17,
+    "BCN": 12,
+    "QUE": 12,
+    "CHH": 7,
+    "AGU": 7
+   }
+  },
+  {
+   "number": "020",
+   "segs": 942,
+   "fed": 171,
+   "nonFed": 771,
+   "km": 644.2,
+   "admin": {
+    "Estatal": 766,
+    "Federal": 171,
+    "Municipal": 5
+   },
+   "jur": {
+    "COA": 220,
+    "FED": 171,
+    "MIC": 160,
+    "TAM": 142,
+    "CHP": 74,
+    "CHH": 53,
+    "NLE": 52,
+    "SLP": 34
+   }
+  },
+  {
+   "number": "134",
+   "segs": 925,
+   "fed": 851,
+   "nonFed": 74,
+   "km": 502.3,
+   "admin": {
+    "Federal": 851,
+    "Estatal": 71,
+    "Municipal": 3
+   },
+   "jur": {
+    "FED": 851,
+    "SON": 52,
+    "MEX": 9,
+    "NLE": 7,
+    "AGU": 3,
+    "CHH": 3
+   }
+  },
+  {
+   "number": "071",
+   "segs": 908,
+   "fed": 482,
+   "nonFed": 426,
+   "km": 395.4,
+   "admin": {
+    "Federal": 482,
+    "Estatal": 426
+   },
+   "jur": {
+    "FED": 482,
+    "JAL": 241,
+    "SON": 50,
+    "NLE": 35,
+    "CHH": 25,
+    "MEX": 23,
+    "TAM": 23,
+    "BCN": 15
+   }
+  },
+  {
+   "number": "090",
+   "segs": 892,
+   "fed": 845,
+   "nonFed": 47,
+   "km": 358.9,
+   "admin": {
+    "Federal": 845,
+    "Estatal": 47
+   },
+   "jur": {
+    "FED": 845,
+    "AGU": 18,
+    "NLE": 8,
+    "MIC": 8,
+    "SON": 6,
+    "COA": 3,
+    "ZAC": 2,
+    "TAM": 1
+   }
+  },
+  {
+   "number": "100",
+   "segs": 879,
+   "fed": 18,
+   "nonFed": 861,
+   "km": 538.5,
+   "admin": {
+    "Estatal": 821,
+    "Municipal": 40,
+    "Federal": 18
+   },
+   "jur": {
+    "NLE": 256,
+    "QUE": 249,
+    "GUA": 187,
+    "SON": 109,
+    "PUE": 35,
+    "FED": 18,
+    "TAM": 12,
+    "CHH": 5
+   }
+  },
+  {
+   "number": "043",
+   "segs": 878,
+   "fed": 518,
+   "nonFed": 360,
+   "km": 648.7,
+   "admin": {
+    "Federal": 518,
+    "Estatal": 359,
+    "Municipal": 1
+   },
+   "jur": {
+    "FED": 518,
+    "AGU": 93,
+    "SON": 78,
+    "SLP": 46,
+    "NLE": 40,
+    "MEX": 36,
+    "CHH": 30,
+    "TAM": 22
+   }
+  },
+  {
+   "number": "035",
+   "segs": 872,
+   "fed": 535,
+   "nonFed": 337,
+   "km": 490.4,
+   "admin": {
+    "Federal": 535,
+    "Estatal": 337
+   },
+   "jur": {
+    "FED": 535,
+    "CHH": 82,
+    "COA": 59,
+    "NLE": 35,
+    "TAM": 34,
+    "ZAC": 29,
+    "MIC": 26,
+    "SON": 23
+   }
+  },
+  {
+   "number": "105",
+   "segs": 871,
+   "fed": 652,
+   "nonFed": 219,
+   "km": 438.9,
+   "admin": {
+    "Federal": 652,
+    "Estatal": 219
+   },
+   "jur": {
+    "FED": 652,
+    "COA": 139,
+    "PUE": 44,
+    "SON": 22,
+    "CHH": 11,
+    "TAM": 2,
+    "AGU": 1
+   }
+  },
+  {
+   "number": "129",
+   "segs": 842,
+   "fed": 589,
+   "nonFed": 253,
+   "km": 369.3,
+   "admin": {
+    "Federal": 589,
+    "Estatal": 253
+   },
+   "jur": {
+    "FED": 589,
+    "PUE": 75,
+    "TAM": 60,
+    "NLE": 41,
+    "SIN": 37,
+    "AGU": 18,
+    "MIC": 6,
+    "ZAC": 6
+   }
+  },
+  {
+   "number": "131",
+   "segs": 831,
+   "fed": 478,
+   "nonFed": 353,
+   "km": 427.1,
+   "admin": {
+    "Federal": 478,
+    "Estatal": 353
+   },
+   "jur": {
+    "FED": 478,
+    "OAX": 171,
+    "ZAC": 62,
+    "SON": 42,
+    "QUE": 33,
+    "JAL": 16,
+    "MIC": 14,
+    "SIN": 7
+   }
+  },
+  {
+   "number": "117",
+   "segs": 831,
+   "fed": 401,
+   "nonFed": 430,
+   "km": 503.8,
+   "admin": {
+    "Estatal": 415,
+    "Federal": 401,
+    "Municipal": 15
+   },
+   "jur": {
+    "FED": 401,
+    "SON": 325,
+    "CHH": 48,
+    "MIC": 20,
+    "AGU": 17,
+    "SIN": 16,
+    "NLE": 4
+   }
+  },
+  {
+   "number": "184",
+   "segs": 824,
+   "fed": 626,
+   "nonFed": 198,
+   "km": 527.2,
+   "admin": {
+    "Federal": 626,
+    "Estatal": 195,
+    "Municipal": 3
+   },
+   "jur": {
+    "FED": 626,
+    "YUC": 190,
+    "ZAC": 5,
+    "CHH": 3
+   }
+  },
+  {
+   "number": "008",
+   "segs": 800,
+   "fed": 94,
+   "nonFed": 706,
+   "km": 428.5,
+   "admin": {
+    "Estatal": 700,
+    "Federal": 94,
+    "Municipal": 6
+   },
+   "jur": {
+    "MIC": 268,
+    "BCN": 179,
+    "NLE": 100,
+    "FED": 94,
+    "MOR": 49,
+    "SLP": 49,
+    "CHH": 29,
+    "COA": 9
+   }
+  },
+  {
+   "number": "017",
+   "segs": 780,
+   "fed": 200,
+   "nonFed": 580,
+   "km": 511.4,
+   "admin": {
+    "Estatal": 556,
+    "Federal": 200,
+    "Municipal": 24
+   },
+   "jur": {
+    "FED": 200,
+    "HID": 152,
+    "MOR": 91,
+    "NLE": 85,
+    "MIC": 79,
+    "SLP": 63,
+    "AGU": 44,
+    "MEX": 32
+   }
+  },
+  {
+   "number": "053",
+   "segs": 778,
+   "fed": 203,
+   "nonFed": 575,
+   "km": 449.7,
+   "admin": {
+    "Estatal": 531,
+    "Federal": 203,
+    "Municipal": 44
+   },
+   "jur": {
+    "FED": 203,
+    "CHP": 131,
+    "CHH": 102,
+    "TAM": 98,
+    "COA": 65,
+    "NLE": 56,
+    "HID": 45,
+    "AGU": 39
+   }
+  },
+  {
+   "number": "176",
+   "segs": 763,
+   "fed": 700,
+   "nonFed": 63,
+   "km": 324.5,
+   "admin": {
+    "Federal": 700,
+    "Estatal": 62,
+    "Municipal": 1
+   },
+   "jur": {
+    "FED": 700,
+    "SON": 27,
+    "ZAC": 21,
+    "NLE": 8,
+    "YUC": 3,
+    "MIC": 3,
+    "CHH": 1
+   }
+  },
+  {
+   "number": "132",
+   "segs": 753,
+   "fed": 618,
+   "nonFed": 135,
+   "km": 461.3,
+   "admin": {
+    "Federal": 618,
+    "Estatal": 110,
+    "Municipal": 25
+   },
+   "jur": {
+    "FED": 618,
+    "TAM": 45,
+    "JAL": 26,
+    "CHH": 25,
+    "MEX": 18,
+    "SON": 12,
+    "NLE": 5,
+    "SIN": 2
+   }
+  },
+  {
+   "number": "044",
+   "segs": 741,
+   "fed": 139,
+   "nonFed": 602,
+   "km": 633,
+   "admin": {
+    "Estatal": 600,
+    "Federal": 139,
+    "Municipal": 2
+   },
+   "jur": {
+    "DUR": 154,
+    "FED": 139,
+    "ZAC": 129,
+    "SON": 112,
+    "SLP": 93,
+    "NLE": 58,
+    "JAL": 35,
+    "AGU": 11
+   }
+  },
+  {
+   "number": "195",
+   "segs": 740,
+   "fed": 701,
+   "nonFed": 39,
+   "km": 319.6,
+   "admin": {
+    "Federal": 701,
+    "Estatal": 39
+   },
+   "jur": {
+    "FED": 701,
+    "NLE": 12,
+    "PUE": 10,
+    "ZAC": 8,
+    "MIC": 8,
+    "CHH": 1
+   }
+  },
+  {
+   "number": "121",
+   "segs": 729,
+   "fed": 441,
+   "nonFed": 288,
+   "km": 222.1,
+   "admin": {
+    "Federal": 441,
+    "Estatal": 253,
+    "Municipal": 35
+   },
+   "jur": {
+    "FED": 441,
+    "COA": 71,
+    "NLE": 57,
+    "SON": 53,
+    "CHH": 49,
+    "ZAC": 43,
+    "MIC": 5,
+    "PUE": 4
+   }
+  },
+  {
+   "number": "006",
+   "segs": 719,
+   "fed": 0,
+   "nonFed": 719,
+   "km": 241.9,
+   "admin": {
+    "Estatal": 710,
+    "Municipal": 9
+   },
+   "jur": {
+    "MOR": 185,
+    "MIC": 183,
+    "TAM": 152,
+    "NLE": 102,
+    "BCN": 57,
+    "CHH": 19,
+    "PUE": 9,
+    "MEX": 6
+   }
+  },
+  {
+   "number": "187",
+   "segs": 693,
+   "fed": 630,
+   "nonFed": 63,
+   "km": 220.6,
+   "admin": {
+    "Federal": 630,
+    "Estatal": 63
+   },
+   "jur": {
+    "FED": 630,
+    "CHH": 44,
+    "TAM": 17,
+    "NLE": 2
+   }
+  },
+  {
+   "number": "124",
+   "segs": 689,
+   "fed": 0,
+   "nonFed": 689,
+   "km": 267.4,
+   "admin": {
+    "Estatal": 687,
+    "Municipal": 2
+   },
+   "jur": {
+    "SIN": 519,
+    "JAL": 70,
+    "COA": 55,
+    "CHH": 25,
+    "QUE": 9,
+    "AGU": 6,
+    "NLE": 3,
+    "ZAC": 2
+   }
+  },
+  {
+   "number": "093",
+   "segs": 666,
+   "fed": 438,
+   "nonFed": 228,
+   "km": 386.6,
+   "admin": {
+    "Federal": 438,
+    "Estatal": 222,
+    "Municipal": 6
+   },
+   "jur": {
+    "FED": 438,
+    "CHH": 48,
+    "GRO": 43,
+    "NLE": 41,
+    "COA": 38,
+    "TAM": 19,
+    "SON": 19,
+    "AGU": 15
+   }
+  },
+  {
+   "number": "069",
+   "segs": 665,
+   "fed": 131,
+   "nonFed": 534,
+   "km": 550,
+   "admin": {
+    "Estatal": 452,
+    "Federal": 131,
+    "Municipal": 82
+   },
+   "jur": {
+    "SON": 268,
+    "FED": 131,
+    "CHH": 129,
+    "SLP": 62,
+    "TAM": 32,
+    "AGU": 27,
+    "MIC": 6,
+    "COA": 4
+   }
+  },
+  {
+   "number": "261",
+   "segs": 649,
+   "fed": 517,
+   "nonFed": 132,
+   "km": 338.7,
+   "admin": {
+    "Federal": 517,
+    "Estatal": 129,
+    "Municipal": 3
+   },
+   "jur": {
+    "FED": 517,
+    "CAM": 118,
+    "SIN": 10,
+    "CHH": 3,
+    "ZAC": 1
+   }
+  },
+  {
+   "number": "009",
+   "segs": 625,
+   "fed": 121,
+   "nonFed": 504,
+   "km": 262.6,
+   "admin": {
+    "Estatal": 504,
+    "Federal": 121
+   },
+   "jur": {
+    "TAM": 232,
+    "FED": 121,
+    "MOR": 79,
+    "NLE": 49,
+    "COL": 37,
+    "CHH": 35,
+    "SLP": 18,
+    "MIC": 17
+   }
+  },
+  {
+   "number": "004",
+   "segs": 607,
+   "fed": 0,
+   "nonFed": 607,
+   "km": 302.5,
+   "admin": {
+    "Estatal": 590,
+    "Municipal": 17
+   },
+   "jur": {
+    "MOR": 140,
+    "BCN": 136,
+    "CHH": 99,
+    "MIC": 81,
+    "NLE": 78,
+    "MEX": 26,
+    "AGU": 26,
+    "NAY": 15
+   }
+  },
+  {
+   "number": "029",
+   "segs": 595,
+   "fed": 188,
+   "nonFed": 407,
+   "km": 347.9,
+   "admin": {
+    "Estatal": 398,
+    "Federal": 188,
+    "Municipal": 9
+   },
+   "jur": {
+    "MIC": 218,
+    "FED": 188,
+    "CHH": 65,
+    "SLP": 52,
+    "TAM": 44,
+    "BCN": 19,
+    "COA": 5,
+    "AGU": 3
+   }
+  },
+  {
+   "number": "115",
+   "segs": 594,
+   "fed": 486,
+   "nonFed": 108,
+   "km": 210.6,
+   "admin": {
+    "Federal": 486,
+    "Estatal": 108
+   },
+   "jur": {
+    "FED": 486,
+    "CHH": 33,
+    "DUR": 33,
+    "MIC": 12,
+    "SIN": 11,
+    "PUE": 6,
+    "SON": 6,
+    "COA": 5
+   }
+  },
+  {
+   "number": "063",
+   "segs": 580,
+   "fed": 183,
+   "nonFed": 397,
+   "km": 372.3,
+   "admin": {
+    "Estatal": 372,
+    "Federal": 183,
+    "Municipal": 25
+   },
+   "jur": {
+    "FED": 183,
+    "CHH": 139,
+    "CHP": 113,
+    "BCN": 44,
+    "TAM": 33,
+    "MIC": 26,
+    "SON": 24,
+    "NLE": 11
+   }
+  },
+  {
+   "number": "031",
+   "segs": 576,
+   "fed": 27,
+   "nonFed": 549,
+   "km": 215.3,
+   "admin": {
+    "Estatal": 549,
+    "Federal": 27
+   },
+   "jur": {
+    "MOR": 224,
+    "PUE": 115,
+    "MIC": 65,
+    "TAM": 39,
+    "YUC": 29,
+    "CHH": 28,
+    "FED": 27,
+    "BCN": 26
+   }
+  },
+  {
+   "number": "135",
+   "segs": 556,
+   "fed": 438,
+   "nonFed": 118,
+   "km": 480.7,
+   "admin": {
+    "Federal": 438,
+    "Estatal": 108,
+    "Municipal": 10
+   },
+   "jur": {
+    "FED": 438,
+    "AGU": 50,
+    "SON": 37,
+    "CHH": 10,
+    "NLE": 9,
+    "MIC": 8,
+    "SIN": 4
+   }
+  },
+  {
+   "number": "022",
+   "segs": 552,
+   "fed": 158,
+   "nonFed": 394,
+   "km": 325.8,
+   "admin": {
+    "Estatal": 386,
+    "Federal": 158,
+    "Municipal": 8
+   },
+   "jur": {
+    "FED": 158,
+    "MIC": 85,
+    "COA": 74,
+    "TAM": 66,
+    "CHH": 63,
+    "NLE": 48,
+    "SLP": 20,
+    "SON": 18
+   }
+  },
+  {
+   "number": "077",
+   "segs": 521,
+   "fed": 27,
+   "nonFed": 494,
+   "km": 294.1,
+   "admin": {
+    "Estatal": 490,
+    "Federal": 27,
+    "Municipal": 4
+   },
+   "jur": {
+    "GUA": 227,
+    "CHH": 103,
+    "AGU": 52,
+    "ZAC": 37,
+    "COA": 29,
+    "FED": 27,
+    "TAM": 16,
+    "MIC": 15
+   }
+  },
+  {
+   "number": "083",
+   "segs": 520,
+   "fed": 150,
+   "nonFed": 370,
+   "km": 444.3,
+   "admin": {
+    "Estatal": 354,
+    "Federal": 150,
+    "Municipal": 16
+   },
+   "jur": {
+    "CHH": 157,
+    "FED": 150,
+    "VER": 70,
+    "MEX": 28,
+    "NLE": 26,
+    "TAM": 23,
+    "ZAC": 22,
+    "SON": 17
+   }
+  }
+ ],
+ "states": {
+  "10": "DUR",
+  "11": "GUA",
+  "12": "GRO",
+  "13": "HID",
+  "14": "JAL",
+  "15": "MEX",
+  "16": "MIC",
+  "17": "MOR",
+  "18": "NAY",
+  "19": "NLE",
+  "20": "OAX",
+  "21": "PUE",
+  "22": "QUE",
+  "23": "ROO",
+  "24": "SLP",
+  "25": "SIN",
+  "26": "SON",
+  "27": "TAB",
+  "28": "TAM",
+  "29": "TLA",
+  "30": "VER",
+  "31": "YUC",
+  "32": "ZAC",
+  "01": "AGU",
+  "02": "BCN",
+  "03": "BCS",
+  "04": "CAM",
+  "05": "COA",
+  "06": "COL",
+  "07": "CHP",
+  "08": "CHH",
+  "09": "CMX"
+ }
+}

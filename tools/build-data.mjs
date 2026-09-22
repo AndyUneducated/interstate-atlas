@@ -14,7 +14,10 @@
 // not invented here; they live in content/ with their sources attached.
 
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import {
+  SYSTEMS, FIELDS, TIER_CODE, geoPath, system, KM_PER_MI,
+} from '../assets/schema.js';
 import {
   bboxOf, drivenEdgeKm, haversineKm, lineLengthKm, roundCoords, simplify, stitchBetween,
   stitchComponents, stitchRoute,
@@ -27,7 +30,6 @@ import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'tools', 'src');
 const OUT = join(ROOT, 'data');
-const KM_PER_MI = 1.609344;
 
 // TIGER is surveyed to the metre and draws each direction of a divided highway
 // as its own centreline, so endpoints are joined only where they genuinely
@@ -46,7 +48,7 @@ function tierOf(system, parsed) {
 }
 
 function labelFor(system, parsed, stateCode) {
-  if (system === 'interstate') {
+  if (system === 'us-interstate') {
     if (parsed.qualifier === 'business') return `Business I-${parsed.base}${parsed.suffix}`;
     // Hawaii's Interstates are signed and published as H-1, H-2, H-3 rather
     // than as I-H1, so they carry the hyphen and drop the I.
@@ -483,7 +485,7 @@ function attachOfficial(routes, ref) {
   attachCanadianTraffic(routes, ref.caTraffic);
 
   for (const r of routes) {
-    if (r.system !== 'interstate') continue;
+    if (r.system !== 'us-interstate') continue;
     const mine = r.states.map((s) => s.st);
 
     const miEntry = lookup(ref.mileage.routes, r.number);
@@ -591,7 +593,7 @@ async function buildAlaskaInterstates(groups, placeGrid) {
     const flat = comp.pieces.flat();
     out.push({
       key: `interstate|${number}`,
-      system: 'interstate',
+      system: 'us-interstate',
       tier: 'primary',
       number,
       base: null,
@@ -771,7 +773,7 @@ async function buildCanada() {
         // in the system table and in the region jumps.
         country: 'ca',
         system,
-        tier: system === 'provincial' ? 'state' : 'primary',
+        tier: system === 'ca-provincial' ? 'state' : 'primary',
         number: grp.number,
         base: Number.parseInt(grp.number, 10) || null,
         label: label.en,
@@ -861,7 +863,7 @@ async function readUnitedStates(contextLines) {
       suffix: m ? m[2] || '' : '',
       qualifier: grp.qualifier,
       raw,
-      hawaii: grp.system === 'interstate' && /^H\d/.test(grp.number),
+      hawaii: grp.system === 'us-interstate' && /^H\d/.test(grp.number),
       malformed: !m,
     };
     const tier = tierOf(grp.system, parsed);
@@ -1005,7 +1007,7 @@ async function main() {
   }
   for (const [key, rs] of byKey) {
     const [system, number, st] = key.split('|');
-    const slug = `${system === 'interstate' ? 'i' : system === 'us' ? 'us' : st.toLowerCase()}-${number.toLowerCase()}`;
+    const slug = `${system === 'us-interstate' ? 'i' : system === 'us-numbered' ? 'us' : st.toLowerCase()}-${number.toLowerCase()}`;
     rs.sort((a, b) => b.mi - a.mi);
     rs.forEach((r, i) => {
       if (rs.length === 1) { r.id = slug.replace(/[^a-z0-9-]/g, ''); return; }
@@ -1105,31 +1107,39 @@ async function main() {
     };
   };
 
-  await mkdir(join(OUT, 'geo', 'state'), { recursive: true });
-  await mkdir(join(OUT, 'geo', 'provincial'), { recursive: true });
   const write = (path, data) => writeFile(path, JSON.stringify(data));
   const collection = (feats) => ({ type: 'FeatureCollection', features: feats });
 
-  await write(join(OUT, 'geo', 'interstate.json'),
-    collection(routes.filter((r) => r.system === 'interstate').map((r) => featureOf(r, 0.004))));
-  await write(join(OUT, 'geo', 'us.json'),
-    collection(routes.filter((r) => r.system === 'us').map((r) => featureOf(r, 0.005))));
-  await write(join(OUT, 'geo', 'tch.json'),
-    collection(routes.filter((r) => r.system === 'tch').map((r) => featureOf(r, 0.004))));
-  await write(join(OUT, 'geo', 'nhs.json'),
-    collection(routes.filter((r) => r.system === 'nhs').map((r) => featureOf(r, 0.005))));
+  // Simplification tolerance by system. The national tiers are drawn from low
+  // zoom outward, so they can afford less detail than the per-jurisdiction
+  // ones, which are only ever on screen once a reader has zoomed into a single
+  // state or province.
+  const TOL = {
+    'us-interstate': 0.004, 'us-numbered': 0.005, 'us-state': 0.006,
+    'ca-tch': 0.004, 'ca-nhs': 0.005, 'ca-provincial': 0.006,
+  };
 
-  // The two big per-jurisdiction tiers load one jurisdiction at a time: all of
-  // them at once is 6,750 state routes and several thousand provincial ones,
-  // which is far more than any one view needs.
-  for (const [system, dir, tol] of [['state', 'state', 0.006], ['provincial', 'provincial', 0.006]]) {
+  for (const s of SYSTEMS) {
+    const mine = routes.filter((r) => r.system === s.id);
+    const tol = TOL[s.id];
+    if (!s.perJuris) {
+      const path = join(OUT, 'geo', geoPath(s.id));
+      await mkdir(dirname(path), { recursive: true });
+      await write(path, collection(mine.map((r) => featureOf(r, tol))));
+      continue;
+    }
+    // The per-jurisdiction tiers load one jurisdiction at a time: all of them
+    // at once is 6,750 state routes and several thousand provincial ones,
+    // which is far more than any one view needs.
     const byJuris = new Map();
-    for (const r of routes.filter((x) => x.system === system)) {
+    for (const r of mine) {
       if (!byJuris.has(r._primarySt)) byJuris.set(r._primarySt, []);
       byJuris.get(r._primarySt).push(r);
     }
     for (const [st, rs] of byJuris) {
-      await write(join(OUT, 'geo', dir, `${st}.json`), collection(rs.map((r) => featureOf(r, tol))));
+      const path = join(OUT, 'geo', geoPath(s.id, st));
+      await mkdir(dirname(path), { recursive: true });
+      await write(path, collection(rs.map((r) => featureOf(r, tol))));
     }
   }
 
@@ -1145,14 +1155,11 @@ async function main() {
   // The index is deliberately lean: it exists so search and the dashboard can
   // reach all 7,500 routes without pulling any geometry. Detail lives in the
   // feature properties, fetched with the geometry when a system is switched on.
-  const SYS_CODE = {
-    interstate: 'i', us: 'u', state: 's', tch: 't', nhs: 'n', provincial: 'r',
-  };
   await write(join(OUT, 'index.json'), {
     generated: new Date().toISOString().slice(0, 10),
-    fields: ['id', 'label', 'sys', 'tier', 'st', 'mi', 'base', 'num', 'cx', 'cy', 'gs', 'ns', 'where'],
+    fields: FIELDS,
     routes: routes.map((r) => [
-      r.id, r.label, SYS_CODE[r.system], { primary: 'p', auxiliary: 'a', special: 'x', state: 's' }[r.tier],
+      r.id, r.label, system(r.system).code, TIER_CODE[r.tier],
       r._primarySt, r.offMi ? Math.round(r.offMi) : r.mi, r.base, r.number,
       Math.round(((r.bbox[0] + r.bbox[2]) / 2) * 100) / 100,
       Math.round(((r.bbox[1] + r.bbox[3]) / 2) * 100) / 100,

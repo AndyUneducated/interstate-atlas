@@ -119,8 +119,8 @@ const PATTERNS = [
   // "I- 95", "I- 279 Hov". The space after the hyphen is TIGER's own. Hawaii's
   // Interstates are numbered H-1 to H-3, written variously as "I- H-1" and
   // "I- H1"; both are normalised to H1 so the halves of the road meet.
-  { system: 'interstate', re: new RegExp(`^i-?\\s*h-?(\\d{1,3})\\b\\s*(.*)$`, 'i'), prefix: 'H' },
-  { system: 'interstate', re: new RegExp(`^i-?\\s*(\\d{1,3}[a-z]?)\\b\\s*(.*)$`, 'i') },
+  { system: 'us-interstate', re: new RegExp(`^i-?\\s*h-?(\\d{1,3})\\b\\s*(.*)$`, 'i'), prefix: 'H' },
+  { system: 'us-interstate', re: new RegExp(`^i-?\\s*(\\d{1,3}[a-z]?)\\b\\s*(.*)$`, 'i') },
 
   // "US Hwy 1", "US Rte 66", "US Hwy 11/15"
   { system: 'us', re: new RegExp(`^u\\.?s\\.?\\s*${ROAD_WORD}?\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },

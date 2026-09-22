@@ -16,6 +16,7 @@ import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { PNG } from 'pngjs';
+import { KM_PER_MI, geoPath } from '../assets/schema.js';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUT = join(ROOT, 'data', 'elevation');
@@ -128,7 +129,7 @@ async function profileFor(feature) {
 
   return {
     ft,
-    stepMi: Math.round((totalKm / 1.609344 / (SAMPLES - 1)) * 100) / 100,
+    stepMi: Math.round((totalKm / KM_PER_MI / (SAMPLES - 1)) * 100) / 100,
     source: 'Terrain Tiles (AWS Open Data), zoom 9',
   };
 }
@@ -146,13 +147,13 @@ async function main() {
     } catch { wanted = new Set(); }
   }
 
-  const sources = ['interstate', 'us'];
+  const sources = ['us-interstate', 'us-numbered'];
   const features = [];
   for (const s of sources) {
-    const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', `${s}.json`), 'utf8'));
+    const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', geoPath(s)), 'utf8'));
     for (const f of fc.features) {
       const p = f.properties;
-      if (all ? (p.tier === 'primary' || p.sys === 'us') : wanted.has(p.id)) features.push(f);
+      if (all ? (p.tier === 'primary' || p.sys === 'us-numbered') : wanted.has(p.id)) features.push(f);
     }
   }
   // State-route dossiers live in per-state files; only load what is asked for.

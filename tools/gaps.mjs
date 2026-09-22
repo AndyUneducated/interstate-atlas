@@ -2,7 +2,7 @@
 import { readFile } from 'node:fs/promises';
 
 const ref = JSON.parse(await readFile('content/reference/fhwa-mileage.json', 'utf8')).routes;
-const fc = JSON.parse(await readFile('data/geo/interstate.json', 'utf8'));
+const fc = JSON.parse(await readFile('data/geo/us/interstate.json', 'utf8'));
 
 const have = new Set();
 for (const f of fc.features) {

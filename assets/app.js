@@ -9,30 +9,14 @@ import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen, refreshPlannerIfOpen } from './sheets.js';
 import { startFly, stopFly, isFlying } from './fly.js';
 import { openTimelapse } from './timelapse.js';
+import {
+  SYSTEMS, COUNTRIES, TIER_BY_CODE, geoPath, isPerJuris, systemsOf, systemOfCode,
+} from './schema.js';
 
-/**
- * The six route systems, grouped by country.
- *
- * Three American, three Canadian, and the two sets are not translations of
- * each other: Canada has no signed national system, so its tiers are
- * designations rather than shields. `perJuris` marks the two tiers too large
- * to draw at once - 6,750 state routes and several thousand provincial ones -
- * which load a jurisdiction at a time from their own directory.
- */
-const SYSTEMS = [
-  { id: 'interstate', code: 'i', cc: 'us', colour: '#35e7ff', src: 'data/geo/interstate.json', on: true },
-  { id: 'us', code: 'u', cc: 'us', colour: '#ffb545', src: 'data/geo/us.json', on: false },
-  { id: 'state', code: 's', cc: 'us', colour: '#a98bff', src: null, dir: 'state', perJuris: true, on: false },
-  { id: 'tch', code: 't', cc: 'ca', colour: '#ff4d6d', src: 'data/geo/tch.json', on: true },
-  { id: 'nhs', code: 'n', cc: 'ca', colour: '#4fe3b0', src: 'data/geo/nhs.json', on: false },
-  { id: 'provincial', code: 'r', cc: 'ca', colour: '#ff9ecb', src: null, dir: 'provincial', perJuris: true, on: false },
-];
+/* The route systems, their colours and where their geometry lives, all come
+   from `schema.js` so the build scripts and this page cannot drift apart. */
 
-const SYS_BY_CODE = Object.fromEntries(SYSTEMS.map((s) => [s.code, s.id]));
-const PER_JURIS = new Set(SYSTEMS.filter((s) => s.perJuris).map((s) => s.id));
-
-/** True for the tiers that ship one file per state or province. */
-function isPerJuris(sys) { return PER_JURIS.has(sys); }
+const GEO = 'data/geo';
 
 export const app = {
   map: null,
@@ -100,9 +84,8 @@ export function relabel() {
 async function loadIndex() {
   const res = await fetch('data/index.json');
   const raw = await res.json();
-  const tierOf = { p: 'primary', a: 'auxiliary', x: 'special', s: 'state' };
   app.index = raw.routes.map(([id, label, sys, tier, st, mi, base, num, cx, cy, gs, ns, where]) => ({
-    id, label, sys: SYS_BY_CODE[sys], tier: tierOf[tier], st, mi, base, num, cx, cy, gs, ns, where,
+    id, label, sys: systemOfCode(sys)?.id ?? null, tier: TIER_BY_CODE[tier], st, mi, base, num, cx, cy, gs, ns, where,
     // Pre-lowered haystack so keystroke filtering stays cheap across 11,000
     // rows. The jurisdiction's full name is in it too, so "ontario" and
     // "saskatchewan" find their routes without the user knowing the code. So
@@ -292,7 +275,7 @@ export async function enableSystem(sys) {
     return;
   }
   if (!app.loaded.has(sys)) {
-    const data = await (await fetch(s.src)).json();
+    const data = await (await fetch(`${GEO}/${geoPath(sys)}`)).json();
     app.loaded.add(sys);
     addSystemLayers(sys, data);
   }
@@ -311,8 +294,7 @@ function setSystemVisible(sys, on) {
 
 function disableSystem(sys) {
   app.systems.get(sys).on = false;
-  const def = SYSTEMS.find((s) => s.id === sys);
-  if (def?.perJuris) {
+  if (isPerJuris(sys)) {
     for (const st of app.stateLoaded) {
       if (systemOfJurisdiction(st) === sys) setStateVisible(st, false);
     }
@@ -328,14 +310,13 @@ function disableSystem(sys) {
    load a jurisdiction at a time. State and province codes do not collide, so
    one registry covers both; only the folder and the owning system differ. */
 
-function systemOfJurisdiction(code) { return isProvince(code) ? 'provincial' : 'state'; }
+function systemOfJurisdiction(code) { return isProvince(code) ? 'ca-provincial' : 'us-state'; }
 
 export async function loadState(st) {
   if (app.stateLoaded.has(st)) { setStateVisible(st, true); return; }
   const sys = systemOfJurisdiction(st);
   toast(t('toast.loadingState', { state: stateName(st) }));
-  const dir = SYSTEMS.find((s) => s.id === sys).dir;
-  const data = await (await fetch(`data/geo/${dir}/${st}.json`)).json();
+  const data = await (await fetch(`${GEO}/${geoPath(sys, st)}`)).json();
   app.stateLoaded.add(st);
   addStateLayers(st, data, sys);
   app.systems.get(sys).on = true;
@@ -343,14 +324,14 @@ export async function loadState(st) {
   renderResults();
 }
 
-function addStateLayers(st, data, sys = 'state') {
+function addStateLayers(st, data, sys = 'us-state') {
   const map = app.map;
   const srcId = `st-${st}`;
   const colour = lineColour(sys);
   map.addSource(srcId, { type: 'geojson', data, promoteId: 'id' });
   const width = (m) => ['interpolate', ['linear'], ['zoom'], 4, 0.35 * m, 7, 0.9 * m, 11, 2.4 * m];
   // State routes sit beneath the national systems so those stay legible.
-  const under = map.getLayer('rt-interstate-glow') ? 'rt-interstate-glow' : undefined;
+  const under = map.getLayer('rt-us-interstate-glow') ? 'rt-us-interstate-glow' : undefined;
   map.addLayer({
     id: `${srcId}-glow`, type: 'line', source: srcId,
     layout: { 'line-cap': 'round', 'line-join': 'round' },
@@ -860,13 +841,15 @@ function renderSystems() {
   host.innerHTML = '';
   // Grouped by country, because the two sets of tiers are not equivalents of
   // one another and listing all six flat invited reading them as one ladder.
-  for (const cc of ['us', 'ca']) {
+  for (const cc of COUNTRIES) {
+    const systems = systemsOf(cc);
+    if (!systems.length) continue;
     const head = document.createElement('p');
     head.className = 'sys-country';
     head.innerHTML = `<i class="flagdot flag-${cc}"></i>${t(`sys.country.${cc}`)}`;
     host.appendChild(head);
 
-    for (const s of SYSTEMS.filter((x) => x.cc === cc)) {
+    for (const s of systems) {
       const live = app.systems.get(s.id);
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -883,7 +866,7 @@ function renderSystems() {
         <span class="sys-count">${t('sys.routes', { n: (counts[s.id] || 0).toLocaleString() })}</span>`;
       btn.addEventListener('click', () => {
         if (s.perJuris) {
-          openSheet(s.id === 'state' ? 'states' : 'provinces');
+          openSheet(s.cc === 'us' ? 'states' : 'provinces');
           return;
         }
         if (app.systems.get(s.id).on) disableSystem(s.id);
@@ -1338,8 +1321,10 @@ async function main() {
   // only the Interstates left its button lit above an empty map - and its
   // routes selectable from search but invisible until something else
   // happened to switch the layer on.
-  const startOn = SYSTEMS.filter((s) => s.on && s.src);
-  const payloads = await Promise.all(startOn.map((s) => fetch(s.src).then((r) => r.json())));
+  const startOn = SYSTEMS.filter((s) => s.on && !s.perJuris);
+  const payloads = await Promise.all(
+    startOn.map((s) => fetch(`${GEO}/${geoPath(s.id)}`).then((r) => r.json())),
+  );
   startOn.forEach((s, i) => {
     app.loaded.add(s.id);
     addSystemLayers(s.id, payloads[i]);
