@@ -65,15 +65,18 @@ export function openSheet(key) {
    Numbering explainer
    ══════════════════════════════════════════════════════════════════════ */
 
-const LON0 = -125.5;
-const LON1 = -66.5;
-const LAT0 = 24.0;
-const LAT1 = 49.5;
 const VW = 620;
 const VH = 330;
 
-const xOf = (lon) => ((lon - LON0) / (LON1 - LON0)) * VW;
-const yOf = (lat) => VH - ((lat - LAT0) / (LAT1 - LAT0)) * VH;
+// The lower 48, and the band of the St Lawrence that Québec's autoroutes sit
+// in. Two boxes rather than one continental frame: at continental scale the
+// Québec grid collapses into the top-right corner and the thing the diagram is
+// there to show stops being legible.
+const US_BOX = { lon0: -125.5, lon1: -66.5, lat0: 24.0, lat1: 49.5 };
+const QC_BOX = { lon0: -79.8, lon1: -66.2, lat0: 44.9, lat1: 49.3 };
+
+const xOf = (lon, b = US_BOX) => ((lon - b.lon0) / (b.lon1 - b.lon0)) * VW;
+const yOf = (lat, b = US_BOX) => VH - ((lat - b.lat0) / (b.lat1 - b.lat0)) * VH;
 
 /**
  * Pick the primary routes of a system and sort them by position.
@@ -97,17 +100,56 @@ function gridRoutes(sys, orientation) {
   return [...best.values()].sort((a, b) => (orientation === 'ns' ? a.cx - b.cx : a.cy - b.cy));
 }
 
-function numberingDiagram(sys) {
-  const colour = sys === 'interstate' ? '#35e7ff' : '#ffb545';
-  const ns = gridRoutes(sys, 'ns');
-  const ew = gridRoutes(sys, 'ew');
-
-  const grid = [];
-  for (let lon = -120; lon <= -70; lon += 10) {
-    grid.push(`<line class="nb-grid-line" x1="${xOf(lon).toFixed(1)}" y1="0" x2="${xOf(lon).toFixed(1)}" y2="${VH}"/>`);
+/**
+ * Québec's two-digit autoroutes, which are the one Canadian set with a grid to
+ * draw.
+ *
+ * Scoped to the two-digit numbers on purpose. The ministry's own directory says
+ * the ordering principle "s'applique seulement aux autoroutes 5 à 85", so
+ * drawing the 400–999 series on the same axes would illustrate a rule that
+ * Québec does not claim for them.
+ */
+function qcAutoroutes(orientation) {
+  const rows = app.index.filter((r) => r.st === 'QC' && /^A-\d+$/.test(r.label)
+    && r.base != null && r.base >= 5 && r.base <= 85);
+  const set = rows.filter((r) => (orientation === 'ns' ? r.base % 2 === 1 : r.base % 2 === 0));
+  const best = new Map();
+  for (const r of set) {
+    const prev = best.get(r.base);
+    if (!prev || r.mi > prev.mi) best.set(r.base, r);
   }
-  for (let lat = 25; lat <= 49; lat += 5) {
-    grid.push(`<line class="nb-grid-line" x1="0" y1="${yOf(lat).toFixed(1)}" x2="${VW}" y2="${yOf(lat).toFixed(1)}"/>`);
+  return [...best.values()].sort((a, b) => (orientation === 'ns' ? a.cx - b.cx : a.cy - b.cy));
+}
+
+/** The extent the given routes actually occupy, padded so nothing sits on the edge. */
+function boxOf(routes, pad = 0.6) {
+  const xs = routes.map((r) => r.cx);
+  const ys = routes.map((r) => r.cy);
+  return {
+    lon0: Math.min(...xs) - pad, lon1: Math.max(...xs) + pad,
+    lat0: Math.min(...ys) - pad, lat1: Math.max(...ys) + pad,
+  };
+}
+
+function numberingDiagram(sys, opts = {}) {
+  const box = opts.box ?? US_BOX;
+  const colour = opts.colour ?? (sys === 'interstate' ? '#35e7ff' : '#ffb545');
+  const pick = opts.pick ?? ((o) => gridRoutes(sys, o));
+  const ns = pick('ns');
+  const ew = pick('ew');
+
+  // A graticule at whatever spacing gives the box a handful of lines, so the
+  // Québec frame is not either bare or a grid of solid fill.
+  const grid = [];
+  const lonStep = opts.lonStep ?? 10;
+  const latStep = opts.latStep ?? 5;
+  for (let lon = Math.ceil(box.lon0 / lonStep) * lonStep; lon <= box.lon1; lon += lonStep) {
+    const x = xOf(lon, box).toFixed(1);
+    grid.push(`<line class="nb-grid-line" x1="${x}" y1="0" x2="${x}" y2="${VH}"/>`);
+  }
+  for (let lat = Math.ceil(box.lat0 / latStep) * latStep; lat <= box.lat1; lat += latStep) {
+    const y = yOf(lat, box).toFixed(1);
+    grid.push(`<line class="nb-grid-line" x1="0" y1="${y}" x2="${VW}" y2="${y}"/>`);
   }
 
   // Every route gets a line; not every route can get a label. East of the
@@ -116,38 +158,41 @@ function numberingDiagram(sys) {
   // order of importance — the multiples of five are the long-haul spines the
   // panel beside this is explaining — and any that would collide with one
   // already placed is dropped. The line stays, so nothing disappears.
+  // Reports whether the position was still free, and claims it if so. It used
+  // to return a `weight` argument that no call site ever passed, so it answered
+  // undefined every time and the diagram has been running without any labels at
+  // all. The ranking it was presumably meant to carry is done by `byRank`.
   const labeller = (gap) => {
     const placed = [];
-    return (pos, weight) => {
-      const at = placed.findIndex((p) => Math.abs(p - pos) < gap);
-      if (at >= 0) return false;
+    return (pos) => {
+      if (placed.some((p) => Math.abs(p - pos) < gap)) return false;
       placed.push(pos);
-      return weight;
+      return true;
     };
   };
   const byRank = (rs) => [...rs].sort((a, b) => (Number(a.base) % 5) - (Number(b.base) % 5));
 
   const lines = [];
   const labels = [];
-  const fitsX = labeller(13);
+  const fitsX = labeller(opts.gapX ?? 13);
   for (const r of byRank(ns)) {
-    if (fitsX(xOf(r.cx))) {
-      labels.push(`<text class="nb-lab" data-n="${r.base}" x="${xOf(r.cx).toFixed(1)}" y="9" text-anchor="middle">${r.base}</text>`);
+    if (fitsX(xOf(r.cx, box))) {
+      labels.push(`<text class="nb-lab" data-n="${r.base}" x="${xOf(r.cx, box).toFixed(1)}" y="9" text-anchor="middle">${r.base}</text>`);
     }
   }
   for (const r of ns) {
-    const x = xOf(r.cx);
+    const x = xOf(r.cx, box);
     lines.push(`<line class="nb-route" data-n="${r.base}" data-id="${r.id}" stroke="${colour}"
       x1="${x.toFixed(1)}" y1="14" x2="${x.toFixed(1)}" y2="${VH - 6}"><title>${r.label}</title></line>`);
   }
-  const fitsY = labeller(9);
+  const fitsY = labeller(opts.gapY ?? 9);
   for (const r of byRank(ew)) {
-    if (fitsY(yOf(r.cy))) {
-      labels.push(`<text class="nb-lab" data-n="${r.base}" x="${VW - 15}" y="${(yOf(r.cy) + 3).toFixed(1)}">${r.base}</text>`);
+    if (fitsY(yOf(r.cy, box))) {
+      labels.push(`<text class="nb-lab" data-n="${r.base}" x="${VW - 15}" y="${(yOf(r.cy, box) + 3).toFixed(1)}">${r.base}</text>`);
     }
   }
   for (const r of ew) {
-    const y = yOf(r.cy);
+    const y = yOf(r.cy, box);
     lines.push(`<line class="nb-route" data-n="${r.base}" data-id="${r.id}" stroke="${colour}" opacity="0.8"
       x1="6" y1="${y.toFixed(1)}" x2="${(VW - 20).toFixed(1)}" y2="${y.toFixed(1)}"><title>${r.label}</title></line>`);
   }
@@ -171,6 +216,7 @@ function renderNumbering() {
       <button class="btn on" data-nb="interstate" type="button">${t('nb.tab.i')}</button>
       <button class="btn" data-nb="us" type="button">${t('nb.tab.us')}</button>
       <button class="btn" data-nb="aux" type="button">${t('nb.tab.aux')}</button>
+      <button class="btn" data-nb="ca" type="button"><i class="flagdot flag-ca"></i>${t('nb.tab.ca')}</button>
     </div>
     <div id="nbBody"></div>`;
   return frame('nb.title', 'nb.sub', body);
@@ -178,6 +224,7 @@ function renderNumbering() {
 
 function nbPane(kind) {
   if (kind === 'aux') return nbAuxPane();
+  if (kind === 'ca') return nbCanadaPane();
   const d = numberingDiagram(kind);
   const zh = getLang() === 'zh';
   const isI = kind === 'interstate';
@@ -271,9 +318,121 @@ function nbAuxPane() {
   </div>`;
 }
 
+/* Canada is not a third grid, and the panel would be lying if it drew one.
+   Numbering is a provincial power, there is no federal numbering authority, and
+   the thirteen answers run from written into regulation to a ministry saying in
+   public that no system exists. So the pane is built around that spread rather
+   than around a rule: one diagram, because exactly one province has a grid, and
+   a ladder that says what each of the others actually publishes. */
+
+const CA_LADDER = [
+  ['QC', 'stated', { en: 'Parity, direction and the three-digit rule, all published by the ministry', zh: '奇偶、方向与三位数规则，均由交通部公布' }],
+  ['MB', 'codified', { en: 'The power to number is in the Act and the numbers are in regulation — but there is no pattern to codify', zh: '编号权限写进法案、号码写进条例——但没有任何模式可供成文' }],
+  ['PE', 'codified', { en: 'Road classes are set in regulation, naming each road rather than a number range', zh: '道路等级由条例设定，逐条列名而非划定号段' }],
+  ['NB', 'stated', { en: 'Arterial 1–99, collector 100–199, local 200–999', zh: '干线 1–99、集散 100–199、地方 200–999' }],
+  ['NS', 'stated', { en: '100-series arterial, trunk 1–66, collector 200–399', zh: '100 系为干线、1–66 为主干、200–399 为集散' }],
+  ['AB', 'stated', { en: 'Two series, 1–216 and 500–986, assigned by Ministerial Order. The directional logic is not in any document I could find', zh: '1–216 与 500–986 两个序列，由部长令指定。方向性逻辑查不到任何文件依据' }],
+  ['ON', 'observed', { en: '400-series means freeway, and many are the old number plus 400 — described by historians, not by the ministry', zh: '400 系代表高速公路，多数是旧号加 400——此说出自研究者而非交通部' }],
+  ['SK', 'observed', { en: '600s north–south, 700s east–west. No government statement of it', zh: '600 系南北向、700 系东西向。政府未作任何表述' }],
+  ['NL', 'observed', { en: 'Numbers cluster by region, east to west. No parity or directional rule', zh: '号码按区域自东向西聚集。无奇偶或方向规则' }],
+  ['YT', 'observed', { en: 'Fourteen highways, numbered 1–11, 14–15 and 37. No rule', zh: '十四条地区公路，编号 1–11、14–15 与 37。无规则' }],
+  ['NT', 'observed', { en: 'Ten highways, numbered 1–10, each also named. No rule', zh: '十条公路，编号 1–10，各有名称。无规则' }],
+  ['BC', 'denied', { en: 'Technical Circular T-06/96 sets out the numbering criteria and contains no geographic rule at all. The ministry: “there isn’t one”', zh: '技术通告 T-06/96 规定了编号准则，其中没有任何地理规则。交通部原话：“并不存在”' }],
+  ['NU', 'none', { en: 'There are roads, but none of them carry a number', zh: '有道路，但没有一条带编号' }],
+];
+
+const CA_LEVEL_COLOUR = {
+  codified: '#6ef7a5', stated: '#35e7ff', observed: '#ffb545', denied: '#ff6b8a', none: '#7a8ca6',
+};
+
+function nbCanadaPane() {
+  const zh = getLang() === 'zh';
+  // Framed to the autoroutes themselves. A guessed box left most of the panel
+  // empty with everything knotted around Montréal, because that is where the
+  // network is; letting the data set the frame spends the width on the part
+  // that has something in it.
+  const qc = [...qcAutoroutes('ns'), ...qcAutoroutes('ew')];
+  const d = numberingDiagram('provincial', {
+    box: qc.length ? boxOf(qc) : QC_BOX,
+    colour: '#a98bff', pick: qcAutoroutes, lonStep: 2, latStep: 1,
+    gapX: 22, gapY: 13,
+  });
+
+  // The Trans-Canada's numbers, read out of the atlas rather than recited, so
+  // the claim that it changes number at provincial lines is shown in the data.
+  const tch = new Map();
+  for (const r of app.index) {
+    if (r.sys !== 'tch' || !r.st) continue;
+    const prev = tch.get(r.st);
+    if (!prev || r.mi > prev.mi) tch.set(r.st, r);
+  }
+  // Distinct numbers, longest first. Listing one entry per jurisdiction repeated
+  // the shared ones back at the reader — "TCH 1, TCH 1, TCH 16, TCH 16" — which
+  // undercut the very point the sentence is making.
+  const byNum = new Map();
+  for (const r of tch.values()) {
+    const prev = byNum.get(r.num);
+    if (!prev || r.mi > prev.mi) byNum.set(r.num, r);
+  }
+  const tchNums = [...byNum.values()].sort((a, b) => b.mi - a.mi).map((r) => `<b>${r.label}</b>`);
+  const distinct = byNum.size;
+
+  const rules = [
+    [zh ? '没有全国性网格' : 'There is no national grid',
+      zh ? `编号是省级权力，不存在联邦编号机构。横加公路本身就是证据：它在本图谱收录的 ${tch.size} 个省区里用了 <b>${distinct}</b> 种不同编号——${tchNums.slice(0, 6).join('、')}……`
+        : `Numbering is a provincial power and no federal numbering authority exists. The Trans-Canada is its own proof: across the ${tch.size} jurisdictions in this atlas it carries <b>${distinct}</b> different numbers — ${tchNums.slice(0, 6).join(', ')}…`],
+    [zh ? '同一条路，过境换号' : 'One road, two numbers',
+      zh ? '登普斯特公路在育空是 <b>5 号</b>，越过地区界线就变成西北地区 <b>8 号</b>。没有任何机构负责阻止这种事。'
+        : 'The Dempster Highway is <b>Yukon 5</b> on one side of the territorial line and <b>Northwest Territories 8</b> on the other. There is no body whose job it is to prevent that.'],
+    [zh ? '魁北克是唯一的例外' : 'Québec is the one exception',
+      zh ? '偶数东西向（平行于圣劳伦斯河），奇数南北向。交通部注明该原则<b>仅适用于 5 至 85 号</b>。'
+        : 'Even numbers run east–west, parallel to the St Lawrence; odd numbers run north–south. The ministry bounds the principle: <i>“Ce principe s’applique seulement aux autoroutes 5 à 85.”</i>'],
+    [zh ? '但方向究竟朝哪边，官方自己说反了' : 'Which way they climb, the ministry gets backwards',
+      zh ? `《高速公路名录》写的是「奇数自南向北、偶数自西向东」，但路网本身恰好相反：奇数<b>自西向东</b>递增（加蒂诺的 A-5 到里维耶尔迪吕的 A-85），偶数<b>自南向北</b>递增。左图按实测坐标绘制，因此呈现的是路网的答案而非文本的答案。这类分歧本站选择保留而非抹平。`
+        : 'The <i>Répertoire</i> pairs odd with south-to-north and even with west-to-east. The network is the other way round: odd climbs <b>west to east</b>, from A-5 at Gatineau to A-85 at Rivière-du-Loup, and even climbs <b>south to north</b>. The diagram is drawn from measured positions, so it shows the network’s answer rather than the sentence’s. The disagreement is kept here rather than tidied away.'],
+    [zh ? '三位数的规则和美国一模一样' : 'Three digits work just like the Interstates',
+      zh ? '<b>偶数打头是绕城、奇数打头是支线</b>，后两位指明母路——A-440 绕行 A-40，A-720 是 A-20 的支线。此条出自交通部关于路线编号的官方播客，而非《名录》页面，后者并未提及。'
+        : 'An <b>even first digit is a bypass, an odd one a spur</b>, and the last two digits name the parent — A-440 detours A-40, A-720 is an antenna off A-20. This one comes from the ministry’s own podcast on route numbers, not from the <i>Répertoire</i>, which does not mention it.'],
+    [zh ? '不列颠哥伦比亚官方否认有系统' : 'British Columbia says there is no system',
+      zh ? '交通部技术通告 T-06/96 是编号的官方文件，通篇没有任何地理或奇偶规则，只写明“编号主要取决于该公路的功能分级”。部门自己的说法更直接：看起来没有逻辑，是因为真的没有。'
+        : 'Technical Circular T-06/96 is the official document on numbering. It contains no geographic or parity rule whatsoever — its entire stated criterion is that “highway numbering decisions are largely determined by the functional classifications of the highway”. The ministry puts it more bluntly: there is no logical connection because there isn’t one.'],
+  ];
+
+  return `<div class="nb-wrap ca">
+    <div class="nb-viz">${d.svg}
+      <p style="margin:10px 2px 0;font-family:var(--mono);font-size:9.5px;color:var(--ink-faint)">${t('nb.ca.cap')}</p>
+    </div>
+    <div class="nb-note">
+      <h4>${t('nb.ca.h')}</h4>
+      ${rules.map(([k, v], i) => `<div class="nb-rule">
+        <span class="nb-rule-n">${i + 1}</span>
+        <span class="nb-rule-t"><b>${k}</b><br>${v}</span>
+      </div>`).join('')}
+
+      <h4 style="margin-top:16px">${t('nb.ca.ladder')}</h4>
+      <div class="nb-ladder">
+        ${CA_LADDER.map(([st, level, note]) => `<div class="nb-lad">
+          <span class="nb-lad-st">${st}</span>
+          <span class="nb-lad-lv" style="--lv:${CA_LEVEL_COLOUR[level]}">${t(`nb.ca.lv.${level}`)}</span>
+          <span class="nb-lad-n">${note[zh ? 'zh' : 'en']}</span>
+        </div>`).join('')}
+      </div>
+      <p class="nb-src">${zh
+    ? '来源：魁北克《公路网功能分级》、《魁北克高速公路名录》与交通部播客《De A720 à R136》；BC 交通部技术通告 T-06/96（1997 年 2 月 14 日生效）；曼尼托巴《公路与运输法》CCSM c. H40 及 M.R. 415/88；新不伦瑞克运输与基建厅；新斯科舍公共工程厅。标为“仅为观察到的模式”者，指本站未能找到任何政府文件陈述该规则。'
+    : 'Sources: Québec’s Classification fonctionnelle du réseau routier, the Répertoire des autoroutes du Québec and the ministry podcast De A720 à R136; BC Ministry of Transportation Technical Circular T-06/96, in force 14 February 1997; Manitoba’s Highways and Transportation Act CCSM c. H40 and M.R. 415/88; NBDTI; Nova Scotia Public Works. “Pattern only” means no government document stating the rule could be found.'}</p>
+    </div>
+  </div>`;
+}
+
+/* Switching language rebuilds the whole sheet, and this used to reopen on the
+   first tab - so a reader part-way through the Canada pane was thrown back to
+   the Interstates for the crime of wanting to read it in the other language. */
+let nbTab = 'interstate';
+
 function wireNumbering() {
   const body = document.getElementById('nbBody');
   const paint = (kind) => {
+    nbTab = kind;
     body.innerHTML = nbPane(kind);
     for (const line of body.querySelectorAll('.nb-route[data-id]')) {
       line.addEventListener('mouseenter', () => {
@@ -290,8 +449,9 @@ function wireNumbering() {
       line.addEventListener('click', () => { closeSheet(); select(line.dataset.id); });
     }
   };
-  paint('interstate');
+  paint(nbTab);
   for (const tab of document.querySelectorAll('[data-nb]')) {
+    tab.classList.toggle('on', tab.dataset.nb === nbTab);
     tab.addEventListener('click', () => {
       for (const o of document.querySelectorAll('[data-nb]')) o.classList.toggle('on', o === tab);
       paint(tab.dataset.nb);

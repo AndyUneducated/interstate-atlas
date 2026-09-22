@@ -1160,6 +1160,37 @@ body.tlapse-on #detail { bottom: 108px; }
 .nb-rule-t { flex: 1; font-size: 12.5px; line-height: 1.6; color: #cfdcec; }
 .nb-rule-t b { color: var(--ink); }
 
+/* Canada carries a thirteen-row ladder as well as its rules, and 300px is a
+   column for four paragraphs, not for that. */
+.nb-wrap.ca { grid-template-columns: minmax(0, 1fr) 430px; }
+
+.nb-ladder {
+  display: flex; flex-direction: column; gap: 1px;
+  background: var(--line); border: 1px solid var(--line);
+  border-radius: var(--r-md); overflow: hidden;
+}
+.nb-lad {
+  display: grid; grid-template-columns: 30px 124px minmax(0, 1fr);
+  gap: 9px; align-items: baseline;
+  padding: 8px 10px; background: var(--panel-solid);
+}
+.nb-lad-st {
+  font-family: var(--mono); font-size: 11px; color: var(--ink);
+  letter-spacing: 0.06em;
+}
+/* The verdict is the point of the row, so it is the coloured thing in it. */
+.nb-lad-lv {
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--lv);
+  border-left: 2px solid var(--lv); padding-left: 7px;
+}
+.nb-lad-n { font-size: 11.5px; line-height: 1.5; color: var(--ink-dim); }
+.nb-src {
+  margin: 12px 2px 0; font-size: 10.5px; line-height: 1.6; color: var(--ink-faint);
+}
+
+html[data-lang="zh"] .nb-lad-lv { letter-spacing: 0.04em; text-transform: none; font-size: 10px; }
+
 /* ==========================================================================
    Dashboard
    ========================================================================== */
