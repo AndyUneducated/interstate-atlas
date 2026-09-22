@@ -16,7 +16,7 @@ tools/serve.pid
 # and deleted afterwards; it is never part of the pipeline.
 *.log
 tools/probe-*.mjs
-tools/_*.mjs
+tools/_*
 
 # Source-checked research notes gathered while writing the route profiles. The
 # citations that survived the writing are in the profiles themselves.

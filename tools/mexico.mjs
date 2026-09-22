@@ -16,7 +16,19 @@
 // from ADMINISTRA and JURISDI, the two fields that say who maintains the road
 // and who has authority over it. That is a fact about the road rather than an
 // inference from its geometry, which is the only kind of tier this atlas will
-// assign.
+// assign. Both tiers are asked for positively: a road is federal because
+// ADMINISTRA says Federal, and state because it says Estatal. Neither is the
+// residue of failing the other test, because the field also says Municipal,
+// Particular and Otro, and those are caminos rather than highways.
+//
+// What the state tier is NOT is a census of Mexico's state highways. CODIGO
+// is a per-state inventory key, and how completely a state filled it in
+// varies from 93% of its carretera kilometres in Chihuahua to 0.7% in
+// Tlaxcala. Veracruz has more state carretera kilometres than any other state
+// and yields fifteen numbered routes. So a per-state route count measures
+// that state's coding practice, and the two must not be compared. The tier is
+// "numbered state roads as the RNC codes them" and should be described that
+// way wherever it is totalled.
 //
 // The RNC is a routable network rather than a drawn map, and it is richer than
 // either northern source: every segment carries its lane count, surface
@@ -218,12 +230,14 @@ export function normaliseRoute(value, onReject = null) {
  *   Q99, S99, G-99  three prefixes the data dictionary does not define. 341
  *                   segments, refused rather than guessed at
  *
- * There is no D suffix anywhere in the field. Mexico's tolled federal routes
- * are signed with one, and SICT's own traffic file writes them that way, but
- * the road file carries toll status only in PEAJE. So the suffix is parsed,
- * because it arrives from the other source, and the cross-check readRedVial
- * runs against PEAJE reports how many segments carry it - which in the edition
- * this was written against is none of them.
+ * The D suffix is very nearly absent from the field, and where it appears it
+ * is contradicted. This edition carries exactly one D-numbered road, MEX-105D
+ * over 41 segments, and PEAJE says No on all 41. Across the whole layer the
+ * 41 D-suffixed segments and the 16,629 PEAJE-flagged ones do not overlap at
+ * all. So the suffix is parsed - it is part of the designation, and it does
+ * arrive populated from SICT's traffic file - but it is not read as evidence
+ * of a toll. PEAJE is the only usable statement of toll status in this file,
+ * and readRedVial reports the non-overlap rather than averaging it away.
  */
 export function parseRoute(codigo, tipoVial) {
   if (String(tipoVial ?? '').trim().toLowerCase() !== 'carretera') return [];
@@ -377,7 +391,8 @@ export async function readRedVial({
   const src = await shapefile.open(`${path}.shp`, `${path}.dbf`, { encoding });
   const counts = {
     read: 0, kept: 0, carreteras: 0, numbered: 0, padded: 0, concurrent: 0,
-    notOpen: 0, unplaceable: 0, suffixD: 0, peajeYes: 0, tollAgree: 0, tollDisagree: 0,
+    notOpen: 0, unplaceable: 0, notStateRun: 0, suffixD: 0, peajeYes: 0,
+    tollAgree: 0, tollDisagree: 0,
   };
   const types = new Map();
 
@@ -411,19 +426,36 @@ export async function readRedVial({
     // CODIGO is a bare number, so what makes a road federal is who administers
     // it, not how it is written. ADMINISTRA says that directly; JURISDI says
     // it a second way, by naming the federation instead of a state. Either is
-    // taken, because a segment can carry one and not the other.
+    // taken for the federal tier, because a segment can carry one and not the
+    // other.
+    //
+    // The state tier asks ADMINISTRA directly rather than treating every
+    // non-federal road as a state one. ADMINISTRA distinguishes Estatal from
+    // Municipal, Particular and Otro, and 2,746 numbered carretera segments
+    // are municipal or private - caminos that a state never adopted, arriving
+    // with a number because the state's inventory gave them one. Reading them
+    // as state highways put 211 roads into the tier on no authority; the
+    // publisher's own word for them is Municipal.
     const jur = state(p.JURISDI);
     const admin = clean(p.ADMINISTRA);
     const federal = admin === 'Federal' || jur?.key === FEDERATION;
-    const prefix = federal ? 'MEX' : routePrefix(jur);
+    const stateRun = !federal && admin === 'Estatal';
+    const prefix = federal ? 'MEX' : stateRun ? routePrefix(jur) : null;
     const routes = parsed
-      .map((r) => ({ ...r, prefix: r.prefix ?? prefix, system: (r.prefix ?? prefix) === 'MEX' ? 'federal' : 'state' }))
-      // A numbered carretera whose jurisdiction is neither the federation nor
-      // a named state cannot be given a designation without deciding which
-      // state it belongs to from its position, which is the kind of guess this
-      // atlas does not make. It is counted and left out.
+      .map((r) => ({
+        ...r,
+        prefix: r.prefix ?? prefix,
+        system: (r.prefix ?? prefix) === 'MEX' ? 'mx-federal' : 'mx-state',
+      }))
+      // A numbered carretera that is neither federally nor state administered,
+      // or whose jurisdiction names no state, cannot be given a designation
+      // without deciding from its position which system it belongs to - the
+      // kind of guess this atlas does not make. It is counted and left out.
       .filter((r) => r.prefix);
-    if (parsed.length && !routes.length) counts.unplaceable++;
+    if (parsed.length && !routes.length) {
+      if (!federal && !stateRun) counts.notStateRun++;
+      else counts.unplaceable++;
+    }
 
     if (!routes.length) {
       // An unnumbered carretera is real road and worth drawing faintly beneath
@@ -444,16 +476,18 @@ export async function readRedVial({
     const peaje = clean(p.PEAJE);
     const tolled = peaje == null ? null : /^s[ií]$/i.test(peaje);
     // The D suffix and the PEAJE flag are two independent statements about the
-    // same segment, one from the designation and one from the inventory. Where
-    // they disagree one of them is wrong, and the count is reported rather
-    // than silently resolved: a free stretch of a road numbered D is usually a
-    // toll-free access section, and a tolled segment on an undesignated number
-    // is usually a bridge. Where CODIGO carries no suffix at all the
-    // comparison has nothing to say, which is itself worth reporting.
+    // same segment, one from the designation and one from the inventory, so
+    // they are compared rather than merged.
+    //
+    // The comparison is drawn only over segments where at least one of the two
+    // says tolled. Counting every both-say-no segment as an agreement measured
+    // how much of Mexico is not a toll road, which is 91% and means nothing:
+    // it would have printed a reassuring figure over two fields that, in this
+    // edition, corroborate each other on exactly zero segments.
     const designatedToll = routes.some((x) => x.toll);
     if (designatedToll) counts.suffixD++;
     if (tolled) counts.peajeYes++;
-    if (tolled != null) {
+    if (tolled != null && (designatedToll || tolled)) {
       if (designatedToll === tolled) counts.tollAgree++;
       else counts.tollDisagree++;
     }
@@ -561,13 +595,21 @@ export async function loadMexico(_root, { context = null, base = null } = {}) {
   if (!res.suffixD) {
     console.log(`      no CODIGO carries a D suffix; PEAJE alone marks the ${res.peajeYes}`
       + ' tolled segments, so the two cannot be cross-checked');
+  } else if (!res.tollAgree) {
+    console.log(`      the D suffix and PEAJE never corroborate each other: ${res.suffixD}`
+      + ` segments are designated D, ${res.peajeYes} are flagged tolled, and the two sets do`
+      + ' not overlap. PEAJE is the only usable statement of toll status');
   } else if (tollSeen) {
     console.log(`      D suffix and PEAJE agree on ${((res.tollAgree / tollSeen) * 100).toFixed(1)}%`
-      + ` of ${tollSeen} numbered segments (${res.suffixD} designated D, ${res.peajeYes} flagged`
-      + `, ${res.tollDisagree} disagree)`);
+      + ` of the ${tollSeen} segments where either says tolled (${res.suffixD} designated D,`
+      + ` ${res.peajeYes} flagged, ${res.tollDisagree} disagree)`);
   }
   if (res.unplaceable) {
     console.log(`      ${res.unplaceable} numbered segments name neither the federation nor a state, and are left out`);
+  }
+  if (res.notStateRun) {
+    console.log(`      ${res.notStateRun} numbered segments are administered by a municipality`
+      + ' or a private party rather than a state, and are left out of the state tier');
   }
   if (rejected.size) {
     const segs = [...rejected.values()].reduce((a, b) => a + b, 0);
@@ -578,7 +620,7 @@ export async function loadMexico(_root, { context = null, base = null } = {}) {
 
 /** Which tier a stitched Mexican route belongs to. */
 export function mexicoSystem(grp) {
-  return grp.system === 'federal' ? 'federal-mx' : 'state-mx';
+  return grp.system;
 }
 
 /** The label a Mexican route carries, in each language. */
