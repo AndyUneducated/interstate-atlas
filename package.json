@@ -10,8 +10,8 @@
     "fetch": "node tools/fetch-source.mjs && node tools/fetch-fhwa.mjs && node tools/fetch-hpms.mjs",
     "fetch:ca": "node tools/fetch-canada.mjs && node tools/fetch-canada-nhs.mjs && node tools/fetch-canada-traffic.mjs",
     "fetch:qc": "node tools/fetch-quebec-autoroutes.mjs",
-    "fetch:mx": "node tools/fetch-mexico.mjs && node tools/fetch-mexico-traffic.mjs",
-    "fetch:mx:check": "node tools/fetch-mexico.mjs --check",
+    "fetch:mx": "node tools/fetch-mexico.mjs && node tools/fetch-mexico-traffic.mjs && node tools/fetch-mexico-designations.mjs",
+    "fetch:mx:check": "node tools/fetch-mexico.mjs --check && node tools/fetch-mexico-designations.mjs --check",
     "fetch:all": "npm run fetch && npm run fetch:ca && npm run fetch:qc && npm run fetch:mx",
     "build": "node tools/build-data.mjs && node tools/build-content.mjs",
     "build:elevation": "node tools/build-elevation.mjs",
@@ -25,6 +25,7 @@
     "shapefile": "^0.6.6"
   },
   "devDependencies": {
+    "pdfjs-dist": "^6.3.289",
     "playwright-core": "^1.63.0"
   }
 }
