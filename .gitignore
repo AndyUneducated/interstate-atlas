@@ -11,9 +11,12 @@ tools/shots/
 tools/elev.log
 tools/serve.pid
 
-# Build logs and one-off diagnostic scripts.
+# Build logs and one-off diagnostic scripts. Anything under tools/ whose name
+# starts with an underscore is a throwaway probe written to answer one question
+# and deleted afterwards; it is never part of the pipeline.
 *.log
 tools/probe-*.mjs
+tools/_*.mjs
 
 # Source-checked research notes gathered while writing the route profiles. The
 # citations that survived the writing are in the profiles themselves.
