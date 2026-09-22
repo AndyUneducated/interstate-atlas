@@ -361,6 +361,59 @@ const OPEN_BY_FOLD = new Set([...OPEN].map(fold));
 const PAVED = fold('Con pavimento');
 const UNPAVED = fold('Sin pavimento');
 
+/* ══════════════════════════════════════════════════════════════════════════
+   Two things a bare number can be, besides a route
+   ══════════════════════════════════════════════════════════════════════════ */
+
+const deaccent = (s) => String(s ?? '').normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '').toUpperCase().trim();
+
+/**
+ * A tramo named only by reference to some other road.
+ *
+ * "Ramal a Ibarra", "Acceso a Juan Martin", "E.C. (Leon - San Felipe)",
+ * "Km. 11.5 (Huixquilucan - Rio Hondo) - Palo Solo". These are branches,
+ * accesses and offsets: a way of saying where a piece of road leaves from,
+ * not a designation for it.
+ *
+ * This atlas already refuses the same roads when they arrive numbered
+ * hierarchically - Guanajuato's 87-3 off 87-0, in the style Newfoundland uses
+ * in the Canadian source - on the grounds that they are addresses rather than
+ * designations. 773 more arrive with a bare number instead, and they are the
+ * same kind of road. Refusing one form and admitting the other would be a
+ * distinction in the spelling, not in the road.
+ *
+ * Read from NOMBRE, which is prose rather than a coded field. That is a real
+ * weakness and the reason the test is deliberately narrow: the whole group has
+ * to be named this way. One member with an ordinary road name keeps the route.
+ */
+const BRANCH_PREFIX = /^(?:RAMAL\b|ACCESO\b|ENTR?\.|E\.\s?C\.|KM\.?\s*\d)/;
+
+function isBranchOnly(grp) {
+  if (!grp.names.size) return false;
+  for (const name of grp.names) {
+    if (!BRANCH_PREFIX.test(deaccent(name))) return false;
+  }
+  return true;
+}
+
+/**
+ * A number that is an inventory key rather than a designation.
+ *
+ * Every state's CODIGO is its own inventory, and most states fill it like a
+ * numbering system: Chihuahua puts 291 routes in the range 1-331, Aguascalientes
+ * 167 in 1-172. The State of Mexico does not - it scatters 208 numbers across
+ * 1-8059, and what sits at the high end is not highway. EM-3015 is Paseo
+ * Tollocan, a boulevard in Toluca; EM-1032 is 133 metres long.
+ *
+ * Four digits is the signature: 39 of the 40 four-digit numbers in the country
+ * are Estado de Mexico. They are kept, because no published field separates an
+ * inventory key from a designation and dropping them would be this atlas
+ * deciding that for itself - but they are flagged, so anything that totals or
+ * ranks the state tier can say what it is counting.
+ */
+const INVENTORY_NUMBER = /^\d{4}$/;
+
 const num = (v) => {
   const n = Number(String(v ?? '').replace(/[^0-9.-]/g, ''));
   return Number.isFinite(n) ? n : null;
@@ -392,8 +445,10 @@ export async function readRedVial({
   const counts = {
     read: 0, kept: 0, carreteras: 0, numbered: 0, padded: 0, concurrent: 0,
     notOpen: 0, unplaceable: 0, notStateRun: 0, suffixD: 0, peajeYes: 0,
-    tollAgree: 0, tollDisagree: 0,
+    tollAgree: 0, tollDisagree: 0, branchOnly: 0, inventoryNumbered: 0,
+    federalBranchNamed: 0,
   };
+  const branchNamedFederal = [];
   const types = new Map();
 
   for (;;) {
@@ -565,7 +620,30 @@ export async function readRedVial({
     }
   }
 
-  return { groups, types, encoding, ...counts };
+  for (const [key, grp] of groups) {
+    if (isBranchOnly(grp)) {
+      // Only the state tier. A MEX number is a designation the federation
+      // issued and signs, so how its tramos happen to be named in the
+      // inventory does not unmake it; thirteen federal routes are named this
+      // way throughout and they stay. A state number is that state's own
+      // inventory key, which is exactly what is in question here.
+      if (grp.system === 'mx-federal') {
+        counts.federalBranchNamed++;
+        branchNamedFederal.push(grp.id);
+      } else {
+        groups.delete(key);
+        counts.branchOnly++;
+        continue;
+      }
+    }
+    // Kept, but flagged. See INVENTORY_NUMBER.
+    if (INVENTORY_NUMBER.test(grp.number)) {
+      grp.inventoryNumber = true;
+      counts.inventoryNumbered++;
+    }
+  }
+
+  return { groups, types, encoding, branchNamedFederal, ...counts };
 }
 
 /**
@@ -610,6 +688,19 @@ export async function loadMexico(_root, { context = null, base = null } = {}) {
   if (res.notStateRun) {
     console.log(`      ${res.notStateRun} numbered segments are administered by a municipality`
       + ' or a private party rather than a state, and are left out of the state tier');
+  }
+  if (res.branchOnly) {
+    console.log(`      ${res.branchOnly} state routes are named only as a ramal, acceso or`
+      + ' offset from another road, and are left out for the same reason the hyphenated'
+      + ' form is');
+  }
+  if (res.federalBranchNamed) {
+    console.log(`      ${res.federalBranchNamed} federal routes are named that way too and are`
+      + ` kept, the designation being the federation's: ${res.branchNamedFederal.join(', ')}`);
+  }
+  if (res.inventoryNumbered) {
+    console.log(`      ${res.inventoryNumbered} routes carry a four-digit number, which in the`
+      + ' State of Mexico is an inventory key rather than a designation; kept and flagged');
   }
   if (rejected.size) {
     const segs = [...rejected.values()].reduce((a, b) => a + b, 0);
