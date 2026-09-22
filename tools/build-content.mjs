@@ -314,8 +314,60 @@ async function main() {
     }
   } catch { warn('milestones.json', 'not found; timeline will have route events only'); }
 
+  // Québec's Répertoire dates each tronçon's opening to traffic. Those years
+  // belong on the playhead as sourced notes. They are not turned into map
+  // geometry: the directory does not publish coordinates, and lighting a whole
+  // autoroute in the year its first piece opened would draw unopened road as
+  // open. One span ("1975-1979") is kept undated, as the scraper recorded it.
+  let quebec = null;
+  try {
+    const qc = JSON.parse(await readFile(join(ROOT, 'content', 'reference', 'qc-autoroutes.json'), 'utf8'));
+    const srcLine = `${qc.source.publisher} — ${qc.source.title}`;
+    const qcId = (number) => {
+      const n = String(number);
+      const hits = index.routes.filter((r) => r[IX.st] === 'QC' && String(r[IX.num]) === n);
+      if (hits.length === 1) return hits[0][IX.id];
+      const exact = hits.find((r) => r[IX.id] === `qc-${n}`);
+      return exact ? exact[IX.id] : null;
+    };
+    let dated = 0;
+    let undated = 0;
+    let linked = 0;
+    for (const a of Object.values(qc.autoroutes ?? {})) {
+      const id = qcId(a.number);
+      for (const sec of a.sections ?? []) {
+        for (const seg of sec.segments ?? []) {
+          if (typeof seg.year !== 'number') { undated++; continue; }
+          dated++;
+          if (id) linked++;
+          timelineEvents.push({
+            year: seg.year,
+            en: `Opened to traffic: Autoroute ${a.number}`
+              + (sec.name ? `, ${sec.name}` : '')
+              + ` — ${seg.segment}.`,
+            zh: `通车：${a.number} 号高速公路`
+              + (sec.name ? `（${sec.name}）` : '')
+              + ` — ${seg.segment}。`,
+            source: srcLine,
+            kind: 'qc',
+            ...(id ? { id } : {}),
+          });
+        }
+      }
+    }
+    quebec = {
+      segments: qc.coverage?.segments ?? dated + undated,
+      dated,
+      undated,
+      linked,
+      yearFrom: qc.coverage?.yearFrom ?? null,
+      yearTo: qc.coverage?.yearTo ?? null,
+      source: { publisher: qc.source.publisher, title: qc.source.title, url: qc.source.url, retrieved: qc.source.retrieved },
+    };
+  } catch { warn('qc-autoroutes.json', 'not found; Québec openings will not appear on the playhead'); }
+
   timelineRoutes.sort((a, b) => a.year - b.year);
-  timelineEvents.sort((a, b) => a.year - b.year);
+  timelineEvents.sort((a, b) => a.year - b.year || (a.system ? -1 : b.system ? 1 : 0));
   const years = [...timelineRoutes.map((r) => r.year), ...timelineEvents.map((e) => e.year)];
 
   // FHWA's year-by-year mileage table rides along in the same file. It is the
@@ -333,7 +385,7 @@ async function main() {
     range: [Math.min(1956, ...years), Math.max(2026, ...years)],
     // How much of the network the map can honestly light up, so the view can
     // report its own coverage instead of implying it is complete.
-    coverage: { interstates, documented: timelineRoutes.length },
+    coverage: { interstates, documented: timelineRoutes.length, quebec },
     mileage,
     routes: timelineRoutes,
     events: timelineEvents,
@@ -345,7 +397,8 @@ async function main() {
       + ' the FHWA route cost table:');
     for (const s of superseded) console.log(`  ${s}`);
   }
-  console.log(`timeline: ${timelineRoutes.length} dated routes, ${timelineEvents.length} events`);
+  console.log(`timeline: ${timelineRoutes.length} dated routes, ${timelineEvents.length} events`
+    + (quebec ? ` (${quebec.dated} Québec tronçons, ${quebec.undated} undated, ${quebec.linked} matched to a mapped route)` : ''));
 
   if (warnings.length) {
     console.log(`\n${warnings.length} warning(s):`);

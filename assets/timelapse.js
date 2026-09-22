@@ -48,26 +48,36 @@ const VH = 100;
  * the y axis is miles open, both linear, so the shape is the real one - no
  * smoothing that would flatten the 1960s.
  */
-function curvePaths(rows, year) {
-  const y0 = rows[0][0];
-  const y1 = rows[rows.length - 1][0];
+function curvePaths(rows, year, domain) {
+  const x0 = domain?.min ?? rows[0][0];
+  const x1 = domain?.max ?? rows[rows.length - 1][0];
+  const lastYr = rows[rows.length - 1][0];
+  const lastOpen = rows[rows.length - 1][1];
   const max = rows[rows.length - 1][2]; // designated system: the ceiling
-  const xOf = (yr) => ((yr - y0) / (y1 - y0)) * VW;
+  const xOf = (yr) => ((yr - x0) / Math.max(x1 - x0, 1)) * VW;
   const yOf = (mi) => VH - (mi / max) * VH;
 
   const pts = rows.map(([yr, open]) => [xOf(yr), yOf(open)]);
+  // FHWA's table ends in 1997. Years after that stay on the playhead because
+  // other dated openings exist; the mileage series does not continue, so the
+  // line holds the last published figure rather than being guessed onward.
+  if (x1 > lastYr) pts.push([xOf(x1), yOf(lastOpen)]);
   const line = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join('');
 
   // The filled part stops at the current year, interpolated between the two
   // bracketing years so the fill edge tracks the playhead exactly.
-  const clamped = Math.min(Math.max(year, y0), y1);
-  const upto = pts.filter((_, i) => rows[i][0] <= clamped);
+  const clamped = Math.min(Math.max(year, x0), x1);
+  const upto = [];
+  for (let i = 0; i < rows.length; i++) {
+    if (rows[i][0] <= clamped) upto.push(pts[i]);
+  }
+  if (clamped > lastYr) upto.push([xOf(clamped), yOf(lastOpen)]);
   if (upto.length < 2) upto.push(pts[0], pts[Math.min(1, pts.length - 1)]);
   const last = upto[upto.length - 1];
   const area = `${upto.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join('')}`
     + `L${last[0].toFixed(1)} ${VH}L${upto[0][0].toFixed(1)} ${VH}Z`;
 
-  return { line, area, x: last[0], y: last[1], xOf, y0, y1 };
+  return { line, area, x: last[0], y: last[1], xOf, y0: x0, y1: x1 };
 }
 
 /** Mileage open at a year, and the designated total, from the published table. */
@@ -193,7 +203,7 @@ function paint() {
   const row = atYear(rows, year);
   const el = document.getElementById('tlapse');
 
-  const { line, area, x, y } = curvePaths(rows, year);
+  const { line, area, x, y } = curvePaths(rows, year, { min: state.min, max: state.max });
   el.querySelector('.tlx-year').textContent = year;
   el.querySelector('.tlx-area').setAttribute('d', area);
   el.querySelector('.tlx-line').setAttribute('d', line);
@@ -237,7 +247,8 @@ function paintEvents(year) {
   if (state.evKey === key) return;
   state.evKey = key;
 
-  const hits = state.events.filter((e) => e.year === year);
+  const hits = state.events.filter((e) => e.year === year)
+    .sort((a, b) => (a.system ? 0 : 1) - (b.system ? 0 : 1) || (a.kind === 'qc' ? 0 : 1) - (b.kind === 'qc' ? 0 : 1));
   if (!hits.length) { host.hidden = true; host.innerHTML = ''; return; }
   host.hidden = false;
   host.innerHTML = hits.slice(0, 3).map((e) => `
@@ -332,17 +343,22 @@ export async function openTimelapse() {
 
   const rows = tl.mileage.open;
   const routes = tl.routes.filter((r) => r.year).sort((a, b) => a.year - b.year);
+  const events = tl.events || [];
+  const qcYears = events.filter((e) => e.kind === 'qc').map((e) => e.year);
   state = {
     rows,
     routes,
-    events: tl.events || [],
+    events,
     source: tl.mileage.source,
     coverage: tl.coverage,
     // Starts at the Act rather than at the first data point, so the scrubber
     // opens on the year the system was authorised and the reader arrives
-    // before anything has been built rather than part-way in.
-    min: Math.min(1956, rows[0][0], routes[0].year),
-    max: Math.max(rows[rows.length - 1][0], routes[routes.length - 1].year),
+    // before anything has been built rather than part-way in. Québec openings
+    // stretch the far end past 1997, where FHWA's mileage series stops.
+    // Older system-wide notes (some nineteenth-century) stay as events but
+    // do not pull the axis back before the Interstate programme.
+    min: Math.min(1956, rows[0][0], routes[0]?.year ?? 1956, ...qcYears),
+    max: Math.max(rows[rows.length - 1][0], routes[routes.length - 1]?.year ?? 0, ...qcYears),
     year: 0,
     timer: null,
     evKey: null,
@@ -399,10 +415,10 @@ async function loadTimeline() {
 function render() {
   const el = document.getElementById('tlapse');
   const { rows, min, max } = state;
-  const { line, area } = curvePaths(rows, min);
-  const ticks = [1960, 1970, 1980, 1990, 1997].filter((y) => y >= min && y <= max);
-  const y0 = rows[0][0];
-  const y1 = rows[rows.length - 1][0];
+  const { line, area } = curvePaths(rows, min, { min, max });
+  const ticks = [1960, 1970, 1980, 1990, 1997, 2010, 2025].filter((y) => y >= min && y <= max);
+  const y0 = min;
+  const y1 = max;
 
   el.innerHTML = `
     <div class="tlx-l">
@@ -469,6 +485,7 @@ function render() {
       <p>${t('tlx.note', {
     total: num(state.coverage?.interstates ?? 0),
     n: num(state.routes.length),
+    qc: num(state.coverage?.quebec?.dated ?? 0),
   })}</p>
       <p class="src">${esc(state.source?.publisher)} — ${esc(state.source?.title)}</p>
     </div>`;

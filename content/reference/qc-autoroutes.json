@@ -1,0 +1,1601 @@
+{
+ "source": {
+  "title": "Répertoire des autoroutes du Québec",
+  "publisher": "Ministère des Transports et de la Mobilité durable du Québec",
+  "url": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/Pages/repertoire-des-autoroutes-du-Quebec.aspx",
+  "retrieved": "2026-09-20",
+  "licence": "none stated on the page; the site carries \"© Gouvernement du Québec\"",
+  "encoding": {
+   "http": "text/html; charset=utf-8",
+   "document": "UTF-8",
+   "meta": "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">",
+   "replacementChars": 0,
+   "latin1Sequences": 0,
+   "accentedFound": [
+    "Répertoire",
+    "Québec",
+    "tronçon",
+    "Année"
+   ]
+  },
+  "rowsReportedByPage": 192,
+  "rowsRead": 192,
+  "names": "The names of autoroutes and of tronçons are those attributed by the Commission de toponymie du Québec, as the page states. They are kept in French exactly as published; the ministry publishes no English form, so none is recorded here."
+ },
+ "measure": {
+  "column": "Ouverture à la circulation - Année",
+  "means": "The year the tronçon opened to traffic (\"ouverture à la circulation\"), not the year it was completed or designated. The notes on the rows show how far that is from completion in both directions: a segment can be dated from the opening of its first carriageway, with \"2e chaussée ouverte en ...\" putting the second one years or decades later, and several segments carry a note that they still run on one carriageway. In the other direction, a road that already carried traffic as a boulevard is dated from the year it opened as the autoroute: the Autoroute Laurentienne segment is given as 1983 with a note that the same road opened to traffic as Boulevard Laurentien in 1956. The year is therefore when traffic first ran there under the designation the directory files it under, and not a claim that the full autoroute was built.",
+  "published": "Le Répertoire des autoroutes du Québec permet d'accéder aux renseignements (nom, description, longueur en kilomètres du tronçon, année de l'ouverture à la circulation) sur une autoroute en particulier. Pour obtenir ces informations, il suffit d'indiquer le numéro de l'autoroute, son nom ou son année d'ouverture à la circulation au moyen des menus déroulants du champ Filtrer. Choisir une année d'ouverture à la circulation fera apparaître un tableau présentant l'ensemble des autoroutes ou tronçons d'autoroute ouverts à la circulation pendant l'année en question.",
+  "lengthColumn": "Long. en km de la description - the length of the described section, repeated on each of its segment rows. The ministry publishes no per-segment length, so lengths here hang on the section and never on the segment.",
+  "spans": "Where the ministry gives a span rather than a year (\"1975-1979\") it is kept as yearFrom and yearTo with no single year, and such a segment is not dated."
+ },
+ "numbering": {
+  "statement": "Les résultats sont présentés selon le principe de numérotation du réseau routier, soit du sud vers le nord pour les autoroutes à nombre impair et de l'ouest vers l'est pour celles à nombre pair. Ce principe s'applique seulement aux autoroutes 5 à 85. Les noms des autoroutes ou des tronçons d'autoroute sont ceux attribués par la Commission de toponymie du Québec.",
+  "scope": "Ce principe s'applique seulement aux autoroutes 5 à 85.",
+  "url": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/Pages/repertoire-des-autoroutes-du-Quebec.aspx",
+  "note": "This page states the ordering principle only - odd-numbered autoroutes running south to north, even-numbered west to east - and bounds it to autoroutes 5 to 85. It does not state the three-digit convention (an even first digit for a bypass, an odd one for a spur, the last two digits naming the parent), so that rule is not recorded here and would need its own source."
+ },
+ "coverage": {
+  "autoroutes": 29,
+  "sections": 55,
+  "segments": 192,
+  "segmentsWithYear": 191,
+  "segmentsWithYearSpan": 1,
+  "segmentsWithoutYear": 0,
+  "segmentsWithNote": 28,
+  "yearFrom": 1958,
+  "yearTo": 2025,
+  "lengthKm": 2377.8,
+  "sectionsWithoutLength": 0
+ },
+ "autoroutes": {
+  "5": {
+   "number": 5,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r5.gif",
+   "sections": [
+    {
+     "name": "Autoroute de la Gatineau",
+     "description": "De la frontière ontarienne (Pont Cartier-MacDonald) à Gatineau jusqu'à La Pêche (Wakefield)",
+     "lengthKm": 33.8,
+     "segments": [
+      {
+       "segment": "De la frontière ontarienne à la sortie 5 à Gatineau",
+       "published": "1964",
+       "year": 1964
+      },
+      {
+       "segment": "De la sortie 5 à Gatineau à la sortie 13 à Chelsea",
+       "published": "1974",
+       "year": 1974
+      },
+      {
+       "segment": "De la sortie 13 à la jonction du chemin de la Rivière à Chelsea",
+       "published": "1989",
+       "year": 1989
+      },
+      {
+       "segment": "De la jonction du chemin de la Rivière à la jonction de la route 105 (1 km au sud du ruisseau Meech) à Chelsea",
+       "published": "2009",
+       "year": 2009
+      },
+      {
+       "segment": "De la jonction de la route 105 (1 km au sud du ruisseau Meech) à Chelsea jusqu'à la jonction de la route 366 à La Pêche (Wakefield)",
+       "published": "2014",
+       "year": 2014
+      },
+      {
+       "segment": "De la jonction de la route 366 jusqu'à la jonction de la route 105 (chemin MacLaren) à La Pêche (Wakefield)",
+       "published": "1993",
+       "year": 1993
+      }
+     ]
+    }
+   ]
+  },
+  "10": {
+   "number": 10,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r10.gif",
+   "sections": [
+    {
+     "name": "Autoroute Bonaventure",
+     "description": "De l'intersection du boul. Robert-Bourassa et de la rue Wellington à la jonction de l'autoroute 15 à Montréal (Île-des-Sœurs)",
+     "lengthKm": 4.1,
+     "segments": [
+      {
+       "segment": "De l'intersection du boul. Robert-Bourassa et de la rue Wellington à la jonction de l'autoroute 15 à Montréal (Île-des-Sœurs)",
+       "published": "1967",
+       "year": 1967
+      }
+     ]
+    },
+    {
+     "name": "Autoroute des Cantons-de-l'Est",
+     "description": "De la jonction de l'autoroute 15 à Montréal (Île-des-Sœurs) à la jonction des autoroutes 55 et 610 à Sherbrooke",
+     "lengthKm": 141.6,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 15 à Montréal (Île-des-Sœurs) à la jonction de l'autoroute 15 et 20 à Brossard.",
+       "note": "Note: Ouverture du Pont Samuel-de-Champlain en 2019.",
+       "published": "1962",
+       "year": 1962
+      },
+      {
+       "segment": "De la jonction de l'autoroute 15 et 20 à Brossard à la jonction de l'autoroute 55 à Magog",
+       "published": "1964",
+       "year": 1964
+      },
+      {
+       "segment": "De la jonction de l’autoroute 55 à Magog à la jonction des autoroutes 55 et 610 à Sherbrooke",
+       "published": "1980",
+       "year": 1980
+      }
+     ]
+    }
+   ]
+  },
+  "13": {
+   "number": 13,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r13.gif",
+   "sections": [
+    {
+     "name": "Autoroute Chomedey",
+     "description": "De la jonction de l'autoroute 20 à Montréal à la jonction de l'autoroute 640 à Boisbriand",
+     "lengthKm": 21.8,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 20 à Montréal à la jonction de l'autoroute 640 à Boisbriand",
+       "published": "1975",
+       "year": 1975
+      }
+     ]
+    }
+   ]
+  },
+  "15": {
+   "number": 15,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r15.gif",
+   "sections": [
+    {
+     "name": "Autoroute 15",
+     "description": "De la frontière des Etats-Unis à Saint-Bernard-de-Lacolle à la jonction de l'autoroute 930 et de la route 132 à Candiac",
+     "lengthKm": 43,
+     "segments": [
+      {
+       "segment": "De la frontière des États-Unis à Saint-Bernard-de-Lacolle à la jonction de l'autoroute 930 et de la route 132 à Candiac",
+       "published": "1966",
+       "year": 1966
+      }
+     ]
+    },
+    {
+     "name": "Autoroute René-Lévesque",
+     "description": "De la jonction de l'autoroute 930 et de la route 132 à Candiac à la jonction des autoroutes 10 et 20 à Brossard",
+     "lengthKm": 10.8,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 930 et de la route 132 à Candiac à la jonction des autoroutes 10 et 20 à Brossard",
+       "published": "1966",
+       "year": 1966
+      }
+     ]
+    },
+    {
+     "name": "Autoroute 15",
+     "description": "De la sortie 57 (Île-des-Sœurs) à la jonction des autoroutes 20 et 720 à Montréal",
+     "lengthKm": 5.3,
+     "segments": [
+      {
+       "segment": "De la sortie 57 (Île-des-Sœurs) à la jonction des autoroutes 20 et 720 à Montréal",
+       "published": "1967",
+       "year": 1967
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Décarie",
+     "description": "De la jonction des autoroutes 20 et 720 à la jonction de l'autoroute 40 à Montréal",
+     "lengthKm": 7,
+     "segments": [
+      {
+       "segment": "De la jonction des autoroutes 20 et 720 à la sortie 66 à Montréal",
+       "published": "1967",
+       "year": 1967
+      },
+      {
+       "segment": "De la sortie 66 à la jonction de l'autoroute 40 à Montréal",
+       "published": "1959",
+       "year": 1959
+      }
+     ]
+    },
+    {
+     "name": "Autoroute des Laurentides",
+     "description": "De la jonction de l'autoroute 40 à Montréal à la route 117 à Sainte-Agathe-des-Monts",
+     "lengthKm": 88.6,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 40 à Montréal à la sortie 16 à Laval",
+       "published": "1958",
+       "year": 1958
+      },
+      {
+       "segment": "De la sortie 16 à Laval à la sortie 43 à Saint-Jérôme",
+       "published": "1959",
+       "year": 1959
+      },
+      {
+       "segment": "De la sortie 43 à Saint-Jérôme à la sortie 60 à Saint-Sauveur",
+       "published": "1963",
+       "year": 1963
+      },
+      {
+       "segment": "De la sortie 60 à Saint-Sauveur-des-Monts à la sortie 69 à Estérel",
+       "published": "1964",
+       "year": 1964
+      },
+      {
+       "segment": "De la sortie 69 à Estérel à la jonction de la route 117 à Sainte-Agathe-des-Monts",
+       "published": "1974",
+       "year": 1974
+      }
+     ]
+    }
+   ]
+  },
+  "19": {
+   "number": 19,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r19.gif",
+   "sections": [
+    {
+     "name": "Autoroute Papineau",
+     "description": "De la jonction du boul. Henri-Bourassa à Montréal à la jonction de la route 335 et du boul. Dagenais Est à Laval",
+     "lengthKm": 6.7,
+     "segments": [
+      {
+       "segment": "De la jonction du boul.Henri-Bourassa Est à Montréal à la sortie 4 à Laval",
+       "published": "1970",
+       "year": 1970
+      },
+      {
+       "segment": "De la sortie 4 à la sortie 7 à Laval",
+       "published": "1972",
+       "year": 1972
+      },
+      {
+       "segment": "De la sortie 7 jusqu'à la hauteur du Rang du Haut-Saint-François à Laval",
+       "published": "1976",
+       "year": 1976
+      },
+      {
+       "segment": "Du rang du Haut-Saint-François à la jonction de la route 335 et du boul. Dagenais Est à Laval",
+       "published": "1990",
+       "year": 1990
+      }
+     ]
+    }
+   ]
+  },
+  "20": {
+   "number": 20,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r20.gif",
+   "sections": [
+    {
+     "name": "Autoroute du Souvenir",
+     "description": "De la frontière de l'Ontario à Rivière-Beaudette à la jonction des autoroutes 15 et 720 à Montréal (sortie 68)",
+     "lengthKm": 67.6,
+     "segments": [
+      {
+       "segment": "De la frontière de l'Ontario à Rivière-Beaudette à l'autoroute 520 à Montréal (sortie 56)",
+       "published": "1966",
+       "year": 1966
+      },
+      {
+       "segment": "De l'autoroute 520 à la jonction des autoroutes 15 et 720 à Montréal (sortie 68)",
+       "published": "1967",
+       "year": 1967
+      }
+     ]
+    },
+    {
+     "name": "Autoroute René-Lévesque",
+     "description": "De la jonction des autoroutes 10 et 15 à Brossard à la jonction de l'autoroute 25 à Longueuil",
+     "lengthKm": 14.2,
+     "segments": [
+      {
+       "segment": "De la jonction des autoroutes 10 et 15 à Brossard à la jonction de l'autoroute 25 à Longueuil",
+       "published": "1964",
+       "year": 1964
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Jean-Lesage",
+     "description": "De la jonction de l'autoroute 25 à Boucherville à la jonction de la route de Notre-Dame-des-Neiges à Notre-Dame-des-Neiges",
+     "lengthKm": 452.7,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 25 à la sortie 105 à Saint-Mathieu-de-Beloeil",
+       "published": "1966",
+       "year": 1966
+      },
+      {
+       "segment": "De la sortie 105 à Saint-Mathieu-de-Beloeil à la sortie 312 à Lévis",
+       "published": "1964",
+       "year": 1964
+      },
+      {
+       "segment": "De la sortie 312 à la sortie 327 à Lévis",
+       "published": "1968",
+       "year": 1968
+      },
+      {
+       "segment": "De la sortie 327 à Lévis à la sortie 378 à Montmagny",
+       "published": "1970",
+       "year": 1970
+      },
+      {
+       "segment": "De la sortie 378 à Montmagny à la sortie 521 à Cacouna",
+       "published": "1972",
+       "year": 1972
+      },
+      {
+       "segment": "De la sortie 521 à Cacouna à la sortie 527 à L'Isle-Verte",
+       "published": "2011",
+       "year": 2011
+      },
+      {
+       "segment": "De la sortie 527 à L'Isle-Verte à l'intersection de la route de Notre-Dame-des-Neiges à Notre-Dame-des-Neiges",
+       "published": "2015",
+       "year": 2015
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Jean-Lesage",
+     "description": "De la jonction de la route 132 à Rimouski (secteur Bic) à la jonction de la route 132 à Mont-Joli",
+     "lengthKm": 45.2,
+     "segments": [
+      {
+       "segment": "De la jonction de la route 132 au Bic à la sortie 606 à Rimouski. (Une seule chaussée)",
+       "published": "1991",
+       "year": 1991
+      },
+      {
+       "segment": "De la sortie 606 à la sortie 610 à Rimouski. (Une seule chaussée)",
+       "published": "1992",
+       "year": 1992
+      },
+      {
+       "segment": "De la sortie 610 à la sortie 614 à Rimouski. (Une seule chaussée)",
+       "published": "1995",
+       "year": 1995
+      },
+      {
+       "segment": "De la sortie 614 à Rimouski à la sortie 621 à Saint-Anaclet-de-Lessard. (Une seule chaussée)",
+       "published": "2000",
+       "year": 2000
+      },
+      {
+       "segment": "De la sortie 621 à Saint-Anaclet-de-Lessard à la sortie 629 à Sainte-Luce. (Une seule chaussée)",
+       "published": "2004",
+       "year": 2004
+      },
+      {
+       "segment": "De la sortie 629 à Sainte-Luce à la jonction de la route 132 à Mont-Joli. (Une seule chaussée)",
+       "published": "2008",
+       "year": 2008
+      }
+     ]
+    }
+   ]
+  },
+  "25": {
+   "number": 25,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r25.gif",
+   "sections": [
+    {
+     "name": "Autoroute Transcanadienne",
+     "description": "De la jonction de l'autoroute 20 à Boucherville à la jonction de l'autoroute 40 à Montréal",
+     "lengthKm": 8,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 20 à Boucherville à la sortie 4 à Montréal (Inauguration du pont-tunnel Louis-Hippolyte-La Fontaine en 1967)",
+       "published": "1966",
+       "year": 1966
+      },
+      {
+       "segment": "De la sortie 4 à la jonction de l'autoroute 40 à Montréal",
+       "published": "1969",
+       "year": 1969
+      }
+     ]
+    },
+    {
+     "name": "Autoroute 25",
+     "description": "De la jonction de l'autoroute 40 à Montréal à la jonction de l'autoroute 440 à Laval",
+     "lengthKm": 9.4,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 40 au boul. Henri-Bourassa-Est à Montréal",
+       "published": "2002",
+       "year": 2002
+      },
+      {
+       "segment": "De la jonction du boul. Henri-Bourassa Est à Montréal à la jonction de l'autoroute 440 à Laval (pont à péage)",
+       "published": "2011",
+       "year": 2011
+      }
+     ]
+    },
+    {
+     "name": "Autoroute 25",
+     "description": "De la jonction de l'autoroute 440 à Laval à la jonction des routes 125 et 158 à Saint-Esprit",
+     "lengthKm": 31.9,
+     "segments": [
+      {
+       "segment": "De la jonction de l’autoroute 440 à Laval à l'intersection du chemin du Ruisseau Saint-Jean à Saint-Roch-Ouest",
+       "published": "1971",
+       "year": 1971
+      },
+      {
+       "segment": "De l'intersection du chemin du Ruisseau Saint-Jean à Saint-Roch-Ouest à l'intersection de la rue Montcalm à Saint-Esprit",
+       "published": "1999",
+       "year": 1999
+      },
+      {
+       "segment": "De l'intersection de la rue Montcalm à la jonction des routes 125 et 158 à Saint-Esprit",
+       "published": "2001",
+       "year": 2001
+      }
+     ]
+    }
+   ]
+  },
+  "30": {
+   "number": 30,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r30.gif",
+   "sections": [
+    {
+     "name": "Autoroute de l'Acier",
+     "description": "De la jonction de l'autoroute 40 à Vaudreuil-Dorion à la jonction du boul. Poliquin à Sorel-Tracy",
+     "lengthKm": 144.1,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 40 à la jonction de l'autoroute 20 à Vaudreuil-Dorion. (Se nommait Autoroute 540 jusqu'en 2012)",
+       "published": "1967",
+       "year": 1967
+      },
+      {
+       "segment": "De la jonction de l'autoroute 20 à Vaudreuil-Dorion à la jonction de la route 132/138 à Châteauguay (pont à péage)",
+       "published": "2012",
+       "year": 2012
+      },
+      {
+       "segment": "De la jonction de la route 132/138 à Châteauguay à la jonction de l'autoroute 730 à Saint-Constant",
+       "published": "1992",
+       "year": 1992
+      },
+      {
+       "segment": "De la jonction de l'autoroute 730 à Saint-Constant à la jonction de l'autoroute 15 à Delson",
+       "published": "2010",
+       "year": 2010
+      },
+      {
+       "segment": "De la jonction de l'autoroute 15 à Delson à la jonction de l'autoroute 930 à Candiac",
+       "published": "2011",
+       "year": 2011
+      },
+      {
+       "segment": "De la jonction de l’autoroute 930 à Candiac à la jonction de l’autoroute 10 à Brossard",
+       "published": "1996",
+       "year": 1996
+      },
+      {
+       "segment": "De la jonction de l'autoroute 10 à la jonction de la route 112 (sortie 73) à Longueuil",
+       "published": "1982",
+       "year": 1982
+      },
+      {
+       "segment": "De la jonction de la route 112 (sortie 73) à la jonction de la route 116 (sortie 76) à Saint-Bruno-de-Montarville",
+       "published": "1975",
+       "year": 1975
+      },
+      {
+       "segment": "De la jonction de la route 116 (sortie 76) à la jonction de l'autoroute 20 à Boucherville",
+       "published": "1968",
+       "year": 1968
+      },
+      {
+       "segment": "De la jonction de l'autoroute 20 à Boucherville à la sortie 87 à Sainte-Julie",
+       "published": "1971",
+       "year": 1971
+      },
+      {
+       "segment": "De la sortie 87 à Sainte-Julie à la sortie 135 à Sorel-Tracy",
+       "published": "1977",
+       "year": 1977
+      },
+      {
+       "segment": "De la sortie 135 à la la sortie 141 à Sorel-Tracy",
+       "published": "1972",
+       "year": 1972
+      },
+      {
+       "segment": "De la sortie 141 à la jonction du boulevard Poliquin à Sorel-Tracy",
+       "published": "1968",
+       "year": 1968
+      }
+     ]
+    },
+    {
+     "name": "Autoroute de l'Acier",
+     "description": "De la jonction de la route 132 (boul. de Port-Royal) à la jonction du boulevard Alphonse-Deshaies à Bécancour",
+     "lengthKm": 20.5,
+     "segments": [
+      {
+       "segment": "De la jonction de la route 132 (boul. de Port-Royal) à la jonction du boulevard Alphonse-Deshaies à Bécancour",
+       "published": "1975",
+       "year": 1975
+      }
+     ]
+    }
+   ]
+  },
+  "31": {
+   "number": 31,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r31.gif",
+   "sections": [
+    {
+     "name": "Autoroute Antonio-Barrette",
+     "description": "De la jonction de la route 131 à Lavaltrie à la jonction du boulevard Dollard à Joliette",
+     "lengthKm": 14.3,
+     "segments": [
+      {
+       "segment": "De la jonction de la route 131 à Lavaltrie à la jonction du carrefour giratoire du boulevard Dollard à Joliette",
+       "published": "1966",
+       "year": 1966
+      }
+     ]
+    }
+   ]
+  },
+  "35": {
+   "number": 35,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r35.gif",
+   "sections": [
+    {
+     "name": "Autoroute de la Vallée-des-Forts",
+     "description": "De la jonction de la route 133 à Saint-Armand à la jonction de l'autoroute 10 à Chambly",
+     "lengthKm": 49.6,
+     "segments": [
+      {
+       "segment": "De la jonction de la route 133 (sortie 5) à Saint-Armand à la jonction de la route 133 (sortie 15) à Saint-Sébastien",
+       "published": "2025",
+       "year": 2025
+      },
+      {
+       "segment": "De la jonction de la route 133 (sortie 15) à Saint-Sébastien à la jonction de la route 133 (sortie 38) à Saint-Jean-sur-Richelieu",
+       "published": "2014",
+       "year": 2014
+      },
+      {
+       "segment": "De la jonction de la route 133 (sortie 38) à la jonction de la route 104 (sortie 39) à Saint-Jean-sur-Richelieu",
+       "published": "1967",
+       "year": 1967
+      },
+      {
+       "segment": "De la jonction de la route 104 (sortie 39) à Saint-Jean-sur-Richelieu à la jonction de l'autoroute 10 (sortie 55) à Chambly",
+       "published": "1966",
+       "year": 1966
+      }
+     ]
+    }
+   ]
+  },
+  "40": {
+   "number": 40,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r40.gif",
+   "sections": [
+    {
+     "name": "Autoroute Félix-Leclerc",
+     "description": "De la frontière de l'Ontario à Pointe-Fortune à la jonction de l'autoroute 15 (Décarie) à Montréal",
+     "lengthKm": 67,
+     "segments": [
+      {
+       "segment": "De la frontière de l'Ontario à Pointe-Fortune à la sortie 50 à Kirkland",
+       "published": "1966",
+       "year": 1966
+      },
+      {
+       "segment": "De la sortie 50 à Kirkland à la jonction de l’autoroute 15 à Montréal",
+       "published": "1963",
+       "year": 1963
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Métropolitaine",
+     "description": "De la jonction de l'autoroute 15 (Décarie) jusqu'au pont Charles-De-Gaulle à Montréal",
+     "lengthKm": 26,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 15 à la sortie 76 à Montréal",
+       "published": "1959",
+       "year": 1959
+      },
+      {
+       "segment": "Échangeur Décarie",
+       "published": "1960",
+       "year": 1960
+      },
+      {
+       "segment": "De la sortie 76 à la sortie 78 à Montréal",
+       "published": "1965",
+       "year": 1965
+      },
+      {
+       "segment": "De la sortie 78 à la jonction de l'autoroute 25 à Montréal",
+       "published": "1969",
+       "year": 1969
+      },
+      {
+       "segment": "De la jonction de l'autoroute 25 à la sortie 87 à Montréal",
+       "published": "1971",
+       "year": 1971
+      },
+      {
+       "segment": "De la sortie 87 jusqu'au pont Charles-De-Gaulle à Montréal",
+       "published": "1971",
+       "year": 1971
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Félix-Leclerc",
+     "description": "Du pont Charles-De-Gaulle à Montréal à la jonction de l'autoroute 55 (sortie 196) à Trois-Rivières",
+     "lengthKm": 104.7,
+     "segments": [
+      {
+       "segment": "De la sortie 87 à la sortie 151 à Saint-Cuthbert",
+       "published": "1967",
+       "year": 1967
+      },
+      {
+       "segment": "De la sortie 151 à Saint-Cuthbert à la sortie 187 à Trois-Rivières",
+       "published": "1975-1979",
+       "yearFrom": 1975,
+       "yearTo": 1979
+      },
+      {
+       "segment": "De la sortie 187 à la jonction de l’autoroute 55 à Trois-Rivières",
+       "published": "1975",
+       "year": 1975
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Félix-Leclerc",
+     "description": "De la jonction de l'autoroute 55 (sortie 197) à Trois-Rivières à la jonction des autoroutes 73 et 440 à Québec",
+     "lengthKm": 123.3,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 55 (sortie 197) à la sortie 201 à Trois-Rivières",
+       "published": "1975",
+       "year": 1975
+      },
+      {
+       "segment": "De la sortie 201 à la sortie 202 (pont Radisson) à Trois-Rivières",
+       "published": "1977",
+       "year": 1977
+      },
+      {
+       "segment": "De la sortie 202 à la sortie 203 à Trois-Rivières",
+       "published": "1974",
+       "year": 1974
+      },
+      {
+       "segment": "De la sortie 203 à la fin de la courbe localisée entre les sorties 205 et 210 à Trois-Rivières",
+       "published": "1983",
+       "year": 1983
+      },
+      {
+       "segment": "De la fin de la courbe localisée entre les sorties 205 et 210 à Trois-Rivières à la sortie 220 à Champlain",
+       "published": "1984",
+       "year": 1984
+      },
+      {
+       "segment": "De la sortie 220 à Champlain à la sortie 254 à Deschambault-Grondines",
+       "published": "1985",
+       "year": 1985
+      },
+      {
+       "segment": "De la sortie 254 à Deschambault-Grondines à la sortie 274 à Donnacona",
+       "published": "1984",
+       "year": 1984
+      },
+      {
+       "segment": "De la sortie 274 à Donnacona à la sortie 281 à Neuville",
+       "published": "1976",
+       "year": 1976
+      },
+      {
+       "segment": "De la sortie 281 à Neuville à la sortie 298 à Saint-Augustin-de-Desmaures",
+       "published": "1975",
+       "year": 1975
+      },
+      {
+       "segment": "De la sortie 298 (route 138) à Saint-Augustin-de-Desmaures à la jonction de l'autoroute 540 (Duplessis) à Québec",
+       "published": "1972",
+       "year": 1972
+      },
+      {
+       "segment": "De la jonction de l'autoroute 540 (Duplessis) à la jonction des autoroutes 73 et 440 à Québec",
+       "published": "1962",
+       "year": 1962
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Félix-Leclerc",
+     "description": "De la jonction des autoroutes 73 et 573 à Québec à la jonction de la route 138 à Boischatel",
+     "lengthKm": 17.6,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 573 à la sortie 312 à Québec",
+       "published": "1972",
+       "year": 1972
+      },
+      {
+       "segment": "De la sortie 312 à la sortie 315 à Québec",
+       "published": "1971",
+       "year": 1971
+      },
+      {
+       "segment": "De la sortie 315 à la sortie 316 à Québec",
+       "published": "1970",
+       "year": 1970
+      },
+      {
+       "segment": "De la sortie 316 à la sortie 321 à Québec",
+       "published": "1971",
+       "year": 1971
+      },
+      {
+       "segment": "De la sortie 321 à la jonction de l'autoroute 440 à Québec",
+       "published": "1974",
+       "year": 1974
+      },
+      {
+       "segment": "De la jonction de l'autoroute 440 à Québec à la jonction de la route 138 à Boischatel",
+       "published": "1976",
+       "year": 1976
+      }
+     ]
+    }
+   ]
+  },
+  "50": {
+   "number": 50,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r50.gif",
+   "sections": [
+    {
+     "name": "Autoroute Guy-Lafleur",
+     "description": "De la jonction de la rue Montcalm à Gatineau à la jonction de la route 344 à Grenville-sur-la-Rouge",
+     "lengthKm": 105.9,
+     "segments": [
+      {
+       "segment": "De la rue Montcalm à la jonction de l'autoroute 5 à Gatineau (sorties 134 à 135)",
+       "published": "1988",
+       "year": 1988
+      },
+      {
+       "segment": "De la jonction de l'autoroute 5 au boul. Maloney à Gatineau (sorties 135 à 139)",
+       "published": "1977",
+       "year": 1977
+      },
+      {
+       "segment": "Du boul. Maloney jusqu'à l'avenue Lépine à Gatineau (sorties 139 à 171)",
+       "note": "Note: Ouverture de la 2e chaussée en 2024 entre le km 168 et 178.",
+       "published": "1986",
+       "year": 1986
+      },
+      {
+       "segment": "De l'avenue Lépine à Gatineau à l'intersection de la route 309 à L'Ange-Gardien (sorties 171 à 174).",
+       "note": "Note: Ouverture de la 2e chaussée en 2024 entre le km 168 et 178.",
+       "published": "2004",
+       "year": 2004
+      },
+      {
+       "segment": "De la route 309 à L'Ange-Gardien à la jonction de la route 317 à Thurso (sorties 174 à 187).",
+       "note": "Note: Ouverture de la 2e chaussée en 2024 entre le km 168 et 178. Une chaussée ouverte entre le km 178 et 190.",
+       "published": "2008",
+       "year": 2008
+      },
+      {
+       "segment": "De la route 317 à Thurso à la jonction de la route 344 à Grenville-sur-la-Rouge (sorties 187 à 239).",
+       "note": "Note: En majeure partie à une chaussée excepté entre les km 190 et 192 et les km 193 à 196 qui sont à deux chaussées.",
+       "published": "2012",
+       "year": 2012
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Guy-Lafleur",
+     "description": "De la jonction de la route 344 à Grenville-sur-la-Rouge à l'intersection de la route 117 à Mirabel",
+     "lengthKm": 52.4,
+     "segments": [
+      {
+       "segment": "De la route 344 à Grenville-sur-la-Rouge à la jonction de la route 148 à Brownsburg–Chatham (sorties 239 à 254).",
+       "note": "Note: Une chaussée ouverte.",
+       "published": "2008",
+       "year": 2008
+      },
+      {
+       "segment": "De la route 148 à Brownsburg–Chatham à la route 148 à Lachute (sorties 254 à 260)",
+       "published": "1975",
+       "year": 1975
+      },
+      {
+       "segment": "De la route 329 à Lachute à la jonction de la route Arthur-Sauvé (148) à Mirabel (sorties 260 à 272) note: Une chaussée ouverte entre les km 261 et 272.",
+       "published": "1998",
+       "year": 1998
+      },
+      {
+       "segment": "De la route Arthur-Sauvé (route 148) jusqu'à l'accès à l’aéroport de Mirabel (sorties 272 à 285).",
+       "note": "Note: Une chaussée ouverte entre les km 272 et 277.",
+       "published": "1995",
+       "year": 1995
+      },
+      {
+       "segment": "De l’accès à l’aéroport de Mirabel (sortie 285) à la jonction de la route 117 à Mirabel",
+       "published": "1975",
+       "year": 1975
+      }
+     ]
+    }
+   ]
+  },
+  "55": {
+   "number": 55,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r55.gif",
+   "sections": [
+    {
+     "name": "Autoroute Joseph-Armand-Bombardier",
+     "description": "De la frontière des États-Unis à Stanstead à la jonction de l'autoroute 10 à Magog",
+     "lengthKm": 34.5,
+     "segments": [
+      {
+       "segment": "De la frontière des États-Unis à Stanstead à l'intersection de la route 112 à Magog (sortie 33)",
+       "published": "1968",
+       "year": 1968
+      },
+      {
+       "segment": "De l'intersection de la route 112 à la jonction de l'autoroute 10 à Magog (sorties 33 à 34)",
+       "published": "1965",
+       "year": 1965
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Joseph-Armand-Bombardier",
+     "description": "De la jonction des autoroutes 10 et 610 à Sherbrooke à la jonction de l'autoroute 20 à Drummondville",
+     "lengthKm": 71.2,
+     "segments": [
+      {
+       "segment": "De la jonction des autoroutes 10 et 610 à la rue Laval à Sherbrooke (sortie 60)",
+       "published": "1979",
+       "year": 1979
+      },
+      {
+       "segment": "De la rue Laval à Sherbrooke à la route 249 à Windsor (sorties 60 à 71).",
+       "note": "Note: 2e chaussée ouverte en 2001.",
+       "published": "1973",
+       "year": 1973
+      },
+      {
+       "segment": "De la route 249 à Windsor à la route 243 à Richmond (sorties 71 à 85).",
+       "note": "Note: 2e chaussée ouverte en 2003.",
+       "published": "1974",
+       "year": 1974
+      },
+      {
+       "segment": "De la route 243 à Richmond à la route Ployart à L'Avenir (sorties 85 à 103).",
+       "note": "Note: 2e chaussée ouverte en 2003 et 2006.",
+       "published": "1980",
+       "year": 1980
+      },
+      {
+       "segment": "De la route Ployart à L'Avenir à la route 139 à Drummondville (sorties 103 à 116).",
+       "note": "Note: 2e chaussée ouverte en 2004 et 2006.",
+       "published": "1977",
+       "year": 1977
+      },
+      {
+       "segment": "De l'intersection de la route 139 à la jonction de l'autoroute 20 à Drummondville (sorties 116 à 128).",
+       "note": "Note: 2e chaussée ouverte en 2001.",
+       "published": "1974",
+       "year": 1974
+      }
+     ]
+    },
+    {
+     "name": "Autoroute de l'Énergie",
+     "description": "De la jonction des autoroute 20 et 955 à Sainte-Eulalie à la jonction de la route 155 à Shawinigan",
+     "lengthKm": 83.1,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 20 à Sainte-Eulalie jusqu'à l'intersection du 9e Rang à Saint-Wenceslas",
+       "published": "2006",
+       "year": 2006
+      },
+      {
+       "segment": "De l'intersection du 9e Rang à Saint-Wenceslas à la route 226 à Saint-Célestin",
+       "published": "2004",
+       "year": 2004
+      },
+      {
+       "segment": "De l'intersection de la route 226 à Saint-Célestin au boulevard des Acadiens à Bécancour",
+       "published": "1972",
+       "year": 1972
+      },
+      {
+       "segment": "Du boulevard des Acadiens à Bécancour à l'autoroute 30.",
+       "note": "Note: 2e chaussée ouverte en 1980.",
+       "published": "1972",
+       "year": 1972
+      },
+      {
+       "segment": "De l'autoroute 30 à l'autoroute 40 à Trois-Rivières (sorties 176 à 182)",
+       "published": "1967",
+       "year": 1967
+      },
+      {
+       "segment": "De l'autoroute 40 à Trois-Rivières à la route 351 à Shawinigan (sorties 182 à 217).",
+       "note": "Note: 2e chaussée ouverte en 1979.",
+       "published": "1972",
+       "year": 1972
+      },
+      {
+       "segment": "De la route 351 à la 6e Avenue à Shawinigan (sorties 217 à 223).",
+       "note": "Note: 2e chaussée ouverte en 1968.",
+       "published": "1964",
+       "year": 1964
+      },
+      {
+       "segment": "De la 6e Avenue à la jonction de la route 155 à Shawinigan",
+       "published": "1978",
+       "year": 1978
+      }
+     ]
+    }
+   ]
+  },
+  "70": {
+   "number": 70,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r70.gif",
+   "sections": [
+    {
+     "name": "Autoroute de l'Aluminium",
+     "description": "De l'intersection de la route 170 / Chemin du Lac-des-Bleuets à l'intersection du chemin de la Grande-Anse à Saguenay",
+     "lengthKm": 30.8,
+     "segments": [
+      {
+       "segment": "Du chemin du Lac-des-Bleuets à la rue Saint-Hubert à Saguenay (sorties 26 à 33)",
+       "published": "2001",
+       "year": 2001
+      },
+      {
+       "segment": "De la rue Saint-Hubert au boul. Saint-Paul à Saguenay (sorties 33 à 45)",
+       "published": "1983",
+       "year": 1983
+      },
+      {
+       "segment": "Du boul. Saint-Paul à la route 175 à Saguenay (sorties 45 à 47)",
+       "published": "1985",
+       "year": 1985
+      },
+      {
+       "segment": "De l'intersection de la route 175 (sortie 47) à la jonction de la route 170 (sortie 50) à Saguenay",
+       "published": "1991",
+       "year": 1991
+      },
+      {
+       "segment": "De la jonction de la route 170 (sortie 50) à l'intersection du chemin de la Grande-Anse à Saguenay",
+       "published": "2017",
+       "year": 2017
+      }
+     ]
+    }
+   ]
+  },
+  "73": {
+   "number": 73,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r73.gif",
+   "sections": [
+    {
+     "name": "Autoroute Robert-Cliche",
+     "description": "De l'intersection de la route 204 à Saint-Georges à la jonction de l'autoroute 20 à Lévis",
+     "lengthKm": 86.8,
+     "segments": [
+      {
+       "segment": "De l'intersection de la route 204 à l'intersection de la 74e Rue à Saint-Georges (sortie 48)",
+       "published": "2013",
+       "year": 2013
+      },
+      {
+       "segment": "De l'intersection de la 74e rue à Saint-Georges à l'intersection de la route des Pins à Notre-Dame-des-Pins (sorties 48 à 53)",
+       "published": "2015",
+       "year": 2015
+      },
+      {
+       "segment": "De l'intersection de la route des Pins à l'intersection de la route du Golf à Beauceville (sorties 53 à 61)",
+       "published": "2016",
+       "year": 2016
+      },
+      {
+       "segment": "De l'intersection de la route du Golf à Beauceville à la route 276 à Saint-Joseph-de-Beauce (sorties 61 à 72).",
+       "note": "Note: 2e chaussée ouverte en 2011.",
+       "published": "2007",
+       "year": 2007
+      },
+      {
+       "segment": "De la route 276 à Saint-Joseph-de-Beauce à la route 112 à Vallée-Jonction (sorties 72 à 81).",
+       "note": "Note: 2e chaussée ouverte en 2014.",
+       "published": "1992",
+       "year": 1992
+      },
+      {
+       "segment": "De la route 112 à Vallée-Jonction à la route Carter à Sainte-Marie (sorties 81 à 91).",
+       "note": "Note: 2e chaussée ouverte en 2015.",
+       "published": "1989",
+       "year": 1989
+      },
+      {
+       "segment": "De la route Carter à la route Cameron à Sainte-Marie (sorties 91 à 95).",
+       "note": "Note: 2e chaussée ouverte en 2011.",
+       "published": "1983",
+       "year": 1983
+      },
+      {
+       "segment": "De la route Cameron à Sainte-Marie à la route 173 à Scott (sorties 95 à 101)",
+       "published": "1978",
+       "year": 1978
+      },
+      {
+       "segment": "De la route 171 à Scott à l'autoroute 20 à Lévis (sorties 101 à 131)",
+       "published": "1977",
+       "year": 1977
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Robert-Cliche",
+     "description": "De la jonction de l'autoroute 20 à Lévis à la fin du tablier du pont Pierre-Laporte à Québec",
+     "lengthKm": 3.1,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 20 à Lévis à la fin du tablier du pont Pierre-Laporte à Québec (sorties 131 à 132)",
+       "published": "1970",
+       "year": 1970
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Henri-IV",
+     "description": "De la fin du tablier du pont Pierre-Laporte à la jonction des autoroutes 40 et 573 à Québec",
+     "lengthKm": 7.9,
+     "segments": [
+      {
+       "segment": "Du boul. Champlain à l'autoroute 440 à Québec (sorties 132 à 139)",
+       "published": "1963",
+       "year": 1963
+      },
+      {
+       "segment": "De l'autoroute 440 à la route 138 à Québec (sorties 139 à 141)",
+       "published": "1968",
+       "year": 1968
+      },
+      {
+       "segment": "De la route 138 à l'autoroute 573 à Québec (sorties 141 à 142)",
+       "published": "1971",
+       "year": 1971
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Laurentienne",
+     "description": "De l'intersection de l'autoroute 40 à Québec à la jonction des routes 175 et 371 à Stoneham-et-Tewkesbury",
+     "lengthKm": 19,
+     "segments": [
+      {
+       "segment": "De l'intersection de l'autoroute 40 à Québec à l'avenue de la Rivière-Jaune (sortie 158)",
+       "published": "1963",
+       "year": 1963
+      },
+      {
+       "segment": "De l'avenue de la Rivière-Jaune à Québec à l'intersection de la route 371 à Stoneham-et-Tewkesbury (sorties 158 à 167).",
+       "note": "Note: 2e chaussée ouverte en 2005.",
+       "published": "1994",
+       "year": 1994
+      }
+     ]
+    }
+   ]
+  },
+  "85": {
+   "number": 85,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r85.gif",
+   "sections": [
+    {
+     "name": "Autoroute Claude-Béchard",
+     "description": "De la frontière du Nouveau-Brunswick à la jonction de la route 185 à Saint-Louis-du-Ha! Ha!",
+     "lengthKm": 49.5,
+     "segments": [
+      {
+       "segment": "De la frontière du Nouveau-Brunswick jusqu'à la Traverse Johnny-Griffin (sortie 7) à Dégelis",
+       "published": "2014",
+       "year": 2014
+      },
+      {
+       "segment": "De la traverse Johnny-Griffin à l'intersection de la route 295 à Dégelis (sorties 7 à 14)",
+       "published": "2014",
+       "year": 2014
+      },
+      {
+       "segment": "Du km 14 à 15 à Dégelis",
+       "published": "2004",
+       "year": 2004
+      },
+      {
+       "segment": "Du km 15 à 20 à Dégelis.",
+       "published": "2013",
+       "year": 2013
+      },
+      {
+       "segment": "Du km 20 à 29 à Témiscouata-sur-le-Lac.",
+       "note": "Note: 2e chaussée ouverte en 2015.",
+       "published": "2014",
+       "year": 2014
+      },
+      {
+       "segment": "Du km 29 à 30 à Témiscouata-sur-le-Lac",
+       "published": "2002",
+       "year": 2002
+      },
+      {
+       "segment": "Du km 30 à 36 à Témiscouata-sur-le-Lac",
+       "published": "2014",
+       "year": 2014
+      },
+      {
+       "segment": "Du km 36 à 38 à Témiscouata-sur-le-Lac",
+       "published": "2009",
+       "year": 2009
+      },
+      {
+       "segment": "Du km 38 à 44 à Témiscouata-sur-le-Lac",
+       "published": "2011",
+       "year": 2011
+      },
+      {
+       "segment": "Du km 44 à 50 à Saint-Louis-du-Ha! Ha!",
+       "published": "2009",
+       "year": 2009
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Claude-Béchard",
+     "description": "Du km 54,5 à Saint-Honoré-de Témiscouata à la jonction de l'autoroute 20 à Notre-Dame-du-Portage",
+     "lengthKm": 45.8,
+     "segments": [
+      {
+       "segment": "Du km 54 à Saint-Louis-du-Ha! Ha! au km 73 à Saint-Hubert-de-Rivière-du-Loup",
+       "published": "2024",
+       "year": 2024
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Claude-Béchard",
+     "description": "Du km 73 à Saint-Hubert-de-Rivière-du-Loup à la jonction de l'autoroute 20 à Notre-Dame-du-Portage",
+     "lengthKm": 45.8,
+     "segments": [
+      {
+       "segment": "Du km 73 à Saint-Hubert-de-Rivière-du-Loup au km 80 à Saint-Antonin",
+       "published": "2022",
+       "year": 2022
+      },
+      {
+       "segment": "Du km 80 à 88 à Saint-Antonin",
+       "published": "2021",
+       "year": 2021
+      },
+      {
+       "segment": "Du km 88 à Saint-Antonin à la jonction de l'autoroute 20 à Notre-Dame-du-Portage (reconversion de la R-185 construite en 1972)",
+       "published": "2005",
+       "year": 2005
+      }
+     ]
+    }
+   ]
+  },
+  "410": {
+   "number": 410,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r410.gif",
+   "sections": [
+    {
+     "name": "Autoroute Jacques-O'Bready",
+     "description": "De la jonction de l'autoroute 10 à l'intersection de la route 108 à Sherbrooke (Lennoxville)",
+     "lengthKm": 16.8,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 10 à l'intersection de la route 112 à Sherbrooke.",
+       "note": "Note: 2e chaussée ouverte en 1981.",
+       "published": "1971",
+       "year": 1971
+      },
+      {
+       "segment": "De l'intersection de la route 112 au boulevard de l'Université à Sherbrooke.",
+       "note": "Note: 2e chaussée ouverte en 1981.",
+       "published": "1978",
+       "year": 1978
+      },
+      {
+       "segment": "De l'intersection du boulevard de l'Université à la route 216 à Sherbrooke",
+       "published": "2012",
+       "year": 2012
+      },
+      {
+       "segment": "De l'intersection de la route 216 à Sherbrooke à la rue Belvédère Sud à Hatley",
+       "published": "2014",
+       "year": 2014
+      },
+      {
+       "segment": "De l'intersection de la rue Belvédère Sud à Hatley à l'intersection avec la route 108/143 à Sherbrooke (Lennoxville)",
+       "published": "2015",
+       "year": 2015
+      },
+      {
+       "segment": "De l'intersection avec la route 108/143 à l'intersection avec la route 108 à Sherbrooke (Lennoxville)",
+       "published": "2020",
+       "year": 2020
+      }
+     ]
+    }
+   ]
+  },
+  "440": {
+   "number": 440,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r440.gif",
+   "sections": [
+    {
+     "name": "Autoroute Jean-Noël-Lavoie",
+     "description": "De la jonction de la route 148 à la jonction de l'autoroute 25 à Laval",
+     "lengthKm": 19.6,
+     "segments": [
+      {
+       "segment": "De la jonction de la route 148 à la route 117 à Laval (sortie 19)",
+       "published": "1975",
+       "year": 1975
+      },
+      {
+       "segment": "De la route 117 à l'autoroute 15 à Laval (sorties 19 à 22)",
+       "published": "1974",
+       "year": 1974
+      },
+      {
+       "segment": "De l'autoroute 15 à la route 335 à Laval (sorties 22 à 25)",
+       "published": "1975",
+       "year": 1975
+      },
+      {
+       "segment": "De la route 335 à l'autoroute 19 à Laval (sorties 25 à 27)",
+       "published": "1976",
+       "year": 1976
+      },
+      {
+       "segment": "De l'autoroute 19 à la route 125 à Laval (sorties 27 à 30)",
+       "published": "1979",
+       "year": 1979
+      },
+      {
+       "segment": "De la route 125 à la jonction de l'autoroute 25 à Laval (sorties 30 à 35).",
+       "note": "Note: Ancien tracé de l'A-25 jusqu'en 2011.",
+       "published": "1971",
+       "year": 1971
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Charest",
+     "description": "De la jonction des autoroutes 40 et 73 à l'intersection de l'avenue Saint-Sacrement à Québec",
+     "lengthKm": 4.4,
+     "segments": [
+      {
+       "segment": "De la jonction des autoroutes 40 et 73 à l'intersection de l'avenue Saint-Sacrement à Québec. (2e chaussée ouverte en 1967)",
+       "published": "1962",
+       "year": 1962
+      }
+     ]
+    },
+    {
+     "name": "Autoroute Dufferin-Montmorency",
+     "description": "De l'intersection de la Côte de la Potasse à la jonction de l'autoroute 40 à Québec",
+     "lengthKm": 8.5,
+     "segments": [
+      {
+       "segment": "De l'intersection de la Côte de la Potasse à l'avenue D'Estimauville à Québec (sortie 23)",
+       "published": "1976",
+       "year": 1976
+      },
+      {
+       "segment": "De l'avenue D'Estimauville à la jonction de l'autoroute 40 à Québec (sorties 23 à 29)",
+       "published": "1982",
+       "year": 1982
+      }
+     ]
+    }
+   ]
+  },
+  "520": {
+   "number": 520,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r520.gif",
+   "sections": [
+    {
+     "name": "Autoroute de la Côte-de-Liesse",
+     "description": "De la jonction de l'autoroute 20 à la jonction de l'autoroute 40 à Montréal",
+     "lengthKm": 7.5,
+     "segments": [
+      {
+       "segment": "De l'autoroute 20 à l'autoroute 40 à Montréal",
+       "published": "1966",
+       "year": 1966
+      }
+     ]
+    }
+   ]
+  },
+  "530": {
+   "number": 530,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r530.gif",
+   "sections": [
+    {
+     "name": "Autoroute 530",
+     "description": "De la jonction de la route 132 (pont Larocque) à la jonction de l'autoroute 30 à Salaberry-de-Valleyfield",
+     "lengthKm": 12.9,
+     "segments": [
+      {
+       "segment": "De la jonction de la route 132 à la jonction du boul. Pie-XII à Salaberry-de-Valleyfield (sortie 9)",
+       "published": "1976",
+       "year": 1976
+      },
+      {
+       "segment": "De la jonction du boul. Pie-XII à la jonction de l'autoroute 30 à Salaberry-de-Valleyfield (sortie 12)",
+       "published": "2011",
+       "year": 2011
+      }
+     ]
+    }
+   ]
+  },
+  "540": {
+   "number": 540,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r540.gif",
+   "sections": [
+    {
+     "name": "Autoroute Duplessis",
+     "description": "De la jonction de l'autoroute Henri-IV (73) au boul. Wilfrid-Hamel (138) à Québec",
+     "lengthKm": 4.9,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute Henri-IV (73) au boul. Wilfrid-Hamel (138) à Québec.",
+       "note": "Note: Ouvert à la circulation sous le nom de Boulevard Duplessis et Champigny en 1958.",
+       "published": "1966",
+       "year": 1966
+      }
+     ]
+    }
+   ]
+  },
+  "573": {
+   "number": 573,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r573.gif",
+   "sections": [
+    {
+     "name": "Autoroute Henri-IV",
+     "description": "De la jonction des autoroutes 40 et 73 à Québec à l'avenue Industrielle à Québec",
+     "lengthKm": 7.6,
+     "segments": [
+      {
+       "segment": "De l'autoroute 40 à la route Sainte-Geneviève à Québec (sortie 5)",
+       "published": "1976",
+       "year": 1976
+      },
+      {
+       "segment": "De la route Sainte-Geneviève à l’avenue Industrielle à Québec",
+       "published": "1981",
+       "year": 1981
+      }
+     ]
+    },
+    {
+     "name": "Route de la Bravoure",
+     "description": "De l’avenue Industrielle à Québec à la route 369 (boul. Pie-XI nord) à Saint-Gabriel-de-Valcartier",
+     "lengthKm": 5.3,
+     "segments": [
+      {
+       "segment": "De l’avenue Industrielle à Québec à la route 369 à Saint-Gabriel-de-Valcartier.",
+       "note": "Note: Une seule chaussée.",
+       "published": "1988",
+       "year": 1988
+      }
+     ]
+    }
+   ]
+  },
+  "610": {
+   "number": 610,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r610.gif",
+   "sections": [
+    {
+     "name": "Autoroute Louis-Bilodeau",
+     "description": "De la jonction des autoroutes 10 et 55 à Sherbrooke à l'intersection de la route 112 à Sherbrooke",
+     "lengthKm": 10.4,
+     "segments": [
+      {
+       "segment": "De la jonction des autoroutes 10 et 55 à la route 216 à Sherbrooke (sortie 143 de l'A-10 à la sortie 7 de l'A-610)",
+       "published": "1988",
+       "year": 1988
+      },
+      {
+       "segment": "De la route 216 (sortie 7) à l'intersection de la route 112 à Sherbrooke.",
+       "note": "Note: 2e chaussée ouverte en 2013.",
+       "published": "1992",
+       "year": 1992
+      }
+     ]
+    }
+   ]
+  },
+  "640": {
+   "number": 640,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r640.gif",
+   "sections": [
+    {
+     "name": "Autoroute 640",
+     "description": "De la route 344 à Saint-Joseph-du-Lac à la rue Émile-Despins à Charlemagne",
+     "lengthKm": 53.2,
+     "segments": [
+      {
+       "segment": "De la route 344 à Saint-Joseph-du-Lac au boul. des Promenades à Deux-Montagnes (sortie 8)",
+       "published": "1976",
+       "year": 1976
+      },
+      {
+       "segment": "Du boul. des Promenades à Deux-Montagnes à l'autoroute 15 à Boisbriand (sorties 8 à 20)",
+       "published": "1961",
+       "year": 1961
+      },
+      {
+       "segment": "De l'autoroute 15 à Boisbriand à la route 337 à Terrebonne (sorties 20 à 38)",
+       "published": "1974",
+       "year": 1974
+      },
+      {
+       "segment": "De la route 337 à Terrebonne à la rue Émile-Despins à Charlemagne (sorties 38 à 52)",
+       "published": "1972",
+       "year": 1972
+      }
+     ]
+    }
+   ]
+  },
+  "730": {
+   "number": 730,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r730.gif",
+   "sections": [
+    {
+     "name": "Autoroute 730",
+     "description": "De la jonction de l'autoroute 30 à Saint-Constant à la jonction de la route 132 à Sainte-Catherine",
+     "lengthKm": 4.2,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 30 à Saint-Constant à la jonction de la route 132 à Sainte-Catherine",
+       "published": "1992",
+       "year": 1992
+      }
+     ]
+    }
+   ]
+  },
+  "740": {
+   "number": 740,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r740.gif",
+   "sections": [
+    {
+     "name": "Autoroute Robert-Bourassa",
+     "description": "De l'intersection du boul. Hochelaga à l'intersection du boul. Lebourgneuf à Québec",
+     "lengthKm": 7,
+     "segments": [
+      {
+       "segment": "Du boul. Hochelaga à la route 138 (boul. Wilfrid-Hamel) à Québec",
+       "published": "1975",
+       "year": 1975
+      },
+      {
+       "segment": "De la route 138 (boul. Wilfrid-Hamel) à l'autoroute 40 à Québec",
+       "published": "1977",
+       "year": 1977
+      },
+      {
+       "segment": "De l'autoroute 40 au boul. Lebourgneuf à Québec",
+       "published": "1982",
+       "year": 1982
+      }
+     ]
+    }
+   ]
+  },
+  "930": {
+   "number": 930,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r930.gif",
+   "sections": [
+    {
+     "name": "Autoroute 930",
+     "description": "De la jonction de l'autoroute 15 à la jonction de l'autoroute 30 à Candiac",
+     "lengthKm": 2.5,
+     "segments": [
+      {
+       "segment": "De la jonction de l'autoroute 15 à la jonction de l'autoroute 30 à Candiac",
+       "published": "1996",
+       "year": 1996
+      }
+     ]
+    }
+   ]
+  },
+  "955": {
+   "number": 955,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r955.gif",
+   "sections": [
+    {
+     "name": "Autoroute 955",
+     "description": "De l'intersection de la route 122 à Saint-Albert à la jonction des autoroutes 20 et 55 à Sainte-Eulalie",
+     "lengthKm": 14.7,
+     "segments": [
+      {
+       "segment": "De la route 122 à Saint-Albert au 3e Rang Est à Saint-Samuel",
+       "published": "1975",
+       "year": 1975
+      },
+      {
+       "segment": "Du 3e rang Est à Saint-Samuel à la jonction des autoroutes 20 et 55 à Sainte-Eulalie",
+       "published": "1979",
+       "year": 1979
+      }
+     ]
+    }
+   ]
+  },
+  "973": {
+   "number": 973,
+   "signImage": "https://www.transports.gouv.qc.ca/fr/projets-infrastructures/info-reseau-routier/repertoire-autoroutes/PublishingImages/repertoire/r973.gif",
+   "sections": [
+    {
+     "name": "Autoroute Laurentienne",
+     "description": "De la jonction de la rue Dorchester / de la Couronne à la jonction des autoroutes 40 et 73",
+     "lengthKm": 3.7,
+     "segments": [
+      {
+       "segment": "De l'intersection de la rue du Chalutier en dir. sud / rue du Prince-Édouard en dir nord à la jonction des autoroutes 40 et 73.",
+       "note": "Note: Ouvert à la circulation sous le nom de Boulevard Laurentien en 1956.",
+       "published": "1983",
+       "year": 1983
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
