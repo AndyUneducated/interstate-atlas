@@ -15,17 +15,20 @@
 
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import {
   SYSTEMS, FIELDS, TIER_CODE, geoPath, system, KM_PER_MI,
 } from '../assets/schema.js';
 import {
-  bboxOf, drivenEdgeKm, haversineKm, lineLengthKm, roundCoords, simplify, stitchBetween,
+  bboxOf, chainLines, drivenEdgeKm, haversineKm, lineLengthKm, roundCoords, simplify, stitchBetween,
   stitchComponents, stitchRoute,
 } from './geo.mjs';
 import { STATE_CODE, statesTouch } from './states.mjs';
 import { readState, setSuffixedInterstates, STATES, TIGER_YEAR } from './tiger.mjs';
 import { STEPS as HPMS_STEPS, HPMS_YEAR } from './fetch-hpms.mjs';
 import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
+import { loadMexico, mexicoLabel } from './mexico.mjs';
+import { loadStateLocator, BOUNDARY_SOURCE } from './mx-states.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'tools', 'src');
@@ -41,7 +44,7 @@ const US_SNAP = 0.0002; // about 22 m
 // distinction drives more than styling: auxiliary Interstate numbers are reused
 // from state to state by design, so I-295 is eight unrelated roads.
 function tierOf(system, parsed) {
-  if (system === 'state') return 'state';
+  if (system === 'us-state') return 'state';
   if (parsed.qualifier || parsed.malformed) return 'special';
   if (parsed.hawaii) return parsed.base.length <= 2 ? 'primary' : 'auxiliary';
   return parsed.base.length <= 2 ? 'primary' : 'auxiliary';
@@ -55,7 +58,7 @@ function labelFor(system, parsed, stateCode) {
     if (parsed.hawaii) return parsed.base.replace(/^([A-Z]+)(\d)/, '$1-$2');
     return `I-${parsed.base}${parsed.suffix}`;
   }
-  if (system === 'us') {
+  if (system === 'us-numbered') {
     const tag = { alternate: ' Alt', business: ' Bus', bypass: ' Byp', truck: ' Trk', unsigned: '' };
     return `US ${parsed.base}${parsed.suffix}${tag[parsed.qualifier] ?? ''}`;
   }
@@ -100,7 +103,7 @@ function attachHpms(routes, hpms) {
   const MEASURES = Object.keys(HPMS_STEPS);
 
   for (const r of routes) {
-    if (r.country === 'ca') continue;
+    if (r.country && r.country !== 'us') continue;
     const parts = [];
     for (const { st, mi } of r.states) {
       const num = hpmsNumber(r, st);
@@ -365,9 +368,11 @@ function compositionOf(edges) {
     total += km;
     byType.set(e.props.type || 'Unknown', (byType.get(e.props.type || 'Unknown') || 0) + km);
     // The American source names its states in full; the Canadian one is read
-    // per jurisdiction and already carries the two-letter code.
+    // per jurisdiction and already carries the two-letter code; the Mexican
+    // one carries ISO 3166-2's three-letter suffix, which no two-letter code
+    // can collide with.
     const raw = e.props.state;
-    const st = STATE_CODE[raw] || (/^[A-Z]{2}$/.test(raw || '') ? raw : null);
+    const st = STATE_CODE[raw] || (/^[A-Z]{2,3}$/.test(raw || '') ? raw : null);
     if (st) byState.set(st, (byState.get(st) || 0) + km);
     if (e.props.divided === 'Divided') { divided += km; dividedKnown += km; }
     else if (e.props.divided === 'Undivided') dividedKnown += km;
@@ -415,11 +420,11 @@ async function loadOfficial() {
       return null;
     }
   };
-  const [mileage, cost, hpms, caTraffic] = await Promise.all([
+  const [mileage, cost, hpms, caTraffic, mxTraffic] = await Promise.all([
     read('fhwa-mileage.json'), read('fhwa-cost.json'), read('hpms.json'),
-    read('ca-traffic.json'),
+    read('ca-traffic.json'), read('mx-traffic.json'),
   ]);
-  return mileage ? { mileage, cost, hpms, caTraffic } : null;
+  return mileage ? { mileage, cost, hpms, caTraffic, mxTraffic } : null;
 }
 
 /**
@@ -483,6 +488,7 @@ function attachOfficial(routes, ref) {
 
   attachHpms(routes, ref.hpms);
   attachCanadianTraffic(routes, ref.caTraffic);
+  attachMexicanTraffic(routes, ref.mxTraffic);
 
   for (const r of routes) {
     if (r.system !== 'us-interstate') continue;
@@ -571,7 +577,7 @@ async function buildAlaskaInterstates(groups, placeGrid) {
     // Only Alaskan pavement: the component numbers are state-route numbers, and
     // state routes are numbered per state, so route 1 exists in 40 states.
     const parts = def.components.flatMap((num) => {
-      const g = groups.get(`state|${num}|AK`);
+      const g = groups.get(`us-state|${num}|AK`);
       return g ? g.parts : [];
     });
     if (!parts.length) {
@@ -592,7 +598,7 @@ async function buildAlaskaInterstates(groups, placeGrid) {
     const stats = compositionOf(comp.edges);
     const flat = comp.pieces.flat();
     out.push({
-      key: `interstate|${number}`,
+      key: `us-interstate|${number}`,
       system: 'us-interstate',
       tier: 'primary',
       number,
@@ -814,11 +820,299 @@ async function buildCanada() {
     }
   }
 
-  const by = { tch: 0, nhs: 0, provincial: 0 };
-  for (const r of routes) by[r.system]++;
-  console.log(`  ${routes.length} Canadian routes: Trans-Canada ${by.tch}, `
-    + `National Highway System ${by.nhs}, provincial ${by.provincial}`);
+  const by = {};
+  for (const r of routes) by[r.system] = (by[r.system] ?? 0) + 1;
+  console.log(`  ${routes.length} Canadian routes: Trans-Canada ${by['ca-tch']}, `
+    + `National Highway System ${by['ca-nhs']}, provincial ${by['ca-provincial']}`);
   return { routes, register: src.register };
+}
+
+/**
+ * The two ends of a Mexican route, as the sections they lie on.
+ *
+ * NOMBRE on every RNC segment is the tramo it belongs to - "La Venta -
+ * Lechería" - which names the section's own two ends, not the route's. A
+ * route that begins partway along a tramo, or a 10 km fragment of a long one,
+ * would be credited with a town it never reaches if one of those names were
+ * picked out as its terminus. So the whole tramo is kept, and the page says
+ * the route ends on that section rather than at a place.
+ */
+const tramoName = (name) => name?.replace(/\s*\((?:cuota|libre|directo)\)\s*$/i, '')
+  .replace(/^\((.*)\)$/, '$1').trim() || null;
+function mexicoTermini(edges, reversed) {
+  const ordered = reversed ? [...edges].reverse() : edges;
+  const end = (e) => {
+    const name = tramoName(e?.props.name);
+    return name ? { name, st: e.props.state, km: 0, tramo: true } : null;
+  };
+  return [end(ordered.find((e) => e.props.name)), end(ordered.findLast((e) => e.props.name))];
+}
+
+/**
+ * What the RNC records about a route that neither of the other two sources
+ * does in the same way: toll status per segment, and lanes and surface.
+ *
+ * Length-weighted and reported with the share of the route each figure rests
+ * on, as the Canadian ones are.
+ */
+function mexicoMetrics(edges) {
+  let km = 0, tollKm = 0, tollKnown = 0, laneKm = 0, laneWeighted = 0, pavedKm = 0, pavedKnown = 0;
+  let locatedKm = 0;
+  for (const e of edges) {
+    km += e.km;
+    if (e.props.toll === true) { tollKm += e.km; tollKnown += e.km; }
+    else if (e.props.toll === false) tollKnown += e.km;
+    if (e.props.lanes) { laneKm += e.km; laneWeighted += e.props.lanes * e.km; }
+    if (e.props.paved === true) { pavedKm += e.km; pavedKnown += e.km; }
+    else if (e.props.paved === false) pavedKnown += e.km;
+    if (e.props.located) locatedKm += e.km;
+  }
+  const share = (v, of = km) => (of > 0 ? Math.round((v / of) * 1000) / 10 : null);
+  return {
+    tolled: share(tollKm, tollKnown),
+    tollCoverage: share(tollKnown),
+    lanes: laneKm > 0 ? Math.round((laneWeighted / laneKm) * 10) / 10 : null,
+    lanesCoverage: share(laneKm),
+    pavedShare: share(pavedKm, pavedKnown),
+    pavedCoverage: share(pavedKnown),
+    locatedShare: share(locatedKm),
+  };
+}
+
+/**
+ * Build Mexico.
+ *
+ * The same job as the other two, from one national layer. Two things are
+ * particular to it. Federal numbers are national, so a federal route's pieces
+ * are one road the way a designated Canadian route's are; a state number is
+ * only that state's, so its pieces stay apart. And the federal network's
+ * segments say nothing about which state they are in, so that is located
+ * against state boundaries here, and every figure that depends on it says so.
+ */
+async function buildMexico(contextLines) {
+  // Before the road file, which takes minutes to read, so a missing or changed
+  // boundary file fails at once rather than at the end.
+  const locate = await loadStateLocator();
+  const mxContext = [];
+  const src = await loadMexico(ROOT, { context: mxContext });
+  if (!src) return { routes: [], source: null };
+
+  // The RNC splits a road at every node, so unnumbered carreteras arrive as
+  // six-figure counts of short pieces. Rejoined, the short spurs that remain
+  // are village tracks too small to see at the zoom context is drawn at.
+  const chained = chainLines(mxContext).filter((l) => lineLengthKm(l) >= 2);
+  for (const l of chained) contextLines.push(l);
+  console.log(`  context: ${mxContext.length} RNC pieces -> ${chained.length} lines of 2 km or more`);
+
+  let located = 0, unlocated = 0;
+  const seen = new Set();
+  for (const grp of src.groups.values()) {
+    for (const part of grp.parts) {
+      const p = part.props;
+      if (p.state || seen.has(p)) continue;
+      seen.add(p);
+      const c = part.coords[Math.floor(part.coords.length / 2)];
+      const st = locate(c);
+      if (st) { p.state = st; p.located = true; located++; } else unlocated++;
+    }
+  }
+  console.log(`  located ${located} federal segments in a state; ${unlocated} fall outside the`
+    + ' generalised boundaries (coast, border) and stay unassigned');
+
+  const routes = [];
+  for (const grp of src.groups.values()) {
+    const federal = grp.system === 'mx-federal';
+    const firstPass = stitchRoute(grp.parts, {
+      snapDeg: US_SNAP,
+      bridgeKm: federal ? 60 : 30,
+      minComponentKm: 1.5,
+    });
+    if (!firstPass.length) continue;
+
+    let comps = firstPass;
+    if (federal && firstPass.length > 1) {
+      const parts = firstPass.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
+      comps = stitchComponents(parts, US_SNAP, 120).sort((a, b) => b.km - a.km);
+    }
+
+    for (const comp of comps) {
+      if (!comp || comp.km < 1.5) continue;
+      const stats = compositionOf(comp.pathEdges);
+      const extra = mexicoMetrics(comp.pathEdges);
+      const pieces = orientMainline(comp.pieces);
+      comp.branches = chainLines(comp.branches);
+      const flat = pieces.flat();
+      const [start, end] = mexicoTermini(comp.pathEdges, pieces !== comp.pieces);
+      const label = mexicoLabel(grp);
+      const primarySt = federal
+        ? (stats.states[0]?.st ?? 'MX')
+        : ([...grp.jurisdictions][0] ?? stats.states[0]?.st);
+      if (!primarySt) continue;
+
+      routes.push({
+        // The prefix stands where the other two countries put a jurisdiction,
+        // so a federal MEX-057 and the State of Mexico's EM-057 slug apart.
+        key: `${grp.system}|${grp.number}|${grp.prefix}`,
+        country: 'mx',
+        system: grp.system,
+        tier: federal ? 'primary' : 'state',
+        number: grp.number,
+        base: Number.parseInt(grp.number, 10) || null,
+        label: label.en,
+        labelZh: label.zh,
+        qualifier: null,
+        designation: grp.id,
+        inventoryNumber: grp.inventoryNumber ?? null,
+        administra: [...grp.administra],
+        mxToll: extra.tolled,
+        mxTollCov: extra.tollCoverage,
+        lanes: extra.lanes,
+        lanesCoverage: extra.lanesCoverage,
+        pavedShare: extra.pavedShare,
+        locatedShare: federal ? extra.locatedShare : null,
+        named: [...grp.names].slice(0, 4),
+        mi: Math.round(stats.km / KM_PER_MI),
+        pavedMi: Math.round(comp.km / KM_PER_MI),
+        spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
+        bbox: bboxOf([...pieces, ...comp.branches]).map((v) => Math.round(v * 1000) / 1000),
+        states: stats.states,
+        types: stats.types,
+        // The RNC has no functional classification, so it cannot say whether a
+        // road is grade-separated. Zero would read as "no freeway"; null says
+        // the source does not know.
+        gradeSeparated: null,
+        tolled: extra.tolled,
+        unpaved: stats.unpaved,
+        dividedShare: stats.dividedShare,
+        dividedCov: stats.dividedCov,
+        breaks: comp.pieces.length - 1,
+        gapMi: Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI),
+        start,
+        end,
+        _pieces: pieces,
+        _branches: comp.branches,
+        _primarySt: primarySt,
+      });
+    }
+  }
+
+  const by = {};
+  let km = 0;
+  const kmBy = {};
+  for (const r of routes) {
+    by[r.system] = (by[r.system] ?? 0) + 1;
+    kmBy[r.system] = (kmBy[r.system] ?? 0) + r.mi * KM_PER_MI;
+    km += r.mi * KM_PER_MI;
+  }
+  console.log(`  ${routes.length} Mexican routes: federal ${by['mx-federal'] ?? 0}`
+    + ` (${Math.round(kmBy['mx-federal'] ?? 0)} km), state ${by['mx-state'] ?? 0}`
+    + ` (${Math.round(kmBy['mx-state'] ?? 0)} km)`);
+  return { routes, source: src };
+}
+
+/**
+ * Put SICT's traffic counts on the Mexican routes.
+ *
+ * The counts are per station, and every station carries coordinates, so where
+ * one route number was built as several separate pieces each station is given
+ * to the piece it actually sits on rather than every piece getting the
+ * number's figure. A station more than 5 km from any piece of its number is
+ * not placed at all.
+ *
+ * SICT keys state roads by its own abbreviations - AGS, CH, TA - which are
+ * not ISO's and two of which are ambiguous between states. Each abbreviation
+ * is resolved to the state its own stations are in, rather than by guessing
+ * which state "CH" means.
+ */
+function attachMexicanTraffic(routes, mx) {
+  if (!mx?.stations?.length) return;
+  const F = Object.fromEntries(mx.fields.map((f, i) => [f, i]));
+
+  const votes = new Map();
+  for (const s of mx.stations) {
+    const [pre] = String(s[F.route]).split('-');
+    if (pre === 'MEX') continue;
+    if (!votes.has(pre)) votes.set(pre, new Map());
+    const v = votes.get(pre);
+    v.set(s[F.st], (v.get(s[F.st]) ?? 0) + 1);
+  }
+  const prefixOf = new Map([['MEX', 'MEX']]);
+  for (const [pre, v] of votes) {
+    const [st] = [...v.entries()].sort((a, b) => b[1] - a[1])[0];
+    prefixOf.set(pre, st === 'MEX' ? 'EM' : st);
+  }
+  const ourKey = (route) => {
+    const [pre, ...rest] = String(route).split('-');
+    const p = prefixOf.get(pre);
+    return p && rest.length ? `${p}-${rest.join('-')}` : null;
+  };
+
+  const byDesignation = new Map();
+  for (const r of routes) {
+    if (r.country !== 'mx') continue;
+    if (!byDesignation.has(r.designation)) byDesignation.set(r.designation, []);
+    byDesignation.get(r.designation).push(r);
+  }
+
+  const distKm = (pt, line) => {
+    let best = Infinity;
+    for (let i = 1; i < line.length; i++) {
+      const [ax, ay] = line[i - 1];
+      const [bx, by] = line[i];
+      const dx = bx - ax, dy = by - ay;
+      const len = dx * dx + dy * dy;
+      const t = len ? Math.max(0, Math.min(1, ((pt[0] - ax) * dx + (pt[1] - ay) * dy) / len)) : 0;
+      best = Math.min(best, haversineKm(pt, [ax + t * dx, ay + t * dy]));
+    }
+    return best;
+  };
+
+  const got = new Map();
+  let placed = 0, far = 0, unmatched = 0;
+  const unmatchedKeys = new Set();
+  for (const s of mx.stations) {
+    const key = ourKey(s[F.route]);
+    const cands = key ? byDesignation.get(key) : null;
+    if (!cands) { unmatched++; unmatchedKeys.add(s[F.route]); continue; }
+    const pt = [s[F.lon], s[F.lat]];
+    let host = null;
+    let d = Infinity;
+    for (const r of cands) {
+      const [x0, y0, x1, y1] = r.bbox;
+      if (pt[0] < x0 - 0.1 || pt[0] > x1 + 0.1 || pt[1] < y0 - 0.1 || pt[1] > y1 + 0.1) continue;
+      for (const line of [...r._pieces, ...r._branches]) {
+        const k = distKm(pt, line);
+        if (k < d) { d = k; host = r; }
+      }
+    }
+    if (!host || d > 5) { far++; continue; }
+    if (!got.has(host)) got.set(host, []);
+    got.get(host).push(s);
+    placed++;
+  }
+
+  const median = (xs) => {
+    const a = [...xs].sort((x, y) => x - y);
+    const m = Math.floor(a.length / 2);
+    return a.length % 2 ? a[m] : Math.round((a[m - 1] + a[m]) / 2);
+  };
+  const round = (v, step) => Math.round(v / step) * step;
+  for (const [r, ss] of got) {
+    const tdpa = ss.map((s) => s[F.tdpa]).filter((v) => v > 0);
+    if (!tdpa.length) continue;
+    const trucks = ss.map((s) => s[F.trucks]).filter((v) => v != null && v >= 0);
+    r.mxTraffic = {
+      year: mx.latest,
+      stations: tdpa.length,
+      median: round(median(tdpa), 10),
+      min: round(Math.min(...tdpa), 10),
+      max: round(Math.max(...tdpa), 10),
+      truckShare: trucks.length ? Math.round(median(trucks) * 10) / 10 : null,
+    };
+  }
+  console.log(`  SICT traffic: ${placed} of ${mx.stations.length} stations placed on ${got.size} routes;`
+    + ` ${far} more than 5 km from their route, ${unmatched} on a route the atlas does not carry`
+    + ` (${unmatchedKeys.size} keys)`);
 }
 
 /**
@@ -867,7 +1161,7 @@ async function readUnitedStates(contextLines) {
       malformed: !m,
     };
     const tier = tierOf(grp.system, parsed);
-    const key = (grp.system === 'state' || tier === 'special')
+    const key = (grp.system === 'us-state' || tier === 'special')
       ? `${grp.system}|${raw}|${grp.st ?? 'XX'}`
       : `${grp.system}|${raw}`;
 
@@ -997,6 +1291,10 @@ async function main() {
   const canada = await buildCanada();
   routes.push(...canada.routes);
 
+  console.log('\nreading Mexican road network...');
+  const mexico = await buildMexico(contextLines);
+  routes.push(...mexico.routes);
+
   // Stable, readable ids. Interstates and US routes are unique nationally
   // unless the number is genuinely reused, in which case the state breaks the
   // tie (i-84-or versus i-84-ct).
@@ -1015,7 +1313,7 @@ async function main() {
       // namesakes apart. A state-route slug already opens with its state, so
       // repeating it would read as ca-1-ca; those fall back to an index.
       const sameState = rs.filter((o) => o._primarySt === r._primarySt);
-      r.id = system === 'state'
+      r.id = system === 'us-state'
         ? `${slug}-${i + 1}`
         : `${slug}-${r._primarySt.toLowerCase()}${sameState.length > 1 ? `-${sameState.indexOf(r) + 1}` : ''}`;
       r.id = r.id.replace(/[^a-z0-9-]/g, '');
@@ -1102,6 +1400,14 @@ async function main() {
         // and speed. Only five provinces publish counts in bulk, so this is
         // null on most Canadian routes and on all American ones.
         traffic: r.traffic ?? null,
+        // Mexico only. The toll share is PEAJE's, measured per segment; the
+        // located share is how much of a federal route's per-state breakdown
+        // rests on boundary lookup rather than on the source.
+        mxToll: r.mxToll ?? null, mxTollCov: r.mxTollCov ?? null,
+        located: r.locatedShare ?? null,
+        invNum: r.inventoryNumber ?? null,
+        admin: r.administra ?? null,
+        mxTraffic: r.mxTraffic ?? null,
       },
       geometry: { type: 'MultiLineString', coordinates: [...main, ...branches] },
     };
@@ -1117,6 +1423,7 @@ async function main() {
   const TOL = {
     'us-interstate': 0.004, 'us-numbered': 0.005, 'us-state': 0.006,
     'ca-tch': 0.004, 'ca-nhs': 0.005, 'ca-provincial': 0.006,
+    'mx-federal': 0.004, 'mx-state': 0.006,
   };
 
   for (const s of SYSTEMS) {
@@ -1185,7 +1492,18 @@ async function main() {
       us: `US Census TIGER/Line ${TIGER_YEAR} roads, US Census gazetteer, FHWA Route Log, `
         + `FHWA HPMS ${HPMS_YEAR}`,
       ca: 'Statistics Canada National Road Network, Transport Canada National Highway System',
+      mx: 'INEGI Red Nacional de Caminos, SICT Datos Viales',
     },
+    // How the federal network's per-state figures were located, since the
+    // source itself does not say.
+    mxBoundaries: mexico.routes.length ? BOUNDARY_SOURCE : null,
+    mxTraffic: official?.mxTraffic
+      ? {
+        source: official.mxTraffic.source, agency: official.mxTraffic.agency,
+        url: official.mxTraffic.url, licence: official.mxTraffic.licence,
+        citation: official.mxTraffic.citation, year: official.mxTraffic.latest,
+      }
+      : null,
     // The year the states' measurements describe, so a page can date them
     // rather than let a traffic count read as current.
     hpmsYear: HPMS_YEAR,
@@ -1288,4 +1606,9 @@ function accuracySummary(routes) {
   return summary;
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// Run only when invoked directly, so one country's step can be exercised on
+// its own without the two-hour whole-continent build in front of it.
+export { buildMexico, attachMexicanTraffic, loadOfficial };
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e) => { console.error(e); process.exit(1); });
+}

@@ -436,13 +436,16 @@ body.is-booting #zenOut { opacity: 0 !important; pointer-events: none; }
   width: 13px; height: 9px; border-radius: 1.5px; flex: none;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
 }
-/* Not flags - a flag at 13px is mud. Two abstracted field marks instead:
-   the American stripes, and the Canadian pale. */
+/* Not flags - a flag at 13px is mud. Abstracted field marks instead: the
+   American stripes, the Canadian pale, the Mexican vertical tricolour. */
 .flag-us {
   background: repeating-linear-gradient(180deg, #d94a5a 0 1.5px, #e8eef6 1.5px 3px);
 }
 .flag-ca {
   background: linear-gradient(90deg, #d94a5a 0 27%, #e8eef6 27% 73%, #d94a5a 73% 100%);
+}
+.flag-mx {
+  background: linear-gradient(90deg, #2f9e5b 0 33.3%, #e8eef6 33.3% 66.7%, #d94a5a 66.7% 100%);
 }
 .sys-txt { flex: 1; min-width: 0; }
 .sys-name { display: block; font-size: 12.5px; color: var(--ink); letter-spacing: 0.02em; }
@@ -578,7 +581,7 @@ body.tlapse-on #detail { bottom: 108px; }
   padding: 10px 13px; background: var(--panel-solid);
   border-left: 2px solid rgba(53, 231, 255, 0.4);
 }
-.tlx-ev.sys { border-left-color: var(--us-col); }
+.tlx-ev.sys { border-left-color: var(--c-us-numbered); }
 .tlx-ev p { font-size: 12px; line-height: 1.55; color: var(--ink-dim); }
 .tlx-ev .src {
   display: block; margin-top: 4px;
@@ -630,6 +633,9 @@ body.tlapse-on #detail { bottom: 108px; }
 /* The panel's own card: search, then what the search found, taking whatever
    height is left over. */
 .card-find { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+/* With three countries the systems and region jumps outgrow a laptop screen,
+   so they give way and scroll rather than squeezing the results to one row. */
+.card-sys { flex: 0 1 auto; min-height: 0; max-height: 52%; overflow-y: auto; }
 
 .search { position: relative; }
 .search input {
@@ -708,7 +714,7 @@ body.tlapse-on #detail { bottom: 108px; }
   box-shadow: inset 0 0 0 1.5px #10141c;
 }
 .shield-st {
-  color: var(--st-col);
+  color: var(--c-us-state);
   border: 1.5px solid currentColor; border-radius: 999px;
   background: rgba(169, 139, 255, 0.1);
 }
@@ -738,9 +744,26 @@ body.tlapse-on #detail { bottom: 108px; }
   box-shadow: inset 0 0 0 1.5px #0d3b28;
 }
 .shield-pr {
-  color: var(--pr-col);
+  color: var(--c-ca-provincial);
   border: 1.5px solid currentColor; border-radius: 5px;
   background: rgba(255, 158, 203, 0.1);
+}
+
+/* ── Mexican markers ──────────────────────────────────────────────────────
+   The federal marker is a white escutcheon with black numerals, narrower at
+   the foot than the Trans-Canada's. State markers vary by state and are not
+   drawn individually; they get the outlined form the other per-jurisdiction
+   tiers use, in the tier's colour. */
+.shield-mxf {
+  color: #10141c;
+  background: #e8eef6;
+  border-radius: 3px 3px 10px 10px;
+  box-shadow: inset 0 0 0 1.5px #10141c;
+}
+.shield-mxs {
+  color: var(--c-mx-state);
+  border: 1.5px solid currentColor; border-radius: 5px;
+  background: rgba(255, 224, 102, 0.1);
 }
 
 /* ── provincial signs ─────────────────────────────────────────────────────

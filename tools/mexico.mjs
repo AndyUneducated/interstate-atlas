@@ -536,8 +536,11 @@ export async function readRedVial({
     if (!routes.length) {
       // An unnumbered carretera is real road and worth drawing faintly beneath
       // the numbered network, the way TIGER's unnumbered arterials are. Urban
-      // streets and footpaths are not: there are millions of them.
-      if (context && tipo === 'Carretera') {
+      // streets and footpaths are not: there are millions of them. Nor are
+      // municipal and private carreteras, which outnumber the rest and are
+      // mostly village access.
+      const adm = clean(p.ADMINISTRA);
+      if (context && tipo === 'Carretera' && (adm === 'Federal' || adm === 'Estatal')) {
         for (const part of parts) if (part.length >= 2) context.push(part);
       }
       continue;
@@ -572,7 +575,10 @@ export async function readRedVial({
 
     const props = {
       type: pav === UNPAVED ? 'Unpaved' : (VIAL_BY_FOLD.get(fold(tipo)) ?? 'Unknown'),
-      state: jur?.code ?? null,
+      // Where the segment is, which JURISDI only says for state roads. For a
+      // federal one it names the federation, which is an authority and not a
+      // place, so it is left blank here and located from the geometry later.
+      state: jur && jur.key !== FEDERATION ? jur.code : null,
       divided: DIVIDED_BY_FOLD.get(fold(clean(p.CIRCULA))) ?? null,
       tipoVial: tipo,
       name: clean(p.NOMBRE),

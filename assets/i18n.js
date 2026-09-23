@@ -56,6 +56,12 @@ export const STRINGS = {
     'sys.ca-tch.meta': 'one road, a different number in each province',
     'sys.ca-nhs.meta': 'the designated national network',
     'sys.ca-provincial.meta': 'every numbered route, load by province',
+    'sys.country.mx': 'Mexico',
+    'sys.mx-federal': 'Federal Highways',
+    'sys.mx-state': 'State Highways',
+    'sys.mx-federal.meta': 'administered by the federation',
+    'sys.mx-state.meta': 'numbered state roads, load by state',
+    'sys.pickMxState': 'Choose a Mexican state',
     'sys.routes': '{n} routes',
     'sys.miles': '{n} mi',
     'sub.state': 'one state',
@@ -91,6 +97,7 @@ export const STRINGS = {
     'dt.toNS': 'Northern end',
     'dt.near': 'near {place}',
     'dt.nearBy': '{km} km from {place}',
+    'dt.onTramo': 'on the {tramo} section',
     'dt.atPlace': '{place}',
     'dt.length': 'Length',
     'dt.states': 'States',
@@ -140,6 +147,29 @@ export const STRINGS = {
     'ca.inv.sub': 'Canada publishes its highway inventory by network tier and province rather than per route, so these are the figures for the network this road belongs to — not for this road.',
     'ca.inv.tier': '{tier} routes, as at the end of {asOf}.',
     'ca.inv.national': 'Canada',
+
+    // Mexico
+    'mx.admin': 'Administered by',
+    'mx.admin.Federal': 'the federation',
+    'mx.admin.Estatal': 'the state',
+    'mx.admin.Municipal': 'a municipality',
+    'mx.admin.Particular': 'a private party',
+    'mx.admin.Otro': 'another body',
+    'mx.toll': 'Toll road',
+    'mx.tollWhy': 'From the road file’s own toll flag, segment by segment. The D suffix a toll road’s number carries on signs is almost absent from the file and is not used.',
+    'mx.lanes': 'Lanes',
+    'mx.tramos': 'Sections',
+    'mx.invNum': 'Inventory key',
+    'mx.invNumWhy': 'A four-digit number, which in the State of Mexico is an entry in the state’s road inventory rather than a signed route number.',
+    'mx.located': 'The per-state breakdown is located against state boundaries: the road file records the federation, not the state, as the authority for federal roads. {pct}% of this route could be placed.',
+    'mx.unsignedStates': 'Most Mexican states do not number their state highways. SICT’s own listing of state roads it counts traffic on gives most of them no number at all, so only the numbered minority appear in this tier.',
+    'mx.tr.title': 'What SICT counts',
+    'mx.tr.sub': 'Annual average daily traffic (TDPA) at {n} count stations on this route, {year}. The median station is shown, because stations are points and are not spaced evenly along the road.',
+    'mx.tr.range': 'Range across stations',
+    'mx.tr.rangeVal': '{min} – {max} vehicles a day',
+    'mx.tr.trucks': 'Heavy vehicles',
+    'mx.tr.trucksVal': '{pct}% at the median station',
+    'mx.note.derived': 'Length, endpoints, lanes, surface and toll status on this page come from INEGI’s Red Nacional de Caminos, generalised here for drawing. Each end is given as the section (tramo) it lies on, in SICT’s own naming, rather than as a town the route may not reach. The file carries no speed limit.',
 
     // What the states report to FHWA each year about every mile of the
     // federal-aid network. Unlike everything else on this page, these were
@@ -318,6 +348,10 @@ export const STRINGS = {
     'jump.canorth': 'The territories',
     'jump.us.group': 'United States',
     'jump.ca.group': 'Canada',
+    'jump.mx': 'Mexico',
+    'jump.mxnorth': 'Northern Mexico',
+    'jump.mxcentre': 'Central Mexico',
+    'jump.mxsouth': 'The south and Yucatán',
     'base.dark': 'Dark base map',
     'base.relief': 'Shaded relief',
     'base.satellite': 'Satellite imagery',
@@ -380,6 +414,12 @@ export const STRINGS = {
     'sys.ca-tch.meta': '同一条路，每个省一个编号',
     'sys.ca-nhs.meta': '联邦与各省共同划定的国家路网',
     'sys.ca-provincial.meta': '收录全部编号路线，按省加载',
+    'sys.country.mx': '墨西哥',
+    'sys.mx-federal': '联邦公路',
+    'sys.mx-state': '州公路',
+    'sys.mx-federal.meta': '由联邦政府管理',
+    'sys.mx-state.meta': '有编号的州道，按州加载',
+    'sys.pickMxState': '选择墨西哥的州',
     'sys.routes': '{n} 条',
     'sys.miles': '{n} 英里',
     'sub.state': '1 个州',
@@ -415,6 +455,7 @@ export const STRINGS = {
     'dt.toNS': '北端终点',
     'dt.near': '邻近 {place}',
     'dt.nearBy': '距 {place} {km} 公里',
+    'dt.onTramo': '位于 {tramo} 路段',
     'dt.atPlace': '{place}',
     'dt.length': '总长',
     'dt.states': '途经州',
@@ -464,6 +505,28 @@ export const STRINGS = {
     'ca.inv.sub': '加拿大的公路统计是按路网等级和省份发布的，而非逐条公路发布。因此以下数字描述的是这条路所属的那一层路网，而不是这条路本身。',
     'ca.inv.tier': '统计对象为{tier}，截至 {asOf} 年底。',
     'ca.inv.national': '全国',
+
+    'mx.admin': '管理方',
+    'mx.admin.Federal': '联邦',
+    'mx.admin.Estatal': '州政府',
+    'mx.admin.Municipal': '市政府',
+    'mx.admin.Particular': '私人',
+    'mx.admin.Otro': '其他机构',
+    'mx.toll': '收费路段',
+    'mx.tollWhy': '取自路网文件逐段的收费标记。收费公路在路牌上带的 D 后缀，在文件里几乎没有出现，因此不作依据。',
+    'mx.lanes': '车道',
+    'mx.tramos': '路段',
+    'mx.invNum': '台账编号',
+    'mx.invNumWhy': '四位数编号。在墨西哥州，这是州公路台账里的条目号，而不是路牌上的路线编号。',
+    'mx.located': '分州里程是按州界位置测算的：路网文件对联邦公路记录的管辖方是联邦，而不是所在州。本路线有 {pct}% 能定位到州。',
+    'mx.unsignedStates': '墨西哥多数州不给州道编号。SICT 自己列出的计量州道里，大部分没有编号，所以这一层只收录其中有编号的少数。',
+    'mx.tr.title': 'SICT 的交通量调查',
+    'mx.tr.sub': '本路线 {n} 个计数站的年平均日交通量（TDPA），{year} 年。这里取各站的中位数，因为计数站是点位，沿路分布并不均匀。',
+    'mx.tr.range': '各站范围',
+    'mx.tr.rangeVal': '每日 {min} – {max} 辆',
+    'mx.tr.trucks': '重型车辆',
+    'mx.tr.trucksVal': '中位站点占 {pct}%',
+    'mx.note.derived': '本页的长度、起讫点、车道、路面和收费状态取自 INEGI 的全国道路网（Red Nacional de Caminos），为绘图作了简化。两端按其所在路段（tramo）标注，沿用 SICT 的命名，而不是指认一个路线未必到达的城镇。该文件不含限速。',
 
     'hp.title': '各州实测数据',
     'hp.sub': '各州上报美国联邦公路管理局的 {year} 年数据，按里程沿全线加权平均。',
@@ -627,6 +690,10 @@ export const STRINGS = {
     'jump.canorth': '北部三地区',
     'jump.us.group': '美国',
     'jump.ca.group': '加拿大',
+    'jump.mx': '墨西哥',
+    'jump.mxnorth': '墨西哥北部',
+    'jump.mxcentre': '墨西哥中部',
+    'jump.mxsouth': '南部与尤卡坦',
     'base.dark': '深色底图',
     'base.relief': '地形晕渲',
     'base.satellite': '卫星影像',
@@ -684,7 +751,31 @@ export const PROVINCE_LABEL = {
   NU: ['Nunavut', '努纳武特'],
 };
 
+// Mexico's 32 federal entities, keyed by the ISO 3166-2 suffix. Three letters
+// against the other two countries' two, so they cannot collide with either.
+// Chinese follows Xinhua's transliterations.
+export const MX_STATE_LABEL = {
+  AGU: ['Aguascalientes', '阿瓜斯卡连特斯'], BCN: ['Baja California', '下加利福尼亚'],
+  BCS: ['Baja California Sur', '南下加利福尼亚'], CAM: ['Campeche', '坎佩切'],
+  COA: ['Coahuila', '科阿韦拉'], COL: ['Colima', '科利马'], CHP: ['Chiapas', '恰帕斯'],
+  CHH: ['Chihuahua', '奇瓦瓦'], CMX: ['Ciudad de México', '墨西哥城'], DUR: ['Durango', '杜兰戈'],
+  GUA: ['Guanajuato', '瓜纳华托'], GRO: ['Guerrero', '格雷罗'], HID: ['Hidalgo', '伊达尔戈'],
+  JAL: ['Jalisco', '哈利斯科'], MEX: ['Estado de México', '墨西哥州'], MIC: ['Michoacán', '米却肯'],
+  MOR: ['Morelos', '莫雷洛斯'], NAY: ['Nayarit', '纳亚里特'], NLE: ['Nuevo León', '新莱昂'],
+  OAX: ['Oaxaca', '瓦哈卡'], PUE: ['Puebla', '普埃布拉'], QUE: ['Querétaro', '克雷塔罗'],
+  ROO: ['Quintana Roo', '金塔纳罗奥'], SLP: ['San Luis Potosí', '圣路易斯波托西'],
+  SIN: ['Sinaloa', '锡那罗亚'], SON: ['Sonora', '索诺拉'], TAB: ['Tabasco', '塔巴斯科'],
+  TAM: ['Tamaulipas', '塔毛利帕斯'], TLA: ['Tlaxcala', '特拉斯卡拉'], VER: ['Veracruz', '韦拉克鲁斯'],
+  YUC: ['Yucatán', '尤卡坦'], ZAC: ['Zacatecas', '萨卡特卡斯'],
+};
+
 export function isProvince(code) { return Object.hasOwn(PROVINCE_LABEL, code); }
+export function isMxState(code) { return Object.hasOwn(MX_STATE_LABEL, code); }
+
+/** The country a state, province or Mexican state code belongs to. */
+export function countryOfJuris(code) {
+  return isProvince(code) ? 'ca' : isMxState(code) ? 'mx' : 'us';
+}
 
 /**
  * Both names for a jurisdiction, for the search haystack.
@@ -694,7 +785,7 @@ export function isProvince(code) { return Object.hasOwn(PROVINCE_LABEL, code); }
  * names costs nothing and means "ontario" and "安大略" both work either way.
  */
 export function jurisdictionNames(code) {
-  const pair = STATE_LABEL[code] || PROVINCE_LABEL[code];
+  const pair = STATE_LABEL[code] || PROVINCE_LABEL[code] || MX_STATE_LABEL[code];
   return pair ? `${pair[0]} ${pair[1]}` : code;
 }
 
@@ -718,7 +809,7 @@ export function t(key, vars) {
 
 /** The name of a state, province or territory, in the current language. */
 export function stateName(code) {
-  const pair = STATE_LABEL[code] || PROVINCE_LABEL[code];
+  const pair = STATE_LABEL[code] || PROVINCE_LABEL[code] || MX_STATE_LABEL[code];
   if (!pair) return code;
   return lang === 'zh' ? pair[1] : pair[0];
 }

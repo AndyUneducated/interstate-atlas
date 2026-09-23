@@ -3,14 +3,14 @@
 
 import {
   t, setLang, getLang, stateName, miles, isProvince, jurisdictionNames, routeLabel,
-  ownerLabel,
+  ownerLabel, countryOfJuris,
 } from './i18n.js';
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen, refreshPlannerIfOpen } from './sheets.js';
 import { startFly, stopFly, isFlying } from './fly.js';
 import { openTimelapse } from './timelapse.js';
 import {
-  SYSTEMS, COUNTRIES, TIER_BY_CODE, geoPath, isPerJuris, systemsOf, systemOfCode,
+  SYSTEMS, COUNTRIES, TIER_BY_CODE, geoPath, isPerJuris, systemsOf, systemOfCode, countryOf,
 } from './schema.js';
 
 /* The route systems, their colours and where their geometry lives, all come
@@ -310,7 +310,8 @@ function disableSystem(sys) {
    load a jurisdiction at a time. State and province codes do not collide, so
    one registry covers both; only the folder and the owning system differ. */
 
-function systemOfJurisdiction(code) { return isProvince(code) ? 'ca-provincial' : 'us-state'; }
+const JURIS_SYSTEM = { us: 'us-state', ca: 'ca-provincial', mx: 'mx-state' };
+function systemOfJurisdiction(code) { return JURIS_SYSTEM[countryOfJuris(code)]; }
 
 export async function loadState(st) {
   if (app.stateLoaded.has(st)) { setStateVisible(st, true); return; }
@@ -790,12 +791,16 @@ const REGIONS = [
   { group: 'ca', key: 'cawest', i18n: 'jump.cawest', bounds: [[-139, 48.2], [-94, 60.5]] },
   { group: 'ca', key: 'caeast', i18n: 'jump.caeast', bounds: [[-95.5, 41.6], [-52.5, 62]] },
   { group: 'ca', key: 'canorth', i18n: 'jump.canorth', bounds: [[-141, 58], [-61, 71]] },
+  { group: 'mx', key: 'mx', i18n: 'jump.mx', bounds: [[-117.2, 14.4], [-86.6, 32.8]] },
+  { group: 'mx', key: 'mxnorth', i18n: 'jump.mxnorth', bounds: [[-117.2, 22.5], [-97.1, 32.8]] },
+  { group: 'mx', key: 'mxcentre', i18n: 'jump.mxcentre', bounds: [[-105.8, 17.8], [-96.2, 22.6]] },
+  { group: 'mx', key: 'mxsouth', i18n: 'jump.mxsouth', bounds: [[-98.6, 14.4], [-86.6, 21.7]] },
 ];
 
 function renderJumps() {
   const host = document.getElementById('jumps');
   host.innerHTML = '';
-  for (const group of ['us', 'ca']) {
+  for (const group of ['us', 'ca', 'mx']) {
     const row = document.createElement('div');
     row.className = 'jump-row';
     const label = document.createElement('i');
@@ -866,7 +871,7 @@ function renderSystems() {
         <span class="sys-count">${t('sys.routes', { n: (counts[s.id] || 0).toLocaleString() })}</span>`;
       btn.addEventListener('click', () => {
         if (s.perJuris) {
-          openSheet(s.cc === 'us' ? 'states' : 'provinces');
+          openSheet({ us: 'states', ca: 'provinces', mx: 'mxstates' }[s.cc]);
           return;
         }
         if (app.systems.get(s.id).on) disableSystem(s.id);
@@ -950,13 +955,19 @@ export function searchRoutes(text, { limit = 300, systemsOnly = true } = {}) {
 // Trans-Canada's green with its maple leaf, and a jurisdiction-tinted marker
 // for the two numbered-by-jurisdiction tiers.
 const SHIELD_CLASS = {
-  interstate: 'shield-i',
-  us: 'shield-us',
-  state: 'shield-st',
-  tch: 'shield-tch',
-  nhs: 'shield-nhs',
-  provincial: 'shield-pr',
+  'us-interstate': 'shield-i',
+  'us-numbered': 'shield-us',
+  'us-state': 'shield-st',
+  'ca-tch': 'shield-tch',
+  'ca-nhs': 'shield-nhs',
+  'ca-provincial': 'shield-pr',
+  'mx-federal': 'shield-mxf',
+  'mx-state': 'shield-mxs',
 };
+
+// The stylesheet reads system colours as --c-<system id>, so they are defined
+// here from the one table rather than restated in CSS.
+for (const s of SYSTEMS) document.documentElement.style.setProperty(`--c-${s.id}`, s.colour);
 
 // Four Canadian provinces sign a marker distinctive enough to be worth drawing
 // rather than tinting: Ontario's crown over the number on its King's Highways,
@@ -988,8 +999,11 @@ export function shieldHtml(r, big = false) {
   // The number and nothing else. State routes used to read "CA·87" inside the
   // marker, which no real shield does and which no circle that size can hold.
   // Every one of these already has its jurisdiction named beside it.
-  const text = String(r.num ?? '').replace(/[<>&]/g, '');
-  const prefixed = cls !== 'shield-i' && cls !== 'shield-us' && cls !== 'shield-tch';
+  // Mexican numbers are stored as written in the designation, zero-padded
+  // (MEX-015D); the shield itself reads 15D.
+  const raw = String(r.num ?? '');
+  const text = (countryOf(r.sys) === 'mx' ? raw.replace(/^0+(?=\d)/, '') : raw).replace(/[<>&]/g, '');
+  const prefixed = cls !== 'shield-i' && cls !== 'shield-us' && cls !== 'shield-tch' && cls !== 'shield-mxf';
   return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" `
     + `title="${prefixed ? `${r.st} ` : ''}${text}">${text}</span>`;
 }

@@ -16,7 +16,7 @@ import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { PNG } from 'pngjs';
-import { KM_PER_MI, geoPath } from '../assets/schema.js';
+import { KM_PER_MI, geoPath, system } from '../assets/schema.js';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUT = join(ROOT, 'data', 'elevation');
@@ -159,7 +159,7 @@ async function main() {
   // State-route dossiers live in per-state files; only load what is asked for.
   const stateWanted = [...wanted].filter((id) => !id.startsWith('i-') && !id.startsWith('us-'));
   if (stateWanted.length) {
-    const dir = join(ROOT, 'data', 'geo', 'state');
+    const dir = join(ROOT, 'data', 'geo', system('us-state').dir);
     for (const file of await readdir(dir)) {
       const fc = JSON.parse(await readFile(join(dir, file), 'utf8'));
       for (const f of fc.features) if (wanted.has(f.properties.id)) features.push(f);

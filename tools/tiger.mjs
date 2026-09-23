@@ -123,23 +123,23 @@ const PATTERNS = [
   { system: 'us-interstate', re: new RegExp(`^i-?\\s*(\\d{1,3}[a-z]?)\\b\\s*(.*)$`, 'i') },
 
   // "US Hwy 1", "US Rte 66", "US Hwy 11/15"
-  { system: 'us', re: new RegExp(`^u\\.?s\\.?\\s*${ROAD_WORD}?\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
+  { system: 'us-numbered', re: new RegExp(`^u\\.?s\\.?\\s*${ROAD_WORD}?\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
 
   // Texas signs loops and spurs as their own designations - "State Loop 265"
   // is not Highway 265 - and several states write the variant ahead of the
   // number this way.
-  { system: 'state', re: new RegExp(`^(?:state|st)\\s+(${VARIANT})\\s*${ROAD_WORD}?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), variant: true },
+  { system: 'us-state', re: new RegExp(`^(?:state|st)\\s+(${VARIANT})\\s*${ROAD_WORD}?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), variant: true },
 
   // The same, without the word "state": "Bus Rte 209"
-  { system: 'state', re: new RegExp(`^(${VARIANT})\\s+(?:rte|route)\\s*(${NUM})\\b\\s*(.*)$`, 'i'), variant: true },
+  { system: 'us-state', re: new RegExp(`^(${VARIANT})\\s+(?:rte|route)\\s*(${NUM})\\b\\s*(.*)$`, 'i'), variant: true },
 
   // "State Rte 10", "State Hwy 125", "St Rte 44"
-  { system: 'state', re: new RegExp(`^(?:state|st)\\s*${ROAD_WORD}\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
+  { system: 'us-state', re: new RegExp(`^(?:state|st)\\s*${ROAD_WORD}\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
 
   // A bare "Rte 16", which is how twenty-two states write some of their
   // routes. Only "route", never a bare "Hwy 5" or "Rd 5", which are as often
   // a local road's actual name.
-  { system: 'state', re: new RegExp(`^(?:rte|route)\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
+  { system: 'us-state', re: new RegExp(`^(?:rte|route)\\s*(${NUM}(?:/${NUM})*)\\b\\s*(.*)$`, 'i') },
 ];
 
 // Conventions that belong to one state, applied only there. Written narrowly on
@@ -148,27 +148,27 @@ const PATTERNS = [
 const LOCAL = {
   // Alaska numbers its routes 1-11 and signs them as such; TIGER files the
   // same roads under both "AK Rte 3" and "State Hwy 3".
-  AK: [{ system: 'state', re: new RegExp(`^ak\\s*-?\\s*${ROAD_WORD}?\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
+  AK: [{ system: 'us-state', re: new RegExp(`^ak\\s*-?\\s*${ROAD_WORD}?\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
 
   // Puerto Rico's routes are carreteras, written as "PR- 52", "Carr 156",
   // "Carr PR- 472" and "Carr Estatal 30". A carretera with a name rather than
   // a number - "Carr Naranjos" - is a local road and is not a route.
-  PR: [{ system: 'state', re: new RegExp(`^(?:carr\\s*)?(?:pr|estatal|num)?\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
+  PR: [{ system: 'us-state', re: new RegExp(`^(?:carr\\s*)?(?:pr|estatal|num)?\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
 
   // The Farm to Market and Ranch to Market roads are a Texas system of their
   // own, state-maintained and signed on their own shield. FM 1960 and State
   // Highway 1960 are different roads, so the number carries the prefix.
   TX: [
-    { system: 'state', re: new RegExp(`^(?:fm|f m)\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), prefix: 'FM' },
-    { system: 'state', re: new RegExp(`^(?:rm|ranch\\s*rd|ranch\\s*road)\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), prefix: 'RM' },
+    { system: 'us-state', re: new RegExp(`^(?:fm|f m)\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), prefix: 'FM' },
+    { system: 'us-state', re: new RegExp(`^(?:rm|ranch\\s*rd|ranch\\s*road)\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), prefix: 'RM' },
   ],
 
-  HI: [{ system: 'state', re: new RegExp(`^hi\\s*-\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
+  HI: [{ system: 'us-state', re: new RegExp(`^hi\\s*-\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
 
   // Missouri's supplemental routes are lettered rather than numbered - Route
   // A, Route AB, Route NN - and there are some 1,600 miles of them. Letters
   // only, so this cannot swallow a road whose name merely begins with "Route".
-  MO: [{ system: 'state', re: /^(?:state\s*)?(?:rte|route|hwy|highway)\s+([a-z]{1,3})\b\s*(.*)$/i }],
+  MO: [{ system: 'us-state', re: /^(?:state\s*)?(?:rte|route|hwy|highway)\s+([a-z]{1,3})\b\s*(.*)$/i }],
 };
 
 /**
@@ -311,8 +311,8 @@ export async function readState(fips, { groups = new Map(), tol = 0.0002, contex
       // across state lines and stitched into one road. A state route number
       // means nothing outside its state - there are forty-odd Route 1s - so
       // those are grouped per state.
-      const key = route.system === 'state'
-        ? `state|${route.number}|${st}|${route.qualifier ?? ''}`
+      const key = route.system === 'us-state'
+        ? `us-state|${route.number}|${st}|${route.qualifier ?? ''}`
         : `${route.system}|${route.number}|${route.qualifier ?? ''}`;
 
       let grp = groups.get(key);
@@ -321,7 +321,7 @@ export async function readState(fips, { groups = new Map(), tol = 0.0002, contex
           system: route.system,
           number: route.number,
           qualifier: route.qualifier,
-          st: route.system === 'state' ? st : null,
+          st: route.system === 'us-state' ? st : null,
           parts: [],
           names: new Set(),
         };

@@ -118,8 +118,8 @@ every source quirk that produced a visibly wrong atlas before it was handled.
 
 ## Coverage
 
-19,146 routes across 64 states, provinces and territories, measuring 669,227 miles of
-road, in the build dated 2026-09-17.
+21,026 routes across 96 states, provinces and territories, measuring 712,114 miles of
+road, in the build dated 2026-09-23.
 
 | Country | System | Routes | Miles | Notes |
 | --- | --- | --- | --- | --- |
@@ -129,6 +129,8 @@ road, in the build dated 2026-09-17.
 | 🇨🇦 | Trans-Canada Highway | 26 | 7,131 | the designation, traced across the provincial highways that carry it |
 | 🇨🇦 | National Highway System | 357 | 33,860 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
 | 🇨🇦 | Provincial & Municipal Routes | 2,751 | 68,739 | 12 provinces and territories, loaded per jurisdiction |
+| 🇲🇽 | Federal Highways | 250 | 21,816 | numbered roads the federation administers; 35,109 km of INEGI's 51,310 km federal network, the rest being unnumbered |
+| 🇲🇽 | State Highways | 1,630 | 21,071 | numbered state-administered roads in all 32 states, loaded per state; most state roads carry no number (see Known gaps) |
 
 Nunavut has no numbered route in the national road file, and no road connects it to the
 rest of the country, so it appears in no tier.
@@ -162,21 +164,23 @@ the route it was measured over, and nothing is filled in where a state reported 
 
 Canada has no equivalent. There is no national traffic collection, because counting is
 provincial and each province decides for itself whether to publish, in what form and under
-what terms. Five publish route-level counts in bulk and are read here; eight do not, and
-their routes carry no traffic figure rather than an inferred one. The asymmetry is real and
+what terms. Seven publish route-level counts in machine-readable form and are read here;
+six do not, and their routes carry no traffic figure rather than an inferred one. The asymmetry is real and
 the site states it rather than papering over it.
 
 | Jurisdiction | Counts published in bulk | Read here |
 | --- | --- | --- |
-| Quebec | WFS, updated daily, CC-BY, with heavy-vehicle share | ✅ |
+| Quebec | WFS, updated daily, CC-BY, with heavy-vehicle share; annual, summer and winter, ten years | ✅ |
 | Ontario | 2024 spreadsheet, no licence stated by the publisher | ✅ |
-| Alberta | 2025 spreadsheet, per-highway weighted, with vehicle classification | ✅ |
+| Alberta | 2025 spreadsheet, per-highway weighted, with vehicle classification; site history 1963–2025 | ✅ |
 | Nova Scotia | 2005–2025 census, Open Government Licence, with truck share and speeds | ✅ |
 | New Brunswick | 2023 count stations, Open Government Licence | ✅ |
+| Northwest Territories | Table 107, 2011–2024, published as estimates | ✅ |
+| Prince Edward Island | ArcGIS feature services, 2015–2018 | ✅ |
 | British Columbia | interactive map only; the catalogue's copy stops at 2010 | ❌ |
 | Saskatchewan | PDF map | ❌ |
 | Manitoba | web application and PDF | ❌ |
-| NL, PEI, YT, NT, NU | no machine-readable traffic publication found | ❌ |
+| NL, YT, NU | no machine-readable traffic publication found | ❌ |
 
 Each figure is an average along the route, weighted by length, shown beside the volume at
 the road's busiest point where the two differ — Highway 401 averages 73,700 vehicles a day
@@ -205,6 +209,31 @@ with nothing to tell them apart — twenty-two separate Ontario roads carry the 
 Both are published here rather than guessed at, the tier is named for it,
 and each road is listed with the place that identifies it.
 
+## Known gaps
+
+What the atlas does not have, and whether that is a limit of the sources or unfinished
+work. "Source" means no publisher releases it in a usable form; "pending" means it is
+available and not yet built.
+
+| Country | Gap | Kind | Detail |
+| --- | --- | --- | --- |
+| 🇲🇽 | Opening years | source | Neither INEGI nor SICT publishes when a road opened. SICT's bridge inventory dates 9,818 federal free-network bridges; those are shown as bridges and not used to date roads. |
+| 🇲🇽 | Most state highways | source | Most states do not number their state roads. SICT's own 2025 listing gives 243 of the 711 state roads it counts a number, and only numbered roads can become routes. The state tier is the numbered minority of INEGI's 103,787 km state network. |
+| 🇲🇽 | Toll and free twins | source | The road file almost never writes the D suffix, so MEX-15 and MEX-15D share one number. A federal route can mix a toll and a free alignment, and parallel stretches show up as separate pieces under one number. Toll share comes from the file's per-segment toll flag. |
+| 🇲🇽 | Which state a federal road is in | source | The road file records the federation rather than the state as the jurisdiction of federal segments. The per-state breakdown is located against Natural Earth's 1:10m boundaries, and each route page says so. |
+| 🇲🇽 | Route ends | source | There is no gazetteer in the Mexican pipeline, so each end is given as the SICT section (tramo) it lies on rather than as a town. |
+| 🇲🇽 | Unnumbered roads | source | Unnumbered federal and state carreteras are drawn only as faint background, and only stretches of 2 km or more. Municipal and private carreteras are not drawn. |
+| 🇲🇽 | Speed limits | source | `VELOCIDAD` is a routing parameter, not a posted limit, and is not shown. |
+| 🇲🇽 | Traffic on unnumbered roads | source | SICT count stations on roads with no number, or more than 5 km from their numbered route, are not placed. |
+| 🇲🇽 | Spanish interface | pending | English and Chinese only. |
+| 🇲🇽 | Numbering explainer, construction timeline | pending | Neither has a Mexico view yet. |
+| 🇲🇽 | Cross-check of RNC numbers against SICT's | pending | Chihuahua disagrees most. |
+| 🇲🇽 | CAPUFE toll-road traffic and tariffs | pending | Monthly flows and historical tariffs are published separately and not yet read. |
+| 🇨🇦 | Traffic in BC, SK, MB, NL, YT, NU | source | Not published in machine-readable form (see the table above). |
+| 🇨🇦 | Opening years outside Quebec | pending | The Trans-Canada chronology is being extracted from the *Canada Year Book*. Ontario's bridge years are shown as bridges only. |
+| 🇨🇦 | Nova Scotia traffic join | pending | 93% of counts attach. Joining on the province's own segment geometry would close the rest. |
+| 🇨🇦 🇲🇽 | Border crossings, toll facilities | pending | CBSA and SICT crossing lists, 407 ETR, Confederation Bridge, Cobequid Pass. |
+
 ## Data sources
 
 ### United States
@@ -229,6 +258,15 @@ and each road is listed with the place that identifies it.
 | [Alberta *Traffic volumes on links in the highway network*](https://open.alberta.ca/opendata/traffic-volumes-on-links-in-the-highway-network) 2025 | WAADT and commercial share, Alberta | Open Government Licence – Alberta |
 | [Nova Scotia *Traffic Volumes – Provincial Highway System*](https://data.novascotia.ca/Roads-Driving-and-Transport/Traffic-Volumes-Provincial-Highway-System/8524-ec3n) | AADT, truck share, 85th-percentile speed | Open Government Licence – Nova Scotia |
 | [New Brunswick *AADT counts at point locations*](https://gnb.socrata.com/datasets/gdx2-xdus) 2023 | AADT, New Brunswick | Open Government Licence – New Brunswick |
+
+### Mexico
+
+| Source | Used for | Licence | Refresh |
+| --- | --- | --- | --- |
+| [INEGI / SICT / IMT *Red Nacional de Caminos*](https://www.inegi.org.mx/programas/rnc/) 2025, `red_vial` | route geometry, designation (CODIGO), administering body, toll flag, lanes, surface, divided | Términos de Libre Uso (INEGI) | annual, each December |
+| [SICT *Datos Viales*](https://www.datos.gob.mx/dataset/datos_viales) 2013–2024 | TDPA and vehicle mix at 9,138 count stations | Términos de Libre Uso MX | annual |
+| SICT *Datos Viales* 2025, per-state PDF indexes | which state roads SICT itself lists, and which of them carry a number | Términos de Libre Uso MX | annual; file names and layout changed between 2024 and 2025 |
+| [Natural Earth](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/) Admin 1, 1:10m | locating federal segments within states | public domain | rarely |
 
 ### Both
 

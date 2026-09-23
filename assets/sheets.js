@@ -1,9 +1,11 @@
 /* Overlay views: numbering explainer, statistics, buildout timeline, trip
    planner, jurisdiction picker and the about page. */
 
-import { t, getLang, stateName, miles, num, isProvince, ownerLabel } from './i18n.js';
+import {
+  t, getLang, stateName, miles, num, isProvince, ownerLabel, countryOfJuris,
+} from './i18n.js';
 import { app, select, loadState, zoomToState } from './app.js';
-import { SYSTEMS, CLASS_COLOUR } from './schema.js';
+import { SYSTEMS, CLASS_COLOUR, countryOf } from './schema.js';
 
 let current = null;
 
@@ -43,6 +45,7 @@ export function openSheet(key) {
     planner: renderPlanner,
     states: renderStates,
     provinces: renderProvinces,
+    mxstates: renderMxStates,
     about: renderAbout,
   }[key];
   if (!render) { current = null; return; }
@@ -58,6 +61,7 @@ export function openSheet(key) {
     planner: wirePlanner,
     states: wireStates,
     provinces: wireStates,
+    mxstates: wireStates,
     about: () => {},
   }[key])();
 }
@@ -637,12 +641,14 @@ function wirePlanner() { paintPlanner(); }
    ══════════════════════════════════════════════════════════════════════ */
 
 function renderJurisdictions(sys) {
-  const ca = sys === 'ca-provincial';
+  const cc = countryOf(sys);
+  const ca = cc === 'ca';
   const rows = Object.entries(app.stats.byState)
-    .filter(([code]) => isProvince(code) === ca)
+    .filter(([code]) => countryOfJuris(code) === cc)
     .sort((a, b) => stateName(a[0]).localeCompare(stateName(b[0]), getLang() === 'zh' ? 'zh' : 'en'));
 
-  return frame(ca ? 'sys.pickProvince' : 'sys.pickState', `sys.${sys}.meta`, `
+  const title = { us: 'sys.pickState', ca: 'sys.pickProvince', mx: 'sys.pickMxState' }[cc];
+  return frame(title, `sys.${sys}.meta`, `
     <div class="jur-grid">
       ${rows.map(([code, v]) => `<button class="sys jur" data-load="${code}" type="button">
         <span class="sys-txt">
@@ -654,11 +660,15 @@ function renderJurisdictions(sys) {
     </div>
     ${ca ? `<div class="note" style="margin-top:13px">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
-      <span>${t('ca.municipalWhy')}</span></div>` : ''}`);
+      <span>${t('ca.municipalWhy')}</span></div>` : ''}
+    ${cc === 'mx' ? `<div class="note" style="margin-top:13px">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
+      <span>${t('mx.unsignedStates')}</span></div>` : ''}`);
 }
 
 const renderStates = () => renderJurisdictions('us-state');
 const renderProvinces = () => renderJurisdictions('ca-provincial');
+const renderMxStates = () => renderJurisdictions('mx-state');
 
 function wireStates() {
   for (const btn of document.querySelectorAll('[data-load]')) {

@@ -80,6 +80,23 @@ export const SYSTEMS = [
     perJuris: true,
     on: false,
   },
+  {
+    id: 'mx-federal',
+    code: 'mf',
+    cc: 'mx',
+    colour: '#9be15d',
+    geo: 'mx/federal.json',
+    on: true,
+  },
+  {
+    id: 'mx-state',
+    code: 'ms',
+    cc: 'mx',
+    colour: '#ffe066',
+    dir: 'mx/state',
+    perJuris: true,
+    on: false,
+  },
 ];
 
 /** Country codes in the order the atlas presents them, north to south. */

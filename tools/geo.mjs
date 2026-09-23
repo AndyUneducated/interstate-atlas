@@ -81,6 +81,59 @@ export function roundCoords(coords, decimals = 4) {
   return out.length >= 2 ? out : coords.slice(0, 2).map((c) => [Math.round(c[0] * m) / m, Math.round(c[1] * m) / m]);
 }
 
+/**
+ * Join lines that continue one another into single lines.
+ *
+ * A line is extended through an endpoint only where exactly two line ends
+ * meet, so a junction stays a junction and nothing is joined across one. The
+ * geometry drawn is the same; what changes is how many pieces it is shipped
+ * in. A road file split at every node - the RNC is - otherwise arrives as tens
+ * of thousands of two-point lines, each of which simplification cannot touch.
+ */
+export function chainLines(lines) {
+  const key = (c) => `${c[0]},${c[1]}`;
+  const ends = new Map();
+  lines.forEach((l, i) => {
+    if (l.length < 2) return;
+    for (const k of [key(l[0]), key(l[l.length - 1])]) {
+      if (!ends.has(k)) ends.set(k, []);
+      ends.get(k).push(i);
+    }
+  });
+  const used = new Uint8Array(lines.length);
+  const next = (k, from) => {
+    const at = ends.get(k);
+    if (!at || at.length !== 2) return -1;
+    const j = at[0] === from ? at[1] : at[0];
+    return j === from || used[j] ? -1 : j;
+  };
+  const out = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (used[i] || lines[i].length < 2) continue;
+    used[i] = 1;
+    let line = lines[i].slice();
+    for (const forward of [true, false]) {
+      let last = i;
+      for (;;) {
+        const tip = forward ? line[line.length - 1] : line[0];
+        const j = next(key(tip), last);
+        if (j < 0) break;
+        used[j] = 1;
+        const l = lines[j];
+        const t = key(tip);
+        if (forward) {
+          line = line.concat((key(l[0]) === t ? l : l.slice().reverse()).slice(1));
+        } else {
+          line = (key(l[l.length - 1]) === t ? l : l.slice().reverse()).concat(line.slice(1));
+        }
+        last = j;
+      }
+    }
+    out.push(line);
+  }
+  return out;
+}
+
 export function bboxOf(lines) {
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   for (const line of lines) {

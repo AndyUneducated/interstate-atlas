@@ -49,6 +49,8 @@ function terminusRow(kind, place, coord, dossierText, axis) {
   let body;
   if (written) {
     body = esc(written);
+  } else if (place?.tramo) {
+    body = t('dt.onTramo', { tramo: esc(place.name) });
   } else if (place) {
     body = place.km <= 6
       ? esc(`${place.name}, ${place.st}`)
@@ -313,6 +315,55 @@ function caInventory(p) {
     })}`, rows);
 }
 
+/**
+ * What SICT counted on this road.
+ *
+ * Mexico publishes counts per station rather than per route, and the stations
+ * are points spaced however the survey spaced them, so a mean would weight a
+ * city stretch with five stations five times over. The median station and the
+ * range are what the figures honestly support.
+ */
+function mexicanTraffic(p) {
+  const tr = p.mxTraffic;
+  const meta = app.stats?.mxTraffic;
+  if (!tr || !meta) return '';
+  const rows = [[t('hp.traffic'), t('hp.trafficVal', { n: num(tr.median) })]];
+  if (tr.stations > 1 && tr.max > tr.min) {
+    rows.push([t('mx.tr.range'), t('mx.tr.rangeVal', { min: num(tr.min), max: num(tr.max) })]);
+  }
+  if (tr.truckShare != null) {
+    rows.push([t('mx.tr.trucks'), t('mx.tr.trucksVal', { pct: num(tr.truckShare, 1) })]);
+  }
+  rows.push(['', `<span class="src"><a href="${esc(meta.url)}" target="_blank" rel="noopener">`
+    + `${esc(meta.agency ?? meta.source)}</a> · ${esc(meta.licence)}</span>`]);
+  return figBox(t('mx.tr.title'), t('mx.tr.sub', { n: num(tr.stations), year: tr.year }), rows);
+}
+
+/** What the RNC records about a Mexican route that is not a measurement. */
+function mxFacts(p) {
+  if (p.cc !== 'mx') return '';
+  const rows = [];
+  if (p.admin?.length) {
+    rows.push([t('mx.admin'), p.admin.map((a) => esc(t(`mx.admin.${a}`))).join(' · ')]);
+  }
+  if (p.invNum) rows.push([t('mx.invNum'), `<span class="fig-s">${t('mx.invNumWhy')}</span>`]);
+  if (p.pavedShare != null && p.pavedShare < 99.5) {
+    rows.push([t('ca.paved'), `<b>${num(p.pavedShare, 1)}%</b>`]);
+  }
+  if (p.div != null) {
+    rows.push([t('dt.divided'), `<b>${num(p.div, p.div % 1 ? 1 : 0)}%</b>`
+      + (p.divCov != null && p.divCov < 98
+        ? `<span class="fig-s"> · ${t('ca.coverage', { pct: num(p.divCov) })}</span>` : '')]);
+  }
+  if (p.named?.length) rows.push([t('mx.tramos'), p.named.map((n) => esc(n)).join(' · ')]);
+  if (p.located != null) {
+    rows.push(['', `<span class="fig-s">${t('mx.located', { pct: num(p.located) })}</span>`]);
+  }
+  rows.push(['', `<span class="fig-s">${t('mx.note.derived')}</span>`]);
+  return `<div class="figs ca-facts">${rows.map(([k, v]) =>
+    `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}</div>`;
+}
+
 function figBox(title, sub, rows) {
   return `<div class="figs fig-box">
     <div class="figs-h">${title}</div>
@@ -556,6 +607,7 @@ export async function renderDetail(id) {
   // and the two sources do not carry the same attributes. Nothing is inferred
   // across the border: an absent attribute reads as absent.
   const ca = p.cc === 'ca' || isProvince(meta.st);
+  const mx = p.cc === 'mx';
 
   const title = pick(dossier?.name) || meta.label;
   // A route that shares its number says where it is, so the panel is not
@@ -610,7 +662,16 @@ export async function renderDetail(id) {
       <div class="mgrid">
         ${metric(ca ? 'dt.provinces' : 'dt.states', num(states.length))}
         ${metric('dt.straight', `${num(p.spanMi)}<small>${t('unit.mi')}</small>`)}
-        ${metric('dt.gradeSep', `${num(p.gs, p.gs % 1 ? 1 : 0)}<small>%</small>`)}
+        ${mx
+          // The RNC has no functional class, so it cannot say what share of a
+          // road is freeway. The tile it would have gone in carries the toll
+          // share instead, which the RNC does record, segment by segment.
+          ? `${metric('mx.toll', p.mxToll == null ? null : `${num(p.mxToll, p.mxToll % 1 ? 1 : 0)}<small>%</small>`,
+            covBadge(p.mxTollCov), t('mx.tollWhy'))}
+             ${metric('mx.lanes', p.lanes == null ? null : num(p.lanes, p.lanes % 1 ? 1 : 0),
+            covBadge(p.lanesCov),
+            p.lanesCov != null && p.lanesCov < 98 ? t('ca.coverage', { pct: num(p.lanesCov) }) : null)}`
+          : `${metric('dt.gradeSep', `${num(p.gs, p.gs % 1 ? 1 : 0)}<small>%</small>`)}
         ${ca
           // The Canadian source carries lane counts and posted speeds, which
           // the American one does not; it carries no toll attribute at all, so
@@ -636,12 +697,14 @@ export async function renderDetail(id) {
           : `${metric('dt.tolled', `${num(p.toll, p.toll % 1 ? 1 : 0)}<small>%</small>`)}
              ${metric('hp.lanes', p.hpms?.lanes ? num(p.hpms.lanes.v, p.hpms.lanes.v % 1 ? 1 : 0) : null,
             covBadge(p.hpms?.lanes?.cover),
-            p.hpms?.lanes && p.hpms.lanes.cover < 98 ? t('ca.coverage', { pct: num(p.hpms.lanes.cover) }) : null)}`}
+            p.hpms?.lanes && p.hpms.lanes.cover < 98 ? t('ca.coverage', { pct: num(p.hpms.lanes.cover) }) : null)}`}`}
       </div>
 
       ${hpmsFacts(p)}
       ${provincialTraffic(p)}
+      ${mexicanTraffic(p)}
       ${caFacts(p)}
+      ${mxFacts(p)}
       ${caInventory(p)}
       ${p.unsigned ? `<div class="figs ca-facts">
         <div class="fig"><span class="fig-k">${t('dt.unsigned')}</span>

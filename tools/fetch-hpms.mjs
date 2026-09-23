@@ -65,7 +65,7 @@ const ID_FORMATS = {
     re: /^(IH|US|SH|FM|RM|SL|SS|BI|BU|BS)(\d{4})/,
     map: {
       IH: 'us-interstate', BI: 'us-interstate', US: 'us-numbered', BU: 'us-numbered',
-      SH: 'state', FM: 'state', RM: 'state', SL: 'state', SS: 'state', BS: 'state',
+      SH: 'us-state', FM: 'us-state', RM: 'us-state', SL: 'us-state', SS: 'us-state', BS: 'us-state',
     },
     // Texas's farm and ranch roads are a system of their own, so their numbers
     // carry the prefix, matching how the geometry reads them.
