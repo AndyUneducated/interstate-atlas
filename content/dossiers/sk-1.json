@@ -24,11 +24,11 @@
     {
       "key": "history",
       "en": [
-        "Saskatchewan signed its agreement on 25 April 1950 with six other provinces, and completed its 654 kilometres in 1957 — the first province to finish, and a year after the original statutory deadline of December 1956 that no province met.",
+        "Saskatchewan signed its agreement on 25 April 1950 with five other provinces, and completed its 654 kilometres in 1957 — the first province to finish, and a year after the original statutory deadline of December 1956 that no province met.",
         "Finishing early bought nothing in particular. The federal contribution was capped as a share of cost rather than allocated by speed, and the highway as a national route stayed unusable until the Lake Superior gap closed in 1960 and Rogers Pass opened in 1962. What it does show is how much of the Trans-Canada's twenty-two-year construction was terrain rather than intent."
       ],
       "zh": [
-        "萨斯喀彻温于 1950 年 4 月 25 日与另外六省同日签约，并于 1957 年建成本省 654 公里路段，成为第一个完工的省份——此时距法案原定的 1956 年 12 月期限已过一年，而那个期限没有任何省份赶上。",
+        "萨斯喀彻温于 1950 年 4 月 25 日与另外五省同日签约，并于 1957 年建成本省 654 公里路段，成为第一个完工的省份——此时距法案原定的 1956 年 12 月期限已过一年，而那个期限没有任何省份赶上。",
         "提早完工并未换来什么。联邦补助按费用比例封顶，而非按进度分配；作为一条全国性通道，这条公路要等到 1960 年苏必利尔湖缺口闭合、1962 年罗杰斯山口通车之后才真正可用。它真正说明的是：横加公路长达二十二年的工期，有多少是败给地形，而非缺乏决心。"
       ]
     }
@@ -41,8 +41,8 @@
     },
     {
       "label": { "en": "Completed", "zh": "建成时间" },
-      "value": { "en": "1957, the first province to complete its section — 654 km", "zh": "1957 年，第一个建成本省路段的省份，全长 654 公里" },
-      "source": "MacLeod, Transportation Association of Canada, 2014; Encyclopedia of Saskatchewan"
+      "value": { "en": "1957, the first province to complete its section — 654 km; opened and dedicated on 21 August 1957", "zh": "1957 年，第一个建成本省路段的省份，全长 654 公里；1957 年 8 月 21 日通车并举行落成仪式" },
+      "source": "MacLeod, Transportation Association of Canada, 2014; Encyclopedia of Saskatchewan; Canada Year Book 1957-58, p. 836"
     },
     {
       "label": { "en": "Construction cost in Saskatchewan", "zh": "萨斯喀彻温境内造价" },
@@ -51,7 +51,7 @@
   ],
   "timeline": [
     { "year": 1950, "en": "Saskatchewan signs its Trans-Canada Highway agreement with Ottawa on 25 April.", "zh": "4 月 25 日，萨斯喀彻温与渥太华签署横加公路协议。" },
-    { "year": 1957, "en": "Saskatchewan becomes the first province to complete its 654 km section.", "zh": "萨斯喀彻温成为第一个建成本省 654 公里路段的省份。" },
+    { "year": 1957, "en": "Saskatchewan becomes the first province to complete its 654 km section, and the highway there is opened and dedicated on 21 August.", "zh": "萨斯喀彻温成为第一个建成本省 654 公里路段的省份，8 月 21 日该段通车并举行落成仪式。" },
     { "year": 1977, "en": "The western provinces begin harmonising the Yellowhead branch on the number 16; Saskatchewan's portions had been Highways 5 and 14.", "zh": "西部各省开始将黄头支线统一编为 16 号；萨斯喀彻温境内原为 5 号与 14 号公路。" }
   ]
 }

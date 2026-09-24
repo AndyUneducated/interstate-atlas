@@ -349,6 +349,7 @@ export async function openTimelapse() {
   const routes = tl.routes.filter((r) => r.year).sort((a, b) => a.year - b.year);
   const events = tl.events || [];
   const qcYears = events.filter((e) => e.kind === 'qc').map((e) => e.year);
+  const tchYears = events.filter((e) => e.kind === 'tch').map((e) => e.year);
   state = {
     rows,
     routes,
@@ -358,10 +359,11 @@ export async function openTimelapse() {
     // Starts at the Act rather than at the first data point, so the scrubber
     // opens on the year the system was authorised and the reader arrives
     // before anything has been built rather than part-way in. Québec openings
-    // stretch the far end past 1997, where FHWA's mileage series stops.
+    // stretch the far end past 1997, where FHWA's mileage series stops, and
+    // the Trans-Canada Highway Act pulls the start back to 1949.
     // Older system-wide notes (some nineteenth-century) stay as events but
-    // do not pull the axis back before the Interstate programme.
-    min: Math.min(1956, rows[0][0], routes[0]?.year ?? 1956, ...qcYears),
+    // do not pull the axis back before either programme.
+    min: Math.min(1956, rows[0][0], routes[0]?.year ?? 1956, ...qcYears, ...tchYears),
     max: Math.max(rows[rows.length - 1][0], routes[routes.length - 1]?.year ?? 0, ...qcYears),
     year: 0,
     timer: null,

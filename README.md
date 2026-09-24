@@ -230,7 +230,7 @@ available and not yet built.
 | 🇲🇽 | Cross-check of RNC numbers against SICT's | pending | Chihuahua disagrees most. |
 | 🇲🇽 | CAPUFE toll-road traffic and tariffs | pending | Monthly flows and historical tariffs are published separately and not yet read. |
 | 🇨🇦 | Traffic in BC, SK, MB, NL, YT, NU | source | Not published in machine-readable form (see the table above). |
-| 🇨🇦 | Opening years outside Quebec | pending | The Trans-Canada chronology is being extracted from the *Canada Year Book*. Ontario's bridge years are shown as bridges only. |
+| 🇨🇦 | Opening years outside Quebec | source | The *Canada Year Book* (1951–1968, 1973) never reported Trans-Canada completion by province. Saskatchewan (21 August 1957) is the one exception. The only other dated event is the national opening on 3 September 1962, which was not a completion. The 1969–1972 editions, which would cover the programme's end, are missing from Statistics Canada's digitised collection. The Act, its amendments and each province's agreement date are on the timeline. Ontario's bridge years are shown as bridges only. |
 | 🇨🇦 | Nova Scotia traffic join | pending | 93% of counts attach. Joining on the province's own segment geometry would close the rest. |
 | 🇨🇦 🇲🇽 | Border crossings, toll facilities | pending | CBSA and SICT crossing lists, 407 ETR, Confederation Bridge, Cobequid Pass. |
 

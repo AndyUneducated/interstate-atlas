@@ -2,6 +2,62 @@
   "note": "System-level events for the buildout timeline. Every entry is checkable against the cited source; nothing here is inferred.",
   "events": [
     {
+      "year": 1949,
+      "kind": "tch",
+      "en": "The Trans-Canada Highway Act is assented to on 10 December. Ottawa will pay half the cost of new construction, up to $150 million in all, and the highway is to be finished by December 1956.",
+      "zh": "《横加公路法》于 12 月 10 日获御准。联邦承担新建工程费用的一半，总额以 1.5 亿加元为限，公路须于 1956 年 12 月前建成。",
+      "source": "Canada Year Book 1951, p. 633; 1962, p. 783"
+    },
+    {
+      "year": 1950,
+      "kind": "tch",
+      "en": "Ontario, Manitoba, British Columbia, Prince Edward Island, Saskatchewan and Alberta sign their Trans-Canada agreements at the conference table on 25 April. New Brunswick follows on 27 May and Newfoundland on 23 June. Nova Scotia says it will sign later; Quebec declines.",
+      "zh": "4 月 25 日，安大略、马尼托巴、不列颠哥伦比亚、爱德华王子岛、萨斯喀彻温与艾伯塔在会议桌上签署横加公路协议。新不伦瑞克于 5 月 27 日、纽芬兰于 6 月 23 日相继签署。新斯科舍表示日后再签，魁北克拒签。",
+      "source": "Canada Year Book 1951, p. 633"
+    },
+    {
+      "year": 1950,
+      "kind": "tch",
+      "en": "By 21 June almost all the signing provinces have federal approval for contracts, and $11.2 million of work has been started.",
+      "zh": "至 6 月 21 日，已签约的省份几乎都获得了联邦对工程合同的批准，已开工的工程金额达 1,120 万加元。",
+      "source": "Canada Year Book 1951, p. 634"
+    },
+    {
+      "year": 1952,
+      "kind": "tch",
+      "en": "The first work in the national parks: a bridge over the Bow River near Lake Louise station and about eight miles of grading on the Banff–East Gate section.",
+      "zh": "国家公园路段首批工程：路易斯湖车站附近的弓河大桥，以及班夫至东门段约八英里的路基工程。",
+      "source": "Canada Year Book 1952-53, p. 768"
+    },
+    {
+      "year": 1956,
+      "kind": "tch",
+      "en": "Parliament amends the Trans-Canada Highway Act in June. The federal ceiling rises from $150 million to $250 million, Ottawa pays 90 per cent on a tenth of each province's mileage to close the worst gaps, and the completion date moves to 31 December 1960.",
+      "zh": "6 月，国会修订《横加公路法》：联邦出资上限由 1.5 亿加元提高到 2.5 亿加元；为补上最差的缺口，联邦对各省十分之一的里程承担 90% 费用；完工期限推迟到 1960 年 12 月 31 日。",
+      "source": "Canada Year Book 1959, p. 795"
+    },
+    {
+      "year": 1959,
+      "kind": "tch",
+      "en": "A second amendment to the Trans-Canada Highway Act, passed in March, adds $100 million to the federal contribution.",
+      "zh": "3 月通过的《横加公路法》第二次修正案，为联邦出资再增 1 亿加元。",
+      "source": "Canada Year Book 1962, p. 783"
+    },
+    {
+      "year": 1960,
+      "kind": "tch",
+      "en": "A third amendment in June raises federal funds under the Trans-Canada Highway Act to $400 million and extends the construction period by three years. The agreements now call for a paved highway across Canada by 31 May 1964.",
+      "zh": "6 月的第三次修正案将《横加公路法》项下的联邦资金提高到 4 亿加元，并将施工期延长三年。各项协议改为要求在 1964 年 5 月 31 日前建成横贯全国的铺装公路。",
+      "source": "Canada Year Book 1962, p. 783"
+    },
+    {
+      "year": 1962,
+      "kind": "tch",
+      "en": "The Trans-Canada Highway is officially opened on 3 September, once the last major gap in the mountains has closed. It can be driven end to end for the first time, but construction is still going on in a number of sections: this is an opening, not a completion.",
+      "zh": "山区最后一处主要缺口闭合后，横加公路于 9 月 3 日正式通车，首次可以全程贯通驾驶。但多个路段仍在施工：这是通车，而非完工。",
+      "source": "Canada Year Book 1963-64, p. 772"
+    },
+    {
       "year": 1956,
       "en": "President Eisenhower signs the Federal-Aid Highway Act of 1956 on 29 June. It raises the planned system to 41,000 miles, sets nationwide design standards, and fixes the federal share of construction at 90 percent.",
       "zh": "艾森豪威尔总统于 6 月 29 日签署《1956 年联邦公路资助法》。该法将系统规划里程提高到 41,000 英里，制定全国统一设计标准，并将联邦承担的建设费用比例定为 90%。",

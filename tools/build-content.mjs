@@ -300,7 +300,9 @@ async function main() {
     for (const ev of ms.events) {
       checkLocalised('milestones.json', `event ${ev.year}`, { en: ev.en, zh: ev.zh });
       if (!ev.source) fail('milestones.json', `event ${ev.year} has no source`);
-      timelineEvents.push({ year: ev.year, en: ev.en, zh: ev.zh, source: ev.source, system: true });
+      timelineEvents.push({
+        year: ev.year, en: ev.en, zh: ev.zh, source: ev.source, system: true, ...(ev.kind ? { kind: ev.kind } : {}),
+      });
     }
   } catch { warn('milestones.json', 'not found; timeline will have route events only'); }
 
