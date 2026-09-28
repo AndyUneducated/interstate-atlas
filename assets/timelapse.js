@@ -23,7 +23,7 @@
    after 1980, and the fact that the last few hundred miles took fifteen years
    are all legible in the line you are dragging on. */
 
-import { t, num, getLang } from './i18n.js';
+import { t, num, getLang, lenOf, lenUnit } from './i18n.js';
 import { app, toast, enableSystem, select } from './app.js';
 
 /* The scrubber only ever filters the Interstate layers - it is a buildout of
@@ -219,7 +219,7 @@ function paint() {
 
   // The published figure, which covers the whole system.
   el.querySelector('.tlx-open').innerHTML = row
-    ? `${num(Math.round(row[1]))}<small>${t('unit.mi')}</small>`
+    ? `${num(lenOf(row[1]))}<small>${lenUnit()}</small>`
     : `<span class="na">${t('tlx.before')}</span>`;
   el.querySelector('.tlx-pct').textContent = row
     ? `${Math.round((row[1] / row[2]) * 100)}%`

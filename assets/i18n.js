@@ -3,7 +3,7 @@
 
    Placeholders look like {n} and are filled positionally by t(). */
 
-import { isPerJuris } from './schema.js';
+import { isPerJuris, KM_PER_MI } from './schema.js';
 
 export const STRINGS = {
   en: {
@@ -28,6 +28,7 @@ export const STRINGS = {
     'nav.terrain': '3D terrain',
     'nav.lang': '中文',
     'nav.langTitle': 'Switch to Chinese',
+    'nav.unitsTitle': 'Miles or kilometres',
     'nav.panel': 'Toggle panel',
     'nav.findRoute': 'Find a route',
     'nav.about': 'About',
@@ -70,12 +71,11 @@ export const STRINGS = {
     'sys.allStates': 'All states',
     'sys.pickProvince': 'Choose a province',
 
-    'search.placeholder': 'Search I-95, US 66, California…',
+    'search.placeholder': 'Search I-95, TCH 1, Ontario, Jalisco…',
     'search.results': 'Results',
     'search.none': 'Nothing matches that.',
     'search.hint': 'Type a route number, a name, or a state.',
     'search.count': '{n} of {total} routes',
-    'search.colMi': 'Miles',
     'search.sortLong': 'Longest first',
     'search.sortLongWhy': 'With nothing typed, the list is every route in the systems you have switched on, longest first. Searching looks through all of them, switched on or not.',
     'search.sortMatch': 'Closest match first',
@@ -96,7 +96,7 @@ export const STRINGS = {
     'dt.fromNS': 'Southern end',
     'dt.toNS': 'Northern end',
     'dt.near': 'near {place}',
-    'dt.nearBy': '{km} km from {place}',
+    'dt.nearBy': '{d} from {place}',
     'dt.onTramo': 'on the {tramo} section',
     'dt.atPlace': '{place}',
     'dt.length': 'Length',
@@ -123,7 +123,7 @@ export const STRINGS = {
     'ca.nhs.feederWhy': 'A link to the core network from another population or economic centre.',
     'ca.nhs.northernWhy': 'A primary means of access to northern areas, communities and resources.',
     'ca.tch': 'Trans-Canada Highway',
-    'ca.tchShare': 'Carries the Trans-Canada for {km} km of its length ({pct}%).',
+    'ca.tchShare': 'Carries the Trans-Canada for {d} of its length ({pct}%).',
     'ca.tchAll': 'Trans-Canada Highway for its entire length.',
     'ca.lanes': 'Lanes',
     'ca.speed': 'Posted speed',
@@ -242,19 +242,21 @@ export const STRINGS = {
     'comp.Unknown': 'Unclassified',
 
     'note.derived': 'Length, endpoints, state mileage and roadway class on this page are measured here from US Census TIGER/Line road geometry, surveyed and generalised for drawing. A divided highway is counted once, not once per carriageway.',
-    'note.gaps': 'The source map has {n} break(s) along this route, {mi} mi in total, where the roadway is filed under another classification. Those stretches are missing from the drawn line and from the length above.',
+    'note.gaps': 'The source map has {n} break(s) along this route, {d} in total, where the roadway is filed under another classification. Those stretches are missing from the drawn line and from the length above.',
     // Canada's breaks are as often water as missing data: Highway 1 crosses to
     // Vancouver Island by ferry and Route 138 reaches the Lower North Shore the
     // same way, and calling those a filing error would be wrong.
-    'note.gaps.ca': 'The route comes through in {n} piece(s), with {mi} mi unaccounted for between them. Some of that is road filed under another classification in the source; some of it is water, since designated routes cross to Vancouver Island and along the Lower North Shore by ferry. Neither is drawn, and neither is in the length above.',
+    'note.gaps.ca': 'The route comes through in {n} piece(s), with {d} unaccounted for between them. Some of that is road filed under another classification in the source; some of it is water, since designated routes cross to Vancouver Island and along the Lower North Shore by ferry. Neither is drawn, and neither is in the length above.',
     'note.noDossier': 'No written profile yet for this route. The figures above are measured from the map data.',
 
     'elev.none': 'No elevation profile generated for this route.',
     'elev.high': 'Highest point',
     'elev.low': 'Lowest point',
     'elev.climb': 'Total climb',
-    'elev.at': '{ft} ft at mile {mi}',
-    'elev.src': 'Sampled every {mi} mi from the Terrain Tiles open dataset. This is the height of the ground under the route, so a tunnel reads as the ridge above it and a long bridge as the water below.',
+    'elev.at': '{h} at {pos}',
+    'elev.pos.mi': 'mile {n}',
+    'elev.pos.km': 'km {n}',
+    'elev.src': 'Sampled every {d} from the Terrain Tiles open dataset. This is the height of the ground under the route, so a tunnel reads as the ridge above it and a long bridge as the water below.',
 
     'nb.title': 'How the numbers work',
     'nb.sub': 'Two American grids, deliberately opposed. In Canada, no grid at all.',
@@ -276,10 +278,10 @@ export const STRINGS = {
 
     'dash.title': 'The network in numbers',
     'dash.sub': 'Measured from the mapped geometry across {n} routes.',
-    'dash.totalMi': 'Mapped miles',
+    'dash.totalMi': 'Mapped length',
     'dash.routes': 'Routes',
     'dash.states': 'Jurisdictions',
-    'dash.freeway': 'Grade-separated miles',
+    'dash.freeway': 'Grade-separated length',
     'dash.bySystem': 'By system',
     'dash.byState': 'By state',
     'dash.byClass': 'By roadway class',
@@ -291,11 +293,10 @@ export const STRINGS = {
     'dash.byClass.note': 'As classified by each road file. The American file has no freeway class, so US freeway mileage appears under Primary; grade separation is measured separately, above.',
     'dash.longest': 'Longest routes',
     'dash.col.route': 'Route',
-    'dash.col.mi': 'Miles',
     'dash.col.states': 'States',
     'dash.col.from': 'From',
     'dash.col.to': 'To',
-    'dash.mostMiles': 'Most mapped miles',
+    'dash.mostMiles': 'Longest mapped network',
 
     'tl.title': 'Building the Interstates',
     'tl.play': 'Play',
@@ -323,11 +324,12 @@ export const STRINGS = {
     'tp.freeway': 'Freeway share',
     'tp.statesTouched': 'States touched',
     'tp.driveEst': 'Rough driving time',
-    'tp.driveNote': 'Estimated at 65 mph on freeway miles and 45 mph elsewhere, before stops or traffic.',
+    'tp.driveNote': 'Estimated at {fast} on freeway and {slow} elsewhere, before stops or traffic.',
     'tp.hours': '{h} h {m} min',
 
     'fly.speed': 'Speed',
     'fly.mile': 'Mile',
+    'fly.km': 'Kilometre',
     'fly.remaining': 'Remaining',
     'fly.exit': 'Exit',
     'fly.restart': 'Restart',
@@ -368,7 +370,11 @@ export const STRINGS = {
     'unit.mi': 'mi',
     'unit.km': 'km',
     'unit.ft': 'ft',
+    'unit.m': 'm',
     'unit.mph': 'mph',
+    'unit.kph': 'km/h',
+    'unit.long.mi': 'Miles',
+    'unit.long.km': 'Kilometres',
   },
 
   zh: {
@@ -390,6 +396,7 @@ export const STRINGS = {
     'nav.terrain': '三维地形',
     'nav.lang': 'EN',
     'nav.langTitle': '切换到英文',
+    'nav.unitsTitle': '英里或公里',
     'nav.panel': '收起面板',
     'nav.findRoute': '查找公路',
     'nav.about': '关于',
@@ -428,12 +435,11 @@ export const STRINGS = {
     'sys.allStates': '全部州',
     'sys.pickProvince': '选择省份',
 
-    'search.placeholder': '搜索 I-95、US 66、加利福尼亚…',
+    'search.placeholder': '搜索 I-95、横加公路 1、安大略、哈利斯科…',
     'search.results': '结果',
     'search.none': '没有匹配的路线。',
     'search.hint': '可输入公路编号、名称或州名。',
     'search.count': '{total} 条路线中的 {n} 条',
-    'search.colMi': '英里',
     'search.sortLong': '按里程由长到短',
     'search.sortLongWhy': '未输入内容时，列表显示已开启的路网系统中的全部路线，按里程由长到短排列。搜索则会检索所有路线，无论其所属系统是否开启。',
     'search.sortMatch': '按匹配度排序',
@@ -454,7 +460,7 @@ export const STRINGS = {
     'dt.fromNS': '南端起点',
     'dt.toNS': '北端终点',
     'dt.near': '邻近 {place}',
-    'dt.nearBy': '距 {place} {km} 公里',
+    'dt.nearBy': '距 {place} {d}',
     'dt.onTramo': '位于 {tramo} 路段',
     'dt.atPlace': '{place}',
     'dt.length': '总长',
@@ -481,7 +487,7 @@ export const STRINGS = {
     'ca.nhs.feederWhy': '把其他人口或经济中心接入核心路网的联络线。',
     'ca.nhs.northernWhy': '通往北部地区、社区与资源产地的主要通道。',
     'ca.tch': '横加公路',
-    'ca.tchShare': '全线中有 {km} 公里承担横加公路（占 {pct}%）。',
+    'ca.tchShare': '全线中有 {d} 承担横加公路（占 {pct}%）。',
     'ca.tchAll': '全线均为横加公路。',
     'ca.lanes': '车道数',
     'ca.speed': '限速',
@@ -592,16 +598,18 @@ export const STRINGS = {
     'comp.Unknown': '未分类',
 
     'note.derived': '本页的长度、起止点、各州里程与路段等级，均由本站依据美国人口普查局 TIGER/Line 道路几何数据实测得出（该数据为实测数据，本站为绘图做了简化）。分向行驶的公路只计一次，不会按每个方向各计一次。',
-    'note.gaps': '原始地图数据在本路线上有 {n} 处断口，合计约 {mi} 英里，这些路段在原始数据中被归入了其他分类。上方的长度和图上的线条都不包含这些路段。',
-    'note.gaps.ca': '本路线由 {n} 段构成，段与段之间另有约 {mi} 英里无法计入。其中一部分是在原始数据中被归入其他分类的路段，另一部分则是水域——获得指定的路线要靠渡轮前往温哥华岛，以及沿下北岸通行。两者都不绘制，也都不计入上方的长度。',
+    'note.gaps': '原始地图数据在本路线上有 {n} 处断口，合计约 {d}，这些路段在原始数据中被归入了其他分类。上方的长度和图上的线条都不包含这些路段。',
+    'note.gaps.ca': '本路线由 {n} 段构成，段与段之间另有约 {d} 无法计入。其中一部分是在原始数据中被归入其他分类的路段，另一部分则是水域——获得指定的路线要靠渡轮前往温哥华岛，以及沿下北岸通行。两者都不绘制，也都不计入上方的长度。',
     'note.noDossier': '此路线暂无撰写好的详情。上方数字均由地图数据实测得出。',
 
     'elev.none': '此路线尚未生成高程剖面。',
     'elev.high': '最高点',
     'elev.low': '最低点',
     'elev.climb': '累计爬升',
-    'elev.at': '{ft} 英尺，位于第 {mi} 英里',
-    'elev.src': '每 {mi} 英里取样一次，数据来自 Terrain Tiles 开放数据集。取的是路线所在地面的高程，因此隧道读出的是其上方山脊的高度，长桥读出的是桥下水面的高度。',
+    'elev.at': '{h}，位于{pos}',
+    'elev.pos.mi': '第 {n} 英里',
+    'elev.pos.km': '第 {n} 公里',
+    'elev.src': '每 {d} 取样一次，数据来自 Terrain Tiles 开放数据集。取的是路线所在地面的高程，因此隧道读出的是其上方山脊的高度，长桥读出的是桥下水面的高度。',
 
     'nb.title': '编号是怎么排的',
     'nb.sub': '美国两套网格刻意相反；加拿大则根本没有网格。',
@@ -633,7 +641,6 @@ export const STRINGS = {
     'dash.byClass.note': '等级取自各自的道路数据文件。美国的数据文件没有「高速公路」这一等级，因此美国的高速里程被归入「主干道」；是否立体交叉另行实测，见上方数字。',
     'dash.longest': '最长的路线',
     'dash.col.route': '路线',
-    'dash.col.mi': '英里',
     'dash.col.states': '州数',
     'dash.col.from': '起点',
     'dash.col.to': '终点',
@@ -665,11 +672,12 @@ export const STRINGS = {
     'tp.freeway': '高速占比',
     'tp.statesTouched': '途经州',
     'tp.driveEst': '粗略行车时间',
-    'tp.driveNote': '按高速段 65 英里/小时、其余路段 45 英里/小时估算，未计入停车与拥堵。',
+    'tp.driveNote': '按高速段 {fast}、其余路段 {slow} 估算，未计入停车与拥堵。',
     'tp.hours': '{h} 小时 {m} 分',
 
     'fly.speed': '速度',
     'fly.mile': '里程',
+    'fly.km': '里程',
     'fly.remaining': '剩余',
     'fly.exit': '退出',
     'fly.restart': '重新开始',
@@ -710,7 +718,11 @@ export const STRINGS = {
     'unit.mi': '英里',
     'unit.km': '公里',
     'unit.ft': '英尺',
+    'unit.m': '米',
     'unit.mph': '英里/小时',
+    'unit.kph': '公里/小时',
+    'unit.long.mi': '英里',
+    'unit.long.km': '公里',
   },
 };
 
@@ -837,12 +849,62 @@ export function ownerLabel(sys, code) {
   return t(`sys.${sys}`);
 }
 
-// Chinese keeps the mile as the unit of record because every published US
-// highway figure is in miles; the kilometre equivalent rides alongside.
-export function miles(n) {
-  if (n == null) return '—';
-  const s = Math.round(n).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-US');
-  return lang === 'zh' ? `${s} 英里` : `${s} mi`;
+/* Units are the reader's choice, not the source's. Lengths are held in
+   whatever unit the figure was measured or published in - miles for the
+   route index and American registers, kilometres for Canadian and Mexican
+   inventories - and converted only here, at the point of display, so the
+   switch changes what is read and never what is kept. */
+let units = 'imperial';
+
+export function setUnits(next) {
+  units = next === 'metric' ? 'metric' : 'imperial';
+  document.documentElement.dataset.units = units;
+  return units;
+}
+
+export function getUnits() { return units; }
+
+/** The three countries that still drive in miles; everyone else opens in km. */
+export function defaultUnits(locale = navigator.language || '') {
+  const region = (locale.split('-')[1] || '').toUpperCase();
+  return ['US', 'LR', 'MM'].includes(region) ? 'imperial' : 'metric';
+}
+
+const isMetric = () => units === 'metric';
+
+/** A length held in miles, in the reader's unit. */
+export function lenOf(mi) { return mi == null ? null : isMetric() ? mi * KM_PER_MI : mi; }
+/** A length held in kilometres, in the reader's unit. */
+export function lenOfKm(km) { return km == null ? null : isMetric() ? km : km / KM_PER_MI; }
+export function lenUnit() { return t(isMetric() ? 'unit.km' : 'unit.mi'); }
+/** "Miles" or "Kilometres", for column heads. */
+export function lenName() { return t(isMetric() ? 'unit.long.km' : 'unit.long.mi'); }
+
+export function dist(mi, digits = 0) {
+  return mi == null ? '—' : `${num(lenOf(mi), digits)} ${lenUnit()}`;
+}
+export function distKm(km, digits = 0) {
+  return km == null ? '—' : `${num(lenOfKm(km), digits)} ${lenUnit()}`;
+}
+
+/** The other unit, for the line under a headline length. */
+export function distAlt(mi) {
+  if (mi == null) return '—';
+  return isMetric() ? `${num(mi)} ${t('unit.mi')}` : `${num(mi * KM_PER_MI)} ${t('unit.km')}`;
+}
+
+export function speedKph(kph) {
+  if (kph == null) return '—';
+  return isMetric() ? `${num(kph)} ${t('unit.kph')}` : `${num(kph / KM_PER_MI)} ${t('unit.mph')}`;
+}
+export function speedMph(mph) {
+  if (mph == null) return '—';
+  return isMetric() ? `${num(mph * KM_PER_MI)} ${t('unit.kph')}` : `${num(mph)} ${t('unit.mph')}`;
+}
+
+export function heightFt(ft) {
+  if (ft == null) return '—';
+  return isMetric() ? `${num(ft * 0.3048)} ${t('unit.m')}` : `${num(ft)} ${t('unit.ft')}`;
 }
 
 /**

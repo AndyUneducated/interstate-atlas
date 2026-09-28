@@ -2,7 +2,8 @@
    planner, jurisdiction picker and the about page. */
 
 import {
-  t, getLang, stateName, miles, num, isProvince, ownerLabel, countryOfJuris,
+  t, getLang, stateName, dist, num, lenOf, lenUnit, lenName, speedMph, isProvince, ownerLabel,
+  countryOfJuris,
 } from './i18n.js';
 import { app, select, loadState, zoomToState } from './app.js';
 import { SYSTEMS, CLASS_COLOUR, countryOf } from './schema.js';
@@ -491,26 +492,26 @@ function renderDashboard() {
 
   const sysRows = Object.entries(s.bySystem)
     .sort((a, b) => b[1].mi - a[1].mi)
-    .map(([k, v]) => ({ k: t(`sys.${k}`), v: v.mi, sys: k }));
+    .map(([k, v]) => ({ k: t(`sys.${k}`), v: lenOf(v.mi), sys: k }));
 
   const stateRows = Object.entries(s.byState)
     .sort((a, b) => b[1].mi - a[1].mi)
     .slice(0, 18)
-    .map(([st, v]) => ({ k: stateName(st), v: v.mi, st }));
+    .map(([st, v]) => ({ k: stateName(st), v: lenOf(v.mi), st }));
 
   const classRows = Object.entries(s.byType)
     .sort((a, b) => b[1] - a[1])
     .filter(([, v]) => v > 200)
-    .map(([k, v]) => ({ k: t(`comp.${k}`), v, cls: k }));
+    .map(([k, v]) => ({ k: t(`comp.${k}`), v: lenOf(v), cls: k }));
 
   const longest = app.index.slice().sort((a, b) => b.mi - a.mi).slice(0, 14);
 
   return frame('dash.title', 'dash.sub', `
     <div class="dash-top">
-      <div class="m"><span class="m-k">${t('dash.totalMi')}</span><div class="m-v">${num(totalMi)}</div></div>
+      <div class="m"><span class="m-k">${t('dash.totalMi')}</span><div class="m-v">${num(lenOf(totalMi))}<small>${lenUnit()}</small></div></div>
       <div class="m"><span class="m-k">${t('dash.routes')}</span><div class="m-v">${num(totalRoutes)}</div></div>
       <div class="m"><span class="m-k">${t('dash.states')}</span><div class="m-v">${num(Object.keys(s.byState).length)}</div></div>
-      <div class="m"><span class="m-k">${t('dash.freeway')}</span><div class="m-v">${num(freewayMi)}</div></div>
+      <div class="m"><span class="m-k">${t('dash.freeway')}</span><div class="m-v">${num(lenOf(freewayMi))}<small>${lenUnit()}</small></div></div>
     </div>
 
     <div class="dash-cols">
@@ -533,13 +534,13 @@ function renderDashboard() {
           <table class="tbl">
             <thead><tr>
               <th>${t('dash.col.route')}</th>
-              <th style="text-align:right">${t('dash.col.mi')}</th>
+              <th style="text-align:right">${lenName()}</th>
               <th style="text-align:right">${t('dash.col.states')}</th>
               <th>${t('dash.col.from')}</th>
             </tr></thead>
             <tbody>${longest.map((r) => `<tr data-id="${r.id}">
               <td>${r.label}</td>
-              <td class="n">${num(r.mi)}</td>
+              <td class="n">${num(lenOf(r.mi))}</td>
               <td class="n">${num(r.ns)}</td>
               <td>${ownerLabel(r.sys, r.st)}</td>
             </tr>`).join('')}</tbody>
@@ -593,7 +594,7 @@ function paintPlanner() {
         <span class="tp-leg-n">${i + 1}</span>
         <span class="tp-leg-bd">
           <span class="tp-leg-t">${r.label}</span>
-          <span class="tp-leg-s">${miles(r.mi)} · ${ownerLabel(r.sys, r.st)} · ${num(r.gs, r.gs % 1 ? 1 : 0)}% ${t('dt.gradeSep').toLowerCase()}</span>
+          <span class="tp-leg-s">${dist(r.mi)} · ${ownerLabel(r.sys, r.st)} · ${num(r.gs, r.gs % 1 ? 1 : 0)}% ${t('dt.gradeSep').toLowerCase()}</span>
         </span>
         <button class="tp-leg-x" data-rm="${r.id}" type="button" aria-label="Remove">
           <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -602,12 +603,12 @@ function paintPlanner() {
     </div>
     <div>
       <div class="tp-sum">
-        <div class="m"><span class="m-k">${t('tp.total')}</span><div class="m-v">${num(totalMi)}<small>${t('unit.mi')}</small></div></div>
+        <div class="m"><span class="m-k">${t('tp.total')}</span><div class="m-v">${num(lenOf(totalMi))}<small>${lenUnit()}</small></div></div>
         <div class="m" style="border-top:1px solid var(--line)"><span class="m-k">${t('tp.legs')}</span><div class="m-v">${legs.length}</div></div>
         <div class="m" style="border-top:1px solid var(--line)"><span class="m-k">${t('tp.freeway')}</span><div class="m-v">${Math.round((freewayMi / totalMi) * 100)}<small>%</small></div></div>
         <div class="m" style="border-top:1px solid var(--line)"><span class="m-k">${t('tp.driveEst')}</span><div class="m-v">${t('tp.hours', { h: Math.floor(hours), m: Math.round((hours % 1) * 60) })}</div></div>
       </div>
-      <p style="margin:10px 2px;font-size:11px;line-height:1.6;color:var(--ink-faint)">${t('tp.driveNote')}</p>
+      <p style="margin:10px 2px;font-size:11px;line-height:1.6;color:var(--ink-faint)">${t('tp.driveNote', { fast: speedMph(65), slow: speedMph(45) })}</p>
       <button class="btn" id="tpClear" type="button" style="border:1px solid var(--line);width:100%;justify-content:center">
         <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>
         <span>${t('tp.clear')}</span>
@@ -653,7 +654,7 @@ function renderJurisdictions(sys) {
       ${rows.map(([code, v]) => `<button class="sys jur" data-load="${code}" type="button">
         <span class="sys-txt">
           <span class="sys-name">${stateName(code)}</span>
-          <span class="sys-meta">${num(v[sys] ? v.routes : 0)} · ${miles(v[sys] || 0)}</span>
+          <span class="sys-meta">${num(v[sys] ? v.routes : 0)} · ${dist(v[sys] || 0)}</span>
         </span>
         ${app.stateLoaded.has(code) ? '<span class="pill">on</span>' : ''}
       </button>`).join('')}
@@ -707,12 +708,12 @@ function renderAbout() {
   };
 
   const en = `
-    <p>This atlas draws every numbered highway in two countries: the Interstates, the US numbered routes and the state route networks of all fifty states plus the District of Columbia and Puerto Rico; and in Canada, the Trans-Canada Highway, Transport Canada’s National Highway System and every numbered provincial and municipal route. That comes to ${num(app.index.length)} routes and ${num(totalMi)} mapped miles across ${juris} states, provinces and territories.</p>
+    <p>This atlas draws the numbered highways of three countries. In the United States: the Interstates, the US numbered routes and the state route networks of all fifty states plus the District of Columbia and Puerto Rico. In Canada: the Trans-Canada Highway, Transport Canada’s National Highway System and every numbered provincial and municipal route. In Mexico: the federal highways, and the state highways that carry a number, which most do not. That comes to ${num(app.index.length)} routes and ${dist(totalMi)} of mapped road across ${juris} states, provinces and territories.</p>
     <h4>Where the geometry comes from</h4>
-    <p>American road centrelines are from the <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener">US Census TIGER/Line</a> road files, read one state at a time; Canadian ones from Statistics Canada’s <a href="https://www.statcan.gc.ca/en/lode/databases/odr" target="_blank" rel="noopener">National Road Network</a>, read one province at a time. Both are surveyed rather than generalised, and both are thinned here for drawing. Termini are named against the <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">US Census gazetteer</a> and the place names in the Canadian file. The basemap is <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a> from OpenStreetMap data, satellite imagery is Esri World Imagery, and terrain comes from Mapzen tiles on AWS Open Data.</p>
+    <p>American road centrelines are from the <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener">US Census TIGER/Line</a> road files, read one state at a time; Canadian ones from Statistics Canada’s <a href="https://www.statcan.gc.ca/en/lode/databases/odr" target="_blank" rel="noopener">National Road Network</a>, read one province at a time; Mexican ones from INEGI’s <a href="https://www.inegi.org.mx/programas/rnc/" target="_blank" rel="noopener">Red Nacional de Caminos</a>, 2025 edition, read as one national file. All three are surveyed rather than generalised, and all three are thinned here for drawing. The Mexican file records the federation, not a state, as the jurisdiction of a federal road, so the state a federal segment lies in is found against <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/" target="_blank" rel="noopener">Natural Earth</a>’s 1:10m boundaries, and each Mexican route page says so. Termini are named against the <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">US Census gazetteer</a> and the place names in the Canadian file; a Mexican terminus is given as the SICT section it lies on, because the Mexican pipeline has no gazetteer. The basemap is <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a> from OpenStreetMap data, satellite imagery is Esri World Imagery, and terrain comes from Mapzen tiles on AWS Open Data.</p>
     <h4>Three kinds of number, never mixed</h4>
     <p><strong>Measured</strong> — length, termini, mileage by state or province, roadway classification. Computed here from the geometry above, along the single path from one end of the road to the other, so a divided highway is counted once rather than twice. ${acc.en} Where an official figure exists it is shown beside the measured one, and the difference is explained rather than hidden.</p>
-        <p><strong>Reported</strong> — traffic, heavy-truck volume, pavement roughness, rutting, cracking, lanes, posted speeds. In the United States these are what the states measured and reported to FHWA under the <a href="https://www.fhwa.dot.gov/policyinformation/hpms.cfm" target="_blank" rel="noopener">Highway Performance Monitoring System</a>, one national collection with one method. Canada has no equivalent: traffic counting is provincial, and each province decides on its own whether to publish. Five do, in bulk and by route — Quebec, Ontario, Alberta, Nova Scotia and New Brunswick — so those routes carry counts and name the province, the year, the method and the licence behind them. The other eight jurisdictions publish through maps, applications and PDFs, or not at all, and their routes carry no traffic figure rather than a borrowed one. British Columbia is the significant absence: it counts continuously but releases only through an interactive map. Everything here is joined to a route by its designation and never by position, and every figure states the share of the road it was measured over.</p>
+        <p><strong>Reported</strong> — traffic, heavy-truck volume, pavement roughness, rutting, cracking, lanes, posted speeds. In the United States these are what the states measured and reported to FHWA under the <a href="https://www.fhwa.dot.gov/policyinformation/hpms.cfm" target="_blank" rel="noopener">Highway Performance Monitoring System</a>, one national collection with one method. Canada has no equivalent: traffic counting is provincial, and each province decides on its own whether to publish. Seven jurisdictions do, in bulk and by route — Quebec, Ontario, Alberta, Nova Scotia, New Brunswick, Prince Edward Island and the Northwest Territories — so those routes carry counts and name the province, the year, the method and the licence behind them. The other six publish through maps, applications and PDFs, or not at all, and their routes carry no traffic figure rather than a borrowed one. British Columbia is the significant absence: it counts continuously but releases only through an interactive map. In Mexico, SICT’s <a href="https://www.datos.gob.mx/dataset/datos_viales" target="_blank" rel="noopener">Datos Viales</a> gives average daily traffic at count stations on the federal network; a station is placed on a federal route when it lies within 5 km of it, and the route shows the range across its stations rather than one averaged figure. Everything here is joined to a route by its designation and never by position, and every figure states the share of the road it was measured over.</p>
     <p><strong>Written</strong> — history, construction cost, what a road is like to drive. Each figure carries its source. Where no public figure could be found, the row says so rather than showing an estimate. Nothing here is modelled or inferred to fill a gap.</p>
     <h4>Where the numbers disagree</h4>
     <p>They are meant to. FHWA’s published mileage for an Interstate leaves out pavement it credits to another route: where I-90 runs along the Indiana Toll Road with I-80, those miles are counted under I-80 only, which is why the road measures longer here than the register says. And the register has its own slips — it gives Knoxville’s I-640, a beltway of about seven miles, as 77.29. Both figures are shown, and neither is bent toward the other.</p>
@@ -722,12 +723,12 @@ function renderAbout() {
     <p><b>/</b> or <b>Ctrl-K</b> command palette · <b>F</b> fly the selected route · <b>T</b> 3D terrain · <b>Z</b> hide the interface · <b>Esc</b> back out.</p>`;
 
   const cn = `
-    <p>本图谱绘制两个国家的全部编号公路：美国的州际公路、美国国道，以及 50 个州加哥伦比亚特区、波多黎各的州级公路网；加拿大的横加公路、加拿大交通部《国家公路系统》，以及全部编号的省级与地方公路。合计 ${num(app.index.length)} 条路线、${num(totalMi)} 英里制图里程，覆盖 ${juris} 个州、省与地区。</p>
+    <p>本图谱绘制三个国家的编号公路。美国：州际公路、美国国道，以及 50 个州加哥伦比亚特区、波多黎各的州级公路网。加拿大：横加公路、加拿大交通部《国家公路系统》，以及全部编号的省级与地方公路。墨西哥：联邦公路，以及有编号的州级公路——多数州级公路没有编号。合计 ${num(app.index.length)} 条路线、${dist(totalMi)} 制图里程，覆盖 ${juris} 个州、省与地区。</p>
     <h4>几何数据来自哪里</h4>
-    <p>美国的道路中心线取自 <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener">美国人口普查局 TIGER/Line</a> 道路数据，逐州读取；加拿大的取自加拿大统计局《<a href="https://www.statcan.gc.ca/en/lode/databases/odr" target="_blank" rel="noopener">国家道路网</a>》，逐省读取。两者都是实测数据而非小比例尺概化数据，本站为绘图做了抽稀。起止点地名比对 <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">美国人口普查局地名库</a> 与加拿大数据自带的地名。底图为基于 OpenStreetMap 数据的 <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a>，卫星影像为 Esri World Imagery，地形数据来自 AWS Open Data 上的 Mapzen 瓦片。</p>
+    <p>美国的道路中心线取自 <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener">美国人口普查局 TIGER/Line</a> 道路数据，逐州读取；加拿大的取自加拿大统计局《<a href="https://www.statcan.gc.ca/en/lode/databases/odr" target="_blank" rel="noopener">国家道路网</a>》，逐省读取；墨西哥的取自墨西哥国家统计和地理研究所（INEGI）《<a href="https://www.inegi.org.mx/programas/rnc/" target="_blank" rel="noopener">国家道路网</a>》2025 年版，作为一个全国文件读取。三者都是实测数据而非小比例尺概化数据，本站为绘图做了抽稀。墨西哥数据把联邦公路的管辖方记为联邦而非所在州，因此联邦路段位于哪个州，是比对 <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/" target="_blank" rel="noopener">Natural Earth</a> 1:10m 州界得出的，每个墨西哥路线页都会注明。起止点地名比对 <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">美国人口普查局地名库</a> 与加拿大数据自带的地名；墨西哥的起止点则给出其所在的 SICT 路段名称，因为墨西哥数据流程没有地名库。底图为基于 OpenStreetMap 数据的 <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a>，卫星影像为 Esri World Imagery，地形数据来自 AWS Open Data 上的 Mapzen 瓦片。</p>
     <h4>三类数字，互不混用</h4>
     <p><strong>实测</strong>——长度、起止点、各州或各省里程、路段等级构成。由上述几何数据在本站算出，沿着从一端到另一端的唯一路径量取，因此分向行驶的公路只计一次，不会算成两次。${acc.zh}凡有官方里程的，都与实测值并列显示，差异会加以说明，而不是藏起来。</p>
-        <p><strong>上报</strong>——车流量、货车流量、路面平整度、车辙、裂缝、车道数、限速。在美国，这些是各州自行实测后按《<a href="https://www.fhwa.dot.gov/policyinformation/hpms.cfm" target="_blank" rel="noopener">公路性能监测系统</a>》上报给联邦公路管理局的数据，全国统一口径。加拿大没有对应的全国性采集：交通量调查由各省自行负责，是否公开也由各省自行决定。其中五个省以可批量获取的形式按路线公开——魁北克、安大略、艾伯塔、新斯科舍与新不伦瑞克——因此这些路线带有车流量数据，并注明数据出自哪个省、哪一年、用何种方法、以何种许可发布。其余八个省与地区只通过地图、网页应用或 PDF 发布，或根本不发布，其路线便不显示车流量，而不是借用别处的数字。其中不列颠哥伦比亚省的缺失最为可惜：该省持续开展交通量调查，却只通过交互式地图发布。以上数据一律按公路编号与路线匹配，绝不按位置套用，并且每项都注明覆盖了全线多少比例。</p>
+        <p><strong>上报</strong>——车流量、货车流量、路面平整度、车辙、裂缝、车道数、限速。在美国，这些是各州自行实测后按《<a href="https://www.fhwa.dot.gov/policyinformation/hpms.cfm" target="_blank" rel="noopener">公路性能监测系统</a>》上报给联邦公路管理局的数据，全国统一口径。加拿大没有对应的全国性采集：交通量调查由各省自行负责，是否公开也由各省自行决定。其中七个省与地区以可批量获取的形式按路线公开——魁北克、安大略、艾伯塔、新斯科舍、新不伦瑞克、爱德华王子岛与西北地区——因此这些路线带有车流量数据，并注明数据出自哪个省、哪一年、用何种方法、以何种许可发布。其余六个只通过地图、网页应用或 PDF 发布，或根本不发布，其路线便不显示车流量，而不是借用别处的数字。其中不列颠哥伦比亚省的缺失最为可惜：该省持续开展交通量调查，却只通过交互式地图发布。在墨西哥，SICT 的《<a href="https://www.datos.gob.mx/dataset/datos_viales" target="_blank" rel="noopener">道路数据</a>》给出联邦路网各观测站的年平均日交通量；观测站距某条联邦路线 5 公里以内才会归入该路线，路线页显示的是各站数值的范围，而不是一个平均值。以上数据一律按公路编号与路线匹配，绝不按位置套用，并且每项都注明覆盖了全线多少比例。</p>
     <p><strong>撰写</strong>——历史、造价、这条路开起来是什么感觉。每个数字都附有来源。凡是找不到公开数据的，该项直接写明，而不是给出估算值。本站不会用建模或推算去填补空缺。</p>
     <h4>数字为什么会互相矛盾</h4>
     <p>这本就是应该的。美国联邦公路管理局公布的州际公路里程，会把共线路段的里程记在另一条路名下：I-90 与 I-80 共用印第安纳收费公路的那段，只计入 I-80，因此本站量得的 I-90 比官方名录更长。名录自身也有疏漏——诺克斯维尔的 I-640 是一条约 7 英里的环路，名录却写作 77.29 英里。两个数字都会显示，也都不会向对方靠拢。</p>

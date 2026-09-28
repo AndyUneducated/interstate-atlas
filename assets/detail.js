@@ -8,11 +8,12 @@
    says so rather than guessing. */
 
 import {
-  t, getLang, stateName, miles, num, isProvince, ownerLabel,
+  t, getLang, stateName, num, isProvince, ownerLabel,
+  lenOf, lenOfKm, lenUnit, dist, distKm, distAlt, speedKph, speedMph, heightFt, getUnits,
 } from './i18n.js';
 import { app, shieldHtml, addToTrip, clearSelection, fitTo, loadDossier } from './app.js';
 import { startFly } from './fly.js';
-import { CLASS_COLOUR, SECTION_ORDER, KM_PER_MI } from './schema.js';
+import { CLASS_COLOUR, SECTION_ORDER } from './schema.js';
 
 function esc(s) {
   return String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -54,7 +55,7 @@ function terminusRow(kind, place, coord, dossierText, axis) {
   } else if (place) {
     body = place.km <= 6
       ? esc(`${place.name}, ${place.st}`)
-      : t('dt.nearBy', { place: esc(`${place.name}, ${place.st}`), km: place.km });
+      : t('dt.nearBy', { place: esc(`${place.name}, ${place.st}`), d: distKm(place.km) });
   } else {
     body = '—';
   }
@@ -105,16 +106,16 @@ const covBadge = (pct) => (pct != null && pct < 98 ? `${num(pct)}%` : null);
  *
  * The caption says which of the two lengths this is, because they differ and
  * the page refuses to pretend otherwise; the provenance section below gives
- * both and explains the gap. Kilometres sit beside the miles unconditionally:
- * half this atlas is Canadian, where the road is signed and measured in them,
- * and a Canadian reader should not have to convert the headline figure.
+ * both and explains the gap. The other unit sits under the headline one
+ * unconditionally: the reader's choice of unit is theirs, but the sign at the
+ * side of the road is in whichever unit its country uses.
  */
 function heroLength(p, officialMi, ca) {
   const mi = officialMi ?? p.mi;
   return `<div class="mhero">
     <span class="m-k">${t('dt.length')}</span>
-    <div class="mhero-v">${num(mi)}<small>${t('unit.mi')}</small></div>
-    <span class="mhero-s">${num(Math.round(mi * KM_PER_MI))} km · ${
+    <div class="mhero-v">${num(lenOf(mi))}<small>${lenUnit()}</small></div>
+    <span class="mhero-s">${distAlt(mi)} · ${
   officialMi != null ? t('len.heroOfficial') : t(ca ? 'len.heroNrn' : 'len.heroTiger')}</span>
   </div>`;
 }
@@ -136,7 +137,7 @@ function statesBlock(states) {
     <div class="st-row">
       <b>${s.st}</b>
       <span class="bar"><i style="width:${Math.max(2, (s.mi / max) * 100)}%"></i></span>
-      <em>${num(s.mi)}</em>
+      <em>${num(lenOf(s.mi))}</em>
     </div>`).join('')}</div>`;
 }
 
@@ -192,7 +193,7 @@ function hpmsFacts(p) {
     })}${cov(h.rutting)}`]);
   }
 
-  if (h.speed) rows.push([t('hp.speed'), `${num(h.speed.v)} ${t('unit.mph')}${cov(h.speed)}`]);
+  if (h.speed) rows.push([t('hp.speed'), `${speedMph(h.speed.v)}${cov(h.speed)}`]);
   if (h.improved) rows.push([t('hp.improved'), t('hp.improvedVal', { n: h.improved })]);
   if (h.futureAadt && h.aadtMax && h.futureAadt > h.aadtMax) {
     rows.push([t('hp.future'), t('hp.futureVal', { n: num(h.futureAadt) })]);
@@ -249,7 +250,7 @@ function provincialTraffic(p) {
   // the speed most of the traffic is at or below - which is a different thing
   // from the American pages' posted limit and is labelled as one.
   if (tr.speed) {
-    rows.push([t('ca.tr.speed'), `${num(tr.speed.v)}<small>km/h</small>`
+    rows.push([t('ca.tr.speed'), speedKph(tr.speed.v)
       + `<br><span class="fig-s">${t('ca.tr.speedWhy')}</span>`]);
   }
 
@@ -300,12 +301,12 @@ function caInventory(p) {
   for (const { st } of p.states ?? []) {
     const km = by[st]?.[p.nhsTier];
     if (km == null) continue;
-    rows.push([stateName(st), `<b>${num(km)}</b> ${t('unit.km')}`]);
+    rows.push([stateName(st), `<b>${num(lenOfKm(km))}</b> ${lenUnit()}`]);
   }
   if (!rows.length) return '';
 
   const total = Object.values(by).reduce((s, j) => s + (j[p.nhsTier] ?? 0), 0);
-  rows.push([t('ca.inv.national'), `<b>${num(Math.round(total))}</b> ${t('unit.km')}`]);
+  rows.push([t('ca.inv.national'), `<b>${num(lenOfKm(total))}</b> ${lenUnit()}`]);
   rows.push(['', `<span class="src">${esc(inv.source.title)}, `
     + `${esc(inv.source.publisher)}</span>`]);
 
@@ -397,7 +398,7 @@ function caFacts(p) {
   if (p.tchKm > 0) {
     rows.push([t('ca.tch'), p.tchShare >= 99
       ? t('ca.tchAll')
-      : t('ca.tchShare', { km: num(p.tchKm), pct: num(p.tchShare, 1) })]);
+      : t('ca.tchShare', { d: distKm(p.tchKm), pct: num(p.tchShare, 1) })]);
   }
   if (p.pavedShare != null && p.pavedShare < 99.5) {
     rows.push([t('ca.paved'), `<b>${num(p.pavedShare, 1)}%</b>`]);
@@ -547,20 +548,23 @@ function elevationBlock(profile) {
   const ft = profile.ft;
   const hi = Math.max(...ft);
   const lo = Math.min(...ft);
-  const hiMi = Math.round(ft.indexOf(hi) * profile.stepMi);
-  const loMi = Math.round(ft.indexOf(lo) * profile.stepMi);
+  const metricUnits = getUnits() === 'metric';
+  const tile = (f) => (metricUnits
+    ? `${num(f * 0.3048)}<small>${t('unit.m')}</small>`
+    : `${num(f)}<small>${t('unit.ft')}</small>`);
+  const pos = (i) => t(metricUnits ? 'elev.pos.km' : 'elev.pos.mi', { n: num(lenOf(i * profile.stepMi)) });
   let climb = 0;
   for (let i = 1; i < ft.length; i++) if (ft[i] > ft[i - 1]) climb += ft[i] - ft[i - 1];
   return `<div class="elev">${elevationSvg(profile)}</div>
     <div class="mgrid" style="margin-top:10px">
-      ${metric('elev.high', `${num(hi)}<small>${t('unit.ft')}</small>`, '')}
-      ${metric('elev.low', `${num(lo)}<small>${t('unit.ft')}</small>`, '')}
-      ${metric('elev.climb', `${num(Math.round(climb))}<small>${t('unit.ft')}</small>`, '')}
+      ${metric('elev.high', tile(hi), '')}
+      ${metric('elev.low', tile(lo), '')}
+      ${metric('elev.climb', tile(Math.round(climb)), '')}
     </div>
     <p style="margin:9px 0 0;font-family:var(--mono);font-size:10px;color:var(--ink-faint)">
-      ${t('elev.at', { ft: num(hi), mi: num(hiMi) })} · ${t('elev.low')}: ${t('elev.at', { ft: num(lo), mi: num(loMi) })}
+      ${t('elev.at', { h: heightFt(hi), pos: pos(ft.indexOf(hi)) })} · ${t('elev.low')}: ${t('elev.at', { h: heightFt(lo), pos: pos(ft.indexOf(lo)) })}
     </p>
-    <p class="srcline">${t('elev.src', { mi: profile.stepMi })}</p>`;
+    <p class="srcline">${t('elev.src', { d: dist(profile.stepMi, profile.stepMi < 1 ? 1 : 0) })}</p>`;
 }
 
 /* ── main render ──────────────────────────────────────────────────────── */
@@ -624,7 +628,7 @@ export async function renderDetail(id) {
   const officialSrc = dossier?.mileageSource || (p.offMi != null ? t('src.routelog') : null);
   const gapNote = p.breaks > 0
     ? `<div class="note gap"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17v.1"/><circle cx="12" cy="12" r="9"/></svg>
-       <span>${t(ca ? 'note.gaps.ca' : 'note.gaps', { n: p.breaks, mi: num(p.gapMi) })}</span></div>` : '';
+       <span>${t(ca ? 'note.gaps.ca' : 'note.gaps', { n: p.breaks, d: dist(p.gapMi) })}</span></div>` : '';
 
   host.innerHTML = `
     <div class="dt-hd">
@@ -661,7 +665,7 @@ export async function renderDetail(id) {
 
       <div class="mgrid">
         ${metric(ca ? 'dt.provinces' : 'dt.states', num(states.length))}
-        ${metric('dt.straight', `${num(p.spanMi)}<small>${t('unit.mi')}</small>`)}
+        ${metric('dt.straight', `${num(lenOf(p.spanMi))}<small>${lenUnit()}</small>`)}
         ${mx
           // The RNC has no functional class, so it cannot say what share of a
           // road is freeway. The tile it would have gone in carries the toll
@@ -682,7 +686,9 @@ export async function renderDetail(id) {
           ? `${metric('ca.lanes', p.lanes == null ? null : num(p.lanes, p.lanes % 1 ? 1 : 0),
             covBadge(p.lanesCov),
             p.lanesCov != null && p.lanesCov < 98 ? t('ca.coverage', { pct: num(p.lanesCov) }) : null)}
-             ${metric('ca.speed', p.kph == null ? null : `${num(p.kph)}<small>km/h</small>`,
+             ${metric('ca.speed', p.kph == null ? null : (getUnits() === 'metric'
+            ? `${num(p.kph)}<small>${t('unit.kph')}</small>`
+            : `${num(lenOfKm(p.kph))}<small>${t('unit.mph')}</small>`),
             covBadge(p.kphCov),
             // Averaged along the road, so a route signed at 100 for most of its
             // length and 110 for the rest reads 104 - a number no sign shows.
@@ -779,14 +785,14 @@ export async function renderDetail(id) {
   const delta = officialMi ? Math.round(p.mi - officialMi) : 0;
   const lengthRows = officialMi ? `<div class="figs" style="margin-top:11px">
     <div class="fig"><span class="fig-k">${t('len.official')}</span>
-      <span class="fig-v"><b>${num(officialMi)}</b> ${t('unit.mi')}
+      <span class="fig-v"><b>${num(lenOf(officialMi))}</b> ${lenUnit()}
       ${officialSrc ? `<span class="src">${esc(officialSrc)}</span>` : ''}</span></div>
     <div class="fig"><span class="fig-k">${t('len.measured')}</span>
-      <span class="fig-v"><b>${num(p.mi)}</b> ${t('unit.mi')}
+      <span class="fig-v"><b>${num(lenOf(p.mi))}</b> ${lenUnit()}
       <span class="src">${t('len.measuredSrc')}</span></span></div>
     ${Math.abs(delta) >= Math.max(3, officialMi * 0.02) ? `<div class="fig">
       <span class="fig-k">${t('len.delta')}</span>
-      <span class="fig-v">${delta > 0 ? '+' : ''}<b>${num(delta)}</b> ${t('unit.mi')}
+      <span class="fig-v">${delta > 0 ? '+' : ''}<b>${num(lenOf(delta))}</b> ${lenUnit()}
       <span class="src">${t('len.deltaWhy')}</span></span></div>` : ''}
   </div>` : '';
 

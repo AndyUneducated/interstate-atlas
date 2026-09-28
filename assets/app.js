@@ -2,8 +2,8 @@
    Detail panel, overlay sheets and the flythrough live in their own modules. */
 
 import {
-  t, setLang, getLang, stateName, miles, isProvince, jurisdictionNames, routeLabel,
-  ownerLabel, countryOfJuris,
+  t, setLang, getLang, stateName, dist, num, lenOf, lenName, isProvince, jurisdictionNames,
+  routeLabel, ownerLabel, countryOfJuris, setUnits, getUnits, defaultUnits,
 } from './i18n.js';
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen, refreshPlannerIfOpen } from './sheets.js';
@@ -62,6 +62,10 @@ function applyStaticStrings() {
   document.getElementById('q').placeholder = t('search.placeholder');
   document.getElementById('palQ').placeholder = t('pal.placeholder');
   document.getElementById('btnLang').title = t('nav.langTitle');
+  for (const el of document.querySelectorAll('#btnUnits [data-u]')) {
+    el.textContent = t(el.dataset.u === 'metric' ? 'unit.km' : 'unit.mi');
+    el.classList.toggle('on', el.dataset.u === getUnits());
+  }
   document.getElementById('bootTitle').textContent = t('boot.title');
   document.getElementById('bootSub').textContent = t('boot.sub');
   document.title = getLang() === 'zh'
@@ -135,10 +139,12 @@ export async function dossierIds() { return dossierIndex(); }
 
 /* ── map ──────────────────────────────────────────────────────────────── */
 
-// The frame the atlas opens on. Wide enough to hold the lower 48 and the
-// Canadian corridor where the network actually is, and it is a promise the
-// region jumps then keep: what is off this edge is reachable, not missing.
-const HOME_BOUNDS = [[-126.5, 25.2], [-58.5, 55.5]];
+// The frame the atlas opens on: the settled band of all three countries, from
+// the Canadian corridor down to the Isthmus of Tehuantepec, with no one of them
+// at the centre. It is a promise the region jumps then keep: what is off this
+// edge - Alaska, the Canadian north, Hawaii, Yucatán's tip - is reachable, not
+// missing.
+const HOME_BOUNDS = [[-126.5, 15.5], [-58.5, 55.5]];
 
 function buildMap() {
   const map = new maplibregl.Map({
@@ -153,7 +159,8 @@ function buildMap() {
     pitchWithRotate: true,
   });
   map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
-  map.addControl(new maplibregl.ScaleControl({ unit: 'imperial' }), 'bottom-right');
+  app.scale = new maplibregl.ScaleControl({ unit: getUnits() });
+  map.addControl(app.scale, 'bottom-right');
   app.map = map;
   // Handles for the headless checks in tools/verify.mjs.
   window.__map = map;
@@ -772,12 +779,13 @@ export const isZen = () => document.body.classList.contains('zen');
 
 /* ── region jumps ─────────────────────────────────────────────────────── */
 
-// The opening view frames the settled band of both countries, which is where
-// nearly all of the pavement is. Everything outside it - Alaska, Hawaii,
+// The opening view frames the settled band of the three countries, which is
+// where nearly all of the pavement is. Everything outside it - Alaska, Hawaii,
 // Puerto Rico, the Canadian north - is real and mapped but off the edge, and
-// nothing on a map hints that it continues past the frame. One tap each.
+// nothing on a map hints that it continues past the frame. One tap each. The
+// whole continent is a row of its own rather than one country's first button.
 const REGIONS = [
-  { group: 'us', key: 'na', i18n: 'jump.na', bounds: [[-168, 17], [-52, 71]] },
+  { group: 'na', key: 'na', i18n: 'jump.na', bounds: [[-168, 14], [-52, 71]] },
   { group: 'us', key: 'l48', i18n: 'jump.l48', bounds: [[-125.5, 24.2], [-66.4, 49.6]] },
   { group: 'us', key: 'ak', i18n: 'jump.ak', st: 'AK', bounds: [[-169.5, 52.0], [-129.5, 71.5]] },
   { group: 'us', key: 'hi', i18n: 'jump.hi', st: 'HI', bounds: [[-160.4, 18.8], [-154.7, 22.4]] },
@@ -800,13 +808,15 @@ const REGIONS = [
 function renderJumps() {
   const host = document.getElementById('jumps');
   host.innerHTML = '';
-  for (const group of ['us', 'ca', 'mx']) {
+  for (const group of ['na', 'us', 'ca', 'mx']) {
     const row = document.createElement('div');
     row.className = 'jump-row';
-    const label = document.createElement('i');
-    label.className = `flagdot flag-${group}`;
-    label.title = t(`sys.country.${group}`);
-    row.appendChild(label);
+    if (group !== 'na') {
+      const label = document.createElement('i');
+      label.className = `flagdot flag-${group}`;
+      label.title = t(`sys.country.${group}`);
+      row.appendChild(label);
+    }
 
     for (const r of REGIONS.filter((x) => x.group === group)) {
       const b = document.createElement('button');
@@ -866,7 +876,7 @@ function renderSystems() {
         <span class="sys-dot"></span>
         <span class="sys-txt">
           <span class="sys-name">${t(`sys.${s.id}`)}</span>
-          <span class="sys-meta">${t(`sys.${s.id}.meta`)}${mi ? ` · ${miles(mi)}` : ''}</span>
+          <span class="sys-meta">${t(`sys.${s.id}.meta`)}${mi ? ` · ${dist(mi)}` : ''}</span>
         </span>
         <span class="sys-count">${t('sys.routes', { n: (counts[s.id] || 0).toLocaleString() })}</span>`;
       btn.addEventListener('click', () => {
@@ -1025,7 +1035,7 @@ function renderResults() {
     sort.title = query ? t('search.sortMatchWhy') : t('search.sortLongWhy');
   }
   const colMi = document.getElementById('resColMi');
-  if (colMi) colMi.textContent = t('search.colMi');
+  if (colMi) colMi.textContent = lenName();
 
   if (!rows.length) {
     host.innerHTML = `<p class="res-empty">${query ? t('search.none') : t('search.hint')}</p>`;
@@ -1057,7 +1067,7 @@ function renderResults() {
         <span class="res-name">${r.label}${written}</span>
         <span class="res-sub">${sub}</span>
       </span>
-      <span class="res-mi">${r.mi.toLocaleString()}</span>`;
+      <span class="res-mi">${num(lenOf(r.mi))}</span>`;
     b.addEventListener('click', () => select(r.id));
     frag.appendChild(b);
   }
@@ -1170,7 +1180,7 @@ function renderPalette() {
     for (const r of rows) {
       item(`<span class="ico-w">${shieldHtml(r)}</span>
         <span class="pal-it-txt"><span class="pal-it-name">${r.label}</span>
-        <span class="pal-it-sub">${ownerLabel(r.sys, r.st)}${r.where ? ` · ${r.where}` : ''} · ${miles(r.mi)}</span></span>`,
+        <span class="pal-it-sub">${ownerLabel(r.sys, r.st)}${r.where ? ` · ${r.where}` : ''} · ${dist(r.mi)}</span></span>`,
       () => select(r.id));
     }
   }
@@ -1180,7 +1190,7 @@ function renderPalette() {
     for (const st of states.slice(0, 8)) {
       item(`<span class="ico-w"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/></svg></span>
         <span class="pal-it-txt"><span class="pal-it-name">${stateName(st)}</span>
-        <span class="pal-it-sub">${miles(app.stats.byState[st].mi)}</span></span>`,
+        <span class="pal-it-sub">${dist(app.stats.byState[st].mi)}</span></span>`,
       () => loadState(st).then(() => zoomToState(st)));
     }
   }
@@ -1237,6 +1247,13 @@ function wire() {
   document.getElementById('btnLang').addEventListener('click', () => {
     setLang(getLang() === 'en' ? 'zh' : 'en');
     localStorage.setItem('ia.lang', getLang());
+    relabel();
+  });
+
+  document.getElementById('btnUnits').addEventListener('click', () => {
+    setUnits(getUnits() === 'metric' ? 'imperial' : 'metric');
+    localStorage.setItem('ia.units', getUnits());
+    app.scale?.setUnit(getUnits());
     relabel();
   });
 
@@ -1307,6 +1324,7 @@ function wire() {
 
 async function main() {
   setLang(localStorage.getItem('ia.lang') || (navigator.language.startsWith('zh') ? 'zh' : 'en'));
+  setUnits(localStorage.getItem('ia.units') || defaultUnits());
   applyStaticStrings();
   wire();
 

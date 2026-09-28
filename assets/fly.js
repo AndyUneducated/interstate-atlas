@@ -9,7 +9,7 @@
    trail is drawn per piece so nothing is invented, but the camera flies across
    the gap so a drive still feels continuous. */
 
-import { t, num } from './i18n.js';
+import { t, num, lenOf, lenUnit, getUnits } from './i18n.js';
 import { app, toast, shieldHtml } from './app.js';
 
 const TRAIL_SRC = 'fly-trail';
@@ -173,8 +173,8 @@ function renderPanel() {
     </div>
     <div class="fly-bar"><i id="flyFill" style="width:0%"></i><b id="flyDot" style="left:0%"></b></div>
     <div class="fly-readout">
-      <span class="fly-r"><span class="fly-r-k">${t('fly.mile')}</span><span class="fly-r-v" id="flyMile">0</span></span>
-      <span class="fly-r"><span class="fly-r-k">${t('fly.remaining')}</span><span class="fly-r-v" id="flyLeft">${num(Math.round(total))}</span></span>
+      <span class="fly-r"><span class="fly-r-k">${t(getUnits() === 'metric' ? 'fly.km' : 'fly.mile')}</span><span class="fly-r-v" id="flyMile">0</span></span>
+      <span class="fly-r"><span class="fly-r-k">${t('fly.remaining')}</span><span class="fly-r-v" id="flyLeft">${num(lenOf(total))}</span></span>
       <span class="fly-r"><button class="fly-r-k" id="flySpeedBtn" type="button" style="padding:0;letter-spacing:.15em">${t('fly.speed')}</button><span class="fly-r-v" id="flySpeed">1×</span></span>
     </div>`;
 
@@ -247,9 +247,9 @@ function frame(ts) {
   const pct = (state.mi / total) * 100;
   document.getElementById('flyFill').style.width = `${pct}%`;
   document.getElementById('flyDot').style.left = `${pct}%`;
-  document.getElementById('flyMile').textContent = num(Math.round(state.mi));
-  document.getElementById('flyLeft').textContent = num(Math.round(total - state.mi));
-  document.getElementById('flySub').textContent = `${Math.round(pct)}% · ${num(Math.round(state.mi))} / ${num(Math.round(total))} ${t('unit.mi')}`;
+  document.getElementById('flyMile').textContent = num(lenOf(state.mi));
+  document.getElementById('flyLeft').textContent = num(lenOf(total - state.mi));
+  document.getElementById('flySub').textContent = `${Math.round(pct)}% · ${num(lenOf(state.mi))} / ${num(lenOf(total))} ${lenUnit()}`;
 
   raf = requestAnimationFrame(frame);
 }

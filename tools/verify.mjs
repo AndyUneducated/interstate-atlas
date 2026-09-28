@@ -119,12 +119,9 @@ await step('boot completes', async () => {
 });
 
 await step('interstates rendered', async () => {
-  const n = await page.evaluate(() => {
-    const m = window.__map;
-    return m ? m.querySourceFeatures('rt-us-interstate').length : -1;
-  });
-  if (n === -1) throw new Error('map not exposed');
-  if (n === 0) throw new Error('no interstate features rendered');
+  const exposed = await page.evaluate(() => !!window.__map);
+  if (!exposed) throw new Error('map not exposed');
+  await waitForSource('rt-us-interstate');
 });
 
 await step('results list populated', async () => {
@@ -592,6 +589,29 @@ await step('the length is the headline, not one tile of six', async () => {
   // grid, because the elevation block further down the panel is another one.
   const tiles = await page.locator('#detail .mgrid').first().locator('.m').count();
   if (tiles !== 5) throw new Error(`expected 5 tiles beside the headline, got ${tiles}`);
+});
+
+await step('the unit switch converts, and switches back', async () => {
+  // I-90 is still open from the step above. The headline is the thing a
+  // reader checks first, so it is the thing that has to follow the switch.
+  const read = async () => Number(((await page.locator('#detail .mhero-v').textContent()) || '')
+    .replace(/[^\d]/g, ''));
+  const before = await read();
+  await page.click('#btnUnits');
+  await page.waitForTimeout(900);
+  const after = await read();
+  const ratio = after / before;
+  // Whichever way it went, the two readings are a mile and a kilometre apart.
+  if (!(Math.abs(ratio - 1.609) < 0.01 || Math.abs(ratio - 1 / 1.609) < 0.01)) {
+    throw new Error(`headline went ${before} -> ${after}, not a unit conversion`);
+  }
+  const col = (await page.locator('#resColMi').textContent()).trim();
+  await page.click('#btnUnits');
+  await page.waitForTimeout(900);
+  if (await read() !== before) throw new Error('switching back does not restore the figure');
+  if ((await page.locator('#resColMi').textContent()).trim() === col) {
+    throw new Error('the list column head does not follow the unit');
+  }
 });
 
 await step('the list says how it is sorted and what its number is', async () => {

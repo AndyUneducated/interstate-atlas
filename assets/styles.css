@@ -247,6 +247,11 @@ html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
 .btn.on { color: var(--cyan); background: rgba(53, 231, 255, 0.11); }
 .btn:disabled { opacity: 0.32; cursor: not-allowed; }
 .btn-ico { padding: 0; width: 32px; justify-content: center; }
+/* Both units stay on the button, so it reads as a choice between two rather
+   than as a label naming whichever one it would switch to. */
+.btn.units { gap: 0; padding: 0 9px; font-family: var(--mono); font-size: 11px; }
+.btn.units span { padding: 2px 5px; border-radius: 3px; color: var(--ink-faint); }
+.btn.units span.on { color: var(--cyan); background: rgba(53, 231, 255, 0.11); }
 .btn kbd {
   font-family: var(--mono); font-size: 9.5px; padding: 1px 4px; border-radius: 3px;
   background: rgba(120, 170, 220, 0.13); color: var(--ink-faint); letter-spacing: 0;
