@@ -4,9 +4,9 @@
  "url": "https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2025",
  "licence": null,
  "licenceNote": "No licence statement appears on the per-state PDFs or on the page listing them. The Datos Viales traffic release on datos.gob.mx carries Términos de Libre Uso MX; whether it extends to these volumes is not stated.",
- "citation": "Datos Viales 2025, SICT, https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2025, 2026-09-22",
+ "citation": "Datos Viales 2025, SICT, https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2025, 2026-09-28",
  "edition": 2025,
- "retrieved": "2026-09-22",
+ "retrieved": "2026-09-28",
  "read": "The highway index at the front of each state volume. The traffic tables inside the volumes, and the separate volume published alongside them, are not read here.",
  "coverageKm": 73000,
  "purpose": "An independent statement of which Mexican highways carry a route designation, against which the Red Nacional de Caminos CODIGO column can be checked. Read for designations only; lengths and geometry stay with the RNC.",
@@ -27,10 +27,10 @@
   "editionYear": "Editions are named for the year they are published in, not the year they describe, and the designations here are those the named edition lists. Anything joining this to the traffic release should establish the data year from the publisher rather than from the edition number."
  },
  "finding": {
-  "statesWithNumberedStateRoutes": 28,
+  "statesWithNumberedStateRoutes": 30,
   "statesTotal": 32,
   "stateTierRoads": 711,
-  "stateTierNumbered": 243,
+  "stateTierNumbered": 265,
   "note": "Where this source and the Red Nacional de Caminos agree that a state highway carries no number, two agencies working from different methods say the same thing, and the absence of a number is a fact about the road rather than a gap in the data."
  },
  "fields": [
@@ -214,8 +214,8 @@
    "pages": 54,
    "indexPages": 1,
    "roads": 63,
-   "numbered": 38,
-   "unnumbered": 25,
+   "numbered": 47,
+   "unnumbered": 16,
    "byJuris": {
     "federal": {
      "roads": 35,
@@ -224,8 +224,8 @@
     },
     "state": {
      "roads": 26,
-     "numbered": 1,
-     "unnumbered": 25
+     "numbered": 10,
+     "unnumbered": 16
     },
     "mixed": {
      "roads": 2,
@@ -813,8 +813,8 @@
    "pages": 42,
    "indexPages": 1,
    "roads": 53,
-   "numbered": 29,
-   "unnumbered": 24,
+   "numbered": 34,
+   "unnumbered": 19,
    "byJuris": {
     "federal": {
      "roads": 30,
@@ -823,8 +823,8 @@
     },
     "state": {
      "roads": 23,
-     "numbered": 0,
-     "unnumbered": 23
+     "numbered": 5,
+     "unnumbered": 18
     }
    },
    "unparsedRows": 0
@@ -836,8 +836,8 @@
    "pages": 36,
    "indexPages": 1,
    "roads": 47,
-   "numbered": 26,
-   "unnumbered": 21,
+   "numbered": 34,
+   "unnumbered": 13,
    "byJuris": {
     "federal": {
      "roads": 25,
@@ -846,8 +846,8 @@
     },
     "state": {
      "roads": 20,
-     "numbered": 0,
-     "unnumbered": 20
+     "numbered": 8,
+     "unnumbered": 12
     },
     "mixed": {
      "roads": 2,
@@ -4035,7 +4035,9 @@
    "free",
    "Estación Palenque - La Libertad",
    "CHIS-010",
-   [],
+   [
+    "CHIS-010"
+   ],
    null
   ],
   [
@@ -4095,7 +4097,10 @@
    "free",
    "Ocozocoautla - Revolución Mexicana",
    "CHIS-053-230",
-   [],
+   [
+    "CHIS-053",
+    "CHIS-230"
+   ],
    null
   ],
   [
@@ -4135,7 +4140,9 @@
    "free",
    "Ramal a Mazatán",
    "CHIS-219",
-   [],
+   [
+    "CHIS-219"
+   ],
    null
   ],
   [
@@ -4185,7 +4192,9 @@
    "free",
    "Tapachula - Nueva Alemania",
    "CHIS-229",
-   [],
+   [
+    "CHIS-229"
+   ],
    null
   ],
   [
@@ -4215,7 +4224,9 @@
    "free",
    "Tuxtla Gutiérrez - Portillo Zaragoza",
    "CHIS-133",
-   [],
+   [
+    "CHIS-133"
+   ],
    null
   ],
   [
@@ -4545,7 +4556,9 @@
    "free",
    "Camargo - Jiménez",
    "CHIH-049",
-   [],
+   [
+    "CHIH-049"
+   ],
    null
   ],
   [
@@ -4565,7 +4578,9 @@
    "free",
    "Delicias - Saucillo",
    "CHIH-007",
-   [],
+   [
+    "CHIH-007"
+   ],
    null
   ],
   [
@@ -4595,7 +4610,9 @@
    "free",
    "Lázaro Cárdenas - Ent. Colonia San José",
    "CHIH-004",
-   [],
+   [
+    "CHIH-004"
+   ],
    null
   ],
   [
@@ -4625,7 +4642,9 @@
    "free",
    "Meoqui - Julimes",
    "CHIH-005",
-   [],
+   [
+    "CHIH-005"
+   ],
    null
   ],
   [
@@ -4635,7 +4654,9 @@
    "free",
    "Ramal a San Pedro Creel",
    "CHIH-025",
-   [],
+   [
+    "CHIH-025"
+   ],
    null
   ],
   [
@@ -4665,7 +4686,9 @@
    "free",
    "San Pedro Creel - Guachochi",
    "CHIH-025",
-   [],
+   [
+    "CHIH-025"
+   ],
    null
   ],
   [
@@ -4675,7 +4698,9 @@
    "free",
    "T. C. (Camargo - Jiménez) - Ojinaga",
    "CHIH-018",
-   [],
+   [
+    "CHIH-018"
+   ],
    null
   ],
   [
@@ -4685,7 +4710,9 @@
    "free",
    "T. Julimes - La Boquilla",
    "CHIH-018",
-   [],
+   [
+    "CHIH-018"
+   ],
    null
   ],
   [
@@ -9585,7 +9612,9 @@
    "free",
    "Comanja - Huaniqueo",
    "MICH-024",
-   [],
+   [
+    "MICH-024"
+   ],
    null
   ],
   [
@@ -9605,7 +9634,9 @@
    "free",
    "Cuitzeo - Zináparo",
    "MICH-027",
-   [],
+   [
+    "MICH-027"
+   ],
    null
   ],
   [
@@ -9645,7 +9676,9 @@
    "free",
    "Jacona - Buenavista Tomatlán",
    "MICH-016",
-   [],
+   [
+    "MICH-016"
+   ],
    null
   ],
   [
@@ -9685,7 +9718,9 @@
    "free",
    "Ramal a Coahuayana",
    "MICH-069",
-   [],
+   [
+    "MICH-069"
+   ],
    null
   ],
   [
@@ -9695,7 +9730,9 @@
    "free",
    "Ramal a Infiernillo",
    "MICH-010",
-   [],
+   [
+    "MICH-010"
+   ],
    null
   ],
   [
@@ -9705,7 +9742,9 @@
    "free",
    "San Felipe Alzati - Angangueo",
    "MICH-044",
-   [],
+   [
+    "MICH-044"
+   ],
    null
   ],
   [
@@ -9735,7 +9774,9 @@
    "free",
    "T. C. (Toluca - Morelia) - Maravatío",
    "MICH-122",
-   [],
+   [
+    "MICH-122"
+   ],
    null
   ],
   [
@@ -9777,7 +9818,9 @@
    "free",
    "Tocumbo - Cotija",
    "MICH-042",
-   [],
+   [
+    "MICH-042"
+   ],
    null
   ],
   [
@@ -9807,7 +9850,9 @@
    "free",
    "Zacapu - Villachuato",
    "MICH-039",
-   [],
+   [
+    "MICH-039"
+   ],
    null
   ],
   [

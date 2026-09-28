@@ -1,0 +1,1527 @@
+{
+ "purpose": "Route numbers in the atlas (INEGI RNC CODIGO) checked against SICT Datos Viales RUTA keys, per state.",
+ "sources": {
+  "atlas": "data/geo/mx, built from INEGI Red Nacional de Caminos",
+  "sict": {
+   "file": "content/reference/mx-designations.json",
+   "edition": 2025,
+   "citation": "Datos Viales 2025, SICT, https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2025, 2026-09-28"
+  }
+ },
+ "method": [
+  "The toll suffix D is dropped on both sides: the RNC very nearly never carries it.",
+  "Federal keys are compared on the number alone.",
+  "State keys are compared on the number and on the termini SICT names, which must all appear in one of the atlas route's segment names. Parenthesised text is dropped from both before comparing.",
+  "Roads the atlas carries and SICT does not list are not compared: the SICT index covers counted roads, not the network."
+ ],
+ "verdicts": {
+  "agree": "same number, names match",
+  "otherNumber": "names match an atlas route with a different number",
+  "numberOnly": "the number exists in the atlas but no name matches",
+  "notFound": "no atlas route with this number or these names"
+ },
+ "total": {
+  "state": {
+   "otherNumber": 55,
+   "agree": 101,
+   "notFound": 52,
+   "numberOnly": 27
+  },
+  "federal": {
+   "present": 260,
+   "absent": 21
+  }
+ },
+ "byState": {
+  "AGU": {
+   "state": {
+    "agree": 9,
+    "otherNumber": 1,
+    "numberOnly": 6,
+    "notFound": 3
+   },
+   "federal": {
+    "present": 4,
+    "absent": [
+     "MEX-039"
+    ]
+   }
+  },
+  "BCN": {
+   "state": {
+    "agree": 9,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 4,
+    "absent": []
+   }
+  },
+  "BCS": {
+   "state": {
+    "agree": 2,
+    "otherNumber": 0,
+    "numberOnly": 1,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 3,
+    "absent": []
+   }
+  },
+  "CAM": {
+   "state": {
+    "agree": 1,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 5,
+    "absent": [
+     "MEX-307"
+    ]
+   }
+  },
+  "CHH": {
+   "state": {
+    "agree": 1,
+    "otherNumber": 4,
+    "numberOnly": 1,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 6,
+    "absent": [
+     "MEX-001"
+    ]
+   }
+  },
+  "CHP": {
+   "state": {
+    "agree": 3,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 3
+   },
+   "federal": {
+    "present": 10,
+    "absent": []
+   }
+  },
+  "CMX": {
+   "state": {
+    "agree": 0,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 4,
+    "absent": [
+     "MEX-057",
+     "MEX-150"
+    ]
+   }
+  },
+  "COA": {
+   "state": {
+    "agree": 12,
+    "otherNumber": 0,
+    "numberOnly": 2,
+    "notFound": 4
+   },
+   "federal": {
+    "present": 7,
+    "absent": [
+     "MEX-049"
+    ]
+   }
+  },
+  "COL": {
+   "state": {
+    "agree": 3,
+    "otherNumber": 2,
+    "numberOnly": 0,
+    "notFound": 4
+   },
+   "federal": {
+    "present": 4,
+    "absent": []
+   }
+  },
+  "DUR": {
+   "state": {
+    "agree": 7,
+    "otherNumber": 1,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 8,
+    "absent": []
+   }
+  },
+  "GRO": {
+   "state": {
+    "agree": 1,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 10,
+    "absent": [
+     "MEX-037",
+     "MEX-166"
+    ]
+   }
+  },
+  "GUA": {
+   "state": {
+    "agree": 2,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 2
+   },
+   "federal": {
+    "present": 11,
+    "absent": []
+   }
+  },
+  "HID": {
+   "state": {
+    "agree": 3,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 1
+   },
+   "federal": {
+    "present": 8,
+    "absent": [
+     "MEX-055",
+     "MEX-127"
+    ]
+   }
+  },
+  "JAL": {
+   "state": {
+    "agree": 1,
+    "otherNumber": 3,
+    "numberOnly": 1,
+    "notFound": 1
+   },
+   "federal": {
+    "present": 13,
+    "absent": []
+   }
+  },
+  "MEX": {
+   "state": {
+    "agree": 7,
+    "otherNumber": 9,
+    "numberOnly": 5,
+    "notFound": 7
+   },
+   "federal": {
+    "present": 14,
+    "absent": [
+     "MEX-160"
+    ]
+   }
+  },
+  "MIC": {
+   "state": {
+    "agree": 1,
+    "otherNumber": 4,
+    "numberOnly": 3,
+    "notFound": 1
+   },
+   "federal": {
+    "present": 14,
+    "absent": []
+   }
+  },
+  "MOR": {
+   "state": {
+    "agree": 10,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 2
+   },
+   "federal": {
+    "present": 9,
+    "absent": [
+     "MEX-094"
+    ]
+   }
+  },
+  "NAY": {
+   "state": {
+    "agree": 1,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 2
+   },
+   "federal": {
+    "present": 4,
+    "absent": []
+   }
+  },
+  "NLE": {
+   "state": {
+    "agree": 1,
+    "otherNumber": 4,
+    "numberOnly": 3,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 10,
+    "absent": []
+   }
+  },
+  "OAX": {
+   "state": {
+    "agree": 0,
+    "otherNumber": 1,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 10,
+    "absent": [
+     "MEX-090"
+    ]
+   }
+  },
+  "PUE": {
+   "state": {
+    "agree": 0,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 16,
+    "absent": [
+     "MEX-055",
+     "MEX-115",
+     "MEX-131"
+    ]
+   }
+  },
+  "QUE": {
+   "state": {
+    "agree": 0,
+    "otherNumber": 1,
+    "numberOnly": 0,
+    "notFound": 3
+   },
+   "federal": {
+    "present": 5,
+    "absent": []
+   }
+  },
+  "ROO": {
+   "state": {
+    "agree": 3,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 2
+   },
+   "federal": {
+    "present": 6,
+    "absent": []
+   }
+  },
+  "SIN": {
+   "state": {
+    "agree": 1,
+    "otherNumber": 10,
+    "numberOnly": 0,
+    "notFound": 7
+   },
+   "federal": {
+    "present": 3,
+    "absent": []
+   }
+  },
+  "SLP": {
+   "state": {
+    "agree": 7,
+    "otherNumber": 2,
+    "numberOnly": 2,
+    "notFound": 2
+   },
+   "federal": {
+    "present": 11,
+    "absent": []
+   }
+  },
+  "SON": {
+   "state": {
+    "agree": 3,
+    "otherNumber": 7,
+    "numberOnly": 0,
+    "notFound": 2
+   },
+   "federal": {
+    "present": 5,
+    "absent": []
+   }
+  },
+  "TAB": {
+   "state": {
+    "agree": 2,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 5,
+    "absent": [
+     "MEX-307"
+    ]
+   }
+  },
+  "TAM": {
+   "state": {
+    "agree": 0,
+    "otherNumber": 4,
+    "numberOnly": 3,
+    "notFound": 1
+   },
+   "federal": {
+    "present": 13,
+    "absent": []
+   }
+  },
+  "TLA": {
+   "state": {
+    "agree": 0,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 0
+   },
+   "federal": {
+    "present": 6,
+    "absent": [
+     "MEX-055",
+     "MEX-150"
+    ]
+   }
+  },
+  "VER": {
+   "state": {
+    "agree": 4,
+    "otherNumber": 1,
+    "numberOnly": 0,
+    "notFound": 1
+   },
+   "federal": {
+    "present": 17,
+    "absent": [
+     "MEX-187"
+    ]
+   }
+  },
+  "YUC": {
+   "state": {
+    "agree": 7,
+    "otherNumber": 0,
+    "numberOnly": 0,
+    "notFound": 2
+   },
+   "federal": {
+    "present": 6,
+    "absent": []
+   }
+  },
+  "ZAC": {
+   "state": {
+    "agree": 0,
+    "otherNumber": 1,
+    "numberOnly": 0,
+    "notFound": 2
+   },
+   "federal": {
+    "present": 9,
+    "absent": [
+     "MEX-080"
+    ]
+   }
+  }
+ },
+ "disagreements": [
+  {
+   "st": "AGU",
+   "sict": "095",
+   "name": "Aguascalientes - Jesús María",
+   "verdict": "otherNumber",
+   "atlas": [
+    "034"
+   ]
+  },
+  {
+   "st": "AGU",
+   "sict": "002",
+   "name": "El Taray - T. C.(Ramal Aeropuerto de Aguascalientes)",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "AGU",
+   "sict": "043",
+   "name": "Ent. La Calavera - Ent. San Pedro",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "AGU",
+   "sict": "019",
+   "name": "Ent. Pabellón de Arteaga - San José de Gracia",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "AGU",
+   "sict": "069",
+   "name": "Est. Coyotes - Ent. San Bartolo",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "AGU",
+   "sict": "079",
+   "name": "Fracc. Ojo Caliente - El Conejal",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "AGU",
+   "sict": "007",
+   "name": "La Rinconada - El Terrero del Refugio",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "AGU",
+   "sict": "068",
+   "name": "Las Norias de Ojo Caliente - La Luz",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "AGU",
+   "sict": "053",
+   "name": "Pocitos - Granja Miravalle",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "AGU",
+   "sict": "036",
+   "name": "San Isidro El Grande - Bajío de San José",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "BCS",
+   "sict": "001",
+   "name": "Cd. Insurgentes - La Purísima",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "CHH",
+   "sict": "049",
+   "name": "Camargo - Jiménez",
+   "verdict": "otherNumber",
+   "atlas": [
+    "069"
+   ]
+  },
+  {
+   "st": "CHH",
+   "sict": "007",
+   "name": "Delicias - Saucillo",
+   "verdict": "otherNumber",
+   "atlas": [
+    "039"
+   ]
+  },
+  {
+   "st": "CHH",
+   "sict": "004",
+   "name": "Lázaro Cárdenas - Ent. Colonia San José",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "CHH",
+   "sict": "005",
+   "name": "Meoqui - Julimes",
+   "verdict": "otherNumber",
+   "atlas": [
+    "061"
+   ]
+  },
+  {
+   "st": "CHH",
+   "sict": "018",
+   "name": "T. C. (Camargo - Jiménez) - Ojinaga / T. Julimes - La Boquilla",
+   "verdict": "otherNumber",
+   "atlas": [
+    "067"
+   ]
+  },
+  {
+   "st": "CHP",
+   "sict": "010",
+   "name": "Estación Palenque - La Libertad",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "CHP",
+   "sict": "219",
+   "name": "Ramal a Mazatán",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "CHP",
+   "sict": "229",
+   "name": "Tapachula - Nueva Alemania",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COA",
+   "sict": "087",
+   "name": "Corredor Libramiento de San Pedro",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COA",
+   "sict": "102",
+   "name": "Ent. Paila - Parras de La Fuente",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COA",
+   "sict": "078",
+   "name": "Matamoros - El Fresno",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "COA",
+   "sict": "070",
+   "name": "Matamoros - La Unión",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "COA",
+   "sict": "042",
+   "name": "Ramal a Lamadrid",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COA",
+   "sict": "106",
+   "name": "Saltillo - Arteaga",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COL",
+   "sict": "014",
+   "name": "Puerta de Caleras - Madrid",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COL",
+   "sict": "005",
+   "name": "Ramal a Ixtlahuacán",
+   "verdict": "otherNumber",
+   "atlas": [
+    "019"
+   ]
+  },
+  {
+   "st": "COL",
+   "sict": "004",
+   "name": "Ramal a Los Tepames",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COL",
+   "sict": "009",
+   "name": "Ramal a Tecuanillo",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COL",
+   "sict": "001",
+   "name": "T. C. (Guadalajara - Colima Cuota) - Quesería",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "COL",
+   "sict": "003",
+   "name": "Trapichillos - Estación Alzada",
+   "verdict": "otherNumber",
+   "atlas": [
+    "045"
+   ]
+  },
+  {
+   "st": "DUR",
+   "sict": "290",
+   "name": "Ramal a San Juan del Río",
+   "verdict": "otherNumber",
+   "atlas": [
+    "137"
+   ]
+  },
+  {
+   "st": "GUA",
+   "sict": "001",
+   "name": "Ent. San Miguel de Allende - Dr. Mora",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "GUA",
+   "sict": "017",
+   "name": "Cortázar - Valle de Santiago",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "HID",
+   "sict": "017",
+   "name": "Ent. Tepeji del Río - Tlahuelilpan",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "JAL",
+   "sict": "307",
+   "name": "El Desperdicio - Encarnación de Díaz",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "JAL",
+   "sict": "004",
+   "name": "El Refugio - San Marcos / Ramal a Jesús María",
+   "verdict": "otherNumber",
+   "atlas": [
+    "316",
+    "347",
+    "604"
+   ]
+  },
+  {
+   "st": "JAL",
+   "sict": "009",
+   "name": "Ent. Jalostotitlán - Villa Hidalgo",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "JAL",
+   "sict": "022",
+   "name": "Ramal a Tapalpa",
+   "verdict": "otherNumber",
+   "atlas": [
+    "433",
+    "478"
+   ]
+  },
+  {
+   "st": "JAL",
+   "sict": "005",
+   "name": "La Barca - San Miguel El Alto",
+   "verdict": "otherNumber",
+   "atlas": [
+    "071",
+    "356"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "036",
+   "name": "Amomolulco - T. C. (Toluca - Palmillas)",
+   "verdict": "otherNumber",
+   "atlas": [
+    "208",
+    "224",
+    "312"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "035",
+   "name": "Cuautitlán - Zumpango de Ocampo",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "002",
+   "name": "Dos Casas - Ixtapan del Oro",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "010",
+   "name": "Ent. La Puerta - San Miguel Totolmaloya",
+   "verdict": "otherNumber",
+   "atlas": [
+    "036"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "009",
+   "name": "Ent. Tolman - Cd. Sahagún",
+   "verdict": "otherNumber",
+   "atlas": [
+    "830"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "006",
+   "name": "La Marquesa - Tenango de Arista / Lechería - Apaxco",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "012",
+   "name": "Las Juntas - Ixtapan de La Sal",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "044",
+   "name": "Mexicalcingo - Xalatlaco",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "021",
+   "name": "Puente Grande - San José del Vidrio",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "007",
+   "name": "San Alejo - Los Sabinos / Texcaltitlán - Zacualpan",
+   "verdict": "otherNumber",
+   "atlas": [
+    "108"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "001",
+   "name": "San Luis Mextepec - Valle de Bravo",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "011",
+   "name": "Santo Domingo - T. C. (México - Querétaro)",
+   "verdict": "otherNumber",
+   "atlas": [
+    "461",
+    "822"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "033",
+   "name": "T. C. (Atlacomulco - Morelia) - Temascalcingo",
+   "verdict": "otherNumber",
+   "atlas": [
+    "560",
+    "561"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "057",
+   "name": "T. C. (Dos Casas - Ixtapan del Oro) - Donato Guerra",
+   "verdict": "otherNumber",
+   "atlas": [
+    "1374",
+    "374"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "106",
+   "name": "T. C. (México - Mixquic) - San Pablo Atlazalpan",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "046",
+   "name": "T. C. (Toluca - Morelia) - Almoloya de Juárez",
+   "verdict": "otherNumber",
+   "atlas": [
+    "253",
+    "264"
+   ]
+  },
+  {
+   "st": "MEX",
+   "sict": "383",
+   "name": "T. C. (Toluca - Morelia) - San Nicolás Guadalupe",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "008",
+   "name": "Tejupilco de Hidalgo - Tlatlaya",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "086",
+   "name": "Temascaltepec de González - El Fresno",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "071",
+   "name": "Temascaltepec de González - Zuluapan",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "MEX",
+   "sict": "014",
+   "name": "Villa Victoria - El Oro de Hidalgo",
+   "verdict": "otherNumber",
+   "atlas": [
+    "371",
+    "373"
+   ]
+  },
+  {
+   "st": "MIC",
+   "sict": "024",
+   "name": "Comanja - Huaniqueo",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MIC",
+   "sict": "027",
+   "name": "Cuitzeo - Zináparo",
+   "verdict": "otherNumber",
+   "atlas": [
+    "008"
+   ]
+  },
+  {
+   "st": "MIC",
+   "sict": "016",
+   "name": "Jacona - Buenavista Tomatlán",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "MIC",
+   "sict": "069",
+   "name": "Ramal a Coahuayana",
+   "verdict": "otherNumber",
+   "atlas": [
+    "031",
+    "038",
+    "040"
+   ]
+  },
+  {
+   "st": "MIC",
+   "sict": "010",
+   "name": "Ramal a Infiernillo",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "MIC",
+   "sict": "044",
+   "name": "San Felipe Alzati - Angangueo",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "MIC",
+   "sict": "042",
+   "name": "Tocumbo - Cotija",
+   "verdict": "otherNumber",
+   "atlas": [
+    "004"
+   ]
+  },
+  {
+   "st": "MIC",
+   "sict": "039",
+   "name": "Zacapu - Villachuato",
+   "verdict": "otherNumber",
+   "atlas": [
+    "005"
+   ]
+  },
+  {
+   "st": "MOR",
+   "sict": "039",
+   "name": "Jojutla - El Higuerón",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "MOR",
+   "sict": "010",
+   "name": "Ramal a Tetela del Volcán",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "NAY",
+   "sict": "078",
+   "name": "El Carrizo - La Batanga",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "NAY",
+   "sict": "059",
+   "name": "Ramal a Bellavista",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "NLE",
+   "sict": "023",
+   "name": "Agualeguas - El Ébano",
+   "verdict": "otherNumber",
+   "atlas": [
+    "006",
+    "037",
+    "087",
+    "089"
+   ]
+  },
+  {
+   "st": "NLE",
+   "sict": "088",
+   "name": "Doctor Arroyo - Mier y Noriega",
+   "verdict": "otherNumber",
+   "atlas": [
+    "011"
+   ]
+  },
+  {
+   "st": "NLE",
+   "sict": "030",
+   "name": "Gral. Bravo - Los Aldamas",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "NLE",
+   "sict": "003",
+   "name": "Gral. Treviño - Villaldama",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "NLE",
+   "sict": "006",
+   "name": "Hacienda Guadalupe - Higueras",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "NLE",
+   "sict": "061",
+   "name": "Matehuala - La Poza",
+   "verdict": "otherNumber",
+   "atlas": [
+    "003"
+   ]
+  },
+  {
+   "st": "NLE",
+   "sict": "013",
+   "name": "Ramal a Cerralvo",
+   "verdict": "otherNumber",
+   "atlas": [
+    "005",
+    "141"
+   ]
+  },
+  {
+   "st": "OAX",
+   "sict": "161",
+   "name": "T. C. (Oaxaca - Puerto Ángel) - Puerto Escondido",
+   "verdict": "otherNumber",
+   "atlas": [
+    "131"
+   ]
+  },
+  {
+   "st": "QUE",
+   "sict": "005",
+   "name": "Ajuchitlán - Colón / Ajuchitlán - Ezequiel Montes",
+   "verdict": "otherNumber",
+   "atlas": [
+    "110"
+   ]
+  },
+  {
+   "st": "QUE",
+   "sict": "004",
+   "name": "El Colorado - Higuerillas",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "QUE",
+   "sict": "001",
+   "name": "Hacienda Paraíso - Chichimequillas",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "QUE",
+   "sict": "021",
+   "name": "La Culata - San Joaquín",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "ROO",
+   "sict": "004",
+   "name": "Chetumal - Calderitas",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "ROO",
+   "sict": "018",
+   "name": "Ramal a Petcacab",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SIN",
+   "sict": "019",
+   "name": "Carrizal - Campo Aníbal",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SIN",
+   "sict": "030",
+   "name": "Culiacán - Altata",
+   "verdict": "otherNumber",
+   "atlas": [
+    "313"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "005",
+   "name": "Culiacán - El Dorado",
+   "verdict": "otherNumber",
+   "atlas": [
+    "315"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "016",
+   "name": "El Limoncito - Cinco Hermanos",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SIN",
+   "sict": "010",
+   "name": "El Salado - El Dorado",
+   "verdict": "otherNumber",
+   "atlas": [
+    "326"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "006",
+   "name": "Estación Dimas - San Ignacio",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SIN",
+   "sict": "021",
+   "name": "Guamuchil - Mocorito",
+   "verdict": "otherNumber",
+   "atlas": [
+    "324"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "023",
+   "name": "Guasave - Sinaloa de Leyva / Topolobampo - Choix",
+   "verdict": "otherNumber",
+   "atlas": [
+    "124",
+    "213"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "004",
+   "name": "Navolato - El Castillo / Ramal a La Reforma",
+   "verdict": "otherNumber",
+   "atlas": [
+    "306"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "080",
+   "name": "Pozole - Cofradía",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SIN",
+   "sict": "002",
+   "name": "Ramal a Chametla",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SIN",
+   "sict": "008",
+   "name": "Ramal a Cosalá",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SIN",
+   "sict": "060",
+   "name": "Ramal a El Quelite",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SIN",
+   "sict": "022",
+   "name": "Ramal a Estación Bamoa",
+   "verdict": "otherNumber",
+   "atlas": [
+    "228"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "003",
+   "name": "Rosario - Caimanero",
+   "verdict": "otherNumber",
+   "atlas": [
+    "519"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "081",
+   "name": "Villa Unión - El Walamo",
+   "verdict": "otherNumber",
+   "atlas": [
+    "511"
+   ]
+  },
+  {
+   "st": "SIN",
+   "sict": "063",
+   "name": "Villa Unión - Siqueiros",
+   "verdict": "otherNumber",
+   "atlas": [
+    "512"
+   ]
+  },
+  {
+   "st": "SLP",
+   "sict": "032",
+   "name": "Periférico de San Luis Potosí",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SLP",
+   "sict": "007",
+   "name": "Ramal a Cerritos",
+   "verdict": "otherNumber",
+   "atlas": [
+    "075",
+    "080"
+   ]
+  },
+  {
+   "st": "SLP",
+   "sict": "009",
+   "name": "Ramal a Pozo de Acuña",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SLP",
+   "sict": "075",
+   "name": "Cerritos - Ent. Tula (Cuota)",
+   "verdict": "otherNumber",
+   "atlas": [
+    "080"
+   ]
+  },
+  {
+   "st": "SLP",
+   "sict": "005",
+   "name": "Rayón - Cd. del Maíz",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "SLP",
+   "sict": "012",
+   "name": "San Lorenzo - Moctezuma",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "SON",
+   "sict": "064",
+   "name": "Altar - Sáric",
+   "verdict": "otherNumber",
+   "atlas": [
+    "043"
+   ]
+  },
+  {
+   "st": "SON",
+   "sict": "037",
+   "name": "Caborca - El Desemboque / La Alameda - El Sahuaro",
+   "verdict": "otherNumber",
+   "atlas": [
+    "044"
+   ]
+  },
+  {
+   "st": "SON",
+   "sict": "029",
+   "name": "Calle 36 Norte - Puerto de La Libertad",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SON",
+   "sict": "020",
+   "name": "Hermosillo - Sahuaripa",
+   "verdict": "otherNumber",
+   "atlas": [
+    "104"
+   ]
+  },
+  {
+   "st": "SON",
+   "sict": "012",
+   "name": "Hornos - San Nicolás",
+   "verdict": "otherNumber",
+   "atlas": [
+    "117"
+   ]
+  },
+  {
+   "st": "SON",
+   "sict": "118",
+   "name": "Mazocahui - Cananea",
+   "verdict": "otherNumber",
+   "atlas": [
+    "089"
+   ]
+  },
+  {
+   "st": "SON",
+   "sict": "013",
+   "name": "Navojoa - Álamos",
+   "verdict": "otherNumber",
+   "atlas": [
+    "162"
+   ]
+  },
+  {
+   "st": "SON",
+   "sict": "056",
+   "name": "Navojoa - Yavaros",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "SON",
+   "sict": "040",
+   "name": "San Luis Río Colorado - Golfo de Santa Clara",
+   "verdict": "otherNumber",
+   "atlas": [
+    "003"
+   ]
+  },
+  {
+   "st": "TAM",
+   "sict": "001",
+   "name": "Barretal - Nueva Villa de Padilla",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "TAM",
+   "sict": "019",
+   "name": "El Limón - Ocampo",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "TAM",
+   "sict": "003",
+   "name": "Ent. Las Blancas - Río Bravo",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "TAM",
+   "sict": "020",
+   "name": "Ramal a Gómez Farías",
+   "verdict": "otherNumber",
+   "atlas": [
+    "058"
+   ]
+  },
+  {
+   "st": "TAM",
+   "sict": "070",
+   "name": "Soto La Marina - La Pesca",
+   "verdict": "otherNumber",
+   "atlas": [
+    "052"
+   ]
+  },
+  {
+   "st": "TAM",
+   "sict": "005",
+   "name": "T. C. (Valle Hermoso - Empalme) - Matamoros",
+   "verdict": "otherNumber",
+   "atlas": [
+    "006",
+    "057"
+   ]
+  },
+  {
+   "st": "TAM",
+   "sict": "126",
+   "name": "T. C. Libramiento Cd. Victoria - San Antonio",
+   "verdict": "numberOnly",
+   "atlas": null
+  },
+  {
+   "st": "TAM",
+   "sict": "004",
+   "name": "Valle Hermoso - Empalme",
+   "verdict": "otherNumber",
+   "atlas": [
+    "053"
+   ]
+  },
+  {
+   "st": "VER",
+   "sict": "192",
+   "name": "Ramal a Zempoala",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "VER",
+   "sict": "113",
+   "name": "San Alejo - Huayacocotla",
+   "verdict": "otherNumber",
+   "atlas": [
+    "051"
+   ]
+  },
+  {
+   "st": "YUC",
+   "sict": "018",
+   "name": "Libramiento de Peto / Mérida - Oxkutzcab",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "YUC",
+   "sict": "289",
+   "name": "Ramal a Yaxcabá",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "ZAC",
+   "sict": "016",
+   "name": "Calera de Víctor Rosales - Santiaguillo",
+   "verdict": "otherNumber",
+   "atlas": [
+    "149"
+   ]
+  },
+  {
+   "st": "ZAC",
+   "sict": "022",
+   "name": "Fresnillo - Plateros",
+   "verdict": "notFound",
+   "atlas": null
+  },
+  {
+   "st": "ZAC",
+   "sict": "118",
+   "name": "Guadalupe - Ent. Cuauhtémoc",
+   "verdict": "notFound",
+   "atlas": null
+  }
+ ]
+}

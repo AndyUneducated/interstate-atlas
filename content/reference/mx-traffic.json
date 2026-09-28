@@ -3,15 +3,15 @@
  "agency": "SICT",
  "url": "https://www.datos.gob.mx/dataset/datos_viales",
  "downloaded": {
-  "survey": "https://repodatos.atdt.gob.mx/api_update/secretaria_comunicaciones/datos_viales/datos_viales_2024.csv",
-  "panel": "https://repodatos.atdt.gob.mx/api_update/secretaria_comunicaciones/datos_viales/Datos_viales_2013_2024.csv",
-  "via": "publisher"
+  "survey": "https://www.datos.gob.mx/datastore/dump/4b293d4f-a82d-4deb-8f12-0af5591af1ec",
+  "panel": "https://www.datos.gob.mx/datastore/dump/31babb3f-449a-44b6-914a-3ec405d06adb",
+  "via": "portal"
  },
  "licence": "Términos de Libre Uso MX",
- "citation": "Datos viales, SICT, https://www.datos.gob.mx/dataset/datos_viales, 2026-09-22",
+ "citation": "Datos viales, SICT, https://www.datos.gob.mx/dataset/datos_viales, 2026-09-28",
  "measure": "TDPA (tránsito diario promedio anual), equivalent to AADT",
  "method": "stations",
- "retrieved": "2026-09-22",
+ "retrieved": "2026-09-28",
  "updated": "2026-04-16",
  "coverageKm": 73000,
  "note": "Point counting stations on the paved national network, not sections. Figures are per station, at the kilometre post given; no route-level average is computed, because averaging points into a road means assuming the traffic on the pavement between them. The per-route block is a station count and the spread across those stations.",
@@ -45561,7 +45561,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Emiliano Zapata - La Libertad",
    "62",
    "T. C. El Suspiro - Tenosique",
@@ -45586,7 +45586,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Emiliano Zapata - La Libertad",
    "62",
    "La Libertad",
@@ -45611,7 +45611,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "T. C. Ocosingo - Comitan",
@@ -45636,7 +45636,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Shuvi",
@@ -45661,7 +45661,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Shuvi",
@@ -45686,7 +45686,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Nuevo Momon",
@@ -45711,7 +45711,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Nuevo Momon",
@@ -45736,7 +45736,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Las Margaritas",
@@ -45761,7 +45761,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Las Margaritas",
@@ -45786,7 +45786,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Las Margaritas",
@@ -45811,7 +45811,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Caxh",
@@ -45836,7 +45836,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Caxh",
@@ -45861,7 +45861,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Ent. Suschila - Comitan",
    "61",
    "Caxh",
@@ -45886,7 +45886,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-010",
    "Estacion Palenque - La Libertad",
    "7002",
    "Estacion Palenque",
@@ -45911,7 +45911,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-010",
    "Estacion Palenque - La Libertad",
    "7002",
    "La Libertad",
@@ -46736,7 +46736,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-219",
    "Ramal a Mazatan",
    "7560",
    "T. C. Tapanatepec - Talisman",
@@ -46761,7 +46761,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-219",
    "Ramal a Mazatan",
    "7560",
    "T. C. Tapanatepec - Talisman",
@@ -46961,7 +46961,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-229",
    "Tapachula - Nueva Alemania",
    "7581",
    "Tapachula",
@@ -47111,7 +47111,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-133",
    "Tuxtla Gutierrez - Portillo Zaragoza",
    "7574",
    "Ent. Periferico Tuxtla Gutierrez",
@@ -47136,7 +47136,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-133",
    "Tuxtla Gutierrez - Portillo Zaragoza",
    "7574",
    "Suchiapa",
@@ -47161,7 +47161,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-133",
    "Tuxtla Gutierrez - Portillo Zaragoza",
    "7574",
    "Las Cruces",
@@ -47186,7 +47186,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-133",
    "Tuxtla Gutierrez - Portillo Zaragoza",
    "7574",
    "Las Cruces",
@@ -47211,7 +47211,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-133",
    "Tuxtla Gutierrez - Portillo Zaragoza",
    "7574",
    "Portillo de Tacubaya",
@@ -47236,7 +47236,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Zapatero - T. C. (Jalapa - Jonuta)",
    "61",
    "T. C. Villahermosa - Francisco Escarcega",
@@ -47261,7 +47261,7 @@
   ],
   [
    "CHP",
-   null,
+   "CHIS-TAB",
    "Zapatero - T. C. (Jalapa - Jonuta)",
    "61",
    "T. C. Jalapa - Jonuta",
@@ -125611,7 +125611,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-024",
    "Comanja - Huaniqueo",
    "16024",
    "T. C. Morelia - Jiquilpan",
@@ -125636,7 +125636,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-024",
    "Comanja - Huaniqueo",
    "16024",
    "Huaniqueo",
@@ -125711,7 +125711,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-027",
    "Cuitzeo - Zinaparo",
    "16027",
    "Cuitzeo",
@@ -125736,7 +125736,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-027",
    "Cuitzeo - Zinaparo",
    "16027",
    "Cuitzeo",
@@ -125761,7 +125761,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-027",
    "Cuitzeo - Zinaparo",
    "16027",
    "Puruandiro",
@@ -125786,7 +125786,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-027",
    "Cuitzeo - Zinaparo",
    "16027",
    "Puruandiro",
@@ -125811,7 +125811,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-027",
    "Cuitzeo - Zinaparo",
    "16027",
    "T. Izq. Zacapu",
@@ -125836,7 +125836,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-027",
    "Cuitzeo - Zinaparo",
    "16027",
    "Zinaparo",
@@ -126011,7 +126011,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-016",
    "Jacona - Buenavista Tomatlan",
    "16016",
    "Jacona",
@@ -126036,7 +126036,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-016",
    "Jacona - Buenavista Tomatlan",
    "16016",
    "T. Der. Cotija de La Paz",
@@ -126061,7 +126061,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-016",
    "Jacona - Buenavista Tomatlan",
    "16016",
    "Los Reyes de Salgado",
@@ -126086,7 +126086,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-016",
    "Jacona - Buenavista Tomatlan",
    "16016",
    "Los Reyes de Salgado",
@@ -126111,7 +126111,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-016",
    "Jacona - Buenavista Tomatlan",
    "16016",
    "Periban de Ramos",
@@ -126136,7 +126136,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-016",
    "Jacona - Buenavista Tomatlan",
    "16016",
    "Periban de Ramos",
@@ -126161,7 +126161,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-016",
    "Jacona - Buenavista Tomatlan",
    "16016",
    "Buenavista",
@@ -126436,7 +126436,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-069",
    "Ramal a Coahuayana",
    "16069",
    "T. C. Ent. Playa Azul - Manzanillo",
@@ -126461,7 +126461,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-010",
    "Ramal a Infiernillo",
    "16010",
    "T. C. Carapan - Playa Azul",
@@ -126486,7 +126486,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-044",
    "San Felipe Alzati - Angangueo",
    "16556",
    "T. C. Toluca - Morelia",
@@ -126511,7 +126511,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-044",
    "San Felipe Alzati - Angangueo",
    "16556",
    "Angangueo",
@@ -126661,7 +126661,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-122",
    "T. C. (Toluca - Morelia) - Maravatio",
    "16584",
    "T. C. Toluca - Morelia",
@@ -126686,7 +126686,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-122",
    "T. C. (Toluca - Morelia) - Maravatio",
    "16584",
    "T. Der. Aporo",
@@ -126711,7 +126711,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-122",
    "T. C. (Toluca - Morelia) - Maravatio",
    "16584",
    "T. Der. Aporo",
@@ -126736,7 +126736,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-122",
    "T. C. (Toluca - Morelia) - Maravatio",
    "16584",
    "T. Der. Seguio",
@@ -126761,7 +126761,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-122",
    "T. C. (Toluca - Morelia) - Maravatio",
    "16584",
    "Maravatio de Ocampo",
@@ -127036,7 +127036,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-042",
    "Tocumbo - Cotija",
    "16042",
    "T. C. Jacona - Buenavista",
@@ -127261,7 +127261,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-039",
    "Zacapu - Villachuato",
    "16039",
    "Zacapu",
@@ -127286,7 +127286,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-039",
    "Zacapu - Villachuato",
    "16039",
    "Zacapu",
@@ -127311,7 +127311,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-039",
    "Zacapu - Villachuato",
    "16039",
    "T. Der. Villa Jimenez Norte",
@@ -127336,7 +127336,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-039",
    "Zacapu - Villachuato",
    "16039",
    "Panindicuaro",
@@ -127361,7 +127361,7 @@
   ],
   [
    "MIC",
-   null,
+   "MICH-039",
    "Zacapu - Villachuato",
    "16039",
    "T. C. Cuitzeo - Zinaparo",
@@ -194536,7 +194536,7 @@
   ],
   [
    "TAB",
-   null,
+   "CHIS-TAB",
    "Ent. Emiliano Zapata - La Libertad",
    "62",
    "T. C. El Suspiro - Tenosique",
@@ -194561,7 +194561,7 @@
   ],
   [
    "TAB",
-   null,
+   "CHIS-TAB",
    "Ent. Emiliano Zapata - La Libertad",
    "62",
    "La Libertad",
@@ -197061,7 +197061,7 @@
   ],
   [
    "TAB",
-   null,
+   "CHIS-TAB",
    "Zapatero - T. C. (Jalapa - Jonuta)",
    "61",
    "T. C. Villahermosa - Francisco Escarcega",
@@ -197086,7 +197086,7 @@
   ],
   [
    "TAB",
-   null,
+   "CHIS-TAB",
    "Zapatero - T. C. (Jalapa - Jonuta)",
    "61",
    "T. C. Jalapa - Jonuta",
@@ -234816,6 +234816,122 @@
    "tdpaMedian": 3015,
    "tdpaMax": 28454
   },
+  "CHIS-TAB": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     16,
+     1747
+    ],
+    "2014": [
+     19,
+     1756
+    ],
+    "2015": [
+     19,
+     1761
+    ],
+    "2016": [
+     19,
+     1824
+    ],
+    "2017": [
+     19,
+     1690
+    ],
+    "2018": [
+     19,
+     1620
+    ],
+    "2019": [
+     19,
+     1673
+    ],
+    "2020": [
+     19,
+     1237
+    ],
+    "2021": [
+     19,
+     1674
+    ],
+    "2022": [
+     19,
+     1573
+    ],
+    "2023": [
+     19,
+     1560
+    ],
+    "2024": [
+     19,
+     1632
+    ]
+   },
+   "stations": 19,
+   "year": 2024,
+   "tdpaMin": 282,
+   "tdpaMedian": 1632,
+   "tdpaMax": 7974
+  },
+  "CHIS-010": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     2,
+     1457
+    ],
+    "2014": [
+     2,
+     1555
+    ],
+    "2015": [
+     2,
+     1618
+    ],
+    "2016": [
+     2,
+     1699
+    ],
+    "2017": [
+     2,
+     1725
+    ],
+    "2018": [
+     2,
+     1742
+    ],
+    "2019": [
+     2,
+     1795
+    ],
+    "2020": [
+     2,
+     1661
+    ],
+    "2021": [
+     2,
+     1795
+    ],
+    "2022": [
+     2,
+     2062
+    ],
+    "2023": [
+     2,
+     2119
+    ],
+    "2024": [
+     2,
+     2420
+    ]
+   },
+   "stations": 2,
+   "year": 2024,
+   "tdpaMin": 1170,
+   "tdpaMedian": 2420,
+   "tdpaMax": 3670
+  },
   "TAB-CHIS": {
    "method": "stations",
    "trend": {
@@ -234873,6 +234989,180 @@
    "tdpaMin": 1767,
    "tdpaMedian": 2345,
    "tdpaMax": 11076
+  },
+  "CHIS-219": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     2,
+     3339
+    ],
+    "2014": [
+     2,
+     3125
+    ],
+    "2015": [
+     2,
+     3276
+    ],
+    "2016": [
+     2,
+     3489
+    ],
+    "2017": [
+     2,
+     3369
+    ],
+    "2018": [
+     2,
+     3831
+    ],
+    "2019": [
+     2,
+     4002
+    ],
+    "2020": [
+     2,
+     3335
+    ],
+    "2021": [
+     2,
+     4004
+    ],
+    "2022": [
+     2,
+     4074
+    ],
+    "2023": [
+     2,
+     4176
+    ],
+    "2024": [
+     2,
+     3401
+    ]
+   },
+   "stations": 2,
+   "year": 2024,
+   "tdpaMin": 3363,
+   "tdpaMedian": 3401,
+   "tdpaMax": 3439
+  },
+  "CHIS-229": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     1,
+     5672
+    ],
+    "2014": [
+     1,
+     5654
+    ],
+    "2015": [
+     1,
+     5712
+    ],
+    "2016": [
+     1,
+     5587
+    ],
+    "2017": [
+     1,
+     5587
+    ],
+    "2018": [
+     1,
+     5734
+    ],
+    "2019": [
+     1,
+     6016
+    ],
+    "2020": [
+     1,
+     4924
+    ],
+    "2021": [
+     1,
+     5531
+    ],
+    "2022": [
+     1,
+     5226
+    ],
+    "2023": [
+     1,
+     5952
+    ],
+    "2024": [
+     1,
+     6307
+    ]
+   },
+   "stations": 1,
+   "year": 2024,
+   "tdpaMin": 6307,
+   "tdpaMedian": 6307,
+   "tdpaMax": 6307
+  },
+  "CHIS-133": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     5,
+     3310
+    ],
+    "2014": [
+     5,
+     3538
+    ],
+    "2015": [
+     5,
+     3710
+    ],
+    "2016": [
+     5,
+     3726
+    ],
+    "2017": [
+     5,
+     3866
+    ],
+    "2018": [
+     5,
+     3885
+    ],
+    "2019": [
+     5,
+     3975
+    ],
+    "2020": [
+     5,
+     3105
+    ],
+    "2021": [
+     5,
+     3720
+    ],
+    "2022": [
+     5,
+     4063
+    ],
+    "2023": [
+     5,
+     4079
+    ],
+    "2024": [
+     5,
+     4067
+    ]
+   },
+   "stations": 5,
+   "year": 2024,
+   "tdpaMin": 2731,
+   "tdpaMedian": 4067,
+   "tdpaMax": 17011
   },
   "MEX-016": {
    "method": "stations",
@@ -240501,6 +240791,528 @@
    "tdpaMin": 794,
    "tdpaMedian": 3570,
    "tdpaMax": 19968
+  },
+  "MICH-024": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     2,
+     1659
+    ],
+    "2014": [
+     2,
+     1478
+    ],
+    "2015": [
+     2,
+     1530
+    ],
+    "2016": [
+     2,
+     1665
+    ],
+    "2017": [
+     2,
+     1817
+    ],
+    "2018": [
+     2,
+     1817
+    ],
+    "2019": [
+     2,
+     1927
+    ],
+    "2020": [
+     2,
+     1568
+    ],
+    "2021": [
+     2,
+     1868
+    ],
+    "2022": [
+     2,
+     2060
+    ],
+    "2023": [
+     2,
+     2102
+    ],
+    "2024": [
+     2,
+     2233
+    ]
+   },
+   "stations": 2,
+   "year": 2024,
+   "tdpaMin": 2120,
+   "tdpaMedian": 2233,
+   "tdpaMax": 2345
+  },
+  "MICH-027": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     6,
+     2282
+    ],
+    "2014": [
+     6,
+     2387
+    ],
+    "2015": [
+     6,
+     2272
+    ],
+    "2016": [
+     6,
+     2395
+    ],
+    "2017": [
+     6,
+     2225
+    ],
+    "2018": [
+     6,
+     2185
+    ],
+    "2019": [
+     6,
+     2214
+    ],
+    "2020": [
+     6,
+     2025
+    ],
+    "2021": [
+     6,
+     2073
+    ],
+    "2022": [
+     6,
+     2153
+    ],
+    "2023": [
+     6,
+     2138
+    ],
+    "2024": [
+     6,
+     2248
+    ]
+   },
+   "stations": 6,
+   "year": 2024,
+   "tdpaMin": 1274,
+   "tdpaMedian": 2248,
+   "tdpaMax": 6044
+  },
+  "MICH-016": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     7,
+     6920
+    ],
+    "2014": [
+     7,
+     7046
+    ],
+    "2015": [
+     7,
+     7502
+    ],
+    "2016": [
+     7,
+     7173
+    ],
+    "2017": [
+     7,
+     7613
+    ],
+    "2018": [
+     7,
+     8670
+    ],
+    "2019": [
+     7,
+     7607
+    ],
+    "2020": [
+     7,
+     6600
+    ],
+    "2021": [
+     7,
+     7085
+    ],
+    "2022": [
+     7,
+     7052
+    ],
+    "2023": [
+     7,
+     6824
+    ],
+    "2024": [
+     7,
+     7820
+    ]
+   },
+   "stations": 7,
+   "year": 2024,
+   "tdpaMin": 3855,
+   "tdpaMedian": 7820,
+   "tdpaMax": 22038
+  },
+  "MICH-069": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     1,
+     2484
+    ],
+    "2014": [
+     1,
+     2563
+    ],
+    "2015": [
+     1,
+     2953
+    ],
+    "2016": [
+     1,
+     3042
+    ],
+    "2017": [
+     1,
+     3464
+    ],
+    "2018": [
+     1,
+     3424
+    ],
+    "2019": [
+     1,
+     3687
+    ],
+    "2020": [
+     1,
+     3413
+    ],
+    "2021": [
+     1,
+     3574
+    ],
+    "2022": [
+     1,
+     3803
+    ],
+    "2023": [
+     1,
+     3860
+    ],
+    "2024": [
+     1,
+     5117
+    ]
+   },
+   "stations": 1,
+   "year": 2024,
+   "tdpaMin": 5117,
+   "tdpaMedian": 5117,
+   "tdpaMax": 5117
+  },
+  "MICH-010": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     1,
+     95
+    ],
+    "2014": [
+     1,
+     393
+    ],
+    "2015": [
+     1,
+     89
+    ],
+    "2016": [
+     1,
+     85
+    ],
+    "2017": [
+     1,
+     101
+    ],
+    "2018": [
+     1,
+     105
+    ],
+    "2019": [
+     1,
+     82
+    ],
+    "2020": [
+     1,
+     70
+    ],
+    "2021": [
+     1,
+     79
+    ],
+    "2022": [
+     1,
+     82
+    ],
+    "2023": [
+     1,
+     79
+    ],
+    "2024": [
+     1,
+     83
+    ]
+   },
+   "stations": 1,
+   "year": 2024,
+   "tdpaMin": 83,
+   "tdpaMedian": 83,
+   "tdpaMax": 83
+  },
+  "MICH-044": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     2,
+     3925
+    ],
+    "2014": [
+     2,
+     3455
+    ],
+    "2015": [
+     2,
+     3701
+    ],
+    "2016": [
+     2,
+     3644
+    ],
+    "2017": [
+     2,
+     3808
+    ],
+    "2018": [
+     2,
+     3674
+    ],
+    "2019": [
+     2,
+     3732
+    ],
+    "2020": [
+     2,
+     3050
+    ],
+    "2021": [
+     2,
+     3618
+    ],
+    "2022": [
+     2,
+     3739
+    ],
+    "2023": [
+     2,
+     3730
+    ],
+    "2024": [
+     2,
+     3898
+    ]
+   },
+   "stations": 2,
+   "year": 2024,
+   "tdpaMin": 3414,
+   "tdpaMedian": 3898,
+   "tdpaMax": 4382
+  },
+  "MICH-122": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     5,
+     6456
+    ],
+    "2014": [
+     5,
+     6550
+    ],
+    "2015": [
+     5,
+     6577
+    ],
+    "2016": [
+     5,
+     6980
+    ],
+    "2017": [
+     5,
+     7988
+    ],
+    "2018": [
+     5,
+     8173
+    ],
+    "2019": [
+     5,
+     7733
+    ],
+    "2020": [
+     5,
+     6891
+    ],
+    "2021": [
+     5,
+     7857
+    ],
+    "2022": [
+     5,
+     8854
+    ],
+    "2023": [
+     5,
+     9193
+    ],
+    "2024": [
+     5,
+     8771
+    ]
+   },
+   "stations": 5,
+   "year": 2024,
+   "tdpaMin": 5637,
+   "tdpaMedian": 8771,
+   "tdpaMax": 10960
+  },
+  "MICH-042": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     1,
+     3590
+    ],
+    "2014": [
+     1,
+     3070
+    ],
+    "2015": [
+     1,
+     3533
+    ],
+    "2016": [
+     1,
+     3678
+    ],
+    "2017": [
+     1,
+     4015
+    ],
+    "2018": [
+     1,
+     4468
+    ],
+    "2019": [
+     1,
+     4878
+    ],
+    "2020": [
+     1,
+     3389
+    ],
+    "2021": [
+     1,
+     4729
+    ],
+    "2022": [
+     1,
+     4079
+    ],
+    "2023": [
+     1,
+     4079
+    ],
+    "2024": [
+     1,
+     4133
+    ]
+   },
+   "stations": 1,
+   "year": 2024,
+   "tdpaMin": 4133,
+   "tdpaMedian": 4133,
+   "tdpaMax": 4133
+  },
+  "MICH-039": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     4,
+     3622
+    ],
+    "2014": [
+     4,
+     3526
+    ],
+    "2015": [
+     4,
+     3618
+    ],
+    "2016": [
+     4,
+     3815
+    ],
+    "2017": [
+     4,
+     3950
+    ],
+    "2018": [
+     4,
+     4247
+    ],
+    "2019": [
+     4,
+     4472
+    ],
+    "2020": [
+     4,
+     3455
+    ],
+    "2021": [
+     4,
+     4442
+    ],
+    "2022": [
+     5,
+     4183
+    ],
+    "2023": [
+     5,
+     4317
+    ],
+    "2024": [
+     5,
+     4801
+    ]
+   },
+   "stations": 5,
+   "year": 2024,
+   "tdpaMin": 1770,
+   "tdpaMedian": 4801,
+   "tdpaMax": 5883
   },
   "MI-CHD": {
    "method": "stations",
@@ -246232,6 +247044,276 @@
     ]
    }
   },
+  "CHIH-007": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     3,
+     6016
+    ],
+    "2014": [
+     3,
+     6077
+    ],
+    "2015": [
+     3,
+     4289
+    ],
+    "2016": [
+     3,
+     4120
+    ],
+    "2017": [
+     3,
+     4474
+    ],
+    "2018": [
+     3,
+     4546
+    ],
+    "2019": [
+     3,
+     4236
+    ],
+    "2020": [
+     3,
+     4525
+    ],
+    "2021": [
+     3,
+     3711
+    ],
+    "2022": [
+     3,
+     5088
+    ],
+    "2023": [
+     3,
+     5129
+    ]
+   }
+  },
+  "CHIH-049": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     3,
+     3635
+    ],
+    "2014": [
+     3,
+     3656
+    ],
+    "2015": [
+     3,
+     3055
+    ],
+    "2016": [
+     3,
+     2523
+    ],
+    "2017": [
+     6,
+     2865
+    ],
+    "2018": [
+     3,
+     2617
+    ],
+    "2019": [
+     3,
+     2486
+    ],
+    "2020": [
+     3,
+     1977
+    ],
+    "2021": [
+     3,
+     2459
+    ],
+    "2022": [
+     3,
+     2613
+    ],
+    "2023": [
+     3,
+     2589
+    ]
+   }
+  },
+  "CHIH-004": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     3,
+     2567
+    ],
+    "2014": [
+     3,
+     2610
+    ],
+    "2015": [
+     3,
+     2870
+    ],
+    "2016": [
+     3,
+     2921
+    ],
+    "2018": [
+     3,
+     2734
+    ],
+    "2019": [
+     3,
+     2792
+    ],
+    "2020": [
+     3,
+     2715
+    ],
+    "2021": [
+     3,
+     2761
+    ],
+    "2022": [
+     3,
+     3053
+    ],
+    "2023": [
+     3,
+     3059
+    ]
+   }
+  },
+  "CHIH-005": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     4,
+     3521
+    ],
+    "2014": [
+     4,
+     3570
+    ],
+    "2015": [
+     4,
+     3573
+    ],
+    "2016": [
+     4,
+     3531
+    ],
+    "2017": [
+     4,
+     3722
+    ],
+    "2018": [
+     4,
+     3773
+    ],
+    "2019": [
+     4,
+     3887
+    ],
+    "2020": [
+     4,
+     3601
+    ],
+    "2021": [
+     4,
+     4057
+    ],
+    "2022": [
+     4,
+     4178
+    ],
+    "2023": [
+     4,
+     4300
+    ]
+   }
+  },
+  "CHIH-025": {
+   "method": "stations",
+   "trend": {
+    "2018": [
+     5,
+     1526
+    ],
+    "2019": [
+     5,
+     1572
+    ],
+    "2020": [
+     5,
+     1294
+    ],
+    "2021": [
+     5,
+     1555
+    ],
+    "2022": [
+     5,
+     1626
+    ],
+    "2023": [
+     5,
+     1642
+    ]
+   }
+  },
+  "CHIH-018": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     6,
+     1064
+    ],
+    "2014": [
+     6,
+     1121
+    ],
+    "2015": [
+     6,
+     1234
+    ],
+    "2016": [
+     7,
+     518
+    ],
+    "2017": [
+     7,
+     521
+    ],
+    "2018": [
+     7,
+     494
+    ],
+    "2019": [
+     7,
+     527
+    ],
+    "2020": [
+     7,
+     407
+    ],
+    "2021": [
+     7,
+     521
+    ],
+    "2022": [
+     7,
+     552
+    ],
+    "2023": [
+     7,
+     560
+    ]
+   }
+  },
   "CH-IHD": {
    "method": "stations",
    "trend": {
@@ -246278,6 +247360,55 @@
     "2023": [
      6,
      1754
+    ]
+   }
+  },
+  "CHIH-MEX": {
+   "method": "stations",
+   "trend": {
+    "2013": [
+     3,
+     573
+    ],
+    "2014": [
+     3,
+     637
+    ],
+    "2015": [
+     3,
+     695
+    ],
+    "2016": [
+     3,
+     714
+    ],
+    "2017": [
+     3,
+     718
+    ],
+    "2018": [
+     3,
+     705
+    ],
+    "2019": [
+     3,
+     748
+    ],
+    "2020": [
+     3,
+     547
+    ],
+    "2021": [
+     3,
+     740
+    ],
+    "2022": [
+     3,
+     838
+    ],
+    "2023": [
+     3,
+     872
     ]
    }
   },

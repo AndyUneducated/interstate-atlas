@@ -173,7 +173,10 @@ export function state(v) {
  *
  * The written form of a designation is a prefix, a hyphen, a number and
  * sometimes a letter: MEX-015D for the tolled Mexico City to Guadalajara road,
- * EM-057 for a State of Mexico route. Three things have to be normalised
+ * EM-057 for a State of Mexico route. Prefixes run to four letters: SICT's
+ * index writes Chihuahua, Chiapas and Michoacán as CHIH, CHIS and MICH, and a
+ * three-letter limit reads every numbered road in those states as having no
+ * number. Three things have to be normalised
  * before two spellings of one road can meet.
  *
  * An all-digit number is zero-padded to three, because the sources write both
@@ -193,7 +196,7 @@ export function state(v) {
  * one tolled, so folding them together would merge a highway with its own
  * bypass.
  */
-const ROUTE = /^([A-Z]{2,3})?[\s-]*([0-9]{1,4}|[A-Z]{2,4})[\s-]*([A-Z])?$/;
+const ROUTE = /^([A-Z]{2,4})?[\s-]*([0-9]{1,4}|[A-Z]{2,4})[\s-]*([A-Z])?$/;
 
 const rejected = new Map();
 export function rejectedNumbers() { return rejected; }

@@ -19,6 +19,7 @@
     "serve": "node tools/serve.mjs",
     "verify": "node tools/verify.mjs",
     "check:i18n": "node tools/check-i18n.mjs",
+    "check:mx": "node tools/check-mexico-numbers.mjs",
     "test": "node tools/check-i18n.mjs && node tools/build-content.mjs"
   },
   "dependencies": {

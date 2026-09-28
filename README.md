@@ -218,7 +218,7 @@ available and not yet built.
 | Country | Gap | Kind | Detail |
 | --- | --- | --- | --- |
 | 🇲🇽 | Opening years | source | Neither INEGI nor SICT publishes when a road opened. SICT's bridge inventory dates 9,818 federal free-network bridges; those are shown as bridges and not used to date roads. |
-| 🇲🇽 | Most state highways | source | Most states do not number their state roads. SICT's own 2025 listing gives 243 of the 711 state roads it counts a number, and only numbered roads can become routes. The state tier is the numbered minority of INEGI's 103,787 km state network. |
+| 🇲🇽 | Most state highways | source | Most states do not number their state roads. SICT's own 2025 listing gives 265 of the 711 state roads it counts a number, and only numbered roads can become routes. The state tier is the numbered minority of INEGI's 103,787 km state network. |
 | 🇲🇽 | Toll and free twins | source | The road file almost never writes the D suffix, so MEX-15 and MEX-15D share one number. A federal route can mix a toll and a free alignment, and parallel stretches show up as separate pieces under one number. Toll share comes from the file's per-segment toll flag. |
 | 🇲🇽 | Which state a federal road is in | source | The road file records the federation rather than the state as the jurisdiction of federal segments. The per-state breakdown is located against Natural Earth's 1:10m boundaries, and each route page says so. |
 | 🇲🇽 | Route ends | source | There is no gazetteer in the Mexican pipeline, so each end is given as the SICT section (tramo) it lies on rather than as a town. |
@@ -227,7 +227,7 @@ available and not yet built.
 | 🇲🇽 | Traffic on unnumbered roads | source | SICT count stations on roads with no number, or more than 5 km from their numbered route, are not placed. |
 | 🇲🇽 | Spanish interface | pending | English and Chinese only. |
 | 🇲🇽 | Numbering explainer, construction timeline | pending | Neither has a Mexico view yet. |
-| 🇲🇽 | Cross-check of RNC numbers against SICT's | pending | Chihuahua disagrees most. |
+| 🇲🇽 | State route numbers differ between agencies | source | INEGI and SICT number state roads independently, and the atlas follows INEGI. Of the 235 distinct state route numbers in SICT's 2025 index, 101 match an atlas route by number and name, and 55 name a road the atlas carries under a different number. Sinaloa accounts for 10 of its 18 keys (SICT's SIN-030 Culiacán–Altata is INEGI's 313), and Chihuahua for 4 of its 6. Another 27 match by number only, and 52 match nothing. Federal numbers agree: 260 of 281 state-and-number pairs are present. Per-road detail is in `content/reference/mx-crosscheck.json` (`npm run check:mx`). |
 | 🇲🇽 | CAPUFE toll-road traffic and tariffs | pending | Monthly flows and historical tariffs are published separately and not yet read. |
 | 🇨🇦 | Traffic in BC, SK, MB, NL, YT, NU | source | Not published in machine-readable form (see the table above). |
 | 🇨🇦 | Opening years outside Quebec | source | The *Canada Year Book* (1951–1968, 1973) never reported Trans-Canada completion by province. Saskatchewan (21 August 1957) is the one exception. The only other dated event is the national opening on 3 September 1962, which was not a completion. The 1969–1972 editions, which would cover the programme's end, are missing from Statistics Canada's digitised collection. The Act, its amendments and each province's agreement date are on the timeline. Ontario's bridge years are shown as bridges only. |
