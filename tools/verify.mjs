@@ -765,6 +765,34 @@ await step('the buildout run stops at the end rather than looping', async () => 
   await page.waitForTimeout(500);
 });
 
+await step('border crossings draw, and a nearby route can be chosen from one', async () => {
+  await page.keyboard.press('Escape');
+  await page.click('#btnCrossings');
+  await waitForSource('xing');
+  // A Canadian crossing with routes beside it, clicked where it is drawn.
+  const pt = await page.evaluate(async () => {
+    const d = await (await fetch('data/crossings.json')).json();
+    const f = d.features.find((x) => x.properties.country === 'ca' && x.properties.near.length >= 2);
+    const map = window.__map;
+    map.jumpTo({ center: f.geometry.coordinates, zoom: 11, pitch: 0, bearing: 0 });
+    await new Promise((res) => map.once('idle', res));
+    const p = map.project(f.geometry.coordinates);
+    const r = map.getCanvas().getBoundingClientRect();
+    return { x: r.left + p.x, y: r.top + p.y, borders: new Set(d.features.map((x) => x.properties.border)).size };
+  });
+  if (pt.borders !== 4) throw new Error(`expected crossings on four borders, found ${pt.borders}`);
+  await page.mouse.click(pt.x, pt.y);
+  await page.waitForSelector('.xg-pop .xg-r', { timeout: 8000 });
+  const label = await page.textContent('.xg-pop .xg-r b');
+  await shot('11-crossings.png');
+  await page.click('.xg-pop .xg-r');
+  await page.waitForFunction(() => !document.getElementById('detail').classList.contains('hidden'), null, { timeout: 15000 });
+  const title = await page.textContent('#detail');
+  if (!title.includes(label.trim())) throw new Error(`chose ${label} from the crossing, detail shows something else`);
+  await page.click('#btnCrossings');
+  if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
+});
+
 console.log(`\nsteps failed:    ${failures}`);
 console.log(`console errors:  ${errors.length}`);
 for (const e of [...new Set(errors)].slice(0, 25)) console.log(`  ! ${e.slice(0, 300)}`);

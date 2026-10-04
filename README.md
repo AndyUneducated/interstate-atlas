@@ -65,6 +65,7 @@ written record for the roads that have one.
 | **Map** | MapLibre GL over a dark vector basemap, with satellite and terrain alternatives and every route in the network selectable. |
 | **Route detail** | Termini, length, per-jurisdiction mileage, roadway classification and grade separation measured off the geometry; alongside them, what the states and provinces themselves measured — traffic, heavy-truck volume, pavement roughness, rutting and cracking, lanes, posted speeds — each stating the share of the road it covers. For curated routes, a written account of how the road came to be, what it cost, what it carries and what condition it is in. |
 | **Buildout scrubber** | A docked timeline over the live map. The scrub track *is* FHWA's mileage curve, which runs 1960–1997; the playhead runs from 1956, the year of the Act, to the latest documented completion, and routes light up as their documented year arrives. |
+| **Border crossings** | 167 land crossings on the Canada–US, Mexico–US, Mexico–Guatemala and Mexico–Belize borders, each saying how it was placed and listing the atlas routes within 2 km of it. |
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
 | **Statistics dashboard** | Network totals by system and by jurisdiction, both countries. |
@@ -232,7 +233,10 @@ available and not yet built.
 | 🇨🇦 | Traffic in BC, SK, MB, NL, YT, NU | source | Not published in machine-readable form (see the table above). |
 | 🇨🇦 | Opening years outside Quebec | source | The *Canada Year Book* (1951–1968, 1973) never reported Trans-Canada completion by province. Saskatchewan (21 August 1957) is the one exception. The only other dated event is the national opening on 3 September 1962, which was not a completion. The 1969–1972 editions, which would cover the programme's end, are missing from Statistics Canada's digitised collection. The Act, its amendments and each province's agreement date are on the timeline. Ontario's bridge years are shown as bridges only. |
 | 🇨🇦 | Nova Scotia counts on unnumbered roads | source | 103 of the 111 highways Nova Scotia counts attach to a route. The other eight cover 77 of 6,800 counted km, and they run on roads the National Road Network gives no route number: Hammonds Plains Rd (213), Purcells Cove Rd (253), and two Halifax arterials the province counts as 32 and 33. The atlas has no route for them. The province's own section geometry matches its counts but cannot supply a route the national file lacks. |
-| 🇨🇦 🇲🇽 | Border crossings, toll facilities | pending | CBSA and SICT crossing lists, 407 ETR, Confederation Bridge, Cobequid Pass. |
+| 🇲🇽 | How many crossings the northern border has | source | Published counts disagree, and each counts something different: INDAABIN lists 45 federal border-port properties on the US border, the Instituto Mexicano del Transporte (PT 437) 52 border bridges, and the North American Development Bank's 2019 study 59 crossings after reconciling inventories, 4 of them closed. The atlas draws INDAABIN's 45 and does not prefer any of the counts. One property can hold more than one crossing, as "Nogales I y II" does. |
+| 🇨🇦 | Where the Canadian crossings are | source | CBSA's directory gives each of its 116 highway border offices an address and no coordinates. 97 are placed by the NRCan geocoder: 41 to an address, 33 to an intersection, 11 to a street and 12 to a place name only. 17 had no match near the border and are placed where the highway in their address meets the line. Beaver Creek (address a PO box) and Fraser (on BC 2, which the atlas draws only near Dawson Creek) are not placed. Of the 58 that pair with a US port in BTS's data, all but Piney lie within 25 km of it. Piney is 39 km from Pinecreek MN, though 2.9 km from the line. |
+| 🇨🇦 🇲🇽 | Which road a crossing is on | source | Neither register says. A crossing lists the atlas routes within 2 km of it, by distance alone; 149 of the 167 have one. |
+| 🇨🇦 🇲🇽 | Toll facilities | pending | SICT concession register, 407 ETR, Confederation Bridge, Cobequid Pass, the international bridges. |
 
 ## Data sources
 
@@ -245,6 +249,7 @@ available and not yet built.
 | [US Census Gazetteer](https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html) 2023 places | terminus naming (32,329 places) | public domain |
 | [FHWA Route Log and Finder List](https://www.fhwa.dot.gov/planning/national_highway_system/interstate_highway_system/routefinder/) | official Interstate mileage, urban areas served | US government work |
 | FHWA *Interstate System Mileage Open to Traffic*, 1960–1997 | the buildout curve | US government work |
+| [BTS *Border Crossing Entry Data*](https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2) | checking where the Canadian crossings were placed, against the US port opposite | public domain |
 
 ### Canada
 
@@ -258,6 +263,8 @@ available and not yet built.
 | [Alberta *Traffic volumes on links in the highway network*](https://open.alberta.ca/opendata/traffic-volumes-on-links-in-the-highway-network) 2025 | WAADT and commercial share, Alberta | Open Government Licence – Alberta |
 | [Nova Scotia *Traffic Volumes – Provincial Highway System*](https://data.novascotia.ca/Roads-Driving-and-Transport/Traffic-Volumes-Provincial-Highway-System/8524-ec3n) | AADT, truck share, 85th-percentile speed | Open Government Licence – Nova Scotia |
 | [New Brunswick *AADT counts at point locations*](https://gnb.socrata.com/datasets/gdx2-xdus) 2023 | AADT, New Brunswick | Open Government Licence – New Brunswick |
+| [CBSA *Directory of CBSA Offices*](https://open.canada.ca/data/en/dataset/1018c301-d359-4077-8d9b-4e9fbe6a223f) | the Canada–US crossings, as the offices offering highway border service | Open Government Licence – Canada |
+| [NRCan Geolocation Service](https://geogratis.gc.ca/services/geolocation/en/locate) | placing those offices from their addresses | Open Government Licence – Canada |
 
 ### Mexico
 
@@ -266,7 +273,8 @@ available and not yet built.
 | [INEGI / SICT / IMT *Red Nacional de Caminos*](https://www.inegi.org.mx/programas/rnc/) 2025, `red_vial` | route geometry, designation (CODIGO), administering body, toll flag, lanes, surface, divided | Términos de Libre Uso (INEGI) | annual, each December |
 | [SICT *Datos Viales*](https://www.datos.gob.mx/dataset/datos_viales) 2013–2024 | TDPA and vehicle mix at 9,138 count stations | Términos de Libre Uso MX | annual |
 | SICT *Datos Viales* 2025, per-state PDF indexes | which state roads SICT itself lists, and which of them carry a number | Términos de Libre Uso MX | annual; file names and layout changed between 2024 and 2025 |
-| [Natural Earth](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/) Admin 1, 1:10m | locating federal segments within states | public domain | rarely |
+| [INDAABIN *Puertos fronterizos*](https://www.datos.gob.mx/dataset/puertos_fronterizos_centros_atencion_transito_fronterizo) 2025 list | the Mexican border crossings, north and south, with coordinates | CC BY 4.0 | the newer quarterly lists drop the coordinates |
+| [Natural Earth](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/) Admin 1, 1:10m | locating federal segments and border ports within states; distance to the US border | public domain | rarely |
 
 ### Both
 
@@ -322,8 +330,9 @@ when the upstream sources change.
 | `npm run fetch:qc` | scrapes the MTQ répertoire for autoroute opening years | `content/reference/qc-autoroutes.json` |
 | `npm run fetch:mx` | downloads the INEGI Red Nacional de Caminos and the SICT traffic panel | `tools/src/mx/`, `content/reference/` |
 | `npm run fetch:mx:check` | preflight only: what is reachable, how big, and whether it can resume | — |
+| `npm run fetch:borders` | reads the CBSA and INDAABIN crossing lists and geocodes the Canadian offices | `content/reference/border-crossings.json` |
 | `npm run fetch:all` | every acquisition step above, in order | all of the above |
-| `npm run build` | `build-data.mjs`, then `build-content.mjs` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/dossiers/`, `data/timeline.json` |
+| `npm run build` | `build-data.mjs`, `build-crossings.mjs`, then `build-content.mjs` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/crossings.json`, `data/dossiers/`, `data/timeline.json` |
 | `npm run build:elevation` | samples terrain along curated routes | `data/elevation/` |
 | `npm run serve` | serves the repository on `http://localhost:8787` | — |
 | `npm test` | i18n parity, then content validation | — |

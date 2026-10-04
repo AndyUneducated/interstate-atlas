@@ -1,0 +1,3268 @@
+{
+ "retrieved": "2026-10-04",
+ "purpose": "Land border crossings of Canada and Mexico, from each country's published list.",
+ "sources": {
+  "ca": {
+   "title": "Directory of CBSA Offices",
+   "agency": "Canada Border Services Agency",
+   "url": "https://open.canada.ca/data/en/dataset/1018c301-d359-4077-8d9b-4e9fbe6a223f",
+   "file": "https://www.cbsa-asfc.gc.ca/data/offices-bureaux-en.csv",
+   "licence": "Open Government Licence – Canada",
+   "filter": "offices whose services include HWY/B (Highway/Land Border Office)",
+   "offices": 1069,
+   "highway": 116,
+   "geocoder": {
+    "agency": "Natural Resources Canada",
+    "service": "Geolocation Service",
+    "url": "https://geogratis.gc.ca/services/geolocation/en/locate",
+    "accept": "a candidate in the office's province within 5 km of the US, measured to Natural Earth 1:10m state outlines",
+    "geocoded": 97,
+    "byHighway": 18
+   },
+   "check": {
+    "against": "US ports of entry placed by the US Bureau of Transportation Statistics, Border Crossing Entry Data (public domain)",
+    "url": "https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2",
+    "thresholdKm": 25,
+    "checked": 58,
+    "over": [
+     "Piney: 39 km from Pinecreek MN"
+    ]
+   },
+   "byPrecision": {
+    "address": 41,
+    "intersection": 33,
+    "street": 11,
+    "place": 12
+   },
+   "unplaced": [
+    "Beaver Creek"
+   ]
+  },
+  "mx": {
+   "title": "Puertos fronterizos y centros de atención integral al tránsito fronterizo",
+   "agency": "Instituto de Administración y Avalúos de Bienes Nacionales (INDAABIN)",
+   "url": "https://www.datos.gob.mx/dataset/puertos_fronterizos_centros_atencion_transito_fronterizo",
+   "file": "https://repodatos.atdt.gob.mx/api_update/indaabin/puertos_fronterizos_centros_atencion_transito_fronterizo/listado_puertos_fronterizos_centros_atencion_integral_transito_fronterizo.csv",
+   "resource": "Listado de puertos fronterizos y centros de atención integral al tránsito fronterizo (2025)",
+   "licence": "Creative Commons Attribution 4.0",
+   "filter": "rows named Puerto Fronterizo; inland CAITF checkpoints and CIITEV vehicle-permit offices left out",
+   "rows": 58,
+   "leftOut": [
+    "Módulo CIITEV de Nuevo Laredo (Aduana Antigua)",
+    "Módulo CIITEV Reynosa",
+    "Centro de Atención Integral al Tránsito Fronterizo Trinitaria",
+    "Centro de Atención Integral al Tránsito Fronterizo Huixtla",
+    "Centro de Atención Integral al Tránsito Fronterizo Catazajá"
+   ],
+   "byBorder": {
+    "mx-us": 45,
+    "mx-gt": 6,
+    "mx-bz": 2
+   },
+   "unit": "federal border-port properties; one property can hold more than one crossing, as \"Nogales I y II\" does"
+  }
+ },
+ "counts": {
+  "note": "Published counts of Mexico's northern crossings disagree, and each is a count of something different. None is preferred.",
+  "published": [
+   {
+    "count": 45,
+    "of": "federal border-port properties on the US border",
+    "source": "INDAABIN, Puertos fronterizos (2025 list)",
+    "url": "https://www.datos.gob.mx/dataset/puertos_fronterizos_centros_atencion_transito_fronterizo"
+   },
+   {
+    "count": 52,
+    "of": "border bridges",
+    "source": "Instituto Mexicano del Transporte, Publicación Técnica 437",
+    "url": "https://www.imt.mx/archivos/Publicaciones/PublicacionTecnica/pt437.pdf"
+   },
+   {
+    "count": 59,
+    "of": "crossings after reconciling conflicting inventories, 55 operating and 4 closed",
+    "source": "North American Development Bank, Port of Entry Study, December 2019",
+    "url": "https://nadbank.org/hubfs/publicaciones-y-estudios/december_2019_port_of_entry_study_final_report_spanish_version_clean.pdf"
+   }
+  ]
+ },
+ "crossings": [
+  {
+   "id": "ca-edmundston",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Edmundston",
+   "counterpart": "Madawaska ME",
+   "juris": "NB",
+   "at": [
+    -68.32891,
+    47.36218
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "66 Saint Francois Street, Edmundston, NB",
+    "match": "66 Rue St-Francois, Edmundston, New Brunswick",
+    "borderKm": 0
+   },
+   "checkKm": 0.2
+  },
+  {
+   "id": "ca-clair",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Clair",
+   "counterpart": "Fort Kent ME",
+   "juris": "NB",
+   "at": [
+    -68.60577,
+    47.25075
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "790 Principale Street, Clair, NB",
+    "match": "790 Rue Principale, Clair, New Brunswick",
+    "borderKm": 1.5
+   },
+   "checkKm": 0.2
+  },
+  {
+   "id": "ca-grand-falls",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Grand Falls",
+   "counterpart": "Hamlin ME",
+   "juris": "NB",
+   "at": [
+    -67.78936,
+    47.05974
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1015 Main Street, Grand Falls, NB",
+    "match": "1015 Rue Main, Grand-Sault/grand Falls, New Brunswick",
+    "borderKm": 1.4
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-st-leonard",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "St. Leonard",
+   "counterpart": "Van Buren ME",
+   "juris": "NB",
+   "at": [
+    -67.92916,
+    47.16027
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "10 rue du Pont, St. Leonard, NB",
+    "match": "10 Rue Du Pont, Saint-Leonard, New Brunswick",
+    "borderKm": 0.3
+   },
+   "checkKm": 0.1
+  },
+  {
+   "id": "ca-gillespie-portage",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Gillespie Portage",
+   "counterpart": "Limestone ME",
+   "juris": "NB",
+   "at": [
+    -67.78956,
+    46.92464
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "600 Route 375, DSL de Grand-Sault, NB",
+    "match": "600 Route 375 Highway, Dsl De Grand-Sault/falls, New Brunswick",
+    "borderKm": 1
+   },
+   "checkKm": 0
+  },
+  {
+   "id": "ca-st-croix",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "St. Croix",
+   "counterpart": "Vanceboro ME",
+   "juris": "NB",
+   "at": [
+    -67.42815,
+    45.56866
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "2785 Route 4, St. Croix, NB",
+    "match": "2785 Route 4 Highway, St Croix, New Brunswick",
+    "borderKm": 0.5
+   },
+   "checkKm": 0
+  },
+  {
+   "id": "ca-woodstock-road",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Woodstock Road",
+   "counterpart": "Houlton ME",
+   "juris": "NB",
+   "at": [
+    -67.77451,
+    46.14045
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1403 Route 95, Belleville, NB",
+    "match": "1403 Route 95 Highway West, Belleville, New Brunswick",
+    "borderKm": 1
+   },
+   "checkKm": 0.8
+  },
+  {
+   "id": "ca-bloomfield",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Bloomfield",
+   "counterpart": "Monticello ME",
+   "juris": "NB",
+   "at": [
+    -67.7774,
+    46.31679
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "185 Line Road, Bloomfield, NB",
+    "match": "185 Line Road, Bloomfield, New Brunswick",
+    "borderKm": 1.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-forest-city",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Forest City",
+   "counterpart": "Forest City ME",
+   "juris": "NB",
+   "at": [
+    -67.72829,
+    45.66333
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1699 Forest City Road, Forest City, NB",
+    "match": "1699 Forest City Road, Forest City, New Brunswick",
+    "borderKm": 1.8
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-fosterville",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Fosterville",
+   "counterpart": "Orient ME",
+   "juris": "NB",
+   "at": [
+    -67.78036,
+    45.81676
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "4575 Route 122, Fosterville, NB",
+    "match": "4575 Route 122 Highway, Fosterville, New Brunswick",
+    "borderKm": 0.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-andover",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Andover",
+   "counterpart": "Fort Fairfield ME",
+   "juris": "NB",
+   "at": [
+    -67.7883,
+    46.76541
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "6 Route 190, Carlingford, NB",
+    "match": "6 Route 190 Highway, Carlingford, New Brunswick",
+    "borderKm": 0.9
+   },
+   "checkKm": 0.1
+  },
+  {
+   "id": "ca-four-falls",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Four Falls",
+   "counterpart": "No permissible entry into the US from Canada.",
+   "juris": "NB",
+   "at": [
+    -67.77159,
+    46.82384
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "415 Brown Road, Four Falls, NB",
+    "match": "415 Brown Road, Four Falls, New Brunswick",
+    "borderKm": 2.2
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-centreville",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Centreville",
+   "counterpart": "Bridgewater ME",
+   "juris": "NB",
+   "at": [
+    -67.78259,
+    46.45044
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1449 Route 110, Royalton, NB",
+    "match": "1449 Route 110 Highway, Royalton, New Brunswick",
+    "borderKm": 0.9
+   },
+   "checkKm": 0.2
+  },
+  {
+   "id": "ca-river-de-chute",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "River de Chute",
+   "counterpart": "Easton ME",
+   "juris": "NB",
+   "at": [
+    -67.78504,
+    46.60005
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "205 Smugglers Road, River De Chute, NB",
+    "match": "205 Smugglers Road, River De Chute, New Brunswick",
+    "borderKm": 0.9
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-st-stephen-ferry-point-bridge",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "St. Stephen (Ferry Point Bridge)",
+   "counterpart": "Calais, ME (Ferry Point)",
+   "juris": "NB",
+   "at": [
+    -67.28383,
+    45.19262
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "204 Milltown Boulevard, St. Stephen, NB",
+    "match": "204 Milltown Boulevard, St. Stephen, New Brunswick",
+    "borderKm": 0.5
+   },
+   "checkKm": 0.8
+  },
+  {
+   "id": "ca-milltown",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Milltown",
+   "counterpart": "Milltown ME",
+   "juris": "NB",
+   "at": [
+    -67.2971,
+    45.17086
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "480 Milltown Boulevard, St. Stephen, NB",
+    "match": "480 Milltown Boulevard, St. Stephen, New Brunswick",
+    "borderKm": 0.6
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-campobello",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Campobello",
+   "counterpart": "Lubec ME",
+   "juris": "NB",
+   "at": [
+    -66.97864,
+    44.85982
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1 Route 774, Welshpool, NB",
+    "match": "1 Route 774 Highway, Welshpool, New Brunswick",
+    "borderKm": 1.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-cornwall-traffic-office",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Cornwall Traffic Office",
+   "counterpart": "Massena  NY",
+   "juris": "ON",
+   "at": [
+    -74.73933,
+    45.01015
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "1 Brookdale Avenue, Cornwall, ON",
+    "match": "Brookdale Avenue & International Road & Route 138, City Of Cornwall, Ontario",
+    "borderKm": 1.2
+   },
+   "checkKm": 2.2
+  },
+  {
+   "id": "ca-prescott",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Prescott",
+   "counterpart": "Ogdensburg, NY (0701)",
+   "juris": "ON",
+   "at": [
+    -75.52174,
+    44.72301
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "104 Bridge Approach Road, Prescott, ON",
+    "match": "Prescott Centre Drive, Town Of Prescott, Ontario",
+    "borderKm": 2
+   },
+   "checkKm": 5.2
+  },
+  {
+   "id": "ca-lansdowne-thousand-islands-bridge",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Lansdowne (Thousand Islands Bridge)",
+   "counterpart": "Alexandria Bay, NY",
+   "juris": "ON",
+   "at": [
+    -76.01917,
+    44.40639
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "860 Highway 137, Lansdowne, ON",
+    "match": "Lansdowne, Leeds, Ontario (Unincorporated area)",
+    "borderKm": 4.4
+   },
+   "checkKm": 7.2
+  },
+  {
+   "id": "ca-sault-ste-marie-bridge",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Sault Ste. Marie Bridge",
+   "counterpart": "Sault Ste. Marie, MI",
+   "juris": "ON",
+   "at": [
+    -84.34733,
+    46.52048
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "125 Huron Street, Sault Ste. Marie, ON",
+    "match": "Alexandra Street & Huron Street, City Of Sault Ste. Marie, Ontario",
+    "borderKm": 0
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-pigeon-river",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Pigeon River",
+   "counterpart": "Grand Portage MN",
+   "juris": "ON",
+   "at": [
+    -89.58516,
+    48.00144
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "7690 Highway 61, Neebing, ON",
+    "match": "Highway 61 & Route 61, Municipality Of Neebing, Ontario",
+    "borderKm": 0.6
+   },
+   "checkKm": 0
+  },
+  {
+   "id": "ca-fort-frances-bridge",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Fort Frances Bridge",
+   "counterpart": "International Falls, MN",
+   "juris": "ON",
+   "at": [
+    -93.40027,
+    48.60897
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "101 Church Street, Fort Frances, ON",
+    "match": "Central Avenue & Church Street & International Crossing & Route 71, Town Of Fort Frances, Ontario",
+    "borderKm": 0.1
+   },
+   "checkKm": 0.2
+  },
+  {
+   "id": "ca-rainy-river",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Rainy River",
+   "counterpart": "Baudette MN",
+   "juris": "ON",
+   "at": [
+    -94.58555,
+    48.72126
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "100 Atwood Avenue, Rainy River, ON",
+    "match": "Atwood Avenue & Route 11, Town Of Rainy River, Ontario",
+    "borderKm": 0.3
+   },
+   "checkKm": 0.4
+  },
+  {
+   "id": "ca-pacific-highway",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Pacific Highway",
+   "counterpart": "Blaine, WA (Pacific Highway)",
+   "juris": "BC",
+   "at": [
+    -122.73526,
+    49.0094
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "Pacific Highway, BC",
+    "match": "Pacific Highway, Surrey, British Columbia",
+    "borderKm": 1.9
+   },
+   "checkKm": 2
+  },
+  {
+   "id": "ca-boundary-bay",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Boundary Bay",
+   "counterpart": "Point Roberts, WA",
+   "juris": "BC",
+   "at": [
+    -123.06865,
+    49.00446
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "4 56th Street, Delta, BC",
+    "match": "1 Avenue & 56 Street, Delta, British Columbia",
+    "borderKm": 1.3
+   },
+   "checkKm": 0.3
+  },
+  {
+   "id": "ca-abbotsford-huntingdon",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Abbotsford-Huntingdon",
+   "counterpart": "Sumas, WA",
+   "juris": "BC",
+   "at": [
+    -122.33752,
+    49.0165
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Abbotsford-Huntingdon, BC",
+    "match": "Clearbrook Road & Huntingdon Road, Abbotsford, British Columbia",
+    "borderKm": 2.7
+   },
+   "checkKm": 5.5
+  },
+  {
+   "id": "ca-douglas",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Douglas",
+   "counterpart": "Blaine, WA (Peach Arch)",
+   "juris": "BC",
+   "at": [
+    -122.75736,
+    49.00697
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "220 Highway 99, Surrey, BC",
+    "match": "Autoroute 99, Surrey, British Columbia",
+    "borderKm": 1.6
+   },
+   "checkKm": 1.6
+  },
+  {
+   "id": "ca-aldergrove",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Aldergrove",
+   "counterpart": "Lynden, WA",
+   "juris": "BC",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "13",
+    "address": "10 Highway 13, Aldergrove, BC"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-stewart",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Stewart",
+   "counterpart": "No US Customs presence (Hyder AK)",
+   "juris": "BC",
+   "at": [
+    -130.00848,
+    55.92377
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "# 1- Highway 37A, Stewart, BC",
+    "match": "Route 37a, Stewart, British Columbia",
+    "borderKm": 0.5
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-little-gold-creek",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Little Gold Creek",
+   "counterpart": "Poker Creek AK",
+   "juris": "YT",
+   "at": [
+    -141,
+    64.08528
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "Km 20.9/mile 13 Yukon Highway 9, Little Gold, YT",
+    "match": "Little Gold, Yukon (Unincorporated area)",
+    "borderKm": 0.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-pleasant-camp",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Pleasant Camp",
+   "counterpart": "Dalton Cache AK",
+   "juris": "BC",
+   "at": [
+    -136.36499,
+    59.45363
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Mile 40.8/KM 65.7 Yukon Hwy 3(Haines Hwy), Pleasant Camp, BC",
+    "match": "Haines Highway & Pleasant Camp, Tatshenshini, British Columbia",
+    "borderKm": 0.4
+   },
+   "checkKm": 0.4
+  },
+  {
+   "id": "ca-beaver-creek",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Beaver Creek",
+   "counterpart": "Alcan AK",
+   "juris": "YT",
+   "at": null,
+   "located": {
+    "by": "none",
+    "address": "PO Box 69, Beaver Creek, YT"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-fraser",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Fraser",
+   "counterpart": "Skagway AK",
+   "juris": "BC",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "2",
+    "address": "km 36.5/mile 22.6 Yukon Highway 2 (Klondike Hwy), Fraser, BC"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-cascade",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Cascade",
+   "counterpart": "Laurier WA",
+   "juris": "BC",
+   "at": [
+    -118.22195,
+    49.0197
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "102 Highway 395 South, Christina Lake, BC",
+    "match": "Crowsnest Highway & Highway 3 & Highway 395 & Hwy 3 & Hwy 395 & Route 3 & Route 395, Christina Lake,Cascade, British Columbia",
+    "borderKm": 3
+   },
+   "checkKm": 2.2
+  },
+  {
+   "id": "ca-kingsgate",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Kingsgate",
+   "counterpart": "Eastport ID",
+   "juris": "BC",
+   "at": [
+    -116.18104,
+    49.00149
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "6917 Highway 95, Kingsgate, BC",
+    "match": "Hwy 95, Kingsgate, British Columbia",
+    "borderKm": 1
+   },
+   "checkKm": 0.1
+  },
+  {
+   "id": "ca-osoyoos",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Osoyoos",
+   "counterpart": "Oroville WA (joint facilities with US)",
+   "juris": "BC",
+   "at": [
+    -119.46425,
+    49.00298
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "#202-97th Street, Osoyoos, BC",
+    "match": "Route 97, Osoyoos, British Columbia",
+    "borderKm": 1.2
+   },
+   "checkKm": 0.4
+  },
+  {
+   "id": "ca-rykerts",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Rykerts",
+   "counterpart": "Porthill ID",
+   "juris": "BC",
+   "at": [
+    -116.49334,
+    49.00403
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Rykerts, BC",
+    "match": "Porthill Road & Rykerts Road, Lister, British Columbia",
+    "borderKm": 1.3
+   },
+   "checkKm": 0.6
+  },
+  {
+   "id": "ca-roosville",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Roosville",
+   "counterpart": "Roosville MT",
+   "juris": "BC",
+   "at": [
+    -115.05268,
+    49.00119
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "Roosville, BC",
+    "match": "Unsigned, Roosville, British Columbia",
+    "borderKm": 1
+   },
+   "checkKm": 0.3
+  },
+  {
+   "id": "ca-nelway",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Nelway",
+   "counterpart": "Metaline Falls WA",
+   "juris": "BC",
+   "at": [
+    -117.29967,
+    49.00029
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "Nelway, BC",
+    "match": "Hwy 6, Nelway, British Columbia",
+    "borderKm": 0.9
+   },
+   "checkKm": 0
+  },
+  {
+   "id": "ca-paterson",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Paterson",
+   "counterpart": "Frontier WA",
+   "juris": "BC",
+   "at": [
+    -117.93772,
+    49.00445
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Rossland, BC",
+    "match": "Rossland-Cascade Road & Thompson Road, Rossland, British Columbia",
+    "borderKm": 1.3
+   },
+   "checkKm": 7.8
+  },
+  {
+   "id": "ca-waneta",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Waneta",
+   "counterpart": "Boundary WA",
+   "juris": "BC",
+   "at": [
+    -117.59659,
+    49.00634
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Waneta, BC",
+    "match": "Seven Mile Dam Road & Waneta-Nelway Road, Pend D'oreille, British Columbia",
+    "borderKm": 1.5
+   },
+   "checkKm": 2.3
+  },
+  {
+   "id": "ca-carson",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Carson",
+   "counterpart": "Danville WA (joint facilities with US)",
+   "juris": "BC",
+   "at": [
+    -118.50308,
+    48.99988
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "4900 Highway 41, Grand Forks, BC",
+    "match": "Highway 41 & Hwy 41 & Route 41, Grand Forks, British Columbia",
+    "borderKm": 0.8
+   },
+   "checkKm": 0.1
+  },
+  {
+   "id": "ca-midway",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Midway",
+   "counterpart": "Ferry WA",
+   "juris": "BC",
+   "at": [
+    -118.76343,
+    49.00244
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "100 Dominion Street, Midway, BC",
+    "match": "Boltz Avenue & Dominion Street, Midway, British Columbia",
+    "borderKm": 1.1
+   },
+   "checkKm": 0.3
+  },
+  {
+   "id": "ca-chopaka",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Chopaka",
+   "counterpart": "Nighthawk WA",
+   "juris": "BC",
+   "at": [
+    -119.72697,
+    49.01875
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Chopaka, BC",
+    "match": "Chopaka Road & Unsigned, Cawston, British Columbia",
+    "borderKm": 2.9
+   },
+   "checkKm": 4.6
+  },
+  {
+   "id": "ca-emerson",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Emerson",
+   "counterpart": "Pembina, ND",
+   "juris": "MB",
+   "at": [
+    -97.21148,
+    49.00063
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "Emerson, MB",
+    "match": "International Avenue, Emerson, Manitoba",
+    "borderKm": 0.9
+   },
+   "checkKm": 1.9
+  },
+  {
+   "id": "ca-gretna",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Gretna",
+   "counterpart": "Neche ND",
+   "juris": "MB",
+   "at": [
+    -97.55004,
+    49.00372
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Hwy 30, Gretna, MB",
+    "match": "Provincial Trunk 30 Highway & Route 30, Gretna, Manitoba",
+    "borderKm": 1.2
+   },
+   "checkKm": 0.6
+  },
+  {
+   "id": "ca-sprague",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Sprague",
+   "counterpart": "Warroad MN",
+   "juris": "MB",
+   "at": [
+    -95.41817,
+    49.01626
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Hwy 12, Sprague, MB",
+    "match": "Mom’s Way & Morden-Sprague Road & Provincial Trunk 12 Highway & Route 12 & Route Mom, Piney, Manitoba",
+    "borderKm": 2.6
+   },
+   "checkKm": 3.6
+  },
+  {
+   "id": "ca-south-junction",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "South Junction",
+   "counterpart": "Roseau MN",
+   "juris": "MB",
+   "at": [
+    -95.44103,
+    49.01863
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Hwy 310, Sprague, MB",
+    "match": "Main Street & Morden-Sprague Road, Piney, Manitoba",
+    "borderKm": 2.9
+   },
+   "checkKm": 23.8
+  },
+  {
+   "id": "ca-boissevain",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Boissevain",
+   "counterpart": "Dunseith ND",
+   "juris": "MB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "10",
+    "address": "Hwy 10, Boissevain, MB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-goodlands",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Goodlands",
+   "counterpart": "Carbury ND",
+   "juris": "MB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "21",
+    "address": "Hwy 21, Deloraine, MB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-snowflake",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Snowflake",
+   "counterpart": "Hannah ND",
+   "juris": "MB",
+   "at": [
+    -98.60515,
+    49.02078
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "Snowflake, MB",
+    "match": "Snowflake Creek, 24-1-9-W, Manitoba (River)",
+    "borderKm": 3.1
+   },
+   "checkKm": 6.9
+  },
+  {
+   "id": "ca-tolstoi",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Tolstoi",
+   "counterpart": "Lancaster MN",
+   "juris": "MB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "59",
+    "address": "Hwy 59, Tolstoi, MB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-piney",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Piney",
+   "counterpart": "Pinecreek MN",
+   "juris": "MB",
+   "at": [
+    -95.44103,
+    49.01863
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Sprague, MB",
+    "match": "Main Street & Morden-Sprague Road, Piney, Manitoba",
+    "borderKm": 2.9
+   },
+   "checkKm": 39.2
+  },
+  {
+   "id": "ca-winkler",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Winkler",
+   "counterpart": "Walhalla ND",
+   "juris": "MB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "32",
+    "address": "Hwy 32, Winkler, MB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-windygates",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Windygates",
+   "counterpart": "Maida ND",
+   "juris": "MB",
+   "at": [
+    -98.36472,
+    49.00056
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "Windygates, MB",
+    "match": "Windygates, 5-1-7-W, Manitoba (Unincorporated area)",
+    "borderKm": 0.9
+   },
+   "checkKm": 0.1
+  },
+  {
+   "id": "ca-crystal-city",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Crystal City",
+   "counterpart": "Sarles ND",
+   "juris": "MB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "34",
+    "address": "Hwy 34, Crystal City, MB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-cartwright",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Cartwright",
+   "counterpart": "Hansboro ND",
+   "juris": "MB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "5",
+    "address": "Hwy 5, Cartwright, MB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-lena",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Lena",
+   "counterpart": "St. John ND",
+   "juris": "MB",
+   "at": [
+    -99.65996,
+    49.00007
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Hwy 18, Killarney, MB",
+    "match": "18 Highway & Route 18, Killarney - Turtle Mountain, Manitoba",
+    "borderKm": 0.8
+   },
+   "checkKm": 0.1
+  },
+  {
+   "id": "ca-lyleton",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Lyleton",
+   "counterpart": "Antler ND",
+   "juris": "MB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "256",
+    "address": "Hwy 256, Pierson, MB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-coulter",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Coulter",
+   "counterpart": "Westhope ND",
+   "juris": "MB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "83",
+    "address": "Hwy 83, Melita, MB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-north-portal",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "North Portal",
+   "counterpart": "Portal, ND",
+   "juris": "SK",
+   "at": [
+    -102.55897,
+    48.99911
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "301 W Railway Ave, North Portal, SK",
+    "match": "Ramp & Route 39, North Portal, Saskatchewan",
+    "borderKm": 0.7
+   },
+   "checkKm": 0.5
+  },
+  {
+   "id": "ca-regway",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Regway",
+   "counterpart": "Raymond MT",
+   "juris": "SK",
+   "at": [
+    -104.5752,
+    49.00138
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "Regway, SK",
+    "match": "Regway, 2-1-20-W2, Saskatchewan (Unincorporated area)",
+    "borderKm": 1
+   },
+   "checkKm": 0.3
+  },
+  {
+   "id": "ca-estevan-highway",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Estevan Highway",
+   "counterpart": "Noonan ND",
+   "juris": "SK",
+   "at": [
+    -102.99774,
+    49.00536
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "Hwy 47, Estevan, SK",
+    "match": "Route 47, Estevan, Saskatchewan",
+    "borderKm": 1.4
+   },
+   "checkKm": 0.8
+  },
+  {
+   "id": "ca-carievale",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Carievale",
+   "counterpart": "Sherwood ND",
+   "juris": "SK",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "8",
+    "address": "Hwy 8 South, Carievale, SK"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-northgate",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Northgate",
+   "counterpart": "Northgate ND",
+   "juris": "SK",
+   "at": [
+    -102.26711,
+    49.00003
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "Hwy 9, Northgate, SK",
+    "match": "Northgate, 6-1-2-W2, Saskatchewan (Unincorporated area)",
+    "borderKm": 0.8
+   },
+   "checkKm": 0.6
+  },
+  {
+   "id": "ca-coronach",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Coronach",
+   "counterpart": "Scobey MT",
+   "juris": "SK",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "36",
+    "address": "Hwy 36 South, Coronach, SK"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-oungre",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Oungre",
+   "counterpart": "Fortuna ND",
+   "juris": "SK",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "35",
+    "address": "Hwy 35, Oungre, SK"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-torquay",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Torquay",
+   "counterpart": "Ambrose ND",
+   "juris": "SK",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "350",
+    "address": "Hwy 350, Torquay, SK"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-west-poplar-river",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "West Poplar River",
+   "counterpart": "Ophiem MT",
+   "juris": "SK",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "2",
+    "address": "Hwy 2 South, West Poplar River, SK"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-climax",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Climax",
+   "counterpart": "Turner MT (joint facilities with US)",
+   "juris": "SK",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "8",
+    "address": "Hwy 8, Climax, SK"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-monchy",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Monchy",
+   "counterpart": "Morgan MT",
+   "juris": "SK",
+   "at": [
+    -107.83177,
+    49.00026
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "Monchy, SK",
+    "match": "Monchy, 8-1-14-W3, Saskatchewan (Unincorporated area)",
+    "borderKm": 0.8
+   },
+   "checkKm": 0
+  },
+  {
+   "id": "ca-willow-creek",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Willow Creek",
+   "counterpart": "Willow Creek MT",
+   "juris": "SK",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "21",
+    "address": "Hwy 21 South, Willow Creek, SK"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-coutts",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Coutts",
+   "counterpart": "Sweetgrass, MT (joint facilities with US)",
+   "juris": "AB",
+   "at": [
+    -111.96083,
+    48.99867
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Highway #4 South, Coutts, AB",
+    "match": "4 Highway & Route 4, Coutts, Alberta",
+    "borderKm": 0.7
+   },
+   "checkKm": 0.1
+  },
+  {
+   "id": "ca-aden",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Aden",
+   "counterpart": "Whitlash MT",
+   "juris": "AB",
+   "at": [
+    -111.29861,
+    49.02472
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "Highway #880 South, Aden, AB",
+    "match": "Aden, 8-1-10-W4, Alberta (Unincorporated area)",
+    "borderKm": 3.5
+   },
+   "checkKm": 4.3
+  },
+  {
+   "id": "ca-carway",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Carway",
+   "counterpart": "Piegan MT",
+   "juris": "AB",
+   "at": [
+    -113.37132,
+    49.01139
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "street",
+    "query": "Highway #2 South, Cardston, AB",
+    "match": "Route 2, Cardston County, Alberta",
+    "borderKm": 2.1
+   },
+   "checkKm": 1.6
+  },
+  {
+   "id": "ca-del-bonita",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Del Bonita",
+   "counterpart": "Del Bonita MT",
+   "juris": "AB",
+   "at": [
+    -112.78996,
+    49.02835
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Hwy 62 South, Del Bonita, AB",
+    "match": "501 Highway & Ball Park Street & Route 501, Cardston County,Del Bonita, Alberta",
+    "borderKm": 4
+   },
+   "checkKm": 3.3
+  },
+  {
+   "id": "ca-chief-mountain",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Chief Mountain",
+   "counterpart": "Chief Mountain MT",
+   "juris": "AB",
+   "at": null,
+   "located": {
+    "by": "highway",
+    "highway": "6",
+    "address": "Hwy 6 South, Chief Mountain, AB"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-wild-horse",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Wild Horse",
+   "counterpart": "Wild Horse MT",
+   "juris": "AB",
+   "at": [
+    -110.21611,
+    49
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "Hwy 41 South, Wild Horse, AB",
+    "match": "Wild Horse, 4-1-2-W4, Alberta (Unincorporated area)",
+    "borderKm": 0.8
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-armstrong",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Armstrong",
+   "counterpart": "Jackman, ME",
+   "juris": "QC",
+   "at": [
+    -70.40179,
+    45.81835
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "999 Highway 173, Saint-Théophile, QC",
+    "match": "Route 173 & Route Du Président-Kennedy, -,Saint-Théophile, Quebec",
+    "borderKm": 0.1
+   },
+   "checkKm": 1.5
+  },
+  {
+   "id": "ca-ste-aurelie",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Ste-Aurélie",
+   "counterpart": "Ste. Aurelie Station, ME",
+   "juris": "QC",
+   "at": [
+    -70.27636,
+    46.2077
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "468 Rang St-Joseph, Ste-Aurélie, QC",
+    "match": "468 Rang Saint-Joseph, Sainte-Aurélie, Quebec",
+    "borderKm": 0.4
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-st-pamphile",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "St-Pamphile",
+   "counterpart": "St. Pamphile Station, ME",
+   "juris": "QC",
+   "at": [
+    -69.75062,
+    46.94263
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1123 Elgin Road South, St. Pamphile, QC",
+    "match": "1123 Route Elgin Sud, Saint-Pamphile, Quebec",
+    "borderKm": 1.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-st-just-de-bretenieres",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "St-Just-de-Bretenieres",
+   "counterpart": "St. Juste Station, ME",
+   "juris": "QC",
+   "at": [
+    -70.03108,
+    46.54618
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "10 des Prices Road, St-Just-de-Bretenières, QC",
+    "match": "10 Route Des Moulins, Saint-Just-De-Bretenières, Quebec",
+    "borderKm": 1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-trout-river",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Trout River",
+   "counterpart": "Trout River, NY",
+   "juris": "QC",
+   "at": [
+    -74.30998,
+    44.99288
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "980 Highway 138, Elgin, QC",
+    "match": "980 Route 138, Elgin, Quebec",
+    "borderKm": 0.8
+   },
+   "checkKm": 0.2
+  },
+  {
+   "id": "ca-herdman",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Herdman",
+   "counterpart": "Chateauguay, NY",
+   "juris": "QC",
+   "at": [
+    -74.09491,
+    45.00315
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Herdman, QC",
+    "match": "Montée Herdman & Rue Taylor, Hinchinbrooke, Quebec",
+    "borderKm": 0.2
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-st-armand-philipsburg",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "St-Armand/Philipsburg",
+   "counterpart": "Highgate Springs, VT",
+   "juris": "QC",
+   "at": [
+    -73.08431,
+    45.01709
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "10 Route 133, Saint-Armand, QC",
+    "match": "10 Route 133, Saint-Armand, Quebec",
+    "borderKm": 1.2
+   },
+   "checkKm": 0.2
+  },
+  {
+   "id": "ca-dundee",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Dundee",
+   "counterpart": "Fort Covington, NY",
+   "juris": "QC",
+   "at": [
+    -74.50923,
+    45.00038
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "8750 Route 132, Ste-Agnes-de-Dundee, QC",
+    "match": "8750 Route 132, Dundee, Quebec",
+    "borderKm": 0.2
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-frelighsburg",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Frelighsburg",
+   "counterpart": "West Berkshire Station, VT",
+   "juris": "QC",
+   "at": [
+    -72.82376,
+    45.02272
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "193 Route 237, Frelighsburg, QC",
+    "match": "193 Route 237 Sud, Frelighsburg, Quebec",
+    "borderKm": 1.7
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-hemmingford",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Hemmingford",
+   "counterpart": "Mooers, NY",
+   "juris": "QC",
+   "at": [
+    -73.60414,
+    45.00522
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "1 Route 219 South, Hemmingford, QC",
+    "match": "Route 219 & Route 219 Sud, Hemmingford, Quebec",
+    "borderKm": 0.2
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-covey-hill",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Covey Hill",
+   "counterpart": "Cannon Corners, NY",
+   "juris": "QC",
+   "at": [
+    -73.93923,
+    45.00245
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Covey Hill, QC",
+    "match": "Chemin De Covey Hill & Route 209, Franklin, Quebec",
+    "borderKm": 0.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-clarenceville",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Clarenceville",
+   "counterpart": "Alburg Springs Station, VT",
+   "juris": "QC",
+   "at": [
+    -73.21221,
+    45.01303
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "2500 Beech Road, Clarenceville, QC",
+    "match": "2500 Chemin Beech Sud, Saint-Georges-De-Clarenceville, Quebec",
+    "borderKm": 0.8
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-st-bernard-de-lacolle-highway-15",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "St-Bernard-de-Lacolle: Highway 15",
+   "counterpart": "Champlain, NY",
+   "juris": "QC",
+   "at": [
+    -73.45233,
+    45.01162
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "501, Highway 15, Saint-Bernard-de-Lacolle, QC",
+    "match": "501 Autoroute 15, Saint-Bernard-De-Lacolle, Quebec",
+    "borderKm": 0.8
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-lacolle-route-221",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Lacolle: Route 221",
+   "counterpart": "Overton Corners, NY",
+   "juris": "QC",
+   "at": [
+    -73.39986,
+    45.01111
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "300 Route 221, Lacolle, QC",
+    "match": "300 Route 221, Lacolle, Quebec",
+    "borderKm": 0.7
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-lacolle-route-223",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Lacolle: Route 223",
+   "counterpart": "Rouses Point, NY",
+   "juris": "QC",
+   "at": [
+    -73.37065,
+    45.01229
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "154 Route 223, Lacolle, QC",
+    "match": "154 Route 223, Lacolle, Quebec",
+    "borderKm": 0.9
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-morses-line",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Morses Line",
+   "counterpart": "Morses Line Station VT",
+   "juris": "QC",
+   "at": [
+    -72.978,
+    45.01438
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "10 Dutch Road, St-Armand, QC",
+    "match": "10 Chemin Dutch, Saint-Armand, Quebec",
+    "borderKm": 0.9
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-noyan",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Noyan",
+   "counterpart": "Alburg Station, VT (joint facilities with U.S.)",
+   "juris": "QC",
+   "at": [
+    -73.29633,
+    45.0116
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "6 Route 225, Noyan, QC",
+    "match": "Chemin De La 3e-Concession & Route 225, Noyan, Quebec",
+    "borderKm": 0.7
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-east-pinnacle",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "East Pinnacle",
+   "counterpart": "Pinnacle Road Station, VT",
+   "juris": "QC",
+   "at": [
+    -72.71361,
+    45.02694
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "383 Richford Road, East Pinnacle, QC",
+    "match": "East Pinnacle, Frelighsburg; Brome-Missisquoi, Quebec (Unincorporated area)",
+    "borderKm": 2.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-highwater",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Highwater",
+   "counterpart": "North Troy Station, VT",
+   "juris": "QC",
+   "at": [
+    -72.43056,
+    45.02528
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "4 Mansonville Road, Highwater, QC",
+    "match": "Highwater, Potton; Memphrémagog, Quebec (Unincorporated area)",
+    "borderKm": 1.8
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-woburn",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Woburn",
+   "counterpart": "Coburn Gore Station, ME",
+   "juris": "QC",
+   "at": [
+    -70.80787,
+    45.3787
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1020 des Lignes Road, Woburn, QC",
+    "match": "1020 Chemin Des Lignes, Saint-Augustin-De-Woburn, Quebec",
+    "borderKm": 2.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-stanstead-55",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Stanstead (55)",
+   "counterpart": "Derby Line, VT",
+   "juris": "QC",
+   "at": [
+    -72.11516,
+    45.02012
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Stanstead, QC",
+    "match": "Chemin De Stanstead & Route Maple, Stanstead, Quebec",
+    "borderKm": 1
+   },
+   "checkKm": 2
+  },
+  {
+   "id": "ca-abercorn",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Abercorn",
+   "counterpart": "Richford VT",
+   "juris": "QC",
+   "at": [
+    -72.66252,
+    45.01508
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "549 Route 139, Abercorn, QC",
+    "match": "549 Route 139, Abercorn, Quebec",
+    "borderKm": 0.8
+   },
+   "checkKm": 5.8
+  },
+  {
+   "id": "ca-stanhope",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Stanhope",
+   "counterpart": "Norton, VT",
+   "juris": "QC",
+   "at": [
+    -71.79863,
+    45.01261
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Stanhope, QC",
+    "match": "Chemin De Stanhope & Chemin Stage, Coaticook, Quebec",
+    "borderKm": 0
+   },
+   "checkKm": 0.5
+  },
+  {
+   "id": "ca-east-hereford",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "East Hereford",
+   "counterpart": "Beecher Falls VT",
+   "juris": "QC",
+   "at": [
+    -71.50459,
+    45.01593
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "26 Route 253, East Hereford, QC",
+    "match": "26 Route 253, East Hereford, Quebec",
+    "borderKm": 0
+   },
+   "checkKm": 0.3
+  },
+  {
+   "id": "ca-chartierville",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Chartierville",
+   "counterpart": "Pittsburg, NH",
+   "juris": "QC",
+   "at": [
+    -71.20575,
+    45.2588
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "165 St-Hyacinthe Street, Chartierville, QC",
+    "match": "165 Route Saint-Hyacinthe, Chartierville, Quebec",
+    "borderKm": 0.5
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-hereford-road",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Hereford Road",
+   "counterpart": "Canaan Station, VT",
+   "juris": "QC",
+   "at": [
+    -71.56063,
+    45.01307
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1871 Route 141, St-Hermenegilde, QC",
+    "match": "1871 Route 141, Saint-Herménégilde, Quebec",
+    "borderKm": 0
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-glen-sutton",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Glen Sutton",
+   "counterpart": "East Richford Station, VT",
+   "juris": "QC",
+   "at": [
+    -72.60406,
+    45.03651
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "place",
+    "query": "139 Missisquoi Valley Road, Sutton, QC",
+    "match": "Lac à Jenne, Sutton; Brome-Missisquoi, Quebec (Lake)",
+    "borderKm": 3.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-stanstead-rte-143",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Stanstead (Rte 143)",
+   "counterpart": "Derby Line, VT (Route 5)",
+   "juris": "QC",
+   "at": [
+    -72.09886,
+    45.00655
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "226 Dufferin Street, Stanstead, QC",
+    "match": "226 Rue Dufferin, Stanstead, Quebec",
+    "borderKm": 0.5
+   },
+   "checkKm": 0.1
+  },
+  {
+   "id": "ca-stanstead-beebe",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Stanstead (Beebe)",
+   "counterpart": "Beebe Plain Station, VT",
+   "juris": "QC",
+   "at": [
+    -72.11516,
+    45.02012
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Stanstead (Beebe), QC",
+    "match": "Chemin De Stanstead & Route Maple, Stanstead, Quebec",
+    "borderKm": 1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-windsor-detroit-tunnel",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Windsor-Detroit Tunnel",
+   "counterpart": "Detroit-Windsor Tunnel, MI",
+   "juris": "ON",
+   "at": [
+    -83.07587,
+    42.30481
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Windsor-Detroit Tunnel, ON",
+    "match": "Detroit Street & Russell Street, City Of Windsor, Ontario",
+    "borderKm": 0.2
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-ambassador-bridge",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Ambassador Bridge",
+   "counterpart": "Ambassador Bridge, MI",
+   "juris": "ON",
+   "at": [
+    -83.06633,
+    42.30033
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "780 Huron Church Road, Windsor, ON",
+    "match": "780 Huron Church Road, City Of Windsor, Ontario",
+    "borderKm": 1.1
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-sarnia-blue-water-bridge",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Sarnia (Blue Water Bridge)",
+   "counterpart": "Port Huron, MI",
+   "juris": "ON",
+   "at": [
+    -82.41422,
+    42.99255
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "1555 Venetian Boulevard, Point Edward, ON",
+    "match": "1555 Venetian Boulevard, Village Of Point Edward, Ontario",
+    "borderKm": 0.1
+   },
+   "checkKm": 1
+  },
+  {
+   "id": "ca-fort-erie-peace-bridge",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Fort Erie (Peace Bridge)",
+   "counterpart": "Peace Bridge, NY",
+   "juris": "ON",
+   "at": [
+    -78.91236,
+    42.90782
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "intersection",
+    "query": "Peace Bridge Travellers Operations, Fort Erie, ON",
+    "match": "Autoroute Qew & International Crossing & Peace Bridge & Queen Elizabeth Way, Town Of Fort Erie, Ontario",
+    "borderKm": 0.2
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-queenston-lewiston-bridge-travellers-and-commercial",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Queenston Lewiston Bridge (Travellers and Commercial)",
+   "counterpart": "Lewiston Bridge, NY",
+   "juris": "ON",
+   "at": [
+    -79.04807,
+    43.15613
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "14154 Niagara Parkway, Niagara-on-the-Lake, ON",
+    "match": "14154 Niagara River Parkway, Town Of Niagara-On-The-Lake, Ontario",
+    "borderKm": 0.2
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-niagara-falls-rainbow-bridge-travellers-only",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Niagara Falls Rainbow Bridge(Travellers only)",
+   "counterpart": "Rainbow Bridge, NY",
+   "juris": "ON",
+   "at": [
+    -79.07054,
+    43.09231
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "5660 Falls Avenue, Niagara Falls, ON",
+    "match": "5660 Falls Avenue, City Of Niagara Falls, Ontario",
+    "borderKm": 0.8
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-niagara-falls-whirlpool-bridge-nexus-members-only",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "Niagara Falls Whirlpool Bridge (NEXUS members only)",
+   "counterpart": "Whirlpool Bridge, NY",
+   "juris": "ON",
+   "at": [
+    -79.06036,
+    43.11018
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "4422 River Road, Niagara Falls, ON",
+    "match": "4422 River Road, City Of Niagara Falls, Ontario",
+    "borderKm": 0.4
+   },
+   "checkKm": null
+  },
+  {
+   "id": "ca-st-stephen-3rd-bridge",
+   "country": "ca",
+   "border": "ca-us",
+   "name": "St. Stephen 3rd Bridge",
+   "counterpart": "Calais, ME (International Avenue)",
+   "juris": "NB",
+   "at": [
+    -67.30406,
+    45.16097
+   ],
+   "located": {
+    "by": "geocode",
+    "precision": "address",
+    "query": "St. Stephen 3rd Bridge, NB",
+    "match": "3 St Stephen Drive West, St. Stephen, New Brunswick",
+    "borderKm": 0
+   },
+   "checkKm": 3.8
+  },
+  {
+   "id": "mx-2-2281-1",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "El Chaparral",
+   "counterpart": null,
+   "juris": "BCN",
+   "region": "Baja California 1",
+   "rfi": "2-2281-1",
+   "at": [
+    -117.03394,
+    32.54092
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-2-465-3",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Puerta México",
+   "counterpart": null,
+   "juris": "BCN",
+   "region": "Baja California 1",
+   "rfi": "2-465-3",
+   "at": [
+    -117.02907,
+    32.54084
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-2-21217-3",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Puerta México Este",
+   "counterpart": null,
+   "juris": "BCN",
+   "region": "Baja California 1",
+   "rfi": "2-21217-3",
+   "at": [
+    -117.02737,
+    32.54236
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-2-2282-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Mesa de Otay",
+   "counterpart": null,
+   "juris": "BCN",
+   "region": "Baja California 1",
+   "rfi": "2-2282-0",
+   "at": [
+    -116.93899,
+    32.55007
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-2-2634-7",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Tecate",
+   "counterpart": null,
+   "juris": "BCN",
+   "region": "Baja California 1",
+   "rfi": "2-2634-7",
+   "at": [
+    -116.62738,
+    32.57576
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-2-2637-4",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Mexicali",
+   "counterpart": null,
+   "juris": "BCN",
+   "region": "Baja California 2",
+   "rfi": "2-2637-4",
+   "at": [
+    -115.49652,
+    32.6645
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-2-2285-8",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Mexicali II",
+   "counterpart": null,
+   "juris": "BCN",
+   "region": "Baja California 2",
+   "rfi": "2-2285-8",
+   "at": [
+    -115.38767,
+    32.66679
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-2-460-8",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Los Algodones",
+   "counterpart": null,
+   "juris": "BCN",
+   "region": "Baja California 2",
+   "rfi": "2-460-8",
+   "at": [
+    -114.7293,
+    32.71791
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-26-4772-7",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "San Luis Río Colorado I",
+   "counterpart": null,
+   "juris": "SON",
+   "region": "Baja California 2",
+   "rfi": "26-4772-7",
+   "at": [
+    -114.78258,
+    32.485
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-26-10821-4",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "San Luis Río Colorado II",
+   "counterpart": null,
+   "juris": "SON",
+   "region": "Baja California 2",
+   "rfi": "26-10821-4",
+   "at": [
+    -114.69892,
+    32.45555
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-26-4231-9",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Sonoyta",
+   "counterpart": null,
+   "juris": "SON",
+   "region": "Baja California 2",
+   "rfi": "26-4231-9",
+   "at": [
+    -112.8177,
+    31.87978
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-26-559-4",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Sásabe",
+   "counterpart": null,
+   "juris": "SON",
+   "region": "Sonora",
+   "rfi": "26-559-4",
+   "at": [
+    -111.54477,
+    31.48255
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-26-4229-3",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Nogales I y II",
+   "counterpart": null,
+   "juris": "SON",
+   "region": "Sonora",
+   "rfi": "26-4229-3",
+   "at": [
+    -110.94341,
+    31.3323
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-26-562-9",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Nogales III",
+   "counterpart": null,
+   "juris": "SON",
+   "region": "Sonora",
+   "rfi": "26-562-9",
+   "at": [
+    -110.96591,
+    31.33214
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-26-4771-8",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Naco",
+   "counterpart": null,
+   "juris": "SON",
+   "region": "Sonora",
+   "rfi": "26-4771-8",
+   "at": [
+    -109.94813,
+    31.33367
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-26-4232-8",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Agua Prieta",
+   "counterpart": null,
+   "juris": "SON",
+   "region": "Sonora",
+   "rfi": "26-4232-8",
+   "at": [
+    -109.56085,
+    31.33372
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-5726-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "El Berrendo",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Sonora",
+   "rfi": "8-5726-0",
+   "at": [
+    -108.53055,
+    31.33234
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-5720-6",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "San Jerónimo",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-5720-6",
+   "at": [
+    -106.6798,
+    31.78284
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-5719-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Zaragoza",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-5719-0",
+   "at": [
+    -106.34063,
+    31.67092
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-6446-1",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Juárez",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-6446-1",
+   "at": [
+    -106.48643,
+    31.74593
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-6447-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Lerdo",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-6447-0",
+   "at": [
+    -106.48325,
+    31.74684
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-6448-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Córdova",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-6448-0",
+   "at": [
+    -106.45294,
+    31.76196
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-850-6",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Palomas",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-850-6",
+   "at": [
+    -107.62786,
+    31.78345
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-838-2",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "El Porvenir",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-838-2",
+   "at": [
+    -105.85573,
+    31.27184
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-8890-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Guadalupe Tornillo",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-8890-0",
+   "at": [
+    -106.15152,
+    31.43207
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-8-5722-4",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Ojinaga",
+   "counterpart": null,
+   "juris": "CHH",
+   "region": "Chihuahua",
+   "rfi": "8-5722-4",
+   "at": [
+    -104.39763,
+    29.56088
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-5-815-5",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Presa La Amistad",
+   "counterpart": null,
+   "juris": "COA",
+   "region": "Tamaulipas 1",
+   "rfi": "5-815-5",
+   "at": [
+    -101.06166,
+    29.44824
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-5-822-6",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Ciudad Acuña",
+   "counterpart": null,
+   "juris": "COA",
+   "region": "Tamaulipas 1",
+   "rfi": "5-822-6",
+   "at": [
+    -100.92901,
+    29.32535
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-5-4874-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Piedras Negras I",
+   "counterpart": null,
+   "juris": "COA",
+   "region": "Tamaulipas 1",
+   "rfi": "5-4874-0",
+   "at": [
+    -100.51304,
+    28.7054
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-5-7334-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Piedras Negras II",
+   "counterpart": null,
+   "juris": "COA",
+   "region": "Tamaulipas 1",
+   "rfi": "5-7334-0",
+   "at": [
+    -100.5131,
+    28.69759
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-19-16308-3",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Colombia",
+   "counterpart": null,
+   "juris": "NLE",
+   "region": "Tamaulipas 1",
+   "rfi": "19-16308-3",
+   "at": [
+    -99.75024,
+    27.69844
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-2245-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Nuevo Laredo I y II",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 1",
+   "rfi": "28-2245-0",
+   "at": [
+    -99.5024,
+    27.49823
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-10023-3",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Nuevo Laredo III",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 1",
+   "rfi": "28-10023-3",
+   "at": [
+    -99.54585,
+    27.59508
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-6114-4",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Presa Falcón",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2A",
+   "rfi": "28-6114-4",
+   "at": [
+    -99.20069,
+    26.56151
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-6115-3",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Miguel Alemán",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2A",
+   "rfi": "28-6115-3",
+   "at": [
+    -99.01997,
+    26.40225
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-2249-6",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Ciudad Camargo",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2A",
+   "rfi": "28-2249-6",
+   "at": [
+    -98.80653,
+    26.36254
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-6107-3",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Díaz Ordaz",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2A",
+   "rfi": "28-6107-3",
+   "at": [
+    -98.56675,
+    26.23881
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-10024-2",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Anzaldúas McAllen",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2A",
+   "rfi": "28-10024-2",
+   "at": [
+    -98.34957,
+    26.10876
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-6111-7",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Reynosa I y II",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2A",
+   "rfi": "28-6111-7",
+   "at": [
+    -98.27206,
+    26.0939
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-5476-7",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Reynosa Pharr",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2A",
+   "rfi": "28-5476-7",
+   "at": [
+    -98.21002,
+    26.04234
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-10132-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Río Bravo-Donna",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2B",
+   "rfi": "28-10132-0",
+   "at": [
+    -98.08279,
+    26.0554
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-2251-1",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Nuevo Progreso",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2B",
+   "rfi": "28-2251-1",
+   "at": [
+    -97.95044,
+    26.06053
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-5472-0",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Lucio Blanco",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2B",
+   "rfi": "28-5472-0",
+   "at": [
+    -97.73929,
+    26.02132
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-8011-2",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Matamoros I",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2B",
+   "rfi": "28-8011-2",
+   "at": [
+    -97.49799,
+    25.89675
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-28-6109-1",
+   "country": "mx",
+   "border": "mx-us",
+   "name": "Matamoros III",
+   "counterpart": null,
+   "juris": "TAM",
+   "region": "Tamaulipas 2B",
+   "rfi": "28-6109-1",
+   "at": [
+    -97.47573,
+    25.87287
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-7-8397-2",
+   "country": "mx",
+   "border": "mx-gt",
+   "name": "Ciudad Cuauhtémoc",
+   "counterpart": null,
+   "juris": "CHP",
+   "region": "Chiapas 1",
+   "rfi": "7-8397-2",
+   "at": [
+    -91.98563,
+    15.64384
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-7-16341-0",
+   "country": "mx",
+   "border": "mx-gt",
+   "name": "Nuevo Orizaba",
+   "counterpart": null,
+   "juris": "CHP",
+   "region": "Chiapas 1",
+   "rfi": "7-16341-0",
+   "at": [
+    -90.6333,
+    16.07681
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-7-13334-0",
+   "country": "mx",
+   "border": "mx-gt",
+   "name": "Talismán",
+   "counterpart": null,
+   "juris": "CHP",
+   "region": "Chiapas 2",
+   "rfi": "7-13334-0",
+   "at": [
+    -92.14825,
+    14.96481
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-7-3691-8",
+   "country": "mx",
+   "border": "mx-gt",
+   "name": "Suchiate II",
+   "counterpart": null,
+   "juris": "CHP",
+   "region": "Chiapas 2",
+   "rfi": "7-3691-8",
+   "at": [
+    -92.15279,
+    14.7019
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-7-9498-5",
+   "country": "mx",
+   "border": "mx-gt",
+   "name": "Ciudad Hidalgo",
+   "counterpart": null,
+   "juris": "CHP",
+   "region": "Chiapas 2",
+   "rfi": "7-9498-5",
+   "at": [
+    -92.1489,
+    14.67723
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-27-10002-3",
+   "country": "mx",
+   "border": "mx-gt",
+   "name": "El Ceibo",
+   "counterpart": null,
+   "juris": "TAB",
+   "region": "Tabasco",
+   "rfi": "27-10002-3",
+   "at": [
+    -90.98974,
+    17.26028
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-23-12-8",
+   "country": "mx",
+   "border": "mx-bz",
+   "name": "Subteniente López",
+   "counterpart": null,
+   "juris": "ROO",
+   "region": "Península",
+   "rfi": "23-12-8",
+   "at": [
+    -88.39528,
+    18.49285
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  },
+  {
+   "id": "mx-23-5171-7",
+   "country": "mx",
+   "border": "mx-bz",
+   "name": "Chactemal",
+   "counterpart": null,
+   "juris": "ROO",
+   "region": "Península",
+   "rfi": "23-5171-7",
+   "at": [
+    -88.38964,
+    18.5034
+   ],
+   "located": {
+    "by": "source"
+   },
+   "checkKm": null
+  }
+ ]
+}

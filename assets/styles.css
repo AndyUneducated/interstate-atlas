@@ -1385,6 +1385,41 @@ input[type="range"]::-moz-range-thumb {
 #toast svg { width: 14px; height: 14px; stroke: var(--cyan); fill: none; stroke-width: 1.8; }
 
 /* ==========================================================================
+   Border crossing popup
+   ========================================================================== */
+
+.xg-pop .maplibregl-popup-content {
+  padding: 12px 14px 11px; background: var(--panel-solid); color: var(--ink);
+  border: 1px solid var(--line-2); border-radius: var(--r-md);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.55);
+}
+.xg-pop .maplibregl-popup-tip { display: none; }
+.xg-pop .maplibregl-popup-close-button { color: var(--ink-dim); font-size: 16px; padding: 2px 7px; }
+.xg { display: flex; flex-direction: column; gap: 4px; font-size: 12px; line-height: 1.45; }
+.xg-k {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--c); display: flex; align-items: center; gap: 6px;
+}
+.xg-k::before { content: ''; width: 7px; height: 7px; border-radius: 50%; border: 2px solid var(--c); }
+.xg-n { font-size: 15px; font-weight: 600; padding-right: 14px; }
+.xg-w { color: var(--ink-dim); }
+.xg-s { color: var(--ink-dim); font-size: 11px; margin-top: 2px; }
+.xg-h {
+  margin-top: 6px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.xg-r {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: baseline;
+  padding: 4px 6px; margin: 0 -6px; border-radius: 6px; text-align: left; color: inherit;
+}
+.xg-r:hover { background: rgba(53, 231, 255, 0.09); }
+.xg-r b { font-family: var(--mono); font-size: 11.5px; color: var(--cyan); }
+.xg-r span { color: var(--ink-dim); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.xg-r em { font-style: normal; font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); }
+.xg-none { color: var(--ink-faint); }
+.xg-f { margin-top: 5px; font-size: 10.5px; color: var(--ink-faint); }
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 
