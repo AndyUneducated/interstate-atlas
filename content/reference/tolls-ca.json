@@ -1,0 +1,380 @@
+{
+  "retrieved": "2026-10-04",
+  "purpose": "Canada's toll facilities, assembled one by one because no register of them exists. Each fact carries the document it was read from. A fare is recorded only with the date it took effect, or the date since which the publisher says it has not changed.",
+  "facilities": [
+    {
+      "id": "on-407-etr",
+      "name": {
+        "en": "Highway 407 ETR",
+        "zh": "407 号快速收费公路（407 ETR）"
+      },
+      "kind": "road",
+      "juris": "ON",
+      "routes": [
+        "on-407"
+      ],
+      "extent": {
+        "from": {
+          "at": [
+            -79.82843,
+            43.33742
+          ],
+          "query": "Highway 407 and QEW, Burlington",
+          "match": "407 Etr & Autoroute Qew & Queen Elizabeth Way & Route 407, City Of Burlington, Ontario"
+        },
+        "to": {
+          "at": [
+            -79.09772,
+            43.9182
+          ],
+          "query": "Brock Rd and Hwy 407, Pickering",
+          "match": "407 Etr & Autoroute 407 & Brock Road & Highway 407 & Route 1, City Of Pickering, Ontario"
+        }
+      },
+      "lengthKm": {
+        "value": 108,
+        "source": "407 ETR, Get There Faster",
+        "url": "https://407etr.com/en/travel-with-us"
+      },
+      "operator": {
+        "en": "407 ETR Concession Company Limited",
+        "zh": "407 ETR Concession Company Limited"
+      },
+      "facts": [
+        {
+          "en": "Leased for 99 years from 6 April 1999 under the Highway 407 Concession and Ground Lease Agreement, which obliges the concessionaire to finance, operate, maintain and toll the highway.",
+          "zh": "依据《407 号公路特许经营与土地租赁协议》，自 1999 年 4 月 6 日起租期 99 年，特许经营方负责融资、运营、养护并收费。",
+          "source": "Information and Privacy Commissioner of Ontario, Order PO-1976",
+          "url": "https://www.ipc.on.ca/sites/default/files/legacy/2016/08/PO-1976.pdf"
+        },
+        {
+          "en": "Tolls and fees are set by the concessionaire, not the province. Tolling is all-electronic, with no booths.",
+          "zh": "通行费与各项收费由特许经营方而非省政府制定。全电子收费，不设收费亭。",
+          "source": "407 ETR, Toll Rates; 407 ETR, Frequently Asked Questions",
+          "url": "https://www.407etr.com/en/rates"
+        },
+        {
+          "en": "Ends at Brock Road in Pickering. Highway 407 east of there is owned by the province and is not part of the concession.",
+          "zh": "东端止于皮克林的 Brock Road，以东的 407 号公路属省有，不在特许范围内。",
+          "source": "407 ETR, Toll Rates",
+          "url": "https://www.407etr.com/en/rates"
+        }
+      ],
+      "fares": []
+    },
+    {
+      "id": "confederation-bridge",
+      "name": {
+        "en": "Confederation Bridge",
+        "zh": "联邦大桥"
+      },
+      "kind": "bridge",
+      "juris": "PE",
+      "routes": [
+        "pe-1",
+        "nb-16"
+      ],
+      "extent": {
+        "from": {
+          "at": [
+            -63.69747,
+            46.25591
+          ],
+          "query": "Route 1 & Confederation Bridge, Borden-Carleton",
+          "match": "Route 1, Borden-Carleton, Prince Edward Island (the westernmost of the Route 1 segments returned, where the road leaves the town for the bridge)"
+        },
+        "to": {
+          "at": [
+            -63.8153,
+            46.16345
+          ],
+          "query": "Confederation Bridge, Bayfield, NB",
+          "match": "Autoroute 16 & Confederation Bridge & Route 16 Highway & Route Transcanadienne & Trans-Canada Highway, Bayfield, New Brunswick"
+        }
+      },
+      "lengthKm": {
+        "value": 12.9,
+        "source": "Transport Canada, briefing binder: Confederation Bridge Tolls (May 2025)",
+        "url": "https://tc.canada.ca/en/binder/26-confederation-bridge-tolls"
+      },
+      "operator": {
+        "en": "Strait Crossing Bridge Limited, for the federal government, which owns the bridge",
+        "zh": "Strait Crossing Bridge Limited 代联邦政府运营，大桥归联邦所有"
+      },
+      "facts": [
+        {
+          "en": "Strait Crossing Development Inc. signed agreements with Canada in 1993 to design, build, finance, operate and maintain the bridge, at a cost of approximately $1 billion.",
+          "zh": "1993 年，Strait Crossing Development Inc. 与加拿大政府签约，负责大桥的设计、建造、融资、运营和养护，造价约 10 亿加元。",
+          "source": "Transport Canada, briefing binder: Confederation Bridge Tolls (May 2025)",
+          "url": "https://tc.canada.ca/en/binder/26-confederation-bridge-tolls"
+        },
+        {
+          "en": "Under the Bridge Operating Agreement the operator may raise tolls each year by 75% of the Consumer Price Index, and recover any shortfall below a guaranteed revenue floor.",
+          "zh": "依据《大桥运营协议》，运营方每年可按消费者物价指数的 75% 上调通行费，并可补回低于保底收入的差额。",
+          "source": "Transport Canada, briefing binder: Confederation Bridge Tolls (May 2025)",
+          "url": "https://tc.canada.ca/en/binder/26-confederation-bridge-tolls"
+        }
+      ],
+      "fares": [
+        {
+          "from": "1997",
+          "amount": 35,
+          "currency": "CAD",
+          "vehicle": "passenger",
+          "source": "Transport Canada, 2023 briefing: Confederation Bridge",
+          "url": "https://tc.canada.ca/en/corporate-services/transparency/briefing-documents-transport-canada/2023/current-topics/confederation-bridge"
+        },
+        {
+          "from": "2022",
+          "amount": 50.25,
+          "currency": "CAD",
+          "vehicle": "passenger",
+          "note": {
+            "en": "Held at the 2022 rate through 2025 by federal payments in return for the operator waiving its increases.",
+            "zh": "联邦政府付款换取运营方放弃涨价，2023 至 2025 年维持 2022 年费率。"
+          },
+          "source": "Transport Canada, briefing binder: Confederation Bridge Tolls (May 2025)",
+          "url": "https://tc.canada.ca/en/binder/26-confederation-bridge-tolls"
+        },
+        {
+          "from": "2025-08-01",
+          "amount": 20,
+          "currency": "CAD",
+          "vehicle": "passenger",
+          "note": {
+            "en": "Charges for additional axles eliminated.",
+            "zh": "取消额外车轴收费。"
+          },
+          "source": "Parliamentary Budget Officer, Reducing tolls on the Confederation Bridge (9 December 2025)",
+          "url": "https://www.pbo-dpb.ca/en/publications/LEG-2526-004-S--reducing-tolls-confederation-bridge-fares-wood-islands-caribou-ferry--reduction-droits-peage-pont-confederation-tarifs-traversier-wood-islands-caribou"
+        }
+      ]
+    },
+    {
+      "id": "cobequid-pass",
+      "name": {
+        "en": "Cobequid Pass",
+        "zh": "科比奎德山口收费公路（Cobequid Pass）"
+      },
+      "kind": "road",
+      "juris": "NS",
+      "routes": [
+        "ns-104"
+      ],
+      "extent": {
+        "from": {
+          "at": [
+            -63.482225,
+            45.387963
+          ],
+          "query": "Masstown, NS",
+          "match": "Masstown, Colchester, Nova Scotia (Unincorporated area)"
+        },
+        "to": {
+          "at": [
+            -63.7686,
+            45.68885
+          ],
+          "query": "Thomson Station, NS",
+          "match": "Route Transcanadienne, Thomson Station, Nova Scotia"
+        }
+      },
+      "lengthKm": {
+        "value": 45,
+        "source": "Highway 104 Western Alignment Corporation, Annual Report 2023-24",
+        "url": "http://www.highway104.ns.ca/ar-2024.pdf"
+      },
+      "operator": {
+        "en": "Highway 104 Western Alignment Corporation, owned by the Province of Nova Scotia",
+        "zh": "Highway 104 Western Alignment Corporation，新斯科舍省全资"
+      },
+      "opened": {
+        "date": "1997-11-15",
+        "source": "Highway 104 Western Alignment Corporation, Annual Report 2023-24",
+        "url": "http://www.highway104.ns.ca/ar-2024.pdf"
+      },
+      "facts": [
+        {
+          "en": "Tolled under the Highway 104 Western Alignment Regulations (N.S. Reg. 91/1996, amended to N.S. Reg. 49/2025). Vehicles registered in Nova Scotia have been exempt since 16 December 2021.",
+          "zh": "依据《104 号公路西线法规》（N.S. Reg. 91/1996，修订至 N.S. Reg. 49/2025）收费。自 2021 年 12 月 16 日起，新斯科舍省登记车辆免费。",
+          "source": "Highway 104 Western Alignment Regulations, consolidated",
+          "url": "https://novascotia.ca/just/regulations/regs/HW104reg.htm"
+        },
+        {
+          "en": "Since 6 March 2025, trucks with commercial plates registered in a US state pay twice the toll of other trucks.",
+          "zh": "自 2025 年 3 月 6 日起，美国各州登记的商用牌照货车按其他货车两倍收费。",
+          "source": "Highway 104 Western Alignment Regulations, s. 4, added by N.S. Reg. 49/2025",
+          "url": "https://novascotia.ca/just/regulations/regs/HW104reg.htm"
+        }
+      ],
+      "fares": [
+        {
+          "from": "2004",
+          "since": true,
+          "amount": 4,
+          "currency": "CAD",
+          "vehicle": "passenger",
+          "note": {
+            "en": "Cash fare for a passenger car. The operator states passenger tolls have not risen since 2004.",
+            "zh": "小客车现金费率。运营方称客车通行费自 2004 年起未上调。"
+          },
+          "source": "Cobequid Pass, Tolls & Fees; Cobequid Pass, FAQ",
+          "url": "https://cobequidpass.com/tollfees"
+        }
+      ]
+    },
+    {
+      "id": "blue-water-bridge",
+      "name": {
+        "en": "Blue Water Bridge",
+        "zh": "蓝水大桥"
+      },
+      "kind": "bridge",
+      "juris": "ON",
+      "routes": [
+        "on-402",
+        "i-94",
+        "i-69-in"
+      ],
+      "point": {
+        "crossing": "ca-sarnia-blue-water-bridge"
+      },
+      "operator": {
+        "en": "Federal Bridge Corporation Limited owns, manages and operates the Canadian portion; the Michigan Department of Transportation the US portion",
+        "zh": "加方部分由联邦桥梁公司（FBCL）拥有、管理和运营，美方部分属密歇根州交通厅"
+      },
+      "facts": [
+        {
+          "en": "Cash has not been accepted since 1 April 2025.",
+          "zh": "自 2025 年 4 月 1 日起不再收现金。",
+          "source": "Blue Water Bridge, Toll Rates",
+          "url": "https://bluewaterbridge.ca/toll-rates/"
+        }
+      ],
+      "fareNote": {
+        "en": "The operator publishes its current rates without the date they took effect, so none is shown.",
+        "zh": "运营方公布的现行费率未注明生效日期，故不列出。"
+      },
+      "fares": [],
+      "fbcl": true
+    },
+    {
+      "id": "sault-ste-marie-bridge",
+      "name": {
+        "en": "Sault Ste. Marie International Bridge",
+        "zh": "苏圣玛丽国际大桥"
+      },
+      "kind": "bridge",
+      "juris": "ON",
+      "routes": [
+        "on-17b-on-1",
+        "i-75"
+      ],
+      "point": {
+        "crossing": "ca-sault-ste-marie-bridge"
+      },
+      "operator": {
+        "en": "The International Bridge Administration of the Michigan Department of Transportation, overseen by the joint Sault Ste. Marie Bridge Authority; Federal Bridge Corporation Limited owns the Canadian interest",
+        "zh": "由密歇根州交通厅下属的国际桥梁管理处运营，美加联合的苏圣玛丽桥梁管理局监督；联邦桥梁公司（FBCL）拥有加方权益"
+      },
+      "opened": {
+        "date": "1962-10-31",
+        "source": "Michigan Department of Transportation, Toll rollback coming to International Bridge Oct. 31 (14 September 2026)",
+        "url": "https://www.michigan.gov/mdot/news-outreach/pressreleases/2026/09/14/toll-rollback-coming-to-international-bridge-oct-31"
+      },
+      "facts": [],
+      "fares": [
+        {
+          "from": "2026-10-01",
+          "amount": 6.5,
+          "currency": "CAD",
+          "vehicle": "passenger",
+          "note": {
+            "en": "Car, light truck or motorcycle; US$4.70.",
+            "zh": "小汽车、轻型货车或摩托车；美元价 4.70。"
+          },
+          "source": "Sault Ste. Marie International Bridge, Toll Rates (Auto)",
+          "url": "https://www.saultbridge.com/toll-rates-auto/"
+        }
+      ],
+      "fbcl": true
+    },
+    {
+      "id": "thousand-islands-bridge",
+      "name": {
+        "en": "Thousand Islands International Bridge",
+        "zh": "千岛国际大桥"
+      },
+      "kind": "bridge",
+      "juris": "ON",
+      "routes": [
+        "on-137",
+        "i-81"
+      ],
+      "point": {
+        "routeEnd": "i-81"
+      },
+      "operator": {
+        "en": "The Thousand Islands Bridge Authority, a New York State entity, under a bi-national agreement; Federal Bridge Corporation Limited owns the Canadian interest",
+        "zh": "由纽约州的千岛桥梁管理局依两国协议运营；联邦桥梁公司（FBCL）拥有加方权益"
+      },
+      "facts": [],
+      "fares": [
+        {
+          "from": "2026-01-01",
+          "amount": 5.5,
+          "currency": "CAD",
+          "vehicle": "passenger",
+          "note": {
+            "en": "Car, pickup or motorcycle; US$4.00.",
+            "zh": "小汽车、皮卡或摩托车；美元价 4.00。"
+          },
+          "source": "Thousand Islands Bridge Authority, Toll Rates",
+          "url": "https://tibridge.com/toll-rates/"
+        }
+      ],
+      "fbcl": true
+    },
+    {
+      "id": "seaway-international-bridge",
+      "name": {
+        "en": "Seaway International Bridge",
+        "zh": "海道国际大桥"
+      },
+      "kind": "bridge",
+      "juris": "ON",
+      "routes": [
+        "on-138"
+      ],
+      "point": {
+        "crossing": "ca-cornwall-traffic-office"
+      },
+      "operator": {
+        "en": "The Seaway International Bridge Corporation, a joint venture of Federal Bridge Corporation Limited and the US Great Lakes St. Lawrence Seaway Development Corporation",
+        "zh": "海道国际大桥公司运营，为联邦桥梁公司（FBCL）与美国大湖—圣劳伦斯海道开发公司的合营"
+      },
+      "facts": [],
+      "fares": [
+        {
+          "from": "2025-04-01",
+          "amount": 5.25,
+          "currency": "CAD",
+          "vehicle": "passenger",
+          "note": {
+            "en": "Two-axle vehicle under 4,080 kg; US$3.75.",
+            "zh": "4,080 公斤以下两轴车；美元价 3.75。"
+          },
+          "source": "Seaway International Bridge Corporation, toll rate adjustment (20 January 2025)",
+          "url": "https://sibc.ca/the-seaway-international-bridge-corporation-ltd-announces-toll-rate-adjustment-2/"
+        }
+      ],
+      "fbcl": true
+    }
+  ],
+  "fbcl": {
+    "en": "Federal Bridge Corporation Limited holds the Canadian federal interest in four of the international bridges between Ontario and the United States.",
+    "zh": "联邦桥梁公司（FBCL）持有安大略与美国之间四座国际桥的加拿大联邦权益。",
+    "source": "Federal Bridge Corporation Limited, Portfolio of Assets",
+    "url": "https://federalbridge.ca/portfolio-of-assets/"
+  }
+}

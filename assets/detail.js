@@ -13,6 +13,7 @@ import {
 } from './i18n.js';
 import { app, shieldHtml, addToTrip, clearSelection, fitTo, loadDossier } from './app.js';
 import { startFly } from './fly.js';
+import { tollSection } from './tolls.js';
 import { CLASS_COLOUR, SECTION_ORDER } from './schema.js';
 
 function esc(s) {
@@ -777,6 +778,7 @@ export async function renderDetail(id) {
 
   parts.push(section('composition', compositionBlock(types), !dossier));
   parts.push(section('statesList', statesBlock(states)));
+  parts.push(section('tolls', '<div id="dtTolls"></div>', true));
   parts.push(section('served', '<div id="dtServed"></div>'));
   parts.push(section('elevation', '<div id="dtElev"></div>'));
 
@@ -824,6 +826,13 @@ export async function renderDetail(id) {
   elevationFor(id).then((profile) => {
     const slot = document.getElementById('dtElev');
     if (slot && app.selected === id) slot.innerHTML = elevationBlock(profile);
+  });
+
+  tollSection(id).then((html) => {
+    const slot = document.getElementById('dtTolls');
+    if (!slot || app.selected !== id) return;
+    if (!html) { slot.closest('.sect')?.remove(); return; }
+    slot.innerHTML = html;
   });
 
   servedFor(id).then((cities) => {

@@ -1420,6 +1420,34 @@ input[type="range"]::-moz-range-thumb {
 .xg-f { margin-top: 5px; font-size: 10.5px; color: var(--ink-faint); }
 
 /* ==========================================================================
+   Toll facilities: popup and route-panel section
+   ========================================================================== */
+
+.tl-pop .maplibregl-popup-content { max-height: 60vh; overflow-y: auto; }
+.tl-sect { display: flex; flex-direction: column; gap: 12px; font-size: 12px; line-height: 1.45; }
+.tl-item { display: flex; flex-direction: column; gap: 4px; }
+.tl-item + .tl-item { padding-top: 10px; border-top: 1px solid var(--line); }
+.tl-name { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.tl-name b { font-size: 13px; font-weight: 600; }
+.tl-name span { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); white-space: nowrap; }
+.tl-op { color: var(--ink-dim); }
+.tl-meta { color: var(--ink-dim); font-size: 11px; }
+.tl-obj { font-style: italic; }
+.tl-h {
+  margin-top: 6px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.tl-list { margin: 0; padding-left: 16px; display: flex; flex-direction: column; gap: 3px; }
+.tl-facts { margin-top: 4px; color: var(--ink-dim); font-size: 11px; }
+.tl-fare b { font-family: var(--mono); color: #ffd166; margin-right: 6px; }
+.tl-fare span { color: var(--ink-dim); }
+.tl-fare em { display: block; font-style: normal; color: var(--ink-dim); font-size: 11px; }
+.tl-src { font-size: 10px; color: var(--ink-faint); overflow-wrap: anywhere; }
+a.tl-src { text-decoration: underline dotted; }
+a.tl-src:hover { color: var(--cyan); }
+.tl-f { margin-top: 3px; font-size: 10.5px; color: var(--ink-faint); }
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 

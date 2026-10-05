@@ -793,6 +793,35 @@ await step('border crossings draw, and a nearby route can be chosen from one', a
   if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
 });
 
+await step('toll facilities draw, show dated fares, and appear in the route panel', async () => {
+  await page.keyboard.press('Escape');
+  await page.click('#btnTolls');
+  await waitForSource('toll');
+  // The Confederation Bridge, clicked at the middle of its drawn line.
+  const pt = await page.evaluate(async () => {
+    const d = await (await fetch('data/tolls.json')).json();
+    const f = d.features.find((x) => x.properties.id === 'confederation-bridge' && x.geometry.type === 'LineString');
+    if (!f) return null;
+    const c = f.geometry.coordinates[Math.floor(f.geometry.coordinates.length / 2)];
+    const map = window.__map;
+    map.jumpTo({ center: c, zoom: 11, pitch: 0, bearing: 0 });
+    await new Promise((res) => map.once('idle', res));
+    const p = map.project(c);
+    const r = map.getCanvas().getBoundingClientRect();
+    return { x: r.left + p.x, y: r.top + p.y, n: d.features.length };
+  });
+  if (!pt) throw new Error('the Confederation Bridge is not drawn');
+  if (pt.n !== 7) throw new Error(`expected seven toll facilities, found ${pt.n}`);
+  await page.mouse.click(pt.x, pt.y);
+  await page.waitForSelector('.tl-pop .tl-fare', { timeout: 8000 });
+  if (await page.locator('.tl-pop .tl-fare').count() < 1) throw new Error('no dated fare in the popup');
+  await shot('12-tolls.png');
+  await page.click('.tl-pop .xg-r');
+  await page.waitForSelector('#dtTolls .tl-item', { timeout: 15000 });
+  await page.click('#btnTolls');
+  if (await page.locator('.tl-pop').count()) throw new Error('popup outlived its layer');
+});
+
 console.log(`\nsteps failed:    ${failures}`);
 console.log(`console errors:  ${errors.length}`);
 for (const e of [...new Set(errors)].slice(0, 25)) console.log(`  ! ${e.slice(0, 300)}`);

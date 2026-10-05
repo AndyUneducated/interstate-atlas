@@ -1,0 +1,1098 @@
+{
+ "retrieved": "2026-10-05",
+ "source": {
+  "title": "Títulos de Concesión",
+  "agency": "Secretaría de Infraestructura, Comunicaciones y Transportes (SICT), Dirección General de Desarrollo Carretero",
+  "url": "https://micrs.sct.gob.mx/infraestructura/direccion-general-de-desarrollo-carretero/titulos-de-concesion/",
+  "licence": "none stated on the page"
+ },
+ "note": "A grant date bounds an opening from below only for a title to build; it is not an opening date. Titles are tied to atlas routes only where the description writes a federal route number.",
+ "counts": {
+  "titles": 75,
+  "builds": 60,
+  "numbered": 6
+ },
+ "titles": [
+  {
+   "n": 1,
+   "object": "Construir, operar, explotar, conservar y mantener",
+   "entidad": "Varios",
+   "states": [],
+   "concessionaire": "Banobras Fonadin",
+   "granted": "2011-09-30",
+   "ends": "2043-05-19",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/01.pdf"
+  },
+  {
+   "n": 2,
+   "object": "Construir , operar y explotar el tramo Entronque Acatlan-Entronque Aeropuerto de Colima, de la Carretera Guadalajara-Colima",
+   "entidad": "Colima y Jalisco",
+   "states": [
+    "COL",
+    "JAL"
+   ],
+   "concessionaire": "Banobras, S.N.C.",
+   "granted": "1987-10-20",
+   "ends": "2047-10-19",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/02.pdf"
+  },
+  {
+   "n": 3,
+   "object": "Construir, operar y explotar la carretera Atlacomulco-Maravatio",
+   "entidad": "Michoacán y Estado de México",
+   "states": [
+    "MIC",
+    "MEX"
+   ],
+   "concessionaire": "Banobras, S.N.C.",
+   "granted": "1987-10-20",
+   "ends": "2017-10-19",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/03.pdf"
+  },
+  {
+   "n": 4,
+   "object": "Operar, explotar, conservar y mantener 38 tramos carreteros y puentes de cuota",
+   "entidad": "Varios",
+   "states": [],
+   "concessionaire": "Caminos y Puentes Federales de Ingresos y Servicios Conexos",
+   "granted": "2003-03-18",
+   "ends": "2023-03-17",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/04.pdf"
+  },
+  {
+   "n": 5,
+   "object": "Operar, explotar, conservar y mantener el tramo Centinela-Rumorosa, de cuatro carriles de circulación",
+   "entidad": "Baja California",
+   "states": [
+    "BCN"
+   ],
+   "concessionaire": "Gobierno del Estado de Baja California",
+   "granted": "2000-07-14",
+   "ends": "2020-07-13",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/05.pdf"
+  },
+  {
+   "n": 6,
+   "object": "Construir, explotar y conservar la parte mexicana del puente internacional Piedras Negras II que comunicará las poblaciones de Piedras Negras, Coahuila, en la parte mexicana con la población de Eagle Pass, Texas, E.U.A.",
+   "entidad": "Coahuila",
+   "states": [
+    "COA"
+   ],
+   "concessionaire": "Gobierno del Estado de Coahuila",
+   "granted": "1991-08-09",
+   "ends": "2021-08-08",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/06.pdf"
+  },
+  {
+   "n": 7,
+   "object": "Construir, explotar y conservar el tramo carretero de cuatro carriles que comunica a las poblaciones Cd. Delicias y Camargo localizado en los kilómetros 70+000 y 137+000 tramo Jiménez-Chihuahua",
+   "entidad": "Chihuahua",
+   "states": [
+    "CHH"
+   ],
+   "concessionaire": "Gobierno del Estado de Chihuahua",
+   "granted": "1988-10-27",
+   "ends": "2048-10-27",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/07.pdf"
+  },
+  {
+   "n": 8,
+   "object": "Construir, explotar y conservar diversos tramos paralelos a la carretera Jiménez-Chihuahua y Chihuahua-Ciudad Juárez",
+   "entidad": "Chihuahua",
+   "states": [
+    "CHH"
+   ],
+   "concessionaire": "Gobierno del Estado de Chihuahua",
+   "granted": "1989-08-29",
+   "ends": "2049-08-29",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/08.pdf"
+  },
+  {
+   "n": 9,
+   "object": "Operar, conservar y mantener la parte mexicana del Puente Internacional Córdova de las Américas que comunica a las poblaciones fronterizas de ciudad Juárez, Chihuahua, México y El Paso, Texas, Estados Unidos de América",
+   "entidad": "Chihuahua",
+   "states": [
+    "CHH"
+   ],
+   "concessionaire": "Gobierno del Estado de Chihuahua",
+   "granted": "1993-09-02",
+   "ends": "2023-09-01",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/09.pdf"
+  },
+  {
+   "n": 10,
+   "object": "Rehabilitación del cuerpo existente, construcción de los faltantes, explotación y conservación de la carretera Peñon-Texcoco",
+   "entidad": "Estado de México",
+   "states": [
+    "MEX"
+   ],
+   "concessionaire": "Gobierno del Estado de México",
+   "granted": "1993-03-26",
+   "ends": "2053-03-27",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/10.pdf"
+  },
+  {
+   "n": 11,
+   "object": "Construir, conservar y explotar el Puente Internacional Colombia en la parte mexicana, que comunicara la región de Colombia-Nuevo León, México, entre el municipio de Anahuac, Nuevo León, México y el condado de Dolores, Texas, E.U.A.",
+   "entidad": "Nuevo León",
+   "states": [
+    "NLE"
+   ],
+   "concessionaire": "Gobierno del Estado de Nuevo León",
+   "granted": "1990-07-26",
+   "ends": "2020-07-25",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/11.pdf"
+  },
+  {
+   "n": 12,
+   "object": "Construir, explotar y conservar la ampliación del Puente San Miguel ubicado sobre el Río Fuerte de la carretera México-Nogales, tramo los Mochis-Estación Don, con una longitud de 250 metros, entre los kilómetros 16+384.8 al 16+644.8 con origen en los Mochis",
+   "entidad": "Sinaloa",
+   "states": [
+    "SIN"
+   ],
+   "concessionaire": "Gobierno del Estado de Sinaloa",
+   "granted": "1992-12-14",
+   "ends": "2022-11-13",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/12.pdf"
+  },
+  {
+   "n": 13,
+   "object": "Operar, explotar, conservar y mantener el Puente Colorado, con una longitud de 304 metros sobre el Río Colorado en los límites de los estados de Baja California y Sonora, ubicado en la carretera federal número 2 Fronteriza del Norte",
+   "entidad": "Sonora",
+   "states": [
+    "SON"
+   ],
+   "concessionaire": "Gobierno del Estado de Sonora",
+   "granted": "2006-09-20",
+   "ends": "2026-09-19",
+   "builds": false,
+   "numbers": [
+    "002"
+   ],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/13.pdf"
+  },
+  {
+   "n": 14,
+   "object": "Modernizar a cuatro carriles, operar, explotar, conservar y mantener el tramo carretero Santa Ana-Altar del km. 0+000 al km. 73+000 con origen en Santa Ana, carretera federal 2",
+   "entidad": "Sonora",
+   "states": [
+    "SON"
+   ],
+   "concessionaire": "Gobierno del Estado de Sonora",
+   "granted": "2005-08-16",
+   "ends": "2035-08-16",
+   "builds": false,
+   "numbers": [
+    "002"
+   ],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/14.pdf"
+  },
+  {
+   "n": 15,
+   "object": "Construir, explotar y conservar la parte mexicana del puente internacional Lucio Blanco-Los Indios que comunicara las poblaciones de Valle Hermoso, Matamoros y Rio Bravo en la Parte Mexicana con la Población de Los Indios, en el Estado de Texas, E.U.A.",
+   "entidad": "Tamaulipas",
+   "states": [
+    "TAM"
+   ],
+   "concessionaire": "Gobierno del Estado de Tamaulipas",
+   "granted": "1990-11-12",
+   "ends": "2020-11-11",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/15.pdf"
+  },
+  {
+   "n": 16,
+   "object": "Construir, operar, explotar, conservar y mantener a la parte mexicana del Puente Internacional nuevo Laredo III de 207.5 metros de longitud y sección de ocho carriles de circulación, que comunicará a las poblaciones de Nuevo Laredo, Tamaulipas, estados unidos mexicanos, con la población de Laredo, Texas, Estados Unidos de América",
+   "entidad": "Tamaulipas",
+   "states": [
+    "TAM"
+   ],
+   "concessionaire": "Gobierno del Estado de Tamaulipas",
+   "granted": "1996-07-30",
+   "ends": "2026-07-29",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/16.pdf"
+  },
+  {
+   "n": 17,
+   "object": "Construir, operar, explotar, conservar y mantener la parte mexicana del Puente Internacional Río Bravo-Donna y su vialidad de acceso, ubicados en el Estado de Tamaulipas",
+   "entidad": "Tamaulipas",
+   "states": [
+    "TAM"
+   ],
+   "concessionaire": "Gobierno del Estado de Tamaulipas",
+   "granted": "2008-03-14",
+   "ends": "2038-03-13",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/17.pdf"
+  },
+  {
+   "n": 18,
+   "object": "Operar, explotar, conservar y mantener el puente sobre el río Coatzacoalcos, con una longitud de 1,679 metros, incluyendo sus accesos, ubicado en el municipio de Coatzacoalcos, Veracruz, en el kilómetro 1+200 con origen en Coatzacoalcos, en la carretera federal 180 Matamoros-Cancún",
+   "entidad": "Veracruz",
+   "states": [
+    "VER"
+   ],
+   "concessionaire": "Gobierno del Estado de Veracruz",
+   "granted": "2004-08-27",
+   "ends": "2024-08-27",
+   "builds": false,
+   "numbers": [
+    "180"
+   ],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/18.pdf"
+  },
+  {
+   "n": 19,
+   "object": "Construir, operar, explotar, conservar y mantener el tramo Veracruz-Cardel, de la carretera Poza Rica-Veracruz, comprendido entre el km 212+500 y el km 241+000, así como el Libramiento Norponiente de Cardel que parte del km 212+500 (Poza Rica-Veracruz) al km 11+500 (Tamarindo-Cardel), en el estado de Veracruz",
+   "entidad": "Veracruz",
+   "states": [
+    "VER"
+   ],
+   "concessionaire": "Gobierno del Estado de Veracruz",
+   "granted": "1993-10-06",
+   "ends": "2023-10-05",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/19.pdf"
+  },
+  {
+   "n": 20,
+   "object": "Operar, explotar, conservar y mantener el puente José López Portillo tramo Tiuatlán-El Alzan en el km. 34+450",
+   "entidad": "Veracruz",
+   "states": [
+    "VER"
+   ],
+   "concessionaire": "Gobierno del Estado de Veracruz",
+   "granted": "2008-02-29",
+   "ends": "2028-02-28",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/20.pdf"
+  },
+  {
+   "n": 21,
+   "object": "Construir, explotar y conservar 32.7 kilómetros que van del km. 36+600 al km. 69+300, con origen en Zacatecas, que corresponden al tramo Providencia-Libramiento de Fresnillo, Zacatecas",
+   "entidad": "Zacatecas",
+   "states": [
+    "ZAC"
+   ],
+   "concessionaire": "Gobierno del Estado de Zacatecas",
+   "granted": "1992-03-13",
+   "ends": "2022-03-12",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/21.pdf"
+  },
+  {
+   "n": 22,
+   "object": "Operar, explotar, conservar y mantener el puente de la Unidad Eugenio Echeveria Castellot",
+   "entidad": "Campeche",
+   "states": [
+    "CAM"
+   ],
+   "concessionaire": "Gobierno del Estado de Campeche",
+   "granted": "2005-03-15",
+   "ends": "2025-03-14",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/22.pdf"
+  },
+  {
+   "n": 23,
+   "object": "Construir las obras necesarias de modernización y ampliación, así como para operar, explotar, conservar y mantener, el tramo carretero federal Libramiento Surponiente de Aguascalientes",
+   "entidad": "Aguascalientes",
+   "states": [
+    "AGU"
+   ],
+   "concessionaire": "Gobierno del Estado de Aguscalientes",
+   "granted": "2009-03-25",
+   "ends": "2039-03-24",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/23.pdf"
+  },
+  {
+   "n": 24,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal San Martín Texmelucan-Tlaxcala en los Estados de Puebla y Tlaxcala",
+   "entidad": "Puebla y Tlaxcala",
+   "states": [
+    "PUE",
+    "TLA"
+   ],
+   "concessionaire": "Promotora de Autopistas del Pacífico, S.A de C.V.",
+   "granted": "1990-03-15",
+   "ends": "2041-03-15",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/24.pdf"
+  },
+  {
+   "n": 25,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Durango-Yerbanis en el Estado de Durango",
+   "entidad": "Durango",
+   "states": [
+    "DUR"
+   ],
+   "concessionaire": "Autopistas de Cuota, S.A. de C.V.",
+   "granted": "1992-04-24",
+   "ends": "2022-04-23",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/25.pdf"
+  },
+  {
+   "n": 26,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Torreón-Cuencame en los estado de Coahuila y Durango",
+   "entidad": "Coahuila y Durango",
+   "states": [
+    "COA",
+    "DUR"
+   ],
+   "concessionaire": "Autopistas de Cuota, S.A. de C.V.",
+   "granted": "1990-07-18",
+   "ends": "2020-07-17",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/26.pdf"
+  },
+  {
+   "n": 27,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Tijuana-Tecate y Libramiento de Tecate en el Estado de Baja California",
+   "entidad": "Baja California",
+   "states": [
+    "BCN"
+   ],
+   "concessionaire": "Autopista Tijuana-Mexicali, S.A. de C.V.",
+   "granted": "1989-11-28",
+   "ends": "2049-11-28",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/27.pdf"
+  },
+  {
+   "n": 28,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Kantunil-Cancún en el Estado de Quintana Roo",
+   "entidad": "Quintana Roo",
+   "states": [
+    "ROO"
+   ],
+   "concessionaire": "Consorcio del Mayab, S.A de C.V.",
+   "granted": "1990-12-05",
+   "ends": "2020-12-04",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/28.pdf"
+  },
+  {
+   "n": 29,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Armería-Manzanillo en el Estado de Colima",
+   "entidad": "Colima",
+   "states": [
+    "COL"
+   ],
+   "concessionaire": "Promotora de Autopistas del Pacífico, S.A de C.V.",
+   "granted": "1990-11-09",
+   "ends": "2030-04-09",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/30.pdf"
+  },
+  {
+   "n": 30,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Constituyentes-Reforma-La Venta en El Distrito Federal y el Estado de México",
+   "entidad": "Distrito Federal y Estado de México",
+   "states": [
+    "CMX",
+    "MEX"
+   ],
+   "concessionaire": "Promotora Y Administradora de Carreteras, S.A. de C.V.",
+   "granted": "1989-07-31",
+   "ends": "2049-07-31",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/31.pdf"
+  },
+  {
+   "n": 31,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Ecatepec-Piramides en el Estado de México",
+   "entidad": "Estado de México",
+   "states": [
+    "MEX"
+   ],
+   "concessionaire": "Promotora Y Administradora de Carreteras, S.A. de C.V.",
+   "granted": "1991-01-25",
+   "ends": "2051-01-25",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/32.pdf"
+  },
+  {
+   "n": 32,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Libramiento Oriente de San Luís Potosí en el Estado de San Luís Potosí",
+   "entidad": "San Luis Potosí",
+   "states": [
+    "SLP"
+   ],
+   "concessionaire": "Mexicana de Técnicos en Autopistas, S.A. de C.V.",
+   "granted": "1990-10-15",
+   "ends": "2037-10-17",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/33.pdf"
+  },
+  {
+   "n": 33,
+   "object": "Construir, explotar, operar, conservar mantener el Libramiento de Nogales, ubicado en la carretera federal México-Nogales, en el estado de Sonora",
+   "entidad": "Sonora",
+   "states": [
+    "SON"
+   ],
+   "concessionaire": "Operadora de Caminos Carreteros Nogamex, S.A.P.I. de C.V.",
+   "granted": "1998-04-20",
+   "ends": "2028-04-19",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/35.pdf"
+  },
+  {
+   "n": 34,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Libramiento de Matehuala en el Estado de San Luís Potosí",
+   "entidad": "San Luis Potosí",
+   "states": [
+    "SLP"
+   ],
+   "concessionaire": "Desarrolladora de Concesiones Omega, S.A. de C.V.",
+   "granted": "2003-05-09",
+   "ends": "2033-05-08",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/36.pdf"
+  },
+  {
+   "n": 35,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Amozoc-Perote y Libramiento de Perote en los Estados de Puebla, Tlaxcala y Veracruz",
+   "entidad": "Puebla y Veracruz",
+   "states": [
+    "PUE",
+    "VER"
+   ],
+   "concessionaire": "Grupo Autopistas Nacionales, S.A. de C.V.",
+   "granted": "2003-11-24",
+   "ends": "2033-11-23",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/37.pdf"
+  },
+  {
+   "n": 36,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Libramiento de Mexicali en el estado de Baja California",
+   "entidad": "Baja California",
+   "states": [
+    "BCN"
+   ],
+   "concessionaire": "Omega Cachanilla, S.A. de C.V.",
+   "granted": "2004-11-15",
+   "ends": "2034-11-14",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/38.pdf"
+  },
+  {
+   "n": 37,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Tepic-Villa Unión en los Estados de Nayarit y Sinaloa",
+   "entidad": "Nayarit y Sinaloa",
+   "states": [
+    "NAY",
+    "SIN"
+   ],
+   "concessionaire": "Concesionaria de Carreteras Autopistas y Libramientos de la República Mexicana, S.A. de C.V.",
+   "granted": "2005-04-06",
+   "ends": "2035-04-05",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/39.pdf"
+  },
+  {
+   "n": 38,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Morelia-Salamanca en los Estados de Michoacan y Guanajuato",
+   "entidad": "Michoacán y Guanajuato",
+   "states": [
+    "MIC",
+    "GUA"
+   ],
+   "concessionaire": "Autopista Morelia-Salamanca, S.A. de C.V.",
+   "granted": "2005-07-14",
+   "ends": "2035-07-13",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/40.pdf"
+  },
+  {
+   "n": 39,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal con orígen en la carretera federal Toluca -Palmillas en el Estado de México y terminación en el entronque con la autopista México-Puebla en los Estados de México, Hidalgo, Tlaxcala y Puebla",
+   "entidad": "Puebla, Hidalgo, Tlaxcala y Estado de México",
+   "states": [
+    "PUE",
+    "HID",
+    "TLA",
+    "MEX"
+   ],
+   "concessionaire": "Autopista Arco Norte, S.A. de C.V.",
+   "granted": "2005-12-21",
+   "ends": "2065-12-20",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/41.pdf"
+  },
+  {
+   "n": 40,
+   "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Libramiento de Tecpan en el Estado de Guerrero",
+   "entidad": "Guerrero",
+   "states": [
+    "GRO"
+   ],
+   "concessionaire": "Libramiento Omega Tecpan, S.A. de C.V.",
+   "granted": "2006-05-24",
+   "ends": "2036-05-23",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/42.pdf"
+  },
+  {
+   "n": 41,
+   "object": "Construir, operar, explotar, conservar y mantener el Libramiento Norponiente de Saltillo de la carretera Saltillo-Zacatecas y la autopista Saltillo-Monterrey en los Estados de Coahuila y Nuevo León",
+   "entidad": "Nuevo León y Coahuila",
+   "states": [
+    "NLE",
+    "COA"
+   ],
+   "concessionaire": "Autopista México Monterrey Saltillo, S.A. de C.V.",
+   "granted": "2006-11-17",
+   "ends": "2051-11-17",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/43.pdf"
+  },
+  {
+   "n": 42,
+   "object": "Construir, operar, explotar, conservar y mantener el Puente Internacional Reynosa-McAllen \"Anzaldúas\", localizado en el Estado de Tamaulipas, compuesto por un puente vehicular de 2.558 km de longitud, así como de un acceso carretero integrado por dos tramos, del km 0+000 ubicado en la carretera Reynosa-Monterrey al km 6+420 y de éste hasta el km 10+375 ubicado en la carretera Reynosa-Nuevo León",
+   "entidad": "Tamaulipas",
+   "states": [
+    "TAM"
+   ],
+   "concessionaire": "Concesionaria Internacional Anzaldúas, S.A. de C.V.",
+   "granted": "2007-07-27",
+   "ends": "2037-07-26",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/44.pdf"
+  },
+  {
+   "n": 43,
+   "object": "Construir, operar, explotar, conservar y mantener la Autopista Arriaga-Ocozocoautla, así como modernizar, operar y explotar la autopista Tuxtla Gutiérrez-San Cristobal de las Casas en el estado de Chiapas",
+   "entidad": "Chiapas",
+   "states": [
+    "CHP"
+   ],
+   "concessionaire": "Concesionaria de Autopistas del Sureste, S.A. de C.V.",
+   "granted": "2007-10-31",
+   "ends": "2037-10-30",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/45.pdf"
+  },
+  {
+   "n": 44,
+   "object": "Construir, operar, explotar, conservar y mantener el Cruce internacional San Luís Río colorado II, de la carretera federal número Mex 2 Sonoyta-San Luís Río colorado, en el estado de Sonora, compuesto por un puente vehicular de 400 metros de longitud, incluyendo la obligación de construir instalaciones del puerto fronterizo y sus servicios auxiliares",
+   "entidad": "Sonora",
+   "states": [
+    "SON"
+   ],
+   "concessionaire": "Concesionaria y Operadora del Puente Internacional Cucapa, S.A. de C.V.",
+   "granted": "2007-11-27",
+   "ends": "2037-11-26",
+   "builds": true,
+   "numbers": [
+    "002"
+   ],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/46.pdf"
+  },
+  {
+   "n": 45,
+   "object": "Construir, operar, explotar, conservar y mantener por 30 años , el Libramiento de Irapuato, de 29.2 kilómetros de longitud. Su trazo se inicia al surponiente de la ciudad de Irapuato, sobre la carretera federal Irapuato-Guadalajara, se desarrolla al poniente de la mancha urbana y concluye sobre la carretera federal Irapuato-León",
+   "entidad": "Guanajuato",
+   "states": [
+    "GUA"
+   ],
+   "concessionaire": "Infraestructura Concesionada, S.A. de C.V.",
+   "granted": "2008-01-30",
+   "ends": "2068-01-29",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/47.pdf"
+  },
+  {
+   "n": 46,
+   "object": "Construir, operar, explotar, conservar y mantener por 30 años, la autopista denominada Perote-Banderilla, tipo A2 de 30.0 kms. de longitud, y Libramiento de Xalapa, tipo A2 de 29.0 kms. de longitud, con origen en el km. 50+000 (entronque Banderilla) y término en el km. 79+000 (entronque Corral Falso), en el Estado de Veracruz de Ignacio de la Llave",
+   "entidad": "Veracruz",
+   "states": [
+    "VER"
+   ],
+   "concessionaire": "Concesionaria Autopista Perote-Xalapa, S.A. de C.V.",
+   "granted": "2008-02-14",
+   "ends": "2053-02-13",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/48.pdf"
+  },
+  {
+   "n": 47,
+   "object": "Construir, operar, explotar, conservar y mantener el Libramiento de La Piedad, en los Estados de Gunajuato y Michoacán, así como para llevar a cabo las obras de modernización de la Carretera Federal 110 de la vialidad alterna",
+   "entidad": "Guanajuato",
+   "states": [
+    "GUA"
+   ],
+   "concessionaire": "Libramiento ICA La Piedad, S.A. de C.V.",
+   "granted": "2009-01-20",
+   "ends": "2054-01-20",
+   "builds": true,
+   "numbers": [
+    "110"
+   ],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/49.pdf"
+  },
+  {
+   "n": 48,
+   "object": "Construir, operar, explotar, conservar y mantener el tramo Barranca Larga-Ventanilla, de la autopista Oaxaca-Puerto Escondido; en el Estado de Oaxaca",
+   "entidad": "Oaxaca",
+   "states": [
+    "OAX"
+   ],
+   "concessionaire": "Omega S.A. de C.V.",
+   "granted": "2009-01-30",
+   "ends": "2039-01-29",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/50.pdf"
+  },
+  {
+   "n": 49,
+   "object": "Construir, operar, explotar, conservar y mantener la autopista Salamanca-León, en sus 2 tramos carreteros. Tr. 1.- Ent. Cerro Gordo-Entronque ITESI y el Tr. 2.- Entronque ITESI- Ent. Con los Boulevares Timoteo Lozano y Delta, en el Estado de Guanajuato",
+   "entidad": "Guanajuato",
+   "states": [
+    "GUA"
+   ],
+   "concessionaire": "Concesionaria Infraestructura del Bajío, S.A. de C.V.",
+   "granted": "2011-05-26",
+   "ends": "2041-05-25",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/51.pdf"
+  },
+  {
+   "n": 50,
+   "object": "Construir, operar, explotar, conservar y mantener, la autopista de 86 kilómetros de longitud Palmillas-Apaseo El Grande, en los Estados de Querétaro y Guanajuato",
+   "entidad": "Querétaro y Guanajuato",
+   "states": [
+    "QUE",
+    "GUA"
+   ],
+   "concessionaire": "Concesionaria Autovía Querétaro, S.A de C.V.",
+   "granted": "2013-02-28",
+   "ends": "2043-02-27",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/52.pdf"
+  },
+  {
+   "n": 51,
+   "object": "Operar,conservar y mantener el tramo libre de peaje de jurisdicción federal con origen en entronque de la autopista Querétaro-Irapuato con la carretera Irapuato-La Piedad y terminación con el futuro Libramiento de la Piedad de Cabadas en Estado de Guanajuato que incluye modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+   "entidad": "Guanajuato y Michoacán",
+   "states": [
+    "GUA",
+    "MIC"
+   ],
+   "concessionaire": "Irapuato-La Piedad, S.A. de C.V.",
+   "granted": "2005-09-12",
+   "ends": "2025-09-11",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/53.pdf"
+  },
+  {
+   "n": 52,
+   "object": "Operar, conservar y mantener el tramo libre de peaje Querétaro-Irapuato en los Estados de Querétaro y Guanjuato, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+   "entidad": "Querétaro y Guanajuato",
+   "states": [
+    "QUE",
+    "GUA"
+   ],
+   "concessionaire": "Concesionario de Vías Irapuato Querétaro, S.A. de C.V.",
+   "granted": "2006-06-21",
+   "ends": "2026-06-20",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/54.pdf"
+  },
+  {
+   "n": 53,
+   "object": "Operar, conservar y mantener el tramo libre de peaje de jurisdicción federal Tapachula-Talismán con ramal a Ciudad Hidalgo en el Estado de Chiapas, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+   "entidad": "Chiapas",
+   "states": [
+    "CHP"
+   ],
+   "concessionaire": "Autopistas de Tapachula, S.A de C.V.",
+   "granted": "2006-11-28",
+   "ends": "2026-11-27",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/55.pdf"
+  },
+  {
+   "n": 54,
+   "object": "(i) construir, operar, conservar y mantener el tramo carretero libre de peaje Nuevo Necaxa-Ávila Camacho, de 36.646 km de longitud, (ii) operar, explotar, conservar y mantener el tramo carretero Ávila Camacho-Tihuatlán de 48.136 km de longitud, y (iii) otorgamiento a la concesionaria de un Contrato de Servicios de Largo Plazo (PPS) con el Gobierno Federal para el tramo Nuevo Necaxa-Ávila Camacho",
+   "entidad": "Puebla y Veracruz",
+   "states": [
+    "PUE",
+    "VER"
+   ],
+   "concessionaire": "Autovía Nuevo Necaxa-Tihuatlán, S.A. de C.V.",
+   "granted": "2007-07-19",
+   "ends": "2037-07-18",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/56.pdf"
+  },
+  {
+   "n": 55,
+   "object": "Operar, conservar, mantener, modernizar y ampliar el tramo 1 Rioverde-Rayón , 2 Rayón-La Pitahaya, 3 La Pitahaya-Ciudad Valles, de la carretera de jurisdicción federal Rioverde-Ciudad Valles, en el Estado de San Luís Potosí y, (iv) otorgamiento a la concesionaria de un Contrato de Servicios de Largo Plazo (PPS) con el Gobierno Federal para el tramo Rioverde Ciudad Valles",
+   "entidad": "San Luis Potosí",
+   "states": [
+    "SLP"
+   ],
+   "concessionaire": "ICA San Luis, S.A. de C.V.",
+   "granted": "2007-08-08",
+   "ends": "2027-08-07",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/57.pdf"
+  },
+  {
+   "n": 56,
+   "object": "Operar, mantener y conservar el tramo carretero libre de peaje Nueva Italia-Apatzingán, de 31.7 km (treinta y un kilómetros setecientos metros) de longitud, en el estado de Michoacán, en la República Mexicana, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir el Contrato para Prestación de Servicios (PPS) con el Gobierno Federal",
+   "entidad": "Michoacán",
+   "states": [
+    "MIC"
+   ],
+   "concessionaire": "Concesionaria de Autopistas de Tierra Caliente, S.A. de C.V.",
+   "granted": "2007-10-05",
+   "ends": "2027-10-04",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/58.pdf"
+  },
+  {
+   "n": 57,
+   "object": "Operar, mantener y conservar el tramo carretero libre de peaje Mitla-Entronque Tehuantepec, con una longuitud de 169 kilometros en el estado de Oaxaca, en la República Mexicana, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir el Contrato para Prestación de Servicios (PPS) con el Gobierno Federal",
+   "entidad": "Oaxaca",
+   "states": [
+    "OAX"
+   ],
+   "concessionaire": "Autovía Mitla Tehauntepec, S.A. de C.V.",
+   "granted": "2010-05-27",
+   "ends": "2030-05-26",
+   "builds": false,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/59.pdf"
+  },
+  {
+   "n": 58,
+   "object": "Construir, operar, explotar, conservar y mantener las autopistas Maravatío-Zapotlanejo y Guadalajara-Aguascalientes-León de 558.05 km (quinientos cincuenta y ocho punto cero cinco kilómetros) de longitud, en los estados de Michoacán, Jalisco, Guanajuato y Aguascalientes, en la República Mexicana, así como las obras de ampliación que determine la SCT, asociadas a las autopistas señaladas",
+   "entidad": "Jalisco, Michoacán",
+   "states": [
+    "JAL",
+    "MIC"
+   ],
+   "concessionaire": "Red de Carreteras de Occidente, S. de R.L. de C.V.",
+   "granted": "2007-10-03",
+   "ends": "2037-10-02",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/60.pdf"
+  },
+  {
+   "n": 59,
+   "object": "Construir, operar, explotar, conservar y mantener el Corredor Turístico de Los Cabos y sus ramales San José del Cabo; Aeropuerto de Los Cabos; Autopistas Mazatlán-Culiacán; Libramiento Sur de Culiacán, y el Libramiento de Mazatlán",
+   "entidad": "Sinaloa",
+   "states": [
+    "SIN"
+   ],
+   "concessionaire": "Autopistas y Libramientos Pacífico Norte, S.A. de C.V",
+   "granted": "2009-11-30",
+   "ends": "2039-11-29",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/61.pdf"
+  },
+  {
+   "n": 60,
+   "object": "Construir, operar, explotar, conservar y mantener El Libramiento Sur de Guadalajara y El Libramiento de Tepic y la Autopista Guadalajara-Tepic",
+   "entidad": "Jalisco y Nayarit",
+   "states": [
+    "JAL",
+    "NAY"
+   ],
+   "concessionaire": "Concesionaria Autopista Guadalajara Tepic, S.A. de C.V.",
+   "granted": "2011-11-30",
+   "ends": "2041-11-29",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/62biz.pdf"
+  },
+  {
+   "n": 61,
+   "object": "Construir, operar, explotar, conservar y mantener los Libramientos de Morelia y Uruapan y la autopista Pátzcuaro-Uruapan-Lázaro Cárdenas en el Estado de Michoacán",
+   "entidad": "Michoacán",
+   "states": [
+    "MIC"
+   ],
+   "concessionaire": "Autopistas de Michoacán, S.A. de C.V.",
+   "granted": "2012-03-30",
+   "ends": "2042-03-29",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/63.pdf"
+  },
+  {
+   "n": 62,
+   "object": "Construir, operar, explotar, conservar y mantener la autopista tipo A2 “Siglo XXI”, tramo “Jantetelco-El Higuerón (Xicatlacotla)” con una longitud de 61.8 kilómetros, en el estado de Morelos; incluyendo el derecho de via correspondiente",
+   "entidad": "Morelos",
+   "states": [
+    "MOR"
+   ],
+   "concessionaire": "Concesionaria de Autopistas de Morelos, S.A. de C.V.",
+   "granted": "2013-12-18",
+   "ends": "2043-12-17",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/64.pdf"
+  },
+  {
+   "n": 63,
+   "object": "Construir, operar, explotar, conservar y mantener la Autopista Atizapán-Atlacomulco",
+   "entidad": "Estado de México",
+   "states": [
+    "MEX"
+   ],
+   "concessionaire": "AT-AT, S.A de C.V.",
+   "granted": "2014-04-25",
+   "ends": "2044-04-24",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/65.pdf"
+  },
+  {
+   "n": 64,
+   "object": "Construir, operar, explotar, conservar y mantener la autopista de altas especificaciones Cardel-Poza Rica Tramo Laguna Verde-Gutierrez Zamora, en el Estado de Veracruz, incluyendo el derecho de vía correspondiente",
+   "entidad": "Veracruz",
+   "states": [
+    "VER"
+   ],
+   "concessionaire": "Autopista Cardel-Poza Rica, S.A. de C.V.",
+   "granted": "2014-07-31",
+   "ends": "2044-07-30",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/66.pdf"
+  },
+  {
+   "n": 65,
+   "object": "Construir, operar, explotar, conservar y mantener el Libramiento de Ciudad Obregón",
+   "entidad": "Sonora",
+   "states": [
+    "SON"
+   ],
+   "concessionaire": "Libramiento Ciudad Obregón, S.A.P.I. de C.V.",
+   "granted": "2014-08-21",
+   "ends": "2044-08-20",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/67.pdf"
+  },
+  {
+   "n": 66,
+   "object": "Construir, operar, explotar, conservar y mantener la autopista de altas especificaciones \"Tuxpan-Tampico\" tramo \"Tuxpan-Ozuluama\"",
+   "entidad": "Veracruz",
+   "states": [
+    "VER"
+   ],
+   "concessionaire": "Concesionaria Autopista Tuxpan-Tampico, S.A. de C.V.",
+   "granted": "2014-11-03",
+   "ends": "2044-11-02",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/68.pdf"
+  },
+  {
+   "n": 67,
+   "object": "Construir, operar, explotar, conservar y mantener el Libramiento de Hermosillo",
+   "entidad": "Sonora",
+   "states": [
+    "SON"
+   ],
+   "concessionaire": "Concesionaria Autopista Libramiento de Hermosillo, S.A. de C.V.",
+   "granted": "2015-07-03",
+   "ends": "2045-07-02",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/69.pdf"
+  },
+  {
+   "n": 68,
+   "object": "Construir, operar, explotar, conservar y mantener los puentes fronterizos Zaragoza-Ysleta, Lerdo-Stanton, Paso del Norte y Guadalupe Tornillo",
+   "entidad": "Chihuahua",
+   "states": [
+    "CHH"
+   ],
+   "concessionaire": "Gobierno del Estado de Chihuahua",
+   "granted": "2015-12-30",
+   "ends": "2045-12-29",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/70.pdf"
+  },
+  {
+   "n": 69,
+   "object": "Construir, operar, explotar, conservar y mantener la Autopista Tepic - San Blas",
+   "entidad": "Nayarit",
+   "states": [
+    "NAY"
+   ],
+   "concessionaire": "Concesionaria Tepic San Blas, S. de R.L. de C.V.",
+   "granted": "2016-05-19",
+   "ends": "2046-05-18",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/71.pdf"
+  },
+  {
+   "n": 70,
+   "object": "Construir, operar, explotar, conservar y mantener La Autopista Tepic - Puerto Vallarta",
+   "entidad": "Nayarit y Jalisco",
+   "states": [
+    "NAY",
+    "JAL"
+   ],
+   "concessionaire": "Concesionaria Autopista Las Varas - Puerto Vallarta, S.A. de C.V.",
+   "granted": "2016-06-23",
+   "ends": "2046-06-22",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/73.pdf"
+  },
+  {
+   "n": 71,
+   "object": "Construir, operar, explotar, conservar y mantener El Puente de 3.222Km. de longitud con origen en Isla del Carmen y terminación en Isla Aguada, Mpo. del Carmen",
+   "entidad": "Campeche",
+   "states": [
+    "CAM"
+   ],
+   "concessionaire": "Gobierno del Edo. de Campeche",
+   "granted": "2016-12-15",
+   "ends": "2046-12-15",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/74.pdf"
+  },
+  {
+   "n": 72,
+   "object": "Construir, operar, explotar, conservar y mantener los tramos que en sus anexos 1 y 2 se indican (Nuevo Golfo Centro)",
+   "entidad": "Hidalgo, Veracruz y CD. de México",
+   "states": [
+    "HID",
+    "VER",
+    "CMX"
+   ],
+   "concessionaire": "Fonadin",
+   "granted": "2021-02-15",
+   "ends": "2051-02-16",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/75nw.pdf"
+  },
+  {
+   "n": 73,
+   "object": "Construir, operar, conservar y mantener el Libramiento de la Carretera La Galarza-Amatitlanes",
+   "entidad": "Puebla",
+   "states": [
+    "PUE"
+   ],
+   "concessionaire": "Promotora la Galarza, S.A. de C.V.",
+   "granted": "2016-08-26",
+   "ends": "2046-08-26",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/76.pdf"
+  },
+  {
+   "n": 74,
+   "object": "Construir, operar, explotar, conservar y mantener Viaducto La Raza-Indios Verdes-Sta. Clara",
+   "entidad": "Estado de México y CD. de México",
+   "states": [
+    "MEX",
+    "CMX"
+   ],
+   "concessionaire": "Viaducto Indios Verdes, S.A. de C.V.",
+   "granted": "2016-06-08",
+   "ends": "2046-06-08",
+   "builds": true,
+   "numbers": [],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/77.pdf"
+  },
+  {
+   "n": 75,
+   "object": "Construir, operar, explotar, conservar y mantener la Autopista Monterrey-Nuevo Laredo. Tr. La Gloria-San Fernando del Km. 145+000 al 194+000 de la carretera federal. mex-85. II. Contruir un cuerpo nuevo en la carretera federal existente Nuevo Laredo-Monterrey. Tr. La Gloria-San Fernando. III. Conservar y mantener la carretera federal libre Tipo A2 Monterey-Nuevo Laredo. Tr. La Gloria-San Fernando",
+   "entidad": "Nuevo Leon y Tamaulipas",
+   "states": [
+    "NLE",
+    "TAM"
+   ],
+   "concessionaire": "Concesionaria Monterrey-Nuevo Laredo, S.A. de C.V.",
+   "granted": "2017-06-06",
+   "ends": "2047-06-06",
+   "builds": true,
+   "numbers": [
+    "085"
+   ],
+   "document": "https://micrs.sct.gob.mx/images/DireccionesGrales/DGDC/Titulos/doctos/78.pdf"
+  }
+ ]
+}

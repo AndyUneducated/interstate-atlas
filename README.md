@@ -66,6 +66,7 @@ written record for the roads that have one.
 | **Route detail** | Termini, length, per-jurisdiction mileage, roadway classification and grade separation measured off the geometry; alongside them, what the states and provinces themselves measured — traffic, heavy-truck volume, pavement roughness, rutting and cracking, lanes, posted speeds — each stating the share of the road it covers. For curated routes, a written account of how the road came to be, what it cost, what it carries and what condition it is in. |
 | **Buildout scrubber** | A docked timeline over the live map. The scrub track *is* FHWA's mileage curve, which runs 1960–1997; the playhead runs from 1956, the year of the Act, to the latest documented completion, and routes light up as their documented year arrives. |
 | **Border crossings** | 167 land crossings on the Canada–US, Mexico–US, Mexico–Guatemala and Mexico–Belize borders, each saying how it was placed and listing the atlas routes within 2 km of it. |
+| **Toll facilities** | Seven Canadian toll roads and bridges on the map, each with its operator, length, opening date and dated fares, and every fact linked to its source. A route's panel lists the tolls on it, and for Mexico the federal concession titles that name its number. |
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
 | **Statistics dashboard** | Network totals by system and by jurisdiction, both countries. |
@@ -236,7 +237,10 @@ available and not yet built.
 | 🇲🇽 | How many crossings the northern border has | source | Published counts disagree, and each counts something different: INDAABIN lists 45 federal border-port properties on the US border, the Instituto Mexicano del Transporte (PT 437) 52 border bridges, and the North American Development Bank's 2019 study 59 crossings after reconciling inventories, 4 of them closed. The atlas draws INDAABIN's 45 and does not prefer any of the counts. One property can hold more than one crossing, as "Nogales I y II" does. |
 | 🇨🇦 | Where the Canadian crossings are | source | CBSA's directory gives each of its 116 highway border offices an address and no coordinates. 97 are placed by the NRCan geocoder: 41 to an address, 33 to an intersection, 11 to a street and 12 to a place name only. 17 had no match near the border and are placed where the highway in their address meets the line. Beaver Creek (address a PO box) and Fraser (on BC 2, which the atlas draws only near Dawson Creek) are not placed. Of the 58 that pair with a US port in BTS's data, all but Piney lie within 25 km of it. Piney is 39 km from Pinecreek MN, though 2.9 km from the line. |
 | 🇨🇦 🇲🇽 | Which road a crossing is on | source | Neither register says. A crossing lists the atlas routes within 2 km of it, by distance alone; 149 of the 167 have one. |
-| 🇨🇦 🇲🇽 | Toll facilities | pending | SICT concession register, 407 ETR, Confederation Bridge, Cobequid Pass, the international bridges. |
+| 🇨🇦 | A register of toll facilities | source | Canada publishes none. The seven shown are 407 ETR, the Confederation Bridge, Cobequid Pass and the four international bridges of the Federal Bridge Corporation. Each was assembled from the documents that govern it: a concession agreement, a provincial regulation, federal briefing notes, the operator's tariff page. They are not every toll in the country. |
+| 🇨🇦 | Fares without a date | source | A fare is shown only with the date it took effect, or the date since which the publisher says it has not changed. The Blue Water Bridge publishes its rates with neither, so none is shown, and no 407 ETR fare was recorded with one. |
+| 🇨🇦 | Where a bridge toll sits | source | The three toll stretches are drawn along the atlas route between the ends the NRCan geocoder gives, and each is drawn only if that stretch is within 10% of the published length: 407 ETR measures 104.2 km against 108, the Confederation Bridge 13.7 against 12.9, Cobequid Pass 43.3 against 45. The four international bridges are points at their crossing or route end. |
+| 🇲🇽 | Which road a concession is on | source | SICT's register of 75 federal concession titles names most roads in words, not by number. Only 6 titles write a route number, and only those are attached to routes. The rest stay in `content/reference/mx-concessions.json`. A grant date is not an opening date. For the 60 titles to build, it is shown as the earliest the road could have opened. Concessions are not drawn on the map, since the register does not say where one begins or ends. |
 
 ## Data sources
 
@@ -264,7 +268,11 @@ available and not yet built.
 | [Nova Scotia *Traffic Volumes – Provincial Highway System*](https://data.novascotia.ca/Roads-Driving-and-Transport/Traffic-Volumes-Provincial-Highway-System/8524-ec3n) | AADT, truck share, 85th-percentile speed | Open Government Licence – Nova Scotia |
 | [New Brunswick *AADT counts at point locations*](https://gnb.socrata.com/datasets/gdx2-xdus) 2023 | AADT, New Brunswick | Open Government Licence – New Brunswick |
 | [CBSA *Directory of CBSA Offices*](https://open.canada.ca/data/en/dataset/1018c301-d359-4077-8d9b-4e9fbe6a223f) | the Canada–US crossings, as the offices offering highway border service | Open Government Licence – Canada |
-| [NRCan Geolocation Service](https://geogratis.gc.ca/services/geolocation/en/locate) | placing those offices from their addresses | Open Government Licence – Canada |
+| [NRCan Geolocation Service](https://geogratis.gc.ca/services/geolocation/en/locate) | placing those offices from their addresses, and the ends of the toll stretches | Open Government Licence – Canada |
+| [407 ETR](https://407etr.com/en/travel-with-us) and [IPC Ontario Order PO-1976](https://www.ipc.on.ca/sites/default/files/legacy/2016/08/PO-1976.pdf) | 407 ETR's length, concession term and tolling | operator's terms; IPC order public |
+| Transport Canada [briefing binder (2025)](https://tc.canada.ca/en/binder/26-confederation-bridge-tolls) and [2023 briefing](https://tc.canada.ca/en/corporate-services/transparency/briefing-documents-transport-canada/2023/current-topics/confederation-bridge); [Parliamentary Budget Officer](https://www.pbo-dpb.ca/en/publications/LEG-2526-004-S--reducing-tolls-confederation-bridge-fares-wood-islands-caribou-ferry--reduction-droits-peage-pont-confederation-tarifs-traversier-wood-islands-caribou) (December 2025) | Confederation Bridge operator, agreements and dated tolls | Government of Canada terms |
+| [Highway 104 Western Alignment Regulations](https://novascotia.ca/just/regulations/regs/HW104reg.htm), the corporation's [2023–24 annual report](http://www.highway104.ns.ca/ar-2024.pdf), [cobequidpass.com](https://cobequidpass.com/tollfees) | Cobequid Pass length, opening, exemptions and toll | Nova Scotia terms; operator's terms |
+| [Federal Bridge Corporation](https://federalbridge.ca/portfolio-of-assets/) and the bridge operators: [Blue Water](https://bluewaterbridge.ca/toll-rates/), [Sault Ste. Marie](https://www.saultbridge.com/toll-rates-auto/), [Thousand Islands](https://tibridge.com/toll-rates/), [Seaway](https://sibc.ca/the-seaway-international-bridge-corporation-ltd-announces-toll-rate-adjustment-2/); [MDOT](https://www.michigan.gov/mdot/news-outreach/pressreleases/2026/09/14/toll-rollback-coming-to-international-bridge-oct-31) | ownership of the four international bridges, their tolls and dates | operators' terms |
 
 ### Mexico
 
@@ -274,6 +282,7 @@ available and not yet built.
 | [SICT *Datos Viales*](https://www.datos.gob.mx/dataset/datos_viales) 2013–2024 | TDPA and vehicle mix at 9,138 count stations | Términos de Libre Uso MX | annual |
 | SICT *Datos Viales* 2025, per-state PDF indexes | which state roads SICT itself lists, and which of them carry a number | Términos de Libre Uso MX | annual; file names and layout changed between 2024 and 2025 |
 | [INDAABIN *Puertos fronterizos*](https://www.datos.gob.mx/dataset/puertos_fronterizos_centros_atencion_transito_fronterizo) 2025 list | the Mexican border crossings, north and south, with coordinates | CC BY 4.0 | the newer quarterly lists drop the coordinates |
+| [SICT *Títulos de Concesión*](https://micrs.sct.gob.mx/infraestructura/direccion-general-de-desarrollo-carretero/titulos-de-concesion/) | the 75 federal highway concession titles, with concessionaire, grant and end dates | none stated on the page | as SICT updates the page |
 | [Natural Earth](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/) Admin 1, 1:10m | locating federal segments and border ports within states; distance to the US border | public domain | rarely |
 
 ### Both
@@ -331,8 +340,9 @@ when the upstream sources change.
 | `npm run fetch:mx` | downloads the INEGI Red Nacional de Caminos and the SICT traffic panel | `tools/src/mx/`, `content/reference/` |
 | `npm run fetch:mx:check` | preflight only: what is reachable, how big, and whether it can resume | — |
 | `npm run fetch:borders` | reads the CBSA and INDAABIN crossing lists and geocodes the Canadian offices | `content/reference/border-crossings.json` |
+| `npm run fetch:tolls` | reads SICT's concession register. The Canadian facilities are kept by hand in `content/reference/tolls-ca.json` | `content/reference/mx-concessions.json` |
 | `npm run fetch:all` | every acquisition step above, in order | all of the above |
-| `npm run build` | `build-data.mjs`, `build-crossings.mjs`, then `build-content.mjs` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/crossings.json`, `data/dossiers/`, `data/timeline.json` |
+| `npm run build` | `build-data.mjs`, `build-crossings.mjs`, `build-tolls.mjs`, then `build-content.mjs` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/crossings.json`, `data/tolls.json`, `data/dossiers/`, `data/timeline.json` |
 | `npm run build:elevation` | samples terrain along curated routes | `data/elevation/` |
 | `npm run serve` | serves the repository on `http://localhost:8787` | — |
 | `npm test` | i18n parity, then content validation | — |
