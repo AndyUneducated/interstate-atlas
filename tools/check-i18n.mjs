@@ -28,7 +28,7 @@ const ASSETS = join(dirname(fileURLToPath(import.meta.url)), '..', 'assets');
 const BUILT = [
   'sys.', 'comp.', 'sect.', 'ca.nhs.', 'jump.', 'src.',
   'dt.from', 'dt.to', 'hp.good', 'hp.fair', 'hp.poor', 'ca.tr.note.', 'mx.admin.',
-  'nb.ca.lv.', 'toll.kind.', 'toll.cur.', 'xing.border.', 'xing.precision.', 'toast.base.',
+  'nb.ca.lv.', 'toll.kind.', 'toll.cur.', 'toll.plaza.admin.', 'toll.plaza.mode.', 'toll.plaza.dir.', 'toll.plaza.place.', 'bridge.kind.', 'xing.border.', 'xing.precision.', 'toast.base.',
 ];
 
 async function main() {

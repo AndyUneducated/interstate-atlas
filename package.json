@@ -17,7 +17,7 @@
     "fetch:tolls": "node tools/fetch-mx-concessions.mjs",
     "propose:tolls": "node tools/propose-mx-concession-matches.mjs",
     "fetch:all": "npm run fetch && npm run fetch:ca && npm run fetch:qc && npm run fetch:mx && npm run fetch:bridges && npm run fetch:borders && npm run fetch:tolls",
-    "build": "node tools/build-data.mjs && node tools/build-crossings.mjs && node tools/build-tolls.mjs && node tools/build-content.mjs",
+    "build": "node tools/build-data.mjs && node tools/build-crossings.mjs && node tools/build-bridges.mjs && node tools/build-tolls.mjs && node tools/build-content.mjs",
     "build:elevation": "node tools/build-elevation.mjs",
     "serve": "node tools/serve.mjs",
     "verify": "node tools/verify.mjs",

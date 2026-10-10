@@ -6,7 +6,9 @@
    own tariff pages - and every fact carries the document it came from. A fare
    is shown only with the date it took effect.
 
-   Mexico's concession titles are in the route panel and not on the map,
+   Mexico's toll plazas are on the map as the RNC places them: where a toll
+   is paid, not where a tolled road begins or ends. Its concession titles are
+   in the route panel and not on the map,
    because nothing published says where on the ground a concession begins and
    ends. A grant date is not an opening date: for a title to build, it is the
    earliest the road could have opened, and it is worded that way. */
@@ -17,7 +19,7 @@ import { app, toast, select } from './app.js';
 const SRC = 'toll';
 const LINE_HIT = `${SRC}-line-hit`;
 const PT_HIT = `${SRC}-pt-hit`;
-const LAYERS = [`${SRC}-line-casing`, SRC, `${SRC}-pt`, LINE_HIT, PT_HIT];
+const LAYERS = [`${SRC}-line-casing`, SRC, `${SRC}-plaza`, `${SRC}-pt`, LINE_HIT, PT_HIT];
 const COLOUR = '#ffd166';
 
 let on = false;
@@ -54,7 +56,8 @@ async function ensureLayers() {
   await load();
   map.addSource(SRC, { type: 'geojson', data, promoteId: 'id' });
   const line = ['==', ['geometry-type'], 'LineString'];
-  const point = ['==', ['geometry-type'], 'Point'];
+  const plaza = ['==', ['get', 'kind'], 'plaza'];
+  const point = ['all', ['==', ['geometry-type'], 'Point'], ['!', plaza]];
   map.addLayer({
     id: `${SRC}-line-casing`, type: 'line', source: SRC, filter: line,
     layout: { 'line-cap': 'round', 'line-join': 'round' },
@@ -69,6 +72,17 @@ async function ensureLayers() {
       'line-dasharray': [2, 1.2],
     },
   });
+  // Thirteen hundred plazas would bury the map at continental zoom, so they
+  // come in once a region fills the screen.
+  map.addLayer({
+    id: `${SRC}-plaza`, type: 'circle', source: SRC, filter: plaza, minzoom: 5,
+    paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 5, 1.8, 10, 4.5],
+      'circle-color': COLOUR,
+      'circle-stroke-color': '#05070c',
+      'circle-stroke-width': 1,
+    },
+  });
   map.addLayer({
     id: `${SRC}-pt`, type: 'circle', source: SRC, filter: point,
     paint: {
@@ -79,13 +93,18 @@ async function ensureLayers() {
     },
   });
   map.addLayer({ id: LINE_HIT, type: 'line', source: SRC, filter: line, paint: { 'line-width': 16, 'line-opacity': 0 } });
-  map.addLayer({ id: PT_HIT, type: 'circle', source: SRC, filter: point, paint: { 'circle-radius': 12, 'circle-opacity': 0 } });
+  map.addLayer({
+    id: PT_HIT, type: 'circle', source: SRC, filter: ['==', ['geometry-type'], 'Point'],
+    paint: { 'circle-radius': ['case', plaza, 7, 12], 'circle-opacity': 0 },
+  });
   for (const id of [LINE_HIT, PT_HIT]) {
     map.on('mouseenter', id, () => { map.getCanvas().style.cursor = 'pointer'; });
     map.on('mouseleave', id, () => { map.getCanvas().style.cursor = ''; });
     map.on('click', id, (e) => {
       const f = e.features?.[0];
-      if (f) openTollPopup(f.properties.id, e.lngLat);
+      if (!f) return;
+      if (f.properties.kind === 'plaza') openPlazaPopup(f.properties, e.lngLat);
+      else openTollPopup(f.properties.id, e.lngLat);
     });
   }
 }
@@ -100,7 +119,8 @@ export async function toggleTolls(force) {
   }
   if (!on) closeTollPopup();
   document.getElementById('btnTolls').classList.toggle('on', on);
-  toast(on ? t('toast.tollOn', { n: data.features.length }) : t('toast.tollOff'));
+  const plazas = data.features.filter((f) => f.properties.kind === 'plaza').length;
+  toast(on ? t('toast.tollOn', { n: Object.keys(data.facilities).length, p: num(plazas) }) : t('toast.tollOff'));
 }
 
 export function closeTollPopup() {
@@ -198,6 +218,28 @@ function openTollPopup(id, lngLat) {
   });
   p.on('close', () => { if (popup === p) popup = null; });
   popup = p;
+}
+
+/** A Mexican toll plaza, from the RNC's own record of it. */
+function openPlazaPopup(p, lngLat) {
+  closeTollPopup();
+  const s = data.sources.mxPlazas;
+  const rows = [];
+  if (p.admin) rows.push(`<div class="tl-op">${esc(t(`toll.plaza.admin.${p.admin}`))}</div>`);
+  if (p.section) rows.push(`<div class="tl-meta" lang="es">${esc(p.section)}${p.subsection ? ` · ${esc(p.subsection)}` : ''}</div>`);
+  if (p.mode) rows.push(`<div class="tl-meta">${esc(t(`toll.plaza.mode.${p.mode}`))}${p.dir ? ` · ${esc(t(`toll.plaza.dir.${p.dir}`))}` : ''}</div>`);
+  if (p.place && p.place !== 'Definida') rows.push(`<div class="tl-f">${esc(t(`toll.plaza.place.${p.place}`))}</div>`);
+  rows.push(`<div class="tl-f">${src(s.title, s.url)} · ${esc(t('toll.plaza.updated', { date: dateText(s.updated) }))}</div>`);
+  const pop = new maplibregl.Popup({ className: 'xg-pop tl-pop', maxWidth: '320px', offset: 8 })
+    .setLngLat(lngLat)
+    .setHTML(`<div class="xg">
+      <div class="xg-k" style="--c:${COLOUR}">${esc(t('toll.kind.plaza'))}</div>
+      <div class="xg-n" lang="es">${esc(p.name ?? '')}</div>
+      ${rows.join('')}
+    </div>`)
+    .addTo(app.map);
+  pop.on('close', () => { if (popup === pop) popup = null; });
+  popup = pop;
 }
 
 /* ── the route panel ───────────────────────────────────────────────────── */

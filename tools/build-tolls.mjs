@@ -17,10 +17,15 @@
 // where it writes the route's federal number, in the states it names, or
 // where it writes the name SICT gives that route's road and a person has
 // accepted the match in content/reference/mx-concession-matches.json.
+//
+// Mexico's toll plazas are drawn as points from the RNC's plaza_cobro layer in
+// tools/src/mx/, which fetch-mexico.mjs downloads with the road network.
 
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import * as shapefile from 'shapefile';
 import { geoPath, systemOfCode, IX } from '../assets/schema.js';
+import { writeOut } from './write.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUT = join(ROOT, 'data', 'tolls.json');
@@ -224,10 +229,40 @@ async function main() {
   }
   linked += named.size;
 
+  // Mexico's toll plazas, as the RNC places them. Points only: a plaza is where
+  // a toll is paid, not where the tolled road begins or ends. A closed system
+  // has a plaza at each entry and exit, so the count is booths, not roads.
+  const rnc = await read('tools/src/mx/edition.json');
+  const plazaFile = join(ROOT, 'tools', 'src', 'mx', 'plaza_cobro');
+  const plazas = await shapefile.open(`${plazaFile}.shp`, `${plazaFile}.dbf`, { encoding: 'utf-8' });
+  let plazaCount = 0;
+  for (;;) {
+    const r = await plazas.read();
+    if (r.done) break;
+    const p = r.value.properties;
+    if (!r.value.geometry) continue;
+    const id = `mx-plaza-${p.ID_PLAZA}`;
+    const text = (v) => (v && v !== 'N/A' ? String(v).trim() : null);
+    features.push({
+      type: 'Feature', id,
+      properties: {
+        id, kind: 'plaza', name: text(p.NOMBRE), admin: text(p.ADMINISTRA),
+        section: text(p.SECCION), subsection: text(p.SUBSECCION),
+        mode: text(p.MODALIDAD), dir: text(p.FUNCIONAL), place: text(p.CALIREPR),
+      },
+      geometry: { type: 'Point', coordinates: round(r.value.geometry.coordinates) },
+    });
+    plazaCount++;
+  }
+
   const out = {
     generated: new Date().toISOString().slice(0, 10),
     nearKm: NEAR_KM,
-    sources: { mx: mx.source, mxNames: { title: 'Datos Viales 2025', agency: designations.agency, url: designations.url } },
+    sources: {
+      mx: mx.source,
+      mxNames: { title: 'Datos Viales 2025', agency: designations.agency, url: designations.url },
+      mxPlazas: { title: rnc.source, url: rnc.programme, updated: rnc.updated, retrieved: rnc.retrieved },
+    },
     mxRetrieved: mx.retrieved,
     caRetrieved: ca.retrieved,
     facilities,
@@ -236,8 +271,9 @@ async function main() {
     type: 'FeatureCollection',
     features,
   };
-  await writeFile(OUT, `${JSON.stringify(out)}\n`);
-  console.log(`tolls: ${features.length} of ${ca.facilities.length} Canadian facilities drawn;`
+  await writeOut(OUT, `${JSON.stringify(out)}\n`);
+  console.log(`tolls: ${features.length - plazaCount} of ${ca.facilities.length} Canadian facilities drawn;`
+    + ` ${plazaCount} Mexican toll plazas;`
     + ` ${linked} of ${mx.titles.length} Mexican titles linked to ${Object.keys(byRoute).filter((k) => byRoute[k].some((e) => e.title)).length} routes`);
   for (const line of report) console.log(line);
 }

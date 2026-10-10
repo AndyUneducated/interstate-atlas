@@ -808,7 +808,7 @@ await step('toll facilities draw, show dated fares, and appear in the route pane
     await new Promise((res) => map.once('idle', res));
     const p = map.project(c);
     const r = map.getCanvas().getBoundingClientRect();
-    return { x: r.left + p.x, y: r.top + p.y, n: d.features.length };
+    return { x: r.left + p.x, y: r.top + p.y, n: d.features.filter((x) => x.properties.kind !== 'plaza').length };
   });
   if (!pt) throw new Error('the Confederation Bridge is not drawn');
   if (pt.n !== 7) throw new Error(`expected seven toll facilities, found ${pt.n}`);
@@ -820,6 +820,55 @@ await step('toll facilities draw, show dated fares, and appear in the route pane
   await page.waitForSelector('#dtTolls .tl-item', { timeout: 15000 });
   await page.click('#btnTolls');
   if (await page.locator('.tl-pop').count()) throw new Error('popup outlived its layer');
+});
+
+await step('Mexican toll plazas draw and open with their operator', async () => {
+  await page.keyboard.press('Escape');
+  await page.click('#btnTolls');
+  await waitForSource('toll');
+  const pt = await page.evaluate(async () => {
+    const d = await (await fetch('data/tolls.json')).json();
+    const plazas = d.features.filter((x) => x.properties.kind === 'plaza');
+    const f = plazas.find((x) => x.properties.admin === 'CAPUFE' && x.properties.place === 'Definida');
+    const map = window.__map;
+    map.jumpTo({ center: f.geometry.coordinates, zoom: 12, pitch: 0, bearing: 0 });
+    await new Promise((res) => map.once('idle', res));
+    const p = map.project(f.geometry.coordinates);
+    const r = map.getCanvas().getBoundingClientRect();
+    return { x: r.left + p.x, y: r.top + p.y, n: plazas.length };
+  });
+  if (pt.n < 1000) throw new Error(`expected over a thousand toll plazas, found ${pt.n}`);
+  await page.mouse.click(pt.x, pt.y);
+  await page.waitForSelector('.tl-pop .tl-op', { timeout: 8000 });
+  const text = await page.textContent('.tl-pop');
+  if (!text.includes('CAPUFE')) throw new Error(`plaza popup does not name its operator: ${text.slice(0, 120)}`);
+  await page.click('#btnTolls');
+});
+
+await step('bridges draw, colour by year, and say the year is not the road\'s', async () => {
+  await page.keyboard.press('Escape');
+  await page.click('#btnBridges');
+  await waitForSource('bridge');
+  const pt = await page.evaluate(async () => {
+    const d = await (await fetch('data/bridges.json')).json();
+    const F = Object.fromEntries(d.fields.map((f, i) => [f, i]));
+    const r = d.rows.find((x) => d.sets[x[F.set]].id === 'on' && x[F.built] && x[F.kind] === 'bridge');
+    const map = window.__map;
+    map.jumpTo({ center: [r[F.lon], r[F.lat]], zoom: 13, pitch: 0, bearing: 0 });
+    await new Promise((res) => map.once('idle', res));
+    const p = map.project([r[F.lon], r[F.lat]]);
+    const b = map.getCanvas().getBoundingClientRect();
+    return { x: b.left + p.x, y: b.top + p.y, n: d.rows.length, sets: d.sets.map((s) => s.id).join(','), year: r[F.built] };
+  });
+  if (pt.n < 14000) throw new Error(`expected about 14,800 structures, found ${pt.n}`);
+  if (pt.sets !== 'mx,on') throw new Error(`expected the Mexican and Ontario inventories, found ${pt.sets}`);
+  await page.mouse.click(pt.x, pt.y);
+  await page.waitForSelector('.xg-pop .xg-n', { timeout: 8000 });
+  const text = await page.textContent('.xg-pop');
+  if (!text.includes(String(pt.year))) throw new Error(`popup does not give the year built ${pt.year}`);
+  await shot('13-bridges.png');
+  await page.click('#btnBridges');
+  if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
 });
 
 console.log(`\nsteps failed:    ${failures}`);

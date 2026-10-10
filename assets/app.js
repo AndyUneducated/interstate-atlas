@@ -11,6 +11,7 @@ import { startFly, stopFly, isFlying } from './fly.js';
 import { openTimelapse } from './timelapse.js';
 import { toggleCrossings, crossingAt, raiseCrossings, closeCrossing } from './crossings.js';
 import { toggleTolls, tollAt, raiseTolls, closeTollPopup } from './tolls.js';
+import { toggleBridges, bridgeAt, raiseBridges, closeBridge } from './bridges.js';
 import {
   SYSTEMS, COUNTRIES, TIER_BY_CODE, geoPath, isPerJuris, systemsOf, systemOfCode, countryOf,
 } from './schema.js';
@@ -78,6 +79,7 @@ function applyStaticStrings() {
 export function relabel() {
   closeCrossing();
   closeTollPopup();
+  closeBridge();
   applyStaticStrings();
   renderSystems();
   renderJumps();
@@ -274,8 +276,9 @@ function addSystemLayers(sys, data) {
   }
   map.on('click', `${srcId}-hit`, (e) => {
     const f = e.features?.[0];
-    if (f && !crossingAt(e.point) && !tollAt(e.point)) select(f.properties.id, { feature: f, fit: false });
+    if (f && !crossingAt(e.point) && !tollAt(e.point) && !bridgeAt(e.point)) select(f.properties.id, { feature: f, fit: false });
   });
+  raiseBridges();
   raiseTolls();
   raiseCrossings();
 }
@@ -373,8 +376,9 @@ function addStateLayers(st, data, sys = 'us-state') {
   map.on('mouseleave', `${srcId}-hit`, () => { map.getCanvas().style.cursor = ''; });
   map.on('click', `${srcId}-hit`, (e) => {
     const f = e.features?.[0];
-    if (f && !crossingAt(e.point) && !tollAt(e.point)) select(f.properties.id, { feature: f, fit: false });
+    if (f && !crossingAt(e.point) && !tollAt(e.point) && !bridgeAt(e.point)) select(f.properties.id, { feature: f, fit: false });
   });
+  raiseBridges();
   raiseTolls();
   raiseCrossings();
 }
@@ -1280,6 +1284,7 @@ function wire() {
   document.getElementById('btnTerrain').addEventListener('click', () => toggleTerrain());
   document.getElementById('btnCrossings').addEventListener('click', () => toggleCrossings());
   document.getElementById('btnTolls').addEventListener('click', () => toggleTolls());
+  document.getElementById('btnBridges').addEventListener('click', () => toggleBridges());
   document.getElementById('btnZen').addEventListener('click', () => toggleZen());
   document.getElementById('zenOut').addEventListener('click', () => toggleZen(false));
   document.getElementById('btnPalette').addEventListener('click', openPalette);
