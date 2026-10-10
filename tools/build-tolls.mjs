@@ -14,8 +14,9 @@
 //
 // Mexico's concession titles are not drawn, because nothing publishes where
 // a concession begins and ends on the ground. A title is attached to a route
-// only where it writes the route's federal number, and only in the states it
-// names.
+// where it writes the route's federal number, in the states it names, or
+// where it writes the name SICT gives that route's road and a person has
+// accepted the match in content/reference/mx-concession-matches.json.
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -65,6 +66,8 @@ const round = (v) => [Number(v[0].toFixed(5)), Number(v[1].toFixed(5))];
 async function main() {
   const ca = await read('content/reference/tolls-ca.json');
   const mx = await read('content/reference/mx-concessions.json');
+  const matches = await read('content/reference/mx-concession-matches.json');
+  const designations = await read('content/reference/mx-designations.json');
   const crossings = await read('data/crossings.json');
   const index = await read('data/index.json');
   const meta = new Map(index.routes.map((r) => [r[IX.id], r]));
@@ -198,10 +201,33 @@ async function main() {
     linked++;
   }
 
+  // Titles that name their road by places, linked through SICT's own road
+  // names where a person has accepted the proposal.
+  const byName = new Map();
+  for (const p of matches.proposals) {
+    if (p.approved !== true) continue;
+    for (const id of p.routes) {
+      const k = `${p.title}|${id}`;
+      if (!byName.has(k)) byName.set(k, { title: p.title, route: id, names: [] });
+      const names = byName.get(k).names;
+      if (!names.includes(p.sict.name)) names.push(p.sict.name);
+    }
+  }
+  const named = new Set();
+  for (const { title, route, names } of byName.values()) {
+    const x = mx.titles.find((t) => t.n === title);
+    if (!meta.has(route)) throw new Error(`concession ${title}: no atlas route ${route}`);
+    titles[title] ??= { object: x.object, concessionaire: x.concessionaire, granted: x.granted, ends: x.ends, builds: x.builds, document: x.document };
+    if (byRoute[route]?.some((e) => e.title === title)) continue;
+    attach(route, { title, sictNames: names });
+    named.add(title);
+  }
+  linked += named.size;
+
   const out = {
     generated: new Date().toISOString().slice(0, 10),
     nearKm: NEAR_KM,
-    sources: { mx: mx.source },
+    sources: { mx: mx.source, mxNames: { title: 'Datos Viales 2025', agency: designations.agency, url: designations.url } },
     mxRetrieved: mx.retrieved,
     caRetrieved: ca.retrieved,
     facilities,

@@ -1,0 +1,1766 @@
+{
+  "generated": "2026-10-10",
+  "method": "Place names in each title are compared with the road names in SICT Datos Viales 2025 (content/reference/mx-designations.json) and the count points in SICT Datos Viales (content/reference/mx-traffic.json), in the states the title names. \"road\": the title writes the name SICT gives the road. \"points\": both places of a pair the title writes are count points on one SICT road. A proposal is attached to its routes only when approved is true.",
+  "counts": {
+    "titlesWithoutNumber": 69,
+    "proposed": 42,
+    "unmatched": 25
+  },
+  "unmatched": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    15,
+    16,
+    17,
+    20,
+    22,
+    28,
+    30,
+    48,
+    55,
+    56,
+    57,
+    63,
+    66,
+    68,
+    71,
+    72,
+    73,
+    74
+  ],
+  "proposals": [
+    {
+      "title": 2,
+      "object": "Construir , operar y explotar el tramo Entronque Acatlan-Entronque Aeropuerto de Colima, de la Carretera Guadalajara-Colima",
+      "via": "road",
+      "evidence": "the title writes \"Guadalajara - Colima (Cuota)\"",
+      "sict": {
+        "st": "COL",
+        "name": "Guadalajara - Colima (Cuota)",
+        "key": "MEX-054D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-054"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 2,
+      "object": "Construir , operar y explotar el tramo Entronque Acatlan-Entronque Aeropuerto de Colima, de la Carretera Guadalajara-Colima",
+      "via": "road",
+      "evidence": "the title writes \"Guadalajara - Colima (Cuota)\"",
+      "sict": {
+        "st": "JAL",
+        "name": "Guadalajara - Colima (Cuota)",
+        "key": "MEX-054D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-054"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 3,
+      "object": "Construir, operar y explotar la carretera Atlacomulco-Maravatio",
+      "via": "road",
+      "evidence": "the title writes \"Atlacomulco - Maravatío (Cuota)\"",
+      "sict": {
+        "st": "MEX",
+        "name": "Atlacomulco - Maravatío (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 3,
+      "object": "Construir, operar y explotar la carretera Atlacomulco-Maravatio",
+      "via": "road",
+      "evidence": "the title writes \"Atlacomulco - Maravatío (Cuota)\"",
+      "sict": {
+        "st": "MIC",
+        "name": "Atlacomulco - Maravatío (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-mic"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 10,
+      "object": "Rehabilitación del cuerpo existente, construcción de los faltantes, explotación y conservación de la carretera Peñon-Texcoco",
+      "via": "road",
+      "evidence": "the title writes \"Peñón - Texcoco (Cuota)\"",
+      "sict": {
+        "st": "MEX",
+        "name": "Peñón - Texcoco (Cuota)",
+        "key": "MEX-136D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-136"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 19,
+      "object": "Construir, operar, explotar, conservar y mantener el tramo Veracruz-Cardel, de la carretera Poza Rica-Veracruz, comprendido entre el km 212+500 y el km 241+000, así como el Libramiento Norponiente de Cardel que parte del km 212+500 (Poza Rica-Veracruz) al km 11+500 (Tamarindo-Cardel), en el estado de Veracruz",
+      "via": "road",
+      "evidence": "the title's \"poza rica - cardel\" is SICT's \"Poza Rica - Cardel (Cuota)\"",
+      "sict": {
+        "st": "VER",
+        "name": "Poza Rica - Cardel (Cuota)",
+        "key": "MEX-180D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-180-ver-1",
+        "mex-180-ver-2",
+        "mex-180-ver-3"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 19,
+      "object": "Construir, operar, explotar, conservar y mantener el tramo Veracruz-Cardel, de la carretera Poza Rica-Veracruz, comprendido entre el km 212+500 y el km 241+000, así como el Libramiento Norponiente de Cardel que parte del km 212+500 (Poza Rica-Veracruz) al km 11+500 (Tamarindo-Cardel), en el estado de Veracruz",
+      "via": "road",
+      "evidence": "the title writes \"Poza Rica - Veracruz\"",
+      "sict": {
+        "st": "VER",
+        "name": "Poza Rica - Veracruz",
+        "key": "MEX-180-180D",
+        "juris": "federal",
+        "toll": "mixed"
+      },
+      "routes": [
+        "mex-180-ver-1",
+        "mex-180-ver-2",
+        "mex-180-ver-3"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 21,
+      "object": "Construir, explotar y conservar 32.7 kilómetros que van del km. 36+600 al km. 69+300, con origen en Zacatecas, que corresponden al tramo Providencia-Libramiento de Fresnillo, Zacatecas",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Fresnillo (Cuota)\"",
+      "sict": {
+        "st": "ZAC",
+        "name": "Libramiento de Fresnillo (Cuota)",
+        "key": "MEX-045D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-045-dur",
+        "mex-045-zac-1",
+        "mex-045-zac-2"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 23,
+      "object": "Construir las obras necesarias de modernización y ampliación, así como para operar, explotar, conservar y mantener, el tramo carretero federal Libramiento Surponiente de Aguascalientes",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento Surponiente de Aguascalientes\"",
+      "sict": {
+        "st": "AGU",
+        "name": "Libramiento Surponiente de Aguascalientes",
+        "key": "MEX-045",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-045-dur"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 24,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal San Martín Texmelucan-Tlaxcala en los Estados de Puebla y Tlaxcala",
+      "via": "road",
+      "evidence": "the title writes \"San Martín Texmelucan - Tlaxcala\"",
+      "sict": {
+        "st": "PUE",
+        "name": "San Martín Texmelucan - Tlaxcala",
+        "key": "MEX-117",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-117-tla-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 24,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal San Martín Texmelucan-Tlaxcala en los Estados de Puebla y Tlaxcala",
+      "via": "road",
+      "evidence": "the title writes \"San Martín Texmelucan - Tlaxcala\"",
+      "sict": {
+        "st": "TLA",
+        "name": "San Martín Texmelucan - Tlaxcala",
+        "key": "MEX-117",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-117-tla-1",
+        "mex-117-tla-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 25,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Durango-Yerbanis en el Estado de Durango",
+      "via": "road",
+      "evidence": "the title writes \"Durango - Yerbanís (Cuota)\"",
+      "sict": {
+        "st": "DUR",
+        "name": "Durango - Yerbanís (Cuota)",
+        "key": "MEX-040D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-040-dur"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 26,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Torreón-Cuencame en los estado de Coahuila y Durango",
+      "via": "points",
+      "evidence": "\"Torreon\" and \"Cuencame\" are both count points on SICT's \"Durango - Torreón\"",
+      "sict": {
+        "st": "COA",
+        "name": "Durango - Torreón",
+        "key": "MEX-040",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-040-dur",
+        "mex-040-nle-1",
+        "mex-040-nle-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 26,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Torreón-Cuencame en los estado de Coahuila y Durango",
+      "via": "points",
+      "evidence": "\"Torreon\" and \"Cuencame\" are both count points on SICT's \"Durango - Torreón\"",
+      "sict": {
+        "st": "DUR",
+        "name": "Durango - Torreón",
+        "key": "MEX-040",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-040-dur"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 27,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Tijuana-Tecate y Libramiento de Tecate en el Estado de Baja California",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Tecate (Cuota)\"",
+      "sict": {
+        "st": "BCN",
+        "name": "Libramiento de Tecate (Cuota)",
+        "key": "MEX-002D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-002-son",
+        "mex-002-bcn"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 27,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Tijuana-Tecate y Libramiento de Tecate en el Estado de Baja California",
+      "via": "road",
+      "evidence": "the title's \"tijuana - tecate\" is SICT's \"Tecate - Tijuana (Cuota)\"",
+      "sict": {
+        "st": "BCN",
+        "name": "Tecate - Tijuana (Cuota)",
+        "key": "MEX-002D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-002-son",
+        "mex-002-bcn"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 29,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Armería-Manzanillo en el Estado de Colima",
+      "via": "points",
+      "evidence": "\"Armeria\" and \"Manzanillo\" are both count points on SICT's \"Ent. Playa Azul - Manzanillo\"",
+      "sict": {
+        "st": "COL",
+        "name": "Ent. Playa Azul - Manzanillo",
+        "key": "MEX-200",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-200-gro-1",
+        "mex-200-col"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 29,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Armería-Manzanillo en el Estado de Colima",
+      "via": "road",
+      "evidence": "the title writes \"Armería - Manzanillo (Cuota)\"",
+      "sict": {
+        "st": "COL",
+        "name": "Armería - Manzanillo (Cuota)",
+        "key": "MEX-200D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-200-gro-1",
+        "mex-200-col"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 31,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Ecatepec-Piramides en el Estado de México",
+      "via": "road",
+      "evidence": "the title writes \"Ecatepec - Pirámides (Cuota)\"",
+      "sict": {
+        "st": "MEX",
+        "name": "Ecatepec - Pirámides (Cuota)",
+        "key": "MEX-132D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-132"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 32,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Libramiento Oriente de San Luís Potosí en el Estado de San Luís Potosí",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento Oriente de San Luis Potosí (Cuota)\"",
+      "sict": {
+        "st": "SLP",
+        "name": "Libramiento Oriente de San Luis Potosí (Cuota)",
+        "key": "MEX-057D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-057-slp-1",
+        "mex-057-slp-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 33,
+      "object": "Construir, explotar, operar, conservar mantener el Libramiento de Nogales, ubicado en la carretera federal México-Nogales, en el estado de Sonora",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Nogales (Cuota)\"",
+      "sict": {
+        "st": "SON",
+        "name": "Libramiento de Nogales (Cuota)",
+        "key": "MEX-15D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-son-1",
+        "mex-015-son-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 34,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Libramiento de Matehuala en el Estado de San Luís Potosí",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Matehuala (Cuota)\"",
+      "sict": {
+        "st": "SLP",
+        "name": "Libramiento de Matehuala (Cuota)",
+        "key": "MEX-057D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-057-slp-1",
+        "mex-057-slp-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 35,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Amozoc-Perote y Libramiento de Perote en los Estados de Puebla, Tlaxcala y Veracruz",
+      "via": "road",
+      "evidence": "the title writes \"Amozoc - Perote (Cuota)\"",
+      "sict": {
+        "st": "PUE",
+        "name": "Amozoc - Perote (Cuota)",
+        "key": "MEX-140D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-140-ver-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 35,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Amozoc-Perote y Libramiento de Perote en los Estados de Puebla, Tlaxcala y Veracruz",
+      "via": "road",
+      "evidence": "the title writes \"Amozoc - Perote (Cuota)\"",
+      "sict": {
+        "st": "VER",
+        "name": "Amozoc - Perote (Cuota)",
+        "key": "MEX-140D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-140-ver-1",
+        "mex-140-ver-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 35,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Amozoc-Perote y Libramiento de Perote en los Estados de Puebla, Tlaxcala y Veracruz",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Perote (Cuota)\"",
+      "sict": {
+        "st": "VER",
+        "name": "Libramiento de Perote (Cuota)",
+        "key": "MEX-140D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-140-ver-1",
+        "mex-140-ver-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 36,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Libramiento de Mexicali en el estado de Baja California",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Mexicali (Cuota)\"",
+      "sict": {
+        "st": "BCN",
+        "name": "Libramiento de Mexicali (Cuota)",
+        "key": "MEX-002D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-002-son",
+        "mex-002-bcn"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 37,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Tepic-Villa Unión en los Estados de Nayarit y Sinaloa",
+      "via": "road",
+      "evidence": "the title writes \"Tepic - Villa Unión (cuota)\"",
+      "sict": {
+        "st": "NAY",
+        "name": "Tepic - Villa Unión (cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 37,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Tepic-Villa Unión en los Estados de Nayarit y Sinaloa",
+      "via": "points",
+      "evidence": "\"Tepic (Baja)\" and \"Villa Union\" are both count points on SICT's \"Tepic - Mazatlán\"",
+      "sict": {
+        "st": "SIN",
+        "name": "Tepic - Mazatlán",
+        "key": "MEX-015",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-sin-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 37,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Tepic-Villa Unión en los Estados de Nayarit y Sinaloa",
+      "via": "road",
+      "evidence": "the title writes \"Tepic - Villa Unión (cuota)\"",
+      "sict": {
+        "st": "SIN",
+        "name": "Tepic - Villa Unión (cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-sin-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 38,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Morelia-Salamanca en los Estados de Michoacan y Guanajuato",
+      "via": "road",
+      "evidence": "the title writes \"Morelia - Salamanca\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Morelia - Salamanca",
+        "key": "MEX-043",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-043"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 38,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Morelia-Salamanca en los Estados de Michoacan y Guanajuato",
+      "via": "road",
+      "evidence": "the title writes \"Morelia - Salamanca (Cuota)\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Morelia - Salamanca (Cuota)",
+        "key": "MEX-043D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-043"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 38,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Morelia-Salamanca en los Estados de Michoacan y Guanajuato",
+      "via": "road",
+      "evidence": "the title writes \"Morelia - Salamanca\"",
+      "sict": {
+        "st": "MIC",
+        "name": "Morelia - Salamanca",
+        "key": "MEX-043",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-043"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 38,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Morelia-Salamanca en los Estados de Michoacan y Guanajuato",
+      "via": "road",
+      "evidence": "the title writes \"Morelia - Salamanca (Cuota)\"",
+      "sict": {
+        "st": "MIC",
+        "name": "Morelia - Salamanca (Cuota)",
+        "key": "MEX-043D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-043"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 39,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal con orígen en la carretera federal Toluca -Palmillas en el Estado de México y terminación en el entronque con la autopista México-Puebla en los Estados de México, Hidalgo, Tlaxcala y Puebla",
+      "via": "road",
+      "evidence": "the title writes \"México - Puebla (Libre)\"",
+      "sict": {
+        "st": "MEX",
+        "name": "México - Puebla (Libre)",
+        "key": "MEX-150",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-150-pue-1"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 39,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal con orígen en la carretera federal Toluca -Palmillas en el Estado de México y terminación en el entronque con la autopista México-Puebla en los Estados de México, Hidalgo, Tlaxcala y Puebla",
+      "via": "road",
+      "evidence": "the title writes \"México - Puebla (Cuota)\"",
+      "sict": {
+        "st": "MEX",
+        "name": "México - Puebla (Cuota)",
+        "key": "MEX-150D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-150-pue-1"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 39,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal con orígen en la carretera federal Toluca -Palmillas en el Estado de México y terminación en el entronque con la autopista México-Puebla en los Estados de México, Hidalgo, Tlaxcala y Puebla",
+      "via": "road",
+      "evidence": "the title writes \"Toluca - Palmillas\"",
+      "sict": {
+        "st": "MEX",
+        "name": "Toluca - Palmillas",
+        "key": "EM(D)-MEX-055",
+        "juris": "mixed",
+        "toll": null
+      },
+      "routes": [
+        "mex-055-mex-1",
+        "mex-055-mex-2"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 39,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal con orígen en la carretera federal Toluca -Palmillas en el Estado de México y terminación en el entronque con la autopista México-Puebla en los Estados de México, Hidalgo, Tlaxcala y Puebla",
+      "via": "road",
+      "evidence": "the title writes \"México - Puebla (Libre)\"",
+      "sict": {
+        "st": "PUE",
+        "name": "México - Puebla (Libre)",
+        "key": "MEX-150",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-150-pue-1",
+        "mex-150-pue-2"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 39,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal con orígen en la carretera federal Toluca -Palmillas en el Estado de México y terminación en el entronque con la autopista México-Puebla en los Estados de México, Hidalgo, Tlaxcala y Puebla",
+      "via": "road",
+      "evidence": "the title writes \"México - Puebla (Cuota)\"",
+      "sict": {
+        "st": "PUE",
+        "name": "México - Puebla (Cuota)",
+        "key": "MEX-150D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-150-pue-1",
+        "mex-150-pue-2"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 39,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal con orígen en la carretera federal Toluca -Palmillas en el Estado de México y terminación en el entronque con la autopista México-Puebla en los Estados de México, Hidalgo, Tlaxcala y Puebla",
+      "via": "road",
+      "evidence": "the title writes \"México - Puebla (Cuota)\"",
+      "sict": {
+        "st": "TLA",
+        "name": "México - Puebla (Cuota)",
+        "key": "MEX-150D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [],
+      "note": "no atlas federal route by that number in this state",
+      "approved": false
+    },
+    {
+      "title": 40,
+      "object": "Construir, operar, explotar, conservar y mantener la carretera de altas especificaciones de jurisdicción federal Libramiento de Tecpan en el Estado de Guerrero",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Técpan (Cuota)\"",
+      "sict": {
+        "st": "GRO",
+        "name": "Libramiento de Técpan (Cuota)",
+        "key": "MEX-200D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-200-gro-1",
+        "mex-200-gro-2",
+        "mex-200-gro-3"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 41,
+      "object": "Construir, operar, explotar, conservar y mantener el Libramiento Norponiente de Saltillo de la carretera Saltillo-Zacatecas y la autopista Saltillo-Monterrey en los Estados de Coahuila y Nuevo León",
+      "via": "road",
+      "evidence": "the title writes \"Saltillo - Monterrey\"",
+      "sict": {
+        "st": "COA",
+        "name": "Saltillo - Monterrey",
+        "key": "MEX-040",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-040-dur",
+        "mex-040-nle-1",
+        "mex-040-nle-2"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 41,
+      "object": "Construir, operar, explotar, conservar y mantener el Libramiento Norponiente de Saltillo de la carretera Saltillo-Zacatecas y la autopista Saltillo-Monterrey en los Estados de Coahuila y Nuevo León",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento Norponiente de Saltillo (Cuota)\"",
+      "sict": {
+        "st": "COA",
+        "name": "Libramiento Norponiente de Saltillo (Cuota)",
+        "key": "MEX-054D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-054"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 41,
+      "object": "Construir, operar, explotar, conservar y mantener el Libramiento Norponiente de Saltillo de la carretera Saltillo-Zacatecas y la autopista Saltillo-Monterrey en los Estados de Coahuila y Nuevo León",
+      "via": "road",
+      "evidence": "the title writes \"Saltillo - Monterrey (Cuota)\"",
+      "sict": {
+        "st": "COA",
+        "name": "Saltillo - Monterrey (Cuota)",
+        "key": "MEX-040D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-040-dur",
+        "mex-040-nle-1",
+        "mex-040-nle-2"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 41,
+      "object": "Construir, operar, explotar, conservar y mantener el Libramiento Norponiente de Saltillo de la carretera Saltillo-Zacatecas y la autopista Saltillo-Monterrey en los Estados de Coahuila y Nuevo León",
+      "via": "road",
+      "evidence": "the title writes \"Saltillo - Monterrey\"",
+      "sict": {
+        "st": "NLE",
+        "name": "Saltillo - Monterrey",
+        "key": "MEX-040",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-040-nle-1",
+        "mex-040-nle-2"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 41,
+      "object": "Construir, operar, explotar, conservar y mantener el Libramiento Norponiente de Saltillo de la carretera Saltillo-Zacatecas y la autopista Saltillo-Monterrey en los Estados de Coahuila y Nuevo León",
+      "via": "road",
+      "evidence": "the title writes \"Saltillo - Monterrey (Cuota)\"",
+      "sict": {
+        "st": "NLE",
+        "name": "Saltillo - Monterrey (Cuota)",
+        "key": "MEX-040D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-040-nle-1",
+        "mex-040-nle-2"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 42,
+      "object": "Construir, operar, explotar, conservar y mantener el Puente Internacional Reynosa-McAllen \"Anzaldúas\", localizado en el Estado de Tamaulipas, compuesto por un puente vehicular de 2.558 km de longitud, así como de un acceso carretero integrado por dos tramos, del km 0+000 ubicado en la carretera Reynosa-Monterrey al km 6+420 y de éste hasta el km 10+375 ubicado en la carretera Reynosa-Nuevo León",
+      "via": "road",
+      "evidence": "the title's \"reynosa - monterrey\" is SICT's \"Monterrey - Reynosa (Libre)\"",
+      "sict": {
+        "st": "TAM",
+        "name": "Monterrey - Reynosa (Libre)",
+        "key": "MEX-040",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-040-nle-1"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 43,
+      "object": "Construir, operar, explotar, conservar y mantener la Autopista Arriaga-Ocozocoautla, así como modernizar, operar y explotar la autopista Tuxtla Gutiérrez-San Cristobal de las Casas en el estado de Chiapas",
+      "via": "road",
+      "evidence": "the title writes \"Arriaga - Ocozocoautla (Cuota)\"",
+      "sict": {
+        "st": "CHP",
+        "name": "Arriaga - Ocozocoautla (Cuota)",
+        "key": "MEX-200D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-200-oax",
+        "mex-200-chp"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 43,
+      "object": "Construir, operar, explotar, conservar y mantener la Autopista Arriaga-Ocozocoautla, así como modernizar, operar y explotar la autopista Tuxtla Gutiérrez-San Cristobal de las Casas en el estado de Chiapas",
+      "via": "road",
+      "evidence": "the title writes \"Tuxtla Gutiérrez - San Cristóbal de Las Casas (Cuota)\"",
+      "sict": {
+        "st": "CHP",
+        "name": "Tuxtla Gutiérrez - San Cristóbal de Las Casas (Cuota)",
+        "key": "MEX-190D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-190-oax-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 45,
+      "object": "Construir, operar, explotar, conservar y mantener por 30 años , el Libramiento de Irapuato, de 29.2 kilómetros de longitud. Su trazo se inicia al surponiente de la ciudad de Irapuato, sobre la carretera federal Irapuato-Guadalajara, se desarrolla al poniente de la mancha urbana y concluye sobre la carretera federal Irapuato-León",
+      "via": "road",
+      "evidence": "the title writes \"Irapuato - León\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Irapuato - León",
+        "key": "MEX-045",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-045-dur",
+        "mex-045-gua"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 46,
+      "object": "Construir, operar, explotar, conservar y mantener por 30 años, la autopista denominada Perote-Banderilla, tipo A2 de 30.0 kms. de longitud, y Libramiento de Xalapa, tipo A2 de 29.0 kms. de longitud, con origen en el km. 50+000 (entronque Banderilla) y término en el km. 79+000 (entronque Corral Falso), en el Estado de Veracruz de Ignacio de la Llave",
+      "via": "points",
+      "evidence": "\"Perote\" and \"Banderilla\" are both count points on SICT's \"San Hipólito - Xalapa\"",
+      "sict": {
+        "st": "VER",
+        "name": "San Hipólito - Xalapa",
+        "key": "MEX-140",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-140-ver-1",
+        "mex-140-ver-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 46,
+      "object": "Construir, operar, explotar, conservar y mantener por 30 años, la autopista denominada Perote-Banderilla, tipo A2 de 30.0 kms. de longitud, y Libramiento de Xalapa, tipo A2 de 29.0 kms. de longitud, con origen en el km. 50+000 (entronque Banderilla) y término en el km. 79+000 (entronque Corral Falso), en el Estado de Veracruz de Ignacio de la Llave",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Xalapa (Cuota)\"",
+      "sict": {
+        "st": "VER",
+        "name": "Libramiento de Xalapa (Cuota)",
+        "key": "MEX-140D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-140-ver-1",
+        "mex-140-ver-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 46,
+      "object": "Construir, operar, explotar, conservar y mantener por 30 años, la autopista denominada Perote-Banderilla, tipo A2 de 30.0 kms. de longitud, y Libramiento de Xalapa, tipo A2 de 29.0 kms. de longitud, con origen en el km. 50+000 (entronque Banderilla) y término en el km. 79+000 (entronque Corral Falso), en el Estado de Veracruz de Ignacio de la Llave",
+      "via": "road",
+      "evidence": "the title writes \"Perote - Banderilla (Cuota)\"",
+      "sict": {
+        "st": "VER",
+        "name": "Perote - Banderilla (Cuota)",
+        "key": "MEX-140D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-140-ver-1",
+        "mex-140-ver-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 49,
+      "object": "Construir, operar, explotar, conservar y mantener la autopista Salamanca-León, en sus 2 tramos carreteros. Tr. 1.- Ent. Cerro Gordo-Entronque ITESI y el Tr. 2.- Entronque ITESI- Ent. Con los Boulevares Timoteo Lozano y Delta, en el Estado de Guanajuato",
+      "via": "road",
+      "evidence": "the title writes \"Salamanca - León (Cuota)\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Salamanca - León (Cuota)",
+        "key": "MEX-045D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-045-dur",
+        "mex-045-gua"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 50,
+      "object": "Construir, operar, explotar, conservar y mantener, la autopista de 86 kilómetros de longitud Palmillas-Apaseo El Grande, en los Estados de Querétaro y Guanajuato",
+      "via": "road",
+      "evidence": "the title writes \"Palmillas - Apaseo el Grande (Cuota)\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Palmillas - Apaseo el Grande (Cuota)",
+        "key": "MEX-045D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-045-dur",
+        "mex-045-gua"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 50,
+      "object": "Construir, operar, explotar, conservar y mantener, la autopista de 86 kilómetros de longitud Palmillas-Apaseo El Grande, en los Estados de Querétaro y Guanajuato",
+      "via": "road",
+      "evidence": "the title writes \"Palmillas - Apaseo el Grande (Cuota)\"",
+      "sict": {
+        "st": "QUE",
+        "name": "Palmillas - Apaseo el Grande (Cuota)",
+        "key": "MEX-045D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-045-dur"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 51,
+      "object": "Operar,conservar y mantener el tramo libre de peaje de jurisdicción federal con origen en entronque de la autopista Querétaro-Irapuato con la carretera Irapuato-La Piedad y terminación con el futuro Libramiento de la Piedad de Cabadas en Estado de Guanajuato que incluye modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "road",
+      "evidence": "the title writes \"Querétaro - Irapuato (Libre)\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Querétaro - Irapuato (Libre)",
+        "key": "MEX-045",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-045-dur",
+        "mex-045-gua"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 51,
+      "object": "Operar,conservar y mantener el tramo libre de peaje de jurisdicción federal con origen en entronque de la autopista Querétaro-Irapuato con la carretera Irapuato-La Piedad y terminación con el futuro Libramiento de la Piedad de Cabadas en Estado de Guanajuato que incluye modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "road",
+      "evidence": "the title writes \"Querétaro - Irapuato (Cuota)\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Querétaro - Irapuato (Cuota)",
+        "key": "MEX-045D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-045-dur",
+        "mex-045-gua"
+      ],
+      "note": null,
+      "approved": false
+    },
+    {
+      "title": 51,
+      "object": "Operar,conservar y mantener el tramo libre de peaje de jurisdicción federal con origen en entronque de la autopista Querétaro-Irapuato con la carretera Irapuato-La Piedad y terminación con el futuro Libramiento de la Piedad de Cabadas en Estado de Guanajuato que incluye modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de la Piedad\"",
+      "sict": {
+        "st": "MIC",
+        "name": "Libramiento de la Piedad",
+        "key": "MICH-D",
+        "juris": "state",
+        "toll": "toll"
+      },
+      "routes": [],
+      "note": "a state road; concessions here are federal",
+      "approved": false
+    },
+    {
+      "title": 52,
+      "object": "Operar, conservar y mantener el tramo libre de peaje Querétaro-Irapuato en los Estados de Querétaro y Guanjuato, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "road",
+      "evidence": "the title writes \"Querétaro - Irapuato (Libre)\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Querétaro - Irapuato (Libre)",
+        "key": "MEX-045",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-045-dur",
+        "mex-045-gua"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 52,
+      "object": "Operar, conservar y mantener el tramo libre de peaje Querétaro-Irapuato en los Estados de Querétaro y Guanjuato, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "road",
+      "evidence": "the title writes \"Querétaro - Irapuato (Cuota)\"",
+      "sict": {
+        "st": "GUA",
+        "name": "Querétaro - Irapuato (Cuota)",
+        "key": "MEX-045D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-045-dur",
+        "mex-045-gua"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 52,
+      "object": "Operar, conservar y mantener el tramo libre de peaje Querétaro-Irapuato en los Estados de Querétaro y Guanjuato, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "road",
+      "evidence": "the title writes \"Querétaro - Irapuato (Libre)\"",
+      "sict": {
+        "st": "QUE",
+        "name": "Querétaro - Irapuato (Libre)",
+        "key": "MEX-045",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-045-dur"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 52,
+      "object": "Operar, conservar y mantener el tramo libre de peaje Querétaro-Irapuato en los Estados de Querétaro y Guanjuato, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "road",
+      "evidence": "the title writes \"Querétaro - Irapuato (Cuota)\"",
+      "sict": {
+        "st": "QUE",
+        "name": "Querétaro - Irapuato (Cuota)",
+        "key": "MEX-045D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-045-dur"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 53,
+      "object": "Operar, conservar y mantener el tramo libre de peaje de jurisdicción federal Tapachula-Talismán con ramal a Ciudad Hidalgo en el Estado de Chiapas, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "road",
+      "evidence": "the title writes \"Ramal a Cd. Hidalgo\"",
+      "sict": {
+        "st": "CHP",
+        "name": "Ramal a Cd. Hidalgo",
+        "key": "MEX-200",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-200-oax",
+        "mex-200-chp"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 53,
+      "object": "Operar, conservar y mantener el tramo libre de peaje de jurisdicción federal Tapachula-Talismán con ramal a Ciudad Hidalgo en el Estado de Chiapas, que incluye la modernización y ampliación del tramo, así como el derecho exclusivo para suscribir El Contrato PPS con el Gobierno Federal",
+      "via": "points",
+      "evidence": "\"Tapachula\" and \"Talisman\" are both count points on SICT's \"Tapanatepec - Talismán\"",
+      "sict": {
+        "st": "CHP",
+        "name": "Tapanatepec - Talismán",
+        "key": "MEX-200",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-200-oax",
+        "mex-200-chp"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 54,
+      "object": "(i) construir, operar, conservar y mantener el tramo carretero libre de peaje Nuevo Necaxa-Ávila Camacho, de 36.646 km de longitud, (ii) operar, explotar, conservar y mantener el tramo carretero Ávila Camacho-Tihuatlán de 48.136 km de longitud, y (iii) otorgamiento a la concesionaria de un Contrato de Servicios de Largo Plazo (PPS) con el Gobierno Federal para el tramo Nuevo Necaxa-Ávila Camacho",
+      "via": "road",
+      "evidence": "the title's \"nuevo necaxa - tihuatlan\" is SICT's \"Nuevo Necaxa - Tihuatlán (Cuota)\"",
+      "sict": {
+        "st": "PUE",
+        "name": "Nuevo Necaxa - Tihuatlán (Cuota)",
+        "key": "MEX-132D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-132"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 54,
+      "object": "(i) construir, operar, conservar y mantener el tramo carretero libre de peaje Nuevo Necaxa-Ávila Camacho, de 36.646 km de longitud, (ii) operar, explotar, conservar y mantener el tramo carretero Ávila Camacho-Tihuatlán de 48.136 km de longitud, y (iii) otorgamiento a la concesionaria de un Contrato de Servicios de Largo Plazo (PPS) con el Gobierno Federal para el tramo Nuevo Necaxa-Ávila Camacho",
+      "via": "road",
+      "evidence": "the title's \"nuevo necaxa - tihuatlan\" is SICT's \"Nuevo Necaxa - Tihuatlán (Cuota)\"",
+      "sict": {
+        "st": "VER",
+        "name": "Nuevo Necaxa - Tihuatlán (Cuota)",
+        "key": "MEX-132D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-132"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 58,
+      "object": "Construir, operar, explotar, conservar y mantener las autopistas Maravatío-Zapotlanejo y Guadalajara-Aguascalientes-León de 558.05 km (quinientos cincuenta y ocho punto cero cinco kilómetros) de longitud, en los estados de Michoacán, Jalisco, Guanajuato y Aguascalientes, en la República Mexicana, así como las obras de ampliación que determine la SCT, asociadas a las autopistas señaladas",
+      "via": "road",
+      "evidence": "the title's \"aguascalientes - leon\" is SICT's \"León - Aguascalientes\"",
+      "sict": {
+        "st": "JAL",
+        "name": "León - Aguascalientes",
+        "key": "MEX-045",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-045-dur"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 58,
+      "object": "Construir, operar, explotar, conservar y mantener las autopistas Maravatío-Zapotlanejo y Guadalajara-Aguascalientes-León de 558.05 km (quinientos cincuenta y ocho punto cero cinco kilómetros) de longitud, en los estados de Michoacán, Jalisco, Guanajuato y Aguascalientes, en la República Mexicana, así como las obras de ampliación que determine la SCT, asociadas a las autopistas señaladas",
+      "via": "road",
+      "evidence": "the title's \"aguascalientes - leon\" is SICT's \"León - Aguascalientes (Cuota)\"",
+      "sict": {
+        "st": "JAL",
+        "name": "León - Aguascalientes (Cuota)",
+        "key": "MEX-045D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-045-dur"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 58,
+      "object": "Construir, operar, explotar, conservar y mantener las autopistas Maravatío-Zapotlanejo y Guadalajara-Aguascalientes-León de 558.05 km (quinientos cincuenta y ocho punto cero cinco kilómetros) de longitud, en los estados de Michoacán, Jalisco, Guanajuato y Aguascalientes, en la República Mexicana, así como las obras de ampliación que determine la SCT, asociadas a las autopistas señaladas",
+      "via": "road",
+      "evidence": "the title writes \"Maravatío - Zapotlanejo (Cuota)\"",
+      "sict": {
+        "st": "JAL",
+        "name": "Maravatío - Zapotlanejo (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-jal"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 58,
+      "object": "Construir, operar, explotar, conservar y mantener las autopistas Maravatío-Zapotlanejo y Guadalajara-Aguascalientes-León de 558.05 km (quinientos cincuenta y ocho punto cero cinco kilómetros) de longitud, en los estados de Michoacán, Jalisco, Guanajuato y Aguascalientes, en la República Mexicana, así como las obras de ampliación que determine la SCT, asociadas a las autopistas señaladas",
+      "via": "road",
+      "evidence": "the title writes \"Maravatío - Zapotlanejo (Cuota)\"",
+      "sict": {
+        "st": "MIC",
+        "name": "Maravatío - Zapotlanejo (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-mic"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 59,
+      "object": "Construir, operar, explotar, conservar y mantener el Corredor Turístico de Los Cabos y sus ramales San José del Cabo; Aeropuerto de Los Cabos; Autopistas Mazatlán-Culiacán; Libramiento Sur de Culiacán, y el Libramiento de Mazatlán",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Mazatlán\"",
+      "sict": {
+        "st": "SIN",
+        "name": "Libramiento de Mazatlán",
+        "key": "MEX-015",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-sin-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 59,
+      "object": "Construir, operar, explotar, conservar y mantener el Corredor Turístico de Los Cabos y sus ramales San José del Cabo; Aeropuerto de Los Cabos; Autopistas Mazatlán-Culiacán; Libramiento Sur de Culiacán, y el Libramiento de Mazatlán",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento Sur de Culiacán\"",
+      "sict": {
+        "st": "SIN",
+        "name": "Libramiento Sur de Culiacán",
+        "key": "MEX-015",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-sin-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 59,
+      "object": "Construir, operar, explotar, conservar y mantener el Corredor Turístico de Los Cabos y sus ramales San José del Cabo; Aeropuerto de Los Cabos; Autopistas Mazatlán-Culiacán; Libramiento Sur de Culiacán, y el Libramiento de Mazatlán",
+      "via": "road",
+      "evidence": "the title writes \"Mazatlán - Culiacán\"",
+      "sict": {
+        "st": "SIN",
+        "name": "Mazatlán - Culiacán",
+        "key": "MEX-015",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-sin-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 59,
+      "object": "Construir, operar, explotar, conservar y mantener el Corredor Turístico de Los Cabos y sus ramales San José del Cabo; Aeropuerto de Los Cabos; Autopistas Mazatlán-Culiacán; Libramiento Sur de Culiacán, y el Libramiento de Mazatlán",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Mazatlán (Cuota)\"",
+      "sict": {
+        "st": "SIN",
+        "name": "Libramiento de Mazatlán (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-sin-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 59,
+      "object": "Construir, operar, explotar, conservar y mantener el Corredor Turístico de Los Cabos y sus ramales San José del Cabo; Aeropuerto de Los Cabos; Autopistas Mazatlán-Culiacán; Libramiento Sur de Culiacán, y el Libramiento de Mazatlán",
+      "via": "road",
+      "evidence": "the title writes \"Mazatlán - Culiacán (Cuota)\"",
+      "sict": {
+        "st": "SIN",
+        "name": "Mazatlán - Culiacán (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-sin-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 60,
+      "object": "Construir, operar, explotar, conservar y mantener El Libramiento Sur de Guadalajara y El Libramiento de Tepic y la Autopista Guadalajara-Tepic",
+      "via": "road",
+      "evidence": "the title writes \"Guadalajara - Tepic\"",
+      "sict": {
+        "st": "JAL",
+        "name": "Guadalajara - Tepic",
+        "key": "MEX-015",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-jal"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 60,
+      "object": "Construir, operar, explotar, conservar y mantener El Libramiento Sur de Guadalajara y El Libramiento de Tepic y la Autopista Guadalajara-Tepic",
+      "via": "road",
+      "evidence": "the title writes \"Guadalajara - Tepic (Cuota)\"",
+      "sict": {
+        "st": "JAL",
+        "name": "Guadalajara - Tepic (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-jal"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 60,
+      "object": "Construir, operar, explotar, conservar y mantener El Libramiento Sur de Guadalajara y El Libramiento de Tepic y la Autopista Guadalajara-Tepic",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento Sur de Guadalajara (Cuota)\"",
+      "sict": {
+        "st": "JAL",
+        "name": "Libramiento Sur de Guadalajara (Cuota)",
+        "key": "MEX-090D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-090"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 60,
+      "object": "Construir, operar, explotar, conservar y mantener El Libramiento Sur de Guadalajara y El Libramiento de Tepic y la Autopista Guadalajara-Tepic",
+      "via": "road",
+      "evidence": "the title writes \"Guadalajara - Tepic\"",
+      "sict": {
+        "st": "NAY",
+        "name": "Guadalajara - Tepic",
+        "key": "MEX-015",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-015-sin-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 60,
+      "object": "Construir, operar, explotar, conservar y mantener El Libramiento Sur de Guadalajara y El Libramiento de Tepic y la Autopista Guadalajara-Tepic",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Tepic\"",
+      "sict": {
+        "st": "NAY",
+        "name": "Libramiento de Tepic",
+        "key": "MEX-015",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-015-sin-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 60,
+      "object": "Construir, operar, explotar, conservar y mantener El Libramiento Sur de Guadalajara y El Libramiento de Tepic y la Autopista Guadalajara-Tepic",
+      "via": "road",
+      "evidence": "the title writes \"Guadalajara - Tepic (Cuota)\"",
+      "sict": {
+        "st": "NAY",
+        "name": "Guadalajara - Tepic (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 60,
+      "object": "Construir, operar, explotar, conservar y mantener El Libramiento Sur de Guadalajara y El Libramiento de Tepic y la Autopista Guadalajara-Tepic",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Tepic (Cuota)\"",
+      "sict": {
+        "st": "NAY",
+        "name": "Libramiento de Tepic (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 61,
+      "object": "Construir, operar, explotar, conservar y mantener los Libramientos de Morelia y Uruapan y la autopista Pátzcuaro-Uruapan-Lázaro Cárdenas en el Estado de Michoacán",
+      "via": "road",
+      "evidence": "the title writes \"Pátzcuaro - Uruapan\"",
+      "sict": {
+        "st": "MIC",
+        "name": "Pátzcuaro - Uruapan",
+        "key": "MEX-014",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-014-mic"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 61,
+      "object": "Construir, operar, explotar, conservar y mantener los Libramientos de Morelia y Uruapan y la autopista Pátzcuaro-Uruapan-Lázaro Cárdenas en el Estado de Michoacán",
+      "via": "road",
+      "evidence": "the title writes \"Pátzcuaro - Uruapan (Cuota)\"",
+      "sict": {
+        "st": "MIC",
+        "name": "Pátzcuaro - Uruapan (Cuota)",
+        "key": "MEX-014D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-014-mic"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 62,
+      "object": "Construir, operar, explotar, conservar y mantener la autopista tipo A2 “Siglo XXI”, tramo “Jantetelco-El Higuerón (Xicatlacotla)” con una longitud de 61.8 kilómetros, en el estado de Morelos; incluyendo el derecho de via correspondiente",
+      "via": "road",
+      "evidence": "the title writes \"Jantetelco - El Higuerón (Cuota)\"",
+      "sict": {
+        "st": "MOR",
+        "name": "Jantetelco - El Higuerón (Cuota)",
+        "key": "MEX-094D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [],
+      "note": "no atlas federal route by that number in this state",
+      "approved": false
+    },
+    {
+      "title": 64,
+      "object": "Construir, operar, explotar, conservar y mantener la autopista de altas especificaciones Cardel-Poza Rica Tramo Laguna Verde-Gutierrez Zamora, en el Estado de Veracruz, incluyendo el derecho de vía correspondiente",
+      "via": "road",
+      "evidence": "the title's \"cardel - poza rica\" is SICT's \"Poza Rica - Cardel (Cuota)\"",
+      "sict": {
+        "st": "VER",
+        "name": "Poza Rica - Cardel (Cuota)",
+        "key": "MEX-180D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-180-ver-1",
+        "mex-180-ver-2",
+        "mex-180-ver-3"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 65,
+      "object": "Construir, operar, explotar, conservar y mantener el Libramiento de Ciudad Obregón",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Ciudad Obregón (Cuota)\"",
+      "sict": {
+        "st": "SON",
+        "name": "Libramiento de Ciudad Obregón (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-son-1",
+        "mex-015-son-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 67,
+      "object": "Construir, operar, explotar, conservar y mantener el Libramiento de Hermosillo",
+      "via": "road",
+      "evidence": "the title writes \"Libramiento de Hermosillo (Cuota)\"",
+      "sict": {
+        "st": "SON",
+        "name": "Libramiento de Hermosillo (Cuota)",
+        "key": "MEX-015D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-015-sin-1",
+        "mex-015-son-1",
+        "mex-015-son-2"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 69,
+      "object": "Construir, operar, explotar, conservar y mantener la Autopista Tepic - San Blas",
+      "via": "road",
+      "evidence": "the title writes \"Tepic - San Blas (Cuota)\"",
+      "sict": {
+        "st": "NAY",
+        "name": "Tepic - San Blas (Cuota)",
+        "key": "MEX-D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [],
+      "note": "no atlas federal route by that number in this state",
+      "approved": false
+    },
+    {
+      "title": 70,
+      "object": "Construir, operar, explotar, conservar y mantener La Autopista Tepic - Puerto Vallarta",
+      "via": "road",
+      "evidence": "the title writes \"Tepic - Puerto Vallarta\"",
+      "sict": {
+        "st": "JAL",
+        "name": "Tepic - Puerto Vallarta",
+        "key": "MEX-200",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-200-gro-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 70,
+      "object": "Construir, operar, explotar, conservar y mantener La Autopista Tepic - Puerto Vallarta",
+      "via": "road",
+      "evidence": "the title writes \"Tepic - Puerto Vallarta (Cuota)\"",
+      "sict": {
+        "st": "JAL",
+        "name": "Tepic - Puerto Vallarta (Cuota)",
+        "key": "MEX-200D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-200-gro-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 70,
+      "object": "Construir, operar, explotar, conservar y mantener La Autopista Tepic - Puerto Vallarta",
+      "via": "road",
+      "evidence": "the title writes \"Tepic - Puerto Vallarta\"",
+      "sict": {
+        "st": "NAY",
+        "name": "Tepic - Puerto Vallarta",
+        "key": "MEX-200",
+        "juris": "federal",
+        "toll": "free"
+      },
+      "routes": [
+        "mex-200-gro-1"
+      ],
+      "note": null,
+      "approved": true
+    },
+    {
+      "title": 70,
+      "object": "Construir, operar, explotar, conservar y mantener La Autopista Tepic - Puerto Vallarta",
+      "via": "road",
+      "evidence": "the title writes \"Tepic - Puerto Vallarta (Cuota)\"",
+      "sict": {
+        "st": "NAY",
+        "name": "Tepic - Puerto Vallarta (Cuota)",
+        "key": "MEX-200D",
+        "juris": "federal",
+        "toll": "toll"
+      },
+      "routes": [
+        "mex-200-gro-1"
+      ],
+      "note": null,
+      "approved": true
+    }
+  ]
+}

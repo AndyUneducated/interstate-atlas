@@ -202,8 +202,11 @@ function openTollPopup(id, lngLat) {
 
 /* ── the route panel ───────────────────────────────────────────────────── */
 
-function titleBody(n) {
+function titleBody(n, sictNames) {
   const x = data.titles[n];
+  const via = sictNames?.length
+    ? `<div class="tl-f">${esc(t('toll.mx.byName', { names: sictNames.map((s) => `“${s}”`).join(', ') }))} ${src(data.sources.mxNames.title, data.sources.mxNames.url)}</div>`
+    : '';
   const ended = x.ends && x.ends < new Date().toISOString().slice(0, 10);
   return `<div class="tl-item">
     <div class="tl-obj" lang="es">“${esc(x.object)}”</div>
@@ -211,6 +214,7 @@ function titleBody(n) {
     <div class="tl-meta">${esc(t('toll.mx.granted', { date: dateText(x.granted) }))}${x.ends
       ? ` · ${esc(t(ended ? 'toll.mx.ended' : 'toll.mx.ends', { date: dateText(x.ends) }))}` : ''}</div>
     ${x.builds && x.granted ? `<div class="tl-meta">${esc(t('toll.mx.bound', { date: dateText(x.granted) }))}</div>` : ''}
+    ${via}
     <div class="tl-f">${src(t('toll.mx.src'), x.document || data.sources.mx.url)}</div>
   </div>`;
 }
@@ -233,7 +237,7 @@ export async function tollSection(routeId) {
   const titles = entries.filter((e) => e.title);
   if (titles.length) {
     parts.push(`<p class="srcline">${esc(t('toll.mx.intro'))}</p>`);
-    for (const e of titles) parts.push(titleBody(e.title));
+    for (const e of titles) parts.push(titleBody(e.title, e.sictNames));
   }
   return `<div class="tl-sect">${parts.join('')}</div>`;
 }
