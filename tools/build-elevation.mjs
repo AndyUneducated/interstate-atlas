@@ -32,6 +32,7 @@ const TILE_URL = 'https://s3.amazonaws.com/elevation-tiles-prod/terrarium';
 const Z = 9;
 const SAMPLES = 220;
 const M_TO_FT = 3.280839895;
+const SEA_FLOOR_M = -30;
 
 const lon2x = (lon, z) => ((lon + 180) / 360) * 2 ** z;
 const lat2y = (lat, z) => {
@@ -77,9 +78,11 @@ async function elevationAt(lon, lat) {
   const py = Math.min(png.height - 1, Math.floor((fy % 1) * png.height));
   const i = (py * png.width + px) * 4;
   const m = png.data[i] * 256 + png.data[i + 1] + png.data[i + 2] / 256 - 32768;
-  // Open ocean reads as a large negative; treat it as sea level rather than
-  // letting it drag the axis down.
-  return m < -420 ? 0 : m;
+  // The tiles carry bathymetry, so a bridge, an underwater tunnel or a ferry
+  // reads as the floor beneath it. Anything that deep is taken as the water's
+  // surface. Land a little below sea level - the Imperial Valley on I-8 - is
+  // shallower than this and kept; Death Valley (-86 m) would not be.
+  return m < SEA_FLOOR_M ? 0 : m;
 }
 
 function haversineKm(a, b) {
