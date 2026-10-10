@@ -1042,10 +1042,15 @@ function attachMexicanTraffic(routes, mx) {
     const [st] = [...v.entries()].sort((a, b) => b[1] - a[1])[0];
     prefixOf.set(pre, st === 'MEX' ? 'EM' : st);
   }
+  // SICT counts the toll motorway beside a federal road as its own route,
+  // MEX-015D, where the atlas carries the two as one MEX-015; without folding
+  // the D back the busiest roads in the country went uncounted.
   const ourKey = (route) => {
     const [pre, ...rest] = String(route).split('-');
     const p = prefixOf.get(pre);
-    return p && rest.length ? `${p}-${rest.join('-')}` : null;
+    if (!p || !rest.length) return null;
+    const num = rest.join('-');
+    return `${p}-${p === 'MEX' ? num.replace(/^(\d+)D$/, '$1') : num}`;
   };
 
   const byDesignation = new Map();
@@ -1102,8 +1107,12 @@ function attachMexicanTraffic(routes, mx) {
     const tdpa = ss.map((s) => s[F.tdpa]).filter((v) => v > 0);
     if (!tdpa.length) continue;
     const trucks = ss.map((s) => s[F.trucks]).filter((v) => v != null && v >= 0);
+    // A route through a state whose latest edition was cut short carries that
+    // state's stations from the year before, so its figure spans two years.
+    const years = ss.map((s) => (F.year != null ? s[F.year] : mx.latest));
+    const [y0, y1] = [Math.min(...years), Math.max(...years)];
     r.mxTraffic = {
-      year: mx.latest,
+      year: y0 === y1 ? y0 : `${y0}–${y1}`,
       stations: tdpa.length,
       median: round(median(tdpa), 10),
       min: round(Math.min(...tdpa), 10),
@@ -1521,6 +1530,7 @@ async function main() {
         source: official.mxTraffic.source, agency: official.mxTraffic.agency,
         url: official.mxTraffic.url, licence: official.mxTraffic.licence,
         citation: official.mxTraffic.citation, year: official.mxTraffic.latest,
+        truncated: official.mxTraffic.limitations?.truncated ?? null,
       }
       : null,
     // The year the states' measurements describe, so a page can date them

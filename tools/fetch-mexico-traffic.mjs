@@ -201,6 +201,35 @@ async function main() {
   // has the accents, the punctuation and the k and d factors, and it is the
   // edition SICT documents. The panel is read for how the count has moved.
   const latest = String(most(got.panel.rows.map((r) => num(r.ejercicio) ?? 0)));
+  const previous = String(Number(latest) - 1);
+
+  // The 2024 edition stops at exactly 99 rows for twelve states, in both
+  // resources, where the year before had hundreds - Jalisco 734, Tamaulipas
+  // 425. That is a cut-off upstream, not a smaller survey. For a state whose
+  // survey year holds under half its previous year's rows, the previous year's
+  // stations stand in from the panel, and each station carries its own year so
+  // nothing reads as more recent than it is.
+  const rowsBy = (rows) => {
+    const c = new Map();
+    for (const r of rows) c.set(state(r.estado)?.code, (c.get(state(r.estado)?.code) ?? 0) + 1);
+    return c;
+  };
+  const surveyRows = rowsBy(got.survey.rows);
+  const previousRows = rowsBy(got.panel.rows.filter((r) => String(num(r.ejercicio)) === previous));
+  const truncated = {};
+  for (const [st, n] of previousRows) {
+    if (st && (surveyRows.get(st) ?? 0) < n / 2) truncated[st] = { rows: surveyRows.get(st) ?? 0, previous: n };
+  }
+  // The panel is flattened to ASCII with underscores for spaces. Putting the
+  // spaces back is safe; putting the accents back would be guessing.
+  const spaced = (v) => (v ? String(v).replace(/_/g, ' ') : v);
+  const sourceRows = [
+    ...got.survey.rows.filter((r) => !truncated[state(r.estado)?.code]).map((r) => ({ r, year: Number(latest) })),
+    ...got.panel.rows
+      .filter((r) => String(num(r.ejercicio)) === previous && truncated[state(r.estado)?.code])
+      .map((r) => ({ r: { ...r, carretera: spaced(r.carretera), punto_generador: spaced(r.punto_generador) }, year: Number(previous) })),
+  ];
+
   const stations = [];
   const seen = new Set();
   let noCoords = 0;
@@ -208,7 +237,7 @@ async function main() {
   let classesOff = 0;
   let rollupOff = 0;
 
-  for (const r of got.survey.rows) {
+  for (const { r, year } of sourceRows) {
     const tdpa = num(r.tdpa);
     // A site that appears in the survey with no volume against it. Left out
     // rather than carried as a zero, which would read as a road nobody uses.
@@ -246,6 +275,7 @@ async function main() {
       round(num(r.d), 3),
       lat,
       lon,
+      year,
     ]);
   }
 
@@ -342,10 +372,11 @@ async function main() {
       // the two is right is not something this end can establish.
       blankTdpa: {
         rows: noTdpa,
-        of: got.survey.rows.length,
-        note: 'Rows in the survey-year resource with the TDPA column empty. The '
-          + 'same year in the twelve-year panel carries a value on every row, '
-          + 'so the two resources disagree about the survey\'s own coverage.',
+        of: sourceRows.length,
+        note: 'Rows read for stations with the TDPA column empty. In the '
+          + 'survey-year resource the same year in the twelve-year panel carries '
+          + 'a value on every row, so the two resources disagree about the '
+          + 'survey\'s own coverage.',
       },
       encoding: {
         survey: got.survey.encoding,
@@ -359,13 +390,21 @@ async function main() {
       },
       undocumentedColumns: undocumented,
       missingColumns: missing,
+      truncated: {
+        year: Number(latest),
+        fallback: Number(previous),
+        states: truncated,
+        note: `States whose ${latest} rows stop far short of their ${previous} rows, in `
+          + `both resources. Their stations are the ${previous} ones from the panel, `
+          + 'each marked with its year; place names there are unaccented.',
+      },
     },
     latest: Number(latest),
     years,
     // Positional rows, as index.json is, rather than ten thousand copies of
     // the same twenty-three keys.
     fields: ['st', 'route', 'road', 'clave', 'point', 'km', 'te', 'sc', 'tdpa',
-      ...CLASSES, 'trucks', 'k', 'd', 'lat', 'lon'],
+      ...CLASSES, 'trucks', 'k', 'd', 'lat', 'lon', 'year'],
     fieldNotes: {
       te: 'the publisher\'s code for where the count sits relative to the '
         + 'generator point; the code list is not published with the data and is '
@@ -389,8 +428,13 @@ async function main() {
     console.log(`    ${year}  ${String(y.rows).padStart(6)} rows  ${String(y.stations).padStart(6)} stations`
       + `  median TDPA ${y.tdpaMedian?.toLocaleString()}`);
   }
-  console.log(`\n  survey ${latest}  ${got.survey.rows.length} rows -> ${stations.length} station`
+  console.log(`\n  survey ${latest}  ${sourceRows.length} rows -> ${stations.length} station`
     + ` observations at ${seen.size} distinct sites`);
+  const cut = Object.entries(truncated);
+  if (cut.length) {
+    console.log(`    ${cut.length} states cut short in ${latest}, taken from ${previous}: `
+      + cut.map(([st, v]) => `${st} ${v.rows}/${v.previous}`).join(', '));
+  }
   if (noTdpa) console.log(`    ${noTdpa} rows carry no TDPA and are left out`);
   if (noCoords) console.log(`    ${noCoords} without coordinates`);
   if (classesOff) console.log(`    ${classesOff} whose nine class shares do not sum to 100`);
