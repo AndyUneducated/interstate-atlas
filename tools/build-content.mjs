@@ -177,7 +177,7 @@ async function main() {
   // content/, so the reason lives in one place and the removals are reported.
   const costed = new Set();
   try {
-    const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', 'interstate.json'), 'utf8'));
+    const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', geoPath('us-interstate')), 'utf8'));
     for (const f of fc.features) if (f.properties.offCostK) costed.add(f.properties.id);
   } catch { /* geometry not built yet; nothing to reconcile against */ }
 

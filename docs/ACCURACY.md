@@ -97,11 +97,13 @@ dossier (costs, traffic counts, construction dates, condition) carries its own s
 naming the publication and its date. Toll facilities carry one per fact, and a fare is shown
 only with the date it took effect.
 
-Where no published figure exists, the site says so rather than estimating. A 1,900-mile
-Interstate assembled over six decades by sixteen jurisdictions has no single construction
-cost, and the page says that instead of inventing one. `build-content.mjs` enforces this: a
-figure must carry a source or an explanation of why it is absent, in both English and
-Chinese, or the build fails.
+Where no published figure exists, the site says so rather than estimating. The Yellowhead
+Highway was built and extended by four provinces over decades and no department has
+published a total cost for it, so its page says that instead of inventing one.
+`build-content.mjs` enforces this: a figure must carry a source or an explanation of why it
+is absent, in both English and Chinese, or the build fails. Where a dossier records a cost
+as unpublished and FHWA's route-by-route cost table has one, the build drops the dossier's
+claim and reports it, so the page never prints "no public figure" beside a sourced one.
 
 ## 5. What the data cannot tell apart
 
