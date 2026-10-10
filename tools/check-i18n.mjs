@@ -27,6 +27,8 @@ const ASSETS = join(dirname(fileURLToPath(import.meta.url)), '..', 'assets');
 // source as `t(\`prefix${...}\`)`, so nothing below can be reported unread.
 const BUILT = [
   'sys.', 'comp.', 'sect.', 'ca.nhs.', 'jump.', 'src.',
+  'dt.from', 'dt.to', 'hp.good', 'hp.fair', 'hp.poor', 'ca.tr.note.', 'mx.admin.',
+  'nb.ca.lv.', 'toll.kind.', 'toll.cur.', 'xing.border.', 'xing.precision.', 'toast.base.',
 ];
 
 async function main() {
@@ -74,8 +76,11 @@ async function main() {
     // The table's own definitions are not usages. Scanning i18n.js for
     // literals made every key match itself, so nothing was ever reported
     // unread and the warning was dead weight that looked like a clean bill.
-    if (f === 'i18n.js') continue;
-    for (const m of src.matchAll(/['"`]([\w-]+(?:\.[\w-]+)+)['"`]/g)) literals.add(m[1]);
+    // There a key counts as read only if it appears more often than the
+    // tables define it, as unit.long.km does in lenName().
+    const seen = new Map();
+    for (const m of src.matchAll(/['"`]([\w-]+(?:\.[\w-]+)+)['"`]/g)) seen.set(m[1], (seen.get(m[1]) ?? 0) + 1);
+    for (const [k, n] of seen) if (f !== 'i18n.js' || n > langs.length) literals.add(k);
   }
   const html = await readFile(join(ASSETS, '..', 'index.html'), 'utf8');
   for (const m of html.matchAll(/data-i18n(?:-\w+)?="([\w.-]+)"/g)) asked.add(m[1]);
