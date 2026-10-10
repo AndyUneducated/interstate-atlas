@@ -108,19 +108,19 @@ update that row too.
 | CA-13 | [CBSA *Directory of CBSA Offices*](https://open.canada.ca/data/en/dataset/1018c301-d359-4077-8d9b-4e9fbe6a223f) | the Canada–US crossings: 116 offices offering HWY/B | 2026-10-04 | Open Government Licence – Canada | `fetch-border-crossings.mjs` → `border-crossings.json` | no |
 | CA-14 | [NRCan Geolocation Service](https://geogratis.gc.ca/services/geolocation/en/locate) | placing CBSA offices and toll-stretch ends from addresses | 2026-10-04 | Open Government Licence – Canada | same, cached in `tools/src/borders/` | no |
 | CA-15 | Operators, regulations and federal briefings (407 ETR, IPC Order PO-1976, Transport Canada, the PBO, Highway 104 Western Alignment Corporation and Regulations, bridge authorities, MDOT, FBCL) | the seven toll facilities, their terms and dated fares | each fact dated in the file · 2026-10-04 | as each publisher states | by hand → `tolls-ca.json` | yes, each fact cited |
-| CA-16 | [Ontario MTO, *Bridge conditions*](https://data.ontario.ca/dataset/bridge-conditions) | 5,053 structures with year built | 2026-09-22 | OGL – Ontario | `fetch-bridges.mjs` → `bridges.json` | yes, per edition. **Not yet used**, see [I-1](#6-open-data-issues) |
+| CA-16 | [Ontario MTO, *Bridge conditions*](https://data.ontario.ca/dataset/bridge-conditions) | 5,053 structures with year built, drawn in the bridge layer | 2026-09-22 | OGL – Ontario | `fetch-bridges.mjs` → `bridges.json` → `build-bridges.mjs` | yes, per edition |
 
 ### Mexico
 
 | ID | Source | Used for | Edition · retrieved | Licence | Fetched by → stored | Reproducible |
 | --- | --- | --- | --- | --- | --- | --- |
 | MX-1 | [INEGI / SICT / IMT *Red Nacional de Caminos*](https://www.inegi.org.mx/programas/rnc/), `red_vial` | geometry, CODIGO designation, administering body, toll flag, lanes, surface, divided | no edition stated; updated 2026-03-19 · 2026-09-22 | INEGI Términos de Libre Uso | `fetch-mexico.mjs` → `tools/src/mx/` | no, replaced each December; `tools/src/mx/edition.json` records it |
-| MX-2 | same, `plaza_cobro` | toll plazas | same | same | same | **Downloaded, never read**, see [I-2](#6-open-data-issues) |
-| MX-3 | [SICT *Datos Viales*](https://www.datos.gob.mx/dataset/datos_viales), survey and 2013–2024 panel | TDPA and vehicle mix at 9,138 count stations | latest 2024; portal updated 2026-04-16 · 2026-09-28 | Términos de Libre Uso MX | `fetch-mexico-traffic.mjs` → `mx-traffic.json` | no |
+| MX-2 | same, `plaza_cobro` | 1,376 toll plazas, drawn in the toll layer | same | same | same, read by `build-tolls.mjs` | same |
+| MX-3 | [SICT *Datos Viales*](https://www.datos.gob.mx/dataset/datos_viales), survey and 2013–2024 panel | TDPA and vehicle mix at 12,263 count stations: 2024, and 2023 for the twelve states the 2024 edition cuts short (D-40) | latest 2024; portal updated 2026-04-16 · 2026-10-10 | Términos de Libre Uso MX | `fetch-mexico-traffic.mjs` → `mx-traffic.json` | no |
 | MX-4 | [SICT *Datos Viales 2025*](https://micrs.sct.gob.mx/index.php/infraestructura/direccion-general-de-servicios-tecnicos/datos-viales/2025), 32 per-state PDF indexes | which roads SICT lists, their numbers and names | 2025 · 2026-09-28 | none stated on the PDFs | `fetch-mexico-designations.mjs` → `mx-designations.json` (PDFs in `tools/src/mx/dv/`) | yes, per edition |
 | MX-5 | [SICT *Títulos de Concesión*](https://micrs.sct.gob.mx/infraestructura/direccion-general-de-desarrollo-carretero/titulos-de-concesion/) | 75 federal concession titles | 2026-10-05 | none stated | `fetch-mx-concessions.mjs` → `mx-concessions.json` | no |
 | MX-6 | [INDAABIN *Puertos fronterizos*](https://www.datos.gob.mx/dataset/puertos_fronterizos_centros_atencion_transito_fronterizo) | Mexican border crossings, north and south, with coordinates | 2025 list · 2026-10-04 | CC BY 4.0 | `fetch-border-crossings.mjs` → `border-crossings.json` | no; the newer quarterly lists drop the coordinates |
-| MX-7 | [SICT *Puentes de la Red Federal libre de peaje*](https://datos.gob.mx/dataset/puentes-de-la-red-federal-de-carreteras-libres-de-peaje) | 9,818 federal bridges with year built | 2026-09-22 | Libre Uso MX | `fetch-bridges.mjs` → `bridges.json` | yes. **Not yet used**, see [I-1](#6-open-data-issues) |
+| MX-7 | [SICT *Puentes de la Red Federal libre de peaje*](https://datos.gob.mx/dataset/puentes-de-la-red-federal-de-carreteras-libres-de-peaje) | 9,818 federal bridges with year built, drawn in the bridge layer | 2026-09-22 | Libre Uso MX | `fetch-bridges.mjs` → `bridges.json` → `build-bridges.mjs` | yes |
 
 ### All three
 
@@ -143,12 +143,12 @@ the data in a form that meets [§2](#2-what-a-source-must-meet), unless it says 
 | Route numbers | every signed system | every number in the NRN, municipal and provincial alike | numbered roads only: 265 of the 711 state roads SICT counts carry a number |
 | Route ends | Census place names | NRN place names on each side of the road | SICT section (tramo), no gazetteer |
 | Official length | Interstates only, FHWA register | NHS network totals, not per route | none |
-| Traffic | HPMS sections, length-weighted per route, 2024; Tennessee unmatched | 7 of 13 jurisdictions, years from 2015–2018 (PEI) to 2025 (AB), length-weighted plus busiest point | count stations, median, lowest and highest; not averaged |
+| Traffic | HPMS sections, length-weighted per route, 2024; Tennessee unmatched | 7 of 13 jurisdictions, years from 2015–2018 (PEI) to 2025 (AB), length-weighted plus busiest point | count stations, median, lowest and highest; not averaged; 2024, or 2023 in twelve states |
 | Pavement condition, lanes, speed | HPMS, with coverage share | lanes and paved share from the NRN | lanes, surface, divided from the RNC; no speed limit |
-| Toll share | HPMS toll flag | none on the roadway; 7 facilities drawn | RNC per-segment flag; 75 concession titles, 41 linked |
+| Toll share | HPMS toll flag | none on the roadway; 7 facilities drawn | RNC per-segment flag; 1,376 toll plazas drawn; 75 concession titles, 41 linked |
 | Opening years | Interstates with a documented year (71 routes), buildout curve 1960–1997 | Quebec autoroutes per tronçon; Trans-Canada events from the Year Book | none |
 | Construction cost | Interstates, FHWA 1991 estimate | in dossiers only, where published | none |
-| Bridges with year built | none read (NBI not yet read) | Ontario only, not yet shown | federal free network, not yet shown |
+| Bridges with year built | none read (NBI not yet read) | Ontario only, provincial structures and culverts | federal free network; not the tolled network |
 | Border crossings | the US side is only a check (BTS) | 116 CBSA highway offices, geocoded | 45 northern and the southern ports, INDAABIN coordinates |
 | Written dossiers | 155 | 17 | none |
 | Elevation profiles | every route with a dossier | every route with a dossier | none, as there are no dossiers |
@@ -174,6 +174,9 @@ code that holds the rule, so changing the decision means changing that code.
 | D-8 | A dossier's "no public figure" for a route's cost is dropped where FHWA's route cost table has one, and reported. | The page otherwise printed both side by side. | `build-content.mjs` |
 | D-9 | The README's figures are written from the build. | Typed figures drifted from the data they described. | `readme-figures.mjs`, run by `npm test` |
 | D-10 | An absent edition or licence is recorded as `null` or "none stated", never guessed. | A guessed edition makes a re-fetch look like a correction. | each fetcher |
+| D-41 | A ring road whose farthest point is the tip of a stub is closed from the nodes within 5 km of either end of its path. | The stub has no way back, so Kansas City's I-435 measured 33 mi in Missouri and filed its Kansas half as branches; it now measures 81 mi against FHWA's 80.74. Only I-435 changed. | `ringFromNearEnds` in `geo.mjs` |
+| D-42 | A piece under half a mile beside a longer piece of the same number is dropped; a short road that is the only one of its number is kept and shown as "<1 mi". | The ten dropped were digitising remnants listed as routes of 0 mi. Their siblings lost the `-1` suffix they needed only to tell the two apart (`us-129-ga-1` is now `us-129`). | `build-data.mjs`; `lenNum`, `routeDist` in `i18n.js`; `check-data.mjs` |
+| D-43 | `build-data.mjs` removes per-jurisdiction geometry files it no longer writes, and `check-data.mjs`, run by `npm test`, fails on any disagreement between the index, the geometry files and every file that names a route. | A stale `DC.json` outlived the DC 295 that TIGER 2025 now files as I-295, and an id change in one build silently empties another file's references. | `build-data.mjs`, `check-data.mjs` |
 
 ### United States
 
@@ -211,6 +214,8 @@ code that holds the rule, so changing the decision means changing that code.
 | D-30 | Route ends are the SICT section (tramo) they lie on. | There is no gazetteer in the Mexican pipeline. | `mexico.mjs`, `detail.js` |
 | D-31 | `VELOCIDAD` is kept as `routingSpeed` and never shown as a speed limit. | It is a routing parameter, not a posted limit. | `mexico.mjs` |
 | D-32 | TDPA is shown per route as the count of stations and their median, lowest and highest; no length-weighted average. Stations on unnumbered roads or more than 5 km from their route are not placed. The 2,206 sites SICT inferred for 2024 are noted, since the data does not flag them. | Stations are points; weighting them by length invents coverage. | `attachMexicanTraffic` in `build-data.mjs`, `mx-traffic.json` `limitations` |
+| D-40 | Where SICT's latest edition holds under half a state's previous-year rows, that state's stations are the previous year's from the twelve-year panel. Each station carries its year, and a route whose stations span both shows "2023–2024". A station keyed `MEX-015D` is placed on MEX-015, as D-28 makes the two one route. | The 2024 edition stops at 99 rows in twelve states, in both resources (Jalisco 99 against 734 in 2023), a cut-off rather than a smaller survey. Using 2023 everywhere was rejected as discarding the complete 2024 states. Without the D fold, more than 2,000 stations on the toll motorways were dropped. | `fetch-mexico-traffic.mjs` `limitations.truncated`, `attachMexicanTraffic` |
+| D-44 | A federal route with no segment inside any state's generalised boundary is filed in the nearest state; its per-state mileage stays empty. | `mex-174` (Ciudad Juárez) and a Sonoran piece of MEX-15 were filed in "MX". Pushing their segments into the nearest state's mileage was rejected, as D-29 leaves such segments unassigned. | `locate.nearest` in `mx-states.mjs` |
 
 ### Layers and profiles
 
@@ -223,6 +228,8 @@ code that holds the rule, so changing the decision means changing that code.
 | D-37 | A Canadian toll stretch is drawn only if it measures within 10% of the published length; a fare is shown only with the date it took effect. | A cut of a different length has found the wrong stretch; an undated fare cannot be checked. | `build-tolls.mjs`, `tolls-ca.json` |
 | D-38 | A concession title is linked to a route only if it writes the number, or a proposed name match has `approved: true`. A grant date is shown, for a title to build, as the earliest the road could have opened. Concessions are not drawn. | Titles name roads in words; the register does not say where a concession begins or ends. | `propose-mx-concession-matches.mjs`, `build-tolls.mjs` |
 | D-39 | Elevation is sampled at 220 points along the mainline from zoom-9 tiles; a reading deeper than 30 m below sea level is taken as the water's surface. | The tiles carry bathymetry, so bridges and ferries read as the sea floor. Land below sea level shallower than 30 m (the Imperial Valley) is kept; Death Valley (−86 m) would not be. | `build-elevation.mjs` |
+| D-45 | Mexico's toll plazas are drawn as points from the RNC, with the operator, the toll system and the source's own grade of the position; only a plaza graded *definida* is shown without a note. | It is where a toll is paid, not where a tolled road begins or ends, and a closed system has one at every entry and exit, so the count is of booths. | `build-tolls.mjs`, `tolls.js` |
+| D-46 | The bridge layer draws the two inventories as published, culverts included where Ontario records them, coloured by year built, and every popup repeats D-36. The layer says which networks it covers. | The United States (NBI), Mexico's tolled network and twelve Canadian jurisdictions are absent; a layer that did not say so would read as the continent. | `build-bridges.mjs`, `bridges.js` |
 
 ---
 
@@ -234,15 +241,6 @@ fixed, and record any decision it produced in [§5](#5-decision-log).
 
 | ID | Issue | Evidence |
 | --- | --- | --- |
-| I-1 | Bridges are fetched but never built into a layer, though ACCURACY.md says they are shown. | `bridges.json` (15,000 structures) is read by no build script and no module. |
-| I-2 | The RNC toll-plaza layer is downloaded but never read. | `plaza_cobro` is fetched by `fetch-mexico.mjs`, whose comment says it describes tolled routes; nothing reads it. |
-| I-3 | An unreferenced 2.3 GB copy of the 2023 RNC sits in `tools/src/mx-conabio/`. | No script names the directory. Not committed. |
 | I-4 | The route index's length mixes measured and official mileage. | `index.json` `mi` is FHWA's figure where one exists and the measurement otherwise (190 Interstates differ; I-90 2,706 against 3,076 measured). The list, the dashboard's longest routes and the trip planner sum them unlabelled, against D-1. |
-| I-5 | Some dossiers give an official length for a different extent than the route record. | I-435 dossier 80.74 mi, route register 52.8, measured 33; I-49 249.93 against 559 measured; also I-295 (NJ), I-69 (IN), AK-3, US 95 (NV), TX 71. |
-| I-6 | Some routes are missing part of their geometry. | I-435 is measured in Missouri only (33 of 80.74 mi); Kansas's half is absent. |
-| I-7 | A per-jurisdiction geometry file outlives the build that wrote it. | `data/geo/us/state/DC.json` (DC 295) dates from 2026-09-22; no route in the index is in it, because `build-data.mjs` never removes files it no longer writes. |
-| I-8 | Pieces of one road left unstitched, or duplicated. | `id-43-1` ends exactly where `id-43-2` begins; `la-3233-1` and `-2` are the same 1-mile road. |
-| I-9 | 25 routes measure 0 miles. | Fragments under half a mile published as routes, e.g. `us-129-ga-2`, `fl-620`. |
-| I-10 | Two Mexican federal routes are located in no state. | `mex-174` (Ciudad Juárez) and `mex-015-mx` (Sonora) have `st: MX` and no states, near the border or coast where Natural Earth's 1:10m lines are coarse. |
-| I-11 | Routes in some Mexican states carry no traffic though SICT counts there. | Querétaro, Quintana Roo, Nayarit and Mexico City have 84–92 stations each, and none of the 67 routes mainly in them, federal or state, has a count. Suspected: `attachMexicanTraffic` resolves SICT's state abbreviations by vote, and the resulting key may not match the atlas's prefix there. |
+| I-5 | Some dossiers give an official length for a different extent than the route record. | I-49 249.93 against 559 measured; also I-295 (NJ), I-69 (IN), AK-3, US 95 (NV), TX 71. |
 | I-12 | Shallow-water elevation readings remain. | 14 profiles still dip to between −34 and −96 ft over bridges and ferries, shallower than D-39's threshold. |

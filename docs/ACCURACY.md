@@ -87,7 +87,9 @@ which is not a daily volume and is not shown as though it were.
 stations on the paved national network. A route shows how many of its stations were counted
 and their median, lowest and highest TDPA. No length-weighted average is computed, because
 the stations are points, not sections, and weighting them by length would invent coverage
-SICT did not publish.
+SICT did not publish. The 2024 edition stops at 99 rows in twelve states, where 2023 had
+hundreds, so those states' stations are 2023's. Every route says which year it shows, and
+one crossing both kinds of state says "2023–2024".
 
 ## 4. Published
 
@@ -125,7 +127,7 @@ and not yet built.
 
 | Country | Gap | Kind | Detail |
 | --- | --- | --- | --- |
-| 🇲🇽 | Opening years | source | Neither INEGI nor SICT publishes when a road opened. SICT's bridge inventory dates 9,818 federal free-network bridges; those are kept as bridges, not yet drawn, and not used to date roads. |
+| 🇲🇽 | Opening years | source | Neither INEGI nor SICT publishes when a road opened. SICT's bridge inventory dates 9,818 federal free-network bridges; those are drawn in the bridge layer as facts about bridges, and not used to date roads. |
 | 🇲🇽 | Most state highways | source | Most states do not number their state roads. SICT's own 2025 listing gives 265 of the 711 state roads it counts a number, and only numbered roads can become routes. The state tier is the numbered minority of INEGI's 103,787 km state network. |
 | 🇲🇽 | Toll and free twins | source | The road file almost never writes the D suffix, so MEX-15 and MEX-15D share one number. A federal route can mix a toll and a free alignment, and parallel stretches show up as separate pieces under one number. Toll share comes from the file's per-segment toll flag. |
 | 🇲🇽 | Which state a federal road is in | source | The road file records the federation rather than the state as the jurisdiction of federal segments. The per-state breakdown is located against Natural Earth's 1:10m boundaries, and each route page says so. |
@@ -138,9 +140,9 @@ and not yet built.
 | 🇲🇽 | Which road a concession is on | source | SICT's register of 75 federal concession titles names most roads in words, not by number. 6 titles write a route number. 35 more are linked because they write the name SICT's Datos Viales gives a road, each match proposed by `npm run propose:tolls` and accepted by hand in `content/reference/mx-concession-matches.json`. Matches on a road named only as where a concession begins or ends were rejected. The other 34 titles, mostly bridges, stay in `content/reference/mx-concessions.json`. Concessions are not drawn, since the register does not say where one begins or ends. |
 | 🇲🇽 | Spanish interface | pending | English and Chinese only. |
 | 🇲🇽 | Numbering explainer, construction timeline | pending | Neither has a Mexico view yet. |
-| 🇲🇽 | CAPUFE toll-road traffic and tariffs | pending | Monthly flows and historical tariffs are published separately and not yet read. |
+| 🇲🇽 | CAPUFE toll-road traffic and tariffs | pending | Monthly flows and historical tariffs are published separately and not yet read. The 1,376 toll plazas the RNC records are drawn as points, without fares. |
 | 🇨🇦 | Traffic in BC, SK, MB, NL, YT, NU | source | Not published in machine-readable form (see [§3](#3-reported)). |
-| 🇨🇦 | Opening years outside Quebec | source | The *Canada Year Book* (1951–1968, 1973) never reported Trans-Canada completion by province. Saskatchewan (21 August 1957) is the one exception. The only other dated event is the national opening on 3 September 1962, which was not a completion. The 1969–1972 editions, which would cover the programme's end, are missing from Statistics Canada's digitised collection. The Act, its amendments and each province's agreement date are on the timeline. Ontario's bridge years are kept as facts about bridges only, and not yet drawn. |
+| 🇨🇦 | Opening years outside Quebec | source | The *Canada Year Book* (1951–1968, 1973) never reported Trans-Canada completion by province. Saskatchewan (21 August 1957) is the one exception. The only other dated event is the national opening on 3 September 1962, which was not a completion. The 1969–1972 editions, which would cover the programme's end, are missing from Statistics Canada's digitised collection. The Act, its amendments and each province's agreement date are on the timeline. Ontario's bridge years are drawn in the bridge layer as facts about bridges only. |
 | 🇨🇦 | Nova Scotia counts on unnumbered roads | source | 103 of the 111 highways Nova Scotia counts attach to a route. The other eight cover 77 of 6,800 counted km, and they run on roads the National Road Network gives no route number: Hammonds Plains Rd (213), Purcells Cove Rd (253), and two Halifax arterials the province counts as 32 and 33. The province's own section geometry matches its counts but cannot supply a route the national file lacks. |
 | 🇨🇦 | Where the Canadian crossings are | source | CBSA's directory gives each of its 116 highway border offices an address and no coordinates. 97 are placed by the NRCan geocoder: 41 to an address, 33 to an intersection, 11 to a street and 12 to a place name only. 17 had no match near the border and are placed where the highway in their address meets the line. Beaver Creek (address a PO box) and Fraser (on BC 2, which the atlas draws only near Dawson Creek) are not placed. Of the 58 that pair with a US port in BTS's data, all but Piney lie within 25 km of it. Piney is 39 km from Pinecreek MN, though 2.9 km from the line. |
 | 🇨🇦 | A register of toll facilities | source | Canada publishes none. The seven shown are 407 ETR, the Confederation Bridge, Cobequid Pass and the four international bridges of the Federal Bridge Corporation, each assembled from the documents that govern it. They are not every toll in the country. |

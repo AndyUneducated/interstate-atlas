@@ -80,7 +80,7 @@ flowchart TB
   subgraph build["Build — offline, deterministic"]
     direction LR
     BD["build-data.mjs<br/><i>geometry to routes</i>"]
-    BX["build-crossings.mjs<br/>build-tolls.mjs<br/><i>layers placed on the routes</i>"]
+    BX["build-crossings.mjs<br/>build-bridges.mjs · build-tolls.mjs<br/><i>overlay layers</i>"]
     BC["build-content.mjs<br/><i>validate prose</i>"]
     BE["build-elevation.mjs<br/><i>sample the DEM</i>"]
   end
@@ -89,13 +89,13 @@ flowchart TB
     direction LR
     IDX["index.json<br/><i>every route, no geometry</i>"]
     GEO["geo/*.json<br/><i>per system, per jurisdiction</i>"]
-    LAY["crossings.json<br/>tolls.json"]
+    LAY["crossings.json<br/>tolls.json · bridges.json"]
     DOS["dossiers/*.json<br/>+ index.json manifest"]
     ELEV["elevation/*.json<br/>+ index.json manifest"]
     ST["stats.json<br/>served.json · timeline.json"]
   end
 
-  CLIENT["Browser<br/><i>MapLibre 4.7.1 + nine ES modules</i>"]
+  CLIENT["Browser<br/><i>MapLibre 4.7.1 + ten ES modules</i>"]
 
   G1 -.->|"self-downloads<br/>per state at build time"| BD
   G2 --> F1 --> SRC
@@ -159,12 +159,14 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `fetch-mx-concessions.mjs` | ✅ | SICT's register of concession titles | `content/reference/mx-concessions.json` |
 | `build-data.mjs` | ⚠️ TIGER, Natural Earth | `tools/src/`, `content/reference/` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/served.json` |
 | `build-crossings.mjs` | ❌ | `content/reference/border-crossings.json`, `data/geo/` | `data/crossings.json` |
-| `build-tolls.mjs` | ❌ | `content/reference/tolls-ca.json`, `mx-concessions.json`, `mx-concession-matches.json`, `data/geo/` | `data/tolls.json` |
+| `build-bridges.mjs` | ❌ | `content/reference/bridges.json` | `data/bridges.json` |
+| `build-tolls.mjs` | ❌ | `content/reference/tolls-ca.json`, `mx-concessions.json`, `mx-concession-matches.json`, `tools/src/mx/plaza_cobro`, `data/geo/` | `data/tolls.json` |
 | `build-content.mjs` | ❌ | `content/dossiers/`, `content/reference/milestones.json` and `interstate-mileage.json`, `data/index.json`, `data/geo/` | `data/dossiers/`, `data/timeline.json` |
 | `build-elevation.mjs` | ✅ tiles | `data/dossiers/index.json` for the route list, `data/geo/`, terrain tiles cached in `tools/cache/` | `data/elevation/` |
 | `propose-mx-concession-matches.mjs` | ❌ | `mx-concessions.json`, `mx-designations.json`, `mx-traffic.json`, `data/geo/` | `content/reference/mx-concession-matches.json`, for a person to approve |
 | `check-mexico-numbers.mjs` | ❌ | `mx-designations.json`, `data/geo/` | `content/reference/mx-crosscheck.json` |
 | `check-i18n.mjs` | ❌ | `assets/*.js`, `index.html` | — |
+| `check-data.mjs` | ❌ | everything in `data/` that names a route | — |
 | `readme-figures.mjs` | ❌ | `data/stats.json`, `data/index.json`, `package.json` | the marked figures in `README.md` |
 | `verify.mjs` | ✅ localhost | the served site | `tools/shots/` (gitignored) |
 | `shoot-hero.mjs` | ✅ localhost | the served site | `docs/img/` — the two committed README images |
@@ -459,7 +461,7 @@ route because that is what it is.
 
 `index.html` is the entire markup: a static page with no templating, loading one plain
 `<script>` for MapLibre and one `<script type="module">` for `app.js`. Everything else is
-nine ES modules the browser loads and resolves itself.
+ten ES modules the browser loads and resolves itself.
 
 ```mermaid
 flowchart TD
@@ -473,7 +475,8 @@ flowchart TD
   TL["<b>timelapse.js</b><br/>docked buildout scrubber"]
   FLY["<b>fly.js</b><br/>route flythrough"]
   XG["<b>crossings.js</b><br/>border crossing layer"]
-  TO["<b>tolls.js</b><br/>toll layer · panel section"]
+  TO["<b>tolls.js</b><br/>toll layer · plazas · panel section"]
+  BR["<b>bridges.js</b><br/>bridge layer"]
 
   HTML --> MLGL
   HTML ==>|"module entry"| APP
@@ -485,6 +488,7 @@ flowchart TD
   APP --> FLY
   APP --> XG
   APP --> TO
+  APP --> BR
   DET --> FLY
   DET --> TO
 
@@ -494,6 +498,7 @@ flowchart TD
   FLY -.->|"app state"| APP
   XG -.->|"app state"| APP
   TO -.->|"app state"| APP
+  BR -.->|"app state"| APP
 
   SCH --> I18N
   SCH --> APP
@@ -504,10 +509,11 @@ flowchart TD
   I18N --> FLY
   I18N --> XG
   I18N --> TO
+  I18N --> BR
 ```
 
 Solid arrows are the feature direction — `app.js` opens the panel, the sheet, the
-scrubber, the flythrough, the two overlay layers. Dotted arrows back to `app.js` are the
+scrubber, the flythrough, the three overlay layers. Dotted arrows back to `app.js` are the
 shared state: every feature module imports the `app` object and a handful of functions
 (`select`, `loadState`, `enableSystem`, `toast`, `fitTo`) from it. Those are genuine import
 cycles, and they are fine here because ES modules resolve them and nothing runs at import
@@ -530,7 +536,8 @@ scripts, which is why it holds plain data and touches neither the DOM nor Node.
 | `timelapse.js` | the docked scrubber, the mileage curve, the year filter on the Interstate layers, the ghost layer and the flash animation | anything outside the Interstate system |
 | `fly.js` | the flythrough camera, the trail and head layers | selection, which stays with `app.js` |
 | `crossings.js` | the border crossing layer and its popup, with the routes near each crossing | route geometry |
-| `tolls.js` | the toll facility layer, its popup with dated fares, and the toll section of the route panel | route geometry |
+| `tolls.js` | the toll facility layer and Mexico's toll plazas, their popups with dated fares, and the toll section of the route panel | route geometry |
+| `bridges.js` | the bridge layer, coloured by year built, and its popup | route geometry; a bridge year never reaches the route panel |
 
 ### Boot
 
@@ -585,7 +592,7 @@ fetched here.
 | `dossiers/<id>.json` | when a route is opened | gated on the manifest, so a route without one costs no request |
 | `elevation/<id>.json` | when a route is opened | same; every route with a dossier has one |
 | `served.json`, `timeline.json` | on demand | the towns an Interstate serves; the buildout scrubber |
-| `crossings.json`, `tolls.json` | when the layer is switched on, or a route panel lists its tolls | the two overlay layers |
+| `crossings.json`, `tolls.json`, `bridges.json` | when the layer is switched on, or a route panel lists its tolls | the three overlay layers |
 
 Search covers the whole network from `index.json` whether or not a system is drawn, so
 typing a number finds it and switches its system on.
@@ -605,7 +612,8 @@ Everything the client reads is in `data/`, and the shapes are fixed.
 | `geo/*.json` | GeoJSON `FeatureCollection` | one `Feature` per route, `MultiLineString`; the full metrics ride in `properties` |
 | `stats.json` | `{ bySystem, byState, byType, sources, mxBoundaries, mxTraffic, hpmsYear, caTraffic, canada, accuracy }` | aggregates for the dashboard, plus the build's own accuracy summary, which the README quotes |
 | `crossings.json` | GeoJSON `FeatureCollection` of points, plus `sources`, `counts`, `unplaced` | one crossing each, saying how it was placed and which routes lie within `nearKm` |
-| `tolls.json` | GeoJSON `FeatureCollection`, plus `facilities`, `titles`, `byRoute` | the drawn Canadian facilities; Mexican concession titles keyed by route for the panel |
+| `tolls.json` | GeoJSON `FeatureCollection`, plus `facilities`, `titles`, `byRoute` | the drawn Canadian facilities; Mexico's toll plazas as points of `kind: "plaza"` carrying their own properties; Mexican concession titles keyed by route for the panel |
+| `bridges.json` | `{ sets, missing, roads, fields, rows }`, positional rows as `index.json` | one structure per row; `set` indexes the inventory, `road` indexes `roads`; the browser builds the GeoJSON |
 | `served.json` | `{ [routeId]: ["City, ST", …] }` | split out of the geometry because it is only read when a panel opens |
 | `timeline.json` | `{ range, coverage, mileage, routes, events }` | the buildout scrubber's whole payload |
 | `dossiers/index.json`, `elevation/index.json` | `{ ids: [] }` | manifests, so absence costs no request |
@@ -739,18 +747,19 @@ one produced a visibly wrong atlas before it was handled.
 
 ## 7. Checks
 
-There is no CI. The checks are four scripts, run by hand, and each one fails loudly
+There is no CI. The checks are five scripts, run by hand, and each one fails loudly
 rather than warning quietly.
 
 | Command | Fails on | Also reports |
 | --- | --- | --- |
 | `node tools/check-i18n.mjs` | a key in one language table and not the other; placeholders that differ between the two; a key the code asks `t()` for that no table defines | keys both tables define that nothing reads |
 | `node tools/build-content.mjs` | a figure with a value but no source; a figure with neither a value nor a stated reason for its absence; a localised field missing either language; a dossier whose route cannot be resolved, or that resolves to a route another dossier already claims | English and Chinese paragraph counts that disagree; cost claims superseded by the FHWA table |
+| `node tools/check-data.mjs` | a route id used twice; a geometry file and the index disagreeing on which routes it holds, or a per-jurisdiction file no route belongs to; a remnant under half a mile beside a longer piece of its number; a route filed in no jurisdiction; an id in dossiers, elevation, timeline, tolls, crossings or served places missing from the index | — |
 | `node tools/readme-figures.mjs` | a README marker with no generator, or a generator with no marker; with `--check`, figures that no longer match the build | — |
-| `node tools/verify.mjs` | any of 42 steps against the real site in headless Chromium | console errors and failed network requests |
+| `node tools/verify.mjs` | any of 44 steps against the real site in headless Chromium | console errors and failed network requests |
 
-`npm test` runs the first three, and the third rewrites the README's figures from the build.
-The fourth needs `npm run serve` in another terminal.
+`npm test` runs the first four, and the fourth rewrites the README's figures from the build.
+The fifth needs `npm run serve` in another terminal.
 
 **What the checks are guarding.** The i18n check exists because bilingual parity is the
 kind of requirement that rots silently: a missing key falls back to English at runtime and
@@ -763,7 +772,7 @@ writing prose that ignores it.
 **Why `verify.mjs` asserts the way it does.** It reads parsed source data rather than
 rendered tiles, because `querySourceFeatures` reports zero both when loading failed and
 when the map has simply not repainted yet — and headless, with no GPU, repaints come when
-they come. Its 42 steps cover boot, search, selection, detail metrics, termini, official
+they come. Its 44 steps cover boot, search, selection, detail metrics, termini, official
 cost figures on routes with and without a dossier, the numbering explainer, the dashboard,
 the buildout scrubber opening and closing, the command palette, layer toggling, the
 language switch, the flythrough, terrain on and off, per-state loading, marker overflow,
@@ -772,7 +781,7 @@ switching, the Alaska jump and its four unsigned Interstates, HPMS figures on a 
 the Trans-Canada drawing by default, Canadian metrics, per-province loading, traffic
 on a route in a publishing province, the unit switch, list sorting and following the map,
 the colour key and hiding the interface, the buildout run stopping at its end, and the
-border crossing and toll layers with their popups and panel sections. Screenshots go to
+border crossing, toll, toll plaza and bridge layers with their popups and panel sections. Screenshots go to
 `tools/shots/` as diagnostics, not assertions; that directory is gitignored.
 
 **What is not checked.** There is no test of the stitching itself beyond the accuracy

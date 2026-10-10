@@ -19,7 +19,7 @@ that have one.
 <br/>
 
 <!-- auto:badges -->
-![routes](https://img.shields.io/badge/routes-21%2C026-ffd166?style=flat-square&labelColor=0b1220)
+![routes](https://img.shields.io/badge/routes-21%2C016-ffd166?style=flat-square&labelColor=0b1220)
 ![jurisdictions](https://img.shields.io/badge/jurisdictions-96-4fe3b0?style=flat-square&labelColor=0b1220)
 ![systems](https://img.shields.io/badge/route%20systems-8-ffd166?style=flat-square&labelColor=0b1220)
 ![countries](https://img.shields.io/badge/countries-US%20%C2%B7%20CA%20%C2%B7%20MX-ff4d6d?style=flat-square&labelColor=0b1220)
@@ -58,7 +58,7 @@ that have one.
 
 > [!NOTE]
 > **Counts move; method does not.** Every route total, mileage and percentage on this page
-> is written from the published build dated **<!-- auto:date -->2026-10-05<!-- /auto:date -->** by
+> is written from the published build dated **<!-- auto:date -->2026-10-10<!-- /auto:date -->** by
 > `tools/readme-figures.mjs`, which `npm test` runs, and changes whenever the pipeline is
 > re-run. The rules those numbers obey are in [On accuracy](#on-accuracy) and do not change.
 
@@ -70,7 +70,8 @@ that have one.
 | **Route detail** | Termini, length, per-jurisdiction mileage, roadway classification and grade separation measured off the geometry; alongside them, what the states, provinces and SICT measured — traffic, heavy-truck volume, pavement condition, lanes, posted speeds — each stating the share of the road it covers. For curated routes, a written account of how the road came to be, what it cost, what it carries and what condition it is in. |
 | **Buildout scrubber** | A docked timeline over the live map. The scrub track *is* FHWA's mileage curve, 1960–1997; the playhead runs from 1956 to the latest documented completion, and routes light up as their documented year arrives. Quebec's autoroutes and the Trans-Canada's dated events are on it too. |
 | **Border crossings** | 167 land crossings on the Canada–US, Mexico–US, Mexico–Guatemala and Mexico–Belize borders, each saying how it was placed and listing the atlas routes within 2 km of it. |
-| **Toll facilities** | Seven Canadian toll roads and bridges on the map, each with its operator, length, opening date and dated fares, every fact linked to its source. A route's panel lists the tolls on it, and for Mexico the federal concession titles that name it. |
+| **Toll facilities** | Seven Canadian toll roads and bridges on the map, each with its operator, length, opening date and dated fares, every fact linked to its source, and Mexico's 1,376 toll plazas with their operator and toll system. A route's panel lists the tolls on it, and for Mexico the federal concession titles that name it. |
+| **Bridges** | 14,856 structures from the two inventories that record a year built, Mexico's federal free network and Ontario's provincial highways, coloured by that year. The year dates the structure, never the road. |
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
 | **Statistics dashboard** | Network totals by system and by jurisdiction, all three countries. |
@@ -121,19 +122,19 @@ flowchart LR
 
 ## Coverage
 
-<!-- auto:summary -->21,026 routes across 96 states, provinces and territories in 3 countries, measuring 712,114 miles of road, in the build dated 2026-10-05.<!-- /auto:summary -->
+<!-- auto:summary -->21,016 routes across 96 states, provinces and territories in 3 countries, measuring 712,164 miles of road, in the build dated 2026-10-10.<!-- /auto:summary -->
 
 <!-- auto:coverage -->
 | Country | System | Routes | Miles | Notes |
 | --- | --- | --- | ---: | --- |
-| 🇺🇸 | Interstate Highways | 461 | 50,461 | includes Alaska's four unsigned A-series and Hawaii's H-series |
-| 🇺🇸 | US Numbered Routes | 1,051 | 155,337 | the pre-1956 grid, numbered opposite to the Interstates |
-| 🇺🇸 | State Routes | 14,500 | 353,699 | routes in 51 states and territories, loaded per state |
+| 🇺🇸 | Interstate Highways | 461 | 50,511 | includes Alaska's four unsigned A-series and Hawaii's H-series |
+| 🇺🇸 | US Numbered Routes | 1,049 | 155,337 | the pre-1956 grid, numbered opposite to the Interstates |
+| 🇺🇸 | State Routes | 14,496 | 353,699 | routes in 51 states and territories, loaded per state |
 | 🇨🇦 | Trans-Canada Highway | 26 | 7,131 | the designation, traced across the provincial highways that carry it |
 | 🇨🇦 | National Highway System | 357 | 33,860 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
-| 🇨🇦 | Provincial & Municipal Routes | 2,751 | 68,739 | routes in 12 provinces and territories, loaded per jurisdiction |
-| 🇲🇽 | Federal Highways | 250 | 21,816 | numbered roads the federation administers |
-| 🇲🇽 | State Highways | 1,630 | 21,071 | numbered state roads in 32 states, loaded per state; most state roads carry no number |
+| 🇨🇦 | Provincial & Municipal Routes | 2,750 | 68,739 | routes in 12 provinces and territories, loaded per jurisdiction |
+| 🇲🇽 | Federal Highways | 248 | 21,816 | numbered roads the federation administers |
+| 🇲🇽 | State Highways | 1,629 | 21,071 | numbered state roads in 32 states, loaded per state; most state roads carry no number |
 <!-- /auto:coverage -->
 
 Nunavut has no numbered route in the national road file, and no road connects it to the
@@ -227,6 +228,7 @@ correct one, every decision about how it is used, and the data issues still open
 | [GNWT Bureau of Statistics, *Estimated Traffic on NWT Highways*](https://www.statsnwt.ca/Transportation/) | estimated AADT, Northwest Territories | Open Government Licence – Northwest Territories |
 | [CBSA *Directory of CBSA Offices*](https://open.canada.ca/data/en/dataset/1018c301-d359-4077-8d9b-4e9fbe6a223f) | the Canada–US crossings, as the offices offering highway border service | Open Government Licence – Canada |
 | [NRCan Geolocation Service](https://geogratis.gc.ca/services/geolocation/en/locate) | placing those offices from their addresses, and the ends of the toll stretches | Open Government Licence – Canada |
+| [Ontario *Bridge conditions*](https://data.ontario.ca/dataset/bridge-conditions) | 5,053 provincial structures with year built, for the bridge layer | Open Government Licence – Ontario |
 | [407 ETR](https://407etr.com/en/travel-with-us) and [IPC Ontario Order PO-1976](https://www.ipc.on.ca/sites/default/files/legacy/2016/08/PO-1976.pdf) | 407 ETR's length, concession term and tolling | operator's terms; IPC order public |
 | Transport Canada [briefing binder (2025)](https://tc.canada.ca/en/binder/26-confederation-bridge-tolls) and [2023 briefing](https://tc.canada.ca/en/corporate-services/transparency/briefing-documents-transport-canada/2023/current-topics/confederation-bridge); [Parliamentary Budget Officer](https://www.pbo-dpb.ca/en/publications/LEG-2526-004-S--reducing-tolls-confederation-bridge-fares-wood-islands-caribou-ferry--reduction-droits-peage-pont-confederation-tarifs-traversier-wood-islands-caribou) (December 2025) | Confederation Bridge operator, agreements and dated tolls | Government of Canada terms |
 | [Highway 104 Western Alignment Regulations](https://novascotia.ca/just/regulations/regs/HW104reg.htm), the corporation's [2023–24 annual report](http://www.highway104.ns.ca/ar-2024.pdf), [cobequidpass.com](https://cobequidpass.com/tollfees) | Cobequid Pass length, opening, exemptions and toll | Nova Scotia terms; operator's terms |
@@ -236,8 +238,9 @@ correct one, every decision about how it is used, and the data issues still open
 
 | Source | Used for | Licence | Refresh |
 | --- | --- | --- | --- |
-| [INEGI / SICT / IMT *Red Nacional de Caminos*](https://www.inegi.org.mx/programas/rnc/) 2025, `red_vial` | route geometry, designation (CODIGO), administering body, toll flag, lanes, surface, divided | Términos de Libre Uso (INEGI) | annual, each December |
-| [SICT *Datos Viales*](https://www.datos.gob.mx/dataset/datos_viales) 2013–2024 | TDPA and vehicle mix at 9,138 count stations | Términos de Libre Uso MX | annual |
+| [INEGI / SICT / IMT *Red Nacional de Caminos*](https://www.inegi.org.mx/programas/rnc/) 2025, `red_vial` and `plaza_cobro` | route geometry, designation (CODIGO), administering body, toll flag, lanes, surface, divided; toll plazas | Términos de Libre Uso (INEGI) | annual, each December |
+| [SICT *Datos Viales*](https://www.datos.gob.mx/dataset/datos_viales) 2013–2024 | TDPA and vehicle mix at 12,263 count stations; 2023 in the twelve states the 2024 edition cuts short | Términos de Libre Uso MX | annual |
+| [SICT *Puentes de la Red Federal libre de peaje*](https://datos.gob.mx/dataset/puentes-de-la-red-federal-de-carreteras-libres-de-peaje) | 9,818 federal bridges with year built, for the bridge layer | Libre Uso MX | as SICT republishes |
 | SICT *Datos Viales* 2025, per-state PDF indexes | which roads SICT lists, their numbers and names; the names link concession titles to routes | no licence statement on the PDFs | annual; file names and layout changed between 2024 and 2025 |
 | [INDAABIN *Puertos fronterizos*](https://www.datos.gob.mx/dataset/puertos_fronterizos_centros_atencion_transito_fronterizo) 2025 list | the Mexican border crossings, north and south, with coordinates | CC BY 4.0 | the newer quarterly lists drop the coordinates |
 | [SICT *Títulos de Concesión*](https://micrs.sct.gob.mx/infraestructura/direccion-general-de-desarrollo-carretero/titulos-de-concesion/) | the 75 federal highway concession titles, with concessionaire, grant and end dates | none stated on the page | as SICT updates the page |
@@ -292,12 +295,12 @@ sit in the repository. The scripts below rebuild the *data*.
 | `npm run fetch:borders` | CBSA and INDAABIN crossing lists; geocodes the Canadian offices | `content/reference/border-crossings.json` |
 | `npm run fetch:tolls` | SICT's concession register (Canadian facilities are kept by hand in `tolls-ca.json`) | `content/reference/mx-concessions.json` |
 | `npm run fetch:all` | every fetch above, in order | all of the above |
-| `npm run build` | `build-data`, `build-crossings`, `build-tolls`, `build-content` | `data/` |
+| `npm run build` | `build-data`, `build-crossings`, `build-bridges`, `build-tolls`, `build-content` | `data/` |
 | `npm run build:elevation` | samples terrain along curated routes | `data/elevation/` |
 | `npm run propose:tolls` | proposes concession-to-route matches for review | `content/reference/mx-concession-matches.json` |
 | `npm run check:mx` | cross-checks Mexican route numbers against SICT | `content/reference/mx-crosscheck.json` |
 | `npm run serve` | serves the repository on `http://localhost:8787` | — |
-| `npm test` | i18n parity, content validation, README figures | `README.md` figures |
+| `npm test` | i18n parity, content validation, cross-file data consistency, README figures | `README.md` figures |
 | `npm run verify` | drives the served site in headless Chromium | `tools/shots/` (gitignored) |
 
 ```sh
