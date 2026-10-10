@@ -530,7 +530,58 @@ function closeRing(adj, path, a, b, tolKm = 0.08) {
   }
 
   const back = shortestPath(residual, b, a);
-  return back?.length ? [...path, ...back] : path;
+  if (back?.length) return [...path, ...back];
+  return ringFromNearEnds(residual, path, a);
+}
+
+/**
+ * The same search, for a ring whose chosen end is a stub.
+ *
+ * The farthest point of a beltway can be the tip of a short spur filed under
+ * its number - Kansas City's I-435 ends that way on a 0.5 km stub - and a stub
+ * has no way back by definition, so the whole Kansas half was filed as
+ * branches. So try again between the nodes within `nearKm` of each end of the
+ * path, and keep the stretch of path between the two that close the ring.
+ * The window is small and the two ends are far apart, so a loop near one end
+ * cannot pass for a ring.
+ */
+function ringFromNearEnds(residual, path, a, nearKm = 5) {
+  const nodes = [a, ...path.map((s) => s.to)];
+  const along = [0];
+  for (const s of path) along.push(along[along.length - 1] + s.e.km);
+  const total = along[along.length - 1];
+  if (total < nearKm * 4) return path;
+
+  const head = new Map();
+  const tail = [];
+  nodes.forEach((n, i) => {
+    if (along[i] <= nearKm) head.set(n, i);
+    else if (total - along[i] <= nearKm) tail.push(i);
+  });
+
+  const START = -1;
+  residual.set(START, tail.map((i) => ({ to: nodes[i], e: { i: -1, km: 0 } })));
+  const { dist, prev } = dijkstra(residual, START);
+  residual.delete(START);
+
+  let best = null;
+  for (const [n, hi] of head) {
+    const d = dist.get(n);
+    if (d != null && (!best || d < best.d)) best = { n, hi, d };
+  }
+  if (!best) return path;
+
+  const back = [];
+  let n = best.n;
+  while (true) {
+    const p = prev.get(n);
+    if (p.from === START) break;
+    back.push({ from: p.from, to: n, e: p.e });
+    n = p.from;
+  }
+  back.reverse();
+  const ti = nodes.indexOf(n, best.hi + 1);
+  return [...path.slice(best.hi, ti), ...back];
 }
 
 // Sample a polyline every `stepKm`, ending on its last vertex so a short piece

@@ -3,7 +3,7 @@
 
 import {
   t, setLang, getLang, stateName, dist, num, lenOf, lenName, isProvince, jurisdictionNames,
-  routeLabel, ownerLabel, countryOfJuris, setUnits, getUnits, defaultUnits,
+  routeLabel, ownerLabel, countryOfJuris, setUnits, getUnits, defaultUnits, lenNum, routeDist,
 } from './i18n.js';
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen, refreshPlannerIfOpen } from './sheets.js';
@@ -1075,7 +1075,7 @@ function renderResults() {
         <span class="res-name">${r.label}${written}</span>
         <span class="res-sub">${sub}</span>
       </span>
-      <span class="res-mi">${num(lenOf(r.mi))}</span>`;
+      <span class="res-mi">${lenNum(r.mi)}</span>`;
     b.addEventListener('click', () => select(r.id));
     frag.appendChild(b);
   }
@@ -1188,7 +1188,7 @@ function renderPalette() {
     for (const r of rows) {
       item(`<span class="ico-w">${shieldHtml(r)}</span>
         <span class="pal-it-txt"><span class="pal-it-name">${r.label}</span>
-        <span class="pal-it-sub">${ownerLabel(r.sys, r.st)}${r.where ? ` · ${r.where}` : ''} · ${dist(r.mi)}</span></span>`,
+        <span class="pal-it-sub">${ownerLabel(r.sys, r.st)}${r.where ? ` · ${r.where}` : ''} · ${routeDist(r.mi)}</span></span>`,
       () => select(r.id));
     }
   }

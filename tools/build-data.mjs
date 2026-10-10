@@ -946,7 +946,7 @@ async function buildMexico(contextLines) {
       const [start, end] = mexicoTermini(comp.pathEdges, pieces !== comp.pieces);
       const label = mexicoLabel(grp);
       const primarySt = federal
-        ? (stats.states[0]?.st ?? 'MX')
+        ? (stats.states[0]?.st ?? locate.nearest(flat[Math.floor(flat.length / 2)]))
         : ([...grp.jurisdictions][0] ?? stats.states[0]?.st);
       if (!primarySt) continue;
 
@@ -1295,6 +1295,16 @@ async function main() {
   console.log('\nreading Mexican road network...');
   const mexico = await buildMexico(contextLines);
   routes.push(...mexico.routes);
+
+  // A piece under half a mile of a number that has a longer piece elsewhere is
+  // a remnant of the source's digitising rather than a road: it printed as
+  // 0 mi beside the real one. A short road that is the only one of its number
+  // stays.
+  const longest = new Map();
+  for (const r of routes) longest.set(r.key, Math.max(longest.get(r.key) ?? 0, r.mi));
+  const fragments = routes.filter((r) => r.mi === 0 && longest.get(r.key) > 0);
+  for (const f of fragments) routes.splice(routes.indexOf(f), 1);
+  console.log(`dropped ${fragments.length} fragments under half a mile beside a longer piece of the same number`);
 
   // Stable, readable ids. Interstates and US routes are unique nationally
   // unless the number is genuinely reused, in which case the state breaks the

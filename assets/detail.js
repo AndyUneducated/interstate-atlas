@@ -8,7 +8,7 @@
    says so rather than guessing. */
 
 import {
-  t, getLang, stateName, num, isProvince, ownerLabel,
+  t, getLang, stateName, num, isProvince, ownerLabel, lenNum,
   lenOf, lenOfKm, lenUnit, dist, distKm, distAlt, speedKph, speedMph, heightFt, getUnits,
 } from './i18n.js';
 import { app, shieldHtml, addToTrip, clearSelection, fitTo, loadDossier } from './app.js';
@@ -115,7 +115,7 @@ function heroLength(p, officialMi, ca) {
   const mi = officialMi ?? p.mi;
   return `<div class="mhero">
     <span class="m-k">${t('dt.length')}</span>
-    <div class="mhero-v">${num(lenOf(mi))}<small>${lenUnit()}</small></div>
+    <div class="mhero-v">${lenNum(mi)}<small>${lenUnit()}</small></div>
     <span class="mhero-s">${distAlt(mi)} · ${
   officialMi != null ? t('len.heroOfficial') : t(ca ? 'len.heroNrn' : 'len.heroTiger')}</span>
   </div>`;

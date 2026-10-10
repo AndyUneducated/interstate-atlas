@@ -125,11 +125,25 @@ export async function loadStateLocator() {
     }
   }
 
-  return ([x, y]) => {
+  const locate = ([x, y]) => {
     for (const s of grid.get(`${Math.floor(x)},${Math.floor(y)}`) ?? []) {
       if (x < s.box[0] || x > s.box[2] || y < s.box[1] || y > s.box[3]) continue;
       if (inPolygon(s.rings, x, y)) return s.code;
     }
     return null;
   };
+  // The state whose boundary passes closest, for filing a whole route that
+  // lies entirely outside the generalised lines. Never used to divide mileage.
+  locate.nearest = ([x, y]) => {
+    let best = null;
+    let d = Infinity;
+    for (const s of states) {
+      for (const [px, py] of s.rings[0]) {
+        const v = (px - x) ** 2 + (py - y) ** 2;
+        if (v < d) { d = v; best = s.code; }
+      }
+    }
+    return best;
+  };
+  return locate;
 }

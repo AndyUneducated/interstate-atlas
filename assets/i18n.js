@@ -957,6 +957,11 @@ export function lenName() { return t(isMetric() ? 'unit.long.km' : 'unit.long.mi
 export function dist(mi, digits = 0) {
   return mi == null ? '—' : `${num(lenOf(mi), digits)} ${lenUnit()}`;
 }
+// A route's length is held to the whole mile, so a road under half a mile is
+// 0 there. It reads "<1" rather than as a road of no length.
+export function lenNum(mi) { return mi === 0 ? '<1' : num(lenOf(mi)); }
+export function routeDist(mi) { return mi === 0 ? `<1 ${lenUnit()}` : dist(mi); }
+
 export function distKm(km, digits = 0) {
   return km == null ? '—' : `${num(lenOfKm(km), digits)} ${lenUnit()}`;
 }
@@ -964,6 +969,7 @@ export function distKm(km, digits = 0) {
 /** The other unit, for the line under a headline length. */
 export function distAlt(mi) {
   if (mi == null) return '—';
+  if (mi === 0) return `<1 ${t(isMetric() ? 'unit.mi' : 'unit.km')}`;
   return isMetric() ? `${num(mi)} ${t('unit.mi')}` : `${num(mi * KM_PER_MI)} ${t('unit.km')}`;
 }
 

@@ -3,7 +3,7 @@
 
 import {
   t, getLang, stateName, dist, num, lenOf, lenUnit, lenName, speedMph, isProvince, ownerLabel,
-  countryOfJuris,
+  countryOfJuris, lenNum, routeDist,
 } from './i18n.js';
 import { app, select, loadState, zoomToState } from './app.js';
 import { SYSTEMS, CLASS_COLOUR, countryOf } from './schema.js';
@@ -540,7 +540,7 @@ function renderDashboard() {
             </tr></thead>
             <tbody>${longest.map((r) => `<tr data-id="${r.id}">
               <td>${r.label}</td>
-              <td class="n">${num(lenOf(r.mi))}</td>
+              <td class="n">${lenNum(r.mi)}</td>
               <td class="n">${num(r.ns)}</td>
               <td>${ownerLabel(r.sys, r.st)}</td>
             </tr>`).join('')}</tbody>
@@ -594,7 +594,7 @@ function paintPlanner() {
         <span class="tp-leg-n">${i + 1}</span>
         <span class="tp-leg-bd">
           <span class="tp-leg-t">${r.label}</span>
-          <span class="tp-leg-s">${dist(r.mi)} · ${ownerLabel(r.sys, r.st)} · ${num(r.gs, r.gs % 1 ? 1 : 0)}% ${t('dt.gradeSep').toLowerCase()}</span>
+          <span class="tp-leg-s">${routeDist(r.mi)} · ${ownerLabel(r.sys, r.st)} · ${num(r.gs, r.gs % 1 ? 1 : 0)}% ${t('dt.gradeSep').toLowerCase()}</span>
         </span>
         <button class="tp-leg-x" data-rm="${r.id}" type="button" aria-label="Remove">
           <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>

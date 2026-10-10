@@ -347,8 +347,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-200-gro-1",
-        "mex-200-col"
+        "mex-200-gro-1"
       ],
       "note": null,
       "approved": true
@@ -366,8 +365,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-200-gro-1",
-        "mex-200-col"
+        "mex-200-gro-1"
       ],
       "note": null,
       "approved": true
