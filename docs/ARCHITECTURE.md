@@ -4,7 +4,8 @@ How Highway Atlas is put together, and why it is put together that way. This doc
 describes the parts that do not change with a rebuild: the shape of the pipeline, the
 contract between the build and the client, and the rules the data has to obey.
 
-For what the site *contains*, see the [README](../README.md). For the accuracy rules in
+For what the site *contains*, see the [README](../README.md); for every source and the
+decisions about how each is used, [DATA-SOURCES.md](DATA-SOURCES.md). For the accuracy rules in
 particular, see [Three kinds of figure](#2-three-kinds-of-figure) below, and
 [ACCURACY.md](ACCURACY.md) for the long form — it is the constraint that most of the rest
 of the design exists to serve.

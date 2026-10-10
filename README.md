@@ -39,6 +39,7 @@ that have one.
 <sub><b>[Live site](https://andyuneducated.github.io/interstate-atlas/)</b> ·
 [Architecture](docs/ARCHITECTURE.md) ·
 [Accuracy](docs/ACCURACY.md) ·
+[Data sources and decisions](docs/DATA-SOURCES.md) ·
 [Coverage](#coverage) ·
 [Known gaps](#known-gaps) ·
 [Data sources](#data-sources) ·
@@ -194,6 +195,10 @@ not yet built. Each is explained in full in [docs/ACCURACY.md](docs/ACCURACY.md#
 | 🇨🇦 🇲🇽 | Which road a crossing is on | source | neither register says; routes within 2 km are listed |
 
 ## Data sources
+
+In short below. **[docs/DATA-SOURCES.md](docs/DATA-SOURCES.md)** is the full register: the
+standard a source must meet, the edition and retrieval date of each, how to update or
+correct one, every decision about how it is used, and the data issues still open.
 
 ### United States
 
