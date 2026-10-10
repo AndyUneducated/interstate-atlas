@@ -8,9 +8,10 @@
 // without a source: a figure either carries a source string or is explicitly
 // marked as having no public data.
 
-import { readdir, readFile, writeFile, mkdir, rm } from 'node:fs/promises';
+import { readdir, readFile, mkdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { IX, SECTION_KEYS, geoPath, system, systemOfCode } from '../assets/schema.js';
+import { writeOut } from './write.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'content', 'dossiers');
@@ -282,7 +283,7 @@ async function main() {
       timelineEvents.push({ year: ev.year, en: ev.en, zh: ev.zh, id });
     }
 
-    await writeFile(join(OUT, `${id}.json`), JSON.stringify(d));
+    await writeOut(join(OUT, `${id}.json`), JSON.stringify(d));
     publishedIds.push(id);
     published++;
     const sys = systemOfCode(hit.row[IX.sys])?.id ?? 'us-state';
@@ -291,7 +292,7 @@ async function main() {
 
   // The client checks this before requesting a dossier, so routes without one
   // cost no request and log no error.
-  await writeFile(join(OUT, 'index.json'), JSON.stringify({ ids: publishedIds.sort() }));
+  await writeOut(join(OUT, 'index.json'), JSON.stringify({ ids: publishedIds.sort() }));
 
   // System-wide events sit alongside the per-route ones, so the timeline reads
   // as one story rather than a list of openings.
@@ -373,7 +374,7 @@ async function main() {
   } catch { warn('interstate-mileage.json', 'not found; the buildout view will not open'); }
 
   const interstates = index.routes.filter((r) => r[2] === 'i').length;
-  await writeFile(join(ROOT, 'data', 'timeline.json'), JSON.stringify({
+  await writeOut(join(ROOT, 'data', 'timeline.json'), JSON.stringify({
     range: [Math.min(1956, ...years), Math.max(2026, ...years)],
     // How much of the network the map can honestly light up, so the view can
     // report its own coverage instead of implying it is complete.

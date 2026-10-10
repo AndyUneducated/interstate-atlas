@@ -20,10 +20,11 @@
 // NEAR_KM of it, nearest first. That is a measurement of distance and is shown
 // as one; it is not a statement that the route serves the crossing.
 
-import { readFile, readdir, writeFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { SYSTEMS, IX } from '../assets/schema.js';
 import { usOutline, kmTo } from './border.mjs';
+import { writeOut } from './write.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const GEO = join(ROOT, 'data', 'geo');
@@ -175,7 +176,7 @@ async function main() {
       geometry: { type: 'Point', coordinates: c.at },
     })),
   };
-  await writeFile(OUT, `${JSON.stringify(out)}\n`);
+  await writeOut(OUT, `${JSON.stringify(out)}\n`);
 
   const byBorder = {};
   for (const c of shown) byBorder[c.border] = (byBorder[c.border] ?? 0) + 1;

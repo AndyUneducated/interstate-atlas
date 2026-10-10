@@ -13,7 +13,7 @@
 // measured off the geometry. Editorial figures - cost, traffic, condition - are
 // not invented here; they live in content/ with their sources attached.
 
-import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
@@ -29,6 +29,7 @@ import { STEPS as HPMS_STEPS, HPMS_YEAR } from './fetch-hpms.mjs';
 import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
 import { loadMexico, mexicoLabel } from './mexico.mjs';
 import { loadStateLocator, BOUNDARY_SOURCE } from './mx-states.mjs';
+import { writeOut } from './write.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'tools', 'src');
@@ -1413,7 +1414,7 @@ async function main() {
     };
   };
 
-  const write = (path, data) => writeFile(path, JSON.stringify(data));
+  const write = (path, data) => writeOut(path, JSON.stringify(data));
   const collection = (feats) => ({ type: 'FeatureCollection', features: feats });
 
   // Simplification tolerance by system. The national tiers are drawn from low
@@ -1443,10 +1444,18 @@ async function main() {
       if (!byJuris.has(r._primarySt)) byJuris.set(r._primarySt, []);
       byJuris.get(r._primarySt).push(r);
     }
+    const dir = join(OUT, 'geo', s.dir);
+    await mkdir(dir, { recursive: true });
     for (const [st, rs] of byJuris) {
-      const path = join(OUT, 'geo', geoPath(s.id, st));
-      await mkdir(dirname(path), { recursive: true });
-      await write(path, collection(rs.map((r) => featureOf(r, tol))));
+      await write(join(OUT, 'geo', geoPath(s.id, st)), collection(rs.map((r) => featureOf(r, tol))));
+    }
+    // A jurisdiction that no longer has a route in this tier would otherwise
+    // keep the file an earlier build wrote, drawing roads the index lacks.
+    for (const file of await readdir(dir)) {
+      if (file.endsWith('.json') && !byJuris.has(file.replace(/\.json$/, ''))) {
+        await rm(join(dir, file));
+        console.log(`removed ${s.dir}/${file}: no ${s.id} routes there any more`);
+      }
     }
   }
 
