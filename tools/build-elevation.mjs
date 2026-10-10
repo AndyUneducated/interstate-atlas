@@ -1,8 +1,11 @@
 // Samples an elevation profile along each curated route.
 //
-//   node tools/build-elevation.mjs            # routes that have a dossier
-//   node tools/build-elevation.mjs i-70 i-80  # named routes
+//   node tools/build-elevation.mjs            # routes with a published dossier
+//   node tools/build-elevation.mjs i-70 i-80  # named routes, by route id
 //   node tools/build-elevation.mjs --all      # every primary Interstate and US route
+//
+// Run it after `npm run build`: the dossier list is read from data/dossiers/,
+// where each profile is already filed under the route id the site looks up.
 //
 // Heights come from the Terrain Tiles public dataset on S3, which packs metres
 // above sea level into the RGB channels of a PNG. It is open data and needs no
@@ -12,11 +15,11 @@
 // Tiles are cached under tools/cache/ and that directory is gitignored, so a
 // rerun costs nothing but the first run is slow.
 
-import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { PNG } from 'pngjs';
-import { KM_PER_MI, geoPath, system } from '../assets/schema.js';
+import { KM_PER_MI, SYSTEMS, IX } from '../assets/schema.js';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUT = join(ROOT, 'data', 'elevation');
@@ -139,49 +142,58 @@ async function main() {
   const all = args.includes('--all');
   const named = args.filter((a) => !a.startsWith('--'));
 
+  // A dossier's filename is not its route id - the content build resolves it
+  // by number and place - so the list comes from what that build published.
   let wanted = new Set(named);
   if (!named.length) {
-    try {
-      const files = await readdir(join(ROOT, 'content', 'dossiers'));
-      wanted = new Set(files.filter((f) => f.endsWith('.json')).map((f) => f.replace(/\.json$/, '')));
-    } catch { wanted = new Set(); }
+    const manifest = join(ROOT, 'data', 'dossiers', 'index.json');
+    if (!existsSync(manifest)) throw new Error('data/dossiers/index.json is missing: run npm run build first');
+    wanted = new Set(JSON.parse(await readFile(manifest, 'utf8')).ids);
   }
 
-  const sources = ['us-interstate', 'us-numbered'];
   const features = [];
-  for (const s of sources) {
-    const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', geoPath(s)), 'utf8'));
-    for (const f of fc.features) {
-      const p = f.properties;
-      if (all ? (p.tier === 'primary' || p.sys === 'us-numbered') : wanted.has(p.id)) features.push(f);
+  for (const s of SYSTEMS) {
+    const files = s.perJuris
+      ? (await readdir(join(ROOT, 'data', 'geo', s.dir))).map((f) => join(s.dir, f))
+      : [s.geo];
+    for (const file of files) {
+      const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', file), 'utf8'));
+      for (const f of fc.features) {
+        const p = f.properties;
+        const inAll = all && (s.id === 'us-numbered' || (s.id === 'us-interstate' && p.tier === 'primary'));
+        if (inAll || wanted.has(p.id)) features.push(f);
+      }
     }
   }
-  // State-route dossiers live in per-state files; only load what is asked for.
-  const stateWanted = [...wanted].filter((id) => !id.startsWith('i-') && !id.startsWith('us-'));
-  if (stateWanted.length) {
-    const dir = join(ROOT, 'data', 'geo', system('us-state').dir);
-    for (const file of await readdir(dir)) {
-      const fc = JSON.parse(await readFile(join(dir, file), 'utf8'));
-      for (const f of fc.features) if (wanted.has(f.properties.id)) features.push(f);
-    }
-  }
+  const found = new Set(features.map((f) => f.properties.id));
+  const unknown = [...wanted].filter((id) => !found.has(id));
+  if (unknown.length) console.log(`no geometry for: ${unknown.join(', ')}`);
 
   console.log(`sampling ${features.length} routes at ${SAMPLES} points each (zoom ${Z})`);
   await mkdir(OUT, { recursive: true });
 
-  const ids = [];
   for (const [i, f] of features.entries()) {
     const profile = await profileFor(f);
-    if (!profile) continue;
-    await writeFile(join(OUT, `${f.properties.id}.json`), JSON.stringify(profile));
-    ids.push(f.properties.id);
+    if (profile) await writeFile(join(OUT, `${f.properties.id}.json`), JSON.stringify(profile));
     if ((i + 1) % 20 === 0 || i === features.length - 1) {
       console.log(`  ${i + 1}/${features.length}  tiles: ${fetched} fetched, ${cached} cached`);
     }
   }
 
+  // A profile filed under an id the build no longer assigns would never be
+  // asked for again, so it is removed rather than left to look current.
+  const index = JSON.parse(await readFile(join(ROOT, 'data', 'index.json'), 'utf8'));
+  const routeIds = new Set(index.routes.map((r) => r[IX.id]));
+  const ids = [];
+  for (const file of await readdir(OUT)) {
+    if (!file.endsWith('.json') || file === 'index.json') continue;
+    const id = file.replace(/\.json$/, '');
+    if (routeIds.has(id)) ids.push(id);
+    else await rm(join(OUT, file));
+  }
+
   // A manifest, for the same reason the dossiers have one: a profile exists for
-  // a couple of hundred routes out of 7,500, and without a list to check first
+  // a couple of hundred routes out of 21,000, and without a list to check first
   // every other route would ask for a file that is not there.
   ids.sort();
   await writeFile(join(OUT, 'index.json'), JSON.stringify({ ids }));
