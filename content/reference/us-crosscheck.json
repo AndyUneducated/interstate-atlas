@@ -1,0 +1,5299 @@
+{
+ "purpose": "Which US and state route numbers the states report to HPMS the atlas draws, and why the rest are absent.",
+ "sources": {
+  "atlas": "data/geo/us, built from TIGER/Line primary and secondary roads",
+  "hpms": "content/reference/hpms.json",
+  "tiger": "tools/src/tiger, the same files the build reads"
+ },
+ "method": [
+  "An HPMS key is counted when it measures a mile or more; shorter keys are mostly coding remnants.",
+  "A key is covered when the atlas has a route of that system and number in that state. A bare Texas number also matches the atlas loop or spur of that number, since Texas reports those without the word.",
+  "TIGER is read for the mainline only (a bypass or spur is another route), and its pieces are joined where their ends meet within 30 m; a longest stretch under 0.805 km (half a mile) is short.",
+  "Keys judged notInTiger are counted, not listed: there are ten thousand of them."
+ ],
+ "verdicts": {
+  "covered": "the atlas has the route",
+  "otherSystem": "the atlas has the number in that state under another system",
+  "notInTiger": "no TIGER primary or secondary road in that state carries the number (D-47)",
+  "short": "TIGER carries it on under half a mile of road (D-42)",
+  "inTiger": "TIGER carries more than half a mile and the atlas has no route; unexplained"
+ },
+ "total": {
+  "us-state": {
+   "reported": 21835,
+   "covered": 11266,
+   "otherSystem": 107,
+   "notInTiger": 10047,
+   "short": 415,
+   "inTiger": 0
+  },
+  "us-numbered": {
+   "reported": 717,
+   "covered": 695,
+   "otherSystem": 21,
+   "notInTiger": 1,
+   "short": 0,
+   "inTiger": 0
+  }
+ },
+ "byState": {
+  "DE": {
+   "us-state": {
+    "reported": 48,
+    "covered": 46,
+    "otherSystem": 0,
+    "notInTiger": 2,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 6,
+    "covered": 6,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "DC": {
+   "us-numbered": {
+    "reported": 3,
+    "covered": 3,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 1,
+    "covered": 0,
+    "otherSystem": 1,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "FL": {
+   "us-numbered": {
+    "reported": 18,
+    "covered": 18,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 322,
+    "covered": 290,
+    "otherSystem": 0,
+    "notInTiger": 29,
+    "short": 3,
+    "inTiger": 0
+   }
+  },
+  "GA": {
+   "us-numbered": {
+    "reported": 25,
+    "covered": 25,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 317,
+    "covered": 300,
+    "otherSystem": 0,
+    "notInTiger": 17,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "HI": {
+   "us-state": {
+    "reported": 67,
+    "covered": 62,
+    "otherSystem": 0,
+    "notInTiger": 5,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "ID": {
+   "us-state": {
+    "reported": 64,
+    "covered": 63,
+    "otherSystem": 0,
+    "notInTiger": 1,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 9,
+    "covered": 9,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "IL": {
+   "us-numbered": {
+    "reported": 18,
+    "covered": 18,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 155,
+    "covered": 154,
+    "otherSystem": 0,
+    "notInTiger": 1,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "IN": {
+   "us-numbered": {
+    "reported": 19,
+    "covered": 19,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 166,
+    "covered": 165,
+    "otherSystem": 0,
+    "notInTiger": 1,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "IA": {
+   "us-numbered": {
+    "reported": 19,
+    "covered": 19,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 97,
+    "covered": 86,
+    "otherSystem": 0,
+    "notInTiger": 11,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "KS": {
+   "us-state": {
+    "reported": 147,
+    "covered": 141,
+    "otherSystem": 0,
+    "notInTiger": 4,
+    "short": 2,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 22,
+    "covered": 22,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "KY": {
+   "us-numbered": {
+    "reported": 20,
+    "covered": 20,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 2546,
+    "covered": 1599,
+    "otherSystem": 0,
+    "notInTiger": 890,
+    "short": 57,
+    "inTiger": 0
+   }
+  },
+  "LA": {
+   "us-numbered": {
+    "reported": 16,
+    "covered": 16,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 1003,
+    "covered": 956,
+    "otherSystem": 0,
+    "notInTiger": 41,
+    "short": 6,
+    "inTiger": 0
+   }
+  },
+  "ME": {
+   "us-state": {
+    "reported": 173,
+    "covered": 171,
+    "otherSystem": 0,
+    "notInTiger": 2,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 5,
+    "covered": 5,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "MD": {
+   "us-state": {
+    "reported": 452,
+    "covered": 409,
+    "otherSystem": 0,
+    "notInTiger": 38,
+    "short": 5,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 14,
+    "covered": 14,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "MA": {
+   "us-state": {
+    "reported": 132,
+    "covered": 128,
+    "otherSystem": 4,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 8,
+    "covered": 8,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "MI": {
+   "us-numbered": {
+    "reported": 13,
+    "covered": 13,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 120,
+    "covered": 109,
+    "otherSystem": 1,
+    "notInTiger": 10,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "MN": {
+   "us-numbered": {
+    "reported": 17,
+    "covered": 17,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 141,
+    "covered": 132,
+    "otherSystem": 0,
+    "notInTiger": 9,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "MS": {
+   "us-state": {
+    "reported": 262,
+    "covered": 237,
+    "otherSystem": 2,
+    "notInTiger": 23,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 13,
+    "covered": 13,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "MO": {
+   "us-numbered": {
+    "reported": 21,
+    "covered": 21,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 209,
+    "covered": 181,
+    "otherSystem": 21,
+    "notInTiger": 7,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "MT": {
+   "us-state": {
+    "reported": 279,
+    "covered": 68,
+    "otherSystem": 3,
+    "notInTiger": 207,
+    "short": 1,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 10,
+    "covered": 10,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "NE": {
+   "us-numbered": {
+    "reported": 19,
+    "covered": 18,
+    "otherSystem": 0,
+    "notInTiger": 1,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 83,
+    "covered": 82,
+    "otherSystem": 0,
+    "notInTiger": 1,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "NV": {
+   "us-state": {
+    "reported": 145,
+    "covered": 124,
+    "otherSystem": 0,
+    "notInTiger": 21,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 5,
+    "covered": 5,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "NH": {
+   "us-state": {
+    "reported": 79,
+    "covered": 78,
+    "otherSystem": 1,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 6,
+    "covered": 6,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "NJ": {
+   "us-state": {
+    "reported": 92,
+    "covered": 89,
+    "otherSystem": 1,
+    "notInTiger": 2,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 10,
+    "covered": 10,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "NM": {
+   "us-state": {
+    "reported": 374,
+    "covered": 357,
+    "otherSystem": 0,
+    "notInTiger": 17,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 14,
+    "covered": 14,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "NY": {
+   "us-numbered": {
+    "reported": 11,
+    "covered": 11,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 372,
+    "covered": 368,
+    "otherSystem": 1,
+    "notInTiger": 3,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "NC": {
+   "us-numbered": {
+    "reported": 34,
+    "covered": 34,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 3365,
+    "covered": 273,
+    "otherSystem": 0,
+    "notInTiger": 3037,
+    "short": 55,
+    "inTiger": 0
+   }
+  },
+  "ND": {
+   "us-state": {
+    "reported": 67,
+    "covered": 65,
+    "otherSystem": 1,
+    "notInTiger": 1,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 8,
+    "covered": 8,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "OH": {
+   "us-numbered": {
+    "reported": 21,
+    "covered": 21,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 513,
+    "covered": 508,
+    "otherSystem": 0,
+    "notInTiger": 3,
+    "short": 2,
+    "inTiger": 0
+   }
+  },
+  "OK": {
+   "us-numbered": {
+    "reported": 26,
+    "covered": 26,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 139,
+    "covered": 124,
+    "otherSystem": 8,
+    "notInTiger": 6,
+    "short": 1,
+    "inTiger": 0
+   }
+  },
+  "OR": {
+   "us-numbered": {
+    "reported": 10,
+    "covered": 10,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 118,
+    "covered": 98,
+    "otherSystem": 1,
+    "notInTiger": 19,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "PA": {
+   "us-numbered": {
+    "reported": 21,
+    "covered": 21,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 460,
+    "covered": 457,
+    "otherSystem": 0,
+    "notInTiger": 3,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "RI": {
+   "us-state": {
+    "reported": 54,
+    "covered": 52,
+    "otherSystem": 0,
+    "notInTiger": 2,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 3,
+    "covered": 3,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "SC": {
+   "us-state": {
+    "reported": 2001,
+    "covered": 254,
+    "otherSystem": 27,
+    "notInTiger": 1708,
+    "short": 12,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 24,
+    "covered": 23,
+    "otherSystem": 1,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "SD": {
+   "us-numbered": {
+    "reported": 11,
+    "covered": 11,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 78,
+    "covered": 70,
+    "otherSystem": 3,
+    "notInTiger": 5,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "TN": {
+   "us-numbered": {
+    "reported": 12,
+    "covered": 0,
+    "otherSystem": 12,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 6,
+    "covered": 6,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "TX": {
+   "us-numbered": {
+    "reported": 37,
+    "covered": 37,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 3759,
+    "covered": 502,
+    "otherSystem": 4,
+    "notInTiger": 3151,
+    "short": 102,
+    "inTiger": 0
+   }
+  },
+  "UT": {
+   "us-state": {
+    "reported": 207,
+    "covered": 186,
+    "otherSystem": 0,
+    "notInTiger": 21,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 10,
+    "covered": 9,
+    "otherSystem": 1,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "VT": {
+   "us-state": {
+    "reported": 87,
+    "covered": 85,
+    "otherSystem": 1,
+    "notInTiger": 0,
+    "short": 1,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 5,
+    "covered": 5,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "VA": {
+   "us-numbered": {
+    "reported": 28,
+    "covered": 27,
+    "otherSystem": 1,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 349,
+    "covered": 274,
+    "otherSystem": 8,
+    "notInTiger": 60,
+    "short": 7,
+    "inTiger": 0
+   }
+  },
+  "WA": {
+   "us-state": {
+    "reported": 169,
+    "covered": 169,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 8,
+    "covered": 8,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "WV": {
+   "us-state": {
+    "reported": 128,
+    "covered": 122,
+    "otherSystem": 0,
+    "notInTiger": 6,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 18,
+    "covered": 18,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "WI": {
+   "us-numbered": {
+    "reported": 14,
+    "covered": 14,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 154,
+    "covered": 150,
+    "otherSystem": 1,
+    "notInTiger": 3,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "WY": {
+   "us-state": {
+    "reported": 157,
+    "covered": 149,
+    "otherSystem": 0,
+    "notInTiger": 7,
+    "short": 1,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 14,
+    "covered": 14,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "PR": {
+   "us-state": {
+    "reported": 893,
+    "covered": 167,
+    "otherSystem": 0,
+    "notInTiger": 573,
+    "short": 153,
+    "inTiger": 0
+   }
+  },
+  "AL": {
+   "us-numbered": {
+    "reported": 14,
+    "covered": 10,
+    "otherSystem": 4,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 248,
+    "covered": 216,
+    "otherSystem": 16,
+    "notInTiger": 14,
+    "short": 2,
+    "inTiger": 0
+   }
+  },
+  "AK": {
+   "us-state": {
+    "reported": 11,
+    "covered": 11,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "AZ": {
+   "us-numbered": {
+    "reported": 10,
+    "covered": 10,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 73,
+    "covered": 67,
+    "otherSystem": 0,
+    "notInTiger": 6,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "AR": {
+   "us-state": {
+    "reported": 402,
+    "covered": 361,
+    "otherSystem": 1,
+    "notInTiger": 38,
+    "short": 2,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 19,
+    "covered": 19,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "CA": {
+   "us-numbered": {
+    "reported": 6,
+    "covered": 5,
+    "otherSystem": 1,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-state": {
+    "reported": 131,
+    "covered": 128,
+    "otherSystem": 0,
+    "notInTiger": 3,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "CO": {
+   "us-state": {
+    "reported": 131,
+    "covered": 128,
+    "otherSystem": 1,
+    "notInTiger": 2,
+    "short": 0,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 17,
+    "covered": 16,
+    "otherSystem": 1,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  },
+  "CT": {
+   "us-state": {
+    "reported": 289,
+    "covered": 249,
+    "otherSystem": 0,
+    "notInTiger": 37,
+    "short": 3,
+    "inTiger": 0
+   },
+   "us-numbered": {
+    "reported": 6,
+    "covered": 6,
+    "otherSystem": 0,
+    "notInTiger": 0,
+    "short": 0,
+    "inTiger": 0
+   }
+  }
+ },
+ "listed": [
+  {
+   "st": "DC",
+   "system": "us-state",
+   "number": "295",
+   "hpmsMi": 8.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "FL",
+   "system": "us-state",
+   "number": "326",
+   "hpmsMi": 11.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "FL",
+   "system": "us-state",
+   "number": "786",
+   "hpmsMi": 8.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "FL",
+   "system": "us-state",
+   "number": "948",
+   "hpmsMi": 4,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "KS",
+   "system": "us-state",
+   "number": "267",
+   "hpmsMi": 1.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "KS",
+   "system": "us-state",
+   "number": "198",
+   "hpmsMi": 1,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "243",
+   "hpmsMi": 12.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "284",
+   "hpmsMi": 4.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "560",
+   "hpmsMi": 6.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "608",
+   "hpmsMi": 4.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "697",
+   "hpmsMi": 7.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "730",
+   "hpmsMi": 8.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "766",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "787",
+   "hpmsMi": 6.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "810",
+   "hpmsMi": 7.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "847",
+   "hpmsMi": 7.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "856",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "868",
+   "hpmsMi": 1.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "909",
+   "hpmsMi": 1.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "941",
+   "hpmsMi": 6.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1046",
+   "hpmsMi": 5.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1059",
+   "hpmsMi": 4.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1080",
+   "hpmsMi": 4.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1094",
+   "hpmsMi": 9.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1100",
+   "hpmsMi": 5.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1199",
+   "hpmsMi": 1.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1259",
+   "hpmsMi": 4.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1270",
+   "hpmsMi": 4.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1367",
+   "hpmsMi": 3.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1373",
+   "hpmsMi": 9.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1384",
+   "hpmsMi": 7.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1518",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1535",
+   "hpmsMi": 3.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1563",
+   "hpmsMi": 2.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1564",
+   "hpmsMi": 2.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1665",
+   "hpmsMi": 11.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1726",
+   "hpmsMi": 1.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1749",
+   "hpmsMi": 11.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1768",
+   "hpmsMi": 1.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1785",
+   "hpmsMi": 5.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1837",
+   "hpmsMi": 12.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1842",
+   "hpmsMi": 11,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1874",
+   "hpmsMi": 5.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "1955",
+   "hpmsMi": 18.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "2075",
+   "hpmsMi": 1.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "2183",
+   "hpmsMi": 3.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "2191",
+   "hpmsMi": 2.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "2208",
+   "hpmsMi": 2.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "2430",
+   "hpmsMi": 1.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "2467",
+   "hpmsMi": 3.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "2907",
+   "hpmsMi": 1.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3051",
+   "hpmsMi": 2.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3096",
+   "hpmsMi": 4.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3103",
+   "hpmsMi": 4.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3162",
+   "hpmsMi": 3.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3183",
+   "hpmsMi": 3.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3186",
+   "hpmsMi": 1.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3193",
+   "hpmsMi": 4.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3215",
+   "hpmsMi": 10.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3358",
+   "hpmsMi": 4,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3436",
+   "hpmsMi": 5.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3482",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "KY",
+   "system": "us-state",
+   "number": "3485",
+   "hpmsMi": 4.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "LA",
+   "system": "us-state",
+   "number": "53",
+   "hpmsMi": 1.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "LA",
+   "system": "us-state",
+   "number": "176",
+   "hpmsMi": 4.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "LA",
+   "system": "us-state",
+   "number": "1158",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "LA",
+   "system": "us-state",
+   "number": "1160",
+   "hpmsMi": 2.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "LA",
+   "system": "us-state",
+   "number": "3100",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "LA",
+   "system": "us-state",
+   "number": "3250",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "MD",
+   "system": "us-state",
+   "number": "831",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "MD",
+   "system": "us-state",
+   "number": "948",
+   "hpmsMi": 7.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "MD",
+   "system": "us-state",
+   "number": "879",
+   "hpmsMi": 1.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "MD",
+   "system": "us-state",
+   "number": "835",
+   "hpmsMi": 6.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "MD",
+   "system": "us-state",
+   "number": "992",
+   "hpmsMi": 1.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "MA",
+   "system": "us-state",
+   "number": "6",
+   "hpmsMi": 62.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MA",
+   "system": "us-state",
+   "number": "7",
+   "hpmsMi": 25.8,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MA",
+   "system": "us-state",
+   "number": "1",
+   "hpmsMi": 107.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MA",
+   "system": "us-state",
+   "number": "20",
+   "hpmsMi": 4.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MI",
+   "system": "us-state",
+   "number": "496",
+   "hpmsMi": 2.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MS",
+   "system": "us-state",
+   "number": "84",
+   "hpmsMi": 1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MS",
+   "system": "us-state",
+   "number": "51",
+   "hpmsMi": 1.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "24",
+   "hpmsMi": 18.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "29",
+   "hpmsMi": 70.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "35",
+   "hpmsMi": 33.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "36",
+   "hpmsMi": 67.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "44",
+   "hpmsMi": 477.8,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "54",
+   "hpmsMi": 76.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "55",
+   "hpmsMi": 189,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "57",
+   "hpmsMi": 7.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "60",
+   "hpmsMi": 215.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "63",
+   "hpmsMi": 107.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "65",
+   "hpmsMi": 122.8,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "67",
+   "hpmsMi": 65.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "71",
+   "hpmsMi": 45.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "136",
+   "hpmsMi": 7.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "160",
+   "hpmsMi": 6.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "175",
+   "hpmsMi": 13,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "255",
+   "hpmsMi": 8.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "270",
+   "hpmsMi": 42.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "412",
+   "hpmsMi": 11.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "435",
+   "hpmsMi": 5.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MO",
+   "system": "us-state",
+   "number": "470",
+   "hpmsMi": 2.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MT",
+   "system": "us-state",
+   "number": "310",
+   "hpmsMi": 41.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MT",
+   "system": "us-state",
+   "number": "210",
+   "hpmsMi": 10.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MT",
+   "system": "us-state",
+   "number": "384",
+   "hpmsMi": 57,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "MT",
+   "system": "us-state",
+   "number": "359",
+   "hpmsMi": 14.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "NH",
+   "system": "us-state",
+   "number": "1",
+   "hpmsMi": 2.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NJ",
+   "system": "us-state",
+   "number": "76",
+   "hpmsMi": 1.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NY",
+   "system": "us-state",
+   "number": "895",
+   "hpmsMi": 1.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "120",
+   "hpmsMi": 4.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1004",
+   "hpmsMi": 301.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1006",
+   "hpmsMi": 260.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1091",
+   "hpmsMi": 11.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1100",
+   "hpmsMi": 373.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1103",
+   "hpmsMi": 244.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1108",
+   "hpmsMi": 184.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1115",
+   "hpmsMi": 165.7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1120",
+   "hpmsMi": 154,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1128",
+   "hpmsMi": 187.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1138",
+   "hpmsMi": 134.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1153",
+   "hpmsMi": 107.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1155",
+   "hpmsMi": 118.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1213",
+   "hpmsMi": 60.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1219",
+   "hpmsMi": 69.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1234",
+   "hpmsMi": 44.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1307",
+   "hpmsMi": 139.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1343",
+   "hpmsMi": 105.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1347",
+   "hpmsMi": 85.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1363",
+   "hpmsMi": 67.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1396",
+   "hpmsMi": 38.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1419",
+   "hpmsMi": 74.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1428",
+   "hpmsMi": 79,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1469",
+   "hpmsMi": 24.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1500",
+   "hpmsMi": 165.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1521",
+   "hpmsMi": 107.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1523",
+   "hpmsMi": 87.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1533",
+   "hpmsMi": 78.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1568",
+   "hpmsMi": 36.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1599",
+   "hpmsMi": 20.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1600",
+   "hpmsMi": 109.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1619",
+   "hpmsMi": 60.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1654",
+   "hpmsMi": 22.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1750",
+   "hpmsMi": 35.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1757",
+   "hpmsMi": 36.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1767",
+   "hpmsMi": 26,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1802",
+   "hpmsMi": 74.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1804",
+   "hpmsMi": 50,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1805",
+   "hpmsMi": 38.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1835",
+   "hpmsMi": 32.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1837",
+   "hpmsMi": 31.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1864",
+   "hpmsMi": 11.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1969",
+   "hpmsMi": 30.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "1991",
+   "hpmsMi": 13.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2000",
+   "hpmsMi": 46,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2011",
+   "hpmsMi": 21.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2045",
+   "hpmsMi": 16,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2053",
+   "hpmsMi": 21.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2084",
+   "hpmsMi": 7.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2111",
+   "hpmsMi": 18.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2201",
+   "hpmsMi": 11.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2366",
+   "hpmsMi": 8.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2373",
+   "hpmsMi": 12.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2404",
+   "hpmsMi": 9.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "NC",
+   "system": "us-state",
+   "number": "2842",
+   "hpmsMi": 4.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "ND",
+   "system": "us-state",
+   "number": "10",
+   "hpmsMi": 14.8,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OH",
+   "system": "us-state",
+   "number": "253",
+   "hpmsMi": 1.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "OH",
+   "system": "us-state",
+   "number": "872",
+   "hpmsMi": 1.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "64",
+   "hpmsMi": 15.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "69",
+   "hpmsMi": 9.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "94",
+   "hpmsMi": 14.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "151",
+   "hpmsMi": 2.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "259",
+   "hpmsMi": 10.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "271",
+   "hpmsMi": 1.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "281",
+   "hpmsMi": 1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "377",
+   "hpmsMi": 20.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OK",
+   "system": "us-state",
+   "number": "412",
+   "hpmsMi": 9.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "OR",
+   "system": "us-state",
+   "number": "52",
+   "hpmsMi": 1.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "95",
+   "hpmsMi": 67.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "52",
+   "hpmsMi": 157.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "701",
+   "hpmsMi": 12.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "54",
+   "hpmsMi": 182.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "77",
+   "hpmsMi": 86.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "276",
+   "hpmsMi": 25.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "123",
+   "hpmsMi": 57.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "111",
+   "hpmsMi": 61.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "76",
+   "hpmsMi": 82.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "273",
+   "hpmsMi": 29,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "337",
+   "hpmsMi": 30.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "15",
+   "hpmsMi": 55.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "241",
+   "hpmsMi": 27.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "1441",
+   "hpmsMi": 3.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "25",
+   "hpmsMi": 131.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "178",
+   "hpmsMi": 28.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "1340",
+   "hpmsMi": 2.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "221",
+   "hpmsMi": 40.8,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "520",
+   "hpmsMi": 13.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "526",
+   "hpmsMi": 26.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "26",
+   "hpmsMi": 133.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "85",
+   "hpmsMi": 56.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "585",
+   "hpmsMi": 10.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "134",
+   "hpmsMi": 59.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "17",
+   "hpmsMi": 67.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "378",
+   "hpmsMi": 20.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "301",
+   "hpmsMi": 23.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "521",
+   "hpmsMi": 17.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "1",
+   "hpmsMi": 18,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "270",
+   "hpmsMi": 32.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "601",
+   "hpmsMi": 11,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "472",
+   "hpmsMi": 18,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "321",
+   "hpmsMi": 15.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "401",
+   "hpmsMi": 19.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-numbered",
+   "number": "20",
+   "hpmsMi": 2.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "29",
+   "hpmsMi": 196.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "466",
+   "hpmsMi": 15,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "944",
+   "hpmsMi": 10,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "501",
+   "hpmsMi": 15.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SC",
+   "system": "us-state",
+   "number": "176",
+   "hpmsMi": 31.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SD",
+   "system": "us-state",
+   "number": "90",
+   "hpmsMi": 6.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SD",
+   "system": "us-state",
+   "number": "29",
+   "hpmsMi": 3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "SD",
+   "system": "us-state",
+   "number": "18",
+   "hpmsMi": 1.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "235",
+   "hpmsMi": 2.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "273",
+   "hpmsMi": 1.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "99",
+   "hpmsMi": 3.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "372",
+   "hpmsMi": 3.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "350",
+   "hpmsMi": 7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "50",
+   "hpmsMi": 3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "15",
+   "hpmsMi": 2.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "107",
+   "hpmsMi": 2.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "211",
+   "hpmsMi": 4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "5",
+   "hpmsMi": 3.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "55",
+   "hpmsMi": 3.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TN",
+   "system": "us-numbered",
+   "number": "24",
+   "hpmsMi": 3.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM98",
+   "hpmsMi": 20.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM107",
+   "hpmsMi": 30,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM211",
+   "hpmsMi": 60.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM13",
+   "hpmsMi": 20.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM291",
+   "hpmsMi": 22,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM359",
+   "hpmsMi": 60.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM16",
+   "hpmsMi": 41.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM417",
+   "hpmsMi": 19.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2741",
+   "hpmsMi": 5.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM121",
+   "hpmsMi": 34.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2268",
+   "hpmsMi": 19.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "28",
+   "hpmsMi": 1.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM322",
+   "hpmsMi": 15.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM462",
+   "hpmsMi": 59.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM902",
+   "hpmsMi": 41.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1943",
+   "hpmsMi": 23.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM396",
+   "hpmsMi": 15.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM55",
+   "hpmsMi": 35.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1223",
+   "hpmsMi": 20.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM158",
+   "hpmsMi": 18.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM900",
+   "hpmsMi": 20.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM899",
+   "hpmsMi": 3.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1485",
+   "hpmsMi": 27.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1731",
+   "hpmsMi": 52,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "40",
+   "hpmsMi": 9.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM124",
+   "hpmsMi": 15.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1476",
+   "hpmsMi": 23.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM209",
+   "hpmsMi": 37.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM760",
+   "hpmsMi": 13,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM971",
+   "hpmsMi": 24.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM357",
+   "hpmsMi": 34.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1660",
+   "hpmsMi": 18.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1658",
+   "hpmsMi": 7,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "377",
+   "hpmsMi": 1.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM225",
+   "hpmsMi": 53.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1806",
+   "hpmsMi": 14.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM93",
+   "hpmsMi": 15.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM934",
+   "hpmsMi": 28.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1374",
+   "hpmsMi": 18,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM805",
+   "hpmsMi": 5.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM397",
+   "hpmsMi": 4.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM3465",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM181",
+   "hpmsMi": 63.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "RM1623",
+   "hpmsMi": 23.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM269",
+   "hpmsMi": 16.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM3358",
+   "hpmsMi": 4.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM196",
+   "hpmsMi": 33.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1767",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1960",
+   "hpmsMi": 80.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM791",
+   "hpmsMi": 44,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "259",
+   "hpmsMi": 1.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2407",
+   "hpmsMi": 9.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2184",
+   "hpmsMi": 10.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM909",
+   "hpmsMi": 16.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2493",
+   "hpmsMi": 21.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1937",
+   "hpmsMi": 6.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2799",
+   "hpmsMi": 8.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1926",
+   "hpmsMi": 7.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM69",
+   "hpmsMi": 43.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM752",
+   "hpmsMi": 14,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM102",
+   "hpmsMi": 38.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM219",
+   "hpmsMi": 91.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM148",
+   "hpmsMi": 39.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2276",
+   "hpmsMi": 18.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM256",
+   "hpmsMi": 30.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM151",
+   "hpmsMi": 7.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "RM2398",
+   "hpmsMi": 15,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1519",
+   "hpmsMi": 12.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM549",
+   "hpmsMi": 5.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1407",
+   "hpmsMi": 7.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM616",
+   "hpmsMi": 46.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2653",
+   "hpmsMi": 18.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1645",
+   "hpmsMi": 13.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM945",
+   "hpmsMi": 22.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1780",
+   "hpmsMi": 62.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2164",
+   "hpmsMi": 9.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1243",
+   "hpmsMi": 10.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM171",
+   "hpmsMi": 37.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM747",
+   "hpmsMi": 21,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM368",
+   "hpmsMi": 46.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1435",
+   "hpmsMi": 3.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM441",
+   "hpmsMi": 21.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM487",
+   "hpmsMi": 59.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1791",
+   "hpmsMi": 18.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "181",
+   "hpmsMi": 6.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2501",
+   "hpmsMi": 6.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2318",
+   "hpmsMi": 14.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM9",
+   "hpmsMi": 24.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1988",
+   "hpmsMi": 14.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2169",
+   "hpmsMi": 16.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1644",
+   "hpmsMi": 23.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM799",
+   "hpmsMi": 27.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM2874",
+   "hpmsMi": 5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1375",
+   "hpmsMi": 22.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM226",
+   "hpmsMi": 22.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1945",
+   "hpmsMi": 4.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "RM187",
+   "hpmsMi": 81.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM850",
+   "hpmsMi": 31.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM168",
+   "hpmsMi": 139,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1097",
+   "hpmsMi": 30.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM942",
+   "hpmsMi": 35.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1452",
+   "hpmsMi": 21,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1810",
+   "hpmsMi": 27.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1745",
+   "hpmsMi": 20.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM466",
+   "hpmsMi": 34.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "TX",
+   "system": "us-state",
+   "number": "FM1468",
+   "hpmsMi": 21.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "UT",
+   "system": "us-numbered",
+   "number": "30",
+   "hpmsMi": 135.8,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VT",
+   "system": "us-state",
+   "number": "26",
+   "hpmsMi": 1.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VT",
+   "system": "us-state",
+   "number": "7",
+   "hpmsMi": 2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-numbered",
+   "number": "311",
+   "hpmsMi": 7.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "1",
+   "hpmsMi": 1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "15",
+   "hpmsMi": 1.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "48",
+   "hpmsMi": 326.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "64",
+   "hpmsMi": 4.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "66",
+   "hpmsMi": 1.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "79",
+   "hpmsMi": 1,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "81",
+   "hpmsMi": 1.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "112",
+   "hpmsMi": 2.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "220",
+   "hpmsMi": 10.8,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "292",
+   "hpmsMi": 1.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "369",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "381",
+   "hpmsMi": 2.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "690",
+   "hpmsMi": 1.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "713",
+   "hpmsMi": 3.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "VA",
+   "system": "us-state",
+   "number": "721",
+   "hpmsMi": 1,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "WI",
+   "system": "us-state",
+   "number": "41",
+   "hpmsMi": 1.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "WY",
+   "system": "us-state",
+   "number": "211",
+   "hpmsMi": 42.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "675",
+   "hpmsMi": 2.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "435",
+   "hpmsMi": 7.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "391",
+   "hpmsMi": 4.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "306",
+   "hpmsMi": 3.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "4451",
+   "hpmsMi": 1.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "201",
+   "hpmsMi": 5.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "303",
+   "hpmsMi": 9.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "366",
+   "hpmsMi": 6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "874",
+   "hpmsMi": 4.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "497",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "536",
+   "hpmsMi": 4.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "743",
+   "hpmsMi": 3.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "679",
+   "hpmsMi": 1.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "829",
+   "hpmsMi": 6.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "763",
+   "hpmsMi": 5.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "853",
+   "hpmsMi": 9.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "744",
+   "hpmsMi": 1.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "451",
+   "hpmsMi": 2.7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "553",
+   "hpmsMi": 3.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "200",
+   "hpmsMi": 8.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "976",
+   "hpmsMi": 6.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "308",
+   "hpmsMi": 4.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "988",
+   "hpmsMi": 8.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "833",
+   "hpmsMi": 9.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "182",
+   "hpmsMi": 9.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "128",
+   "hpmsMi": 38.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "420",
+   "hpmsMi": 5.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "810",
+   "hpmsMi": 2.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "605",
+   "hpmsMi": 9.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "628",
+   "hpmsMi": 6.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "798",
+   "hpmsMi": 3,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "919",
+   "hpmsMi": 7.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "500",
+   "hpmsMi": 1.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.7
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "448",
+   "hpmsMi": 3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "373",
+   "hpmsMi": 3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "905",
+   "hpmsMi": 4.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "941",
+   "hpmsMi": 9.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "447",
+   "hpmsMi": 4.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "774",
+   "hpmsMi": 1.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "311",
+   "hpmsMi": 4.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "958",
+   "hpmsMi": 5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "375",
+   "hpmsMi": 2.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "678",
+   "hpmsMi": 3.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "814",
+   "hpmsMi": 3.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "6103",
+   "hpmsMi": 1.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "312",
+   "hpmsMi": 3.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "698",
+   "hpmsMi": 1.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "127",
+   "hpmsMi": 11.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "323",
+   "hpmsMi": 1.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "309",
+   "hpmsMi": 1.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "407",
+   "hpmsMi": 3.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "304",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "685",
+   "hpmsMi": 4.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "691",
+   "hpmsMi": 2.7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "559",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "730",
+   "hpmsMi": 4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "561",
+   "hpmsMi": 4.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "858",
+   "hpmsMi": 3.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "676",
+   "hpmsMi": 4.7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "7156",
+   "hpmsMi": 1.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "180",
+   "hpmsMi": 2.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "492",
+   "hpmsMi": 3.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "668",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "429",
+   "hpmsMi": 2.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "926",
+   "hpmsMi": 4.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "383",
+   "hpmsMi": 1.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "713",
+   "hpmsMi": 6.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "687",
+   "hpmsMi": 2.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "924",
+   "hpmsMi": 5.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "110",
+   "hpmsMi": 21.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "690",
+   "hpmsMi": 5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "307",
+   "hpmsMi": 5.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "682",
+   "hpmsMi": 8.8,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "703",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "918",
+   "hpmsMi": 2.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "523",
+   "hpmsMi": 3.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "453",
+   "hpmsMi": 9.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "404",
+   "hpmsMi": 6.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "333",
+   "hpmsMi": 6.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "859",
+   "hpmsMi": 2.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "635",
+   "hpmsMi": 7.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "7765",
+   "hpmsMi": 2.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "520",
+   "hpmsMi": 2.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "645",
+   "hpmsMi": 5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "343",
+   "hpmsMi": 2.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "444",
+   "hpmsMi": 4.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "681",
+   "hpmsMi": 14.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "639",
+   "hpmsMi": 6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "514",
+   "hpmsMi": 2.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "856",
+   "hpmsMi": 2.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "825",
+   "hpmsMi": 3.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "467",
+   "hpmsMi": 4.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "504",
+   "hpmsMi": 3.7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "710",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "638",
+   "hpmsMi": 7.7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "801",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "955",
+   "hpmsMi": 3.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "134",
+   "hpmsMi": 10.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "753",
+   "hpmsMi": 5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "962",
+   "hpmsMi": 2.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "411",
+   "hpmsMi": 11.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "405",
+   "hpmsMi": 4.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "663",
+   "hpmsMi": 4.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "169",
+   "hpmsMi": 3.7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "686",
+   "hpmsMi": 12.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "647",
+   "hpmsMi": 8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "507",
+   "hpmsMi": 1.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "861",
+   "hpmsMi": 7,
+   "verdict": "short",
+   "tigerLongestKm": 0.6
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "175",
+   "hpmsMi": 8.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "831",
+   "hpmsMi": 4.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "864",
+   "hpmsMi": 1.3,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "891",
+   "hpmsMi": 1.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "932",
+   "hpmsMi": 2.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "852",
+   "hpmsMi": 5.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "842",
+   "hpmsMi": 4.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "512",
+   "hpmsMi": 7.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "552",
+   "hpmsMi": 2.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "570",
+   "hpmsMi": 1.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "652",
+   "hpmsMi": 1.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "472",
+   "hpmsMi": 3.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "815",
+   "hpmsMi": 3.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "770",
+   "hpmsMi": 3.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "748",
+   "hpmsMi": 3.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "344",
+   "hpmsMi": 4,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "508",
+   "hpmsMi": 1.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "755",
+   "hpmsMi": 1.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "615",
+   "hpmsMi": 9.7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "495",
+   "hpmsMi": 4.6,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "37",
+   "hpmsMi": 4.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "249",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.8
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "191",
+   "hpmsMi": 8.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "510",
+   "hpmsMi": 6.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "459",
+   "hpmsMi": 10.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "855",
+   "hpmsMi": 1.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "739",
+   "hpmsMi": 3.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "8865",
+   "hpmsMi": 1.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "765",
+   "hpmsMi": 7,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "788",
+   "hpmsMi": 5,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "170",
+   "hpmsMi": 1.5,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "160",
+   "hpmsMi": 9.5,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "684",
+   "hpmsMi": 3.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "489",
+   "hpmsMi": 4.1,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "712",
+   "hpmsMi": 10.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "828",
+   "hpmsMi": 4.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "139",
+   "hpmsMi": 15.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "775",
+   "hpmsMi": 5.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "475",
+   "hpmsMi": 4.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "501",
+   "hpmsMi": 4.6,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "945",
+   "hpmsMi": 2,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "787",
+   "hpmsMi": 3.9,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "442",
+   "hpmsMi": 1.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "803",
+   "hpmsMi": 6.3,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "PR",
+   "system": "us-state",
+   "number": "117",
+   "hpmsMi": 8.2,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-numbered",
+   "number": "1",
+   "hpmsMi": 333.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-numbered",
+   "number": "2",
+   "hpmsMi": 31,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-numbered",
+   "number": "5",
+   "hpmsMi": 14.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-numbered",
+   "number": "20",
+   "hpmsMi": 41.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "11",
+   "hpmsMi": 213.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "29",
+   "hpmsMi": 339.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "31",
+   "hpmsMi": 358.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "43",
+   "hpmsMi": 25.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "45",
+   "hpmsMi": 16.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "71",
+   "hpmsMi": 32,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "72",
+   "hpmsMi": 27,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "78",
+   "hpmsMi": 39.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "84",
+   "hpmsMi": 9.8,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "90",
+   "hpmsMi": 4.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "98",
+   "hpmsMi": 27.6,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "178",
+   "hpmsMi": 1.9,
+   "verdict": "short",
+   "tigerLongestKm": 0.1
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "231",
+   "hpmsMi": 120.1,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "278",
+   "hpmsMi": 118.7,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "280",
+   "hpmsMi": 107.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "331",
+   "hpmsMi": 102.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "411",
+   "hpmsMi": 2.4,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AL",
+   "system": "us-state",
+   "number": "431",
+   "hpmsMi": 13.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "AR",
+   "system": "us-state",
+   "number": "327",
+   "hpmsMi": 10.4,
+   "verdict": "short",
+   "tigerLongestKm": 0.3
+  },
+  {
+   "st": "AR",
+   "system": "us-state",
+   "number": "922",
+   "hpmsMi": 2.7,
+   "verdict": "short",
+   "tigerLongestKm": 0.4
+  },
+  {
+   "st": "AR",
+   "system": "us-state",
+   "number": "30",
+   "hpmsMi": 1.9,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "CA",
+   "system": "us-numbered",
+   "number": "299",
+   "hpmsMi": 304.2,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "CO",
+   "system": "us-numbered",
+   "number": "141",
+   "hpmsMi": 5.5,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "CO",
+   "system": "us-state",
+   "number": "25",
+   "hpmsMi": 6.3,
+   "verdict": "otherSystem",
+   "tigerLongestKm": 0
+  },
+  {
+   "st": "CT",
+   "system": "us-state",
+   "number": "623",
+   "hpmsMi": 1.1,
+   "verdict": "short",
+   "tigerLongestKm": 0.5
+  },
+  {
+   "st": "CT",
+   "system": "us-state",
+   "number": "517",
+   "hpmsMi": 1.2,
+   "verdict": "short",
+   "tigerLongestKm": 0.2
+  },
+  {
+   "st": "CT",
+   "system": "us-state",
+   "number": "641",
+   "hpmsMi": 1.8,
+   "verdict": "short",
+   "tigerLongestKm": 0
+  }
+ ]
+}

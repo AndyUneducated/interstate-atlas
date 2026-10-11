@@ -23,6 +23,7 @@
     "verify": "node tools/verify.mjs",
     "check:i18n": "node tools/check-i18n.mjs",
     "check:mx": "node tools/check-mexico-numbers.mjs",
+    "check:us": "node tools/check-us-coverage.mjs",
     "check:data": "node tools/check-data.mjs",
     "test": "node tools/check-i18n.mjs && node tools/build-content.mjs && node tools/check-data.mjs && node tools/readme-figures.mjs"
   },
