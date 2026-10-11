@@ -161,6 +161,9 @@ const LOCAL = {
   TX: [
     { system: 'us-state', re: new RegExp(`^(?:fm|f m)\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), prefix: 'FM' },
     { system: 'us-state', re: new RegExp(`^(?:rm|ranch\\s*rd|ranch\\s*road)\\s*-?\\s*(${NUM})\\b\\s*(.*)$`, 'i'), prefix: 'RM' },
+    // Tyler's Loop 49 and San Angelo's Loop 250 are filed without the word
+    // "State" that the other Texas loops carry.
+    { system: 'us-state', re: new RegExp(`^(loop|lp|spur|spr)\\s+(${NUM})\\b\\s*(.*)$`, 'i'), variant: true },
   ],
 
   HI: [{ system: 'us-state', re: new RegExp(`^hi\\s*-\\s*(${NUM})\\b\\s*(.*)$`, 'i') }],
@@ -189,8 +192,14 @@ export function parseName(fullname, rttyp, st = null) {
   // M is a road under its common name and carries no designation; C is a county
   // route, which is a tier this atlas does not have. Both are read for context
   // geometry, never as routes.
+  // Where the name is itself a designation, the name decides: TIGER types
+  // every Puerto Rican carretera M, "Pr- 52" included, and some Interstate
+  // and Texas loop pieces too ("I-69 W" in Laredo, "Loop 250").
   const type = String(rttyp ?? '').trim().toUpperCase();
-  if (type === 'M' || type === 'C') return [];
+  const designated = (st === 'PR' && /^(?:pr\b|carr\b)/i.test(raw))
+    || /^i-\s*\d/i.test(raw)
+    || (st === 'TX' && /^(?:[nsew]\s+)?(?:loop|spur)\s+\d/i.test(raw));
+  if ((type === 'M' && !designated) || type === 'C') return [];
 
   if (FORMER.test(raw)) return [];
   let name = raw.replace(LEAD_DIR, '').trim();
