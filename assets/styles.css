@@ -723,6 +723,12 @@ body.tlapse-on #detail { bottom: 108px; }
   border: 1.5px solid currentColor; border-radius: 999px;
   background: rgba(169, 139, 255, 0.1);
 }
+/* No number to show: an empty outline in the state colour, dashed so it does
+   not read as a state route whose number failed to load. */
+.shield-named {
+  color: var(--c-us-state);
+  border: 1.5px dashed currentColor; border-radius: 999px;
+}
 
 /* ── Canadian markers ─────────────────────────────────────────────────────
    The Trans-Canada is signed as a white shield carrying a green maple leaf

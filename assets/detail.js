@@ -716,6 +716,9 @@ export async function renderDetail(id) {
       ${p.unsigned ? `<div class="figs ca-facts">
         <div class="fig"><span class="fig-k">${t('dt.unsigned')}</span>
         <span class="fig-v">${t('dt.unsignedWhy')}</span></div></div>` : ''}
+      ${p.nameOnly ? `<div class="figs ca-facts">
+        <div class="fig"><span class="fig-k">${t('dt.nameOnly')}</span>
+        <span class="fig-v">${t('dt.nameOnlyWhy')}</span></div></div>` : ''}
       ${gapNote}
       <div id="dtSections"></div>
     </div>`;

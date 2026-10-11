@@ -106,6 +106,8 @@ export const STRINGS = {
     'dt.zoom': 'Zoom to fit',
     'dt.unknown': 'no public figure',
     'dt.provinces': 'Provinces',
+    'dt.nameOnly': 'No route number',
+    'dt.nameOnlyWhy': 'A limited-access road known by its name alone. Census TIGER classes it as a primary road (S1100) but records a name and no number, so the atlas titles it by name. Some states keep unsigned internal numbers for roads like this; the atlas has no reliable source for them and leaves them out.',
     'dt.unsigned': 'Unsigned designation',
     'dt.unsignedWhy': 'Federally designated as part of the Interstate System, but carries no Interstate markers and appears on no road atlas. Alaskans know these roads by their names.',
 
@@ -533,6 +535,8 @@ export const STRINGS = {
     'dt.zoom': '缩放至全线',
     'dt.unknown': '无公开数据',
     'dt.provinces': '途经省份',
+    'dt.nameOnly': '无路线编号',
+    'dt.nameOnlyWhy': '这是一条只有名称、不挂编号的全封闭公路。普查局 TIGER 数据把它归为主干道（S1100 类），但只记路名不记编号，所以本图谱以路名作标题。部分州为这类道路设有不挂牌的内部编号，因缺乏可靠来源，本图谱未收录。',
     'dt.unsigned': '无标牌编号',
     'dt.unsignedWhy': '这几条路在联邦层面被正式列入州际公路系统，但沿线不设任何州际公路盾形标志，任何公路地图上也查不到它们的编号。阿拉斯加人只用路名称呼它们。',
 

@@ -1024,6 +1024,8 @@ export function shieldHtml(r, big = false) {
   // Mexican numbers are stored as written in the designation, zero-padded
   // (MEX-015D); the shield itself reads 15D.
   const raw = String(r.num ?? '');
+  // A freeway known only by its name has no number to put on a sign.
+  if (!raw) return `<span class="shield shield-named${big ? ' shield-lg' : ''}" title="${t('dt.nameOnly')}"></span>`;
   const text = (countryOf(r.sys) === 'mx' ? raw.replace(/^0+(?=\d)/, '') : raw).replace(/[<>&]/g, '');
   const prefixed = cls !== 'shield-i' && cls !== 'shield-us' && cls !== 'shield-tch' && cls !== 'shield-mxf';
   return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" `

@@ -189,6 +189,25 @@ await step('termini shown', async () => {
   if (terms.some((x) => !x.trim() || x.trim() === '—')) throw new Error(`blank terminus: ${JSON.stringify(terms)}`);
 });
 
+await step('a freeway known by name alone', async () => {
+  await page.fill('#q', 'Garden State Parkway');
+  await page.waitForTimeout(400);
+  const res = page.locator('#results .res').first();
+  if (!(await res.locator('.shield-named').count())) throw new Error('no empty shield in the result');
+  await res.click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1500);
+  const title = await page.locator('.dt-name').textContent();
+  if (!title.includes('Garden State Parkway')) throw new Error(`unexpected title: ${title}`);
+  if (!(await page.locator('.fig-k').filter({ hasText: 'No route number' }).count())) {
+    throw new Error('no "no route number" note');
+  }
+  await page.fill('#q', 'I-95');
+  await page.waitForTimeout(400);
+  await page.locator('#results .res').first().click();
+  await page.waitForTimeout(1500);
+});
+
 await step('official construction cost shown', async () => {
   const cost = page.locator('.fig').filter({ hasText: 'Interstate Construction cost' }).first();
   if (!(await cost.count())) {
