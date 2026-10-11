@@ -22,10 +22,10 @@
  },
  "total": {
   "state": {
-   "otherNumber": 55,
-   "agree": 101,
-   "notFound": 52,
-   "numberOnly": 27
+   "otherNumber": 54,
+   "agree": 114,
+   "numberOnly": 27,
+   "notFound": 40
   },
   "federal": {
    "present": 260,
@@ -36,9 +36,9 @@
   "AGU": {
    "state": {
     "agree": 9,
-    "otherNumber": 1,
+    "otherNumber": 2,
     "numberOnly": 6,
-    "notFound": 3
+    "notFound": 2
    },
    "federal": {
     "present": 4,
@@ -128,10 +128,10 @@
   },
   "COA": {
    "state": {
-    "agree": 12,
+    "agree": 14,
     "otherNumber": 0,
     "numberOnly": 2,
-    "notFound": 4
+    "notFound": 2
    },
    "federal": {
     "present": 7,
@@ -142,10 +142,10 @@
   },
   "COL": {
    "state": {
-    "agree": 3,
+    "agree": 4,
     "otherNumber": 2,
     "numberOnly": 0,
-    "notFound": 4
+    "notFound": 3
    },
    "federal": {
     "present": 4,
@@ -154,8 +154,8 @@
   },
   "DUR": {
    "state": {
-    "agree": 7,
-    "otherNumber": 1,
+    "agree": 8,
+    "otherNumber": 0,
     "numberOnly": 0,
     "notFound": 0
    },
@@ -193,10 +193,10 @@
   },
   "HID": {
    "state": {
-    "agree": 3,
+    "agree": 4,
     "otherNumber": 0,
     "numberOnly": 0,
-    "notFound": 1
+    "notFound": 0
    },
    "federal": {
     "present": 8,
@@ -220,10 +220,10 @@
   },
   "MEX": {
    "state": {
-    "agree": 7,
+    "agree": 8,
     "otherNumber": 9,
     "numberOnly": 5,
-    "notFound": 7
+    "notFound": 6
    },
    "federal": {
     "present": 14,
@@ -246,10 +246,10 @@
   },
   "MOR": {
    "state": {
-    "agree": 10,
+    "agree": 12,
     "otherNumber": 0,
     "numberOnly": 0,
-    "notFound": 2
+    "notFound": 0
    },
    "federal": {
     "present": 9,
@@ -284,8 +284,8 @@
   },
   "OAX": {
    "state": {
-    "agree": 0,
-    "otherNumber": 1,
+    "agree": 1,
+    "otherNumber": 0,
     "numberOnly": 0,
     "notFound": 0
    },
@@ -326,10 +326,10 @@
   },
   "ROO": {
    "state": {
-    "agree": 3,
+    "agree": 4,
     "otherNumber": 0,
     "numberOnly": 0,
-    "notFound": 2
+    "notFound": 1
    },
    "federal": {
     "present": 6,
@@ -350,10 +350,10 @@
   },
   "SLP": {
    "state": {
-    "agree": 7,
+    "agree": 8,
     "otherNumber": 2,
     "numberOnly": 2,
-    "notFound": 2
+    "notFound": 1
    },
    "federal": {
     "present": 11,
@@ -415,10 +415,10 @@
   },
   "VER": {
    "state": {
-    "agree": 4,
+    "agree": 5,
     "otherNumber": 1,
     "numberOnly": 0,
-    "notFound": 1
+    "notFound": 0
    },
    "federal": {
     "present": 17,
@@ -429,10 +429,10 @@
   },
   "YUC": {
    "state": {
-    "agree": 7,
+    "agree": 8,
     "otherNumber": 0,
     "numberOnly": 0,
-    "notFound": 2
+    "notFound": 1
    },
    "federal": {
     "present": 6,
@@ -468,8 +468,10 @@
    "st": "AGU",
    "sict": "002",
    "name": "El Taray - T. C.(Ramal Aeropuerto de Aguascalientes)",
-   "verdict": "notFound",
-   "atlas": null
+   "verdict": "otherNumber",
+   "atlas": [
+    "056"
+   ]
   },
   {
    "st": "AGU",
@@ -607,13 +609,6 @@
   },
   {
    "st": "COA",
-   "sict": "102",
-   "name": "Ent. Paila - Parras de La Fuente",
-   "verdict": "notFound",
-   "atlas": null
-  },
-  {
-   "st": "COA",
    "sict": "078",
    "name": "Matamoros - El Fresno",
    "verdict": "numberOnly",
@@ -624,13 +619,6 @@
    "sict": "070",
    "name": "Matamoros - La Unión",
    "verdict": "numberOnly",
-   "atlas": null
-  },
-  {
-   "st": "COA",
-   "sict": "042",
-   "name": "Ramal a Lamadrid",
-   "verdict": "notFound",
    "atlas": null
   },
   {
@@ -665,13 +653,6 @@
   },
   {
    "st": "COL",
-   "sict": "009",
-   "name": "Ramal a Tecuanillo",
-   "verdict": "notFound",
-   "atlas": null
-  },
-  {
-   "st": "COL",
    "sict": "001",
    "name": "T. C. (Guadalajara - Colima Cuota) - Quesería",
    "verdict": "notFound",
@@ -687,15 +668,6 @@
    ]
   },
   {
-   "st": "DUR",
-   "sict": "290",
-   "name": "Ramal a San Juan del Río",
-   "verdict": "otherNumber",
-   "atlas": [
-    "137"
-   ]
-  },
-  {
    "st": "GUA",
    "sict": "001",
    "name": "Ent. San Miguel de Allende - Dr. Mora",
@@ -706,13 +678,6 @@
    "st": "GUA",
    "sict": "017",
    "name": "Cortázar - Valle de Santiago",
-   "verdict": "notFound",
-   "atlas": null
-  },
-  {
-   "st": "HID",
-   "sict": "017",
-   "name": "Ent. Tepeji del Río - Tlahuelilpan",
    "verdict": "notFound",
    "atlas": null
   },
@@ -803,13 +768,6 @@
    "atlas": [
     "830"
    ]
-  },
-  {
-   "st": "MEX",
-   "sict": "006",
-   "name": "La Marquesa - Tenango de Arista / Lechería - Apaxco",
-   "verdict": "notFound",
-   "atlas": null
   },
   {
    "st": "MEX",
@@ -1000,20 +958,6 @@
    ]
   },
   {
-   "st": "MOR",
-   "sict": "039",
-   "name": "Jojutla - El Higuerón",
-   "verdict": "notFound",
-   "atlas": null
-  },
-  {
-   "st": "MOR",
-   "sict": "010",
-   "name": "Ramal a Tetela del Volcán",
-   "verdict": "notFound",
-   "atlas": null
-  },
-  {
    "st": "NAY",
    "sict": "078",
    "name": "El Carrizo - La Batanga",
@@ -1035,6 +979,7 @@
    "atlas": [
     "006",
     "037",
+    "039",
     "087",
     "089"
    ]
@@ -1045,7 +990,8 @@
    "name": "Doctor Arroyo - Mier y Noriega",
    "verdict": "otherNumber",
    "atlas": [
-    "011"
+    "011",
+    "177"
    ]
   },
   {
@@ -1075,7 +1021,8 @@
    "name": "Matehuala - La Poza",
    "verdict": "otherNumber",
    "atlas": [
-    "003"
+    "003",
+    "029"
    ]
   },
   {
@@ -1085,16 +1032,11 @@
    "verdict": "otherNumber",
    "atlas": [
     "005",
-    "141"
-   ]
-  },
-  {
-   "st": "OAX",
-   "sict": "161",
-   "name": "T. C. (Oaxaca - Puerto Ángel) - Puerto Escondido",
-   "verdict": "otherNumber",
-   "atlas": [
-    "131"
+    "118",
+    "141",
+    "150",
+    "160",
+    "162"
    ]
   },
   {
@@ -1131,13 +1073,6 @@
    "st": "ROO",
    "sict": "004",
    "name": "Chetumal - Calderitas",
-   "verdict": "notFound",
-   "atlas": null
-  },
-  {
-   "st": "ROO",
-   "sict": "018",
-   "name": "Ramal a Petcacab",
    "verdict": "notFound",
    "atlas": null
   },
@@ -1297,13 +1232,6 @@
     "075",
     "080"
    ]
-  },
-  {
-   "st": "SLP",
-   "sict": "009",
-   "name": "Ramal a Pozo de Acuña",
-   "verdict": "notFound",
-   "atlas": null
   },
   {
    "st": "SLP",
@@ -1472,13 +1400,6 @@
   },
   {
    "st": "VER",
-   "sict": "192",
-   "name": "Ramal a Zempoala",
-   "verdict": "notFound",
-   "atlas": null
-  },
-  {
-   "st": "VER",
    "sict": "113",
    "name": "San Alejo - Huayacocotla",
    "verdict": "otherNumber",
@@ -1490,13 +1411,6 @@
    "st": "YUC",
    "sict": "018",
    "name": "Libramiento de Peto / Mérida - Oxkutzcab",
-   "verdict": "notFound",
-   "atlas": null
-  },
-  {
-   "st": "YUC",
-   "sict": "289",
-   "name": "Ramal a Yaxcabá",
    "verdict": "notFound",
    "atlas": null
   },
