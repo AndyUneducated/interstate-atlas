@@ -114,6 +114,12 @@ provincial highway numbers, with nothing to tell them apart: twenty-two separate
 roads carry the number 21. All are published rather than guessed at, the tier is named for
 it, and each road is listed with the place that identifies it.
 
+TIGER gives each stretch of road one name. Where two routes share the pavement, the stretch
+carries one number and the other route has a gap there. The road is drawn, under the other
+number, but the route that lost the label measures short: several Interstates fall below
+FHWA's mileage for this reason alone. Where FHWA's figure exists, the route page shows it
+beside the measurement.
+
 A grant date is not an opening date. SICT's concession register dates when a title was
 granted; for a title to build a road, the site shows that date as the earliest the road
 could have opened, and says so.
@@ -136,11 +142,15 @@ and not yet built.
 | 🇲🇽 | Speed limits | source | `VELOCIDAD` is a routing parameter, not a posted limit, and is not shown. |
 | 🇲🇽 | Traffic on unnumbered roads | source | SICT count stations on roads with no number, or more than 5 km from their numbered route, are not placed. |
 | 🇲🇽 | State route numbers differ between agencies | source | INEGI and SICT number state roads independently, and the atlas follows INEGI. Of the 235 distinct state route numbers in SICT's 2025 index, 101 match an atlas route by number and name, and 55 name a road the atlas carries under a different number. Sinaloa accounts for 10 of its 18 keys (SICT's SIN-030 Culiacán–Altata is INEGI's 313), and Chihuahua for 4 of its 6. Another 27 match by number only, and 52 match nothing. Federal numbers agree: 260 of 281 state-and-number pairs are present. Per-road detail is in `content/reference/mx-crosscheck.json` (`npm run check:mx`). |
+| 🇲🇽 | SICT state routes the road file cannot place | source | Of the state designations in SICT's 2025 index that the atlas lacks, about half name a tramo the RNC carries under another number, and the rest name a tramo that cannot be found in the RNC by name at all (Guanajuato's GTO-001, San Luis Potosí's periférico SLP-032). They are not placed by position (D-51). |
 | 🇲🇽 | How many crossings the northern border has | source | Published counts disagree, and each counts something different: INDAABIN lists 45 federal border-port properties on the US border, the Instituto Mexicano del Transporte (PT 437) 52 border bridges, and the North American Development Bank's 2019 study 59 crossings after reconciling inventories, 4 of them closed. The atlas draws INDAABIN's 45 and does not prefer any of the counts. One property can hold more than one crossing, as "Nogales I y II" does. |
 | 🇲🇽 | Which road a concession is on | source | SICT's register of 75 federal concession titles names most roads in words, not by number. 6 titles write a route number. 35 more are linked because they write the name SICT's Datos Viales gives a road, each match proposed by `npm run propose:tolls` and accepted by hand in `content/reference/mx-concession-matches.json`. Matches on a road named only as where a concession begins or ends were rejected. The other 34 titles, mostly bridges, stay in `content/reference/mx-concessions.json`. Concessions are not drawn, since the register does not say where one begins or ends. |
 | 🇲🇽 | Spanish interface | pending | English and Chinese only. |
 | 🇲🇽 | Numbering explainer, construction timeline | pending | Neither has a Mexico view yet. |
 | 🇲🇽 | CAPUFE toll-road traffic and tariffs | pending | Monthly flows and historical tariffs are published separately and not yet read. The 1,376 toll plazas the RNC records are drawn as points, without fares. |
+| 🇺🇸 | Local-grade state routes | source | The American network is TIGER's primary and secondary roads. State systems TIGER files only among local roads are not drawn: North Carolina's secondary routes, South Carolina's S-roads, most Texas farm-to-market roads, and the like (D-47). |
+| 🇺🇸 | Unsigned internal numbers | source | A freeway TIGER names without a number is titled by its name. Some states keep unsigned internal numbers for such roads (Kentucky's parkways are 9000-series); no source the atlas reads carries them, so none is shown (D-49). |
+| 🇨🇦 | Provincial routes the national file does not number | source | Alberta 12A and 834A, Nova Scotia 32, 33, 253, 280, 318, 322 and 328, and New Brunswick 151, 189, 194, 195 and 197 are in provincial registers or counts but carry no number in the National Road Network, so they are not drawn (D-50). |
 | 🇨🇦 | Traffic in BC, SK, MB, NL, YT, NU | source | Not published in machine-readable form (see [§3](#3-reported)). |
 | 🇨🇦 | Opening years outside Quebec | source | The *Canada Year Book* (1951–1968, 1973) never reported Trans-Canada completion by province. Saskatchewan (21 August 1957) is the one exception. The only other dated event is the national opening on 3 September 1962, which was not a completion. The 1969–1972 editions, which would cover the programme's end, are missing from Statistics Canada's digitised collection. The Act, its amendments and each province's agreement date are on the timeline. Ontario's bridge years are drawn in the bridge layer as facts about bridges only. |
 | 🇨🇦 | Nova Scotia counts on unnumbered roads | source | 103 of the 111 highways Nova Scotia counts attach to a route. The other eight cover 77 of 6,800 counted km, and they run on roads the National Road Network gives no route number: Hammonds Plains Rd (213), Purcells Cove Rd (253), and two Halifax arterials the province counts as 32 and 33. The province's own section geometry matches its counts but cannot supply a route the national file lacks. |
