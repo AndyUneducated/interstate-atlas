@@ -272,10 +272,12 @@ export async function fetchState(fips, { force = false } = {}) {
  * atlas draws at roughly 1:1,000,000 - but endpoints are never moved, so the
  * stitcher still joins fragment to fragment.
  */
-export async function readState(fips, { groups = new Map(), tol = 0.0002, context = null } = {}) {
+export async function readState(fips, { groups = new Map(), tol = 0.0002, context = null, named = null } = {}) {
   const st = STATES[fips];
   const base = await fetchState(fips);
-  const src = await shapefile.open(`${base}.shp`, `${base}.dbf`);
+  // TIGER's attribute tables are UTF-8; only the .shp and .dbf are unpacked,
+  // so there is no .cpg to say so, and the library would assume Windows-1252.
+  const src = await shapefile.open(`${base}.shp`, `${base}.dbf`, { encoding: 'utf-8' });
 
   let read = 0;
   let kept = 0;
@@ -300,6 +302,15 @@ export async function readState(fips, { groups = new Map(), tol = 0.0002, contex
     if (!routes.length) {
       if (context && p.MTFCC === 'S1100') {
         for (const part of parts) if (part.length >= 2) context.push(part);
+      }
+      // A primary road is a limited-access highway by TIGER's own definition,
+      // so one with a name and no number is a freeway known by its name: the
+      // Garden State Parkway, the Kentucky parkways, the Oklahoma turnpikes.
+      const fullname = String(p.FULLNAME ?? '').trim();
+      if (named && p.MTFCC === 'S1100' && fullname && !FORMER.test(fullname)) {
+        for (const part of parts) {
+          if (part.length >= 2) named.push({ st, name: fullname, coords: part.length > 2 ? simplify(part, tol) : part });
+        }
       }
       continue;
     }

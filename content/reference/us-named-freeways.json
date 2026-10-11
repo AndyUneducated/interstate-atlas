@@ -1,0 +1,33 @@
+{
+  "purpose": "Freeways TIGER records by name alone. A TIGER primary road (MTFCC S1100) is a limited-access highway by the Census definition; where its name carries no route number the atlas used to draw it only as a context hairline. These entries say which of those names are a signed route under another name, and which spellings are one road. Every other such name becomes a route of its own, labelled by its name.",
+  "source": "US Census TIGER/Line 2025 primary and secondary roads",
+  "definition": "https://www.census.gov/library/reference/code-lists/mt-feature-class-codes.html",
+  "rule": "A named primary road is added only where no numbered route already runs within 0.4 km of it, so a name TIGER puts on an Interstate's other carriageway, or on a stretch it also files under a number, adds nothing.",
+  "routes": [
+    { "st": "KY", "names": ["William H Natcher Pkwy", "Natcher Pkwy"], "route": "I-165",
+      "source": "FHWA Route Log and Finder List, Table 1: I-165, Kentucky, 70.19 mi, which is the whole of the Natcher Parkway from Bowling Green to Owensboro" },
+    { "st": "KY", "names": ["Pennyrile Pkwy", "Edward T Breathitt Pennyrile Pkwy"], "route": "I-169",
+      "source": "FHWA Route Log and Finder List, Table 1: I-169, Kentucky, 34.26 mi. The parkway north of Nortonville is I-69 and TIGER already files it under that number, so only the stretch no numbered route covers is added here" },
+    { "st": "OK", "names": ["John Kilpatrick Tpke"], "route": "I-344",
+      "source": "FHWA Route Log and Finder List, Table 1: I-344, Oklahoma, 30.97 mi, the John Kilpatrick Turnpike round Oklahoma City" },
+    { "st": "PR", "names": ["Autopista Luis A Ferre"], "route": "PR 52", "source": "Autopista Luis A. Ferré is PR-52, San Juan to Ponce" },
+    { "st": "PR", "names": ["Expreso Jose de Diego"], "route": "PR 22", "source": "Expreso José de Diego is PR-22, San Juan to Hatillo" },
+    { "st": "PR", "names": ["Expreso Las Americas"], "route": "PR 18", "source": "Expreso Las Américas is PR-18 in San Juan" },
+    { "st": "PR", "names": ["Expreso Baldorioty de Castro", "Expreso Roman Baldorioty de Castro"], "route": "PR 26", "source": "Expreso Román Baldorioty de Castro is PR-26 in San Juan and Carolina" },
+    { "st": "PR", "names": ["Roberto Sanchez Vilella Expy"], "route": "PR 66", "source": "Autopista Roberto Sánchez Vilella is PR-66, Carolina to Río Grande" },
+    { "st": "PR", "names": ["Expreso Rafael Martinez Nadal"], "route": "PR 20", "source": "Expreso Rafael Martínez Nadal is PR-20 in Guaynabo" },
+    { "st": "PR", "names": ["Expreso Cruz Ortiz Stella"], "route": "PR 30", "source": "Expreso Cruz Ortiz Stella is PR-30, Caguas to Humacao" },
+    { "st": "PR", "names": ["Expreso Jose Celso Barbosa", "Expreso Jose C Barbosa"], "route": "PR 53", "source": "Expreso José Celso Barbosa is PR-53, Fajardo to Guayama" }
+  ],
+  "names": [
+    { "st": "KY", "names": ["Western Kentucky Pkwy", "Wendell H Ford Western Kentucky Pkwy", "Wendell H Ford Western Ky Pkwy"], "label": "Western Kentucky Parkway" },
+    { "st": "KY", "names": ["Cumberland Pkwy", "Louie B Nunn Cumberland Pkwy"], "label": "Cumberland Parkway" },
+    { "st": "KY", "names": ["Bluegrass Pkwy", "Blue Grass Pkwy", "Martha Layne Collins Blue Grass Pkwy"], "label": "Bluegrass Parkway" },
+    { "st": "KY", "names": ["Bert T Combs Mountain Pkwy", "Mountain Pkwy", "Ky-9000-10"], "label": "Mountain Parkway" },
+    { "st": "KY", "names": ["Audubon Pkwy", "Au-9005"], "label": "Audubon Parkway" },
+    { "st": "KY", "names": ["Purchase Pkwy", "Julian M Carroll Purchase Pkwy"], "label": "Purchase Parkway" },
+    { "st": "NV", "names": ["Clark County 215", "Bruce Woodbury Beltway"], "label": "Clark County 215" },
+    { "st": "NV", "names": ["Summerlin Pkwy", "E Summerlin"], "label": "Summerlin Parkway" },
+    { "st": "NY", "names": ["F D R Dr"], "label": "FDR Drive" }
+  ]
+}

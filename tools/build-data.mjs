@@ -30,6 +30,7 @@ import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
 import { loadMexico, mexicoLabel } from './mexico.mjs';
 import { loadStateLocator, BOUNDARY_SOURCE } from './mx-states.mjs';
 import { writeOut } from './write.mjs';
+import { addNamedFreeways } from './named-freeways.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'tools', 'src');
@@ -94,7 +95,7 @@ function attachHpms(routes, hpms) {
   // a business loop - reports under its parent's number, which would silently
   // attach the mainline's traffic to the spur, so those are left unjoined.
   const hpmsNumber = (r, st) => {
-    if (r.qualifier) return null;
+    if (r.qualifier || r.nameOnly) return null;
     const num = String(r.number ?? '');
     if (st === 'MI') return num.replace(/^M(\d)/, '$1');
     return num;
@@ -1144,16 +1145,18 @@ const QUALIFIER_PREFIX = {
 
 async function readUnitedStates(contextLines) {
   const groups = new Map();
+  const named = [];
   let read = 0;
   const fipsList = Object.keys(STATES);
 
   for (const fips of fipsList) {
     const before = groups.size;
-    const res = await readState(fips, { groups, tol: 0.0002, context: contextLines });
+    const res = await readState(fips, { groups, tol: 0.0002, context: contextLines, named });
     read += res.read;
     console.log(`  ${res.st}  ${String(res.read).padStart(7)} features -> `
       + `${String(groups.size - before).padStart(4)} new route numbers`);
   }
+  await addNamedFreeways(ROOT, groups, named);
 
   // Reshape into what the stitching loop consumes: a parsed number, a tier,
   // and the geometry.
@@ -1182,7 +1185,7 @@ async function readUnitedStates(contextLines) {
     // qualifier is folded back into the number.
     const existing = out.get(key);
     if (existing) existing.parts.push(...grp.parts);
-    else out.set(key, { system: grp.system, parsed, tier, parts: grp.parts, names: grp.names });
+    else out.set(key, { system: grp.system, parsed, tier, parts: grp.parts, names: grp.names, label: grp.label, nameOnly: grp.nameOnly });
   }
   return { groups: out, read };
 }
@@ -1275,7 +1278,8 @@ async function main() {
         tier: grp.tier,
         number: grp.parsed.raw,
         base: Number(grp.parsed.base) || null,
-        label: labelFor(grp.system, grp.parsed, primarySt),
+        label: grp.label ?? labelFor(grp.system, grp.parsed, primarySt),
+        nameOnly: grp.nameOnly ?? null,
         qualifier: grp.parsed.qualifier || null,
         // Two different questions. `mi` is how far you drive end to end, the
         // mainline only, discounting any stretch where the source folded both
@@ -1403,7 +1407,7 @@ async function main() {
       id: r.id,
       properties: {
         id: r.id, sys: r.system, tier: r.tier, label: r.label, st: r._primarySt,
-        num: r.number, base: r.base, mi: r.mi, pavedMi: r.pavedMi, offMi: r.offMi ?? null,
+        num: r.nameOnly ? '' : r.number, base: r.base, mi: r.mi, pavedMi: r.pavedMi, offMi: r.offMi ?? null,
         offCostK: r.offCostK ?? null, offCostWhole: r.offCostWhole ?? null, spanMi: r.spanMi,
         gs: r.gradeSeparated, toll: r.tolled, unpaved: r.unpaved, div: r.dividedShare, divCov: r.dividedCov,
         breaks: r.breaks, gapMi: r.gapMi, np: main.length,
@@ -1411,6 +1415,7 @@ async function main() {
         start: r.start, end: r.end,
         where: r.where ?? null,
         unsigned: r.unsigned ?? null,
+        nameOnly: r.nameOnly ?? null,
         // What the state reported to FHWA about this road: traffic, pavement
         // roughness, lanes, speeds, tolls. Null on Canadian routes and on the
         // US routes HPMS does not identify.
@@ -1505,7 +1510,7 @@ async function main() {
     fields: FIELDS,
     routes: routes.map((r) => [
       r.id, r.label, system(r.system).code, TIER_CODE[r.tier],
-      r._primarySt, r.offMi ? Math.round(r.offMi) : r.mi, r.base, r.number,
+      r._primarySt, r.offMi ? Math.round(r.offMi) : r.mi, r.base, r.nameOnly ? '' : r.number,
       Math.round(((r.bbox[0] + r.bbox[2]) / 2) * 100) / 100,
       Math.round(((r.bbox[1] + r.bbox[3]) / 2) * 100) / 100,
       // Only set where a number is shared, so it costs nothing on the
