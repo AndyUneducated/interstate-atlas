@@ -19,7 +19,7 @@
 
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
-import { SYSTEMS, IX, geoPath, systemOfCode } from '../assets/schema.js';
+import { SYSTEMS, IX, geoPath, systemOfCode, countryOf } from '../assets/schema.js';
 
 const ROOT = join(import.meta.dirname, '..');
 const DATA = join(ROOT, 'data');
@@ -60,7 +60,12 @@ for (const path of expected.keys()) if (!files.includes(path)) fail(`geo/${path}
 
 // Remnants and unplaced routes.
 const longest = new Map();
-const keyOf = (r) => `${r[IX.sys]}|${r[IX.num]}|${systemOfCode(r[IX.sys]).perJuris ? r[IX.st] : ''}`;
+// Keyed as build-data keys a route: Canadian numbers are provincial in every
+// tier, though the NHS and Trans-Canada ship as one file each.
+const keyOf = (r) => {
+  const s = systemOfCode(r[IX.sys]);
+  return `${r[IX.sys]}|${r[IX.num]}|${s.perJuris || countryOf(s.id) === 'ca' ? r[IX.st] : ''}`;
+};
 for (const r of index.routes) longest.set(keyOf(r), Math.max(longest.get(keyOf(r)) ?? 0, r[IX.mi]));
 for (const r of index.routes) {
   if (r[IX.mi] === 0 && longest.get(keyOf(r)) > 0) fail(`index: ${r[IX.id]} is under half a mile beside a longer ${r[IX.label]}`);

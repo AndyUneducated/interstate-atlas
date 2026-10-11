@@ -672,7 +672,9 @@ function assemblePath(steps) {
  * near Albany instead of in Boston.
  *
  * So find the components first with no bridging, discard the slivers, then
- * stitch what survives with the bridge budget applied.
+ * stitch what survives with the bridge budget applied. A number whose every
+ * component is that short is a short road, not a sliver of a longer one, and
+ * is kept whole.
  */
 export function stitchRoute(parts, {
   snapDeg = 0.0025, bridgeKm = 60, minComponentKm = 1.2,
@@ -684,10 +686,10 @@ export function stitchRoute(parts, {
     if (comp.km < minComponentKm) continue;
     for (const e of comp.edges) keep.add(e.i);
   }
-  if (!keep.size) return [];
-  const survivors = parts.filter((_, i) => keep.has(i));
+  const alone = !keep.size;
+  const survivors = alone ? parts : parts.filter((_, i) => keep.has(i));
   const comps = stitchComponents(survivors, snapDeg, bridgeKm)
-    .filter((c) => c.km >= minComponentKm);
+    .filter((c) => (alone ? c.km > 0 : c.km >= minComponentKm));
   return dedupe ? withoutOppositeCarriageways(comps, dedupeTolKm) : comps;
 }
 

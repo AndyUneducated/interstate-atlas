@@ -733,6 +733,7 @@ async function buildCanada() {
       minComponentKm: 1.5,
     });
     if (!firstPass.length) continue;
+    const alone = firstPass.every((c) => c.km < 1.5);
 
     // A designated route is one road, and its breaks are holes in the data or
     // genuine ferry crossings - British Columbia's Highway 1 reaches Vancouver
@@ -757,7 +758,7 @@ async function buildCanada() {
       // Whatever will not join stays as its own route rather than being
       // dropped. Keeping only the longest piece silently deleted road.
       for (const comp of comps) {
-      if (!comp || comp.km < 1.5) continue;
+      if (!comp || (comp.km < 1.5 && !alone)) continue;
 
       // Measured over the road as driven, not over every centreline in the
       // corridor: the source draws each direction of a divided highway
@@ -929,6 +930,7 @@ async function buildMexico(contextLines) {
       minComponentKm: 1.5,
     });
     if (!firstPass.length) continue;
+    const alone = firstPass.every((c) => c.km < 1.5);
 
     let comps = firstPass;
     if (federal && firstPass.length > 1) {
@@ -937,7 +939,7 @@ async function buildMexico(contextLines) {
     }
 
     for (const comp of comps) {
-      if (!comp || comp.km < 1.5) continue;
+      if (!comp || (comp.km < 1.5 && !alone)) continue;
       const stats = compositionOf(comp.pathEdges);
       const extra = mexicoMetrics(comp.pathEdges);
       const pieces = orientMainline(comp.pieces);
@@ -1214,6 +1216,7 @@ async function main() {
       snapDeg: US_SNAP, bridgeKm: grp.tier === 'state' ? 40 : 60, dedupe: true,
     });
     if (!firstPass.length) continue;
+    const alone = firstPass.every((c) => c.km < 1.2);
     for (const piece of firstPass) {
       const comp = compositionOf(piece.edges);
       piece.stateSet = comp.stateSet;
@@ -1241,7 +1244,7 @@ async function main() {
       if (members.length === 1) { corridors.push(members[0]); continue; }
       const parts = members.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
       const comps = stitchComponents(parts, US_SNAP, 1000, { bridgeToAnyNode: true })
-        .filter((c) => c.km >= 1.2);
+        .filter((c) => alone || c.km >= 1.2);
       if (!comps.length) continue;
       const gapMi = Math.round(comps[0].gaps.reduce((s, g) => s + g, 0) / KM_PER_MI);
       merges.push({ key, pieces: members.length, mi: Math.round(comps[0].km / KM_PER_MI), gapMi });
@@ -1249,7 +1252,14 @@ async function main() {
     }
 
     for (const comp of corridors) {
-      if (!comp || comp.km < 1.2) continue;
+      if (!comp || (comp.km < 1.2 && !alone)) continue;
+      // Under a mile, a road known only by name is an interchange TIGER classed
+      // as limited-access, not a freeway; it stays in the context layer.
+      if (grp.nameOnly && comp.km < 1.6) continue;
+      // A state number TIGER files as a primary or secondary road for under half
+      // a mile is mostly a local-grade road (D-47) glimpsed at an interchange,
+      // not a short road; Interstates and US routes are kept at any length.
+      if (alone && grp.system === 'us-state' && Math.round(comp.km / KM_PER_MI) === 0) continue;
 
       const pieces = orientMainline(comp.pieces);
       // Over the driven path, so the per-state mileage sums to the length
