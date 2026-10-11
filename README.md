@@ -19,7 +19,7 @@ that have one.
 <br/>
 
 <!-- auto:badges -->
-![routes](https://img.shields.io/badge/routes-21%2C016-ffd166?style=flat-square&labelColor=0b1220)
+![routes](https://img.shields.io/badge/routes-21%2C893-ffd166?style=flat-square&labelColor=0b1220)
 ![jurisdictions](https://img.shields.io/badge/jurisdictions-96-4fe3b0?style=flat-square&labelColor=0b1220)
 ![systems](https://img.shields.io/badge/route%20systems-8-ffd166?style=flat-square&labelColor=0b1220)
 ![countries](https://img.shields.io/badge/countries-US%20%C2%B7%20CA%20%C2%B7%20MX-ff4d6d?style=flat-square&labelColor=0b1220)
@@ -58,7 +58,7 @@ that have one.
 
 > [!NOTE]
 > **Counts move; method does not.** Every route total, mileage and percentage on this page
-> is written from the published build dated **<!-- auto:date -->2026-10-10<!-- /auto:date -->** by
+> is written from the published build dated **<!-- auto:date -->2026-10-11<!-- /auto:date -->** by
 > `tools/readme-figures.mjs`, which `npm test` runs, and changes whenever the pipeline is
 > re-run. The rules those numbers obey are in [On accuracy](#on-accuracy) and do not change.
 
@@ -122,19 +122,19 @@ flowchart LR
 
 ## Coverage
 
-<!-- auto:summary -->21,016 routes across 96 states, provinces and territories in 3 countries, measuring 712,164 miles of road, in the build dated 2026-10-10.<!-- /auto:summary -->
+<!-- auto:summary -->21,893 routes across 96 states, provinces and territories in 3 countries, measuring 715,745 miles of road, in the build dated 2026-10-11.<!-- /auto:summary -->
 
 <!-- auto:coverage -->
 | Country | System | Routes | Miles | Notes |
 | --- | --- | --- | ---: | --- |
-| 🇺🇸 | Interstate Highways | 461 | 50,511 | includes Alaska's four unsigned A-series and Hawaii's H-series |
-| 🇺🇸 | US Numbered Routes | 1,049 | 155,337 | the pre-1956 grid, numbered opposite to the Interstates |
-| 🇺🇸 | State Routes | 14,496 | 353,699 | routes in 51 states and territories, loaded per state |
+| 🇺🇸 | Interstate Highways | 472 | 50,646 | includes Alaska's four unsigned A-series and Hawaii's H-series |
+| 🇺🇸 | US Numbered Routes | 1,092 | 155,352 | the pre-1956 grid, numbered opposite to the Interstates |
+| 🇺🇸 | State Routes | 15,128 | 356,950 | routes in 52 states and territories, loaded per state |
 | 🇨🇦 | Trans-Canada Highway | 26 | 7,131 | the designation, traced across the provincial highways that carry it |
-| 🇨🇦 | National Highway System | 357 | 33,860 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
-| 🇨🇦 | Provincial & Municipal Routes | 2,750 | 68,739 | routes in 12 provinces and territories, loaded per jurisdiction |
-| 🇲🇽 | Federal Highways | 248 | 21,816 | numbered roads the federation administers |
-| 🇲🇽 | State Highways | 1,629 | 21,071 | numbered state roads in 32 states, loaded per state; most state roads carry no number |
+| 🇨🇦 | National Highway System | 360 | 33,861 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
+| 🇨🇦 | Provincial & Municipal Routes | 2,794 | 68,756 | routes in 12 provinces and territories, loaded per jurisdiction |
+| 🇲🇽 | Federal Highways | 251 | 21,816 | numbered roads the federation administers |
+| 🇲🇽 | State Highways | 1,770 | 21,233 | numbered state roads in 32 states, loaded per state; most state roads carry no number |
 <!-- /auto:coverage -->
 
 Nunavut has no numbered route in the national road file, and no road connects it to the
@@ -151,7 +151,7 @@ Every figure is one of three kinds, and they are never mixed:
 | **Reported** by a state, province or SICT | traffic, trucks, pavement condition, lanes, speeds | the share of the route it covers | nothing is shown |
 | **Published** by an authority | official mileage, cost, designation, opening dates, tolls | its source and date | the page says so |
 
-<!-- auto:accuracy -->Across the 262 routes where FHWA publishes a length to check against, the median disagreement is −0.2%; 63% land within 5% and 80% within 10%.<!-- /auto:accuracy --> The larger
+<!-- auto:accuracy -->Across the 265 routes where FHWA publishes a length to check against, the median disagreement is −0.2%; 63% land within 5% and 80% within 10%.<!-- /auto:accuracy --> The larger
 disagreements are explained on the route page rather than corrected toward the register,
 and the register's figure is always shown beside the measured one.
 
