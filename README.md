@@ -76,7 +76,6 @@ that have one.
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
 | **Statistics dashboard** | Network totals by system and by jurisdiction, all three countries. |
 | **Elevation profiles** | Sampled from open terrain data for curated routes. |
-| **Trip planner** | Chain routes into an itinerary. |
 | **Units** | Miles or kilometres everywhere, switched in one place. |
 | **Command palette** | <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to reach any route, jurisdiction or view. |
 | **Map on its own** | <kbd>Z</kbd> fades every panel off the map and back again. |

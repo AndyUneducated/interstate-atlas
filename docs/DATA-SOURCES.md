@@ -276,7 +276,7 @@ fixed, and record any decision it produced in [§5](#5-decision-log).
 
 | ID | Issue | Evidence |
 | --- | --- | --- |
-| I-4 | The route index's length mixes measured and official mileage. | `index.json` `mi` is FHWA's figure where one exists and the measurement otherwise (190 Interstates differ; I-90 2,706 against 3,076 measured). The list, the dashboard's longest routes and the trip planner sum them unlabelled, against D-1. |
+| I-4 | The route index's length mixes measured and official mileage. | `index.json` `mi` is FHWA's figure where one exists and the measurement otherwise (190 Interstates differ; I-90 2,706 against 3,076 measured). The list and the dashboard's longest routes show them unlabelled, against D-1. |
 | I-5 | Some dossiers give an official length for a different extent than the route record. | I-49 249.93 against 559 measured; also I-295 (NJ), I-69 (IN), AK-3, US 95 (NV), TX 71. |
 | I-12 | Shallow-water elevation readings remain. | 14 profiles still dip to between −34 and −96 ft over bridges and ferries, shallower than D-39's threshold. |
 | I-13 | A stretch stitched as a branch is drawn but left out of the route's length and its per-state mileage. | I-471 is drawn into Kentucky and measures 1 mi, all of it in Ohio, against FHWA's 5.02 mi in Kentucky; I-295's Pennsylvania stretch (FHWA 10.82 mi) is drawn as a branch of the New Jersey route and gives it no Pennsylvania mileage. |

@@ -11,7 +11,7 @@ import {
   t, getLang, stateName, num, isProvince, ownerLabel, lenNum,
   lenOf, lenOfKm, lenUnit, dist, distKm, distAlt, speedKph, speedMph, heightFt, getUnits,
 } from './i18n.js';
-import { app, shieldHtml, addToTrip, clearSelection, fitTo, loadDossier } from './app.js';
+import { app, shieldHtml, clearSelection, fitTo, loadDossier } from './app.js';
 import { startFly } from './fly.js';
 import { tollSection } from './tolls.js';
 import { CLASS_COLOUR, SECTION_ORDER } from './schema.js';
@@ -647,9 +647,6 @@ export async function renderDetail(id) {
         <button class="btn" id="dtFly" type="button">
           <svg viewBox="0 0 24 24"><path d="M3 12h13M12 6l6 6-6 6"/></svg><span>${t('dt.fly')}</span>
         </button>
-        <button class="btn" id="dtTrip" type="button">
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>${t('dt.addTrip')}</span>
-        </button>
         <button class="btn btn-ico" id="dtZoom" type="button" title="${t('dt.zoom')}">
           <svg viewBox="0 0 24 24"><path d="M3 9V3h6M21 15v6h-6M21 9V3h-6M3 15v6h6"/></svg>
         </button>
@@ -823,7 +820,6 @@ export async function renderDetail(id) {
 
   document.getElementById('dtClose').addEventListener('click', clearSelection);
   document.getElementById('dtFly').addEventListener('click', () => startFly(id));
-  document.getElementById('dtTrip').addEventListener('click', () => addToTrip(id));
   document.getElementById('dtZoom').addEventListener('click', () => f && fitTo(f));
 
   elevationFor(id).then((profile) => {

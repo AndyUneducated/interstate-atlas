@@ -6,7 +6,7 @@ import {
   routeLabel, ownerLabel, countryOfJuris, setUnits, getUnits, defaultUnits, lenNum, routeDist,
 } from './i18n.js';
 import { renderDetail } from './detail.js';
-import { openSheet, closeSheet, isSheetOpen, refreshPlannerIfOpen } from './sheets.js';
+import { openSheet, closeSheet, isSheetOpen } from './sheets.js';
 import { startFly, stopFly, isFlying } from './fly.js';
 import { openTimelapse } from './timelapse.js';
 import { toggleCrossings, crossingAt, raiseCrossings, closeCrossing } from './crossings.js';
@@ -32,7 +32,6 @@ export const app = {
   selected: null,
   selectedFeature: null,
   stateLoaded: new Set(),
-  trip: [],
   terrain: false,
   basemap: 'dark',
 };
@@ -1125,25 +1124,12 @@ export function toast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('on'), 2600);
 }
 
-/* ── trip ─────────────────────────────────────────────────────────────── */
-
-export function addToTrip(id) {
-  const r = app.byId.get(id);
-  if (!r) return;
-  if (app.trip.includes(id)) { toast(t('toast.tripDup', { route: r.label })); return; }
-  app.trip.push(id);
-  toast(t('toast.tripAdded', { route: r.label }));
-  document.getElementById('btnPlanner').classList.toggle('on', app.trip.length > 0);
-  refreshPlannerIfOpen();
-}
-
 /* ── command palette ──────────────────────────────────────────────────── */
 
 const VIEWS = [
   { key: 'numbering', i18n: 'nav.numbering', icon: 'M4 9h16M4 15h16M10 3v18M16 3v18' },
   { key: 'dashboard', i18n: 'nav.dashboard', icon: 'M4 20V10M10 20V4M16 20v-7M22 20H2' },
   { key: 'timeline', i18n: 'nav.timeline', icon: 'M12 7v5l3.5 2' },
-  { key: 'planner', i18n: 'nav.planner', icon: 'M6 19V7a3 3 0 0 1 6 0v10a3 3 0 0 0 6 0V5' },
   { key: 'about', i18n: 'nav.about', icon: 'M12 11v5M12 7.6v.1' },
 ];
 
@@ -1291,7 +1277,7 @@ function wire() {
   document.getElementById('zenOut').addEventListener('click', () => toggleZen(false));
   document.getElementById('btnPalette').addEventListener('click', openPalette);
   for (const [btn, key] of [['btnNumbering', 'numbering'], ['btnDash', 'dashboard'],
-    ['btnPlanner', 'planner'], ['btnAbout', 'about']]) {
+    ['btnAbout', 'about']]) {
     document.getElementById(btn).addEventListener('click', () => openSheet(key));
   }
   // The buildout view docks over the map instead of opening a sheet, because

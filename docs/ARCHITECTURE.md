@@ -471,7 +471,7 @@ flowchart TD
   SCH["<b>schema.js</b><br/>systems · index fields · tier codes<br/><i>imports nothing; also read by tools/</i>"]
   I18N["<b>i18n.js</b><br/>string tables en/zh · jurisdiction names<br/>units · number formatting"]
   DET["<b>detail.js</b><br/>the route panel"]
-  SH["<b>sheets.js</b><br/>numbering · statistics<br/>planner · jurisdiction pickers · about"]
+  SH["<b>sheets.js</b><br/>numbering · statistics<br/>jurisdiction pickers · about"]
   TL["<b>timelapse.js</b><br/>docked buildout scrubber"]
   FLY["<b>fly.js</b><br/>route flythrough"]
   XG["<b>crossings.js</b><br/>border crossing layer"]
@@ -532,7 +532,7 @@ scripts, which is why it holds plain data and touches neither the DOM nor Node.
 | `app.js` | the MapLibre instance, the `app` state object, layer construction, search over `index.json`, the command palette, region jumps, basemaps and terrain, route shields, toasts | route prose, sheet content, animation |
 | `i18n.js` | both string tables, jurisdiction names, unit and number formatting, the current language | the DOM |
 | `detail.js` | the right-hand route panel: termini, measured metrics, composition bars, per-jurisdiction mileage, HPMS and provincial figures, dossier prose, elevation profile | the map |
-| `sheets.js` | the modal overlay and everything in it: numbering explainer, statistics dashboard, trip planner, state and province pickers, about | the map, except to select and zoom through `app.js` |
+| `sheets.js` | the modal overlay and everything in it: numbering explainer, statistics dashboard, state and province pickers, about | the map, except to select and zoom through `app.js` |
 | `timelapse.js` | the docked scrubber, the mileage curve, the year filter on the Interstate layers, the ghost layer and the flash animation | anything outside the Interstate system |
 | `fly.js` | the flythrough camera, the trail and head layers | selection, which stays with `app.js` |
 | `crossings.js` | the border crossing layer and its popup, with the routes near each crossing | route geometry |

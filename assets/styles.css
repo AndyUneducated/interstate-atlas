@@ -1131,7 +1131,7 @@ body.tlapse-on #detail { bottom: 108px; }
 .pal-ft b { color: var(--ink-dim); font-weight: 500; }
 
 /* ==========================================================================
-   Overlay sheets (numbering, dashboard, timeline, planner)
+   Overlay sheets (numbering, dashboard, timeline)
    ========================================================================== */
 
 #sheet {
@@ -1306,30 +1306,6 @@ input[type="range"]::-moz-range-thumb {
 .tl-ev.sys b { color: var(--cyan); }
 
 /* ==========================================================================
-   Trip planner
-   ========================================================================== */
-
-.tp-wrap { display: grid; grid-template-columns: 1fr 320px; gap: 20px; align-items: start; }
-.tp-legs { display: flex; flex-direction: column; }
-.tp-leg { display: flex; gap: 12px; position: relative; padding-bottom: 14px; }
-.tp-leg-rail { position: absolute; left: 15px; top: 34px; bottom: 0; width: 1px; background: var(--line-2); }
-.tp-leg:last-child .tp-leg-rail { display: none; }
-.tp-leg-n {
-  width: 31px; height: 31px; flex: none; display: grid; place-items: center;
-  border: 1px solid var(--line-2); border-radius: 50%; font-family: var(--mono);
-  font-size: 11px; color: var(--ink-dim); background: var(--bg-1);
-}
-.tp-leg-bd { flex: 1; min-width: 0; padding-top: 5px; }
-.tp-leg-t { font-size: 13.5px; color: var(--ink); }
-.tp-leg-s { font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); margin-top: 3px; }
-.tp-leg-x { width: 26px; height: 26px; border-radius: var(--r-sm); flex: none; margin-top: 3px; }
-.tp-leg-x:hover { background: rgba(255, 93, 115, 0.14); }
-.tp-leg-x svg { width: 13px; height: 13px; stroke: var(--ink-faint); fill: none; stroke-width: 1.8; }
-.tp-leg-x:hover svg { stroke: var(--red); }
-.tp-empty { padding: 30px 16px; text-align: center; color: var(--ink-faint); font-size: 12.5px; line-height: 1.7; border: 1px dashed var(--line-2); border-radius: var(--r-md); }
-.tp-sum { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
-
-/* ==========================================================================
    Flythrough
    ========================================================================== */
 
@@ -1458,7 +1434,7 @@ a.tl-src:hover { color: var(--cyan); }
    ========================================================================== */
 
 @media (max-width: 1180px) {
-  .nb-wrap, .tp-wrap { grid-template-columns: 1fr; }
+  .nb-wrap { grid-template-columns: 1fr; }
 }
 
 /* The side-by-side layout stops working before it stops fitting, so the docked

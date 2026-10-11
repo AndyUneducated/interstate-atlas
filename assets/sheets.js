@@ -1,9 +1,9 @@
-/* Overlay views: numbering explainer, statistics, buildout timeline, trip
-   planner, jurisdiction picker and the about page. */
+/* Overlay views: numbering explainer, statistics, buildout timeline,
+   jurisdiction picker and the about page. */
 
 import {
-  t, getLang, stateName, dist, num, lenOf, lenUnit, lenName, speedMph, isProvince, ownerLabel,
-  countryOfJuris, lenNum, routeDist,
+  t, getLang, stateName, dist, num, lenOf, lenUnit, lenName, isProvince, ownerLabel,
+  countryOfJuris, lenNum,
 } from './i18n.js';
 import { app, select, loadState, zoomToState } from './app.js';
 import { SYSTEMS, CLASS_COLOUR, countryOf } from './schema.js';
@@ -43,7 +43,6 @@ export function openSheet(key) {
   const render = {
     numbering: renderNumbering,
     dashboard: renderDashboard,
-    planner: renderPlanner,
     states: renderStates,
     provinces: renderProvinces,
     mxstates: renderMxStates,
@@ -59,7 +58,6 @@ export function openSheet(key) {
   ({
     numbering: wireNumbering,
     dashboard: wireDashboard,
-    planner: wirePlanner,
     states: wireStates,
     provinces: wireStates,
     mxstates: wireStates,
@@ -564,75 +562,6 @@ function wireDashboard() {
 }
 
 /* ══════════════════════════════════════════════════════════════════════
-   Trip planner
-   ══════════════════════════════════════════════════════════════════════ */
-
-function renderPlanner() {
-  return frame('tp.title', 'tp.sub', '<div id="tpBody"></div>');
-}
-
-function paintPlanner() {
-  const host = document.getElementById('tpBody');
-  const legs = app.trip.map((id) => app.byId.get(id)).filter(Boolean);
-
-  if (!legs.length) {
-    host.innerHTML = `<p class="tp-empty">${esc(t('tp.empty')).replace(/\n/g, '<br>')}</p>`;
-    return;
-  }
-
-  const totalMi = legs.reduce((s, r) => s + r.mi, 0);
-  const freewayMi = legs.reduce((s, r) => s + (r.gs / 100) * r.mi, 0);
-  const states = new Set(legs.map((r) => r.st));
-  // Freeway miles move faster than everything else; this is a shape-of-the-trip
-  // estimate, not a routing engine.
-  const hours = (freewayMi / 65) + ((totalMi - freewayMi) / 45);
-
-  host.innerHTML = `<div class="tp-wrap">
-    <div class="tp-legs">
-      ${legs.map((r, i) => `<div class="tp-leg">
-        <span class="tp-leg-rail"></span>
-        <span class="tp-leg-n">${i + 1}</span>
-        <span class="tp-leg-bd">
-          <span class="tp-leg-t">${r.label}</span>
-          <span class="tp-leg-s">${routeDist(r.mi)} · ${ownerLabel(r.sys, r.st)} · ${num(r.gs, r.gs % 1 ? 1 : 0)}% ${t('dt.gradeSep').toLowerCase()}</span>
-        </span>
-        <button class="tp-leg-x" data-rm="${r.id}" type="button" aria-label="Remove">
-          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>`).join('')}
-    </div>
-    <div>
-      <div class="tp-sum">
-        <div class="m"><span class="m-k">${t('tp.total')}</span><div class="m-v">${num(lenOf(totalMi))}<small>${lenUnit()}</small></div></div>
-        <div class="m" style="border-top:1px solid var(--line)"><span class="m-k">${t('tp.legs')}</span><div class="m-v">${legs.length}</div></div>
-        <div class="m" style="border-top:1px solid var(--line)"><span class="m-k">${t('tp.freeway')}</span><div class="m-v">${Math.round((freewayMi / totalMi) * 100)}<small>%</small></div></div>
-        <div class="m" style="border-top:1px solid var(--line)"><span class="m-k">${t('tp.driveEst')}</span><div class="m-v">${t('tp.hours', { h: Math.floor(hours), m: Math.round((hours % 1) * 60) })}</div></div>
-      </div>
-      <p style="margin:10px 2px;font-size:11px;line-height:1.6;color:var(--ink-faint)">${t('tp.driveNote', { fast: speedMph(65), slow: speedMph(45) })}</p>
-      <button class="btn" id="tpClear" type="button" style="border:1px solid var(--line);width:100%;justify-content:center">
-        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>
-        <span>${t('tp.clear')}</span>
-      </button>
-    </div>
-  </div>`;
-
-  for (const btn of host.querySelectorAll('[data-rm]')) {
-    btn.addEventListener('click', () => {
-      app.trip = app.trip.filter((x) => x !== btn.dataset.rm);
-      document.getElementById('btnPlanner').classList.toggle('on', app.trip.length > 0);
-      paintPlanner();
-    });
-  }
-  document.getElementById('tpClear').addEventListener('click', () => {
-    app.trip = [];
-    document.getElementById('btnPlanner').classList.remove('on');
-    paintPlanner();
-  });
-}
-
-function wirePlanner() { paintPlanner(); }
-
-/* ══════════════════════════════════════════════════════════════════════
    Jurisdiction picker
 
    One picker, two tiers. American state routes and Canadian provincial
@@ -739,9 +668,4 @@ function renderAbout() {
 
   return frame('about.title', 'about.sub',
     `<div class="nb-note" style="max-width:74ch">${zh ? cn : en}</div>`);
-}
-
-/* Keep the planner in sync when a route is added from the detail panel. */
-export function refreshPlannerIfOpen() {
-  if (current === 'planner') paintPlanner();
 }
