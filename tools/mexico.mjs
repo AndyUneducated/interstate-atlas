@@ -76,6 +76,7 @@
 
 import * as shapefile from 'shapefile';
 import { open, readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { simplify } from './geo.mjs';
 import { layerPath } from './fetch-mexico.mjs';
 
@@ -413,6 +414,30 @@ const deaccent = (s) => String(s ?? '').normalize('NFD')
  */
 const BRANCH_PREFIX = /^(?:RAMAL\b|ACCESO\b|ENTR?\.|E\.\s?C\.|KM\.?\s*\d)/;
 
+/** One SICT-listed state road: state, number without padding, tramo name. */
+const listedKey = (st, number, name) => `${st}|${String(number).replace(/^0+(?=\d)/, '')}|${deaccent(name).replace(/\s+/g, ' ')}`;
+
+/**
+ * The state roads SICT's Datos Viales index lists, keyed by state, number and
+ * tramo name, from `mx-designations.json`.
+ */
+async function loadListed(root) {
+  try {
+    const { roads } = JSON.parse(await readFile(join(root, 'content', 'reference', 'mx-designations.json'), 'utf8'));
+    const out = new Set();
+    for (const [st, , juris, , name, , routes] of roads) {
+      if (juris === 'federal') continue;
+      for (const rt of routes ?? []) {
+        const m = rt.match(/^[A-Z]+-(\d+)$/);
+        if (m) out.add(listedKey(st, m[1], name));
+      }
+    }
+    return out;
+  } catch {
+    return null;
+  }
+}
+
 function isBranchOnly(grp) {
   if (!grp.names.size) return false;
   for (const name of grp.names) {
@@ -459,7 +484,7 @@ const positive = (v) => (num(v) > 0 ? num(v) : null);
  * joins fragment to fragment.
  */
 export async function readRedVial({
-  groups = new Map(), tol = 0.0008, context = null, base = null, onProgress = null,
+  groups = new Map(), tol = 0.0008, context = null, base = null, onProgress = null, listed = null,
 } = {}) {
   const path = base ?? await layerPath('red_vial');
   if (!path) return null;
@@ -470,7 +495,7 @@ export async function readRedVial({
     read: 0, kept: 0, carreteras: 0, numbered: 0, padded: 0, concurrent: 0,
     notOpen: 0, unplaceable: 0, notStateRun: 0, suffixD: 0, peajeYes: 0,
     tollAgree: 0, tollDisagree: 0, branchOnly: 0, inventoryNumbered: 0,
-    federalBranchNamed: 0,
+    federalBranchNamed: 0, branchListed: 0,
   };
   const branchNamedFederal = [];
   const types = new Map();
@@ -657,9 +682,15 @@ export async function readRedVial({
       // inventory does not unmake it; thirteen federal routes are named this
       // way throughout and they stay. A state number is that state's own
       // inventory key, which is exactly what is in question here.
+      // SICT's own index giving the same number to a tramo of the same name in
+      // the same state is a second agency calling it a designation, and that
+      // outweighs how the tramo happens to be named.
       if (grp.system === 'mx-federal') {
         counts.federalBranchNamed++;
         branchNamedFederal.push(grp.id);
+      } else if (listed && [...grp.jurisdictions].some((st) => [...grp.names]
+        .some((n) => listed.has(listedKey(st, grp.number, n))))) {
+        counts.branchListed++;
       } else {
         groups.delete(key);
         counts.branchOnly++;
@@ -682,14 +713,14 @@ export async function readRedVial({
  * One layer, unlike Canada's thirteen, because the RNC is published nationally
  * rather than jurisdiction by jurisdiction.
  */
-export async function loadMexico(_root, { context = null, base = null } = {}) {
+export async function loadMexico(root, { context = null, base = null } = {}) {
   const path = base ?? await layerPath('red_vial');
   if (!path) {
     console.log('  MX  missing; run tools/fetch-mexico.mjs');
     return null;
   }
 
-  const res = await readRedVial({ context, base: path });
+  const res = await readRedVial({ context, base: path, listed: await loadListed(root) });
   console.log(`  MX  ${String(res.read).padStart(7)} segments -> `
     + `${String(res.groups.size).padStart(4)} numbered routes`
     + `  (${res.carreteras} carreteras, ${res.numbered} of them numbered, ${res.encoding})`);
@@ -723,6 +754,10 @@ export async function loadMexico(_root, { context = null, base = null } = {}) {
     console.log(`      ${res.branchOnly} state routes are named only as a ramal, acceso or`
       + ' offset from another road, and are left out for the same reason the hyphenated'
       + ' form is');
+  }
+  if (res.branchListed) {
+    console.log(`      ${res.branchListed} state routes named that way are kept, SICT's index listing`
+      + ' the same number for a tramo of the same name');
   }
   if (res.federalBranchNamed) {
     console.log(`      ${res.federalBranchNamed} federal routes are named that way too and are`
