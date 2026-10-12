@@ -14,7 +14,7 @@
 // rather than being absorbed into the figures.
 
 import * as shapefile from 'shapefile';
-import { mkdir, writeFile, rm, access } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, rm, access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { listEntries, extractEntry } from './unzip.mjs';
 import { simplify } from './geo.mjs';
@@ -238,6 +238,99 @@ export function parseName(fullname, rttyp, st = null) {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
+   Segments TIGER names wrongly (D-54)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+// st -> name -> { as, ids: Set | '*', rule }
+let RENAMES = new Map();
+const renameSeen = new Map();
+
+/** Read content/reference/tiger-renames.json; the build checks every rule matched. */
+export async function loadRenames(root) {
+  const doc = JSON.parse(await readFile(join(root, 'content', 'reference', 'tiger-renames.json'), 'utf8'));
+  if (doc.tigerYear !== TIGER_YEAR) {
+    throw new Error(`tiger-renames.json was written for TIGER ${doc.tigerYear}, this build reads ${TIGER_YEAR}; review it`);
+  }
+  RENAMES = new Map();
+  renameSeen.clear();
+  for (const rule of doc.rules) {
+    const byName = RENAMES.get(rule.st) ?? RENAMES.set(rule.st, new Map()).get(rule.st);
+    const list = byName.get(rule.name) ?? byName.set(rule.name, []).get(rule.name);
+    list.push({ as: rule.as, ids: rule.ids === '*' ? '*' : new Set(rule.ids), rule });
+    renameSeen.set(rule, new Set());
+  }
+}
+
+/** The names a segment is read under, or null when no rule applies. */
+function renamed(st, fullname, linearid) {
+  const rules = RENAMES.get(st)?.get(String(fullname ?? '').trim());
+  if (!rules) return null;
+  for (const r of rules) {
+    if (r.ids !== '*' && !r.ids.has(String(linearid))) continue;
+    renameSeen.get(r.rule).add(String(linearid));
+    return r.as;
+  }
+  return null;
+}
+
+/** Rules that matched nothing, or listed ids the source no longer has under that name. */
+export function unmatchedRenames() {
+  const out = [];
+  for (const [rule, seen] of renameSeen) {
+    if (rule.ids === '*') { if (!seen.size) out.push(`${rule.st} "${rule.name}": no segment`); continue; }
+    const missing = rule.ids.filter((id) => !seen.has(id));
+    if (missing.length) out.push(`${rule.st} "${rule.name}" -> ${rule.as.join(', ') || 'dropped'}: ${missing.join(', ')} not found`);
+  }
+  return out;
+}
+
+/**
+ * A line that runs out and comes back as one feature, split at its far end.
+ *
+ * TIGER draws a few stretches of divided freeway as a single line down one
+ * carriageway and back up the other: I-73 north of Greensboro is one 90 km
+ * feature whose two ends are 10 km apart. The stitcher can only see its ends,
+ * so the whole stretch read as a spur off the junction. Halved at the vertex
+ * farthest from its start, it is two carriageways like any other.
+ *
+ * Only where the way back retraces the way out. A loop or a U-shaped road also
+ * has its ends close together, and halving one moved NY 5's end from Albany to
+ * Tribes Hill: a 12 km loop at Fort Johnson, split, became a cycle the
+ * stitcher bridged into.
+ */
+function unfold(coords) {
+  if (coords.length < 4) return [coords];
+  const k = (a, b) => Math.hypot((a[0] - b[0]) * Math.cos((a[1] * Math.PI) / 180), a[1] - b[1]);
+  const ends = k(coords[0], coords[coords.length - 1]);
+  let far = 0;
+  let farD = 0;
+  for (let i = 1; i < coords.length - 1; i++) {
+    const d = k(coords[0], coords[i]);
+    if (d > farD) { farD = d; far = i; }
+  }
+  // Degrees, near enough: the far end at least 3 km out, and the line's own
+  // ends closer together than half that.
+  if (farD < 0.027 || ends > farD / 2) return [coords];
+  const out = coords.slice(0, far + 1);
+  const back = coords.slice(far);
+  // About 100 m, the width of a median with room to spare.
+  const near = (p) => {
+    for (let i = 1; i < out.length; i++) {
+      const [a, b] = [out[i - 1], out[i]];
+      const c = Math.cos((p[1] * Math.PI) / 180);
+      const dx = (b[0] - a[0]) * c, dy = b[1] - a[1];
+      const len2 = dx * dx + dy * dy;
+      const t = len2 ? Math.max(0, Math.min(1, (((p[0] - a[0]) * c) * dx + (p[1] - a[1]) * dy) / len2)) : 0;
+      if (Math.hypot((p[0] - a[0]) * c - t * dx, p[1] - a[1] - t * dy) < 0.0009) return true;
+    }
+    return false;
+  };
+  const retraced = back.filter(near).length / back.length;
+  if (retraced < 0.8) return [coords];
+  return [out, back];
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
    Fetching and reading
    ══════════════════════════════════════════════════════════════════════════ */
 
@@ -289,10 +382,12 @@ export async function readState(fips, { groups = new Map(), tol = 0.0002, contex
     const p = r.value.properties;
     const g = r.value.geometry;
     if (!g) continue;
-    const routes = parseName(p.FULLNAME, p.RTTYP, st);
+    const alias = renamed(st, p.FULLNAME, p.LINEARID);
+    if (alias && !alias.length) continue;
+    const routes = alias ? alias.flatMap((n) => parseName(n, null, st)) : parseName(p.FULLNAME, p.RTTYP, st);
 
-    const parts = g.type === 'LineString' ? [g.coordinates]
-      : g.type === 'MultiLineString' ? g.coordinates : [];
+    const parts = (g.type === 'LineString' ? [g.coordinates]
+      : g.type === 'MultiLineString' ? g.coordinates : []).flatMap(unfold);
     if (!parts.length) continue;
 
     // Unnumbered arterials are drawn as faint hairlines under the numbered

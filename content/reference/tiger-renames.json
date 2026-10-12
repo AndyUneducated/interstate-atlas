@@ -1,0 +1,37 @@
+{
+ "purpose": "TIGER road segments filed under a name that does not designate the route they carry. Each rule names the segments by LINEARID and the name TIGER gives them; the build reads them under the names in `as` instead (an empty list drops them), and fails if a segment is missing or renamed, so a TIGER edition that fixes the name is noticed.",
+ "tigerYear": 2025,
+ "decision": "D-54",
+ "rules": [
+  {
+   "st": "MN", "name": "I- 35", "as": ["I- 35E"],
+   "ids": ["1104259380285", "1104259380289", "1104259380294", "1104259380292"],
+   "why": "Between the split at Burnsville and the rejoin at Columbus there is no plain I-35. TIGER files I-35E's stretch from the split to Mendota Heights and from Little Canada to Columbus as I-35, so the route measured 18 of FHWA's 39.34 mi."
+  },
+  {
+   "st": "MN", "name": "I- 35", "as": ["I- 35W"],
+   "ids": ["110517252884", "1104259380287", "110208164780", "110208164782"],
+   "why": "The same for I-35W: its first 4 mi north of the split and its stretch from Roseville to Columbus are filed as I-35 (26 of 41.78 mi)."
+  },
+  {
+   "st": "AR", "name": "Joe N Martin Expy", "as": ["I- 555", "US Hwy 63"],
+   "ids": ["1108296281010", "1108296282963"],
+   "why": "The Joe N. Martin Expressway is I-555 and US 63 from Jonesboro to the I-555 segments TIGER numbers; filed by name alone it was context (I-555 measured 31 of 49.94 mi)."
+  },
+  {
+   "st": "IN", "name": "State Rd 265", "as": ["I- 265", "State Rd 265"],
+   "ids": "*",
+   "why": "Indiana's SR 265 was redesignated I-265 in 2019, from I-64 to the Lewis and Clark Bridge, and is still signed SR 265 east of I-65 (Wikipedia, Interstate 265). FHWA lists 13.13 mi in Indiana; 1 mi was drawn."
+  },
+  {
+   "st": "NV", "name": "US Hwy 95", "as": ["US Hwy 95", "I- 11"],
+   "ids": ["11012814482866", "11012814482976"],
+   "why": "I-11 runs with US 95 from Railroad Pass to Kyle Canyon Road since May 2024, over the former I-515 (Wikipedia, Interstate 11). FHWA lists 54.19 mi; 21 were drawn."
+  },
+  {
+   "st": "NV", "name": "I- 515", "as": [],
+   "ids": ["11015481916520", "1104257746482"],
+   "why": "I-515 was decommissioned when I-11 replaced it; FHWA no longer lists it. Its pavement is carried by the US 95 segments above."
+  }
+ ]
+}

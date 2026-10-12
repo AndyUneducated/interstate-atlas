@@ -24,7 +24,9 @@ import {
   stitchComponents, stitchRoute,
 } from './geo.mjs';
 import { STATE_CODE, statesTouch } from './states.mjs';
-import { readState, setSuffixedInterstates, STATES, TIGER_YEAR } from './tiger.mjs';
+import {
+  loadRenames, readState, setSuffixedInterstates, STATES, TIGER_YEAR, unmatchedRenames,
+} from './tiger.mjs';
 import { STEPS as HPMS_STEPS, HPMS_YEAR } from './fetch-hpms.mjs';
 import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
 import { loadMexico, mexicoLabel } from './mexico.mjs';
@@ -1240,6 +1242,7 @@ async function readUnitedStates(contextLines) {
   let read = 0;
   const fipsList = Object.keys(STATES);
 
+  await loadRenames(ROOT);
   for (const fips of fipsList) {
     const before = groups.size;
     const res = await readState(fips, { groups, tol: 0.0002, context: contextLines, named });
@@ -1247,6 +1250,8 @@ async function readUnitedStates(contextLines) {
     console.log(`  ${res.st}  ${String(res.read).padStart(7)} features -> `
       + `${String(groups.size - before).padStart(4)} new route numbers`);
   }
+  const stale = unmatchedRenames();
+  if (stale.length) throw new Error(`tiger-renames.json no longer matches TIGER:\n  ${stale.join('\n  ')}`);
   await addNamedFreeways(ROOT, groups, named);
 
   // Reshape into what the stitching loop consumes: a parsed number, a tier,
@@ -1330,6 +1335,11 @@ async function main() {
     // 414 miles from Davenport to Cincinnati instead of 186 miles ending at an
     // interchange outside Indianapolis.
     //
+    // Bridging also starts from each piece's two extremities, because a piece
+    // that ends where its carriageways meet has no dead end: I-35 stops at the
+    // Twin Cities split that way, and without them it jumped 800 km from
+    // Emporia to Duluth past all of Missouri and Iowa.
+    //
     // Whatever still will not join stays as its own route rather than being
     // dropped, as the Canadian half already does: keeping only the longest
     // deleted 228 miles of I-74 along with the rest of what would not bridge.
@@ -1337,7 +1347,7 @@ async function main() {
     for (const members of clusters) {
       if (members.length === 1) { corridors.push(members[0]); continue; }
       const parts = members.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
-      const comps = stitchComponents(parts, US_SNAP, 1000, { bridgeToAnyNode: true })
+      const comps = stitchComponents(parts, US_SNAP, 1000, { bridgeToAnyNode: true, bridgeFromExtremities: true })
         .filter((c) => alone || c.km >= 1.2);
       if (!comps.length) continue;
       const gapMi = Math.round(comps[0].gaps.reduce((s, g) => s + g, 0) / KM_PER_MI);

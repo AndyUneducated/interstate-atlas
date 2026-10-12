@@ -41,7 +41,6 @@
       "PRI-2|PR": "unsignedPR",
       "PRI-3|PR": "unsignedPR",
       "I-295|PA": "branch",
-      "I-471|KY": "branch",
       "I-182|LA": "fhwaTrace"
     },
     "ca-nhs": {
