@@ -804,10 +804,17 @@ export async function buildCanada() {
     const entry = tchList.get(`${whole.pr}|${whole.number}`);
     for (const { grp, tch, split } of splitForTch(whole, entry, src.groups, tchCheck)) {
 
-    const onNetwork = Boolean(grp.nhsTier);
+    // Ontario files county roads under the numbers of its provincial highways,
+    // so a number on the register is not one road there: bridging ON 12's
+    // breaks welded Whitby-Orillia to county roads 12 across the province,
+    // 568 km against a 177 km highway. Its provincial stretches break only
+    // at connecting links through towns, which 15 km spans; past that each
+    // stretch is its own route, told apart by place (D-55).
+    const countyNumbers = grp.pr === 'ON' && !tch;
+    const onNetwork = Boolean(grp.nhsTier) && !countyNumbers;
     const firstPass = stitchRoute(grp.parts, {
       snapDeg: CA_SNAP,
-      bridgeKm: onNetwork ? 60 : 30,
+      bridgeKm: countyNumbers ? 15 : onNetwork ? 60 : 30,
       minComponentKm: 1.5,
     });
     if (!firstPass.length) continue;

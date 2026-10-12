@@ -336,13 +336,14 @@ candidate.
 | Constant | Value | Where | Why that value |
 | --- | --- | --- | --- |
 | `US_SNAP` / `CA_SNAP` | `0.0002°`, about 22 m | `build-data.mjs` | both national files are surveyed to around 10 m; looser welds the two carriageways of a divided highway into one graph |
-| `bridgeKm` | 60 km national, 40 km US state, 30 km CA undesignated | `build-data.mjs` | wide enough for I-90's missing turnpikes, narrow enough not to invent road |
+| `bridgeKm` | 60 km national, 40 km US state, 30 km CA undesignated, 15 km Ontario outside the Trans-Canada | `build-data.mjs` | wide enough for I-90's missing turnpikes, narrow enough not to invent road; Ontario's county roads share its highway numbers (D-55) |
+| `bridgeFromExtremities` | Mexico | `geo.mjs` | the RNC's divided highways end in a node where both carriageways meet, which is not a dead end (D-56) |
 | bridge cost | `km × 4 + 2` | `geo.mjs` | a straight line is always shorter than the road it spans, so without a penalty every bridge beats real pavement |
 | `minComponentKm` | 1.2 km US, 1.5 km CA and MX | `build-data.mjs` | discards digitising slivers before they can be chosen as termini, unless every piece of the number is that short (D-42) |
 | `dedupeTolKm` | 0.08 km, 80 m | `geo.mjs` | wider than a median, far narrower than the gap to a different road |
 | coincidence share | 0.6 | `geo.mjs` | the fraction of a component that must lie on one already counted |
 | `minAlongKm` | 1.6 km | `drivenEdgeKm` | separates a returning carriageway from a switchback |
-| corridor bridge | 1,000 km US, 120 km CA | `build-data.mjs` | the US budget spans concurrencies inside an already-clustered corridor; Canada's refuses to bridge Lake Superior |
+| corridor bridge | 1,000 km US, 120 km CA (not Ontario outside the Trans-Canada) and MX federal | `build-data.mjs` | the US budget spans concurrencies inside an already-clustered corridor; Canada's refuses to bridge Lake Superior |
 | Douglas–Peucker tolerance | 0.004–0.006° on output | `build-data.mjs` | drawing scale, roughly 1:1,000,000; endpoints are never moved |
 
 ### Why each step exists
