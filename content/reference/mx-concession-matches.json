@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-10",
+  "generated": "2026-10-12",
   "method": "Place names in each title are compared with the road names in SICT Datos Viales 2025 (content/reference/mx-designations.json) and the count points in SICT Datos Viales (content/reference/mx-traffic.json), in the states the title names. \"road\": the title writes the name SICT gives the road. \"points\": both places of a pair the title writes are count points on one SICT road. A proposal is attached to its routes only when approved is true.",
   "counts": {
     "titlesWithoutNumber": 69,
@@ -83,7 +83,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -101,8 +101,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-mic"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -138,9 +137,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-180-ver-1",
-        "mex-180-ver-2",
-        "mex-180-ver-3"
+        "mex-180"
       ],
       "note": null,
       "approved": true
@@ -158,9 +155,7 @@
         "toll": "mixed"
       },
       "routes": [
-        "mex-180-ver-1",
-        "mex-180-ver-2",
-        "mex-180-ver-3"
+        "mex-180"
       ],
       "note": null,
       "approved": true
@@ -178,9 +173,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-045-dur",
-        "mex-045-zac-1",
-        "mex-045-zac-2"
+        "mex-045"
       ],
       "note": null,
       "approved": false
@@ -198,7 +191,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-045-dur"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -216,7 +209,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-117-tla-1"
+        "mex-117"
       ],
       "note": null,
       "approved": true
@@ -234,8 +227,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-117-tla-1",
-        "mex-117-tla-2"
+        "mex-117"
       ],
       "note": null,
       "approved": true
@@ -271,9 +263,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-040-dur",
-        "mex-040-nle-1",
-        "mex-040-nle-2"
+        "mex-040-dur"
       ],
       "note": null,
       "approved": true
@@ -309,8 +299,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-002-son",
-        "mex-002-bcn"
+        "mex-002-son"
       ],
       "note": null,
       "approved": true
@@ -328,8 +317,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-002-son",
-        "mex-002-bcn"
+        "mex-002-son"
       ],
       "note": null,
       "approved": true
@@ -347,7 +335,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-200-gro-1"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -365,7 +353,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-200-gro-1"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -401,8 +389,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-057-slp-1",
-        "mex-057-slp-2"
+        "mex-057"
       ],
       "note": null,
       "approved": true
@@ -420,9 +407,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-son-1",
-        "mex-015-son-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -440,8 +425,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-057-slp-1",
-        "mex-057-slp-2"
+        "mex-057"
       ],
       "note": null,
       "approved": true
@@ -459,7 +443,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-140-ver-1"
+        "mex-140"
       ],
       "note": null,
       "approved": true
@@ -477,8 +461,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-140-ver-1",
-        "mex-140-ver-2"
+        "mex-140"
       ],
       "note": null,
       "approved": true
@@ -496,8 +479,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-140-ver-1",
-        "mex-140-ver-2"
+        "mex-140"
       ],
       "note": null,
       "approved": true
@@ -515,8 +497,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-002-son",
-        "mex-002-bcn"
+        "mex-002-son"
       ],
       "note": null,
       "approved": true
@@ -534,7 +515,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -552,8 +533,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-sin-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -571,8 +551,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-sin-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -662,7 +641,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-150-pue-1"
+        "mex-150"
       ],
       "note": null,
       "approved": false
@@ -680,7 +659,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-150-pue-1"
+        "mex-150"
       ],
       "note": null,
       "approved": false
@@ -698,8 +677,7 @@
         "toll": null
       },
       "routes": [
-        "mex-055-mex-1",
-        "mex-055-mex-2"
+        "mex-055"
       ],
       "note": null,
       "approved": false
@@ -717,8 +695,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-150-pue-1",
-        "mex-150-pue-2"
+        "mex-150"
       ],
       "note": null,
       "approved": false
@@ -736,8 +713,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-150-pue-1",
-        "mex-150-pue-2"
+        "mex-150"
       ],
       "note": null,
       "approved": false
@@ -771,9 +747,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-200-gro-1",
-        "mex-200-gro-2",
-        "mex-200-gro-3"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -791,9 +765,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-040-dur",
-        "mex-040-nle-1",
-        "mex-040-nle-2"
+        "mex-040-dur"
       ],
       "note": null,
       "approved": false
@@ -829,9 +801,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-040-dur",
-        "mex-040-nle-1",
-        "mex-040-nle-2"
+        "mex-040-dur"
       ],
       "note": null,
       "approved": false
@@ -849,8 +819,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-040-nle-1",
-        "mex-040-nle-2"
+        "mex-040-dur"
       ],
       "note": null,
       "approved": false
@@ -868,8 +837,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-040-nle-1",
-        "mex-040-nle-2"
+        "mex-040-dur"
       ],
       "note": null,
       "approved": false
@@ -887,7 +855,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-040-nle-1"
+        "mex-040-dur"
       ],
       "note": null,
       "approved": false
@@ -905,8 +873,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-200-oax",
-        "mex-200-chp"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -924,7 +891,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-190-oax-1"
+        "mex-190"
       ],
       "note": null,
       "approved": true
@@ -942,8 +909,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-045-dur",
-        "mex-045-gua"
+        "mex-045"
       ],
       "note": null,
       "approved": false
@@ -961,8 +927,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-140-ver-1",
-        "mex-140-ver-2"
+        "mex-140"
       ],
       "note": null,
       "approved": true
@@ -980,8 +945,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-140-ver-1",
-        "mex-140-ver-2"
+        "mex-140"
       ],
       "note": null,
       "approved": true
@@ -999,8 +963,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-140-ver-1",
-        "mex-140-ver-2"
+        "mex-140"
       ],
       "note": null,
       "approved": true
@@ -1018,8 +981,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-045-dur",
-        "mex-045-gua"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1037,8 +999,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-045-dur",
-        "mex-045-gua"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1056,7 +1017,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-045-dur"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1074,8 +1035,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-045-dur",
-        "mex-045-gua"
+        "mex-045"
       ],
       "note": null,
       "approved": false
@@ -1093,8 +1053,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-045-dur",
-        "mex-045-gua"
+        "mex-045"
       ],
       "note": null,
       "approved": false
@@ -1128,8 +1087,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-045-dur",
-        "mex-045-gua"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1147,8 +1105,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-045-dur",
-        "mex-045-gua"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1166,7 +1123,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-045-dur"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1184,7 +1141,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-045-dur"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1202,8 +1159,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-200-oax",
-        "mex-200-chp"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -1221,8 +1177,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-200-oax",
-        "mex-200-chp"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -1276,7 +1231,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-045-dur"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1294,7 +1249,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-045-dur"
+        "mex-045"
       ],
       "note": null,
       "approved": true
@@ -1312,8 +1267,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-jal"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1331,8 +1285,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-mic"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1350,8 +1303,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-sin-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1369,8 +1321,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-sin-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1388,8 +1339,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-sin-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1407,8 +1357,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-sin-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1426,8 +1375,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-sin-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1445,8 +1393,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-jal"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1464,8 +1411,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-jal"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1501,7 +1447,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-015-sin-1"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1519,7 +1465,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-015-sin-1"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1537,7 +1483,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1555,7 +1501,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1625,9 +1571,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-180-ver-1",
-        "mex-180-ver-2",
-        "mex-180-ver-3"
+        "mex-180"
       ],
       "note": null,
       "approved": true
@@ -1645,9 +1589,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-son-1",
-        "mex-015-son-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1665,9 +1607,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-015-sin-1",
-        "mex-015-son-1",
-        "mex-015-son-2"
+        "mex-015"
       ],
       "note": null,
       "approved": true
@@ -1701,7 +1641,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-200-gro-1"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -1719,7 +1659,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-200-gro-1"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -1737,7 +1677,7 @@
         "toll": "free"
       },
       "routes": [
-        "mex-200-gro-1"
+        "mex-200"
       ],
       "note": null,
       "approved": true
@@ -1755,7 +1695,7 @@
         "toll": "toll"
       },
       "routes": [
-        "mex-200-gro-1"
+        "mex-200"
       ],
       "note": null,
       "approved": true
