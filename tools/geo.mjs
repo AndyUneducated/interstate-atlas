@@ -167,7 +167,7 @@ export function bboxDistanceKm(a, b) {
  * mainline. Everything left over is kept as branch geometry: still drawn, but
  * not treated as part of the through route.
  */
-function buildGraph(parts, snapDeg, bridgeKm, { bridgeToAnyNode = false } = {}) {
+function buildGraph(parts, snapDeg, bridgeKm, { bridgeToAnyNode = false, bridgeFromExtremities = false } = {}) {
   const buckets = new Map();
   const nodeCoord = [];
 
@@ -240,9 +240,26 @@ function buildGraph(parts, snapDeg, bridgeKm, { bridgeToAnyNode = false } = {}) 
     // Alaska's A-1 in two pieces at Delta Junction - the far side of the hole
     // is an ordinary mid-road node. Callers that already know the pieces are
     // one road can say so and have the hole closed anyway.
-    const targets = bridgeToAnyNode ? [...degree.keys()] : deadEnds;
+    //
+    // And where a divided road's two carriageways meet at the end of a piece,
+    // that end has degree two and is not a dead end at all. Mexico's federal
+    // network is drawn that way, so the only dead ends left were ramp stubs,
+    // and MEX-85 jumped 117 km from Mante to Victoria past a 119 km piece of
+    // itself lying 3 km off either end. A piece's two geographic extremities
+    // are its ends whatever their degree, so callers can add those.
+    const sources = new Set(deadEnds);
+    if (bridgeFromExtremities) {
+      const byRoot = new Map();
+      for (const n of degree.keys()) {
+        const r = find(n);
+        if (!byRoot.has(r)) byRoot.set(r, []);
+        byRoot.get(r).push(n);
+      }
+      for (const ns of byRoot.values()) for (const n of extremities(ns, nodeCoord).slice(0, 2)) sources.add(n);
+    }
+    const targets = bridgeToAnyNode ? [...degree.keys()] : [...sources];
     const candidates = [];
-    for (const a of deadEnds) {
+    for (const a of sources) {
       for (const b of targets) {
         if (a === b || find(a) === find(b)) continue;
         const km = haversineKm(nodeCoord[a], nodeCoord[b]);
@@ -435,6 +452,12 @@ function dijkstra(adj, start) {
 function farthestPair(adj, nodeCoord) {
   const nodes = [...adj.keys()];
   if (nodes.length < 2) return null;
+  const [a, b, d] = extremities(nodes, nodeCoord);
+  return { a, b, d };
+}
+
+function extremities(nodes, nodeCoord) {
+  if (nodes.length < 2) return nodes;
 
   const far = (from) => {
     const origin = nodeCoord[from];
@@ -464,7 +487,7 @@ function farthestPair(adj, nodeCoord) {
 
   const a = far(seed);
   const b = far(a.node);
-  return { a: a.node, b: b.node, d: b.d };
+  return [a.node, b.node, b.d];
 }
 
 function shortestPath(adj, start, goal) {
@@ -678,7 +701,7 @@ function assemblePath(steps) {
  */
 export function stitchRoute(parts, {
   snapDeg = 0.0025, bridgeKm = 60, minComponentKm = 1.2,
-  dedupe = false, dedupeTolKm = 0.08,
+  dedupe = false, dedupeTolKm = 0.08, bridgeFromExtremities = false,
 } = {}) {
   const first = stitchComponents(parts, snapDeg, 0);
   const keep = new Set();
@@ -688,7 +711,7 @@ export function stitchRoute(parts, {
   }
   const alone = !keep.size;
   const survivors = alone ? parts : parts.filter((_, i) => keep.has(i));
-  const comps = stitchComponents(survivors, snapDeg, bridgeKm)
+  const comps = stitchComponents(survivors, snapDeg, bridgeKm, { bridgeFromExtremities })
     .filter((c) => (alone ? c.km > 0 : c.km >= minComponentKm));
   return dedupe ? withoutOppositeCarriageways(comps, dedupeTolKm) : comps;
 }

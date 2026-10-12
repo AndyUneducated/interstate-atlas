@@ -1019,6 +1019,7 @@ async function buildMexico(contextLines) {
       snapDeg: US_SNAP,
       bridgeKm: federal ? 60 : 30,
       minComponentKm: 1.5,
+      bridgeFromExtremities: true,
     });
     if (!firstPass.length) continue;
     const alone = firstPass.every((c) => c.km < 1.5);
@@ -1026,7 +1027,7 @@ async function buildMexico(contextLines) {
     let comps = firstPass;
     if (federal && firstPass.length > 1) {
       const parts = firstPass.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
-      comps = stitchComponents(parts, US_SNAP, 120).sort((a, b) => b.km - a.km);
+      comps = stitchComponents(parts, US_SNAP, 120, { bridgeFromExtremities: true }).sort((a, b) => b.km - a.km);
     }
 
     for (const comp of comps) {

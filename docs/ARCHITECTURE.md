@@ -267,7 +267,7 @@ flowchart TD
     N2["match against the 3x3 neighbourhood<br/>by real distance, not by cell<br/><i>snapDeg 0.0002, about 22 m</i>"]
     N3["union-find over the snapped nodes"]
     N4{"bridgeKm > 0?"}
-    N5["pair each dead end with the nearest<br/>node in another component, shortest first<br/><i>dead ends only, unless bridgeToAnyNode</i>"]
+    N5["pair each dead end with the nearest<br/>node in another component, shortest first<br/><i>dead ends only, unless bridgeToAnyNode;<br/>plus each piece's two extremities if bridgeFromExtremities</i>"]
     N1 --> N2 --> N3 --> N4
     N4 -->|yes| N5
   end
