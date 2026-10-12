@@ -1,0 +1,635 @@
+{
+ "purpose": "The Trans-Canada list (tch-routes.json) read against the names the National Road Network gives its segments. `listed`: each listed route, how much of it the NRN names Trans-Canada and how much the atlas draws as Trans-Canada. `notListed`: routes the NRN names Trans-Canada for 5 km or more that are not on the list, nearly all pavement shared with a listed route; drawn under their own number.",
+ "listed": [
+  {
+   "pr": "AB",
+   "number": "1",
+   "extent": "named",
+   "namedKm": 1152,
+   "tchKm": 1163,
+   "mainlineKm": 531,
+   "intervals": [
+    [
+     0,
+     531
+    ]
+   ]
+  },
+  {
+   "pr": "AB",
+   "number": "16",
+   "extent": "named",
+   "namedKm": 1256,
+   "tchKm": 1259,
+   "mainlineKm": 631,
+   "intervals": [
+    [
+     0,
+     631
+    ]
+   ]
+  },
+  {
+   "pr": "BC",
+   "number": "1",
+   "extent": "whole",
+   "namedKm": 1388,
+   "tchKm": 1388,
+   "mainlineKm": null,
+   "intervals": null
+  },
+  {
+   "pr": "BC",
+   "number": "16",
+   "extent": "whole",
+   "namedKm": 0,
+   "tchKm": 1224,
+   "mainlineKm": null,
+   "intervals": null
+  },
+  {
+   "pr": "MB",
+   "number": "1",
+   "extent": "named",
+   "namedKm": 908,
+   "tchKm": 909,
+   "mainlineKm": 487,
+   "intervals": [
+    [
+     0,
+     487
+    ]
+   ]
+  },
+  {
+   "pr": "MB",
+   "number": "16",
+   "extent": "named",
+   "namedKm": 268,
+   "tchKm": 268,
+   "mainlineKm": 266,
+   "intervals": [
+    [
+     0,
+     266
+    ]
+   ]
+  },
+  {
+   "pr": "MB",
+   "number": "100",
+   "extent": "named",
+   "namedKm": 80,
+   "tchKm": 80,
+   "mainlineKm": 30,
+   "intervals": [
+    [
+     0,
+     30
+    ]
+   ]
+  },
+  {
+   "pr": "NB",
+   "number": "2",
+   "extent": "named",
+   "namedKm": 1027,
+   "tchKm": 1027,
+   "mainlineKm": 511,
+   "intervals": [
+    [
+     0,
+     511
+    ]
+   ]
+  },
+  {
+   "pr": "NB",
+   "number": "16",
+   "extent": "named",
+   "namedKm": 59,
+   "tchKm": 59,
+   "mainlineKm": 58,
+   "intervals": [
+    [
+     0,
+     58
+    ]
+   ]
+  },
+  {
+   "pr": "NL",
+   "number": "1",
+   "extent": "named",
+   "namedKm": 902,
+   "tchKm": 902,
+   "mainlineKm": 879,
+   "intervals": [
+    [
+     0,
+     879
+    ]
+   ]
+  },
+  {
+   "pr": "NS",
+   "number": "104",
+   "extent": "named",
+   "namedKm": 505,
+   "tchKm": 505,
+   "mainlineKm": 316,
+   "intervals": [
+    [
+     0,
+     273
+    ]
+   ]
+  },
+  {
+   "pr": "NS",
+   "number": "105",
+   "extent": "named",
+   "namedKm": 142,
+   "tchKm": 142,
+   "mainlineKm": 138,
+   "intervals": [
+    [
+     0,
+     138
+    ]
+   ]
+  },
+  {
+   "pr": "NS",
+   "number": "106",
+   "extent": "named",
+   "namedKm": 19,
+   "tchKm": 19,
+   "mainlineKm": 19,
+   "intervals": [
+    [
+     0,
+     19
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "7",
+   "extent": "named",
+   "namedKm": 352,
+   "tchKm": 353,
+   "mainlineKm": 890,
+   "intervals": [
+    [
+     487,
+     807
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "11",
+   "extent": "between",
+   "namedKm": 1540,
+   "tchKm": 1535,
+   "mainlineKm": 2234,
+   "intervals": [
+    [
+     53,
+     1557
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "12",
+   "extent": "named",
+   "namedKm": 94,
+   "tchKm": 98,
+   "mainlineKm": 921,
+   "intervals": [
+    [
+     485,
+     485
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "17",
+   "extent": "named",
+   "namedKm": 2037,
+   "tchKm": 2057,
+   "mainlineKm": 2161,
+   "intervals": [
+    [
+     0,
+     1945
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "17A",
+   "extent": "named",
+   "namedKm": 33,
+   "tchKm": 33,
+   "mainlineKm": 33,
+   "intervals": [
+    [
+     0,
+     33
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "66",
+   "extent": "named",
+   "namedKm": 58,
+   "tchKm": 59,
+   "mainlineKm": 102,
+   "intervals": [
+    [
+     44,
+     102
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "69",
+   "extent": "named",
+   "namedKm": 263,
+   "tchKm": 265,
+   "mainlineKm": 167,
+   "intervals": [
+    [
+     0,
+     167
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "71",
+   "extent": "named",
+   "namedKm": 193,
+   "tchKm": 193,
+   "mainlineKm": 192,
+   "intervals": [
+    [
+     0,
+     192
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "400",
+   "extent": "named",
+   "namedKm": 198,
+   "tchKm": 203,
+   "mainlineKm": 222,
+   "intervals": [
+    [
+     122,
+     222
+    ]
+   ]
+  },
+  {
+   "pr": "ON",
+   "number": "417",
+   "extent": "named",
+   "namedKm": 382,
+   "tchKm": 385,
+   "mainlineKm": 191,
+   "intervals": [
+    [
+     0,
+     191
+    ]
+   ]
+  },
+  {
+   "pr": "PE",
+   "number": "1",
+   "extent": "named",
+   "namedKm": 149,
+   "tchKm": 149,
+   "mainlineKm": 126,
+   "intervals": [
+    [
+     0,
+     126
+    ]
+   ]
+  },
+  {
+   "pr": "QC",
+   "number": "15",
+   "extent": "between",
+   "namedKm": 0,
+   "tchKm": 310,
+   "mainlineKm": 162,
+   "intervals": [
+    [
+     70,
+     160
+    ]
+   ]
+  },
+  {
+   "pr": "QC",
+   "number": "20",
+   "extent": "between",
+   "namedKm": 0,
+   "tchKm": 1173,
+   "mainlineKm": 641,
+   "intervals": [
+    [
+     88,
+     498
+    ]
+   ]
+  },
+  {
+   "pr": "QC",
+   "number": "25",
+   "extent": "between",
+   "namedKm": 0,
+   "tchKm": 29,
+   "mainlineKm": 53,
+   "intervals": [
+    [
+     0,
+     11
+    ]
+   ]
+  },
+  {
+   "pr": "QC",
+   "number": "40",
+   "extent": "between",
+   "namedKm": 0,
+   "tchKm": 235,
+   "mainlineKm": 340,
+   "intervals": [
+    [
+     0,
+     77
+    ]
+   ],
+   "farAnchors": [
+    {
+     "anchor": "the Ontario border",
+     "km": 6.5
+    }
+   ]
+  },
+  {
+   "pr": "QC",
+   "number": "85",
+   "extent": "whole",
+   "namedKm": 0,
+   "tchKm": 249,
+   "mainlineKm": null,
+   "intervals": null
+  },
+  {
+   "pr": "QC",
+   "number": "117",
+   "extent": "between",
+   "namedKm": 0,
+   "tchKm": 670,
+   "mainlineKm": 662,
+   "intervals": [
+    [
+     1,
+     576
+    ]
+   ]
+  },
+  {
+   "pr": "QC",
+   "number": "185",
+   "extent": "whole",
+   "namedKm": 0,
+   "tchKm": 4,
+   "mainlineKm": null,
+   "intervals": null
+  },
+  {
+   "pr": "SK",
+   "number": "1",
+   "extent": "named",
+   "namedKm": 1314,
+   "tchKm": 1350,
+   "mainlineKm": 653,
+   "intervals": [
+    [
+     0,
+     653
+    ]
+   ]
+  },
+  {
+   "pr": "SK",
+   "number": "16",
+   "extent": "named",
+   "namedKm": 979,
+   "tchKm": 1001,
+   "mainlineKm": 688,
+   "intervals": [
+    [
+     0,
+     688
+    ]
+   ]
+  }
+ ],
+ "notListed": [
+  {
+   "pr": "AB",
+   "number": "1A",
+   "namedKm": 8
+  },
+  {
+   "pr": "AB",
+   "number": "2",
+   "namedKm": 17
+  },
+  {
+   "pr": "AB",
+   "number": "9",
+   "namedKm": 6
+  },
+  {
+   "pr": "AB",
+   "number": "16A",
+   "namedKm": 94
+  },
+  {
+   "pr": "AB",
+   "number": "60",
+   "namedKm": 8
+  },
+  {
+   "pr": "AB",
+   "number": "93",
+   "namedKm": 59
+  },
+  {
+   "pr": "AB",
+   "number": "216",
+   "namedKm": 12
+  },
+  {
+   "pr": "AB",
+   "number": "779",
+   "namedKm": 6
+  },
+  {
+   "pr": "AB",
+   "number": "797",
+   "namedKm": 6
+  },
+  {
+   "pr": "BC",
+   "number": "5",
+   "namedKm": 25
+  },
+  {
+   "pr": "BC",
+   "number": "7",
+   "namedKm": 6
+  },
+  {
+   "pr": "BC",
+   "number": "97",
+   "namedKm": 150
+  },
+  {
+   "pr": "BC",
+   "number": "99",
+   "namedKm": 21
+  },
+  {
+   "pr": "MB",
+   "number": "1A",
+   "namedKm": 44
+  },
+  {
+   "pr": "MB",
+   "number": "10",
+   "namedKm": 11
+  },
+  {
+   "pr": "MB",
+   "number": "16A",
+   "namedKm": 10
+  },
+  {
+   "pr": "MB",
+   "number": "52",
+   "namedKm": 6
+  },
+  {
+   "pr": "MB",
+   "number": "83",
+   "namedKm": 45
+  },
+  {
+   "pr": "MB",
+   "number": "85",
+   "namedKm": 24
+  },
+  {
+   "pr": "MB",
+   "number": "135",
+   "namedKm": 20
+  },
+  {
+   "pr": "MB",
+   "number": "250",
+   "namedKm": 9
+  },
+  {
+   "pr": "MB",
+   "number": "254",
+   "namedKm": 10
+  },
+  {
+   "pr": "NB",
+   "number": "7",
+   "namedKm": 24
+  },
+  {
+   "pr": "NL",
+   "number": "1R",
+   "namedKm": 135
+  },
+  {
+   "pr": "ON",
+   "number": "35",
+   "namedKm": 5
+  },
+  {
+   "pr": "ON",
+   "number": "48",
+   "namedKm": 13
+  },
+  {
+   "pr": "ON",
+   "number": "64",
+   "namedKm": 16
+  },
+  {
+   "pr": "ON",
+   "number": "101",
+   "namedKm": 6
+  },
+  {
+   "pr": "ON",
+   "number": "115",
+   "namedKm": 23
+  },
+  {
+   "pr": "PE",
+   "number": "2",
+   "namedKm": 6
+  },
+  {
+   "pr": "SK",
+   "number": "4",
+   "namedKm": 6
+  },
+  {
+   "pr": "SK",
+   "number": "6",
+   "namedKm": 5
+  },
+  {
+   "pr": "SK",
+   "number": "11",
+   "namedKm": 28
+  },
+  {
+   "pr": "SK",
+   "number": "19",
+   "namedKm": 51
+  },
+  {
+   "pr": "SK",
+   "number": "20",
+   "namedKm": 12
+  },
+  {
+   "pr": "SK",
+   "number": "47",
+   "namedKm": 17
+  }
+ ]
+}

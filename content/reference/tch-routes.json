@@ -1,0 +1,47 @@
+{
+  "purpose": "Which provincial highways carry the Trans-Canada Highway, and over what stretch. Canada publishes no machine-readable register of the system, so this closed set is assembled by hand (DATA-SOURCES D-52). The routes are those Wikipedia's article lists, main route and every branch; the National Road Network's own segment names (CA-1) fix the extent wherever the province records them, and the stretches it does not name are bounded here by junction.",
+  "sources": [
+    { "title": "Trans-Canada Highway", "publisher": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Trans-Canada_Highway", "retrieved": "2026-10-11" },
+    { "title": "The Trans-Canada Highway: Backgrounder", "publisher": "Transport Canada", "url": "https://tc.canada.ca/en/corporate-services/policies/trans-canada-highway-backgrounder", "retrieved": "2026-10-11" }
+  ],
+  "extent": {
+    "named": "the segments the NRN names Trans-Canada Highway (or Transcanadienne) on this route, with gaps under 10 km between them closed",
+    "whole": "the whole route; the NRN names none of it, and all of it is Trans-Canada",
+    "between": "the stretch of the route's mainline between two points, each a junction with another route (the closest approach of the two) or a coordinate"
+  },
+  "routes": [
+    { "pr": "BC", "number": "1", "branch": "main", "extent": "whole", "note": "Victoria to Nanaimo, then by ferry to Horseshoe Bay and on to Kicking Horse Pass; all of it is Trans-Canada, but the NRN does not name the Island stretch so" },
+    { "pr": "BC", "number": "16", "branch": "yellowhead", "extent": "whole", "note": "Masset on Haida Gwaii, by ferry to Prince Rupert, then Prince George to Yellowhead Pass; the NRN names it Yellowhead Highway and never Trans-Canada" },
+    { "pr": "AB", "number": "1", "branch": "main", "extent": "named" },
+    { "pr": "AB", "number": "16", "branch": "yellowhead", "extent": "named" },
+    { "pr": "SK", "number": "1", "branch": "main", "extent": "named" },
+    { "pr": "SK", "number": "16", "branch": "yellowhead", "extent": "named" },
+    { "pr": "MB", "number": "1", "branch": "main", "extent": "named" },
+    { "pr": "MB", "number": "16", "branch": "yellowhead", "extent": "named", "note": "to Highway 1 west of Portage la Prairie" },
+    { "pr": "MB", "number": "100", "branch": "bypass", "extent": "named", "note": "the southern Perimeter Highway around Winnipeg" },
+    { "pr": "ON", "number": "17", "branch": "main", "extent": "named", "note": "Manitoba to Arnprior by Kenora, Thunder Bay, Sault Ste. Marie, Sudbury and North Bay" },
+    { "pr": "ON", "number": "17A", "branch": "bypass", "extent": "named", "note": "the Kenora Bypass" },
+    { "pr": "ON", "number": "417", "branch": "main", "extent": "named", "note": "Arnprior through Ottawa to Quebec" },
+    { "pr": "ON", "number": "71", "branch": "northern-ontario", "extent": "named", "note": "Highway 17 near Kenora to Highway 11 near Fort Frances" },
+    { "pr": "ON", "number": "11", "branch": "northern-ontario", "extent": { "from": { "junction": "71", "name": "Highway 71" }, "to": { "at": [-79.42, 46.33], "name": "North Bay" } }, "note": "Highway 71 by Thunder Bay, Nipigon and Hearst to North Bay; bounded so that a stray named piece west of Highway 71 is not drawn" },
+    { "pr": "ON", "number": "66", "branch": "northern-ontario", "extent": "named", "note": "Highway 11 at Matheson to Quebec" },
+    { "pr": "ON", "number": "69", "branch": "central-ontario", "extent": "named", "note": "Sudbury to Highway 400" },
+    { "pr": "ON", "number": "400", "branch": "central-ontario", "extent": "named", "note": "Highway 69 to Highway 12 at Waubaushene" },
+    { "pr": "ON", "number": "12", "branch": "central-ontario", "extent": "named", "note": "Waubaushene by Orillia to Highway 7 at Sunderland" },
+    { "pr": "ON", "number": "7", "branch": "central-ontario", "extent": "named", "note": "Sunderland by Peterborough to Ottawa" },
+    { "pr": "QC", "number": "40", "branch": "main", "extent": { "from": { "at": [-74.39, 45.57], "name": "the Ontario border" }, "to": { "junction": "25", "name": "Autoroute 25 in Montreal" } } },
+    { "pr": "QC", "number": "25", "branch": "main", "extent": { "from": { "junction": "40", "name": "Autoroute 40" }, "to": { "junction": "20", "name": "Autoroute 20 in Longueuil" } }, "note": "through the Louis-Hippolyte Lafontaine Bridge–Tunnel" },
+    { "pr": "QC", "number": "20", "branch": "main", "extent": { "from": { "junction": "25", "name": "Autoroute 25 in Longueuil" }, "to": { "junction": "85", "name": "Autoroute 85 at Rivière-du-Loup" } }, "note": "by Lévis" },
+    { "pr": "QC", "number": "85", "branch": "main", "extent": "whole", "note": "Rivière-du-Loup to New Brunswick" },
+    { "pr": "QC", "number": "185", "branch": "main", "extent": "whole", "note": "the stretch not yet rebuilt as Autoroute 85" },
+    { "pr": "QC", "number": "117", "branch": "northern-ontario", "extent": { "from": { "at": [-79.52, 48.16], "name": "the Ontario border" }, "to": { "at": [-74.29, 46.07], "name": "the north end of Autoroute 15" } } },
+    { "pr": "QC", "number": "15", "branch": "northern-ontario", "extent": { "from": { "at": [-74.29, 46.07], "name": "Route 117" }, "to": { "junction": "40", "name": "Autoroute 40 in Montreal" } } },
+    { "pr": "NB", "number": "2", "branch": "main", "extent": "named" },
+    { "pr": "NB", "number": "16", "branch": "pei", "extent": "named", "note": "Aulac to the Confederation Bridge" },
+    { "pr": "NS", "number": "104", "branch": "main", "extent": "named", "note": "New Brunswick to the Canso Causeway" },
+    { "pr": "NS", "number": "105", "branch": "main", "extent": "named", "note": "the Canso Causeway to North Sydney" },
+    { "pr": "NS", "number": "106", "branch": "pei", "extent": "named", "note": "the Caribou ferry to Highway 104" },
+    { "pr": "PE", "number": "1", "branch": "pei", "extent": "named", "note": "Borden-Carleton by Charlottetown to Wood Islands" },
+    { "pr": "NL", "number": "1", "branch": "main", "extent": "named", "note": "Channel-Port aux Basques to St. John's" }
+  ]
+}

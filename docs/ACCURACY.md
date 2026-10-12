@@ -42,8 +42,11 @@ The larger disagreements are mostly explained rather than wrong, and the site ex
 instead of splitting the difference. FHWA credits pavement shared by two Interstates to one
 of them, so where I-90 runs along the Indiana Toll Road with I-80 those miles are I-80's in
 the register and both roads' here, which is why I-90 measures 13.7% longer than published.
-The register also has slips of its own: it gives Knoxville's I-640, a beltway of about seven
-miles, as 77.29. Both figures are always shown, and neither is bent toward the other.
+The register also has slips of its own: its Tennessee column is shifted one row, so that
+Knoxville's I-640, a beltway of about seven miles, is given I-840's 77.29. Those figures are
+replaced from a committed correction table that keeps the published value beside each one
+([D-53](DATA-SOURCES.md#5-decision-log)). Otherwise both figures are always shown, and
+neither is bent toward the other.
 
 The algorithm, and the cases it cannot measure correctly, are in
 [ARCHITECTURE.md §3](ARCHITECTURE.md#3-from-fragments-to-routes).

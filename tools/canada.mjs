@@ -4,11 +4,13 @@
 //
 // Three tiers, and all three are designations rather than inventions:
 //
-//   trans-canada  Segments the road file names "Trans-Canada Highway". The
-//                 route number changes at nearly every provincial border - 1 in
-//                 the west, 17 in Ontario, 20 and 40 in Quebec, 2 in New
-//                 Brunswick, 104 and 105 in Nova Scotia - so the name is the
-//                 only thing that identifies the corridor end to end.
+//   trans-canada  The stretches of provincial highways that carry the
+//                 Trans-Canada, per the hand-kept list in tch-routes.json
+//                 (tch.mjs). The route number changes at nearly every
+//                 provincial border - 1 in the west, 17 in Ontario, 40 and 20
+//                 in Quebec, 2 in New Brunswick - and the road file's
+//                 "Trans-Canada Highway" name is missing from British
+//                 Columbia's Yellowhead and from all of Quebec.
 //
 //   nhs           Numbered routes on the National Highway System, per
 //                 Transport Canada's register, carrying its Core / Feeder /
@@ -299,16 +301,12 @@ export async function loadCanada(root, { onProvince, only } = {}) {
 /**
  * Which of the three tiers a stitched Canadian route belongs to.
  *
- * The Trans-Canada test is by measured length rather than by designation,
- * because a route can carry the Trans-Canada for part of its run and not the
- * rest. Both thresholds matter: the share stops a route being called
- * Trans-Canada on the strength of one interchange, and the absolute distance
- * stops a short connector qualifying because a third of its 2 km happens to be
- * signed. Whatever the verdict, the exact share is kept and shown, so a route
- * that is half Trans-Canada never has to pretend otherwise.
+ * A route that carries the Trans-Canada for part of its length arrives here
+ * already split (`splitForTch` in build-data.mjs), so the stretch that
+ * carries it is one route and the rest another, each in its own tier.
  */
-export function canadaSystem(grp, { tchKm, km }) {
-  if (tchKm >= 25 && tchKm / Math.max(km, 1e-9) >= 0.35) return 'ca-tch';
+export function canadaSystem(grp, tch) {
+  if (tch) return 'ca-tch';
   return grp.nhsTier ? 'ca-nhs' : 'ca-provincial';
 }
 

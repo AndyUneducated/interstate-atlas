@@ -31,6 +31,7 @@ import { loadMexico, mexicoLabel } from './mexico.mjs';
 import { loadStateLocator, BOUNDARY_SOURCE } from './mx-states.mjs';
 import { writeOut } from './write.mjs';
 import { addNamedFreeways } from './named-freeways.mjs';
+import { loadTchList, tchFlags } from './tch.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'tools', 'src');
@@ -422,11 +423,34 @@ async function loadOfficial() {
       return null;
     }
   };
-  const [mileage, cost, hpms, caTraffic, mxTraffic] = await Promise.all([
+  const [mileage, cost, hpms, caTraffic, mxTraffic, fixes] = await Promise.all([
     read('fhwa-mileage.json'), read('fhwa-cost.json'), read('hpms.json'),
-    read('ca-traffic.json'), read('mx-traffic.json'),
+    read('ca-traffic.json'), read('mx-traffic.json'), read('fhwa-corrections.json'),
   ]);
+  if (mileage && fixes) correctMileage(mileage, fixes);
   return mileage ? { mileage, cost, hpms, caTraffic, mxTraffic } : null;
+}
+
+/**
+ * Replace the Route Log figures `fhwa-corrections.json` shows to be misfiled
+ * (D-53). A withdrawn figure leaves the state without one, which makes the
+ * route's official sum incomplete and so leaves it to the measurement.
+ */
+function correctMileage(mileage, fixes) {
+  let n = 0;
+  for (const g of fixes.groups) {
+    for (const c of g.corrections) {
+      const states = mileage.routes[c.route]?.states;
+      if (!states || states[g.state] !== c.published) {
+        throw new Error(`fhwa-corrections: ${c.route} ${g.state} is now ${states?.[g.state]}, not ${c.published}; `
+          + 'the Route Log has changed, so review the correction');
+      }
+      if (c.corrected == null) delete states[g.state];
+      else states[g.state] = c.corrected;
+      n++;
+    }
+  }
+  console.log(`  corrected ${n} misfiled Route Log figures`);
 }
 
 /**
@@ -718,14 +742,65 @@ function canadaTerminus(edges, atStart) {
  */
 const CA_SNAP = US_SNAP;
 
-async function buildCanada() {
+/** The longest corridor a Canadian group stitches into, as ordered pieces. */
+function canadaMainline(grp) {
+  const firstPass = stitchRoute(grp.parts, {
+    snapDeg: CA_SNAP, bridgeKm: grp.nhsTier ? 60 : 30, minComponentKm: 1.5,
+  });
+  if (!firstPass.length) return null;
+  let best = firstPass.sort((a, b) => b.km - a.km)[0];
+  if (grp.nhsTier && firstPass.length > 1) {
+    const parts = firstPass.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
+    best = stitchComponents(parts, CA_SNAP, 120).sort((a, b) => b.km - a.km)[0] ?? best;
+  }
+  return orientMainline(best.pieces);
+}
+
+/**
+ * A group split into the stretch that carries the Trans-Canada and the rest.
+ *
+ * Only routes on the hand-kept list carry it (D-52). Elsewhere the NRN's
+ * Trans-Canada name marks pavement shared with a listed route - Highway 97
+ * along Highway 1 at Kamloops - which the listed route already draws, so
+ * those names are counted for the cross-check and otherwise ignored.
+ */
+function splitForTch(grp, entry, groups, check) {
+  const namedKm = grp.parts.reduce((s, p) => s + (p.props.tch ? lineLengthKm(p.coords) : 0), 0);
+  const plain = (parts) => parts.map((p) => ({ coords: p.coords, props: { ...p.props, tch: false } }));
+  if (!entry) {
+    if (namedKm >= 5) check.notListed.push({ pr: grp.pr, number: grp.number, namedKm: Math.round(namedKm) });
+    return [{ grp: { ...grp, parts: plain(grp.parts) }, tch: false, split: false }];
+  }
+  const pieces = canadaMainline(grp);
+  if (!pieces) return [];
+  const { flags, intervals, length, far } = tchFlags(grp, entry, pieces, groups);
+  const tchParts = [], rest = [];
+  grp.parts.forEach((p, i) => (flags[i] ? tchParts : rest).push(p));
+  const tchKm = tchParts.reduce((s, p) => s + lineLengthKm(p.coords), 0);
+  check.listed.push({
+    pr: grp.pr, number: grp.number, extent: typeof entry.extent === 'string' ? entry.extent : 'between',
+    namedKm: Math.round(namedKm), tchKm: Math.round(tchKm), mainlineKm: length ?? null, intervals,
+    ...(far?.length ? { farAnchors: far } : {}),
+  });
+  const split = tchParts.length > 0 && rest.length > 0;
+  return [
+    tchParts.length && { grp: { ...grp, parts: tchParts.map((p) => ({ coords: p.coords, props: { ...p.props, tch: true } })) }, tch: true, split },
+    rest.length && { grp: { ...grp, parts: plain(rest) }, tch: false, split },
+  ].filter(Boolean);
+}
+
+export async function buildCanada() {
   const src = await loadCanada(ROOT);
   if (!src) return { routes: [], register: null };
+  const tchList = await loadTchList(ROOT);
+  const tchCheck = { listed: [], notListed: [] };
 
   const routes = [];
   let done = 0;
-  for (const grp of src.groups.values()) {
+  for (const whole of src.groups.values()) {
     if (++done % 600 === 0) console.log(`  stitching ${done}/${src.groups.size}`);
+    const entry = tchList.get(`${whole.pr}|${whole.number}`);
+    for (const { grp, tch, split } of splitForTch(whole, entry, src.groups, tchCheck)) {
 
     const onNetwork = Boolean(grp.nhsTier);
     const firstPass = stitchRoute(grp.parts, {
@@ -734,7 +809,9 @@ async function buildCanada() {
       minComponentKm: 1.5,
     });
     if (!firstPass.length) continue;
-    const alone = firstPass.every((c) => c.km < 1.5);
+    // What is left of a split route beside its Trans-Canada stretch is road
+    // in its own right only where it measures; slivers at the seam are not.
+    const alone = !(split && !tch) && firstPass.every((c) => c.km < 1.5);
 
     // A designated route is one road, and its breaks are holes in the data or
     // genuine ferry crossings - British Columbia's Highway 1 reaches Vancouver
@@ -766,7 +843,7 @@ async function buildCanada() {
       // separately, so the two carriageways would otherwise both be counted.
       const stats = compositionOf(comp.pathEdges);
       const extra = canadaMetrics(comp.pathEdges);
-      const system = canadaSystem(grp, extra);
+      const system = canadaSystem(grp, tch);
       const pieces = orientMainline(comp.pieces);
       const flat = pieces.flat();
       const label = canadaLabel(grp, system);
@@ -818,8 +895,10 @@ async function buildCanada() {
         _pieces: pieces,
         _branches: comp.branches,
         _primarySt: grp.pr,
+        _tchSplit: split,
       });
       }
+    }
     }
   }
 
@@ -827,6 +906,17 @@ async function buildCanada() {
   for (const r of routes) by[r.system] = (by[r.system] ?? 0) + 1;
   console.log(`  ${routes.length} Canadian routes: Trans-Canada ${by['ca-tch']}, `
     + `National Highway System ${by['ca-nhs']}, provincial ${by['ca-provincial']}`);
+
+  const missing = [...tchList.keys()].filter((k) => !tchCheck.listed.some((l) => `${l.pr}|${l.number}` === k));
+  if (missing.length) throw new Error(`tch-routes lists routes the NRN does not carry: ${missing.join(', ')}`);
+  const sortKey = (a, b) => a.pr.localeCompare(b.pr) || a.number.localeCompare(b.number, 'en', { numeric: true });
+  await writeOut(join(ROOT, 'content', 'reference', 'tch-crosscheck.json'), `${JSON.stringify({
+    purpose: 'The Trans-Canada list (tch-routes.json) read against the names the National Road Network gives its segments. '
+      + '`listed`: each listed route, how much of it the NRN names Trans-Canada and how much the atlas draws as Trans-Canada. '
+      + '`notListed`: routes the NRN names Trans-Canada for 5 km or more that are not on the list, nearly all pavement shared with a listed route; drawn under their own number.',
+    listed: tchCheck.listed.sort(sortKey),
+    notListed: tchCheck.notListed.sort(sortKey),
+  }, null, 1)}\n`);
   return { routes, register: src.register };
 }
 
@@ -1352,6 +1442,19 @@ async function main() {
         : `${slug}-${r._primarySt.toLowerCase()}${sameState.length > 1 ? `-${sameState.indexOf(r) + 1}` : ''}`;
       r.id = r.id.replace(/[^a-z0-9-]/g, '');
     });
+  }
+  // The two halves of a route split at the end of its Trans-Canada stretch
+  // share a slug; the longer keeps it, so A-20 stays qc-20 and Highway 400,
+  // most of which is not Trans-Canada, stays on-400.
+  const splitBySlug = new Map();
+  for (const r of routes) {
+    if (!r._tchSplit) continue;
+    if (!splitBySlug.has(r.id)) splitBySlug.set(r.id, []);
+    splitBySlug.get(r.id).push(r);
+  }
+  for (const [slug, rs] of splitBySlug) {
+    rs.sort((a, b) => b.mi - a.mi);
+    rs.forEach((r, i) => { if (i > 0) r.id = `${slug}-${r.system === 'ca-tch' ? 'tch' : i + 1}`; });
   }
   const used = new Map();
   for (const r of routes) {

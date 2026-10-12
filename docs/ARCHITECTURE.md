@@ -651,7 +651,7 @@ country rather than listing all eight as one ladder.
 | US | Interstate | primary (1–2 digits), auxiliary (3 digits), special (business/bypass) | on |
 | US | US Numbered Route | the pre-1956 national grid, numbered opposite to the Interstates | off |
 | US | State Route | per state, loaded on demand | off |
-| CA | Trans-Canada Highway | measured: carries the Trans-Canada for ≥25 km and ≥35% of its length | on |
+| CA | Trans-Canada Highway | the stretches of the listed highways that carry the Trans-Canada (`tch-routes.json`) | on |
 | CA | National Highway System | designated by Transport Canada as Core, Feeder, or Northern and Remote | off |
 | CA | Provincial & Municipal Route | every other numbered route, loaded per province | off |
 | MX | Federal Highway | a carretera federal, numbered MEX-xxx; administrative, not functional | on |
@@ -663,11 +663,16 @@ that administers each segment, and that is what the two tiers are. The same file
 federation, not a state, as the jurisdiction of every federal segment, so which state a
 federal road runs through is found against Natural Earth's boundaries in `mx-states.mjs`.
 
-**Why Canada's tier is measured rather than read.** The Trans-Canada is not a highway with
+**Why a Canadian route can be split in two.** The Trans-Canada is not a highway with
 its own number. It is a designation carried by other highways for part of their length —
-Quebec's A-20 carries it from the Ontario border to Rivière-du-Loup and then does not. So
-the tier is decided after a route is stitched and its length is known, from how much of it
-carries the designation, rather than from any single segment.
+Quebec's A-20 carries it from Montreal to Rivière-du-Loup and then does not. Which
+highways carry it is a hand-kept list (`content/reference/tch-routes.json`, D-52), and
+`splitForTch` in `build-data.mjs` cuts each listed route where the designation ends: the
+route is stitched once to find its mainline, every part is placed along that line by its
+midpoint (`tch.mjs`), and the parts inside the Trans-Canada stretch are stitched again as a
+Trans-Canada route, the rest as an ordinary one. The stretch is the NRN's own segment names
+where the province records them, closed over gaps under 10 km, and otherwise the whole
+route or the stretch between two junctions. The longer half keeps the plain id.
 
 **Alaska's Interstates are declared, not read.** A-1 through A-4 are federally designated
 and carry no Interstate shields at all, so no amount of reading the geometry will find

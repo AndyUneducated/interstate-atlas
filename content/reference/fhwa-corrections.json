@@ -1,0 +1,25 @@
+{
+ "purpose": "Per-state Route Log mileage the build replaces, each with the figure FHWA publishes and the evidence. The build fails if the published figure has changed, so a fix at source is noticed rather than overwritten.",
+ "source": "FHWA Route Log and Finder List, tables 1 and 2, retrieved 2026-10-11",
+ "decision": "D-53",
+ "groups": [
+  {
+   "state": "TN",
+   "finding": "Tennessee's mileage column is shifted by one row across both tables, in route order from I-69 to I-840: each route carries the next route's length. The cities column is not shifted. The shifted figures match the measured geometry route by route (I-155 15.94 against 16 measured, I-240 20.02 against 20, I-275 2.99 against 3, I-440 7.64 against 7), and I-75's published 142.23 plus its 19.60 mi on I-40 gives Wikipedia's 161.8. I-69's own Tennessee figure is not in the table, so it is withdrawn rather than guessed.",
+   "corrections": [
+    { "route": "I-69", "published": 142.23, "corrected": null },
+    { "route": "I-75", "published": 75.63, "corrected": 142.23 },
+    { "route": "I-81", "published": 1.96, "corrected": 75.63 },
+    { "route": "I-124", "published": 11.19, "corrected": 1.96 },
+    { "route": "I-140", "published": 15.94, "corrected": 11.19 },
+    { "route": "I-155", "published": 20.02, "corrected": 15.94 },
+    { "route": "I-240", "published": 19.16, "corrected": 20.02 },
+    { "route": "I-269", "published": 2.99, "corrected": 19.16 },
+    { "route": "I-275", "published": 7.64, "corrected": 2.99 },
+    { "route": "I-440", "published": 7.05, "corrected": 7.64 },
+    { "route": "I-640", "published": 77.29, "corrected": 7.05 },
+    { "route": "I-840", "published": 77.28, "corrected": 77.29 }
+   ]
+  }
+ ]
+}
