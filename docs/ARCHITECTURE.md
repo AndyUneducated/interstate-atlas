@@ -305,6 +305,8 @@ flowchart TD
 lays on top of *itself*, which happens where the source folded both directions of a
 divided highway into one out-and-back line — is applied a step later, by `drivenEdgeKm`
 inside `compositionOf`, because it has to be applied per edge rather than to the total.
+Where TIGER files such a line as a single feature, `unfold` in `tiger.mjs` first halves it
+at its far end, so the stitcher sees two carriageways rather than a spur (D-54).
 Everything the panel says about a route's extent is summed from those edges, so
 discounting only the headline left the Capital Beltway printing 68 miles above a state
 breakdown that summed to 128.
@@ -337,7 +339,7 @@ candidate.
 | --- | --- | --- | --- |
 | `US_SNAP` / `CA_SNAP` | `0.0002°`, about 22 m | `build-data.mjs` | both national files are surveyed to around 10 m; looser welds the two carriageways of a divided highway into one graph |
 | `bridgeKm` | 60 km national, 40 km US state, 30 km CA undesignated, 15 km Ontario outside the Trans-Canada | `build-data.mjs` | wide enough for I-90's missing turnpikes, narrow enough not to invent road; Ontario's county roads share its highway numbers (D-55) |
-| `bridgeFromExtremities` | Mexico | `geo.mjs` | the RNC's divided highways end in a node where both carriageways meet, which is not a dead end (D-56) |
+| `bridgeFromExtremities` | Mexico; the US corridor pass | `geo.mjs` | a divided highway's piece can end in a node where both carriageways meet, which is not a dead end: the RNC's federal network (D-56), and I-35 at the Twin Cities split (D-54) |
 | bridge cost | `km × 4 + 2` | `geo.mjs` | a straight line is always shorter than the road it spans, so without a penalty every bridge beats real pavement |
 | `minComponentKm` | 1.2 km US, 1.5 km CA and MX | `build-data.mjs` | discards digitising slivers before they can be chosen as termini, unless every piece of the number is that short (D-42) |
 | `dedupeTolKm` | 0.08 km, 80 m | `geo.mjs` | wider than a median, far narrower than the gap to a different road |
