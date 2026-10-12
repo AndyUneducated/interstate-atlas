@@ -1,9 +1,10 @@
-// Writes the coverage table in docs/DATA-SOURCES.md: for each route system,
+// Writes the coverage table in docs/DATA-SOURCES.md, and the same figures in
+// both languages to data/coverage.json for the site: for each route system,
 // how many routes the official register lists, how many the atlas draws, and
 // why each of the rest is absent.
 //
-//   node tools/coverage-figures.mjs           rewrite the table in place
-//   node tools/coverage-figures.mjs --check   fail if it is out of date
+//   node tools/coverage-figures.mjs           rewrite both in place
+//   node tools/coverage-figures.mjs --check   fail if either is out of date
 //
 // The unit is a route in a jurisdiction, because every register is kept that
 // way: FHWA lists I-95 once per state it crosses. Each absence gets a reason,
@@ -25,6 +26,7 @@ import { join } from 'node:path';
 
 const ROOT = join(import.meta.dirname, '..');
 const DOC = join(ROOT, 'docs', 'DATA-SOURCES.md');
+const OUT = join(ROOT, 'data', 'coverage.json');
 const read = async (p) => JSON.parse(await readFile(join(ROOT, p), 'utf8'));
 const fmt = (n) => n.toLocaleString('en-US');
 const problems = [];
@@ -35,10 +37,8 @@ async function drawn() {
     for (const f of await readdir(join(ROOT, 'data', 'geo', d))) files.push(`data/geo/${d}/${f}`);
   }
   const have = new Map();
-  const count = {};
   for (const f of files) {
     for (const { properties: p } of (await read(f)).features) {
-      count[p.sys] = (count[p.sys] ?? 0) + 1;
       for (const st of new Set([p.st, ...(p.states ?? []).map((s) => s.st)])) {
         const k = `${p.sys}|${st}`;
         if (!have.has(k)) have.set(k, new Set());
@@ -46,11 +46,11 @@ async function drawn() {
       }
     }
   }
-  return { has: (sys, st, n) => have.get(`${sys}|${st}`)?.has(String(n).toUpperCase()) ?? false, count };
+  return { has: (sys, st, n) => have.get(`${sys}|${st}`)?.has(String(n).toUpperCase()) ?? false };
 }
 
-/** Tally absences by reason, taking each from `rule` or the hand list. */
-function tally(system, absent, rule, hand, reasons) {
+/** Count absences by reason, taking each from `rule` or the hand list. */
+function tally(system, absent, rule, hand) {
   const by = {};
   for (const key of absent) {
     const why = rule?.(key) ?? hand[key];
@@ -60,17 +60,46 @@ function tally(system, absent, rule, hand, reasons) {
   for (const key of Object.keys(hand)) {
     if (!absent.includes(key)) problems.push(`${system} ${key}: has a reason in coverage-gaps.json but is not absent`);
   }
-  return Object.entries(by).sort((a, b) => b[1] - a[1]).map(([why, n]) => `${fmt(n)} ${reasons[why] ?? why}`);
+  return Object.entries(by).sort((a, b) => b[1] - a[1]).map(([key, n]) => ({ key, n }));
 }
 
-async function table() {
-  const { has, count } = await drawn();
+/** Reasons the rules below give, beside the hand reasons in coverage-gaps.json. */
+const RULE_REASONS = {
+  otherSystem: {
+    en: 'filed by HPMS under another system than TIGER\'s, and drawn under TIGER\'s',
+    zh: 'HPMS 把它归入与 TIGER 不同的系统，已按 TIGER 的编号绘制',
+  },
+  notInTiger: {
+    en: 'on no TIGER primary or secondary road in that state (D-47)',
+    zh: '在该州 TIGER 的主要与次要道路中没有这条路（D-47）',
+  },
+  short: {
+    en: 'on TIGER for under half a mile at a stretch (D-42)',
+    zh: '在 TIGER 中最长连续路段不足半英里（D-42）',
+  },
+  inTiger: { en: 'on TIGER for longer, unexplained', zh: 'TIGER 中有更长路段，原因不明' },
+  code: {
+    en: 'a segment, interchange or two-route code in the register, not a route number',
+    zh: '登记中填的是路段、立交或两条路的组合代码，不是路线编号',
+  },
+  localAccess: { en: 'a Newfoundland local-access number (D-20)', zh: '纽芬兰的地方连接编号（D-20）' },
+  sictNotFound: {
+    en: 'carried by no atlas route under the number or SICT\'s tramo names (D-51)',
+    zh: '本站没有任何路线带这个编号或 SICT 给出的路段名（D-51）',
+  },
+  sictNumberOnly: {
+    en: 'drawn under the number, but on a road whose tramo names do not match SICT\'s',
+    zh: '已按该编号绘制，但路段名与 SICT 的不符',
+  },
+};
+
+async function rows() {
+  const { has } = await drawn();
   const gaps = await read('content/reference/coverage-gaps.json');
-  const R = gaps.reasons;
-  const rows = [];
-  const row = (flag, tier, listedBy, listed, drawnN, why) => rows.push(
-    `| ${flag} | ${tier} | ${listedBy} | ${listed == null ? '—' : fmt(listed)} | ${fmt(drawnN)} | ${listed == null ? '—' : fmt(listed - drawnN)} | ${why.length ? why.join('; ') : '—'} |`,
-  );
+  const out = [];
+  const row = (cc, system, tier, listedBy, listed, drawnN, absent) => out.push({
+    cc, system, tier, listedBy, listed, drawn: drawnN, absent: listed == null ? null : listed - drawnN, why: absent,
+  });
 
   // Interstates: FHWA's Route Log, each route in each state.
   {
@@ -85,31 +114,29 @@ async function table() {
         if (!has('us-interstate', st, n)) absent.push(`${route}|${st}`);
       }
     }
-    row('🇺🇸', 'Interstate', 'FHWA Route Log, Table 1 (US-3): each route in each state', listed, listed - absent.length,
-      tally('us-interstate', absent, null, gaps.gaps['us-interstate'] ?? {}, R));
+    row('us', 'us-interstate', { en: 'Interstate', zh: '州际公路' },
+      { en: 'FHWA Route Log, Table 1 (US-3): each route in each state', zh: 'FHWA 路线名录表 1（US-3）：每条路线在每个州各计一次' },
+      listed, listed - absent.length, tally('us-interstate', absent, null, gaps.gaps['us-interstate'] ?? {}));
   }
 
   // US and state routes: HPMS, as judged by check-us-coverage.mjs.
   {
     const us = await read('content/reference/us-crosscheck.json');
-    const words = {
-      otherSystem: 'filed by HPMS under another system than TIGER\'s, and drawn under TIGER\'s',
-      notInTiger: 'on no TIGER primary or secondary road in that state (D-47)',
-      short: 'on TIGER for under half a mile at a stretch (D-42)',
-      inTiger: 'on TIGER for longer, unexplained',
-    };
-    for (const [sys, tier] of [['us-numbered', 'US Route'], ['us-state', 'State Route']]) {
+    for (const [sys, tier] of [['us-numbered', { en: 'US Route', zh: '美国国道' }], ['us-state', { en: 'State Route', zh: '州道' }]]) {
       const t = us.total[sys];
       if (t.inTiger) problems.push(`${sys}: ${t.inTiger} HPMS keys on TIGER with no route and no reason (us-crosscheck.json)`);
-      const why = Object.keys(words).filter((k) => t[k]).sort((a, b) => t[b] - t[a]).map((k) => `${fmt(t[k])} ${words[k]}`);
-      row('🇺🇸', tier, 'HPMS (US-6): each route of a mile or more each state reports', t.reported, t.covered, why);
+      const why = ['otherSystem', 'notInTiger', 'short', 'inTiger'].filter((k) => t[k])
+        .sort((a, b) => t[b] - t[a]).map((key) => ({ key, n: t[key] }));
+      row('us', sys, tier,
+        { en: 'HPMS (US-6): each route of a mile or more each state reports', zh: 'HPMS（US-6）：各州上报的每条 1 英里以上路线' },
+        t.reported, t.covered, why);
     }
   }
 
   // Canada's NHS: Transport Canada's register, each number in each province.
+  const CA = ['ca-nhs', 'ca-tch', 'ca-provincial'];
   {
     const reg = (await read('content/reference/canada-nhs.json')).register;
-    const CA = ['ca-nhs', 'ca-tch', 'ca-provincial'];
     const absent = [];
     let listed = 0;
     for (const [pr, tiers] of Object.entries(reg)) {
@@ -126,17 +153,24 @@ async function table() {
       if (/^\d+[A-Z]?-\d/.test(n)) return 'localAccess';
       return null;
     };
-    const reasons = { ...R, code: 'a segment, interchange or two-route code in the register, not a route number', localAccess: 'a Newfoundland local-access number (D-20)' };
-    row('🇨🇦', 'National Highway System', 'Transport Canada register (CA-2): each number in each province', listed, listed - absent.length,
-      tally('ca-nhs', absent, rule, gaps.gaps['ca-nhs'] ?? {}, reasons));
-    row('🇨🇦', 'Trans-Canada', 'none: the designation is measured along the highways that carry it (D-21)', null, count['ca-tch'] ?? 0, []);
+    row('ca', 'ca-nhs', { en: 'National Highway System', zh: '国家公路系统' },
+      { en: 'Transport Canada register (CA-2): each number in each province', zh: '加拿大交通部登记（CA-2）：每个编号在每个省各计一次' },
+      listed, listed - absent.length, tally('ca-nhs', absent, rule, gaps.gaps['ca-nhs'] ?? {}));
+  }
+
+  // The Trans-Canada: the hand-kept list, each route in each province.
+  {
+    const list = (await read('content/reference/tch-routes.json')).routes;
+    const absent = list.filter((r) => !has('ca-tch', r.pr, r.number)).map((r) => `${r.pr}|${r.number}`);
+    row('ca', 'ca-tch', { en: 'Trans-Canada', zh: '横加公路' },
+      { en: 'hand-kept list of the highways that carry it (D-52): each route in each province', zh: '手工维护的承载路线清单（D-52）：每条路线在每个省各计一次' },
+      list.length, list.length - absent.length, tally('ca-tch', absent, null, gaps.gaps['ca-tch'] ?? {}));
   }
 
   // Canadian provincial routes: the traffic registers of the jurisdictions
   // that publish one.
   {
     const cat = (await read('content/reference/ca-traffic.json')).provinces;
-    const CA = ['ca-nhs', 'ca-tch', 'ca-provincial'];
     const absent = [];
     let listed = 0;
     for (const [pr, v] of Object.entries(cat)) {
@@ -146,39 +180,66 @@ async function table() {
       }
     }
     const juris = Object.keys(cat).join(', ');
-    row('🇨🇦', 'Provincial', `provincial traffic registers (CA-4 to CA-10), ${juris}: each route; the other six publish none`, listed, listed - absent.length,
-      tally('ca-provincial', absent, null, gaps.gaps['ca-provincial'] ?? {}, R));
+    row('ca', 'ca-provincial', { en: 'Provincial', zh: '省道' },
+      {
+        en: `provincial traffic registers (CA-4 to CA-10), ${juris}: each route; the other six publish none`,
+        zh: `各省交通量登记（CA-4 至 CA-10），${juris}：每条路线；其余六个省区没有发布`,
+      },
+      listed, listed - absent.length, tally('ca-provincial', absent, null, gaps.gaps['ca-provincial'] ?? {}));
   }
 
   // Mexico: SICT's Datos Viales index, as judged by check-mexico-numbers.mjs.
+  let note = null;
   {
     const mx = await read('content/reference/mx-crosscheck.json');
     const absent = [];
     for (const [st, v] of Object.entries(mx.byState)) for (const rt of v.federal.absent) absent.push(`${st}|${rt}`);
     const f = mx.total.federal;
-    row('🇲🇽', 'Federal', 'SICT Datos Viales 2025 (MX-4): each route in each state', f.present + f.absent, f.present,
-      tally('mx-federal', absent, null, gaps.gaps['mx-federal'] ?? {}, R));
+    row('mx', 'mx-federal', { en: 'Federal', zh: '联邦公路' },
+      { en: 'SICT Datos Viales 2025 (MX-4): each route in each state', zh: 'SICT《道路数据 2025》（MX-4）：每条路线在每个州各计一次' },
+      f.present + f.absent, f.present, tally('mx-federal', absent, null, gaps.gaps['mx-federal'] ?? {}));
     const s = mx.total.state;
     const listed = s.agree + s.otherNumber + s.numberOnly + s.notFound;
-    row('🇲🇽', 'State', 'SICT Datos Viales 2025 (MX-4): each numbered state road', listed, s.agree + s.otherNumber, [
-      `${fmt(s.notFound)} carried by no atlas route under the number or SICT's tramo names (D-51)`,
-      `${fmt(s.numberOnly)} drawn under the number, but on a road whose tramo names do not match SICT's`,
-    ].filter((x) => !x.startsWith('0 ')));
-    rows.push('');
-    rows.push(`Of the Mexican state roads counted as drawn, ${fmt(s.otherNumber)} carry INEGI's number rather than SICT's (D-26).`);
+    row('mx', 'mx-state', { en: 'State', zh: '州道' },
+      { en: 'SICT Datos Viales 2025 (MX-4): each numbered state road', zh: 'SICT《道路数据 2025》（MX-4）：每条有编号的州道' },
+      listed, s.agree + s.otherNumber,
+      [{ key: 'sictNotFound', n: s.notFound }, { key: 'sictNumberOnly', n: s.numberOnly }].filter((w) => w.n));
+    note = {
+      en: `Of the Mexican state roads counted as drawn, ${fmt(s.otherNumber)} carry INEGI's number rather than SICT's (D-26).`,
+      zh: `计为已绘制的墨西哥州道中，有 ${fmt(s.otherNumber)} 条用的是 INEGI 的编号而非 SICT 的（D-26）。`,
+    };
   }
 
+  const reasons = {};
+  for (const r of out) {
+    for (const { key } of r.why) {
+      const en = gaps.reasons[key] ?? RULE_REASONS[key]?.en;
+      const zh = gaps.reasonsZh?.[key] ?? RULE_REASONS[key]?.zh;
+      if (!en || !zh) problems.push(`reason ${key} has no ${en ? 'Chinese' : 'English'} text`);
+      reasons[key] = { en, zh };
+    }
+  }
+  return { rows: out, reasons, note };
+}
+
+const FLAG = { us: '🇺🇸', ca: '🇨🇦', mx: '🇲🇽' };
+
+function markdown({ rows: rs, reasons, note }) {
+  const cell = (n) => (n == null ? '—' : fmt(n));
   return [
     '| Country | System | Listed by | Listed | Drawn | Absent | Why absent |',
     '| --- | --- | --- | ---: | ---: | ---: | --- |',
-    ...rows,
+    ...rs.map((r) => `| ${FLAG[r.cc]} | ${r.tier.en} | ${r.listedBy.en} | ${cell(r.listed)} | ${fmt(r.drawn)} | ${cell(r.absent)} | ${
+      r.why.length ? r.why.map((w) => `${fmt(w.n)} ${reasons[w.key].en}`).join('; ') : '—'} |`),
+    '',
+    note.en,
   ].join('\n');
 }
 
 async function main() {
   const check = process.argv.includes('--check');
   const before = await readFile(DOC, 'utf8');
-  const value = await table();
+  const data = await rows();
   if (problems.length) {
     console.error(`coverage-figures: ${problems.length} problem${problems.length === 1 ? '' : 's'}`);
     for (const p of problems) console.error(`  ${p}`);
@@ -187,10 +248,15 @@ async function main() {
   const eol = before.includes('\r\n') ? '\r\n' : '\n';
   const re = /(<!-- auto:coverage -->)[\s\S]*?(<!-- \/auto:coverage -->)/;
   if (!re.test(before)) throw new Error('DATA-SOURCES.md has no auto:coverage marker');
+  const value = markdown(data);
   const after = before.replace(re, (all, open, close) => `${open}${eol}${value.replace(/\n/g, eol)}${eol}${close}`);
-  if (after === before) { console.log('coverage table up to date'); return; }
+  const json = `${JSON.stringify(data)}\n`;
+  const jsonBefore = await readFile(OUT, 'utf8').catch(() => '');
+
+  if (after === before && json === jsonBefore) { console.log('coverage table up to date'); return; }
   if (check) { console.error('coverage table is out of date: run node tools/coverage-figures.mjs'); process.exit(1); }
-  await writeFile(DOC, after);
+  if (after !== before) await writeFile(DOC, after);
+  if (json !== jsonBefore) await writeFile(OUT, json);
   console.log('coverage table rewritten from the build');
 }
 

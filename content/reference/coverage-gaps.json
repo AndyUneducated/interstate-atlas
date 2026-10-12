@@ -12,6 +12,17 @@
     "notLocated": "the RNC carries the number, but none of its segments is located in that state against Natural Earth's generalised boundaries (D-29)",
     "rncNotFound": "no RNC segment carries the name SICT gives the tramo"
   },
+  "reasonsZh": {
+    "tigerNone": "TIGER 在该州没有带这个州际编号的道路，这段路按 TIGER 给的编号绘制，或作为背景线",
+    "unsignedPR": "波多黎各不挂牌的州际公路，按 TIGER 和路牌上的 PR 编号绘制（PR-52、PR-22 等）",
+    "branch": "已绘制，但被拼成邻州路线的支线，因此该州里程里没有这一段（I-13）",
+    "fhwaTrace": "FHWA 只记了 0.01 英里",
+    "nrnNone": "NRN 在该省没有带这个编号的道路（D-50）",
+    "rncOtherNumber": "RNC 给 SICT 所指路段的编号不同，已按 RNC 的编号绘制",
+    "rncUnnumbered": "RNC 没有给 SICT 所指路段编号（D-27）",
+    "notLocated": "RNC 有这个编号，但按 Natural Earth 的概化州界，没有一段落在该州（D-29）",
+    "rncNotFound": "RNC 中没有路段带 SICT 给出的路段名"
+  },
   "gaps": {
     "us-interstate": {
       "I-42|NC": "tigerNone",
