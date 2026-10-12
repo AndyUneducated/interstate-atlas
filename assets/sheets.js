@@ -2,7 +2,7 @@
    jurisdiction picker and the about page. */
 
 import {
-  t, getLang, stateName, dist, num, lenOf, lenUnit, lenName, isProvince, ownerLabel,
+  t, getLang, stateName, dist, num, lenOf, lenUnit, isProvince, ownerLabel,
   countryOfJuris, lenNum,
 } from './i18n.js';
 import { app, select, loadState, zoomToState } from './app.js';
@@ -47,6 +47,7 @@ export function openSheet(key) {
     provinces: renderProvinces,
     mxstates: renderMxStates,
     about: renderAbout,
+    docs: renderDocs,
   }[key];
   if (!render) { current = null; return; }
 
@@ -62,6 +63,7 @@ export function openSheet(key) {
     provinces: wireStates,
     mxstates: wireStates,
     about: () => {},
+    docs: wireDocs,
   }[key])();
 }
 
@@ -471,6 +473,8 @@ function wireNumbering() {
    reach the dashboard without a colour. The Canadian tiers used to fall
    through this table and draw their bars with `undefined` as a fill. */
 const SYS_COLOUR = Object.fromEntries(SYSTEMS.map((s) => [s.id, s.colour]));
+/** Each country by the colour of its top tier, which is how the map shows it. */
+const CC_COLOUR = Object.fromEntries(['us', 'ca', 'mx'].map((cc) => [cc, SYSTEMS.find((s) => s.cc === cc)?.colour]));
 
 function bars(rows, colourOf, maxOverride) {
   const max = maxOverride ?? Math.max(...rows.map((r) => r.v));
@@ -488,21 +492,28 @@ function renderDashboard() {
   const totalRoutes = Object.values(s.bySystem).reduce((a, b) => a + b.routes, 0);
   const freewayMi = Object.values(s.bySystem).reduce((a, b) => a + b.gsMi, 0);
 
-  const sysRows = Object.entries(s.bySystem)
-    .sort((a, b) => b[1].mi - a[1].mi)
-    .map(([k, v]) => ({ k: t(`sys.${k}`), v: lenOf(v.mi), sys: k }));
+  // One row per country, each a bar as long as its network and split into its
+  // systems, so the country split and the system split read off one chart.
+  const countries = ['us', 'ca', 'mx'].map((cc) => {
+    const systems = SYSTEMS.filter((x) => x.cc === cc && s.bySystem[x.id])
+      .map((x) => ({ id: x.id, colour: x.colour, ...s.bySystem[x.id] }));
+    return { cc, systems, mi: systems.reduce((a, x) => a + x.mi, 0), routes: systems.reduce((a, x) => a + x.routes, 0) };
+  }).filter((c) => c.mi > 0);
+  const maxCc = Math.max(...countries.map((c) => c.mi));
 
   const stateRows = Object.entries(s.byState)
     .sort((a, b) => b[1].mi - a[1].mi)
     .slice(0, 18)
-    .map(([st, v]) => ({ k: stateName(st), v: lenOf(v.mi), st }));
+    .map(([st, v]) => ({ k: stateName(st), v: lenOf(v.mi), st, cc: v.cc }));
 
+  const classTotal = Object.values(s.byType).reduce((a, b) => a + b, 0);
   const classRows = Object.entries(s.byType)
     .sort((a, b) => b[1] - a[1])
-    .filter(([, v]) => v > 200)
-    .map(([k, v]) => ({ k: t(`comp.${k}`), v: lenOf(v), cls: k }));
+    .filter(([, v]) => v / classTotal > 0.002)
+    .map(([k, v]) => ({ k: t(`comp.${k}`), v, cls: k }));
 
   const longest = app.index.slice().sort((a, b) => b.mi - a.mi).slice(0, 14);
+  const pctOf = (v, whole) => { const p = (v / whole) * 100; return num(p, p < 10 ? 1 : 0); };
 
   return frame('dash.title', 'dash.sub', `
     <div class="dash-top">
@@ -512,44 +523,50 @@ function renderDashboard() {
       <div class="m"><span class="m-k">${t('dash.freeway')}</span><div class="m-v">${num(lenOf(freewayMi))}<small>${lenUnit()}</small></div></div>
     </div>
 
+    <div class="dash-card dash-wide">
+      <h3>${t('dash.bySystem')}</h3>
+      <div class="in">
+        <div class="cc-rows">${countries.map((c) => `
+          <div class="cc-row">
+            <div class="cc-hd"><span class="flagdot flag-${c.cc}"></span><b>${t(`sys.country.${c.cc}`)}</b>
+              <span>${num(lenOf(c.mi))} ${lenUnit()} · ${pctOf(c.mi, totalMi)}% · ${t('dash.nRoutes', { n: num(c.routes) })}</span></div>
+            <div class="stack" style="width:${((c.mi / maxCc) * 100).toFixed(1)}%">${c.systems.map((x) => `<i style="flex:${x.mi};background:${x.colour}" title="${esc(t(`sys.${x.id}`))} · ${num(lenOf(x.mi))} ${lenUnit()}"></i>`).join('')}</div>
+            <ul class="stack-key">${c.systems.map((x) => `<li><i style="background:${x.colour}"></i>${t(`sys.${x.id}`)}
+              <b>${num(lenOf(x.mi))}</b><small>${pctOf(x.mi, c.mi)}%</small></li>`).join('')}</ul>
+          </div>`).join('')}</div>
+      </div>
+    </div>
+
     <div class="dash-cols">
       <div class="dash-card">
-        <h3>${t('dash.bySystem')}</h3>
-        <div class="in">${bars(sysRows, (r) => SYS_COLOUR[r.sys])}</div>
-      </div>
-      <div class="dash-card">
         <h3>${t('dash.byClass')}</h3>
-        <div class="in">${bars(classRows, (r) => CLASS_COLOUR[r.cls] || '#4a5768')}
+        <div class="in">
+          <div class="stack stack-tall">${classRows.map((r) => `<i style="flex:${r.v};background:${CLASS_COLOUR[r.cls] || '#4a5768'}" title="${esc(r.k)}"></i>`).join('')}</div>
+          <ul class="stack-key stack-key-col">${classRows.map((r) => `<li><i style="background:${CLASS_COLOUR[r.cls] || '#4a5768'}"></i>${r.k}
+            <b>${num(lenOf(r.v))}</b><small>${pctOf(r.v, classTotal)}%</small></li>`).join('')}</ul>
           <p class="hbar-note">${t('dash.byClass.note')}</p></div>
       </div>
       <div class="dash-card">
         <h3>${t('dash.byState')} · ${t('dash.mostMiles')}</h3>
-        <div class="in">${bars(stateRows, () => '#1f7fa8')}</div>
+        <div class="in">${bars(stateRows, (r) => CC_COLOUR[r.cc] || CC_COLOUR.us)}</div>
       </div>
-      <div class="dash-card" style="grid-column:1/-1">
-        <h3>${t('dash.longest')}</h3>
-        <div class="in" style="padding:0">
-          <table class="tbl">
-            <thead><tr>
-              <th>${t('dash.col.route')}</th>
-              <th style="text-align:right">${lenName()}</th>
-              <th style="text-align:right">${t('dash.col.states')}</th>
-              <th>${t('dash.col.from')}</th>
-            </tr></thead>
-            <tbody>${longest.map((r) => `<tr data-id="${r.id}">
-              <td>${r.label}</td>
-              <td class="n">${lenNum(r.mi)}</td>
-              <td class="n">${num(r.ns)}</td>
-              <td>${ownerLabel(r.sys, r.st)}</td>
-            </tr>`).join('')}</tbody>
-          </table>
-        </div>
+    </div>
+
+    <div class="dash-card dash-wide" style="margin-top:20px">
+      <h3>${t('dash.longest')}</h3>
+      <div class="in">
+        <div class="hbars">${longest.map((r) => `
+          <div class="hbar hbar-route" data-id="${r.id}">
+            <span class="hbar-k"><b>${r.label}</b><small>${ownerLabel(r.sys, r.st)} · ${t('dash.nStates', { n: num(r.ns) })}</small></span>
+            <span class="hbar-t"><i style="width:${((r.mi / longest[0].mi) * 100).toFixed(1)}%;background:${SYS_COLOUR[r.sys] || 'var(--cyan)'}"></i></span>
+            <span class="hbar-v">${lenNum(r.mi)}</span>
+          </div>`).join('')}</div>
       </div>
     </div>`, { n: num(totalRoutes) });
 }
 
 function wireDashboard() {
-  for (const row of document.querySelectorAll('.tbl tr[data-id]')) {
+  for (const row of document.querySelectorAll('.hbar-route[data-id]')) {
     row.addEventListener('click', () => { closeSheet(); select(row.dataset.id); });
   }
   for (const bar of document.querySelectorAll('.hbar[data-st]')) {
@@ -609,6 +626,140 @@ function wireStates() {
       zoomToState(st);
     });
   }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   Data & sources
+
+   Drawn from data/docs.json, which tools/build-docs.mjs parses out of
+   docs/DATA-SOURCES.md, docs/ACCURACY.md and their Chinese mirrors, and from
+   data/coverage.json. Nothing here is written for the page, so it says what
+   the documents say and no more.
+   ══════════════════════════════════════════════════════════════════════ */
+
+const DOC_TABS = ['coverage', 'sources', 'decisions', 'issues', 'accuracy'];
+let docsTab = 'coverage';
+let docsData = null;
+
+/** The handful of inline Markdown the documents use. */
+function inline(md) {
+  const codes = [];
+  let s = esc(md).replace(/`([^`]+)`/g, (m, c) => { codes.push(c); return `\u0000${codes.length - 1}\u0000`; });
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, text, href) => (/^https?:/.test(href)
+    ? `<a href="${href}" target="_blank" rel="noopener">${text}</a>`
+    : `<span class="dc-ref">${text}</span>`));
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  return s.replace(/\u0000(\d+)\u0000/g, (m, i) => `<code>${codes[i]}</code>`);
+}
+
+const isIdTable = (b) => /^(ID|编号)$/.test(b.head[0]);
+const isFlagTable = (b) => /^(Country|国家)$/.test(b.head[0]) && b.head.length >= 4;
+
+function docTable(b) {
+  if (isIdTable(b) || isFlagTable(b)) {
+    // Registers read better as cards: the ID or flag, the lead column as the
+    // headline, and every other column as a labelled line beneath it.
+    return `<div class="dc-cards">${b.rows.map((r) => {
+      const kind = isFlagTable(b) ? r[2] : null;
+      return `<article class="dc-card" data-q="${esc(r.join(' ').toLowerCase())}">
+        <div class="dc-card-hd"><span class="dc-id">${inline(r[0])}</span><p class="dc-lead">${inline(r[1])}</p>
+          ${kind ? `<span class="dc-pill ${/pending|待做/.test(kind) ? 'pend' : ''}">${inline(kind)}</span>` : ''}</div>
+        <dl>${r.slice(2).map((c, i) => (isFlagTable(b) && i === 0) || !c || c === '—' ? ''
+          : `<div><dt>${inline(b.head[i + 2])}</dt><dd>${inline(c)}</dd></div>`).join('')}</dl>
+      </article>`;
+    }).join('')}</div>`;
+  }
+  return `<div class="dc-tbl-w"><table class="tbl dc-tbl"><thead><tr>${b.head.map((h, i) => `<th class="${b.align[i]}">${inline(h)}</th>`).join('')}</tr></thead>
+    <tbody>${b.rows.map((r) => `<tr>${r.map((c, i) => `<td class="${b.align[i]}">${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+
+/** Listed, drawn and absent per system, one bar each, absences split by reason. */
+function coverageChart(cov) {
+  const lang = getLang();
+  const shades = ['#ff9f5a', '#ffd166', '#c792ea', '#7aa2ff', '#ff6b8b', '#5ad1a8'];
+  const byCountry = ['us', 'ca', 'mx'].map((cc) => [cc, cov.rows.filter((r) => r.cc === cc)]);
+  return `<div class="cov">${byCountry.map(([cc, rows]) => `
+    <section class="cov-cc">
+      <h4><span class="flagdot flag-${cc}"></span>${t(`sys.country.${cc}`)}</h4>
+      ${rows.map((r) => {
+        const colour = SYS_COLOUR[r.system] || 'var(--cyan)';
+        if (r.listed == null) {
+          return `<div class="cov-row"><div class="cov-hd"><b>${r.tier[lang]}</b><span>${num(r.drawn)}</span></div>
+            <p class="cov-src">${inline(r.listedBy[lang])}</p></div>`;
+        }
+        const pct = (n) => (n / r.listed) * 100;
+        const segs = r.why.map((w, i) => ({ ...w, colour: shades[i % shades.length] }));
+        return `<div class="cov-row">
+          <div class="cov-hd"><b>${r.tier[lang]}</b>
+            <span>${t('docs.cov.drawnOf', { d: num(r.drawn), n: num(r.listed) })}
+            <em style="color:${colour}">${num(pct(r.drawn), pct(r.drawn) >= 99.95 ? 0 : 1)}%</em></span></div>
+          <div class="cov-bar" role="img" aria-label="${num(r.drawn)} / ${num(r.listed)}">
+            <i style="width:${pct(r.drawn)}%;background:${colour}"></i>
+            ${segs.map((s) => `<i class="ab" style="width:${pct(s.n)}%;background:${s.colour}" title="${num(s.n)} · ${esc(cov.reasons[s.key][lang])}"></i>`).join('')}
+          </div>
+          <p class="cov-src">${t('docs.cov.listedBy')} ${inline(r.listedBy[lang])}</p>
+          ${segs.length ? `<ul class="cov-why">${segs.map((s) => `<li><i style="background:${s.colour}"></i><b>${num(s.n)}</b> ${inline(cov.reasons[s.key][lang])}</li>`).join('')}</ul>` : ''}
+        </div>`;
+      }).join('')}
+    </section>`).join('')}
+    <p class="cov-note">${inline(cov.note[lang])}</p>
+  </div>`;
+}
+
+function docBlocks(blocks, cov) {
+  return blocks.map((b) => {
+    if (b.t === 'h') return `<h${b.level + 1} class="dc-h">${inline(b.text.replace(/^\d+\.\s*/, ''))}</h${b.level + 1}>`;
+    if (b.t === 'p') return `<p class="dc-p">${inline(b.text)}</p>`;
+    if (b.t === 'ul' || b.t === 'ol') return `<${b.t} class="dc-list">${b.items.map((i) => `<li>${inline(i)}</li>`).join('')}</${b.t}>`;
+    if (b.t === 'table') return docTable(b);
+    if (b.t === 'coverage') return cov ? coverageChart(cov) : '';
+    return '';
+  }).join('');
+}
+
+function renderDocs() {
+  return frame('docs.title', 'docs.sub', `
+    <div class="nb-tabs dc-tabs" role="tablist">${DOC_TABS.map((k) => `<button class="btn" data-dc="${k}" type="button" role="tab">${t(`docs.tab.${k}`)}</button>`).join('')}</div>
+    <div class="dc-filter" hidden><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+      <input id="dcQ" type="search" autocomplete="off" spellcheck="false"></div>
+    <div id="dcBody" class="dc-body"><p class="dc-p">${t('docs.loading')}</p></div>`);
+}
+
+async function wireDocs() {
+  if (!docsData) {
+    const [docs, cov] = await Promise.all([
+      fetch('data/docs.json').then((r) => r.json()),
+      fetch('data/coverage.json').then((r) => r.json()).catch(() => null),
+    ]);
+    docsData = { docs, cov };
+  }
+  if (current !== 'docs') return;
+  const body = document.getElementById('dcBody');
+  const filter = document.querySelector('.dc-filter');
+  const q = document.getElementById('dcQ');
+  q.placeholder = t('docs.filter');
+  const paint = (tab) => {
+    docsTab = tab;
+    const secs = docsData.docs[getLang()][tab];
+    body.innerHTML = secs.map((s) => `<section class="dc-sec">${secs.length > 1 ? `<h3 class="dc-h dc-h2">${inline(s.title)}</h3>` : ''}
+      ${docBlocks(s.blocks, docsData.cov)}</section>`).join('');
+    const filterable = body.querySelectorAll('.dc-card').length > 8;
+    filter.hidden = !filterable;
+    q.value = '';
+    document.querySelector('.sh-bd').scrollTop = 0;
+  };
+  q.addEventListener('input', () => {
+    const v = q.value.trim().toLowerCase();
+    for (const c of body.querySelectorAll('.dc-card')) c.hidden = Boolean(v) && !c.dataset.q.includes(v);
+  });
+  for (const tab of document.querySelectorAll('[data-dc]')) {
+    tab.classList.toggle('on', tab.dataset.dc === docsTab);
+    tab.addEventListener('click', () => {
+      for (const o of document.querySelectorAll('[data-dc]')) o.classList.toggle('on', o === tab);
+      paint(tab.dataset.dc);
+    });
+  }
+  paint(docsTab);
 }
 
 /* ══════════════════════════════════════════════════════════════════════

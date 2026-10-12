@@ -69,57 +69,81 @@
 
   <div class="hud-sp"></div>
 
+  <!-- Two things are used all the time, statistics and the map's layers;
+       everything else that explains the atlas sits in one menu. Search is the
+       panel on the left, with the command palette on / and Ctrl-K. -->
   <nav class="hud-group" aria-label="Views">
-    <button class="btn" id="btnPalette" type="button">
-      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
-      <span class="hud-label" data-i18n="nav.search">Search</span><kbd>/</kbd>
-    </button>
-    <button class="btn" id="btnNumbering" type="button">
-      <svg viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3v18M16 3v18"/></svg>
-      <span class="hud-label" data-i18n="nav.numbering">Numbering</span>
-    </button>
     <button class="btn" id="btnDash" type="button">
       <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
       <span class="hud-label" data-i18n="nav.dashboard">Statistics</span>
     </button>
-    <button class="btn" id="btnTimeline" type="button">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-      <span class="hud-label" data-i18n="nav.timeline">Timeline</span>
-    </button>
-    <!-- About belongs with the other explanatory views, not with the base-map
-         controls. It holds the three-kinds-of-number explanation, the gaps in
-         Canadian traffic publication and the keyboard shortcuts, and behind an
-         unlabelled circled i nobody was going to find any of it. -->
-    <button class="btn" id="btnAbout" type="button">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
-      <span class="hud-label" data-i18n="nav.about">About</span>
-    </button>
+    <div class="menu" id="menuMore">
+      <button class="btn" id="btnMore" type="button" aria-haspopup="true" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/></svg>
+        <span class="hud-label" data-i18n="nav.more">More</span>
+      </button>
+      <div class="menu-pop" role="menu">
+        <button class="menu-it" id="btnNumbering" type="button" role="menuitem">
+          <svg viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3v18M16 3v18"/></svg>
+          <span class="menu-txt"><b data-i18n="nav.numbering">Numbering</b><small data-i18n="nav.numberingSub">why the numbers fall where they do</small></span>
+        </button>
+        <button class="menu-it" id="btnTimeline" type="button" role="menuitem">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <span class="menu-txt"><b data-i18n="nav.timeline">Timeline</b><small data-i18n="nav.timelineSub">watch the network being built</small></span>
+        </button>
+        <button class="menu-it" id="btnDocs" type="button" role="menuitem">
+          <svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>
+          <span class="menu-txt"><b data-i18n="nav.docs">Data &amp; sources</b><small data-i18n="nav.docsSub">sources, coverage, decisions, known gaps</small></span>
+        </button>
+        <button class="menu-it" id="btnAbout" type="button" role="menuitem">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
+          <span class="menu-txt"><b data-i18n="nav.about">About</b><small data-i18n="nav.aboutSub">what the atlas draws, keyboard shortcuts</small></span>
+        </button>
+      </div>
+    </div>
   </nav>
 
   <div class="hud-group">
-    <div class="seg" id="basemap" role="group" aria-label="Base map">
-      <button class="seg-b on" data-base="dark" type="button" data-i18n-title="base.dark" title="Dark">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M4.5 7.5h15M4.5 16.5h15"/></svg>
+    <div class="menu" id="menuLayers">
+      <button class="btn" id="btnLayers" type="button" aria-haspopup="true" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+        <span class="hud-label" data-i18n="nav.layers">Layers</span>
       </button>
-      <button class="seg-b" data-base="relief" type="button" data-i18n-title="base.relief" title="Relief">
-        <svg viewBox="0 0 24 24"><path d="M2 20l7-11 4.5 7M11 20l4-6 7 6z"/></svg>
-      </button>
-      <button class="seg-b" data-base="satellite" type="button" data-i18n-title="base.satellite" title="Satellite">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M4.6 4.6a10.5 10.5 0 0 0 0 14.8M19.4 19.4a10.5 10.5 0 0 0 0-14.8"/></svg>
-      </button>
+      <div class="menu-pop menu-pop-r" role="group">
+        <p class="menu-hd" data-i18n="nav.basemap">Base map</p>
+        <div class="seg seg-wide" id="basemap" role="group" aria-label="Base map">
+          <button class="seg-b on" data-base="dark" type="button">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M4.5 7.5h15M4.5 16.5h15"/></svg>
+            <span data-i18n="base.darkShort">Dark</span>
+          </button>
+          <button class="seg-b" data-base="relief" type="button">
+            <svg viewBox="0 0 24 24"><path d="M2 20l7-11 4.5 7M11 20l4-6 7 6z"/></svg>
+            <span data-i18n="base.reliefShort">Relief</span>
+          </button>
+          <button class="seg-b" data-base="satellite" type="button">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M4.6 4.6a10.5 10.5 0 0 0 0 14.8M19.4 19.4a10.5 10.5 0 0 0 0-14.8"/></svg>
+            <span data-i18n="base.satelliteShort">Satellite</span>
+          </button>
+        </div>
+        <p class="menu-hd" data-i18n="nav.overlays">On the map</p>
+        <button class="menu-it menu-tg" id="btnTerrain" type="button">
+          <svg viewBox="0 0 24 24"><path d="M3 16l9-5 9 5-9 5z"/><path d="M12 11V4"/><path d="M9 6.5L12 4l3 2.5"/></svg>
+          <span class="menu-txt"><b data-i18n="base.tilt">3D tilt</b></span><i class="sw"></i>
+        </button>
+        <button class="menu-it menu-tg" id="btnCrossings" type="button">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20" stroke-dasharray="2.5 2.5"/><path d="M3 9h18"/><path d="M3 15h18"/><circle cx="12" cy="12" r="2.6"/></svg>
+          <span class="menu-txt"><b data-i18n="base.crossings">Border crossings</b></span><i class="sw"></i>
+        </button>
+        <button class="menu-it menu-tg" id="btnTolls" type="button">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.6 9.2c-.5-.9-1.5-1.4-2.6-1.4-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2c-1.1 0-2.1-.5-2.6-1.4M12 6.2v1.6M12 16.2v1.6"/></svg>
+          <span class="menu-txt"><b data-i18n="base.tolls">Toll facilities</b></span><i class="sw"></i>
+        </button>
+        <button class="menu-it menu-tg" id="btnBridges" type="button">
+          <svg viewBox="0 0 24 24"><path d="M2 9h20M2 16h20"/><path d="M4 16c0-4 3.6-7 8-7s8 3 8 7"/><path d="M7 11.2V16M12 9v7M17 11.2V16"/></svg>
+          <span class="menu-txt"><b data-i18n="base.bridges">Bridges</b></span><i class="sw"></i>
+        </button>
+      </div>
     </div>
-    <button class="btn btn-ico" id="btnTerrain" type="button" data-i18n-title="base.tilt" title="3D tilt">
-      <svg viewBox="0 0 24 24"><path d="M3 16l9-5 9 5-9 5z"/><path d="M12 11V4"/><path d="M9 6.5L12 4l3 2.5"/></svg>
-    </button>
-    <button class="btn btn-ico" id="btnCrossings" type="button" data-i18n-title="base.crossings" title="Border crossings">
-      <svg viewBox="0 0 24 24"><path d="M12 2v20" stroke-dasharray="2.5 2.5"/><path d="M3 9h18"/><path d="M3 15h18"/><circle cx="12" cy="12" r="2.6"/></svg>
-    </button>
-    <button class="btn btn-ico" id="btnTolls" type="button" data-i18n-title="base.tolls" title="Toll facilities">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.6 9.2c-.5-.9-1.5-1.4-2.6-1.4-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2c-1.1 0-2.1-.5-2.6-1.4M12 6.2v1.6M12 16.2v1.6"/></svg>
-    </button>
-    <button class="btn btn-ico" id="btnBridges" type="button" data-i18n-title="base.bridges" title="Bridges">
-      <svg viewBox="0 0 24 24"><path d="M2 9h20M2 16h20"/><path d="M4 16c0-4 3.6-7 8-7s8 3 8 7"/><path d="M7 11.2V16M12 9v7M17 11.2V16"/></svg>
-    </button>
     <!-- Everything here is in front of the map, and sometimes the map is what
          you want. -->
     <button class="btn btn-ico" id="btnZen" type="button" data-i18n-title="nav.zen" title="Hide the interface">

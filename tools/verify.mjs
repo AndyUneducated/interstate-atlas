@@ -28,7 +28,8 @@ const NO_DOSSIER_COSTED = await (async () => {
   return null;
 })();
 
-const browser = await chromium.launch();
+// PW_CHANNEL=chrome uses the installed browser where Playwright's own is absent.
+const browser = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {});
 const page = await browser.newPage({ viewport: { width: 1600, height: 950 }, deviceScaleFactor: 1 });
 
 const errors = [];
@@ -109,6 +110,10 @@ const shot = async (name) => {
     console.log(`  (screenshot ${name} timed out)`);
   }
 };
+
+// Buttons that live in the header menus are clicked through the DOM, so a
+// step does not depend on the menu having been opened first.
+const jsClick = (sel) => page.$eval(sel, (el) => el.click());
 
 await step('load page', async () => {
   await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 45000 });
@@ -240,7 +245,7 @@ await step('cost reaches routes with no dossier', async () => {
 });
 
 await step('numbering explainer', async () => {
-  await page.click('#btnNumbering');
+  await jsClick('#btnNumbering');
   await page.waitForSelector('#sheet:not(.hidden)', { timeout: 8000 });
   await page.waitForTimeout(700);
   const lines = await page.locator('.nb-route[data-id]').count();
@@ -258,6 +263,60 @@ await step('dashboard', async () => {
 });
 await shot('04-dashboard.png');
 
+await step('dashboard charts the countries and the longest routes', async () => {
+  const rows = await page.locator('.cc-row').count();
+  if (rows !== 3) throw new Error(`expected a bar per country, got ${rows}`);
+  const longest = await page.locator('.hbar-route[data-id]').count();
+  if (longest < 10) throw new Error(`only ${longest} longest-route bars`);
+});
+
+await step('the More menu opens and closes', async () => {
+  await page.click('#shClose');
+  await page.click('#btnMore');
+  await page.waitForSelector('#menuMore.open', { timeout: 4000 });
+  for (const id of ['btnNumbering', 'btnTimeline', 'btnDocs', 'btnAbout']) {
+    if (!await page.locator(`#menuMore #${id}`).isVisible()) throw new Error(`#${id} not in the open menu`);
+  }
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(200);
+  if (await page.locator('#menuMore.open').count()) throw new Error('Escape left the menu open');
+});
+
+await step('data and sources page renders every tab', async () => {
+  await page.click('#btnMore');
+  await page.click('#btnDocs');
+  await page.waitForSelector('.cov-row', { timeout: 8000 });
+  // Coverage is the default tab: a bar per system, including the Trans-Canada.
+  const bars = await page.locator('.cov-bar').count();
+  if (bars < 6) throw new Error(`only ${bars} coverage bars`);
+  if (await page.locator('#menuMore.open').count()) throw new Error('menu stayed open behind the page');
+  for (const [tab, min] of [['sources', 5], ['decisions', 40], ['issues', 3], ['accuracy', 5]]) {
+    await page.click(`[data-dc="${tab}"]`);
+    await page.waitForTimeout(150);
+    const n = await page.locator('#dcBody .dc-card, #dcBody .dc-tbl tbody tr').count();
+    if (n < min) throw new Error(`${tab}: ${n} entries, expected at least ${min}`);
+  }
+  // The filter narrows the decision log rather than only being drawn.
+  await page.click('[data-dc="decisions"]');
+  await page.fill('#dcQ', 'correctMileage');
+  await page.waitForTimeout(150);
+  const shown = await page.locator('#dcBody .dc-card:not([hidden])').count();
+  if (shown !== 1) throw new Error(`filtering for correctMileage shows ${shown} cards, expected D-53 alone`);
+});
+await shot('04b-docs.png');
+
+await step('the Layers menu holds the base map and the overlays', async () => {
+  await page.click('#shClose');
+  await page.click('#btnLayers');
+  await page.waitForSelector('#menuLayers.open', { timeout: 4000 });
+  for (const sel of ['#basemap', '#btnTerrain', '#btnCrossings', '#btnTolls', '#btnBridges']) {
+    if (!await page.locator(`#menuLayers ${sel}`).isVisible()) throw new Error(`${sel} not in the open Layers menu`);
+  }
+  await page.mouse.click(400, 500);
+  await page.waitForTimeout(200);
+  if (await page.locator('#menuLayers.open').count()) throw new Error('clicking away left the Layers menu open');
+});
+
 // Closing whatever sheet the previous step opened. Not every step leaves one
 // open, and a step must not fail because the thing it is tidying up after is
 // already tidy.
@@ -268,7 +327,7 @@ const dismissSheet = async () => {
 
 await step('buildout scrubber opens and scrubs', async () => {
   await dismissSheet();
-  await page.click('#btnTimeline');
+  await jsClick('#btnTimeline');
   await page.waitForSelector('#tlapse .tlx-year', { timeout: 8000 });
   await page.waitForTimeout(500);
 
@@ -365,7 +424,6 @@ await shot('08-flythrough.png');
 // it down. Both toggles go through the element's own click handler rather than
 // a synthetic mouse event, because Playwright's actionability check can sit
 // waiting on a main thread that terrain has saturated.
-const jsClick = (sel) => page.$eval(sel, (el) => el.click());
 
 await step('terrain toggles', async () => {
   await page.keyboard.press('Escape');
@@ -428,6 +486,7 @@ await step('collapsed panel can be reopened', async () => {
 });
 
 await step('base maps switch', async () => {
+  if (!await page.locator('#menuLayers.open').count()) await page.click('#btnLayers');
   for (const mode of ['relief', 'satellite', 'dark']) {
     await page.click(`[data-base="${mode}"]`);
     await page.waitForTimeout(900);
@@ -442,6 +501,7 @@ await step('base maps switch', async () => {
     }, mode);
     if (!ok) throw new Error(`${mode} selected but its layer is not live`);
   }
+  await page.keyboard.press('Escape');
 });
 await shot('11-relief.png');
 
@@ -495,6 +555,11 @@ await step('Trans-Canada draws by default', async () => {
   await page.waitForTimeout(2600);
   const n = await waitForSource('rt-ca-tch');
   if (n < 5) throw new Error(`only ${n} Trans-Canada routes`);
+  // The Yellowhead is the northern Trans-Canada through BC; the national file
+  // never names it so, and it went missing for exactly that reason.
+  const yellowhead = await page.evaluate(() => window.__map.querySourceFeatures('rt-ca-tch')
+    .some((f) => f.properties.st === 'BC' && String(f.properties.num ?? f.properties.number) === '16'));
+  if (!yellowhead) throw new Error('BC 16 (Yellowhead) is not drawn as Trans-Canada');
 });
 await shot('13-canada.png');
 
@@ -754,7 +819,7 @@ await step('escape brings the interface back', async () => {
 await step('the buildout run stops at the end rather than looping', async () => {
   // It used to wrap straight back to an empty 1956 map, so a reader glancing
   // away could not tell the start of a run from the end of one.
-  await page.click('#btnTimeline');
+  await jsClick('#btnTimeline');
   await page.waitForSelector('#tlxRange', { timeout: 15000 });
   const max = Number(await page.getAttribute('#tlxRange', 'max'));
   await page.evaluate((y) => {
@@ -786,7 +851,7 @@ await step('the buildout run stops at the end rather than looping', async () => 
 
 await step('border crossings draw, and a nearby route can be chosen from one', async () => {
   await page.keyboard.press('Escape');
-  await page.click('#btnCrossings');
+  await jsClick('#btnCrossings');
   await waitForSource('xing');
   // A Canadian crossing with routes beside it, clicked where it is drawn.
   const pt = await page.evaluate(async () => {
@@ -808,13 +873,13 @@ await step('border crossings draw, and a nearby route can be chosen from one', a
   await page.waitForFunction(() => !document.getElementById('detail').classList.contains('hidden'), null, { timeout: 15000 });
   const title = await page.textContent('#detail');
   if (!title.includes(label.trim())) throw new Error(`chose ${label} from the crossing, detail shows something else`);
-  await page.click('#btnCrossings');
+  await jsClick('#btnCrossings');
   if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
 });
 
 await step('toll facilities draw, show dated fares, and appear in the route panel', async () => {
   await page.keyboard.press('Escape');
-  await page.click('#btnTolls');
+  await jsClick('#btnTolls');
   await waitForSource('toll');
   // The Confederation Bridge, clicked at the middle of its drawn line.
   const pt = await page.evaluate(async () => {
@@ -836,14 +901,15 @@ await step('toll facilities draw, show dated fares, and appear in the route pane
   if (await page.locator('.tl-pop .tl-fare').count() < 1) throw new Error('no dated fare in the popup');
   await shot('12-tolls.png');
   await page.click('.tl-pop .xg-r');
-  await page.waitForSelector('#dtTolls .tl-item', { timeout: 15000 });
-  await page.click('#btnTolls');
+  // The tolls section starts folded, so the items are present but not shown.
+  await page.waitForSelector('#dtTolls .tl-item', { timeout: 15000, state: 'attached' });
+  await jsClick('#btnTolls');
   if (await page.locator('.tl-pop').count()) throw new Error('popup outlived its layer');
 });
 
 await step('Mexican toll plazas draw and open with their operator', async () => {
   await page.keyboard.press('Escape');
-  await page.click('#btnTolls');
+  await jsClick('#btnTolls');
   await waitForSource('toll');
   const pt = await page.evaluate(async () => {
     const d = await (await fetch('data/tolls.json')).json();
@@ -861,12 +927,12 @@ await step('Mexican toll plazas draw and open with their operator', async () => 
   await page.waitForSelector('.tl-pop .tl-op', { timeout: 8000 });
   const text = await page.textContent('.tl-pop');
   if (!text.includes('CAPUFE')) throw new Error(`plaza popup does not name its operator: ${text.slice(0, 120)}`);
-  await page.click('#btnTolls');
+  await jsClick('#btnTolls');
 });
 
 await step('bridges draw, colour by year, and say the year is not the road\'s', async () => {
   await page.keyboard.press('Escape');
-  await page.click('#btnBridges');
+  await jsClick('#btnBridges');
   await waitForSource('bridge');
   const pt = await page.evaluate(async () => {
     const d = await (await fetch('data/bridges.json')).json();
@@ -886,7 +952,7 @@ await step('bridges draw, colour by year, and say the year is not the road\'s', 
   const text = await page.textContent('.xg-pop');
   if (!text.includes(String(pt.year))) throw new Error(`popup does not give the year built ${pt.year}`);
   await shot('13-bridges.png');
-  await page.click('#btnBridges');
+  await jsClick('#btnBridges');
   if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
 });
 

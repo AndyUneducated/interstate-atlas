@@ -704,12 +704,6 @@ export async function renderDetail(id) {
             p.hpms?.lanes && p.hpms.lanes.cover < 98 ? t('ca.coverage', { pct: num(p.hpms.lanes.cover) }) : null)}`}`}
       </div>
 
-      ${hpmsFacts(p)}
-      ${provincialTraffic(p)}
-      ${mexicanTraffic(p)}
-      ${caFacts(p)}
-      ${mxFacts(p)}
-      ${caInventory(p)}
       ${p.unsigned ? `<div class="figs ca-facts">
         <div class="fig"><span class="fig-k">${t('dt.unsigned')}</span>
         <span class="fig-v">${t('dt.unsignedWhy')}</span></div></div>` : ''}
@@ -776,9 +770,15 @@ export async function renderDetail(id) {
       <span>${t('note.noDossier')}</span></div></div>`);
   }
 
+  // The tiles above carry the headline figures; the full measured breakdown
+  // is long enough to push everything else off the panel, so it waits behind
+  // its heading.
+  parts.push(section('measured', [
+    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), caFacts(p), mxFacts(p), caInventory(p),
+  ].join('').trim()));
   parts.push(section('composition', compositionBlock(types), !dossier));
   parts.push(section('statesList', statesBlock(states)));
-  parts.push(section('tolls', '<div id="dtTolls"></div>', true));
+  parts.push(section('tolls', '<div id="dtTolls"></div>'));
   parts.push(section('served', '<div id="dtServed"></div>'));
   parts.push(section('elevation', '<div id="dtElev"></div>'));
 

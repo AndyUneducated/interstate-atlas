@@ -1130,6 +1130,7 @@ const VIEWS = [
   { key: 'numbering', i18n: 'nav.numbering', icon: 'M4 9h16M4 15h16M10 3v18M16 3v18' },
   { key: 'dashboard', i18n: 'nav.dashboard', icon: 'M4 20V10M10 20V4M16 20v-7M22 20H2' },
   { key: 'timeline', i18n: 'nav.timeline', icon: 'M12 7v5l3.5 2' },
+  { key: 'docs', i18n: 'nav.docs', icon: 'M6 3h9l4 4v14H6zM9 12h7M9 16h7' },
   { key: 'about', i18n: 'nav.about', icon: 'M12 11v5M12 7.6v.1' },
 ];
 
@@ -1171,7 +1172,7 @@ function renderPalette() {
     for (const v of views) {
       item(`<span class="ico-w"><svg viewBox="0 0 24 24"><path d="${v.icon}"/></svg></span>
         <span class="pal-it-txt"><span class="pal-it-name">${t(v.i18n)}</span></span>`,
-      () => openSheet(v.key));
+      () => (v.key === 'timeline' ? openTimelapse() : openSheet(v.key)));
     }
   }
 
@@ -1275,9 +1276,33 @@ function wire() {
   document.getElementById('btnBridges').addEventListener('click', () => toggleBridges());
   document.getElementById('btnZen').addEventListener('click', () => toggleZen());
   document.getElementById('zenOut').addEventListener('click', () => toggleZen(false));
-  document.getElementById('btnPalette').addEventListener('click', openPalette);
+  // A menu closes on a second press, on Escape and on any press outside it.
+  // The views menu also closes once a view is picked; the layers menu stays,
+  // because layers are switched several at a time.
+  const menus = [...document.querySelectorAll('.menu')];
+  const setMenu = (menu, open) => {
+    menu.classList.toggle('open', open);
+    menu.querySelector('[aria-haspopup]').setAttribute('aria-expanded', String(open));
+  };
+  for (const menu of menus) {
+    menu.querySelector('[aria-haspopup]').addEventListener('click', () => {
+      const open = !menu.classList.contains('open');
+      for (const m of menus) setMenu(m, false);
+      setMenu(menu, open);
+    });
+  }
+  document.addEventListener('pointerdown', (e) => {
+    for (const m of menus) if (!m.contains(e.target)) setMenu(m, false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') for (const m of menus) setMenu(m, false);
+  });
+  for (const it of document.querySelectorAll('#menuMore .menu-it')) {
+    it.addEventListener('click', () => setMenu(document.getElementById('menuMore'), false));
+  }
+
   for (const [btn, key] of [['btnNumbering', 'numbering'], ['btnDash', 'dashboard'],
-    ['btnAbout', 'about']]) {
+    ['btnDocs', 'docs'], ['btnAbout', 'about']]) {
     document.getElementById(btn).addEventListener('click', () => openSheet(key));
   }
   // The buildout view docks over the map instead of opening a sheet, because
