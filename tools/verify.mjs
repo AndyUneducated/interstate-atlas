@@ -311,6 +311,29 @@ await step('data and sources page renders every tab', async () => {
 });
 await shot('04b-docs.png');
 
+await step('each documents tab leads with its views, and the decision map filters the log', async () => {
+  for (const [tab, sels] of [
+    ['coverage', ['.dv-heat td', '.dv .hbar-route']],
+    ['sources', ['.dv-fr', '.dv-sankey path', '.dv-x .stack i']],
+    ['decisions', ['.dv-stage', '.dv-cell', '.dv-arcs path']],
+    ['accuracy', ['.dv-gk i']],
+  ]) {
+    await page.click(`[data-dc="${tab}"]`);
+    await page.waitForTimeout(150);
+    for (const sel of sels) if (!await page.locator(`#dcBody ${sel}`).count()) throw new Error(`${tab}: no ${sel}`);
+  }
+  // Escape the earlier word filter, then let the Stitch stage pick the cards.
+  await page.click('[data-dc="decisions"]');
+  const all = await page.locator('#dcBody .dc-card:not([hidden])').count();
+  await page.click('.dv-stage[data-stage="stitch"]');
+  await page.waitForTimeout(200);
+  const want = Number(await page.locator('.dv-stage[data-stage="stitch"] b').textContent());
+  const shown = await page.locator('#dcBody .dc-card:not([hidden])').count();
+  if (shown !== want || shown >= all) throw new Error(`the Stitch stage shows ${shown} of ${all} decisions, its tile says ${want}`);
+  await page.click('#dvClear');
+  if (await page.locator('#dcBody .dc-card:not([hidden])').count() !== all) throw new Error('Show all did not restore the log');
+});
+
 await step('the Layers menu holds the colour key and the overlays', async () => {
   await page.click('#shClose');
   await page.click('#btnLayers');

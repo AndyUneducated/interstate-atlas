@@ -17,16 +17,16 @@
     "fetch:tolls": "node tools/fetch-mx-concessions.mjs",
     "propose:tolls": "node tools/propose-mx-concession-matches.mjs",
     "fetch:all": "npm run fetch && npm run fetch:ca && npm run fetch:qc && npm run fetch:mx && npm run fetch:bridges && npm run fetch:borders && npm run fetch:tolls",
-    "build": "node tools/build-data.mjs && node tools/build-crossings.mjs && node tools/build-bridges.mjs && node tools/build-tolls.mjs && node tools/build-content.mjs",
+    "build": "node tools/build-data.mjs && node tools/build-crossings.mjs && node tools/build-bridges.mjs && node tools/build-tolls.mjs && node tools/build-content.mjs && node tools/build-insights.mjs",
     "build:elevation": "node tools/build-elevation.mjs",
     "serve": "node tools/serve.mjs",
     "verify": "node tools/verify.mjs",
     "check:i18n": "node tools/check-i18n.mjs",
     "check:mx": "node tools/check-mexico-numbers.mjs",
     "check:us": "node tools/check-us-coverage.mjs",
-    "docs": "node tools/coverage-figures.mjs && node tools/build-docs.mjs",
+    "docs": "node tools/coverage-figures.mjs && node tools/build-insights.mjs && node tools/build-docs.mjs",
     "check:data": "node tools/check-data.mjs",
-    "test": "node tools/check-i18n.mjs && node tools/build-content.mjs && node tools/check-data.mjs && node tools/readme-figures.mjs && node tools/coverage-figures.mjs && node tools/build-docs.mjs"
+    "test": "node tools/check-i18n.mjs && node tools/build-content.mjs && node tools/check-data.mjs && node tools/readme-figures.mjs && node tools/coverage-figures.mjs && node tools/build-insights.mjs && node tools/build-docs.mjs"
   },
   "dependencies": {
     "pngjs": "^7.0.0",

@@ -163,6 +163,7 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `build-tolls.mjs` | ❌ | `content/reference/tolls-ca.json`, `mx-concessions.json`, `mx-concession-matches.json`, `tools/src/mx/plaza_cobro`, `data/geo/` | `data/tolls.json` |
 | `build-content.mjs` | ❌ | `content/dossiers/`, `content/reference/milestones.json` and `interstate-mileage.json`, `data/index.json`, `data/geo/` | `data/dossiers/`, `data/timeline.json` |
 | `build-elevation.mjs` | ✅ tiles | `data/dossiers/index.json` for the route list, `data/geo/`, terrain tiles cached in `tools/cache/` | `data/elevation/` |
+| `build-insights.mjs` | ❌ | `data/geo/`, `data/dossiers/index.json`, the three `*-crosscheck.json` | `data/insights.json`: field coverage, worst gaps, length against the Route Log, crosscheck verdicts for the Data & sources views |
 | `propose-mx-concession-matches.mjs` | ❌ | `mx-concessions.json`, `mx-designations.json`, `mx-traffic.json`, `data/geo/` | `content/reference/mx-concession-matches.json`, for a person to approve |
 | `check-mexico-numbers.mjs` | ❌ | `mx-designations.json`, `data/geo/` | `content/reference/mx-crosscheck.json` |
 | `check-i18n.mjs` | ❌ | `assets/*.js`, `index.html` | — |
