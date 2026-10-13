@@ -56,6 +56,12 @@ function terminusRow(kind, place, coord, dossierText, axis) {
     // Mexico's ends are SICT sections; Taiwan's and Hong Kong's are streets.
     const key = place.nameZh !== undefined ? 'dt.onRoad' : 'dt.onTramo';
     body = name ? t(key, { road: esc(name), tramo: esc(name) }) : '—';
+  } else if (place?.cn) {
+    // A mainland end is named by the nearest city or town OSM maps, in the
+    // reader's language, with its province spelt out.
+    const name = getLang() === 'zh' ? (place.nameZh || place.name) : (place.name || place.nameZh);
+    const at = esc(getLang() === 'zh' ? `${stateName(place.st)}${name}` : `${name}, ${stateName(place.st)}`);
+    body = place.km <= 6 ? at : t('dt.nearBy', { place: at, d: distKm(place.km) });
   } else if (place) {
     body = place.km <= 6
       ? esc(`${place.name}, ${place.st}`)
@@ -115,7 +121,7 @@ const covBadge = (pct) => (pct != null && pct < 98 ? `${num(pct)}%` : null);
  * unconditionally: the reader's choice of unit is theirs, but the sign at the
  * side of the road is in whichever unit its country uses.
  */
-const HERO_SRC = { mx: 'len.heroRnc', tw: 'len.heroNlsc', hk: 'len.heroTd' };
+const HERO_SRC = { mx: 'len.heroRnc', tw: 'len.heroNlsc', hk: 'len.heroTd', cn: 'len.heroOsm' };
 
 function heroLength(p, officialMi, ca, covers = 0) {
   return `<div class="mhero">
@@ -136,12 +142,14 @@ function compositionBlock(types) {
   return `<div class="comp"><div class="comp-bar">${bar}</div><div class="comp-key">${key}</div></div>`;
 }
 
-function statesBlock(states) {
+// The atlas's three-letter codes for Chinese provinces are its own, so a
+// reader would not know them; those rows carry the province's name instead.
+function statesBlock(states, named = false) {
   if (!states?.length) return '';
   const max = Math.max(...states.map((s) => s.mi));
-  return `<div class="st-rows">${states.map((s) => `
+  return `<div class="st-rows${named ? ' st-named' : ''}">${states.map((s) => `
     <div class="st-row">
-      <b>${s.st}</b>
+      <b>${named ? stateName(s.st) : s.st}</b>
       <span class="bar"><i style="width:${Math.max(2, (s.mi / max) * 100)}%"></i></span>
       <em>${num(lenOf(s.mi))}</em>
     </div>`).join('')}</div>`;
@@ -395,13 +403,35 @@ function taiwanTraffic(p) {
  * the geometry, so they do not say which end of the drawn line is which.
  */
 function eaFacts(p) {
+  if (p.cc === 'cn') return cnFacts(p);
   if (p.cc !== 'tw' && p.cc !== 'hk') return '';
   const rows = [];
   const reg = p.reg;
   if (reg?.from || reg?.to) rows.push([t('ea.termini'), esc([reg.from, reg.to].filter(Boolean).join(' — '))]);
   if (reg?.places) rows.push([t('ea.places'), `<span class="fig-s">${esc(reg.places)}</span>`]);
   if (p.named?.length) rows.push([t('ea.roads'), p.named.map((n) => esc(n)).join(' · ')]);
-  rows.push(['', `<span class="fig-s">${t(p.cc === 'hk' ? 'ea.note.hk' : 'ea.note.tw')}</span>`]);
+  if (!rows.length) return '';
+  return `<div class="figs ca-facts">${rows.map(([k, v]) =>
+    `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}</div>`;
+}
+
+/**
+ * What OpenStreetMap's route relation says about a mainland route.
+ *
+ * The planned name and ends are the relation's tags, typed in by mappers from
+ * the national plan; they are quoted as tagged and say nothing about whether
+ * the road is built that far.
+ */
+function cnFacts(p) {
+  const rows = [];
+  const o = p.osm;
+  const zh = getLang() === 'zh';
+  const name = zh ? o?.name : (o?.nameEn || o?.name);
+  if (name) rows.push([t('cn.name'), esc(name)]);
+  if (o?.official && o.official !== o.name) rows.push([t('cn.official'), esc(o.official)]);
+  if (o?.from || o?.to) rows.push([t('cn.ends'), esc([o.from, o.to].filter(Boolean).join(' — '))]);
+  if (p.named?.length) rows.push([t('ea.roads'), p.named.map((n) => esc(n)).join(' · ')]);
+  if (!rows.length) return '';
   return `<div class="figs ca-facts">${rows.map(([k, v]) =>
     `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}</div>`;
 }
@@ -693,7 +723,7 @@ export async function renderDetail(id) {
   const officialMi = dossier?.officialMi ?? p.offMi ?? null;
   const officialSrc = dossier?.mileageSource || (p.offMi == null ? null
     : p.offSrc === 'thb' ? t('src.thb', { date: p.reg?.updated ?? '' }) : t('src.routelog'));
-  const ea = p.cc === 'tw' || p.cc === 'hk';
+  const ea = p.cc === 'tw' || p.cc === 'hk' || p.cc === 'cn';
   const gapNote = p.breaks > 0
     ? `<div class="note gap"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17v.1"/><circle cx="12" cy="12" r="9"/></svg>
        <span>${t(ca ? 'note.gaps.ca' : ea ? 'note.gaps.ea' : 'note.gaps', { n: p.breaks, d: dist(p.gapMi) })}</span></div>` : '';
@@ -729,7 +759,7 @@ export async function renderDetail(id) {
       ${heroLength(p, officialMi, ca, dossier?.officialCovers?.length)}
 
       <div class="mgrid">
-        ${p.cc === 'hk' ? '' : metric(ca ? 'dt.provinces' : p.cc === 'tw' ? 'ea.counties' : 'dt.states', num(states.length))}
+        ${p.cc === 'hk' ? '' : metric(ca || p.cc === 'cn' ? 'dt.provinces' : p.cc === 'tw' ? 'ea.counties' : 'dt.states', num(states.length))}
         ${metric('dt.straight', `${num(lenOf(p.spanMi))}<small>${lenUnit()}</small>`)}
         ${ea
           // Taiwan's centrelines are classed freeway, expressway or ordinary
@@ -850,7 +880,9 @@ export async function renderDetail(id) {
   ].join('').trim()));
   parts.push(section('composition', compositionBlock(types), !dossier));
   // Hong Kong is one jurisdiction, so a breakdown by it says nothing.
-  if (p.cc !== 'hk') parts.push(section(p.cc === 'tw' ? 'countiesList' : 'statesList', statesBlock(states)));
+  if (p.cc !== 'hk') {
+    parts.push(section(p.cc === 'tw' ? 'countiesList' : p.cc === 'cn' ? 'provincesList' : 'statesList', statesBlock(states, p.cc === 'cn')));
+  }
   parts.push(section('tolls', '<div id="dtTolls"></div>'));
   parts.push(section('served', '<div id="dtServed"></div>'));
   parts.push(section('elevation', '<div id="dtElev"></div>'));
@@ -883,7 +915,7 @@ export async function renderDetail(id) {
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
     <span>${t(key)}</span></div>`;
   parts.push(section('data',
-    info(ca ? 'ca.note.derived' : 'note.derived')
+    info({ ca: 'ca.note.derived', mx: 'mx.note.derived', tw: 'ea.note.tw', hk: 'ea.note.hk', cn: 'cn.note' }[p.cc] ?? 'note.derived')
     + (ca ? info('ca.tolls') : '')
     // The measured figures come from somewhere else entirely, so they get
     // their own provenance rather than sheltering under the map's.

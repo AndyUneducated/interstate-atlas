@@ -170,6 +170,22 @@ export const STRINGS = {
     'sys.tw-freeway.meta': '國道, the tolled freeway network',
     'sys.tw-provincial.meta': '省道, with the 快速公路 expressways',
     'sys.hk-route.meta': 'Routes 1 to 10 and their exits',
+    'sys.country.cn': 'Mainland China',
+    'sys.cn-expressway': 'National Expressways',
+    'sys.cn-national': 'National Highways',
+    'sys.cn-provincial': 'Provincial Roads',
+    'sys.cn-expressway.meta': '国家高速, G with one, two or four digits',
+    'sys.cn-national.meta': '普通国道, G with three digits',
+    'sys.cn-provincial.meta': '省道 and provincial expressways, load by province',
+    'sys.pickCnProvince': 'Choose a province',
+    'sub.cnProvinces': '{n} provinces',
+    'sect.provincesList': 'Length by province',
+    'len.heroOsm': 'measured off OpenStreetMap',
+    'cn.name': 'Name',
+    'cn.official': 'Planned as',
+    'cn.ends': 'Planned ends',
+    'cn.note': 'Drawn from OpenStreetMap, not from a Chinese authority: the official Tianditu service is closed to access from abroad. Numbers are as mappers tagged them; completeness varies by province, and there are no official lengths, traffic counts or toll shares. The name and ends are the route relation’s tags, quoted as written.',
+    'cn.provincialWhy': 'Provincial numbers are each province’s own, so S1 in Hebei and S1 in Sichuan are unrelated roads. Drawn from OpenStreetMap, where how many provincial roads carry a number depends on how thoroughly each province has been mapped.',
     'src.thb': 'Highway Bureau provincial highway register, updated {date}',
     'ea.counties': 'Counties',
     'ea.termini': 'Register termini',
@@ -196,7 +212,7 @@ export const STRINGS = {
     'sys.pickProvince': 'Choose a province',
 
     'search.placeholder': 'Search I-95, TCH 1, Ontario, Jalisco…',
-    'search.placeholderEa': 'Search Fwy 1, PH 9, Route 3…',
+    'search.placeholderEa': 'Search G4, G318, Fwy 1, Route 3…',
     'search.results': 'Results',
     'search.none': 'Nothing matches that.',
     'search.hint': 'Type a route number, a name, or a state.',
@@ -499,7 +515,15 @@ export const STRINGS = {
     'jump.mxnorth': 'Northern Mexico',
     'jump.mxcentre': 'Central Mexico',
     'jump.mxsouth': 'The south and Yucatán',
-    'jump.ea': 'Taiwan and Hong Kong',
+    'jump.ea': 'All of East Asia',
+    'jump.cn': 'Mainland China',
+    'jump.cnnorth': 'North China',
+    'jump.cnnortheast': 'The northeast',
+    'jump.cneast': 'East China',
+    'jump.cncentral': 'Central China',
+    'jump.cnsouth': 'South China',
+    'jump.cnsouthwest': 'The southwest and Tibet',
+    'jump.cnnorthwest': 'The northwest',
     'jump.tw': 'Taiwan',
     'jump.twnorth': 'The north',
     'jump.twcentre': 'The centre',
@@ -756,6 +780,22 @@ export const STRINGS = {
     'sys.tw-freeway.meta': '收费高速公路网',
     'sys.tw-provincial.meta': '含快速公路',
     'sys.hk-route.meta': '1 至 10 号干线及出口编号',
+    'sys.country.cn': '中国大陆',
+    'sys.cn-expressway': '国家高速公路',
+    'sys.cn-national': '普通国道',
+    'sys.cn-provincial': '省道',
+    'sys.cn-expressway.meta': 'G 加一、二或四位数字',
+    'sys.cn-national.meta': 'G 加三位数字',
+    'sys.cn-provincial.meta': '含省级高速，按省加载',
+    'sys.pickCnProvince': '选择省份',
+    'sub.cnProvinces': '{n} 个省份',
+    'sect.provincesList': '各省里程',
+    'len.heroOsm': '基于 OpenStreetMap 量得',
+    'cn.name': '名称',
+    'cn.official': '规划全称',
+    'cn.ends': '规划起讫',
+    'cn.note': '线形取自 OpenStreetMap，而非中国官方机构：官方的天地图对境外访问不开放。编号按地图贡献者的标注；各省完整程度不一，没有官方里程、车流量与收费比例。名称与起讫取自路线关系的标签，按原文引用。',
+    'cn.provincialWhy': '省道编号由各省自定，河北的 S1 与四川的 S1 毫无关系。数据取自 OpenStreetMap，省道有多少带编号，取决于各省地图的完整程度。',
     'src.thb': '交通部公路局《省道公路路線表》，{date} 更新',
     'ea.counties': '县市',
     'ea.termini': '公路局所列起迄',
@@ -782,7 +822,7 @@ export const STRINGS = {
     'sys.pickProvince': '选择省份',
 
     'search.placeholder': '搜索 I-95、横加公路 1、安大略、哈利斯科…',
-    'search.placeholderEa': '搜索 國1、台9、3號幹線…',
+    'search.placeholderEa': '搜索 G4、京港澳、國1、3號幹線…',
     'search.results': '结果',
     'search.none': '没有匹配的路线。',
     'search.hint': '可输入公路编号、名称或州名。',
@@ -1069,7 +1109,15 @@ export const STRINGS = {
     'jump.mxnorth': '墨西哥北部',
     'jump.mxcentre': '墨西哥中部',
     'jump.mxsouth': '南部与尤卡坦',
-    'jump.ea': '台湾与香港',
+    'jump.ea': '东亚全境',
+    'jump.cn': '中国大陆',
+    'jump.cnnorth': '华北',
+    'jump.cnnortheast': '东北',
+    'jump.cneast': '华东',
+    'jump.cncentral': '华中',
+    'jump.cnsouth': '华南',
+    'jump.cnsouthwest': '西南',
+    'jump.cnnorthwest': '西北',
     'jump.tw': '台湾全岛',
     'jump.twnorth': '北部',
     'jump.twcentre': '中部',
@@ -1241,17 +1289,37 @@ export const EA_LABEL = {
   HK: ['Hong Kong', '香港'],
 };
 
+// Mainland China's 31 provincial-level divisions. The atlas's own three-letter
+// codes rather than GB/T 2260's two, which collide with American states (HI,
+// SC, SD) and Canadian provinces (NL, NS); none of these collides with a
+// Mexican state or a Taiwanese county.
+export const CN_PROVINCE_LABEL = {
+  BEJ: ['Beijing', '北京'], TJN: ['Tianjin', '天津'], HEB: ['Hebei', '河北'],
+  SXI: ['Shanxi', '山西'], NMG: ['Inner Mongolia', '内蒙古'], LIA: ['Liaoning', '辽宁'],
+  JIL: ['Jilin', '吉林'], HLJ: ['Heilongjiang', '黑龙江'], SHH: ['Shanghai', '上海'],
+  JSU: ['Jiangsu', '江苏'], ZHJ: ['Zhejiang', '浙江'], ANH: ['Anhui', '安徽'],
+  FUJ: ['Fujian', '福建'], JXI: ['Jiangxi', '江西'], SHD: ['Shandong', '山东'],
+  HEN: ['Henan', '河南'], HUB: ['Hubei', '湖北'], HUN: ['Hunan', '湖南'],
+  GDG: ['Guangdong', '广东'], GXI: ['Guangxi', '广西'], HAI: ['Hainan', '海南'],
+  CHQ: ['Chongqing', '重庆'], SCH: ['Sichuan', '四川'], GZH: ['Guizhou', '贵州'],
+  YNN: ['Yunnan', '云南'], XIZ: ['Tibet', '西藏'], SHA: ['Shaanxi', '陕西'],
+  GSU: ['Gansu', '甘肃'], QHI: ['Qinghai', '青海'], NXA: ['Ningxia', '宁夏'],
+  XJG: ['Xinjiang', '新疆'],
+};
+
 export function isProvince(code) { return Object.hasOwn(PROVINCE_LABEL, code); }
 export function isMxState(code) { return Object.hasOwn(MX_STATE_LABEL, code); }
 
 /** The country a state, province, Mexican state or Taiwanese county belongs to. */
 export function countryOfJuris(code) {
   if (code === 'HK') return 'hk';
+  if (Object.hasOwn(CN_PROVINCE_LABEL, code)) return 'cn';
   if (Object.hasOwn(EA_LABEL, code)) return 'tw';
   return isProvince(code) ? 'ca' : isMxState(code) ? 'mx' : 'us';
 }
 
-const labelPair = (code) => STATE_LABEL[code] || PROVINCE_LABEL[code] || MX_STATE_LABEL[code] || EA_LABEL[code];
+const labelPair = (code) => STATE_LABEL[code] || PROVINCE_LABEL[code] || MX_STATE_LABEL[code]
+  || CN_PROVINCE_LABEL[code] || EA_LABEL[code];
 
 /**
  * Both names for a jurisdiction, for the search haystack.

@@ -112,15 +112,16 @@ export function relabel() {
 async function loadIndex() {
   const res = await fetch('data/index.json');
   const raw = await res.json();
-  app.index = raw.routes.map(([id, label, sys, tier, st, mi, base, num, cx, cy, gs, ns, where]) => ({
+  app.index = raw.routes.map(([id, label, sys, tier, st, mi, base, num, cx, cy, gs, ns, where, aka]) => ({
     id, label, sys: systemOfCode(sys)?.id ?? null, tier: TIER_BY_CODE[tier], st, mi, base, num, cx, cy, gs, ns, where,
     // Pre-lowered haystack so keystroke filtering stays cheap across 11,000
     // rows. The jurisdiction's full name is in it too, so "ontario" and
     // "saskatchewan" find their routes without the user knowing the code. So
     // is the place a shared number is told apart by, so "ON 21 Goderich" picks
     // the right one out of the twenty-two Ontario roads numbered 21.
-    // Taiwan and Hong Kong's routes answer to their own signs too: 國1, 台9, 3號幹線.
-    hay: `${label} ${labelAlias(label)} ${num} ${st} ${jurisdictionNames(st)} ${where || ''}`.toLowerCase(),
+    // Taiwan and Hong Kong's routes answer to their own signs too: 國1, 台9, 3號幹線,
+    // and the mainland's to their names: 京港澳, 沪昆, 沪聂.
+    hay: `${label} ${labelAlias(label)} ${num} ${st} ${jurisdictionNames(st)} ${where || ''} ${aka || ''}`.toLowerCase(),
   }));
   for (const r of app.index) app.byId.set(r.id, r);
   app.generated = raw.generated;
@@ -302,6 +303,8 @@ function addSystemLayers(sys, data) {
   raiseCrossings();
 }
 
+const loading = new Map();
+
 export async function enableSystem(sys) {
   const s = app.systems.get(sys);
   s.on = true;
@@ -310,9 +313,15 @@ export async function enableSystem(sys) {
     return;
   }
   if (!app.loaded.has(sys)) {
-    const data = await (await fetch(`${GEO}/${geoPath(sys)}`)).json();
-    app.loaded.add(sys);
-    addSystemLayers(sys, data);
+    // One fetch however many callers ask at once, or the second would add the
+    // source again.
+    if (!loading.has(sys)) {
+      loading.set(sys, fetch(`${GEO}/${geoPath(sys)}`).then((r) => r.json()).then((data) => {
+        app.loaded.add(sys);
+        addSystemLayers(sys, data);
+      }).finally(() => loading.delete(sys)));
+    }
+    await loading.get(sys);
   }
   setSystemVisible(sys, true);
   renderSystems();
@@ -345,7 +354,7 @@ function disableSystem(sys) {
    load a jurisdiction at a time. State and province codes do not collide, so
    one registry covers both; only the folder and the owning system differ. */
 
-const JURIS_SYSTEM = { us: 'us-state', ca: 'ca-provincial', mx: 'mx-state' };
+const JURIS_SYSTEM = { us: 'us-state', ca: 'ca-provincial', mx: 'mx-state', cn: 'cn-provincial' };
 function systemOfJurisdiction(code) { return JURIS_SYSTEM[countryOfJuris(code)]; }
 
 export async function loadState(st) {
@@ -860,6 +869,15 @@ const REGIONS = [
   { group: 'mx', key: 'mxcentre', i18n: 'jump.mxcentre', bounds: [[-105.8, 17.8], [-96.2, 22.6]] },
   { group: 'mx', key: 'mxsouth', i18n: 'jump.mxsouth', bounds: [[-98.6, 14.4], [-86.6, 21.7]] },
   { group: 'ea', key: 'ea', i18n: 'jump.ea', bounds: WORLD_REGIONS.ea.bounds },
+  // Mainland China by the seven regions its own statistics group provinces in.
+  { group: 'cn', key: 'cn', i18n: 'jump.cn', bounds: [[73.5, 18.1], [134.8, 53.6]] },
+  { group: 'cn', key: 'cnnorth', i18n: 'jump.cnnorth', bounds: [[110.2, 34.6], [119.8, 42.6]] },
+  { group: 'cn', key: 'cnnortheast', i18n: 'jump.cnnortheast', bounds: [[118.8, 38.7], [134.8, 53.6]] },
+  { group: 'cn', key: 'cneast', i18n: 'jump.cneast', bounds: [[114.8, 23.5], [122.9, 38.4]] },
+  { group: 'cn', key: 'cncentral', i18n: 'jump.cncentral', bounds: [[108.4, 24.6], [116.7, 36.4]] },
+  { group: 'cn', key: 'cnsouth', i18n: 'jump.cnsouth', bounds: [[104.4, 18.1], [117.3, 26.4]] },
+  { group: 'cn', key: 'cnsouthwest', i18n: 'jump.cnsouthwest', bounds: [[78.4, 21.1], [110.2, 36.5]] },
+  { group: 'cn', key: 'cnnorthwest', i18n: 'jump.cnnorthwest', bounds: [[73.5, 31.6], [111.0, 49.2]] },
   { group: 'tw', key: 'tw', i18n: 'jump.tw', bounds: [[119.9, 21.85], [122.05, 25.35]] },
   { group: 'tw', key: 'twnorth', i18n: 'jump.twnorth', bounds: [[120.85, 24.4], [122.0, 25.32]] },
   { group: 'tw', key: 'twcentre', i18n: 'jump.twcentre', bounds: [[120.2, 23.4], [121.45, 24.5]] },
@@ -869,7 +887,7 @@ const REGIONS = [
 ];
 
 // Which of the jump rows belong to each region; the whole-region row leads.
-const JUMP_GROUPS = { na: ['na', 'us', 'ca', 'mx'], ea: ['ea', 'tw', 'hk'] };
+const JUMP_GROUPS = { na: ['na', 'us', 'ca', 'mx'], ea: ['ea', 'cn', 'tw', 'hk'] };
 
 app.region = 'na';
 
@@ -885,6 +903,9 @@ function showRegion(region) {
   }
   document.documentElement.dataset.region = region;
   document.getElementById('q').placeholder = region === 'ea' ? t('search.placeholderEa') : t('search.placeholder');
+  for (const s of SYSTEMS) {
+    if (s.deferred && regionOf(s.cc) === region && app.systems.get(s.id).on && !app.loaded.has(s.id)) enableSystem(s.id);
+  }
   renderJumps();
   renderLegend();
   if (document.getElementById('results')?.childElementCount) renderResults();
@@ -1024,7 +1045,7 @@ function renderSystems() {
           const menu = document.getElementById('menuLayers');
           menu.classList.remove('open');
           menu.querySelector('[aria-haspopup]').setAttribute('aria-expanded', 'false');
-          openSheet({ us: 'states', ca: 'provinces', mx: 'mxstates' }[s.cc]);
+          openSheet({ us: 'states', ca: 'provinces', mx: 'mxstates', cn: 'cnprovinces' }[s.cc]);
           return;
         }
         if (app.systems.get(s.id).on) disableSystem(s.id);
@@ -1120,10 +1141,16 @@ const SHIELD_CLASS = {
   'tw-freeway': 'shield-twf',
   'tw-provincial': 'shield-twp',
   'hk-route': 'shield-hk',
+  'cn-expressway': 'shield-cne',
+  'cn-national': 'shield-cng',
+  'cn-provincial': 'shield-cns',
 };
 
 // Shields that carry the number alone, with no jurisdiction code to add.
-const BARE_SHIELD = new Set(['shield-i', 'shield-us', 'shield-tch', 'shield-mxf', 'shield-twf', 'shield-twp', 'shield-twx', 'shield-hk']);
+const BARE_SHIELD = new Set([
+  'shield-i', 'shield-us', 'shield-tch', 'shield-mxf', 'shield-twf', 'shield-twp', 'shield-twx', 'shield-hk',
+  'shield-cne', 'shield-cng', 'shield-cns', 'shield-cnx',
+]);
 const STEM = { A: '甲', B: '乙', C: '丙', D: '丁', E: '戊', F: '己', G: '庚' };
 
 // The stylesheet reads system colours as --c-<system id>, so they are defined
@@ -1168,11 +1195,14 @@ export function shieldHtml(r, big = false) {
   // Taiwan's expressways, 台61 and up, are provincial highways on a red
   // shield rather than the blue one, and its spurs are signed 甲 乙 丙.
   if (cls === 'shield-twp' && Number(r.base) >= 61) cls = 'shield-twx';
+  // A provincial expressway - S with one, two or four digits - is signed on
+  // the expressway's green plate, not the yellow of an ordinary 省道.
+  if (cls === 'shield-cns' && /^S(\d{1,2}|\d{4})$/.test(raw)) cls = 'shield-cnx';
   const cc = countryOf(r.sys);
   let text = cc === 'mx' ? raw.replace(/^0+(?=\d)/, '') : raw;
   if (cc === 'tw') text = text.replace(/[A-G]$/, (s) => STEM[s]);
   text = text.replace(/[<>&]/g, '');
-  const title = cc === 'tw' || cc === 'hk' ? routeLabel(r.label) : `${BARE_SHIELD.has(cls) ? '' : `${r.st} `}${text}`;
+  const title = cc === 'tw' || cc === 'hk' || cc === 'cn' ? routeLabel(r.label) : `${BARE_SHIELD.has(cls) ? '' : `${r.st} `}${text}`;
   return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" title="${title}">${text}</span>`;
 }
 
@@ -1217,7 +1247,9 @@ function renderResults() {
     const byJurisdiction = isPerJuris(r.sys) || isProvince(r.st) || cc === 'hk';
     const count = cc === 'tw'
       ? (r.ns === 1 ? t('sub.county') : t('sub.counties', { n: r.ns }))
-      : (r.ns === 1 ? t('sub.state') : t('sub.states', { n: r.ns }));
+      : cc === 'cn'
+        ? (r.ns === 1 ? stateName(r.st) : t('sub.cnProvinces', { n: r.ns }))
+        : (r.ns === 1 ? t('sub.state') : t('sub.states', { n: r.ns }));
     const sub = r.where ? `${stateName(r.st)} · ${r.where}`
       : byJurisdiction ? stateName(r.st)
         : count
@@ -1609,7 +1641,7 @@ async function main() {
   // only the Interstates left its button lit above an empty map - and its
   // routes selectable from search but invisible until something else
   // happened to switch the layer on.
-  const startOn = SYSTEMS.filter((s) => s.on && !s.perJuris);
+  const startOn = SYSTEMS.filter((s) => s.on && !s.perJuris && !s.deferred);
   const payloads = await Promise.all(
     startOn.map((s) => fetch(`${GEO}/${geoPath(s.id)}`).then((r) => r.json())),
   );

@@ -293,7 +293,7 @@ await shot('04-dashboard.png');
 
 await step('dashboard charts the countries and the longest routes', async () => {
   const rows = await page.locator('.cc-row').count();
-  if (rows !== 5) throw new Error(`expected a bar per country or region, got ${rows}`);
+  if (rows !== 6) throw new Error(`expected a bar per country or region, got ${rows}`);
   const longest = await page.locator('.hbar-route[data-id]').count();
   if (longest < 10) throw new Error(`only ${longest} longest-route bars`);
 });
@@ -856,7 +856,7 @@ const readLegend = () => page.evaluate(() => {
   const el = document.getElementById('legend');
   if (!el) return null;
   const region = document.documentElement.dataset.region;
-  const inRegion = (id) => (/^(tw|hk)-/.test(id) ? 'ea' : 'na') === region;
+  const inRegion = (id) => (/^(cn|tw|hk)-/.test(id) ? 'ea' : 'na') === region;
   return {
     shown: !el.hidden && Number(getComputedStyle(el).opacity) > 0.5,
     rows: el.querySelectorAll('.lg-r').length,
@@ -1073,7 +1073,7 @@ await step('the region switch flies to East Asia and follows the view', async ()
   await page.click('#regionSeg [data-region="ea"]');
   await page.waitForTimeout(3200);
   const lng = await page.evaluate(() => window.__map.getCenter().lng);
-  if (lng < 112 || lng > 124) throw new Error(`switch did not reach East Asia (lng ${lng.toFixed(1)})`);
+  if (lng < 90 || lng > 125) throw new Error(`switch did not reach East Asia (lng ${lng.toFixed(1)})`);
   if (!(await page.locator('#regionSeg [data-region="ea"].on').count())) throw new Error('switch does not show East Asia');
   if (!(await page.locator('[data-jump="tw"]').count())) throw new Error('no Taiwan jump row');
   if (await page.locator('[data-jump="ak"]').count()) throw new Error('North American jumps still shown');
@@ -1081,6 +1081,9 @@ await step('the region switch flies to East Asia and follows the view', async ()
   const hk = await waitForSource('rt-hk-route');
   if (fw < 10) throw new Error(`only ${fw} Taiwanese freeways`);
   if (hk !== 10) throw new Error(`expected Routes 1 to 10, found ${hk}`);
+  if (!(await page.locator('[data-jump="cn"]').count())) throw new Error('no mainland China jump row');
+  const ze = await waitForSource('rt-cn-expressway');
+  if (ze < 200) throw new Error(`only ${ze} national expressways`);
 });
 await shot('19-east-asia.png');
 
@@ -1135,8 +1138,38 @@ await step('a provincial highway gives the Highway Bureau length and termini', a
 });
 await shot('20-taiwan-detail.png');
 
-await step('the switch flies back to North America', async () => {
+await step('京港澳 finds G4, drawn from OpenStreetMap and named so', async () => {
   await page.click('#dtClose');
+  await page.fill('#q', '京港澳');
+  await page.waitForTimeout(700);
+  const first = page.locator('#results .res').first();
+  if (!(await first.locator('.shield-cne').count())) throw new Error('first result has no expressway shield');
+  await first.click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1200);
+  const title = (await page.textContent('.dt-name')).trim();
+  if (title !== 'G4') throw new Error(`opened ${title}`);
+  const text = await page.textContent('#detail');
+  if (!/OpenStreetMap/.test(text)) throw new Error('G4 does not say it is drawn from OpenStreetMap');
+  if (!/Guangdong|Beijing/.test(text)) throw new Error('G4 names neither Guangdong nor Beijing');
+});
+await shot('21-china-g4.png');
+
+await step('a Chinese province loads its provincial roads', async () => {
+  await page.click('#dtClose');
+  await page.fill('#q', '');
+  await sysClick('cn-provincial');
+  await page.waitForSelector('[data-load="SCH"]', { timeout: 10000 });
+  const title = await page.textContent('#sheet .sh-hd');
+  if (!/province/i.test(title)) throw new Error(`picker titled ${title}`);
+  await page.click('[data-load="SCH"]');
+  const n = await waitForSource('st-SCH');
+  if (n < 50) throw new Error(`only ${n} Sichuan provincial roads`);
+});
+await shot('22-sichuan.png');
+
+await step('the switch flies back to North America', async () => {
+  if (await page.locator('#dtClose').isVisible()) await page.click('#dtClose');
   await page.click('#regionSeg [data-region="na"]');
   await page.waitForTimeout(3200);
   const lng = await page.evaluate(() => window.__map.getCenter().lng);

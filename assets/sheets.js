@@ -46,6 +46,7 @@ export function openSheet(key) {
     states: renderStates,
     provinces: renderProvinces,
     mxstates: renderMxStates,
+    cnprovinces: renderCnProvinces,
     about: renderAbout,
     docs: renderDocs,
   }[key];
@@ -62,6 +63,7 @@ export function openSheet(key) {
     states: wireStates,
     provinces: wireStates,
     mxstates: wireStates,
+    cnprovinces: wireStates,
     about: wireAbout,
     docs: wireDocs,
   }[key])();
@@ -474,7 +476,7 @@ function wireNumbering() {
    through this table and draw their bars with `undefined` as a fill. */
 const SYS_COLOUR = Object.fromEntries(SYSTEMS.map((s) => [s.id, s.colour]));
 /** Each country by the colour of its top tier, which is how the map shows it. */
-const DASH_CC = ['us', 'ca', 'mx', 'tw', 'hk'];
+const DASH_CC = ['us', 'ca', 'mx', 'cn', 'tw', 'hk'];
 const CC_COLOUR = Object.fromEntries(DASH_CC.map((cc) => [cc, SYSTEMS.find((s) => s.cc === cc)?.colour]));
 
 function bars(rows, colourOf, maxOverride) {
@@ -619,7 +621,7 @@ function renderDashboard() {
 
     <div class="dash-card dash-wide">
       <h3>${t('dash.byState')} · ${t('dash.mostMiles')}</h3>
-      <div class="in dash-3">${['us', 'ca', 'mx', 'tw'].map((cc) => `
+      <div class="in dash-3">${['us', 'ca', 'mx', 'cn', 'tw'].map((cc) => `
         <div><p class="dash-sub"><span class="flagdot flag-${cc}"></span>${t(`sys.country.${cc}`)}</p>
           ${bars(stateRowsOf(cc), () => CC_COLOUR[cc])}</div>`).join('')}</div>
     </div>
@@ -695,7 +697,7 @@ function renderJurisdictions(sys) {
     .filter(([code]) => countryOfJuris(code) === cc)
     .sort((a, b) => stateName(a[0]).localeCompare(stateName(b[0]), getLang() === 'zh' ? 'zh' : 'en'));
 
-  const title = { us: 'sys.pickState', ca: 'sys.pickProvince', mx: 'sys.pickMxState' }[cc];
+  const title = { us: 'sys.pickState', ca: 'sys.pickProvince', mx: 'sys.pickMxState', cn: 'sys.pickCnProvince' }[cc];
   return frame(title, `sys.${sys}.meta`, `
     <div class="jur-grid">
       ${rows.map(([code, v]) => `<button class="sys jur" data-load="${code}" type="button">
@@ -711,12 +713,16 @@ function renderJurisdictions(sys) {
       <span>${t('ca.municipalWhy')}</span></div>` : ''}
     ${cc === 'mx' ? `<div class="note" style="margin-top:13px">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
-      <span>${t('mx.unsignedStates')}</span></div>` : ''}`);
+      <span>${t('mx.unsignedStates')}</span></div>` : ''}
+    ${cc === 'cn' ? `<div class="note" style="margin-top:13px">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg>
+      <span>${t('cn.provincialWhy')}</span></div>` : ''}`);
 }
 
 const renderStates = () => renderJurisdictions('us-state');
 const renderProvinces = () => renderJurisdictions('ca-provincial');
 const renderMxStates = () => renderJurisdictions('mx-state');
+const renderCnProvinces = () => renderJurisdictions('cn-provincial');
 
 function wireStates() {
   for (const btn of document.querySelectorAll('[data-load]')) {
@@ -900,6 +906,7 @@ const FLOWS = [
   ['TW-1', 'geom', ['tw-freeway', 'tw-provincial']],
   ['TW-2', 'official', ['tw-provincial']],
   ['HK-1', 'geom', ['hk-route']],
+  ['CN-1', 'geom', ['cn-expressway', 'cn-national', 'cn-provincial']],
 ];
 
 /**
@@ -1110,7 +1117,7 @@ function gapKinds(docs) {
   const table = tableOf(docs);
   const en = tableOf(docsData.docs.en);
   if (!table || !en) return '';
-  const FLAG = { '🇺🇸': 'us', '🇨🇦': 'ca', '🇲🇽': 'mx', TW: 'tw', HK: 'hk' };
+  const FLAG = { '🇺🇸': 'us', '🇨🇦': 'ca', '🇲🇽': 'mx', CN: 'cn', TW: 'tw', HK: 'hk' };
   const rows = table.rows.map((r, i) => {
     const flags = plain(r[0]).split(/\s+/).map((f) => FLAG[f]).filter(Boolean);
     return {
@@ -1226,11 +1233,12 @@ function renderAbout() {
   const L = (href, text) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`;
 
   const copy = zh ? {
-    what: ['它是什么', `北美三国与台湾、香港的编号公路网：${SYSTEMS.length} 个路网系统、${num(app.index.length)} 条路线、${dist(totalMi)} 制图里程，覆盖 ${juris} 个州、省、地区与县市。每条线都可以点开，看起止点、分州里程、路段构成、海拔剖面，部分路线还有成文介绍。`],
+    what: ['它是什么', `北美三国与中国大陆、台湾、香港的编号公路网：${SYSTEMS.length} 个路网系统、${num(app.index.length)} 条路线、${dist(totalMi)} 制图里程，覆盖 ${juris} 个州、省、地区与县市。每条线都可以点开，看起止点、分州里程、路段构成、海拔剖面，部分路线还有成文介绍。`],
     data: ['数据从哪里来', [
       ['us', `几何取自 ${L('https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html', 'TIGER/Line')}，官方里程取自 FHWA 路线名录，车流、路况、车道取自 ${L('https://www.fhwa.dot.gov/policyinformation/hpms.cfm', 'HPMS')}。`],
       ['ca', `几何取自加拿大统计局《${L('https://www.statcan.gc.ca/en/lode/databases/odr', '国家道路网')}》，NHS 名录取自交通部，车流量取自公开批量数据的七个省与地区。`],
       ['mx', `几何取自 INEGI《${L('https://www.inegi.org.mx/programas/rnc/', '国家道路网')}》2025 版，车流量取自 SICT《${L('https://www.datos.gob.mx/dataset/datos_viales', 'Datos Viales')}》。`],
+      ['cn', `几何取自 ${L('https://www.openstreetmap.org/copyright', 'OpenStreetMap')} 贡献者（Geofabrik 提取，ODbL 许可）——官方的天地图对境外访问不开放，这是本站唯一一处非官方几何来源，没有官方里程与车流。`],
       ['tw', `几何取自国土测绘中心《${L('https://data.gov.tw/dataset/73232', '道路中心線')}》，省道官方里程取自交通部公路局《${L('https://data.gov.tw/dataset/105020', '省道公路路線表')}》。`],
       ['hk', `几何取自运输署《${L('https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844', '道路網絡')}》（空间数据共享平台）。`],
     ], '底图 OpenFreeMap（OpenStreetMap），卫星影像 Esri，地形 Mapzen。'],
@@ -1242,11 +1250,12 @@ function renderAbout() {
     links: [['sources', '全部来源与许可'], ['coverage', '覆盖率'], ['accuracy', '准确性与已知缺口'], ['decisions', '处理决策']],
     keys: '键盘',
   } : {
-    what: ['What it is', `The numbered highway networks of the three North American countries, Taiwan and Hong Kong: ${SYSTEMS.length} route systems, ${num(app.index.length)} routes and ${dist(totalMi)} of mapped road across ${juris} states, provinces, territories and counties. Every line opens into its termini, its length by jurisdiction, what it is built as, an elevation profile and, for some, a written profile.`],
+    what: ['What it is', `The numbered highway networks of the three North American countries, mainland China, Taiwan and Hong Kong: ${SYSTEMS.length} route systems, ${num(app.index.length)} routes and ${dist(totalMi)} of mapped road across ${juris} states, provinces, territories and counties. Every line opens into its termini, its length by jurisdiction, what it is built as, an elevation profile and, for some, a written profile.`],
     data: ['Where the data comes from', [
       ['us', `Geometry from ${L('https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html', 'TIGER/Line')}, official lengths from the FHWA Route Log, traffic, condition and lanes from ${L('https://www.fhwa.dot.gov/policyinformation/hpms.cfm', 'HPMS')}.`],
       ['ca', `Geometry from Statistics Canada's ${L('https://www.statcan.gc.ca/en/lode/databases/odr', 'National Road Network')}, the NHS from Transport Canada, traffic from the seven jurisdictions that publish counts in bulk.`],
       ['mx', `Geometry from INEGI's ${L('https://www.inegi.org.mx/programas/rnc/', 'Red Nacional de Caminos')} 2025, traffic from SICT's ${L('https://www.datos.gob.mx/dataset/datos_viales', 'Datos Viales')}.`],
+      ['cn', `Geometry from ${L('https://www.openstreetmap.org/copyright', 'OpenStreetMap')} contributors (Geofabrik extract, ODbL) - the official Tianditu service is closed to access from abroad, so this is the one place the atlas draws on a source that is not an authority, and there are no official lengths or traffic.`],
       ['tw', `Geometry from the NLSC's ${L('https://data.gov.tw/dataset/73232', 'road centrelines')}, provincial official lengths from the Highway Bureau's ${L('https://data.gov.tw/dataset/105020', 'provincial highway register')}.`],
       ['hk', `Geometry from the Transport Department's ${L('https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844', 'Road Network')}, on the CSDI portal.`],
     ], 'Base map OpenFreeMap (OpenStreetMap), imagery Esri, terrain Mapzen.'],

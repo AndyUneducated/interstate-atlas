@@ -652,6 +652,7 @@ body.is-booting #zenOut { opacity: 0 !important; pointer-events: none; }
 /* Marked by their own route colours rather than by flags. */
 .flag-tw { background: linear-gradient(90deg, var(--c-tw-freeway) 0 50%, var(--c-tw-provincial) 50% 100%); }
 .flag-hk { background: var(--c-hk-route); }
+.flag-cn { background: linear-gradient(90deg, var(--c-cn-expressway) 0 50%, var(--c-cn-national) 50% 100%); }
 .sys-txt { flex: 1; min-width: 0; }
 .sys-name { display: block; font-size: 12.5px; color: var(--ink); letter-spacing: 0.02em; }
 .sys.on .sys-name { color: currentColor; }
@@ -988,6 +989,21 @@ body.tlapse-on #detail { bottom: 108px; }
   border-radius: 4px 4px 50% 50% / 4px 4px 60% 60%;
   padding-bottom: 2px;
 }
+/* Mainland China signs the route number on a plate: an expressway's is green
+   under a header band, red for a national expressway and yellow for a
+   provincial one; an ordinary national highway's is red and a provincial
+   road's yellow, with no band. The band carries words too small to read at
+   this size, so it is drawn as the colour alone. */
+.shield-cne, .shield-cnx {
+  --sh-band: #d7262e;
+  color: #fff; border-radius: 2px; padding: 3px 4px 0;
+  background: linear-gradient(var(--sh-band) 0 28%, #0b7a3e 28% 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  font-size: calc(var(--sh-fs) - 1px);
+}
+.shield-cnx { --sh-band: #f2c318; }
+.shield-cng { color: #fff; background: #d7262e; border-radius: 2px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.shield-cns { color: #10141c; background: #f2c318; border-radius: 2px; box-shadow: inset 0 0 0 1px rgba(16, 20, 28, 0.55); }
 
 /* ── provincial signs ─────────────────────────────────────────────────────
    Four provinces sign something distinctive enough to draw. Each emblem is a
@@ -1277,6 +1293,7 @@ body.tlapse-on #detail { bottom: 108px; }
 .st-rows { display: flex; flex-direction: column; gap: 6px; }
 .st-row { display: flex; align-items: center; gap: 9px; }
 .st-row b { font-family: var(--mono); font-size: 11px; width: 24px; flex: none; color: var(--ink-dim); }
+.st-named .st-row b { width: 92px; font-family: inherit; font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .st-row .bar { flex: 1; height: 5px; background: var(--bg-2); border-radius: 3px; overflow: hidden; }
 .st-row .bar i { display: block; height: 100%; background: var(--cyan-dim); border-radius: 3px; }
 .st-row em { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); font-style: normal; width: 48px; text-align: right; flex: none; }
