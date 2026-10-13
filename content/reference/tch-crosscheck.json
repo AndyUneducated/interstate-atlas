@@ -123,11 +123,11 @@
    "extent": "named",
    "namedKm": 902,
    "tchKm": 902,
-   "mainlineKm": 879,
+   "mainlineKm": 901,
    "intervals": [
     [
      0,
-     879
+     901
     ]
    ]
   },
@@ -151,11 +151,11 @@
    "extent": "named",
    "namedKm": 142,
    "tchKm": 142,
-   "mainlineKm": 138,
+   "mainlineKm": 141,
    "intervals": [
     [
      0,
-     138
+     141
     ]
    ]
   },
@@ -179,11 +179,11 @@
    "extent": "named",
    "namedKm": 352,
    "tchKm": 353,
-   "mainlineKm": 890,
+   "mainlineKm": 953,
    "intervals": [
     [
-     487,
-     807
+     550,
+     870
     ]
    ]
   },
@@ -193,7 +193,7 @@
    "extent": "between",
    "namedKm": 1540,
    "tchKm": 1535,
-   "mainlineKm": 2234,
+   "mainlineKm": 2336,
    "intervals": [
     [
      53,

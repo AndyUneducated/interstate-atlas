@@ -58,7 +58,7 @@ that have one.
 
 > [!NOTE]
 > **Counts move; method does not.** Every route total, mileage and percentage on this page
-> is written from the published build dated **<!-- auto:date -->2026-10-12<!-- /auto:date -->** by
+> is written from the published build dated **<!-- auto:date -->2026-10-13<!-- /auto:date -->** by
 > `tools/readme-figures.mjs`, which `npm test` runs, and changes whenever the pipeline is
 > re-run. The rules those numbers obey are in [On accuracy](#on-accuracy) and do not change.
 
@@ -121,19 +121,19 @@ flowchart LR
 
 ## Coverage
 
-<!-- auto:summary -->22,274 routes across 96 states, provinces and territories in 3 countries, measuring 723,170 miles of road, in the build dated 2026-10-12.<!-- /auto:summary -->
+<!-- auto:summary -->22,274 routes across 96 states, provinces and territories in 3 countries, measuring 725,885 miles of road, in the build dated 2026-10-13.<!-- /auto:summary -->
 
 <!-- auto:coverage -->
 | Country | System | Routes | Miles | Notes |
 | --- | --- | --- | ---: | --- |
-| 🇺🇸 | Interstate Highways | 471 | 50,751 | includes Alaska's four unsigned A-series and Hawaii's H-series |
-| 🇺🇸 | US Numbered Routes | 1,082 | 155,830 | the pre-1956 grid, numbered opposite to the Interstates |
-| 🇺🇸 | State Routes | 15,092 | 357,131 | routes in 52 states and territories, loaded per state |
-| 🇨🇦 | Trans-Canada Highway | 33 | 8,032 | the designation, traced across the provincial highways that carry it |
-| 🇨🇦 | National Highway System | 806 | 36,557 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
-| 🇨🇦 | Provincial & Municipal Routes | 2,900 | 69,050 | routes in 12 provinces and territories, loaded per jurisdiction |
-| 🇲🇽 | Federal Highways | 176 | 24,060 | numbered roads the federation administers |
-| 🇲🇽 | State Highways | 1,714 | 21,759 | numbered state roads in 32 states, loaded per state; most state roads carry no number |
+| 🇺🇸 | Interstate Highways | 471 | 50,827 | includes Alaska's four unsigned A-series and Hawaii's H-series |
+| 🇺🇸 | US Numbered Routes | 1,082 | 156,105 | the pre-1956 grid, numbered opposite to the Interstates |
+| 🇺🇸 | State Routes | 15,092 | 358,127 | routes in 52 states and territories, loaded per state |
+| 🇨🇦 | Trans-Canada Highway | 33 | 8,048 | the designation, traced across the provincial highways that carry it |
+| 🇨🇦 | National Highway System | 806 | 36,894 | Core, Feeder, and Northern and Remote, as designated by Transport Canada |
+| 🇨🇦 | Provincial & Municipal Routes | 2,900 | 69,855 | routes in 12 provinces and territories, loaded per jurisdiction |
+| 🇲🇽 | Federal Highways | 176 | 24,092 | numbered roads the federation administers |
+| 🇲🇽 | State Highways | 1,714 | 21,937 | numbered state roads in 32 states, loaded per state; most state roads carry no number |
 <!-- /auto:coverage -->
 
 Nunavut has no numbered route in the national road file, and no road connects it to the
@@ -150,7 +150,7 @@ Every figure is one of three kinds, and they are never mixed:
 | **Reported** by a state, province or SICT | traffic, trucks, pavement condition, lanes, speeds | the share of the route it covers | nothing is shown |
 | **Published** by an authority | official mileage, cost, designation, opening dates, tolls | its source and date | the page says so |
 
-<!-- auto:accuracy -->Across the 265 routes where FHWA publishes a length to check against, the median disagreement is −0.2%; 65% land within 5% and 82% within 10%.<!-- /auto:accuracy --> The larger
+<!-- auto:accuracy -->Across the 266 routes where FHWA publishes a length to check against, the median disagreement is −0.1%; 66% land within 5% and 82% within 10%.<!-- /auto:accuracy --> The larger
 disagreements are explained on the route page rather than corrected toward the register,
 and the register's figure is always shown beside the measured one.
 
