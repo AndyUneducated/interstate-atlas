@@ -9,7 +9,9 @@ An interactive, bilingual atlas of every numbered highway in the United States, 
 Mexico — the Interstates, the US numbered routes, every state route system, the
 Trans-Canada Highway, Canada's National Highway System, every numbered provincial route,
 and Mexico's federal and numbered state highways — with a written record for the roads
-that have one.
+that have one. An East Asia view adds mainland China's national expressways, national
+highways and provincial roads, drawn from OpenStreetMap, Taiwan's 國道 and 省道, and Hong
+Kong's strategic routes.
 </p>
 
 [![live site](https://img.shields.io/badge/live-andyuneducated.github.io%2Finterstate--atlas-35e7ff?style=for-the-badge&logo=githubpages&logoColor=05070c&labelColor=0b1220)](https://andyuneducated.github.io/interstate-atlas/)
@@ -19,10 +21,10 @@ that have one.
 <br/>
 
 <!-- auto:badges -->
-![routes](https://img.shields.io/badge/routes-22%2C389-ffd166?style=flat-square&labelColor=0b1220)
-![jurisdictions](https://img.shields.io/badge/jurisdictions-116-4fe3b0?style=flat-square&labelColor=0b1220)
-![systems](https://img.shields.io/badge/route%20systems-11-ffd166?style=flat-square&labelColor=0b1220)
-![regions](https://img.shields.io/badge/regions-US%20%C2%B7%20CA%20%C2%B7%20MX%20%C2%B7%20TW%20%C2%B7%20HK-ff4d6d?style=flat-square&labelColor=0b1220)
+![routes](https://img.shields.io/badge/routes-28%2C290-ffd166?style=flat-square&labelColor=0b1220)
+![jurisdictions](https://img.shields.io/badge/jurisdictions-147-4fe3b0?style=flat-square&labelColor=0b1220)
+![systems](https://img.shields.io/badge/route%20systems-14-ffd166?style=flat-square&labelColor=0b1220)
+![regions](https://img.shields.io/badge/regions-US%20%C2%B7%20CA%20%C2%B7%20MX%20%C2%B7%20CN%20%C2%B7%20TW%20%C2%B7%20HK-ff4d6d?style=flat-square&labelColor=0b1220)
 ![languages](https://img.shields.io/badge/languages-English%20%C2%B7%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-a78bfa?style=flat-square&labelColor=0b1220)
 <!-- /auto:badges -->
 
@@ -121,7 +123,7 @@ flowchart LR
 
 ## Coverage
 
-<!-- auto:summary -->22,389 routes across 116 states, provinces, territories and counties in 5 countries and regions, measuring 729,829 miles of road, in the build dated 2026-10-13.<!-- /auto:summary -->
+<!-- auto:summary -->28,290 routes across 147 states, provinces, territories and counties in 6 countries and regions, measuring 1,208,808 miles of road, in the build dated 2026-10-13.<!-- /auto:summary -->
 
 <!-- auto:coverage -->
 | Country | System | Routes | Miles | Notes |
@@ -134,6 +136,9 @@ flowchart LR
 | 🇨🇦 | Provincial & Municipal Routes | 2,900 | 69,855 | routes in 12 provinces and territories, loaded per jurisdiction |
 | 🇲🇽 | Federal Highways | 176 | 24,092 | numbered roads the federation administers |
 | 🇲🇽 | State Highways | 1,714 | 21,937 | numbered state roads in 32 states, loaded per state; most state roads carry no number |
+| CN | National Expressways (国家高速) | 287 | 87,417 | from OpenStreetMap, not an official source (D-66); G with one, two or four digits |
+| CN | National Highways (普通国道) | 331 | 175,727 | from OpenStreetMap (D-66); G with three digits |
+| CN | Provincial Roads (省道) | 5,283 | 215,835 | from OpenStreetMap (D-66), numbered roads in 31 provinces, loaded per province |
 | TW | National Freeways (國道) | 10 | 622 | the numbered freeways and their lettered spurs |
 | TW | Provincial Highways (省道) | 95 | 3,173 | including the 快速公路 expressways, 台61 and up; provisional 臨 alignments left out |
 | HK | Strategic Routes | 10 | 149 | Routes 1 to 10 |
@@ -196,6 +201,8 @@ not yet built. Each is explained in full in [docs/ACCURACY.md](docs/ACCURACY.md#
 | 🇨🇦 | Where the Canadian crossings are | source | CBSA gives addresses, not coordinates; 2 of 116 not placed |
 | 🇨🇦 | A register of toll facilities; undated fares | source | none exists; the seven shown are assembled by hand |
 | 🇨🇦 🇲🇽 | Which road a crossing is on | source | neither register says; routes within 2 km are listed |
+| CN | An authoritative geometry | source | Tianditu refuses foreign requests; the mainland is drawn from OpenStreetMap, which no authority stands behind |
+| CN | Official lengths, traffic, toll share | source | not published per route; the OSM toll tag is too sparse to measure |
 
 ## Data sources
 
@@ -247,6 +254,17 @@ correct one, every decision about how it is used, and the data issues still open
 | [INDAABIN *Puertos fronterizos*](https://www.datos.gob.mx/dataset/puertos_fronterizos_centros_atencion_transito_fronterizo) 2025 list | the Mexican border crossings, north and south, with coordinates | CC BY 4.0 | the newer quarterly lists drop the coordinates |
 | [SICT *Títulos de Concesión*](https://micrs.sct.gob.mx/infraestructura/direccion-general-de-desarrollo-carretero/titulos-de-concesion/) | the 75 federal highway concession titles, with concessionaire, grant and end dates | none stated on the page | as SICT updates the page |
 | [Natural Earth](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/) Admin 1, 1:10m | locating federal segments and border ports within states; distance to the US border | public domain | rarely |
+
+### Mainland China
+
+The one source in the atlas that is not an authority: no Chinese body publishes road
+geometry that can be read from abroad ([D-66](docs/DATA-SOURCES.md#mainland-china-1)).
+The data under `data/geo/cn/` is derived from it and is available under the same licence.
+
+| Source | Used for | Licence |
+| --- | --- | --- |
+| [OpenStreetMap](https://www.openstreetmap.org/copyright), through [Geofabrik's China extract](https://download.geofabrik.de/asia/china.html) | geometry, G and S numbers, road class, route names and planned ends, the towns that name route ends | [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/), © OpenStreetMap contributors |
+| 国家发展改革委、交通运输部《国家公路网规划》(2022) | the main routes counted in the coverage table | government publication |
 
 ### All three
 

@@ -156,6 +156,7 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `fetch-mexico-designations.mjs` | ✅ | SICT's per-state road index PDFs | `content/reference/mx-designations.json` |
 | `fetch-taiwan.mjs` | ✅ | NLSC's freeway and provincial centrelines, the Highway Bureau's register CSV | `tools/src/tw/` |
 | `fetch-hongkong.mjs` | ✅ | the Transport Department's road network GeoJSON, streamed and filtered to Routes 1 to 10 | `tools/src/hk/routes.json` |
+| `fetch-china.mjs` | ✅ | Geofabrik's OpenStreetMap extract for China, read in three passes (relations, numbered ways, their nodes); needs `--max-old-space-size` | `tools/src/cn/` |
 | `fetch-bridges.mjs` | ✅ | bridge inventories that carry a year built | `content/reference/bridges.json` |
 | `fetch-border-crossings.mjs` | ✅ | CBSA's office directory, INDAABIN's border ports, the NRCan geocoder | `content/reference/border-crossings.json` |
 | `fetch-mx-concessions.mjs` | ✅ | SICT's register of concession titles | `content/reference/mx-concessions.json` |
@@ -177,11 +178,12 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `serve.mjs` | — | the repository | — |
 
 The rest are libraries rather than programs: `geo.mjs` (all the geometry and graph work),
-`tiger.mjs`, `canada.mjs`, `mexico.mjs`, `taiwan.mjs` and `hongkong.mjs` (the source
-readers), `states.mjs` (state
+`tiger.mjs`, `canada.mjs`, `mexico.mjs`, `taiwan.mjs`, `hongkong.mjs` and `china.mjs` (the
+source readers), `states.mjs` (state
 codes and the land-border adjacency the corridor test uses), `mx-states.mjs` (which Mexican
-state a point is in, since the road file does not say for federal roads) and `border.mjs`
-(how far a point is from the US border). `unzip.mjs`, `xlsx.mjs` and `csv.mjs` exist
+state or Chinese province a point is in, since neither source says) and `border.mjs`
+(how far a point is from the US border). `unzip.mjs`, `xlsx.mjs`, `csv.mjs` and `pbf.mjs`
+(OpenStreetMap's protobuf format, blocks, dense nodes and all) exist
 because the alternative was a dependency far larger than the slice of each format actually
 needed — a Zip64-capable reader for archives that cross 4 GB uncompressed, enough of `.xlsx`
 to read the provincial spreadsheets, and CSV decoding that establishes the encoding rather

@@ -134,11 +134,22 @@ update that row too.
 | TW-4 | [Highway Bureau 公路交通量調查統計表](https://data.gov.tw/dataset/46754), 總表2 of each regional office | average daily traffic, vehicle mix and the section each survey station stands for, on every provincial highway; county roads are left out | 2025 (114年度) · 2026-10-13 | same | same | no, the latest year's archive is read |
 | HK-1 | [Transport Department *Road Network*](https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844), CENTERLINE layer, CSDI | geometry of Routes 1 to 10, the route number and exit number of each segment, English and Chinese street names | 2026-10-12 · 2026-10-13 | Hong Kong Government open data terms of use | `fetch-hongkong.mjs` → `tools/src/hk/routes.json` (the 1,522 numbered segments of 36,525) | no |
 
+### Mainland China
+
+The one place the atlas reads a source that is not an authority (D-66). Everything drawn
+from CN-1 falls under the Open Database License, and the panel of every mainland route says
+where it comes from.
+
+| ID | Source | Used for | Edition · retrieved | Licence | Fetched by → stored | Reproducible |
+| --- | --- | --- | --- | --- | --- | --- |
+| CN-1 | [OpenStreetMap](https://www.openstreetmap.org/copyright), through [Geofabrik's China extract](https://download.geofabrik.de/asia/china.html) | geometry, G and S numbers (on the way or its route relation), road class and surface of every numbered way; the route relations' names and planned ends; cities and towns naming route ends | extract of 2026-10-12 · 2026-10-13 | Open Database License 1.0, © OpenStreetMap contributors | `fetch-china.mjs` → `tools/src/cn/` (791,427 ways; the 1.6 GB extract is not kept in the repository) | no, the extract is replaced daily; `edition.json` records its timestamp |
+| CN-2 | 国家发展改革委、交通运输部《国家公路网规划》(2022—2035), issued 2022-07-04 | the main routes it lists: 36 national expressways and 121 ordinary national highways, as the denominator of [§4](#routes-listed-and-routes-drawn) | 2022 · 2026-10-13, checked against the route lists on Chinese Wikipedia | government publication | by hand → `cn-plan.json` | yes |
+
 ### Every region
 
 | ID | Source | Used for | Edition · retrieved | Licence | Fetched by → stored | Reproducible |
 | --- | --- | --- | --- | --- | --- | --- |
-| X-1 | [Natural Earth](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/) Admin 1, 1:10m | which Mexican state a federal segment is in; distance to the US border | 2026-09-22 | public domain | `mx-states.mjs`, `border.mjs` on first use → `tools/src/ne/` | yes |
+| X-1 | [Natural Earth](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/) Admin 1, 1:10m | which Mexican state a federal segment is in, and which Chinese province a mainland way is in; distance to the US border | 2026-09-22 | public domain | `mx-states.mjs`, `border.mjs` on first use → `tools/src/ne/` | yes |
 | X-2 | [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/), Terrarium, zoom 9 | elevation profiles | cached in `tools/cache/` | open data | `build-elevation.mjs` | yes |
 | X-3 | OpenFreeMap, AWS Terrain Tiles, Esri World Imagery | basemaps at runtime only, none of the atlas's own data | live | per service | the browser | — |
 
@@ -149,21 +160,21 @@ update that row too.
 The grain is uneven because the sources are. Where a cell is empty, no publisher releases
 the data in a form that meets [§2](#2-what-a-source-must-meet), unless it says *pending*.
 
-| Kind of figure | United States | Canada | Mexico | Taiwan | Hong Kong |
-| --- | --- | --- | --- | --- | --- |
-| Geometry | per state, TIGER 2025, one year for all | per province, NRN editions differ by province | one national file, RNC | one national file, NLSC | one territory file, Transport Department |
-| Route numbers | every signed system | every number in the NRN, municipal and provincial alike | numbered roads only: 265 of the 711 state roads SICT counts carry a number | every 國道 and 省道 number; provisional 臨 alignments left out (D-60) | Routes 1 to 10 |
-| Route ends | Census place names | NRN place names on each side of the road | SICT section (tramo), no gazetteer | the road the end lies on; the register's termini quoted beside it (D-62) | the road the end lies on |
-| Official length | Interstates only, FHWA register | NHS network totals, not per route | none | 省道, Highway Bureau register; none for the 國道 | none |
-| Traffic | HPMS sections, length-weighted per route, 2024; Tennessee unmatched | 7 of 13 jurisdictions, years from 2015–2018 (PEI) to 2025 (AB), length-weighted plus busiest point | count stations, median, lowest and highest; not averaged; 2024, or 2023 in twelve states | 國道: the Freeway Bureau's reference volumes per section, busiest and median, not AADT (D-64); 省道: survey stations, length-weighted plus busiest station (D-65); 2025 | none: the Transport Department's counts are not open bulk data (ACCURACY §6) |
-| Pavement condition, lanes, speed | HPMS, with coverage share | lanes and paved share from the NRN | lanes, surface, divided from the RNC; no speed limit | road class only (freeway, expressway, ordinary) | none |
-| Toll share | HPMS toll flag | none on the roadway; 7 facilities drawn | RNC per-segment flag; 1,376 toll plazas drawn; 75 concession titles, 41 linked | none | none |
-| Opening years | Interstates with a documented year (71 routes), buildout curve 1960–1997 | Quebec autoroutes per tronçon; Trans-Canada events from the Year Book | none | none | none |
-| Construction cost | Interstates, FHWA 1991 estimate | in dossiers only, where published | none | none | none |
-| Bridges with year built | none read (NBI not yet read) | Ontario only, provincial structures and culverts | federal free network; not the tolled network | none | none |
-| Border crossings | the US side is only a check (BTS) | 116 CBSA highway offices, geocoded | 45 northern and the southern ports, INDAABIN coordinates | — | none drawn |
-| Written dossiers | 155 | 17 | none | none | none |
-| Elevation profiles | every route with a dossier | every route with a dossier | none, as there are no dossiers | none | none |
+| Kind of figure | United States | Canada | Mexico | Mainland China | Taiwan | Hong Kong |
+| --- | --- | --- | --- | --- | --- | --- |
+| Geometry | per state, TIGER 2025, one year for all | per province, NRN editions differ by province | one national file, RNC | OpenStreetMap, not an authority (D-66); completeness varies by province | one national file, NLSC | one territory file, Transport Department |
+| Route numbers | every signed system | every number in the NRN, municipal and provincial alike | numbered roads only: 265 of the 711 state roads SICT counts carry a number | G and S numbers as mappers tag them; county and township roads left out (D-67) | every 國道 and 省道 number; provisional 臨 alignments left out (D-60) | Routes 1 to 10 |
+| Route ends | Census place names | NRN place names on each side of the road | SICT section (tramo), no gazetteer | the nearest city or town OSM maps (D-68); the route relation's planned ends quoted beside | the road the end lies on; the register's termini quoted beside it (D-62) | the road the end lies on |
+| Official length | Interstates only, FHWA register | NHS network totals, not per route | none | none | 省道, Highway Bureau register; none for the 國道 | none |
+| Traffic | HPMS sections, length-weighted per route, 2024; Tennessee unmatched | 7 of 13 jurisdictions, years from 2015–2018 (PEI) to 2025 (AB), length-weighted plus busiest point | count stations, median, lowest and highest; not averaged; 2024, or 2023 in twelve states | none | 國道: the Freeway Bureau's reference volumes per section, busiest and median, not AADT (D-64); 省道: survey stations, length-weighted plus busiest station (D-65); 2025 | none: the Transport Department's counts are not open bulk data (ACCURACY §6) |
+| Pavement condition, lanes, speed | HPMS, with coverage share | lanes and paved share from the NRN | lanes, surface, divided from the RNC; no speed limit | road class only (motorway, trunk, primary and below) | road class only (freeway, expressway, ordinary) | none |
+| Toll share | HPMS toll flag | none on the roadway; 7 facilities drawn | RNC per-segment flag; 1,376 toll plazas drawn; 75 concession titles, 41 linked | none: the OSM toll tag is too sparse (D-69) | none | none |
+| Opening years | Interstates with a documented year (71 routes), buildout curve 1960–1997 | Quebec autoroutes per tronçon; Trans-Canada events from the Year Book | none | none | none | none |
+| Construction cost | Interstates, FHWA 1991 estimate | in dossiers only, where published | none | none | none | none |
+| Bridges with year built | none read (NBI not yet read) | Ontario only, provincial structures and culverts | federal free network; not the tolled network | none | none | none |
+| Border crossings | the US side is only a check (BTS) | 116 CBSA highway offices, geocoded | 45 northern and the southern ports, INDAABIN coordinates | none drawn | — | none drawn |
+| Written dossiers | 155 | 17 | none | none | none | none |
+| Elevation profiles | every route with a dossier | every route with a dossier | none, as there are no dossiers | none | none | none |
 
 ### Routes listed and routes drawn
 
@@ -193,6 +204,8 @@ has no reason.
 | TW | National Freeway | no published register (TW-1 numbers what it draws) | — | 10 | — | — |
 | TW | Provincial Highway | Highway Bureau provincial register (TW-2): each route | 96 | 95 | 1 | 1 carried by no segment of the NLSC centrelines outside a provisional 臨 alignment |
 | HK | Strategic Route | Transport Department, Routes 1 to 10 (HK-1) | 10 | 10 | 0 | — |
+| CN | National Expressway | national highway plan 2022 (CN-2): the 36 main routes | 36 | 36 | 0 | — |
+| CN | National Highway | national highway plan 2022 (CN-2): the 121 main routes | 121 | 120 | 1 | 1 carried by no OpenStreetMap way in the extract |
 
 Of the Mexican state roads counted as drawn, 54 carry INEGI's number rather than SICT's (D-26).
 <!-- /auto:coverage -->
@@ -284,6 +297,17 @@ code that holds the rule, so changing the decision means changing that code.
 | D-63 | A provincial highway's official length is the register's, against the longest piece the atlas draws of it; a national freeway has none. Hong Kong's road network records no road class, so its routes have no freeway share. | No per-route freeway length was found as open data on data.gov.tw or from the Freeway Bureau; whether to take one from another publication is open ([ACCURACY.md §6](ACCURACY.md#6-known-gaps)). Calling every Hong Kong route a freeway would be an inference. | `buildEastAsia` in `build-data.mjs`; `hongkong.mjs` |
 | D-64 | A freeway's traffic is the Freeway Bureau's daily reference volume, shown under that name: the busiest mainline section on a weekday, the median section on a weekday, Saturday and Sunday, both directions added. The two directions of a section are paired by their unordered end names; a section without a partner is left out. Elevated carriageways are a separate row. The figures go on the longest piece of the number. | The bureau states neither the unit nor the method, so calling the figures AADT would claim what the source does not. The sections carry names, not coordinates, so the longest piece is the only placement that is not a guess. Adding the elevated 國1 to the ground road would count one corridor twice. | `attachTaiwanTraffic` in `build-data.mjs`, `taiwanTraffic` in `detail.js` |
 | D-65 | A provincial highway's traffic is the Highway Bureau's survey: each station's two directions added, placed on the nearest piece of its number within 5 km, and averaged over the route weighted by the length of road each station stands for, beside the busiest station, the heavy-vehicle and motorcycle shares and the share of the route the stations cover. The panel says some stations record a survey weekday or a dated closure. The Eastern office's file names its works office where a station's name belongs, so there the station is named by its section's ends. | Each station states the stretch it represents, so unlike Mexico's points (D-32) a length weighting is the source's own. In the 2025 file 442 of 1,539 rows note a weekday (四, 日, 六) and a few a dated closure in 備註, which suggests counts on given days rather than continuous ones; the bureau does not say which. | `fetch-taiwan-traffic.mjs`, `attachTaiwanTraffic` |
+
+### Mainland China
+
+| ID | Decision | Why, and what was rejected | Enforced |
+| --- | --- | --- | --- |
+| D-66 | Mainland China is drawn from OpenStreetMap, the one exception to the authority rule in [§2](#2-what-a-source-must-meet). Every mainland route's panel, the length under its headline and the About page say so; the data under `data/geo/cn/` is a derived database under the ODbL. | The authority's open edition, the 1:1,000,000 public national base map, is served only through Tianditu, which answered requests from outside China with HTTP 418, and webmap.cn, which used to carry it, no longer does. No other body publishes national or provincial road geometry in bulk. Leaving the mainland out was the alternative; drawing it from OSM and saying so leaves the reader to judge. Commercial map services were rejected outright: their terms forbid extraction. | `fetch-china.mjs`; `cnFacts` in `detail.js`; `len.heroOsm` |
+| D-67 | A mainland route is every way, of road class `track` and up, that carries the number on its own `ref` or through a `route=road` relation, read as GB/T 917 writes it: G with one, two or four digits, or two and a letter suffix, is a national expressway; G with three digits an ordinary national highway; S a provincial road, one route per province that uses the number. A number marked 旧, old or 原, or written G0xx (the expressway numbering the 2009 standard replaced), is left out. County (X), township (Y) and village (C) roads are not read. | The number is in the source, so nothing is matched. A provincial number is each province's own, so filing S1 across provinces as one route would join unrelated roads. County roads are numbered by each county and are far more numerous; like Ontario's county roads (D-50) they would bury the provincial tier. | `parseRef`, `classify` in `china.mjs` |
+| D-68 | A mainland way is filed in the province its middle point is in, against Natural Earth's boundaries, or the nearest within 0.2° where the generalised coastline misses it; a way in neither is outside the mainland and is left out. A route's end is named by the nearest city or town OSM maps within 30 km, a city winning over a town 8 km nearer, widening to 120 km where there is none, with the distance shown. | The extract runs over the borders, into Mongolia, Myanmar, Hong Kong and Macau. Most of the Tibetan plateau and the Taklamakan have no town within 30 km of a route's end, and an unnamed end tells the reader less than a named one with its distance. | `loadChina`, `placeFinder` in `china.mjs` |
+| D-69 | A mainland motorway is counted as freeway whether or not it is tagged `toll=yes`, and no mainland route has a toll share. | The tag is on under a third of the expressway network: 70 of 223 expressways longer than 50 mi have it on more than half their length, on a network that is tolled almost throughout. A share read from it would measure the mapping. | `typeOf` in `china.mjs`; `tolled: null` in `buildEastAsia` |
+| D-70 | A national route's name and planned ends are those of the route relation that describes the whole route (official name, then both ends, then a name with no section or direction qualifier), with section qualifiers such as （四川段） and （北京方向） stripped; the ends are quoted, not matched to the drawn line. | Mappers split a route's relation by province or by direction, and each piece repeats the route's name with its own qualifier, so picking the largest piece named G318 after its Sichuan section. | `describe` in `fetch-china.mjs`, `cnFacts` in `detail.js` |
+| D-71 | A national number's pieces are stitched across gaps of up to 30 km, then the pieces across up to 80 km; a provincial number's across 15 km. A provincial piece under 2 km is dropped where the number has a longer piece. | OSM's numbered ways break at every junction where a mapper split a way and did not carry the ref; a national route left in hundreds of pieces is not a route a reader can follow. A provincial stub at a junction is a ramp tagged with the number, not a road. | China block of `buildEastAsia` in `build-data.mjs` |
 
 ### Layers and profiles
 
