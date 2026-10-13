@@ -1221,7 +1221,7 @@ function renderResults() {
     const sub = r.where ? `${stateName(r.st)} · ${r.where}`
       : byJurisdiction ? stateName(r.st)
         : count
-          + ` · ${r.gs}% ${t('dt.gradeSep').toLowerCase()}`;
+          + (r.gs == null ? '' : ` · ${r.gs}% ${t('dt.gradeSep').toLowerCase()}`);
     const written = writtenIds.has(r.id)
       ? `<span class="res-pen" title="${t('search.written')}"></span>` : '';
     b.innerHTML = `${shieldHtml(r)}
