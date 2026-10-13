@@ -4,7 +4,6 @@
   "reasons": {
     "tigerNone": "TIGER names no road in that state with this Interstate number, so the road is drawn under the number TIGER gives it, or as context",
     "unsignedPR": "Puerto Rico's unsigned Interstates, drawn under the PR numbers TIGER and the signs carry (PR-52, PR-22 and others)",
-    "branch": "drawn, but stitched as a branch of the neighbouring state's route, so this state's mileage omits it (I-13)",
     "fhwaTrace": "FHWA lists 0.01 mi",
     "nrnNone": "the NRN gives no road in that province this number (D-50)",
     "rncOtherNumber": "the RNC numbers the tramo SICT names differently, and it is drawn under that number",
@@ -15,7 +14,6 @@
   "reasonsZh": {
     "tigerNone": "TIGER 在该州没有带这个州际编号的道路，这段路按 TIGER 给的编号绘制，或作为背景线",
     "unsignedPR": "波多黎各不挂牌的州际公路，按 TIGER 和路牌上的 PR 编号绘制（PR-52、PR-22 等）",
-    "branch": "已绘制，但被拼成邻州路线的支线，因此该州里程里没有这一段（I-13）",
     "fhwaTrace": "FHWA 只记了 0.01 英里",
     "nrnNone": "NRN 在该省没有带这个编号的道路（D-50）",
     "rncOtherNumber": "RNC 给 SICT 所指路段的编号不同，已按 RNC 的编号绘制",
@@ -40,7 +38,6 @@
       "PRI-1|PR": "unsignedPR",
       "PRI-2|PR": "unsignedPR",
       "PRI-3|PR": "unsignedPR",
-      "I-295|PA": "branch",
       "I-182|LA": "fhwaTrace"
     },
     "ca-nhs": {

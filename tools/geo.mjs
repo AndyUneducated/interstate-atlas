@@ -305,6 +305,10 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0, opts = {
     }
 
     const best = farthestPair(adj, nodeCoord);
+    if (best && best.a !== best.b) {
+      best.b = pastTheEnd(adj, best.a, best.b, nodeCoord);
+      best.a = pastTheEnd(adj, best.b, best.a, nodeCoord);
+    }
 
     let pieces = [];
     let gaps = [];
@@ -488,6 +492,44 @@ function extremities(nodes, nodeCoord) {
   const a = far(seed);
   const b = far(a.node);
   return [a.node, b.node, b.d];
+}
+
+/**
+ * Follow a road past the point that only looks like its end.
+ *
+ * The ends are chosen across the map, and a road that hooks back on itself
+ * has its far point somewhere in the middle: I-295 runs north up New Jersey
+ * to Bordentown, then turns west to Lawrence and Scudder Falls and south into
+ * Pennsylvania, so Bordentown is the point farthest from Delaware and the
+ * last thirty miles were filed as a branch. If the road-farthest node from
+ * the other end lies beyond the chosen one, on a path through it, the road
+ * goes on and the end moves there - but only along mapped road, never across
+ * a bridged gap, and only to a point well clear of the road already walked.
+ * A far carriageway left beside the kept one runs back alongside it, so its
+ * end lies next to the path; without that test a divided highway measures
+ * out and back, ending where it began.
+ */
+function pastTheEnd(adj, from, end, nodeCoord, minGainKm = 1.6) {
+  const { dist, prev } = dijkstra(adj, from);
+  const base = dist.get(end);
+  if (base == null) return end;
+  const walked = [from];
+  for (let m = end; m !== from; m = prev.get(m).from) walked.push(m);
+  // Dead ends beyond the chosen end, farthest first. The farthest is often
+  // the far carriageway's, back beside the start, so it is not enough to
+  // test only that one.
+  const ends = [...dist].filter(([n, d]) => d - base >= minGainKm && adj.get(n).length === 1)
+    .sort((x, y) => y[1] - x[1]).slice(0, 24);
+  for (const [far, farD] of ends) {
+    let n = far;
+    for (; n !== end && n !== from; n = prev.get(n).from) if (prev.get(n).e.bridge) break;
+    if (n !== end) continue;
+    const clear = Math.min(...walked.map((m) => haversineKm(nodeCoord[far], nodeCoord[m])));
+    // A hook may end close to its own start - I-295's Pennsylvania end is 8 km
+    // across the Delaware from its New Jersey miles - so the margin is small.
+    if (clear >= Math.max(2, (farD - base) / 8)) return far;
+  }
+  return end;
 }
 
 function shortestPath(adj, start, goal) {
@@ -843,8 +885,17 @@ function withoutOppositeCarriageways(comps, tolKm = 0.08) {
     if (kept.length && coincidentShare(comp.pieces, counted, tolKm) >= 0.6) {
       // Counted once, drawn twice: the far carriageway moves to the branches,
       // which are drawn with the route but never measured. Losing it would
-      // leave one side of every divided highway missing from the map.
-      kept[0].branches.push(...comp.pieces);
+      // leave one side of every divided highway missing from the map. It goes
+      // to the component it lies on, not the longest one: a number used in
+      // several states put Jacksonville's second I-295 ring inside the New
+      // Jersey route.
+      let host = kept[0];
+      let best = -1;
+      for (const k of kept) {
+        const share = coincidentShare(comp.pieces, k.pieces, tolKm);
+        if (share > best) { best = share; host = k; }
+      }
+      host.branches.push(...comp.pieces);
       continue;
     }
     kept.push(comp);
