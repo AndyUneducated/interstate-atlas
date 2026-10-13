@@ -275,7 +275,7 @@ await step('the More menu opens and closes', async () => {
   await page.click('#shClose');
   await page.click('#btnMore');
   await page.waitForSelector('#menuMore.open', { timeout: 4000 });
-  for (const id of ['btnDash', 'btnNumbering', 'btnTimeline', 'btnDocs', 'btnAbout']) {
+  for (const id of ['btnDash', 'btnNumbering', 'btnTimeline', 'btnPalette', 'btnDocs', 'btnAbout']) {
     if (!await page.locator(`#menuMore #${id}`).isVisible()) throw new Error(`#${id} not in the open menu`);
   }
   // Statistics leads the menu, and the menu is the last thing on the bar.
@@ -334,22 +334,35 @@ await step('each documents tab leads with its views, and the decision map filter
   if (await page.locator('#dcBody .dc-card:not([hidden])').count() !== all) throw new Error('Show all did not restore the log');
 });
 
-await step('the Layers menu holds the colour key and the overlays', async () => {
+await step('the header buttons are icons that name themselves', async () => {
+  for (const id of ['btnLayers', 'btnSettings', 'btnMore']) {
+    const b = await page.evaluate((i) => {
+      const el = document.getElementById(i);
+      return { text: el.textContent.trim(), tip: el.dataset.tip, label: el.getAttribute('aria-label'), w: el.getBoundingClientRect().width };
+    }, id);
+    if (b.text || b.w > 36) throw new Error(`#${id} still carries text (${b.text}, ${b.w}px)`);
+    if (!b.tip || b.tip !== b.label) throw new Error(`#${id} has no tooltip name`);
+  }
+});
+
+await step('the Layers menu holds the base maps, the overlays and the tilt', async () => {
   await page.click('#shClose');
-  await page.click('#btnLayers');
+  await page.keyboard.press('l');
   await page.waitForSelector('#menuLayers.open', { timeout: 4000 });
-  for (const sel of ['#btnLegend', '#btnTerrain', '#btnCrossings', '#btnTolls', '#btnBridges']) {
+  for (const sel of ['#basemap', '#btnCrossings', '#btnTolls', '#btnBridges', '#btnTerrain']) {
     if (!await page.locator(`#menuLayers ${sel}`).isVisible()) throw new Error(`${sel} not in the open Layers menu`);
   }
+  if (await page.locator('#basemap img').count() !== 3) throw new Error('the base maps are not three previews');
+  await page.waitForFunction(() => [...document.querySelectorAll('#menuLayers [data-count]')].every((e) => /\d/.test(e.textContent)), null, { timeout: 4000 });
   await page.mouse.click(400, 500);
   await page.waitForTimeout(200);
   if (await page.locator('#menuLayers.open').count()) throw new Error('clicking away left the Layers menu open');
 });
 
-await step('the settings menu holds units, language, panels, base map and zen', async () => {
-  await page.click('#btnSettings');
+await step('the settings menu holds units, language, panels, the colour key and zen', async () => {
+  await page.keyboard.press('s');
   await page.waitForSelector('#menuSettings.open', { timeout: 4000 });
-  for (const sel of ['#unitSeg', '#langSeg', '#themeSeg', '#basemap', '#btnZen']) {
+  for (const sel of ['#unitSeg', '#langSeg', '#themeSeg', '#btnLegend', '#btnZen']) {
     if (!await page.locator(`#menuSettings ${sel}`).isVisible()) throw new Error(`${sel} not in the open settings menu`);
   }
   // The light panels turn the panel over and leave the map alone.
@@ -539,11 +552,11 @@ await step('collapsed panel can be reopened', async () => {
 });
 
 await step('base maps switch', async () => {
-  if (!await page.locator('#menuSettings.open').count()) await page.click('#btnSettings');
+  if (!await page.locator('#menuLayers.open').count()) await page.click('#btnLayers');
   for (const mode of ['relief', 'satellite', 'dark']) {
     await page.click(`[data-base="${mode}"]`);
     await page.waitForTimeout(900);
-    const on = await page.evaluate(() => document.querySelector('#basemap .seg-b.on')?.dataset.base);
+    const on = await page.evaluate(() => document.querySelector('#basemap .bcard.on')?.dataset.base);
     if (on !== mode) throw new Error(`asked for ${mode}, got ${on}`);
     const ok = await page.evaluate((m) => {
       const map = window.__map;
@@ -848,7 +861,7 @@ await step('folding the panel leaves a key to the colours', async () => {
     return !document.getElementById('legend').hidden && lg.left >= sh.right;
   });
   if (!beside) throw new Error('legend is not beside the open panel');
-  await page.click('#btnLayers');
+  await page.click('#btnSettings');
   await page.click('#btnLegend');
   const off = await page.evaluate(() => document.getElementById('legend').hidden);
   await page.click('#btnLegend');

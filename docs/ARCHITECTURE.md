@@ -171,6 +171,7 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `readme-figures.mjs` | ❌ | `data/stats.json`, `data/index.json`, `package.json` | the marked figures in `README.md` |
 | `verify.mjs` | ✅ localhost | the served site | `tools/shots/` (gitignored) |
 | `shoot-hero.mjs` | ✅ localhost | the served site | `docs/img/` — the two committed README images |
+| `shoot-bases.mjs` | ✅ localhost | the served site | `assets/base-*.jpg` — the three base-map previews on the Layers menu |
 | `serve.mjs` | — | the repository | — |
 
 The rest are libraries rather than programs: `geo.mjs` (all the geometry and graph work),

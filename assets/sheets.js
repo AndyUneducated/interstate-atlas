@@ -1271,7 +1271,7 @@ function renderAbout() {
         <div class="ab-links">${go(copy.links[2][0], copy.links[2][1])}${go(copy.links[3][0], copy.links[3][1])}</div>
       </section>
     </div>
-    <p class="ab-keys"><span>${copy.keys}</span><b>/</b> <b>Ctrl-K</b> ${zh ? '命令面板' : 'command palette'} · <b>F</b> ${zh ? '巡航所选路线' : 'fly the selected route'} · <b>T</b> ${zh ? '三维地形' : '3D terrain'} · <b>Z</b> ${zh ? '隐藏界面' : 'hide the interface'} · <b>Esc</b> ${zh ? '返回' : 'back out'}</p>`;
+    <p class="ab-keys"><span>${copy.keys}</span><b>/</b> <b>Ctrl-K</b> ${zh ? '命令面板' : 'command palette'} · <b>F</b> ${zh ? '巡航所选路线' : 'fly the selected route'} · <b>T</b> ${zh ? '三维地形' : '3D terrain'} · <b>Z</b> ${zh ? '隐藏界面' : 'hide the interface'} · <b>L</b> <b>S</b> <b>M</b> ${zh ? '图层、设置、更多' : 'layers, settings, more'} · <b>Esc</b> ${zh ? '返回' : 'back out'}</p>`;
 
   return frame('about.title', 'about.sub', body);
 }

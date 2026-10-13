@@ -263,7 +263,7 @@ rather than fetched from a CDN.
 | --- | --- | --- | --- |
 | `dependencies` | [shapefile](https://github.com/mbostock/shapefile) | `tiger.mjs`, `canada.mjs`, `mexico.mjs`, `mx-states.mjs`, `border.mjs` | streams `.shp`/`.dbf` pairs a feature at a time, so a 2.4 GB attribute file need not fit in memory |
 | `dependencies` | [pngjs](https://github.com/pngjs/pngjs) | `build-elevation.mjs` | decodes Terrarium terrain tiles |
-| `devDependencies` | [playwright-core](https://playwright.dev/) | `verify.mjs`, `shoot-hero.mjs`, `fetch-quebec-autoroutes.mjs` | drives headless Chromium |
+| `devDependencies` | [playwright-core](https://playwright.dev/) | `verify.mjs`, `shoot-hero.mjs`, `shoot-bases.mjs`, `fetch-quebec-autoroutes.mjs` | drives headless Chromium |
 | `devDependencies` | [pdfjs-dist](https://github.com/mozilla/pdf.js) | `fetch-mexico-designations.mjs` | reads the road index out of SICT's per-state PDFs |
 | vendored | [MapLibre GL JS](https://maplibre.org/) 4.7.1 | `index.html` | the map, from `assets/vendor/` |
 

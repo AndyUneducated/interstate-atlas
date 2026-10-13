@@ -89,7 +89,15 @@ async function main() {
   const tch = await read('content/reference/tch-crosscheck.json');
   const tchAgree = tch.listed.filter((r) => r.namedKm && Math.abs(r.tchKm / r.namedKm - 1) <= 0.05).length;
 
+  // The Layers menu shows what each overlay would add before its file is fetched.
+  const overlays = {
+    crossings: (await read('data/crossings.json')).features.length,
+    tolls: (await read('data/tolls.json')).features.length,
+    bridges: (await read('data/bridges.json')).rows.length,
+  };
+
   const out = {
+    overlays,
     coverage,
     fields: Object.keys(FIELDS),
     gaps,

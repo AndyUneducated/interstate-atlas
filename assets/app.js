@@ -62,6 +62,17 @@ function applyStaticStrings() {
     el.title = label;
     el.setAttribute('aria-label', label);
   }
+  // An icon-only button names itself in a tooltip of its own, drawn in CSS
+  // beside its shortcut, rather than in the browser's slow plain title.
+  for (const el of document.querySelectorAll('[data-i18n-tip]')) {
+    const label = t(el.dataset.i18nTip);
+    el.dataset.tip = label;
+    el.setAttribute('aria-label', label);
+    if (el.dataset.key) el.setAttribute('aria-keyshortcuts', el.dataset.key);
+  }
+  for (const el of document.querySelectorAll('[data-count]')) {
+    if (el.dataset.n) el.textContent = num(Number(el.dataset.n));
+  }
   document.getElementById('q').placeholder = t('search.placeholder');
   document.getElementById('palQ').placeholder = t('pal.placeholder');
   for (const el of document.querySelectorAll('#unitSeg [data-u]')) {
@@ -733,7 +744,7 @@ export function setBasemap(mode) {
   }
   haloLabels(mode === 'satellite');
 
-  for (const b of document.querySelectorAll('#basemap .seg-b')) {
+  for (const b of document.querySelectorAll('#basemap [data-base]')) {
     b.classList.toggle('on', b.dataset.base === mode);
   }
   toast(t(`toast.base.${mode}`));
@@ -794,6 +805,20 @@ function toggleZen(next = !document.body.classList.contains('zen')) {
 }
 
 export const isZen = () => document.body.classList.contains('zen');
+
+// What each overlay would add, from the build's tally, so the tiles carry a
+// number before any overlay's own file has been fetched.
+let overlayCounts;
+function countOverlays() {
+  overlayCounts ??= fetch('data/insights.json').then((r) => r.json()).then((d) => {
+    for (const el of document.querySelectorAll('[data-count]')) {
+      const n = d.overlays?.[el.dataset.count];
+      if (n == null) continue;
+      el.dataset.n = n;
+      el.textContent = num(n);
+    }
+  }).catch(() => {});
+}
 
 // The panels only. The road colours were chosen against a near-black ground
 // and the base maps are drawn for one, so the map stays as it is and the
@@ -1308,7 +1333,7 @@ function wire() {
   document.getElementById('shellOpen').addEventListener('click', () => setShell(true));
 
   document.getElementById('basemap').addEventListener('click', (e) => {
-    const b = e.target.closest('.seg-b');
+    const b = e.target.closest('[data-base]');
     if (b) setBasemap(b.dataset.base);
   });
 
@@ -1326,13 +1351,16 @@ function wire() {
     menu.classList.toggle('open', open);
     menu.querySelector('[aria-haspopup]').setAttribute('aria-expanded', String(open));
   };
+  const toggleMenu = (menu) => {
+    const open = !menu.classList.contains('open');
+    for (const m of menus) setMenu(m, false);
+    setMenu(menu, open);
+    if (open && menu.id === 'menuLayers') countOverlays();
+  };
   for (const menu of menus) {
-    menu.querySelector('[aria-haspopup]').addEventListener('click', () => {
-      const open = !menu.classList.contains('open');
-      for (const m of menus) setMenu(m, false);
-      setMenu(menu, open);
-    });
+    menu.querySelector('[aria-haspopup]').addEventListener('click', () => toggleMenu(menu));
   }
+  const MENU_KEYS = { l: 'menuLayers', s: 'menuSettings', m: 'menuMore' };
   document.addEventListener('pointerdown', (e) => {
     for (const m of menus) if (!m.contains(e.target)) setMenu(m, false);
   });
@@ -1358,6 +1386,7 @@ function wire() {
   // openTimelapse toggles, and it owns the button's lit state so that closing
   // from the scrubber's own dismiss button leaves the two in step.
   document.getElementById('btnTimeline').addEventListener('click', openTimelapse);
+  document.getElementById('btnPalette').addEventListener('click', () => openPalette());
 
   document.getElementById('palQ').addEventListener('input', renderPalette);
   document.getElementById('palette').addEventListener('click', (e) => {
@@ -1389,6 +1418,10 @@ function wire() {
       return;
     }
     if (typing) return;
+    if (MENU_KEYS[e.key] && !e.metaKey && !e.ctrlKey && !e.altKey && !isZen()) {
+      toggleMenu(document.getElementById(MENU_KEYS[e.key]));
+      return;
+    }
     if (e.key === 'f' && app.selected) startFly(app.selected);
     if (e.key === 't') toggleTerrain();
     if (e.key === '3') toggleTerrain();

@@ -424,6 +424,99 @@ html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
 .seg-txt .seg-b small { font-family: var(--mono); font-size: 9px; opacity: 0.75; letter-spacing: 0.02em; }
 .seg-b { transition: color 0.18s, background 0.25s var(--ease), box-shadow 0.25s; }
 
+/* An icon button names itself, with its key, just under it. Not while its
+   menu is open: the menu is the answer to what the button does. */
+.btn[data-tip]::after {
+  content: attr(data-tip) '  ' attr(data-key);
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 45;
+  padding: 5px 8px; border-radius: 6px; white-space: pre;
+  font-size: 11px; letter-spacing: 0.02em; color: var(--ink);
+  background: rgba(9, 13, 22, 0.96); border: 1px solid var(--line-2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  opacity: 0; transform: translateY(-3px); pointer-events: none;
+  transition: opacity 0.14s 0s, transform 0.14s 0s;
+}
+.btn[data-tip]:is(:hover, :focus-visible)::after { opacity: 1; transform: none; transition-delay: 0.35s; }
+.menu.open > .btn[data-tip]::after { opacity: 0; }
+html[data-theme="light"] .btn[data-tip]::after { background: rgba(248, 250, 253, 0.98); box-shadow: 0 8px 20px rgba(10, 25, 50, 0.18); }
+
+.menu-it kbd + .sw { margin-left: 2px; }
+.menu-lay { min-width: 316px; padding: 8px 8px 6px; }
+.menu-lay .menu-hd { margin-top: 8px; }
+.menu-lay .menu-hd:first-child { margin-top: 2px; }
+
+/* Base maps, chosen by looking at them. */
+.bcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; padding: 0 2px; }
+.bcard {
+  display: flex; flex-direction: column; gap: 5px; padding: 3px 3px 6px; border-radius: 10px;
+  color: var(--ink-faint); font-size: 11px; text-align: center;
+  border: 1px solid transparent; transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.bcard img {
+  display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover;
+  border-radius: 7px; background: #0b1220;
+  box-shadow: inset 0 0 0 1px rgba(120, 170, 220, 0.18);
+  transition: transform 0.25s var(--ease), filter 0.25s;
+  filter: saturate(0.85) brightness(0.9);
+}
+.bcard:hover { color: var(--ink-dim); background: rgba(120, 170, 220, 0.06); }
+.bcard:hover img { transform: scale(1.03); filter: none; }
+.bcard.on { color: var(--cyan); border-color: rgba(53, 231, 255, 0.55); background: rgba(53, 231, 255, 0.07); }
+.bcard.on img { filter: none; box-shadow: 0 0 0 1px rgba(53, 231, 255, 0.5), 0 0 14px rgba(53, 231, 255, 0.25); }
+.bcard:focus-visible { outline: 1px solid var(--cyan); outline-offset: 1px; }
+
+/* Overlays as tiles: a lit tile is a layer on the map, in that layer's colour. */
+.otiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; padding: 0 2px; }
+.otile {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  padding: 10px 10px 9px; border-radius: 10px; text-align: left; color: var(--ink-dim);
+  background: rgba(120, 170, 220, 0.05); border: 1px solid var(--line);
+  transition: color 0.18s, background 0.22s, border-color 0.22s, box-shadow 0.22s;
+}
+.otile > svg { width: 18px; height: 18px; margin-bottom: 4px; stroke: var(--c); fill: none; stroke-width: 1.7; opacity: 0.75; transition: opacity 0.2s; }
+.otile b { font-weight: 500; font-size: 12px; color: inherit; }
+.otile small { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); min-height: 1em; }
+.otile::after {
+  content: ''; position: absolute; top: 9px; right: 9px; width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(120, 170, 220, 0.25); transition: background 0.2s, box-shadow 0.2s;
+}
+.otile:hover { color: var(--ink); background: rgba(120, 170, 220, 0.09); }
+.otile.on {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--c) 13%, transparent);
+  border-color: color-mix(in srgb, var(--c) 55%, transparent);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--c) 18%, transparent);
+}
+.otile.on > svg { opacity: 1; }
+.otile.on::after { background: var(--c); box-shadow: 0 0 8px var(--c); }
+.otile:active { transform: scale(0.97); }
+.otile:focus-visible { outline: 1px solid var(--cyan); outline-offset: 1px; }
+
+/* More: every page as a card, two to a row. */
+.menu-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; padding: 8px; width: 356px;
+}
+.gcard {
+  position: relative; flex-direction: column; align-items: flex-start; gap: 3px;
+  padding: 11px 12px 12px; border: 1px solid var(--line); border-radius: 11px;
+  background: rgba(120, 170, 220, 0.04);
+  transition: background 0.18s, border-color 0.18s, transform 0.18s var(--ease);
+}
+.gcard > svg {
+  width: 30px; height: 30px; padding: 6px; margin-bottom: 5px; border-radius: 8px;
+  stroke: var(--c); background: color-mix(in srgb, var(--c) 13%, transparent);
+}
+.gcard b { font-weight: 500; font-size: 12.5px; color: var(--ink); }
+.gcard small { font-size: 10.5px; line-height: 1.35; color: var(--ink-faint); }
+.gcard kbd { position: absolute; top: 10px; right: 10px; }
+.gcard:hover {
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+  border-color: color-mix(in srgb, var(--c) 40%, transparent);
+  transform: translateY(-1px);
+}
+.gcard.on { border-color: color-mix(in srgb, var(--c) 55%, transparent); }
+html[data-theme="light"] :is(.otile, .gcard) { background: rgba(28, 58, 98, 0.03); }
+
 /* The way back in. Hidden while the panel is open, so the edge stays clean. */
 #shellOpen {
   position: fixed; left: 10px; top: 62px; z-index: 16;
@@ -1818,8 +1911,7 @@ a.tl-src:hover { color: var(--cyan); }
   #detail.hidden { transform: translateY(calc(100% + 14px)); }
   /* Setting the gap rather than `bottom` keeps the parked offset in step. */
   #fly { --fly-gap: 8px; }
-  .hud-label { display: none; }
-  .btn { padding: 0 9px; }
+  .btn:not(.btn-ico) { padding: 0 9px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
