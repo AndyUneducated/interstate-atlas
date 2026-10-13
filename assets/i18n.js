@@ -364,7 +364,7 @@ export const STRINGS = {
     'fly.restart': 'Restart',
 
     'about.title': 'About this atlas',
-    'about.sub': 'What it is made of, and what it does not know.',
+    'about.sub': 'What it is, where the data comes from, and how to read it.',
 
     'toast.terrainOn': '3D terrain on',
     'toast.terrainOff': '3D terrain off',
@@ -806,7 +806,7 @@ export const STRINGS = {
     'fly.restart': '重新开始',
 
     'about.title': '关于本图谱',
-    'about.sub': '它由什么构成，以及它不知道什么。',
+    'about.sub': '它是什么、数据从哪里来、怎么读。',
 
     'toast.terrainOn': '三维地形已开启',
     'toast.terrainOff': '三维地形已关闭',

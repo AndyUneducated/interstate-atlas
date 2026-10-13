@@ -62,7 +62,7 @@ export function openSheet(key) {
     states: wireStates,
     provinces: wireStates,
     mxstates: wireStates,
-    about: () => {},
+    about: wireAbout,
     docs: wireDocs,
   }[key])();
 }
@@ -887,36 +887,68 @@ function renderAbout() {
       : '',
   };
 
-  const en = `
-    <p>This atlas draws the numbered highways of three countries. In the United States: the Interstates, the US numbered routes and the state route networks of all fifty states plus the District of Columbia and Puerto Rico. In Canada: the Trans-Canada Highway, Transport Canada’s National Highway System and every numbered provincial and municipal route. In Mexico: the federal highways, and the state highways that carry a number, which most do not. That comes to ${num(app.index.length)} routes and ${dist(totalMi)} of mapped road across ${juris} states, provinces and territories.</p>
-    <h4>Where the geometry comes from</h4>
-    <p>American road centrelines are from the <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener">US Census TIGER/Line</a> road files, read one state at a time; Canadian ones from Statistics Canada’s <a href="https://www.statcan.gc.ca/en/lode/databases/odr" target="_blank" rel="noopener">National Road Network</a>, read one province at a time; Mexican ones from INEGI’s <a href="https://www.inegi.org.mx/programas/rnc/" target="_blank" rel="noopener">Red Nacional de Caminos</a>, 2025 edition, read as one national file. All three are surveyed rather than generalised, and all three are thinned here for drawing. The Mexican file records the federation, not a state, as the jurisdiction of a federal road, so the state a federal segment lies in is found against <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/" target="_blank" rel="noopener">Natural Earth</a>’s 1:10m boundaries, and each Mexican route page says so. Termini are named against the <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">US Census gazetteer</a> and the place names in the Canadian file; a Mexican terminus is given as the SICT section it lies on, because the Mexican pipeline has no gazetteer. The basemap is <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a> from OpenStreetMap data, satellite imagery is Esri World Imagery, and terrain comes from Mapzen tiles on AWS Open Data.</p>
-    <h4>Three kinds of number, never mixed</h4>
-    <p><strong>Measured</strong> — length, termini, mileage by state or province, roadway classification. Computed here from the geometry above, along the single path from one end of the road to the other, so a divided highway is counted once rather than twice. ${acc.en} Where an official figure exists it is shown beside the measured one, and the difference is explained rather than hidden.</p>
-        <p><strong>Reported</strong> — traffic, heavy-truck volume, pavement roughness, rutting, cracking, lanes, posted speeds. In the United States these are what the states measured and reported to FHWA under the <a href="https://www.fhwa.dot.gov/policyinformation/hpms.cfm" target="_blank" rel="noopener">Highway Performance Monitoring System</a>, one national collection with one method. Canada has no equivalent: traffic counting is provincial, and each province decides on its own whether to publish. Seven jurisdictions do, in bulk and by route — Quebec, Ontario, Alberta, Nova Scotia, New Brunswick, Prince Edward Island and the Northwest Territories — so those routes carry counts and name the province, the year, the method and the licence behind them. The other six publish through maps, applications and PDFs, or not at all, and their routes carry no traffic figure rather than a borrowed one. British Columbia is the significant absence: it counts continuously but releases only through an interactive map. In Mexico, SICT’s <a href="https://www.datos.gob.mx/dataset/datos_viales" target="_blank" rel="noopener">Datos Viales</a> gives average daily traffic at count stations on the federal network; a station is placed on a federal route when it lies within 5 km of it, and the route shows the range across its stations rather than one averaged figure. Everything here is joined to a route by its designation and never by position, and every figure states the share of the road it was measured over.</p>
-    <p><strong>Written</strong> — history, construction cost, what a road is like to drive. Each figure carries its source. Where no public figure could be found, the row says so rather than showing an estimate. Nothing here is modelled or inferred to fill a gap.</p>
-    <h4>Where the numbers disagree</h4>
-    <p>They are meant to. FHWA’s published mileage for an Interstate leaves out pavement it credits to another route: where I-90 runs along the Indiana Toll Road with I-80, those miles are counted under I-80 only, which is why the road measures longer here than the register says. And the register has its own slips — it gives Knoxville’s I-640, a beltway of about seven miles, as 77.29. Both figures are shown, and neither is bent toward the other.</p>
-    <h4>The gaps are real</h4>
-    <p>A number does not always have pavement under it for its whole length. Sometimes the road is filed under another classification, sometimes it runs concurrently under a different number, and sometimes — Highway 1 to Vancouver Island, Route 138 along the Lower North Shore — the route crosses water by ferry. None of that is drawn or counted, and the detail panel says how much is missing.</p>
-    <h4>Keyboard</h4>
-    <p><b>/</b> or <b>Ctrl-K</b> command palette · <b>F</b> fly the selected route · <b>T</b> 3D terrain · <b>Z</b> hide the interface · <b>Esc</b> back out.</p>`;
+  const sysChips = ['us', 'ca', 'mx'].map((cc) => `<p class="ab-cc"><span class="flagdot flag-${cc}"></span><b>${t(`sys.country.${cc}`)}</b>
+    ${SYSTEMS.filter((x) => x.cc === cc).map((x) => `<span class="ab-chip" style="--sys-col:${x.colour}">${t(`sys.${x.id}`)}</span>`).join('')}</p>`).join('');
+  const go = (tab, label) => `<button class="ab-go" type="button" data-docs="${tab}">${label}<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`;
+  const L = (href, text) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`;
 
-  const cn = `
-    <p>本图谱绘制三个国家的编号公路。美国：州际公路、美国国道，以及 50 个州加哥伦比亚特区、波多黎各的州级公路网。加拿大：横加公路、加拿大交通部《国家公路系统》，以及全部编号的省级与地方公路。墨西哥：联邦公路，以及有编号的州级公路——多数州级公路没有编号。合计 ${num(app.index.length)} 条路线、${dist(totalMi)} 制图里程，覆盖 ${juris} 个州、省与地区。</p>
-    <h4>几何数据来自哪里</h4>
-    <p>美国的道路中心线取自 <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank" rel="noopener">美国人口普查局 TIGER/Line</a> 道路数据，逐州读取；加拿大的取自加拿大统计局《<a href="https://www.statcan.gc.ca/en/lode/databases/odr" target="_blank" rel="noopener">国家道路网</a>》，逐省读取；墨西哥的取自墨西哥国家统计和地理研究所（INEGI）《<a href="https://www.inegi.org.mx/programas/rnc/" target="_blank" rel="noopener">国家道路网</a>》2025 年版，作为一个全国文件读取。三者都是实测数据而非小比例尺概化数据，本站为绘图做了抽稀。墨西哥数据把联邦公路的管辖方记为联邦而非所在州，因此联邦路段位于哪个州，是比对 <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/" target="_blank" rel="noopener">Natural Earth</a> 1:10m 州界得出的，每个墨西哥路线页都会注明。起止点地名比对 <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html" target="_blank" rel="noopener">美国人口普查局地名库</a> 与加拿大数据自带的地名；墨西哥的起止点则给出其所在的 SICT 路段名称，因为墨西哥数据流程没有地名库。底图为基于 OpenStreetMap 数据的 <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a>，卫星影像为 Esri World Imagery，地形数据来自 AWS Open Data 上的 Mapzen 瓦片。</p>
-    <h4>三类数字，互不混用</h4>
-    <p><strong>实测</strong>——长度、起止点、各州或各省里程、路段等级构成。由上述几何数据在本站算出，沿着从一端到另一端的唯一路径量取，因此分向行驶的公路只计一次，不会算成两次。${acc.zh}凡有官方里程的，都与实测值并列显示，差异会加以说明，而不是藏起来。</p>
-        <p><strong>上报</strong>——车流量、货车流量、路面平整度、车辙、裂缝、车道数、限速。在美国，这些是各州自行实测后按《<a href="https://www.fhwa.dot.gov/policyinformation/hpms.cfm" target="_blank" rel="noopener">公路性能监测系统</a>》上报给联邦公路管理局的数据，全国统一口径。加拿大没有对应的全国性采集：交通量调查由各省自行负责，是否公开也由各省自行决定。其中七个省与地区以可批量获取的形式按路线公开——魁北克、安大略、艾伯塔、新斯科舍、新不伦瑞克、爱德华王子岛与西北地区——因此这些路线带有车流量数据，并注明数据出自哪个省、哪一年、用何种方法、以何种许可发布。其余六个只通过地图、网页应用或 PDF 发布，或根本不发布，其路线便不显示车流量，而不是借用别处的数字。其中不列颠哥伦比亚省的缺失最为可惜：该省持续开展交通量调查，却只通过交互式地图发布。在墨西哥，SICT 的《<a href="https://www.datos.gob.mx/dataset/datos_viales" target="_blank" rel="noopener">道路数据</a>》给出联邦路网各观测站的年平均日交通量；观测站距某条联邦路线 5 公里以内才会归入该路线，路线页显示的是各站数值的范围，而不是一个平均值。以上数据一律按公路编号与路线匹配，绝不按位置套用，并且每项都注明覆盖了全线多少比例。</p>
-    <p><strong>撰写</strong>——历史、造价、这条路开起来是什么感觉。每个数字都附有来源。凡是找不到公开数据的，该项直接写明，而不是给出估算值。本站不会用建模或推算去填补空缺。</p>
-    <h4>数字为什么会互相矛盾</h4>
-    <p>这本就是应该的。美国联邦公路管理局公布的州际公路里程，会把共线路段的里程记在另一条路名下：I-90 与 I-80 共用印第安纳收费公路的那段，只计入 I-80，因此本站量得的 I-90 比官方名录更长。名录自身也有疏漏——诺克斯维尔的 I-640 是一条约 7 英里的环路，名录却写作 77.29 英里。两个数字都会显示，也都不会向对方靠拢。</p>
-    <h4>断口是真实存在的</h4>
-    <p>一个编号并不总能在全线都有路面对应。有时是路段在原始数据中被归入了其他分类，有时是与另一编号共线，有时——比如 1 号公路通往温哥华岛、138 号公路沿下北岸——则是要靠渡轮跨越水域。这些都不绘制、也不计入里程，详情面板会说明缺失了多少。</p>
-    <h4>键盘快捷键</h4>
-    <p><b>/</b> 或 <b>Ctrl-K</b> 命令面板 · <b>F</b> 巡航所选路线 · <b>T</b> 三维地形 · <b>Z</b> 隐藏界面 · <b>Esc</b> 返回。</p>`;
+  const copy = zh ? {
+    what: ['它是什么', `三个国家的编号公路网：${SYSTEMS.length} 个路网系统、${num(app.index.length)} 条路线、${dist(totalMi)} 制图里程，覆盖 ${juris} 个州、省与地区。每条线都可以点开，看起止点、分州里程、路段构成、海拔剖面，部分路线还有成文介绍。`],
+    data: ['数据从哪里来', [
+      ['us', `几何取自 ${L('https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html', 'TIGER/Line')}，官方里程取自 FHWA 路线名录，车流、路况、车道取自 ${L('https://www.fhwa.dot.gov/policyinformation/hpms.cfm', 'HPMS')}。`],
+      ['ca', `几何取自加拿大统计局《${L('https://www.statcan.gc.ca/en/lode/databases/odr', '国家道路网')}》，NHS 名录取自交通部，车流量取自公开批量数据的七个省与地区。`],
+      ['mx', `几何取自 INEGI《${L('https://www.inegi.org.mx/programas/rnc/', '国家道路网')}》2025 版，车流量取自 SICT《${L('https://www.datos.gob.mx/dataset/datos_viales', 'Datos Viales')}》。`],
+    ], '底图 OpenFreeMap（OpenStreetMap），卫星影像 Esri，地形 Mapzen。'],
+    read: ['怎么读', [
+      ['实测', `长度、起止点、分州里程、路段等级，均由几何在本站算出，分向行驶的公路只计一次。${acc.zh}`],
+      ['上报', '车流、路况、车道、限速，来自各国机构，一律按编号而非位置匹配，并注明覆盖了全线多少。'],
+      ['撰写', '历史、造价、驾驶体验，每个数字都附来源；找不到公开数据就直接写明，不做估算。'],
+    ], '官方里程与实测不一致时两者并列，差异会说明原因；渡轮、共线、未建成路段不绘制也不计入，详情面板会写明缺了多少。'],
+    links: [['sources', '全部来源与许可'], ['coverage', '覆盖率'], ['accuracy', '准确性与已知缺口'], ['decisions', '处理决策']],
+    keys: '键盘',
+  } : {
+    what: ['What it is', `The numbered highway networks of three countries: ${SYSTEMS.length} route systems, ${num(app.index.length)} routes and ${dist(totalMi)} of mapped road across ${juris} states, provinces and territories. Every line opens into its termini, its length by jurisdiction, what it is built as, an elevation profile and, for some, a written profile.`],
+    data: ['Where the data comes from', [
+      ['us', `Geometry from ${L('https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html', 'TIGER/Line')}, official lengths from the FHWA Route Log, traffic, condition and lanes from ${L('https://www.fhwa.dot.gov/policyinformation/hpms.cfm', 'HPMS')}.`],
+      ['ca', `Geometry from Statistics Canada's ${L('https://www.statcan.gc.ca/en/lode/databases/odr', 'National Road Network')}, the NHS from Transport Canada, traffic from the seven jurisdictions that publish counts in bulk.`],
+      ['mx', `Geometry from INEGI's ${L('https://www.inegi.org.mx/programas/rnc/', 'Red Nacional de Caminos')} 2025, traffic from SICT's ${L('https://www.datos.gob.mx/dataset/datos_viales', 'Datos Viales')}.`],
+    ], 'Base map OpenFreeMap (OpenStreetMap), imagery Esri, terrain Mapzen.'],
+    read: ['How to read it', [
+      ['Measured', `Length, termini, length by jurisdiction and roadway class, computed here from the geometry, with a divided highway counted once. ${acc.en}`],
+      ['Reported', 'Traffic, condition, lanes and speeds, as each country’s agencies publish them, joined by designation and never by position, with the share of the road they cover.'],
+      ['Written', 'History, cost and character, each figure with its source. Where there is no public figure the page says so rather than estimating one.'],
+    ], 'Where the official length and the measured one disagree, both are shown and the difference is explained. Ferries, concurrencies and unbuilt pieces are neither drawn nor counted, and the detail panel says how much is missing.'],
+    links: [['sources', 'Every source and licence'], ['coverage', 'Coverage'], ['accuracy', 'Accuracy and known gaps'], ['decisions', 'Processing decisions']],
+    keys: 'Keyboard',
+  };
 
-  return frame('about.title', 'about.sub',
-    `<div class="nb-note" style="max-width:74ch">${zh ? cn : en}</div>`);
+  const body = `
+    <div class="ab">
+      <section class="ab-part">
+        <span class="ab-n">01</span><h4>${copy.what[0]}</h4>
+        <p>${copy.what[1]}</p>
+        ${sysChips}
+      </section>
+      <section class="ab-part">
+        <span class="ab-n">02</span><h4>${copy.data[0]}</h4>
+        ${copy.data[1].map(([cc, text]) => `<p class="ab-row"><span class="flagdot flag-${cc}"></span><span>${text}</span></p>`).join('')}
+        <p class="ab-fine">${copy.data[2]}</p>
+        <div class="ab-links">${go(copy.links[0][0], copy.links[0][1])}${go(copy.links[1][0], copy.links[1][1])}</div>
+      </section>
+      <section class="ab-part">
+        <span class="ab-n">03</span><h4>${copy.read[0]}</h4>
+        ${copy.read[1].map(([k, text]) => `<p class="ab-row"><b class="ab-k">${k}</b><span>${text}</span></p>`).join('')}
+        <p class="ab-fine">${copy.read[2]}</p>
+        <div class="ab-links">${go(copy.links[2][0], copy.links[2][1])}${go(copy.links[3][0], copy.links[3][1])}</div>
+      </section>
+    </div>
+    <p class="ab-keys"><span>${copy.keys}</span><b>/</b> <b>Ctrl-K</b> ${zh ? '命令面板' : 'command palette'} · <b>F</b> ${zh ? '巡航所选路线' : 'fly the selected route'} · <b>T</b> ${zh ? '三维地形' : '3D terrain'} · <b>Z</b> ${zh ? '隐藏界面' : 'hide the interface'} · <b>Esc</b> ${zh ? '返回' : 'back out'}</p>`;
+
+  return frame('about.title', 'about.sub', body);
+}
+
+function wireAbout() {
+  for (const b of document.querySelectorAll('[data-docs]')) {
+    b.addEventListener('click', () => { docsTab = b.dataset.docs; openSheet('docs'); });
+  }
 }

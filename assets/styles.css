@@ -1303,8 +1303,43 @@ body.tlapse-on #detail { bottom: 108px; }
 .nb-route.hot { stroke-width: 4; }
 .nb-lab { font-family: var(--mono); font-size: 8.5px; fill: var(--ink-faint); }
 .nb-lab.hot { fill: var(--ink); }
-.nb-note { font-size: 13px; line-height: 1.7; color: #cfdcec; }
+.nb-note { font-size: 13px; line-height: 1.7; color: var(--ink-body); }
 .nb-note h4 { margin: 0 0 8px; font-size: 13.5px; color: var(--ink); }
+
+/* About: what it is, where the data comes from, how to read it. */
+.ab { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.ab-part {
+  position: relative; padding: 18px 18px 16px; border: 1px solid var(--line); border-radius: var(--r-md);
+  background: linear-gradient(180deg, rgba(53, 231, 255, 0.045), transparent 55%), var(--bg-1);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ab-n { font-family: var(--mono); font-size: 26px; font-weight: 600; letter-spacing: -0.03em; color: var(--cyan); opacity: 0.55; line-height: 1; }
+.ab-part h4 { margin: 0; font-size: 14px; color: var(--ink); }
+.ab-part p { margin: 0; font-size: 12.5px; line-height: 1.65; color: var(--ink-body); }
+.ab-row { display: flex; gap: 10px; align-items: baseline; }
+.ab-row .flagdot { flex: none; transform: translateY(1px); }
+.ab-k { flex: none; width: 64px; font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cyan); }
+html[data-lang="zh"] .ab-k { width: 36px; font-size: 12px; }
+.ab-fine { font-size: 11.5px !important; color: var(--ink-faint) !important; }
+.ab-cc { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 6px; }
+.ab-cc b { font-size: 12px; margin-right: 4px; color: var(--ink); font-weight: 600; }
+.ab-chip {
+  font-size: 10.5px; padding: 2px 8px; border-radius: 999px; color: var(--ink-dim);
+  border: 1px solid color-mix(in srgb, var(--sys-col) 45%, transparent);
+  background: color-mix(in srgb, var(--sys-col) 10%, transparent);
+}
+.ab-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.ab-go {
+  display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px;
+  border: 1px solid var(--line-2); font-size: 11px; color: var(--cyan);
+  transition: background 0.18s, border-color 0.18s;
+}
+.ab-go svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.2s var(--ease); }
+.ab-go:hover { background: rgba(53, 231, 255, 0.09); border-color: rgba(53, 231, 255, 0.45); }
+.ab-go:hover svg { transform: translateX(2px); }
+.ab-keys { margin: 16px 0 0; font-size: 11.5px; color: var(--ink-dim); }
+.ab-keys span { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-right: 10px; }
+.ab-keys b { font-family: var(--mono); font-size: 10px; padding: 1px 5px; border-radius: 3px; border: 1px solid var(--line-2); color: var(--ink); }
 .nb-rule { display: flex; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--line); }
 .nb-rule:last-child { border-bottom: 0; }
 .nb-rule-n {
