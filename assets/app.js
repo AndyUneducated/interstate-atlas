@@ -34,6 +34,7 @@ export const app = {
   stateLoaded: new Set(),
   terrain: false,
   basemap: 'dark',
+  legend: true,
 };
 
 /* ── boot ─────────────────────────────────────────────────────────────── */
@@ -63,10 +64,16 @@ function applyStaticStrings() {
   }
   document.getElementById('q').placeholder = t('search.placeholder');
   document.getElementById('palQ').placeholder = t('pal.placeholder');
-  document.getElementById('btnLang').title = t('nav.langTitle');
-  for (const el of document.querySelectorAll('#btnUnits [data-u]')) {
-    el.textContent = t(el.dataset.u === 'metric' ? 'unit.km' : 'unit.mi');
+  for (const el of document.querySelectorAll('#unitSeg [data-u]')) {
+    el.querySelector('b').textContent = t(el.dataset.u === 'metric' ? 'unit.km' : 'unit.mi');
+    el.querySelector('small').textContent = t(el.dataset.u === 'metric' ? 'set.unitsMetric' : 'set.unitsImperial');
     el.classList.toggle('on', el.dataset.u === getUnits());
+  }
+  for (const el of document.querySelectorAll('#langSeg [data-lang]')) {
+    el.classList.toggle('on', el.dataset.lang === getLang());
+  }
+  for (const el of document.querySelectorAll('#themeSeg [data-theme]')) {
+    el.classList.toggle('on', el.dataset.theme === document.documentElement.dataset.theme);
   }
   document.getElementById('bootTitle').textContent = t('boot.title');
   document.getElementById('bootSub').textContent = t('boot.sub');
@@ -788,6 +795,18 @@ function toggleZen(next = !document.body.classList.contains('zen')) {
 
 export const isZen = () => document.body.classList.contains('zen');
 
+// The panels only. The road colours were chosen against a near-black ground
+// and the base maps are drawn for one, so the map stays as it is and the
+// light panels sit on it the way paper sits on a light table.
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem('ia.theme', theme);
+  document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#eef2f7' : '#05070c';
+  for (const el of document.querySelectorAll('#themeSeg [data-theme]')) {
+    el.classList.toggle('on', el.dataset.theme === theme);
+  }
+}
+
 /* ── region jumps ─────────────────────────────────────────────────────── */
 
 // The opening view frames the settled band of the three countries, which is
@@ -905,22 +924,22 @@ function renderSystems() {
 }
 
 /**
- * What the colours mean, for when the panel that said so is folded away.
+ * What the colours mean, on the map itself.
  *
- * Collapsing the sidebar takes the system list with it, and with it the only
- * key to six line colours on a map that is otherwise unlabelled below zoom 7.
- * A reader who folded the panel to see more map was left with cyan, amber and
- * pink lines and nothing to tell them apart.
+ * The map is otherwise unlabelled below zoom 7, and with the sidebar folded
+ * away the system list goes too, which left cyan, amber and pink lines and
+ * nothing to tell them apart. The key is on unless the reader switches it off
+ * in the Layers menu; it sits beside the panel when the panel is open and in
+ * its place when it is folded.
  *
  * Only the systems actually drawn are listed, so this is a key to what is on
- * the screen rather than a second copy of the switch panel; it is inert, and
- * the way back to the switches is the button directly above it.
+ * the screen rather than a second copy of the switch panel.
  */
 function renderLegend() {
   const host = document.getElementById('legend');
   if (!host) return;
   const on = SYSTEMS.filter((s) => app.systems.get(s.id).on);
-  if (!on.length) { host.innerHTML = ''; host.hidden = true; return; }
+  if (!on.length || !app.legend) { host.innerHTML = ''; host.hidden = true; return; }
   host.hidden = false;
   host.innerHTML = `<p class="lg-h">${t('legend.title')}</p>`
     + on.map((s) => `<p class="lg-r">`
@@ -1245,18 +1264,41 @@ function wire() {
     q.value = ''; query = ''; document.getElementById('qClear').hidden = true; renderResults(); q.focus();
   });
 
-  document.getElementById('btnLang').addEventListener('click', () => {
-    setLang(getLang() === 'en' ? 'zh' : 'en');
+  document.getElementById('langSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-lang]');
+    if (!b || b.dataset.lang === getLang()) return;
+    setLang(b.dataset.lang);
     localStorage.setItem('ia.lang', getLang());
     relabel();
   });
 
-  document.getElementById('btnUnits').addEventListener('click', () => {
-    setUnits(getUnits() === 'metric' ? 'imperial' : 'metric');
+  document.getElementById('unitSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-u]');
+    if (!b || b.dataset.u === getUnits()) return;
+    setUnits(b.dataset.u);
     localStorage.setItem('ia.units', getUnits());
     app.scale?.setUnit(getUnits());
     relabel();
   });
+
+  document.getElementById('themeSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-theme]');
+    if (b) setTheme(b.dataset.theme);
+  });
+
+  document.getElementById('btnLegend').addEventListener('click', () => {
+    app.legend = !app.legend;
+    localStorage.setItem('ia.legend', app.legend ? '1' : '0');
+    document.getElementById('btnLegend').classList.toggle('on', app.legend);
+    renderLegend();
+  });
+  // Every switch in the Layers menu is lit by its own module, some of them
+  // only once their data has arrived, so the pressed state follows the class
+  // rather than each module having to remember it.
+  for (const tg of document.querySelectorAll('.menu-tg')) {
+    new MutationObserver(() => tg.setAttribute('aria-pressed', String(tg.classList.contains('on'))))
+      .observe(tg, { attributes: true, attributeFilter: ['class'] });
+  }
 
   const setShell = (open) => {
     document.getElementById('shell').classList.toggle('hidden', !open);
@@ -1294,11 +1336,17 @@ function wire() {
   document.addEventListener('pointerdown', (e) => {
     for (const m of menus) if (!m.contains(e.target)) setMenu(m, false);
   });
+  // An open menu takes the Escape for itself, so closing it does not also
+  // drop the selected route behind it.
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') for (const m of menus) setMenu(m, false);
+    if (e.key !== 'Escape') return;
+    const open = menus.filter((m) => m.classList.contains('open'));
+    if (!open.length) return;
+    for (const m of open) setMenu(m, false);
+    e.stopImmediatePropagation();
   });
-  for (const it of document.querySelectorAll('#menuMore .menu-it')) {
-    it.addEventListener('click', () => setMenu(document.getElementById('menuMore'), false));
+  for (const it of document.querySelectorAll('#menuMore .menu-it, #btnZen')) {
+    it.addEventListener('click', () => { for (const m of menus) setMenu(m, false); });
   }
 
   for (const [btn, key] of [['btnNumbering', 'numbering'], ['btnDash', 'dashboard'],
@@ -1353,6 +1401,8 @@ function wire() {
 async function main() {
   setLang(localStorage.getItem('ia.lang') || (navigator.language.startsWith('zh') ? 'zh' : 'en'));
   setUnits(localStorage.getItem('ia.units') || defaultUnits());
+  app.legend = localStorage.getItem('ia.legend') !== '0';
+  document.getElementById('btnLegend').classList.toggle('on', app.legend);
   applyStaticStrings();
   wire();
 

@@ -255,6 +255,7 @@ await shot('03-numbering.png');
 
 await step('dashboard', async () => {
   await page.click('#shClose');
+  await page.click('#btnMore');
   await page.click('#btnDash');
   await page.waitForSelector('.dash-top', { timeout: 8000 });
   await page.waitForTimeout(600);
@@ -274,9 +275,14 @@ await step('the More menu opens and closes', async () => {
   await page.click('#shClose');
   await page.click('#btnMore');
   await page.waitForSelector('#menuMore.open', { timeout: 4000 });
-  for (const id of ['btnNumbering', 'btnTimeline', 'btnDocs', 'btnAbout']) {
+  for (const id of ['btnDash', 'btnNumbering', 'btnTimeline', 'btnDocs', 'btnAbout']) {
     if (!await page.locator(`#menuMore #${id}`).isVisible()) throw new Error(`#${id} not in the open menu`);
   }
+  // Statistics leads the menu, and the menu is the last thing on the bar.
+  const first = await page.evaluate(() => document.querySelector('#menuMore .menu-it')?.id);
+  if (first !== 'btnDash') throw new Error(`the More menu starts with #${first}, not Statistics`);
+  const last = await page.evaluate(() => document.querySelector('#hud .hud-group:last-child > :last-child')?.id);
+  if (last !== 'menuMore') throw new Error(`#${last} sits right of the More menu`);
   await page.keyboard.press('Escape');
   await page.waitForTimeout(200);
   if (await page.locator('#menuMore.open').count()) throw new Error('Escape left the menu open');
@@ -305,16 +311,36 @@ await step('data and sources page renders every tab', async () => {
 });
 await shot('04b-docs.png');
 
-await step('the Layers menu holds the base map and the overlays', async () => {
+await step('the Layers menu holds the colour key and the overlays', async () => {
   await page.click('#shClose');
   await page.click('#btnLayers');
   await page.waitForSelector('#menuLayers.open', { timeout: 4000 });
-  for (const sel of ['#basemap', '#btnTerrain', '#btnCrossings', '#btnTolls', '#btnBridges']) {
+  for (const sel of ['#btnLegend', '#btnTerrain', '#btnCrossings', '#btnTolls', '#btnBridges']) {
     if (!await page.locator(`#menuLayers ${sel}`).isVisible()) throw new Error(`${sel} not in the open Layers menu`);
   }
   await page.mouse.click(400, 500);
   await page.waitForTimeout(200);
   if (await page.locator('#menuLayers.open').count()) throw new Error('clicking away left the Layers menu open');
+});
+
+await step('the settings menu holds units, language, panels, base map and zen', async () => {
+  await page.click('#btnSettings');
+  await page.waitForSelector('#menuSettings.open', { timeout: 4000 });
+  for (const sel of ['#unitSeg', '#langSeg', '#themeSeg', '#basemap', '#btnZen']) {
+    if (!await page.locator(`#menuSettings ${sel}`).isVisible()) throw new Error(`${sel} not in the open settings menu`);
+  }
+  // The light panels turn the panel over and leave the map alone.
+  await page.click('#themeSeg [data-theme="light"]');
+  await page.waitForTimeout(300);
+  const light = await page.evaluate(() => ({
+    theme: document.documentElement.dataset.theme,
+    panel: getComputedStyle(document.querySelector('.card')).backgroundColor,
+  }));
+  if (light.theme !== 'light' || !/2[34]\d, 2[34]\d, 2[45]\d/.test(light.panel)) {
+    throw new Error(`light panels did not apply: ${JSON.stringify(light)}`);
+  }
+  await page.click('#themeSeg [data-theme="dark"]');
+  await page.keyboard.press('Escape');
 });
 
 // Closing whatever sheet the previous step opened. Not every step leaves one
@@ -385,7 +411,9 @@ await step('US routes layer toggles on', async () => {
 await shot('06-us-routes.png');
 
 await step('language switch to Chinese', async () => {
-  await page.click('#btnLang');
+  await page.click('#btnSettings');
+  await page.click('#langSeg [data-lang="zh"]');
+  await page.keyboard.press('Escape');
   await page.waitForTimeout(900);
   const brand = await page.locator('.brand-name').textContent();
   if (!/[\u4e00-\u9fff]/.test(brand)) throw new Error(`brand not translated: ${brand}`);
@@ -404,7 +432,9 @@ await step('language switch to Chinese', async () => {
 await shot('07-chinese.png');
 
 await step('flythrough runs', async () => {
-  await page.click('#btnLang'); // back to English
+  await page.click('#btnSettings'); // back to English
+  await page.click('#langSeg [data-lang="en"]');
+  await page.keyboard.press('Escape');
   await page.waitForTimeout(500);
   await page.fill('#q', 'I-70');
   await page.waitForTimeout(400);
@@ -486,7 +516,7 @@ await step('collapsed panel can be reopened', async () => {
 });
 
 await step('base maps switch', async () => {
-  if (!await page.locator('#menuLayers.open').count()) await page.click('#btnLayers');
+  if (!await page.locator('#menuSettings.open').count()) await page.click('#btnSettings');
   for (const mode of ['relief', 'satellite', 'dark']) {
     await page.click(`[data-base="${mode}"]`);
     await page.waitForTimeout(900);
@@ -681,8 +711,13 @@ await step('the unit switch converts, and switches back', async () => {
   const read = async () => Number(((await page.locator('#detail .mhero-v').textContent()) || '')
     .replace(/[^\d]/g, ''));
   const before = await read();
-  await page.click('#btnUnits');
-  await page.waitForTimeout(900);
+  const flip = async () => {
+    await page.click('#btnSettings');
+    await page.click('#unitSeg .seg-b:not(.on)');
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(900);
+  };
+  await flip();
   const after = await read();
   const ratio = after / before;
   // Whichever way it went, the two readings are a mile and a kilometre apart.
@@ -690,8 +725,7 @@ await step('the unit switch converts, and switches back', async () => {
     throw new Error(`headline went ${before} -> ${after}, not a unit conversion`);
   }
   const col = (await page.locator('#resColMi').textContent()).trim();
-  await page.click('#btnUnits');
-  await page.waitForTimeout(900);
+  await flip();
   if (await read() !== before) throw new Error('switching back does not restore the figure');
   if ((await page.locator('#resColMi').textContent()).trim() === col) {
     throw new Error('the list column head does not follow the unit');
@@ -783,8 +817,21 @@ await step('folding the panel leaves a key to the colours', async () => {
 
   await page.click('#shellOpen');
   await page.waitForTimeout(800);
-  const after = await page.evaluate(() => Number(getComputedStyle(document.getElementById('legend')).opacity));
-  if (after > 0.5) throw new Error('legend still showing once the panel is back');
+  // The key stays with the panel open, beside it rather than under it, and
+  // the Layers menu switches it off and on again.
+  const beside = await page.evaluate(() => {
+    const lg = document.getElementById('legend').getBoundingClientRect();
+    const sh = document.getElementById('shell').getBoundingClientRect();
+    return !document.getElementById('legend').hidden && lg.left >= sh.right;
+  });
+  if (!beside) throw new Error('legend is not beside the open panel');
+  await page.click('#btnLayers');
+  await page.click('#btnLegend');
+  const off = await page.evaluate(() => document.getElementById('legend').hidden);
+  await page.click('#btnLegend');
+  await page.keyboard.press('Escape');
+  const back = await page.evaluate(() => !document.getElementById('legend').hidden);
+  if (!off || !back) throw new Error(`legend switch: off=${off} back=${back}`);
 });
 await shot('17-collapsed-legend.png');
 

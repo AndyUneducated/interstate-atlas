@@ -20,6 +20,8 @@
      that are furniture rather than text. */
   --ink-faint: #6e819b;
   --ink-ghost: #5a6c85;
+  /* Running prose, a step below --ink so a page of it does not glare. */
+  --ink-body: #cfdcec;
 
   --cyan: #35e7ff;
   --cyan-dim: #1a7d92;
@@ -61,6 +63,48 @@ html[data-lang="zh"] {
   --mono: "SF Mono", "JetBrains Mono", "Cascadia Mono", ui-monospace,
     "Sarasa Mono SC", "Noto Sans Mono CJK SC", "PingFang SC", "Microsoft YaHei", monospace;
 }
+
+/* Light panels over the same dark map. --bg stays dark because it is the
+   map's ground and the colour text takes on a lit segment; everything else a
+   panel is made of turns over, and the signal colours deepen until they pass
+   AA on a pale plate. */
+html[data-theme="light"] {
+  --bg-1: #ffffff;
+  --bg-2: #e2e8f0;
+  --panel: rgba(244, 247, 251, 0.88);
+  --panel-solid: #f4f7fb;
+  --line: rgba(28, 58, 98, 0.13);
+  --line-2: rgba(28, 58, 98, 0.26);
+  --ink: #0d1626;
+  --ink-dim: #3a4960;
+  --ink-faint: #56657b;
+  --ink-ghost: #8692a4;
+  --ink-body: #26354a;
+  --cyan: #0a7f9a;
+  --cyan-dim: #5cc2d6;
+  --amber: #a85d06;
+  --lime: #127a46;
+  --red: #c52640;
+  --violet: #5f41cc;
+  color-scheme: light;
+}
+html[data-theme="light"] :is(.menu-pop) { background: rgba(248, 250, 253, 0.98); box-shadow: 0 18px 40px rgba(10, 25, 50, 0.22); }
+html[data-theme="light"] .seg { background: rgba(225, 232, 241, 0.8); }
+html[data-theme="light"] .seg-b.on { color: #fff; box-shadow: 0 2px 10px rgba(10, 127, 154, 0.35); }
+html[data-theme="light"] .menu-tg .sw::after { background: #fff; }
+html[data-theme="light"] .menu-tg:not(.on) .sw { background: rgba(28, 58, 98, 0.16); }
+html[data-theme="light"] .pal { background: rgba(248, 250, 253, 0.98); box-shadow: 0 32px 90px rgba(10, 25, 50, 0.35); }
+html[data-theme="light"] .sh { background: rgba(246, 248, 252, 0.95); box-shadow: 0 40px 110px rgba(10, 25, 50, 0.4); }
+html[data-theme="light"] .stmap path { stroke: var(--panel-solid); }
+html[data-theme="light"] .brand-name { text-shadow: none; }
+html[data-theme="light"] .note { color: #6b4a12; }
+html[data-theme="light"] .note.gap { color: #8a2232; }
+html[data-theme="light"] .dc-body code { color: #0b5f73; }
+html[data-theme="light"] .tl-fare b { color: var(--amber); }
+html[data-theme="light"] .dash-top .m-v { text-shadow: none; }
+html[data-theme="light"] .maplibregl-ctrl-attrib.maplibregl-compact { background: rgba(244, 247, 251, 0.9) !important; }
+html[data-theme="light"] .sys { color: color-mix(in srgb, var(--sys-col, var(--ink-faint)) 58%, #0d1626); }
+html[data-theme="light"] *::-webkit-scrollbar-thumb { background: rgba(28, 58, 98, 0.2); }
 
 /* Wide tracking and uppercase are Latin devices. Uppercase does nothing to an
    ideograph, and the Chinese Layout Requirements put the ceiling for
@@ -340,18 +384,45 @@ html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
 .menu-txt { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
 .menu-txt b { font-weight: 500; font-size: 12.5px; color: inherit; }
 .menu-txt small { font-size: 10.5px; color: var(--ink-faint); }
-/* A switch, so a layer's state reads without hovering. */
+/* A switch, so a layer's state reads without hovering. The track fills and
+   the knob slides with a little overshoot, as a physical switch would. */
 .menu-tg .sw {
-  width: 26px; height: 15px; flex: none; border-radius: 999px; position: relative;
-  background: rgba(120, 170, 220, 0.18); transition: background 0.18s;
+  width: 34px; height: 20px; flex: none; border-radius: 999px; position: relative;
+  background: rgba(120, 170, 220, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(120, 170, 220, 0.16);
+  transition: background 0.25s, box-shadow 0.25s;
 }
 .menu-tg .sw::after {
-  content: ''; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px;
-  border-radius: 50%; background: var(--ink-faint); transition: transform 0.18s, background 0.18s;
+  content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+  border-radius: 50%; background: #dfe8f3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45), 0 0 0 0.5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.32s cubic-bezier(0.34, 1.5, 0.64, 1), width 0.18s, background 0.25s;
 }
+.menu-tg:active .sw::after { width: 20px; }
+.menu-tg.on:active .sw::after { transform: translateX(10px); }
 .menu-tg.on { color: var(--ink); }
-.menu-tg.on .sw { background: rgba(53, 231, 255, 0.35); }
-.menu-tg.on .sw::after { transform: translateX(11px); background: var(--cyan); }
+.menu-tg.on > svg { color: var(--cyan); }
+.menu-tg.on .sw {
+  background: linear-gradient(90deg, var(--cyan-dim), var(--cyan));
+  box-shadow: inset 0 0 0 1px rgba(53, 231, 255, 0.5), 0 0 12px rgba(53, 231, 255, 0.28);
+}
+.menu-tg.on .sw::after { transform: translateX(14px); background: #fff; }
+.menu-tg:focus-visible, .seg-b:focus-visible { outline: 1px solid var(--cyan); outline-offset: 1px; }
+
+.menu-sep { height: 1px; margin: 6px 4px; background: var(--line); }
+.menu-it kbd {
+  font-family: var(--mono); font-size: 9.5px; padding: 2px 6px; border-radius: 4px;
+  border: 1px solid var(--line-2); color: var(--ink-faint);
+}
+.menu-set { min-width: 272px; padding: 8px 8px 6px; }
+.menu-set .menu-hd { margin-top: 8px; }
+.menu-set .menu-hd:first-child { margin-top: 2px; }
+/* A text segment: the choice and, under it, what else it changes. */
+.seg-txt .seg-b { flex-direction: column; gap: 1px; height: 38px; }
+.seg-txt .seg-b:not(:has(small)) { height: 30px; }
+.seg-txt .seg-b b { font-weight: 600; font-size: 12px; letter-spacing: 0.02em; }
+.seg-txt .seg-b small { font-family: var(--mono); font-size: 9px; opacity: 0.75; letter-spacing: 0.02em; }
+.seg-b { transition: color 0.18s, background 0.25s var(--ease), box-shadow 0.25s; }
 
 /* The way back in. Hidden while the panel is open, so the edge stays clean. */
 #shellOpen {
@@ -375,19 +446,26 @@ html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
 body.shell-off #shellOpen { opacity: 1; pointer-events: auto; transform: none; }
 body.is-booting #shellOpen { opacity: 0 !important; pointer-events: none; }
 
-/* The colour key, which only exists while the panel that normally carries it
-   is folded away. Sits directly under the way back in, so the key and the
-   switches that change it are in the same place. */
+/* The colour key. With the panel open it sits on the map at the panel's
+   bottom edge; with the panel folded it takes the panel's place, directly
+   under the way back in. Switched from the Layers menu. */
 #legend {
-  position: fixed; left: 10px; top: 108px; z-index: 15;
-  padding: 9px 12px 10px;
+  position: fixed; left: calc(var(--shell) + 20px); bottom: 10px; z-index: 15;
+  padding: 9px 12px 10px; pointer-events: none;
   background: var(--panel); border: 1px solid var(--line);
   border-radius: var(--r-lg); backdrop-filter: blur(18px) saturate(1.3);
-  opacity: 0; pointer-events: none; transform: translateX(-10px);
-  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease),
+              left 0.45s var(--ease), bottom 0.35s var(--ease);
+  animation: lg-in 0.35s var(--ease);
 }
-body.shell-off #legend { opacity: 1; transform: none; }
+@keyframes lg-in { from { opacity: 0; transform: translateY(6px); } }
+body.shell-off #legend { left: 10px; bottom: auto; top: 108px; }
+body.tlapse-on #legend { bottom: 108px; }
+body.shell-off.tlapse-on #legend { bottom: auto; }
 body.is-booting #legend, body.zen #legend { opacity: 0 !important; }
+@media (max-width: 1080px) {
+  body:not(.shell-off) #legend { display: none; }
+}
 .lg-h {
   margin: 0 0 6px; font-family: var(--mono); font-size: 8.5px;
   letter-spacing: 0.19em; text-transform: uppercase; color: var(--ink-faint);
@@ -1014,7 +1092,7 @@ body.tlapse-on #detail { bottom: 108px; }
 .sect.open .sect-hd .cv { transform: rotate(180deg); }
 .sect-bd { display: none; padding: 0 16px 16px; }
 .sect.open .sect-bd { display: block; }
-.sect-bd p { margin: 0 0 10px; font-size: 13px; line-height: 1.68; color: #cfdcec; }
+.sect-bd p { margin: 0 0 10px; font-size: 13px; line-height: 1.68; color: var(--ink-body); }
 .sect-bd p:last-child { margin-bottom: 0; }
 .sect-bd strong { color: var(--ink); font-weight: 600; }
 
@@ -1050,7 +1128,7 @@ body.tlapse-on #detail { bottom: 108px; }
   flex: none; width: auto; min-width: 84px; max-width: 150px;
   font-size: 11.5px; color: var(--ink-faint); line-height: 1.5;
 }
-.fig-v { flex: 1; font-size: 12.5px; line-height: 1.55; color: #cfdcec; }
+.fig-v { flex: 1; font-size: 12.5px; line-height: 1.55; color: var(--ink-body); }
 .fig-v b { font-family: var(--mono); color: var(--ink); font-weight: 600; }
 /* the aside under a figure: what share of the road it covers, why it matters */
 .fig-s { font-size: 11px; color: var(--ink-faint); line-height: 1.5; }
@@ -1234,7 +1312,7 @@ body.tlapse-on #detail { bottom: 108px; }
   width: 26px; height: 26px; display: grid; place-items: center;
   border: 1px solid var(--cyan-dim); border-radius: var(--r-sm);
 }
-.nb-rule-t { flex: 1; font-size: 12.5px; line-height: 1.6; color: #cfdcec; }
+.nb-rule-t { flex: 1; font-size: 12.5px; line-height: 1.6; color: var(--ink-body); }
 .nb-rule-t b { color: var(--ink); }
 
 /* Canada carries a thirteen-row ladder as well as its rules, and 300px is a
@@ -1329,7 +1407,7 @@ table.tbl th {
   font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em;
   text-transform: uppercase; color: var(--ink-faint); font-weight: 500; white-space: nowrap;
 }
-table.tbl td { padding: 7px 9px; border-bottom: 1px solid rgba(120, 170, 220, 0.06); color: #cfdcec; }
+table.tbl td { padding: 7px 9px; border-bottom: 1px solid rgba(120, 170, 220, 0.06); color: var(--ink-body); }
 table.tbl td.n { font-family: var(--mono); text-align: right; color: var(--ink); }
 table.tbl tr:hover td { background: rgba(120, 170, 220, 0.05); }
 table.tbl tr { cursor: pointer; }
@@ -1351,7 +1429,7 @@ table.tbl tr { cursor: pointer; }
 .dc-h { margin: 22px 0 10px; font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
 .dc-h2 { margin-top: 0; font-size: 15px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
 .dc-sec > .dc-h:first-child { margin-top: 0; }
-.dc-p, .dc-list { margin: 0 0 12px; font-size: 12.5px; line-height: 1.65; color: #cfdcec; max-width: 78ch; }
+.dc-p, .dc-list { margin: 0 0 12px; font-size: 12.5px; line-height: 1.65; color: var(--ink-body); max-width: 78ch; }
 .dc-list { padding-left: 20px; }
 .dc-body code {
   font-family: var(--mono); font-size: 0.88em; padding: 1px 5px; border-radius: 3px;
@@ -1444,7 +1522,7 @@ input[type="range"]::-moz-range-thumb {
   padding-left: 10px; border-left: 2px solid transparent;
 }
 .tl-ev b { font-family: var(--mono); font-size: 11px; color: var(--amber); flex: none; width: 34px; }
-.tl-ev span { color: #cfdcec; }
+.tl-ev span { color: var(--ink-body); }
 /* Acts of Congress and system-wide milestones, as against a single road opening. */
 .tl-ev.sys { border-left-color: rgba(255, 181, 69, 0.5); }
 .tl-ev.sys b { color: var(--cyan); }
