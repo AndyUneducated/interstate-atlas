@@ -350,6 +350,44 @@ function mexicanTraffic(p) {
 }
 
 /**
+ * What Taiwan's two highway agencies count on this road.
+ *
+ * The Freeway Bureau's figures are reference volumes per section, with the
+ * unit and the method unstated, so they are given as the bureau names them and
+ * never called AADT. The Highway Bureau's are a survey, weighted here by the
+ * length of road each station stands for.
+ */
+function taiwanTraffic(p) {
+  const tr = p.twTraffic;
+  const meta = app.stats?.twTraffic?.[tr?.kind];
+  if (!tr || !meta) return '';
+  const day = (n) => t('hp.trafficVal', { n: num(n) });
+  const rows = [];
+  let sub;
+  if (tr.kind === 'freeway') {
+    rows.push([t('tw.tr.busiest'), `${day(tr.max)}<span class="fig-s"> · ${esc(tr.maxAt)}</span>`]);
+    rows.push([t('tw.tr.median'), day(tr.weekday)]);
+    rows.push([t('tw.tr.sat'), day(tr.sat)]);
+    rows.push([t('tw.tr.sun'), day(tr.sun)]);
+    if (tr.elevated) {
+      rows.push([t('tw.tr.elevated'), `${day(tr.elevated.weekday)}`
+        + `<span class="fig-s"> · ${t('tw.tr.sections', { n: num(tr.elevated.sections) })}</span>`]);
+    }
+    sub = t('tw.tr.subFwy', { n: num(tr.sections), year: tr.year });
+  } else {
+    rows.push([t('hp.traffic'), day(tr.adt)]);
+    if (tr.stations > 1) rows.push([t('tw.tr.busiestStation'), `${day(tr.max)}<span class="fig-s"> · ${esc(tr.maxAt)}</span>`]);
+    if (tr.heavyShare != null) rows.push([t('mx.tr.trucks'), `<b>${num(tr.heavyShare, 1)}%</b>`]);
+    if (tr.motoShare != null) rows.push([t('tw.tr.moto'), `<b>${num(tr.motoShare, 1)}%</b>`]);
+    sub = t('tw.tr.subPv', { n: num(tr.stations), year: tr.year })
+      + (tr.cover != null && tr.cover < 90 ? ` ${t('tw.tr.partial', { pct: num(tr.cover) })}` : '');
+  }
+  rows.push(['', `<span class="src"><a href="${esc(meta.url)}" target="_blank" rel="noopener">`
+    + `${esc(meta.agency)}</a> · ${esc(meta.licence)}</span>`]);
+  return figBox(t(tr.kind === 'freeway' ? 'tw.tr.titleFwy' : 'tw.tr.titlePv'), sub, rows);
+}
+
+/**
  * What Taiwan's register and Hong Kong's road network record beside the line.
  *
  * The provincial register gives each route's two named ends and the districts
@@ -808,7 +846,7 @@ export async function renderDetail(id) {
   // is long enough to push everything else off the panel, so it waits behind
   // its heading.
   parts.push(section('measured', [
-    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), caFacts(p), mxFacts(p), eaFacts(p), caInventory(p),
+    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), taiwanTraffic(p), caFacts(p), mxFacts(p), eaFacts(p), caInventory(p),
   ].join('').trim()));
   parts.push(section('composition', compositionBlock(types), !dossier));
   // Hong Kong is one jurisdiction, so a breakdown by it says nothing.

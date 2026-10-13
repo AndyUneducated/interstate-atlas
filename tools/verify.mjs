@@ -1115,6 +1115,9 @@ await step('國1 finds National Freeway 1 on its plum-blossom shield', async () 
   await page.waitForTimeout(900);
   const title = await page.textContent('.dt-name');
   if (title.trim() !== 'Fwy 1') throw new Error(`opened ${title}`);
+  const text = await page.textContent('#detail');
+  if (!/What the Freeway Bureau publishes/.test(text)) throw new Error('no Freeway Bureau traffic on Fwy 1');
+  if (!/reference values/.test(text) || /AADT/.test(text)) throw new Error('Fwy 1 traffic not labelled as reference values');
 });
 
 await step('a provincial highway gives the Highway Bureau length and termini', async () => {
@@ -1126,6 +1129,8 @@ await step('a provincial highway gives the Highway Bureau length and termini', a
   const text = await page.textContent('#detail');
   if (!/Highway Bureau/.test(text)) throw new Error('no register length on PH 9');
   if (!/Register termini/.test(text)) throw new Error('no register termini on PH 9');
+  if (!/What the Highway Bureau counts/.test(text)) throw new Error('no survey traffic on PH 9');
+  if (/工程處/.test(text)) throw new Error('PH 9 names a works office as its busiest station');
   if (!(await page.locator('.dt-hd .shield-twp').count())) throw new Error('PH 9 has no 省道 shield');
 });
 await shot('20-taiwan-detail.png');

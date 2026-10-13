@@ -427,12 +427,12 @@ async function loadOfficial() {
       return null;
     }
   };
-  const [mileage, cost, hpms, caTraffic, mxTraffic, fixes] = await Promise.all([
+  const [mileage, cost, hpms, caTraffic, mxTraffic, twTraffic, fixes] = await Promise.all([
     read('fhwa-mileage.json'), read('fhwa-cost.json'), read('hpms.json'),
-    read('ca-traffic.json'), read('mx-traffic.json'), read('fhwa-corrections.json'),
+    read('ca-traffic.json'), read('mx-traffic.json'), read('tw-traffic.json'), read('fhwa-corrections.json'),
   ]);
   if (mileage && fixes) correctMileage(mileage, fixes);
-  return mileage ? { mileage, cost, hpms, caTraffic, mxTraffic } : null;
+  return mileage ? { mileage, cost, hpms, caTraffic, mxTraffic, twTraffic } : null;
 }
 
 /**
@@ -525,6 +525,7 @@ function attachOfficial(routes, ref) {
   attachHpms(routes, ref.hpms);
   attachCanadianTraffic(routes, ref.caTraffic);
   attachMexicanTraffic(routes, ref.mxTraffic);
+  attachTaiwanTraffic(routes, ref.twTraffic);
 
   for (const r of routes) {
     if (r.system !== 'us-interstate') continue;
@@ -1171,18 +1172,7 @@ function attachMexicanTraffic(routes, mx) {
     byDesignation.get(r.designation).push(r);
   }
 
-  const distKm = (pt, line) => {
-    let best = Infinity;
-    for (let i = 1; i < line.length; i++) {
-      const [ax, ay] = line[i - 1];
-      const [bx, by] = line[i];
-      const dx = bx - ax, dy = by - ay;
-      const len = dx * dx + dy * dy;
-      const t = len ? Math.max(0, Math.min(1, ((pt[0] - ax) * dx + (pt[1] - ay) * dy) / len)) : 0;
-      best = Math.min(best, haversineKm(pt, [ax + t * dx, ay + t * dy]));
-    }
-    return best;
-  };
+  const distKm = distToLineKm;
 
   const got = new Map();
   let placed = 0, far = 0, unmatched = 0;
@@ -1234,6 +1224,160 @@ function attachMexicanTraffic(routes, mx) {
   console.log(`  SICT traffic: ${placed} of ${mx.stations.length} stations placed on ${got.size} routes;`
     + ` ${far} more than 5 km from their route, ${unmatched} on a route the atlas does not carry`
     + ` (${unmatchedKeys.size} keys)`);
+}
+
+/** The distance in km from a point to a polyline, closest approach on any segment. */
+function distToLineKm(pt, line) {
+  let best = Infinity;
+  for (let i = 1; i < line.length; i++) {
+    const [ax, ay] = line[i - 1];
+    const [bx, by] = line[i];
+    const dx = bx - ax, dy = by - ay;
+    const len = dx * dx + dy * dy;
+    const t = len ? Math.max(0, Math.min(1, ((pt[0] - ax) * dx + (pt[1] - ay) * dy) / len)) : 0;
+    best = Math.min(best, haversineKm(pt, [ax + t * dx, ay + t * dy]));
+  }
+  return best;
+}
+
+const medianOf = (xs) => {
+  const a = [...xs].sort((x, y) => x - y);
+  const m = Math.floor(a.length / 2);
+  return a.length % 2 ? a[m] : Math.round((a[m - 1] + a[m]) / 2);
+};
+
+/**
+ * Put the two Taiwanese traffic publications on their routes (D-64, D-65).
+ *
+ * The Freeway Bureau publishes a daily reference volume per section and
+ * direction, by section name and with no coordinates, so it goes on the longest
+ * piece of the number, which is the one the register length goes on too. The
+ * two directions of a section are paired by their unordered end names into one
+ * two-way figure; an elevated section is a separate carriageway over the same
+ * ground and is kept out of the mainline figures so it is not counted twice.
+ * The bureau states neither the unit nor the method, so these stay reference
+ * volumes and are not presented as AADT.
+ *
+ * The Highway Bureau's survey stations carry coordinates and the section of
+ * the route each one stands for, so they are placed like Mexico's: on the
+ * nearest piece of their number, within 5 km.
+ */
+function attachTaiwanTraffic(routes, tw) {
+  if (!tw) return;
+  const byKey = new Map();
+  for (const r of routes) {
+    if (r.country !== 'tw') continue;
+    const k = `${r.system}|${r.number}`;
+    if (!byKey.has(k)) byKey.set(k, []);
+    byKey.get(k).push(r);
+  }
+  const round = (v, step) => Math.round(v / step) * step;
+
+  const fw = tw.freeway;
+  if (fw) {
+    const F = Object.fromEntries(fw.fields.map((f, i) => [f, i]));
+    const byNumber = new Map();
+    for (const s of fw.sections) {
+      if (!byNumber.has(s[F.number])) byNumber.set(s[F.number], new Map());
+      const ends = s[F.section].split('-').map((x) => x.trim()).sort().join('|');
+      const key = `${s[F.elevated]}|${ends}`;
+      const pairs = byNumber.get(s[F.number]);
+      if (!pairs.has(key)) pairs.set(key, []);
+      pairs.get(key).push(s);
+    }
+    let attached = 0, unpaired = 0;
+    for (const [number, pairs] of byNumber) {
+      const host = (byKey.get(`tw-freeway|${number}`) ?? []).sort((a, b) => b.mi - a.mi)[0];
+      if (!host) { console.log(`  Freeway Bureau traffic: no Freeway ${number} in the geometry`); continue; }
+      const main = [];
+      const elevated = [];
+      for (const ss of pairs.values()) {
+        const dirs = new Set(ss.map((s) => s[F.dir]));
+        if (ss.length !== 2 || dirs.size !== 2) { unpaired += ss.length; continue; }
+        const sum = (f) => ss[0][F[f]] + ss[1][F[f]];
+        const row = { at: ss[0][F.section], weekday: sum('weekday'), sat: sum('sat'), sun: sum('sun') };
+        (ss[0][F.elevated] ? elevated : main).push(row);
+      }
+      if (!main.length) continue;
+      const top = main.reduce((a, b) => (b.weekday > a.weekday ? b : a));
+      host.twTraffic = {
+        kind: 'freeway',
+        year: fw.year,
+        sections: main.length,
+        max: round(top.weekday, 100),
+        maxAt: top.at,
+        weekday: round(medianOf(main.map((x) => x.weekday)), 100),
+        sat: round(medianOf(main.map((x) => x.sat)), 100),
+        sun: round(medianOf(main.map((x) => x.sun)), 100),
+        elevated: elevated.length
+          ? { sections: elevated.length, weekday: round(medianOf(elevated.map((x) => x.weekday)), 100) }
+          : null,
+      };
+      attached++;
+    }
+    console.log(`  Freeway Bureau traffic: ${attached} of ${byNumber.size} freeways;`
+      + ` ${unpaired} section-directions without a partner left out`);
+  }
+
+  const pv = tw.provincial;
+  if (pv) {
+    const F = Object.fromEntries(pv.fields.map((f, i) => [f, i]));
+    // One station is two rows, one per direction; a one-way road has one.
+    const stations = new Map();
+    for (const s of pv.stations) {
+      const key = `${s[F.number]}|${s[F.station]}|${s[F.lon]}|${s[F.lat]}`;
+      if (!stations.has(key)) stations.set(key, []);
+      stations.get(key).push(s);
+    }
+    const got = new Map();
+    let far = 0, unmatched = 0;
+    for (const rows of stations.values()) {
+      const s = rows[0];
+      const cands = byKey.get(`tw-provincial|${s[F.number]}`);
+      if (!cands) { unmatched++; continue; }
+      const pt = [s[F.lon], s[F.lat]];
+      let host = null;
+      let d = Infinity;
+      for (const r of cands) {
+        const [x0, y0, x1, y1] = r.bbox;
+        if (pt[0] < x0 - 0.1 || pt[0] > x1 + 0.1 || pt[1] < y0 - 0.1 || pt[1] > y1 + 0.1) continue;
+        for (const line of [...r._pieces, ...r._branches]) {
+          const k = distToLineKm(pt, line);
+          if (k < d) { d = k; host = r; }
+        }
+      }
+      if (!host || d > 5) { far++; continue; }
+      const sum = (f) => rows.reduce((acc, x) => acc + (x[F[f]] ?? 0), 0);
+      const st = {
+        place: s[F.place], km: s[F.km] ?? 0, total: sum('total'), moto: sum('moto'),
+        heavy: sum('bus') + sum('truck') + sum('fullTrailer') + sum('semiTrailer'),
+      };
+      if (!(st.total > 0)) continue;
+      if (!got.has(host)) got.set(host, []);
+      got.get(host).push(st);
+    }
+    for (const [r, ss] of got) {
+      const km = ss.reduce((a, s) => a + s.km, 0);
+      const w = (f) => (km > 0 ? ss.reduce((a, s) => a + s[f] * s.km, 0) / km : medianOf(ss.map((s) => s[f])));
+      const avg = w('total');
+      const top = ss.reduce((a, b) => (b.total > a.total ? b : a));
+      const routeKm = (r.offMi ?? r.mi) * KM_PER_MI;
+      r.twTraffic = {
+        kind: 'provincial',
+        year: pv.year,
+        stations: ss.length,
+        adt: round(avg, 100),
+        max: round(top.total, 100),
+        maxAt: top.place,
+        cover: routeKm > 0 ? Math.min(100, Math.round((km / routeKm) * 100)) : null,
+        heavyShare: avg > 0 ? Math.round((w('heavy') / avg) * 1000) / 10 : null,
+        motoShare: avg > 0 ? Math.round((w('moto') / avg) * 1000) / 10 : null,
+      };
+    }
+    console.log(`  Highway Bureau traffic: ${stations.size - far - unmatched} of ${stations.size} stations`
+      + ` placed on ${got.size} routes; ${far} more than 5 km from their route, ${unmatched} on a number`
+      + ' the atlas does not carry');
+  }
 }
 
 /**
@@ -1702,6 +1846,9 @@ async function main() {
         invNum: r.inventoryNumber ?? null,
         admin: r.administra ?? null,
         mxTraffic: r.mxTraffic ?? null,
+        // Taiwan only: the Freeway Bureau's reference volumes on a freeway, the
+        // Highway Bureau's survey on a provincial highway.
+        twTraffic: r.twTraffic ?? null,
         // Where the official length comes from when it is not the Route Log,
         // and Taiwan's register row: its termini, districts and revision date.
         offSrc: r.offSrc ?? null,
@@ -1819,6 +1966,12 @@ async function main() {
         truncated: official.mxTraffic.limitations?.truncated ?? null,
       }
       : null,
+    twTraffic: official?.twTraffic
+      ? Object.fromEntries(['freeway', 'provincial'].filter((k) => official.twTraffic[k]).map((k) => {
+        const t = official.twTraffic[k];
+        return [k, { source: t.source, agency: t.agency, url: t.url, licence: t.licence, year: t.year }];
+      }))
+      : null,
     // The year the states' measurements describe, so a page can date them
     // rather than let a traffic count read as current.
     hpmsYear: HPMS_YEAR,
@@ -1923,7 +2076,7 @@ function accuracySummary(routes) {
 
 // Run only when invoked directly, so one country's step can be exercised on
 // its own without the two-hour whole-continent build in front of it.
-export { buildMexico, attachMexicanTraffic, loadOfficial, buildEastAsia };
+export { buildMexico, attachMexicanTraffic, attachTaiwanTraffic, loadOfficial, buildEastAsia };
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((e) => { console.error(e); process.exit(1); });
 }
