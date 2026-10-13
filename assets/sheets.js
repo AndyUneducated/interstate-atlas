@@ -482,7 +482,7 @@ function bars(rows, colourOf, maxOverride) {
     <div class="hbar"${r.st ? ` data-st="${r.st}" style="cursor:pointer"` : ''}>
       <span class="hbar-k">${esc(r.k)}</span>
       <span class="hbar-t"><i style="width:${((r.v / max) * 100).toFixed(1)}%;background:${colourOf(r)}"></i></span>
-      <span class="hbar-v">${num(r.v)}</span>
+      <span class="hbar-v">${num(r.v)}${r.suffix || ''}</span>
     </div>`).join('')}</div>`;
 }
 
@@ -501,10 +501,45 @@ function renderDashboard() {
   }).filter((c) => c.mi > 0);
   const maxCc = Math.max(...countries.map((c) => c.mi));
 
-  const stateRows = Object.entries(s.byState)
+  // Each country ranked against itself: Texas, Ontario and Veracruz are not
+  // on the same scale, and one mixed list was American below its third row.
+  const stateRowsOf = (cc) => Object.entries(s.byState)
+    .filter(([, v]) => v.cc === cc)
     .sort((a, b) => b[1].mi - a[1].mi)
-    .slice(0, 18)
+    .slice(0, 8)
     .map(([st, v]) => ({ k: stateName(st), v: lenOf(v.mi), st, cc: v.cc }));
+  const tollMi = Object.values(s.bySystem).reduce((a, b) => a + (b.tollMi || 0), 0);
+
+  // The shape of each system: how many routes, how long the typical one is,
+  // and how much of it is freeway or tolled.
+  const profile = SYSTEMS.filter((x) => s.bySystem[x.id]).map((x) => {
+    const b = s.bySystem[x.id];
+    const own = app.index.filter((r) => r.sys === x.id);
+    const lens = own.map((r) => r.mi).sort((p, q) => p - q);
+    const longestOwn = own.reduce((m, r) => (!m || r.mi > m.mi ? r : m), null);
+    return {
+      id: x.id, cc: x.cc, colour: x.colour, routes: b.routes, mi: b.mi,
+      median: lens.length ? lens[Math.floor(lens.length / 2)] : 0,
+      gs: b.mi ? (b.gsMi / b.mi) * 100 : 0,
+      toll: b.mi ? ((b.tollMi || 0) / b.mi) * 100 : 0,
+      longest: longestOwn,
+    };
+  });
+
+  // Route lengths fall over three orders of magnitude, so the buckets do too.
+  const EDGES = [0, 10, 25, 50, 100, 250, 500, 1000, Infinity];
+  const hist = EDGES.slice(0, -1).map((lo, i) => {
+    const hi = EDGES[i + 1];
+    const by = { us: 0, ca: 0, mx: 0 };
+    for (const r of app.index) if (r.mi >= lo && r.mi < hi) by[countryOf(r.sys)] += 1;
+    return { lo, hi, by, n: by.us + by.ca + by.mx };
+  });
+  const histMax = Math.max(...hist.map((h) => h.n));
+  const edgeLabel = (v) => num(Math.round(lenOf(v) / (v >= 100 ? 10 : 1)) * (v >= 100 ? 10 : 1));
+
+  const widest = app.index.slice().sort((a, b) => b.ns - a.ns || b.mi - a.mi).slice(0, 10);
+  const acc = s.accuracy;
+  const accX = (pct) => 50 + Math.max(-25, Math.min(25, pct)) * 2;
 
   const classTotal = Object.values(s.byType).reduce((a, b) => a + b, 0);
   const classRows = Object.entries(s.byType)
@@ -521,6 +556,8 @@ function renderDashboard() {
       <div class="m"><span class="m-k">${t('dash.routes')}</span><div class="m-v">${num(totalRoutes)}</div></div>
       <div class="m"><span class="m-k">${t('dash.states')}</span><div class="m-v">${num(Object.keys(s.byState).length)}</div></div>
       <div class="m"><span class="m-k">${t('dash.freeway')}</span><div class="m-v">${num(lenOf(freewayMi))}<small>${lenUnit()}</small></div></div>
+      <div class="m"><span class="m-k">${t('dash.tolled')}</span><div class="m-v">${num(lenOf(tollMi))}<small>${lenUnit()}</small></div></div>
+      ${acc ? `<div class="m" title="${esc(t('dash.accWhy', { n: num(acc.routes) }))}"><span class="m-k">${t('dash.accTile')}</span><div class="m-v">${acc.within5}<small>%</small></div></div>` : ''}
     </div>
 
     <div class="dash-card dash-wide">
@@ -547,9 +584,72 @@ function renderDashboard() {
           <p class="hbar-note">${t('dash.byClass.note')}</p></div>
       </div>
       <div class="dash-card">
-        <h3>${t('dash.byState')} · ${t('dash.mostMiles')}</h3>
-        <div class="in">${bars(stateRows, (r) => CC_COLOUR[r.cc] || CC_COLOUR.us)}</div>
+        <h3>${t('dash.lengths')}</h3>
+        <div class="in">
+          <div class="hist" role="img">${hist.map((h) => `
+            <div class="hist-c" title="${num(h.n)}">
+              <span class="hist-n">${num(h.n)}</span>
+              <div class="hist-b" style="height:${((h.n / histMax) * 100).toFixed(1)}%">${['mx', 'ca', 'us'].map((cc) => (h.by[cc]
+                ? `<i style="flex:${h.by[cc]};background:${CC_COLOUR[cc]}"></i>` : '')).join('')}</div>
+              <span class="hist-k">${h.hi === Infinity ? `${edgeLabel(h.lo)}+` : edgeLabel(h.hi)}</span>
+            </div>`).join('')}</div>
+          <ul class="stack-key">${['us', 'ca', 'mx'].map((cc) => `<li><i style="background:${CC_COLOUR[cc]}"></i>${t(`sys.country.${cc}`)}</li>`).join('')}</ul>
+          <p class="hbar-note">${t('dash.lengths.note', { u: lenUnit() })}</p>
+        </div>
       </div>
+    </div>
+
+    <div class="dash-card dash-wide" style="margin-top:20px">
+      <h3>${t('dash.profile')}</h3>
+      <div class="dc-tbl-w"><table class="tbl dash-prof">
+        <thead><tr><th>${t('dash.profile.sys')}</th><th class="r">${t('dash.routes')}</th><th class="r">${t('dash.profile.len')} · ${lenUnit()}</th>
+          <th class="r">${t('dash.profile.median')} · ${lenUnit()}</th><th>${t('dash.profile.gs')}</th><th>${t('dash.profile.toll')}</th><th>${t('dash.profile.longest')}</th></tr></thead>
+        <tbody>${profile.map((p) => `<tr>
+          <td><i class="lg-dot" style="--sys-col:${p.colour}"></i>${t(`sys.${p.id}`)}</td>
+          <td class="r">${num(p.routes)}</td>
+          <td class="r">${num(lenOf(p.mi))}</td>
+          <td class="r">${lenNum(p.median)}</td>
+          <td><span class="pbar"><i style="width:${p.gs.toFixed(1)}%;background:${p.colour}"></i></span><small>${num(p.gs, p.gs < 10 ? 1 : 0)}%</small></td>
+          <td><span class="pbar"><i style="width:${p.toll.toFixed(1)}%;background:var(--amber)"></i></span><small>${num(p.toll, p.toll < 10 ? 1 : 0)}%</small></td>
+          <td>${p.longest ? `<a class="dash-go" data-id="${p.longest.id}">${esc(p.longest.label)}</a> <small>${lenNum(p.longest.mi)}</small>` : ''}</td>
+        </tr>`).join('')}</tbody>
+      </table></div>
+    </div>
+
+    <div class="dash-card dash-wide">
+      <h3>${t('dash.byState')} · ${t('dash.mostMiles')}</h3>
+      <div class="in dash-3">${['us', 'ca', 'mx'].map((cc) => `
+        <div><p class="dash-sub"><span class="flagdot flag-${cc}"></span>${t(`sys.country.${cc}`)}</p>
+          ${bars(stateRowsOf(cc), () => CC_COLOUR[cc])}</div>`).join('')}</div>
+    </div>
+
+    <div class="dash-cols">
+      <div class="dash-card">
+        <h3>${t('dash.widest')}</h3>
+        <div class="in">
+          <div class="hbars">${widest.map((r) => `
+            <div class="hbar hbar-route" data-id="${r.id}">
+              <span class="hbar-k"><b>${r.label}</b><small>${lenNum(r.mi)} ${lenUnit()}</small></span>
+              <span class="hbar-t"><i style="width:${((r.ns / widest[0].ns) * 100).toFixed(1)}%;background:${SYS_COLOUR[r.sys] || 'var(--cyan)'}"></i></span>
+              <span class="hbar-v">${r.ns}</span>
+            </div>`).join('')}</div>
+        </div>
+      </div>
+      ${acc ? `<div class="dash-card">
+        <h3>${t('dash.acc')}</h3>
+        <div class="in">
+          <div class="acc-range">
+            <div class="acc-axis"><span>−25%</span><span>0</span><span>+25%</span></div>
+            <div class="acc-track">
+              <i class="acc-band" style="left:${accX(acc.p10)}%;width:${accX(acc.p90) - accX(acc.p10)}%"></i>
+              <i class="acc-mid" style="left:${accX(acc.median)}%"></i>
+            </div>
+            <p class="acc-k">${t('dash.acc.range', { lo: acc.p10, mid: acc.median > 0 ? `+${acc.median}` : acc.median, hi: `+${acc.p90}` })}</p>
+          </div>
+          ${bars([5, 10, 25].map((w) => ({ k: t('dash.acc.within', { n: w }), v: acc[`within${w}`], suffix: '%' })), () => 'var(--lime)', 100)}
+          <p class="hbar-note">${t('dash.acc.note', { n: num(acc.routes) })}</p>
+        </div>
+      </div>` : ''}
     </div>
 
     <div class="dash-card dash-wide" style="margin-top:20px">
@@ -566,7 +666,7 @@ function renderDashboard() {
 }
 
 function wireDashboard() {
-  for (const row of document.querySelectorAll('.hbar-route[data-id]')) {
+  for (const row of document.querySelectorAll('.hbar-route[data-id], .dash-go[data-id]')) {
     row.addEventListener('click', () => { closeSheet(); select(row.dataset.id); });
   }
   for (const bar of document.querySelectorAll('.hbar[data-st]')) {

@@ -1350,8 +1350,40 @@ html[data-lang="zh"] .nb-lad-lv { letter-spacing: 0.04em; text-transform: none; 
    Dashboard
    ========================================================================== */
 
-.dash-top { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; margin-bottom: 20px; }
-.dash-top .m { padding: 14px 15px; }
+.dash-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; margin-bottom: 20px; }
+/* The detail panel's tiles span a six-column track; these sit in their own. */
+.dash-top .m { padding: 14px 15px; grid-column: auto; }
+.dash-cols + .dash-wide, .dash-wide + .dash-cols { margin-top: 20px; }
+.dash-cols { margin-bottom: 20px; }
+
+/* Route-length histogram: one column per bucket, stacked by country. */
+.hist { display: flex; align-items: flex-end; gap: 6px; height: 170px; padding-top: 4px; }
+.hist-c { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; gap: 4px; min-width: 0; }
+.hist-b { display: flex; flex-direction: column; gap: 1px; border-radius: 4px 4px 1px 1px; overflow: hidden; min-height: 2px; transition: height 0.7s var(--ease); }
+.hist-b i { display: block; min-height: 1px; }
+.hist-n, .hist-k { font-family: var(--mono); font-size: 9.5px; text-align: center; color: var(--ink-faint); }
+.hist-n { color: var(--ink-dim); }
+.hist-c:hover .hist-b { filter: brightness(1.2); }
+
+/* Per-system profile table. */
+.dash-prof td { vertical-align: middle; white-space: nowrap; }
+.dash-prof td .lg-dot { display: inline-block; vertical-align: middle; margin-right: 8px; }
+.dash-prof small { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); margin-left: 6px; }
+.pbar { display: inline-block; vertical-align: middle; width: 64px; height: 6px; border-radius: 3px; background: var(--bg-2); overflow: hidden; }
+.pbar i { display: block; height: 100%; border-radius: 3px; }
+.dash-go { cursor: pointer; font-family: var(--mono); font-size: 11px; }
+.dash-go:hover { text-decoration: underline; }
+.dash-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px 26px; }
+.dash-sub { display: flex; align-items: center; gap: 7px; margin: 0 0 10px; font-size: 12px; color: var(--ink); }
+
+/* Measured-against-official spread: the middle 80% as a band on ±25%. */
+.acc-range { margin-bottom: 16px; }
+.acc-axis { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 9.5px; color: var(--ink-faint); }
+.acc-track { position: relative; height: 14px; margin: 5px 0 6px; border-radius: 7px; background: var(--bg-2); }
+.acc-track::before { content: ''; position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--line-2); }
+.acc-band { position: absolute; top: 3px; bottom: 3px; border-radius: 4px; background: linear-gradient(90deg, rgba(110, 247, 165, 0.25), var(--lime), rgba(110, 247, 165, 0.25)); }
+.acc-mid { position: absolute; top: -2px; bottom: -2px; width: 3px; margin-left: -1.5px; border-radius: 2px; background: var(--ink); box-shadow: 0 0 8px var(--lime); }
+.acc-k { margin: 0; font-size: 11px; color: var(--ink-dim); }
 .dash-top .m-v { font-size: 26px; text-shadow: 0 0 22px rgba(53, 231, 255, 0.18); }
 
 .dash-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
@@ -1485,6 +1517,7 @@ table.dc-tbl .c, table.dc-tbl .r { text-align: center; }
 .cov-note { margin: 0; font-size: 11px; line-height: 1.55; color: var(--ink-faint); }
 @media (max-width: 720px) {
   .dash-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dash-prof th:nth-child(4), .dash-prof td:nth-child(4), .dash-prof th:nth-child(6), .dash-prof td:nth-child(6) { display: none; }
   .hbar-route .hbar-k { width: 140px; max-width: 140px; }
   .dc-card dl { margin-left: 0; }
   .dc-card dl > div { grid-template-columns: 1fr; gap: 0; }
