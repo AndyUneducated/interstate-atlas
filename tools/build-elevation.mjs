@@ -32,7 +32,17 @@ const TILE_URL = 'https://s3.amazonaws.com/elevation-tiles-prod/terrarium';
 const Z = 9;
 const SAMPLES = 220;
 const M_TO_FT = 3.280839895;
-const SEA_FLOOR_M = -30;
+
+// The only dry land in North America below sea level, as [west, south, east,
+// north]. Anywhere else a reading under zero is the bed of the water a bridge,
+// tunnel or ferry crosses: the tiles carry bathymetry.
+const BELOW_SEA_LEVEL = [
+  [-116.7, 31.9, -114.9, 33.9], // Salton Trough, Imperial and Mexicali valleys, Laguna Salada
+  [-117.5, 35.8, -116.3, 36.9], // Death Valley
+  [-90.4, 29.8, -89.8, 30.1], // New Orleans
+  [-121.9, 37.8, -121.3, 38.3], // Sacramento-San Joaquin Delta islands
+];
+const onDryBasin = (lon, lat) => BELOW_SEA_LEVEL.some(([w, s, e, n]) => lon >= w && lon <= e && lat >= s && lat <= n);
 
 const lon2x = (lon, z) => ((lon + 180) / 360) * 2 ** z;
 const lat2y = (lat, z) => {
@@ -77,12 +87,24 @@ async function elevationAt(lon, lat) {
   const px = Math.min(png.width - 1, Math.floor((fx % 1) * png.width));
   const py = Math.min(png.height - 1, Math.floor((fy % 1) * png.height));
   const i = (py * png.width + px) * 4;
-  const m = png.data[i] * 256 + png.data[i + 1] + png.data[i + 2] / 256 - 32768;
-  // The tiles carry bathymetry, so a bridge, an underwater tunnel or a ferry
-  // reads as the floor beneath it. Anything that deep is taken as the water's
-  // surface. Land a little below sea level - the Imperial Valley on I-8 - is
-  // shallower than this and kept; Death Valley (-86 m) would not be.
-  return m < SEA_FLOOR_M ? 0 : m;
+  return png.data[i] * 256 + png.data[i + 1] + png.data[i + 2] / 256 - 32768;
+}
+
+/**
+ * Samples over water (null) take the line between the readings on either
+ * bank, which is roughly a bridge deck and never below the water's surface.
+ */
+function bridgeWater(ft) {
+  for (let i = 0; i < ft.length; i++) {
+    if (ft[i] != null) continue;
+    let j = i;
+    while (j < ft.length && ft[j] == null) j++;
+    const a = ft[i - 1] ?? ft[j] ?? 0;
+    const b = ft[j] ?? a;
+    for (let k = i; k < j; k++) ft[k] = Math.max(0, Math.round(a + ((b - a) * (k - i + 1)) / (j - i + 1)));
+    i = j;
+  }
+  return ft;
 }
 
 function haversineKm(a, b) {
@@ -129,8 +151,11 @@ async function profileFor(feature) {
     const m = await elevationAt(lon, lat);
     // Carry the last good reading across a missing tile rather than punching
     // a hole in the chart.
-    ft.push(m == null ? (ft[ft.length - 1] ?? 0) : Math.round(m * M_TO_FT));
+    if (m == null) ft.push(ft[ft.length - 1] ?? 0);
+    else if (m < 0 && !onDryBasin(lon, lat)) ft.push(null);
+    else ft.push(Math.round(m * M_TO_FT));
   }
+  bridgeWater(ft);
   if (ft.every((v) => v === 0)) return null;
 
   return {
