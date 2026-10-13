@@ -104,8 +104,8 @@ function html(r) {
   const set = data.sets[r[F.set]];
   const len = r[F.lengthM];
   const metres = getUnits() === 'metric'
-    ? `${num(len, len < 100 ? 1 : 0)} m`
-    : `${num(len * 3.28084)} ft`;
+    ? `${num(len, len < 100 ? 1 : 0)} ${t('unit.m')}`
+    : `${num(len * 3.28084)} ${t('unit.ft')}`;
   const where = [
     r[F.route] ? t('bridge.route', { r: esc(r[F.route]) }) : null,
     r[F.road] != null ? `<span lang="es">${esc(data.roads[r[F.road]])}</span>` : null,

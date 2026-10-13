@@ -183,9 +183,12 @@ function hpmsFacts(p) {
   // meaning rather than left as an index nobody reads in inches per mile.
   if (h.iri) {
     const grade = h.iri.v < 95 ? 'good' : h.iri.v <= 170 ? 'fair' : 'poor';
+    // 1 m/km is 63.36 in/mi, the unit the rest of the world reports IRI in.
+    const metricIri = getUnits() === 'metric';
+    const iri = metricIri ? t('hp.iriValM', { n: num(h.iri.v / 63.36, 2) }) : t('hp.iriVal', { n: num(h.iri.v) });
     rows.push([t('hp.pavement'),
-      `<b class="iri-${grade}">${t(`hp.${grade}`)}</b> · ${t('hp.iriVal', { n: num(h.iri.v) })}${cov(h.iri)}`
-      + `<br><span class="fig-s">${t('hp.iriWhy')}</span>`]);
+      `<b class="iri-${grade}">${t(`hp.${grade}`)}</b> · ${iri}${cov(h.iri)}`
+      + `<br><span class="fig-s">${t(metricIri ? 'hp.iriWhyM' : 'hp.iriWhy')}</span>`]);
   }
 
   if (h.rutting && h.cracking) {
