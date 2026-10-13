@@ -3,9 +3,9 @@
 
 import {
   t, getLang, stateName, dist, num, lenOf, lenUnit, isProvince, ownerLabel,
-  countryOfJuris, lenNum,
+  countryOfJuris, lenNum, routeLabel,
 } from './i18n.js';
-import { app, select, loadState, zoomToState } from './app.js';
+import { app, select, loadState, zoomToState, shieldHtml } from './app.js';
 import { SYSTEMS, CLASS_COLOUR, countryOf } from './schema.js';
 
 let current = null;
@@ -218,14 +218,52 @@ function numberingDiagram(sys, opts = {}) {
   };
 }
 
+/* The page is a country first and a system second. Which country it opens on
+   follows the map: whoever is looking at Taiwan is not asking about Ohio. */
+const NB_COUNTRIES = [
+  { cc: 'us', tabs: ['us-interstate', 'us-numbered', 'aux'], sample: (r) => r.label === 'I-95' },
+  { cc: 'ca', tabs: ['ca'], sample: (r) => r.sys === 'ca-tch' && r.num === '1' },
+  { cc: 'cn', tabs: ['cn-expressway', 'cn-national', 'cn-provincial'], sample: (r) => r.id === 'cn-g4' },
+  { cc: 'tw', tabs: ['tw-freeway', 'tw-provincial'], sample: (r) => r.id === 'tw-fwy-1' },
+  { cc: 'hk', tabs: ['hk-route'], sample: (r) => r.id === 'hk-9' },
+];
+const NB_TAB_KEY = { 'us-interstate': 'nb.tab.i', 'us-numbered': 'nb.tab.us', aux: 'nb.tab.aux', ca: 'nb.tab.ca' };
+const NB_CC_SYS = { us: 'us-interstate', ca: 'ca-tch', cn: 'cn-expressway', tw: 'tw-freeway', hk: 'hk-route' };
+const regionOfCc = (cc) => (['cn', 'tw', 'hk'].includes(cc) ? 'ea' : 'na');
+
+// Rough boxes, enough to tell which country the middle of the view is over.
+function nbCountryInView() {
+  const c = app.map?.getCenter();
+  if (app.region === 'ea') {
+    if (c && c.lng > 119.2 && c.lng < 122.4 && c.lat > 21.7 && c.lat < 25.6) return 'tw';
+    if (c && c.lng > 113.8 && c.lng < 114.5 && c.lat > 22.1 && c.lat < 22.6) return 'hk';
+    return 'cn';
+  }
+  if (c && ((c.lat > 49.2 && c.lng > -141) || (c.lat > 45.3 && c.lng > -80 && c.lng < -52))) return 'ca';
+  return 'us';
+}
+
+let nbCountry = null;
+let nbOpenedFor = null;
+const nbTabOf = {};
+
 function renderNumbering() {
+  // Reopened for the same view - a language switch rebuilds the sheet - the
+  // reader stays where they were; opened over a different country, it follows.
+  const here = nbCountryInView();
+  if (here !== nbOpenedFor) { nbCountry = here; nbOpenedFor = here; }
+  const order = [...NB_COUNTRIES].sort((a, b) => (regionOfCc(b.cc) === app.region) - (regionOfCc(a.cc) === app.region));
+  const rail = order.map((c) => {
+    const row = app.index.find(c.sample);
+    return `<button class="nb-cc${c.cc === nbCountry ? ' on' : ''}" data-cc="${c.cc}" type="button" style="--cc:var(--c-${NB_CC_SYS[c.cc]})">
+      <span class="nb-cc-shield">${row ? shieldHtml(row, true) : ''}</span>
+      <span class="nb-cc-t"><i class="flagdot flag-${c.cc}"></i><b>${t(`sys.country.${c.cc}`)}</b>
+        <small>${c.tabs.length > 1 ? t('nb.systems', { n: c.tabs.length }) : t(NB_TAB_KEY[c.tabs[0]] || `sys.${c.tabs[0]}`)}</small></span>
+    </button>`;
+  }).join('');
   const body = `
-    <div class="nb-tabs">
-      <button class="btn on" data-nb="us-interstate" type="button">${t('nb.tab.i')}</button>
-      <button class="btn" data-nb="us-numbered" type="button">${t('nb.tab.us')}</button>
-      <button class="btn" data-nb="aux" type="button">${t('nb.tab.aux')}</button>
-      <button class="btn" data-nb="ca" type="button"><i class="flagdot flag-ca"></i>${t('nb.tab.ca')}</button>
-    </div>
+    <div class="nb-rail" role="tablist">${rail}</div>
+    <div class="nb-tabs" id="nbTabs"></div>
     <div id="nbBody"></div>`;
   return frame('nb.title', 'nb.sub', body);
 }
@@ -233,6 +271,8 @@ function renderNumbering() {
 function nbPane(kind) {
   if (kind === 'aux') return nbAuxPane();
   if (kind === 'ca') return nbCanadaPane();
+  if (kind === 'cn-provincial') return nbProvincialPane();
+  if (PLATES[kind]) return nbPlatePane(kind);
   const d = numberingDiagram(kind);
   const zh = getLang() === 'zh';
   const isI = kind === 'us-interstate';
@@ -255,7 +295,7 @@ function nbPane(kind) {
         : ['Why invert it', 'The US route grid was already thirty years old when the Interstates began in 1956. Reversing the new grid meant a driver could never confuse the two systems in the same corridor.'],
     ];
 
-  return `<div class="nb-wrap">
+  return `${anatomy(kind)}<div class="nb-wrap">
     <div class="nb-viz">${d.svg}
       <p style="margin:10px 2px 0;font-family:var(--mono);font-size:9.5px;color:var(--ink-faint)">
         ${zh ? '每条线的位置来自该公路在本图谱中的实测中心坐标' : 'Each line is placed at the route’s measured centre position in this atlas'}
@@ -288,7 +328,7 @@ function nbAuxPane() {
   }
   const mostReused = [...dup.entries()].sort((a, b) => b[1].size - a[1].size).slice(0, 5);
 
-  return `<div class="nb-wrap">
+  return `${anatomy('aux')}<div class="nb-wrap">
     <div class="nb-viz" style="padding:18px">
       <svg viewBox="0 0 360 200">
         <line class="nb-grid-line" x1="20" y1="150" x2="340" y2="150"/>
@@ -406,7 +446,7 @@ function nbCanadaPane() {
         : 'Technical Circular T-06/96 is the official document on numbering. It contains no geographic or parity rule whatsoever — its entire stated criterion is that “highway numbering decisions are largely determined by the functional classifications of the highway”. The ministry puts it more bluntly: there is no logical connection because there isn’t one.'],
   ];
 
-  return `<div class="nb-wrap ca">
+  return `${anatomy('ca')}<div class="nb-wrap ca">
     <div class="nb-viz">${d.svg}
       <p style="margin:10px 2px 0;font-family:var(--mono);font-size:9.5px;color:var(--ink-faint)">${t('nb.ca.cap')}</p>
     </div>
@@ -432,17 +472,497 @@ function nbCanadaPane() {
   </div>`;
 }
 
-/* Switching language rebuilds the whole sheet, and this used to reopen on the
-   first tab - so a reader part-way through the Canada pane was thrown back to
-   the Interstates for the crime of wanting to read it in the other language. */
-let nbTab = 'us-interstate';
+/* ── number plates: the real lines, coloured by what their number says ──── */
+
+const fourDigit = (p) => {
+  const m = /^G(\d\d)(\d)\d$/.exec(String(p.num ?? ''));
+  return m && m[1][0] !== '9' ? m[2] : null;
+};
+const twoDigit = (p) => (/^G\d\d$/.test(String(p.num ?? '')) ? Number(p.num.slice(1)) : null);
+const unsuffixed = (p) => /^\d+$/.test(String(p.num ?? ''));
+const L = (en, zh) => ({ en, zh });
+
+/* Each class is a rule and a colour. `arrow` asks for the direction the
+   numbers climb to be measured from the atlas's own positions and drawn;
+   `orient` asks for each line's actual run to be checked against the rule. */
+const PLATES = {
+  'cn-expressway': {
+    file: 'cn/expressway.json', centre: [116.4, 39.9],
+    classes: [
+      { key: 'radial', colour: '#ff5a7a', test: (p) => /^G\d$/.test(p.num), arrow: 'radial',
+        h: L('One digit: out of Beijing', '一位数：首都放射线'),
+        p: L('G1 to G7 leave the capital and are numbered clockwise from the north-east - G1 to Harbin, G4 to Hong Kong and Macau, G7 to Ürümqi.',
+          'G1 至 G7 从北京出发，自东北方向起顺时针编号：G1 通哈尔滨，G4 通港澳，G7 通乌鲁木齐。') },
+      { key: 'ns', colour: '#35e7ff', test: (p) => twoDigit(p) != null && twoDigit(p) < 90 && twoDigit(p) % 2 === 1, arrow: 'x', orient: 'ns',
+        h: L('Odd two digits: north–south', '两位奇数：南北纵线'),
+        p: L('Numbered from east to west.', '自东向西编号。') },
+      { key: 'ew', colour: '#ffd166', test: (p) => twoDigit(p) != null && twoDigit(p) < 90 && twoDigit(p) % 2 === 0, arrow: 'y', orient: 'ew',
+        h: L('Even two digits: east–west', '两位偶数：东西横线'),
+        p: L('Numbered from north to south.', '自北向南编号。') },
+      { key: 'ring', colour: '#a98bff', test: (p) => /^G9\d$/.test(p.num),
+        h: L('9 and a digit: regional rings', '9 字头两位数：地区环线'),
+        p: L('Loops around a whole region rather than a city - G94 around the Pearl River Delta, G98 around Hainan.',
+          '环绕整个地区而非单座城市，例如 G94 珠三角环线、G98 海南地区环线。') },
+      { key: 'city', colour: '#6ef7a5', test: (p) => fourDigit(p) === '0',
+        h: L('Parent + 0 + n: city ring', '主线号 + 0 + 序号：城市绕城环线'),
+        p: L('G4201 is the ring around Chengdu, hung off G42.', 'G4201 是挂在 G42 名下的成都绕城高速。') },
+      { key: 'link', colour: '#ff9f68', test: (p) => fourDigit(p) === '1',
+        h: L('Parent + 1 + n: connector', '主线号 + 1 + 序号：联络线'),
+        p: L('A link between lines, named after the line it leaves - G1511 leaves G15.', '连接两条线路的联络线，以其所出的主线命名，例如 G1511 出自 G15。') },
+      { key: 'par', colour: '#f06bff', test: (p) => fourDigit(p) === '2',
+        h: L('Parent + 2 + n: parallel', '主线号 + 2 + 序号：并行线'),
+        p: L('A second road along a busy corridor - G0421 runs beside G4; a one-digit parent is padded with a zero.',
+          '为繁忙走廊另建的平行线路，例如 G0421 与 G4 并行；一位数的主线前面补 0。') },
+      { key: 'other', colour: '#7a8ca6', test: () => true,
+        h: L('Everything else', '其余编号'),
+        p: L('A third digit of 3 and up, the G99xx series and lettered codes. No published rule for these was found.',
+          '第三位为 3 及以上、G99 开头的四位数，以及带字母的编号。本站未找到成文规则。') },
+    ],
+  },
+  'cn-national': {
+    file: 'cn/national.json', centre: [116.4, 39.9],
+    classes: [
+      { key: 'radial', colour: '#ff5a7a', test: (p) => /^G1\d\d$/.test(p.num), arrow: 'radial',
+        h: L('1xx: out of Beijing', '1 字头：首都放射线'),
+        p: L('The ordinary roads follow the expressways\' pattern a digit higher: G101 onwards leave the capital, clockwise.',
+          '普通国道沿用高速的模式，只是多一位：G101 起从北京放射，顺时针编号。') },
+      { key: 'ns', colour: '#35e7ff', test: (p) => /^G2\d\d$/.test(p.num), arrow: 'x', orient: 'ns',
+        h: L('2xx: north–south', '2 字头：南北纵线'),
+        p: L('Broadly east to west from G201 in the north-east. Numbers added later sit among the old ones, so the order is loose - which the measured fit beside this shows.',
+          '从东北的 G201 起，大体自东向西编号。后来增补的号码插在其间，顺序因此松散，旁边的实测吻合度反映的正是这一点。') },
+      { key: 'ew', colour: '#ffd166', test: (p) => /^G3\d\d$/.test(p.num), arrow: 'y', orient: 'ew',
+        h: L('3xx: east–west', '3 字头：东西横线'),
+        p: L('Broadly north to south from G301 in Heilongjiang, loosened the same way.', '从黑龙江的 G301 起，大体自北向南编号，后补号码同样打乱了顺序。') },
+      { key: 'link', colour: '#ff9f68', test: (p) => /^G[5-9]\d\d$/.test(p.num),
+        h: L('5xx and up: connectors', '5 字头及以上：联络线'),
+        p: L('Short links between the grid lines.', '连接纵横干线的联络线。') },
+      { key: 'other', colour: '#7a8ca6', test: () => true, h: L('Everything else', '其余编号'), p: L('', '') },
+    ],
+  },
+  'tw-freeway': {
+    file: 'tw/freeway.json',
+    classes: [
+      { key: 'ns', colour: '#35e7ff', test: (p) => unsuffixed(p) && p.base % 2 === 1, arrow: 'x', orient: 'ns',
+        h: L('Odd: north–south', '奇数：南北向'),
+        p: L('Freeways 1 and 3 run the length of the west, Freeway 5 crosses to Yilan on the east.', '国道 1 号、3 号纵贯西部，国道 5 号通往东部的宜兰。') },
+      { key: 'ew', colour: '#ffd166', test: (p) => unsuffixed(p) && p.base % 2 === 0, arrow: 'y', orient: 'ew',
+        h: L('Even: east–west', '偶数：东西向'),
+        p: L('Short cross-island links, numbered from north to south.', '较短的东西向连络道，自北向南编号。') },
+      { key: 'branch', colour: '#f06bff', test: () => true,
+        h: L('A suffix: a branch', '加“甲”：支线'),
+        p: L('甲, the first of the ten heavenly stems, marks the first branch - 3甲 off Freeway 3.', '天干“甲”表示第一条支线，例如国道 3 号甲线。') },
+    ],
+  },
+  'tw-provincial': {
+    file: 'tw/provincial.json',
+    classes: [
+      { key: 'ew', colour: '#ffd166', test: (p) => unsuffixed(p) && p.base >= 62 && p.base % 2 === 0, arrow: 'y', orient: 'ew',
+        h: L('62–88, even: east–west expressways', '62–88 偶数：东西向快速公路'),
+        p: L('Twelve short expressways from the coast inland, numbered strictly from north to south.', '十二条由海岸通往内陆的快速公路，严格自北向南编号。') },
+      { key: 'coast', colour: '#35e7ff', test: (p) => unsuffixed(p) && p.base >= 61 && p.base % 2 === 1, orient: 'ns',
+        h: L('61 and up, odd: north–south', '61 以上奇数：南北向'),
+        p: L('Provincial Highway 61 is the west-coast expressway.', '台 61 线即西部滨海快速公路。') },
+      { key: 'trunk', colour: '#6ef7a5', test: (p) => unsuffixed(p) && p.base < 61, orient: (p) => (p.base % 2 ? 'ns' : 'ew'),
+        h: L('1–39: the older trunk roads', '1–39：传统省道干线'),
+        p: L('Mostly odd for north–south and even for east–west, with exceptions: Highway 7 is the Northern Cross-Island Highway.',
+          '大体奇数南北、偶数东西，但有例外：台 7 线就是东西向的北部横贯公路。') },
+      { key: 'branch', colour: '#f06bff', test: () => true,
+        h: L('A suffix: a branch', '加天干：支线'),
+        p: L('甲 乙 丙 丁 … in order, so Highway 9 has branches 9甲 to 9戊.', '依天干甲、乙、丙、丁……排序，例如台 9 线有甲线至戊线。') },
+    ],
+  },
+  'hk-route': {
+    file: 'hk/routes.json', perRoute: true,
+    classes: [
+      { key: 'route', colour: '#f06bff', test: () => true,
+        h: L('1 to 10: a name, not a position', '1 至 10 号：只是代号'),
+        p: L('The number says nothing about direction or place. Route 1 runs from Aberdeen through the Cross-Harbour Tunnel to Sha Tin; Route 9 is the circuit of the New Territories.',
+          '编号不表示方向，也不表示位置。1 号干线从香港仔经海底隧道到沙田；9 号干线是环绕新界的环迴线。') },
+    ],
+  },
+};
+const HK_PALETTE = ['#35e7ff', '#ffd166', '#ff5a7a', '#6ef7a5', '#a98bff', '#ff9f68', '#f06bff', '#5aa9ff', '#9be15d', '#ff9ecb'];
+
+const geoCache = new Map();
+function geoOf(file) {
+  if (!geoCache.has(file)) geoCache.set(file, fetch(`data/geo/${file}`).then((r) => r.json()));
+  return geoCache.get(file);
+}
+const linesOf = (g) => (g?.type === 'LineString' ? [g.coordinates] : g?.type === 'MultiLineString' ? g.coordinates : []);
+
+/** Spearman's rank correlation, enough to say whether numbers climb with position. */
+function rankCorr(xs, ys) {
+  const rank = (v) => {
+    const idx = v.map((x, i) => [x, i]).sort((a, b) => a[0] - b[0]);
+    const r = new Array(v.length);
+    idx.forEach(([, i], k) => { r[i] = k; });
+    return r;
+  };
+  const a = rank(xs);
+  const b = rank(ys);
+  const n = a.length;
+  const ma = (n - 1) / 2;
+  let num = 0, da = 0, db = 0;
+  for (let i = 0; i < n; i++) { num += (a[i] - ma) * (b[i] - ma); da += (a[i] - ma) ** 2; db += (b[i] - ma) ** 2; }
+  return da && db ? num / Math.sqrt(da * db) : 0;
+}
+
+function nbPlatePane(kind) {
+  const spec = PLATES[kind];
+  const zh = getLang() === 'zh';
+  const counts = {};
+  for (const r of app.index) {
+    if (r.sys !== kind) continue;
+    const c = spec.classes.find((x) => x.test(r))?.key;
+    counts[c] = (counts[c] || 0) + 1;
+  }
+  const cards = spec.classes.filter((c) => counts[c.key]).map((c) => `
+    <button class="nb-cls" type="button" data-c="${c.key}" style="--k:${c.colour}">
+      <span class="nb-cls-hd"><i></i><b>${c.h[zh ? 'zh' : 'en']}</b><em>${num(counts[c.key])}</em></span>
+      ${c.p[zh ? 'zh' : 'en'] ? `<span class="nb-cls-p">${c.p[zh ? 'zh' : 'en']}</span>` : ''}
+      <span class="nb-fit" data-fit="${c.key}"></span>
+    </button>`).join('');
+  return `${anatomy(kind)}<div class="nb-wrap nb-wrap-plate">
+    <div class="nb-plate" data-plate="${kind}">
+      <div class="nb-read" aria-live="polite"></div>
+      <p class="nb-load">${t('nb.loading')}</p>
+    </div>
+    <div class="nb-note">
+      <h4>${t('nb.plate.h', { sys: t(`sys.${kind}`) })}</h4>
+      <p class="nb-hint">${t('nb.plate.hint')}</p>
+      <div class="nb-clss">${cards}</div>
+    </div>
+  </div>`;
+}
+
+async function drawPlate(kind, host) {
+  const spec = PLATES[kind];
+  let gj;
+  try { gj = await geoOf(spec.file); } catch { host.querySelector('.nb-load').textContent = t('nb.loadFail'); return; }
+  if (!host.isConnected) return;
+  const zh = getLang() === 'zh';
+  const classOf = (p) => spec.classes.find((c) => c.test(p)) || spec.classes[spec.classes.length - 1];
+
+  let lon0 = 180, lon1 = -180, lat0 = 90, lat1 = -90;
+  for (const f of gj.features) {
+    for (const line of linesOf(f.geometry)) {
+      for (const [x, y] of line) {
+        if (x < lon0) lon0 = x; if (x > lon1) lon1 = x;
+        if (y < lat0) lat0 = y; if (y > lat1) lat1 = y;
+      }
+    }
+  }
+  const k = Math.cos(((lat0 + lat1) / 2) * Math.PI / 180);
+  const aspect = ((lon1 - lon0) * k) / (lat1 - lat0);
+  const W = aspect >= 1.1 ? 640 : Math.round(470 * aspect);
+  const H = aspect >= 1.1 ? Math.round(640 / aspect) : 470;
+  const pad = 10;
+  const TOP = 26;
+  const RIGHT = 46;
+  const s = Math.min((W - 2 * pad) / ((lon1 - lon0) * k), (H - 2 * pad) / (lat1 - lat0));
+  const px = (lon) => pad + (lon - lon0) * k * s;
+  const py = (lat) => TOP + pad + (lat1 - lat) * s;
+
+  // Paths, thinned to what the plate can show, and each line's actual run.
+  const fit = {};
+  const paths = [];
+  gj.features.forEach((f) => {
+    const p = f.properties;
+    const cls = classOf(p);
+    let d = '';
+    let bx0 = 180, bx1 = -180, by0 = 90, by1 = -90;
+    for (const line of linesOf(f.geometry)) {
+      let lx = null, ly = null;
+      for (const [x, y] of line) {
+        if (x < bx0) bx0 = x; if (x > bx1) bx1 = x;
+        if (y < by0) by0 = y; if (y > by1) by1 = y;
+        const X = px(x), Y = py(y);
+        if (lx !== null && Math.abs(X - lx) + Math.abs(Y - ly) < 1.1) continue;
+        d += `${lx === null ? 'M' : 'L'}${X.toFixed(1)} ${Y.toFixed(1)}`;
+        lx = X; ly = Y;
+      }
+    }
+    if (!d) return;
+    const want = typeof cls.orient === 'function' ? cls.orient(p) : cls.orient;
+    if (want) {
+      const runs = (by1 - by0) > (bx1 - bx0) * k ? 'ns' : 'ew';
+      fit[cls.key] ??= { ok: 0, n: 0, miss: [] };
+      fit[cls.key].n++;
+      if (runs === want) fit[cls.key].ok++;
+      else fit[cls.key].miss.push(routeLabel(p.label));
+    }
+    const colour = spec.perRoute ? HK_PALETTE[(Number(p.base) - 1) % HK_PALETTE.length] : cls.colour;
+    const name = zh ? (p.plan?.short || p.named?.find((n) => /[\u4e00-\u9fff]/.test(n)) || '') : (p.plan?.en || p.named?.find((n) => !/[\u4e00-\u9fff]/.test(n)) || '');
+    const order = spec.classes.length - spec.classes.indexOf(cls);
+    paths.push([order, `<path class="nb-route nb-geo" data-id="${esc(p.id)}" data-c="${cls.key}" data-label="${esc(routeLabel(p.label))}" data-name="${esc(name)}"
+      stroke="${colour}" stroke-width="${p.tier === 'primary' ? 1.9 : 1.2}" d="${d}"/>`]);
+    if (spec.perRoute) {
+      const mid = linesOf(f.geometry)[0]?.[Math.floor(linesOf(f.geometry)[0].length / 2)];
+      if (mid) paths.push([99, `<text class="nb-hk" x="${px(mid[0]).toFixed(1)}" y="${(py(mid[1]) - 5).toFixed(1)}" fill="${colour}">${esc(p.num)}</text>`]);
+    }
+  });
+  paths.sort((a, b) => a[0] - b[0]);
+
+  // The direction each class climbs, measured rather than asserted.
+  const marks = [];
+  const defs = [];
+  const fitText = {};
+  for (const cls of spec.classes) {
+    if (!cls.arrow) continue;
+    const best = new Map();
+    for (const r of app.index) {
+      if (r.sys !== kind || r.tier !== 'primary' || classOf(r) !== cls) continue;
+      const prev = best.get(r.base);
+      if (!prev || r.mi > prev.mi) best.set(r.base, r);
+    }
+    const rows = [...best.values()].sort((a, b) => a.base - b.base);
+    if (rows.length < 3) continue;
+    defs.push(`<marker id="nbA-${kind}-${cls.key}" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="${cls.colour}"/></marker>`);
+    const first = routeLabel(rows[0].label);
+    const last = routeLabel(rows[rows.length - 1].label);
+    if (cls.arrow === 'radial') {
+      const [cx0, cy0] = [px(spec.centre[0]), py(spec.centre[1])];
+      let prev = null;
+      const angs = rows.map((r) => {
+        let a = Math.atan2(py(r.cy) - cy0, px(r.cx) - cx0);
+        if (prev !== null) { while (a - prev > Math.PI) a -= 2 * Math.PI; while (a - prev < -Math.PI) a += 2 * Math.PI; }
+        prev = a;
+        return a;
+      });
+      const a0 = angs[0];
+      const a1 = angs[angs.length - 1];
+      const R = 30;
+      const pt = (a, rr = R) => [cx0 + Math.cos(a) * rr, cy0 + Math.sin(a) * rr];
+      const [x0, y0] = pt(a0);
+      const [x1, y1] = pt(a1);
+      const sweep = a1 > a0 ? 1 : 0;
+      const large = Math.abs(a1 - a0) > Math.PI ? 1 : 0;
+      const [lx0, ly0] = pt(a0, R + 13);
+      const [lx1, ly1] = pt(a1, R + 13);
+      marks.push(`<g class="nb-mark" data-c="${cls.key}">
+        <circle cx="${cx0.toFixed(1)}" cy="${cy0.toFixed(1)}" r="3.2" fill="${cls.colour}"/>
+        <path d="M${x0.toFixed(1)} ${y0.toFixed(1)}A${R} ${R} 0 ${large} ${sweep} ${x1.toFixed(1)} ${y1.toFixed(1)}" stroke="${cls.colour}" class="nb-arc" marker-end="url(#nbA-${kind}-${cls.key})"/>
+        <text x="${lx0.toFixed(1)}" y="${(ly0 + 3).toFixed(1)}" text-anchor="middle" fill="${cls.colour}">${esc(first)}</text>
+        <text x="${lx1.toFixed(1)}" y="${(ly1 + 3).toFixed(1)}" text-anchor="middle" fill="${cls.colour}">${esc(last)}</text>
+      </g>`);
+      fitText[cls.key] = sweep ? t('nb.fit.cw') : t('nb.fit.ccw');
+      continue;
+    }
+    const along = cls.arrow === 'x' ? (r) => r.cx : (r) => r.cy;
+    const rho = rankCorr(rows.map((r) => r.base), rows.map(along));
+    const lo = Math.min(...rows.map(along));
+    const hi = Math.max(...rows.map(along));
+    // Climbing means the arrow runs from the low numbers' side to the high.
+    const up = rho >= 0;
+    if (cls.arrow === 'x') {
+      const xa = px(up ? lo : hi), xb = px(up ? hi : lo);
+      const y = 13;
+      marks.push(`<g class="nb-mark" data-c="${cls.key}">
+        <line x1="${xa.toFixed(1)}" y1="${y}" x2="${xb.toFixed(1)}" y2="${y}" stroke="${cls.colour}" marker-end="url(#nbA-${kind}-${cls.key})"/>
+        <text x="${(xa + (xb > xa ? -4 : 4)).toFixed(1)}" y="${y + 3}" text-anchor="${xb > xa ? 'end' : 'start'}" fill="${cls.colour}">${esc(first)}</text>
+        <text x="${(xb + (xb > xa ? 9 : -9)).toFixed(1)}" y="${y + 3}" text-anchor="${xb > xa ? 'start' : 'end'}" fill="${cls.colour}">${esc(last)}</text>
+      </g>`);
+      fitText[cls.key] = t(up ? 'nb.fit.e' : 'nb.fit.w', { r: Math.abs(rho).toFixed(2) });
+    } else {
+      // Latitude runs up the page, so a positive correlation climbs northward.
+      const ya = py(up ? lo : hi), yb = py(up ? hi : lo);
+      const x = W + 16;
+      marks.push(`<g class="nb-mark" data-c="${cls.key}">
+        <line x1="${x}" y1="${ya.toFixed(1)}" x2="${x}" y2="${yb.toFixed(1)}" stroke="${cls.colour}" marker-end="url(#nbA-${kind}-${cls.key})"/>
+        <text x="${x}" y="${(ya + (yb > ya ? -6 : 12)).toFixed(1)}" text-anchor="middle" fill="${cls.colour}">${esc(first)}</text>
+        <text x="${x}" y="${(yb + (yb > ya ? 16 : -10)).toFixed(1)}" text-anchor="middle" fill="${cls.colour}">${esc(last)}</text>
+      </g>`);
+      fitText[cls.key] = t(up ? 'nb.fit.n' : 'nb.fit.s', { r: Math.abs(rho).toFixed(2) });
+    }
+  }
+
+  host.querySelector('.nb-load')?.remove();
+  host.insertAdjacentHTML('beforeend', `<svg viewBox="0 0 ${W + RIGHT} ${H + TOP}" class="nb-plate-svg">
+    <defs>${defs.join('')}</defs>
+    <g class="nb-geos">${paths.map((x) => x[1]).join('')}</g>${marks.join('')}</svg>`);
+
+  for (const cls of spec.classes) {
+    const el = host.closest('.nb-wrap')?.querySelector(`[data-fit="${cls.key}"]`);
+    if (!el) continue;
+    const parts = [];
+    if (fitText[cls.key]) parts.push(fitText[cls.key]);
+    const f = fit[cls.key];
+    if (f) {
+      parts.push(t('nb.fit.orient', { ok: f.ok, n: f.n }));
+      if (f.miss.length && f.miss.length <= 4) parts.push(`${t('nb.fit.except')} ${f.miss.map(esc).join(zh ? '、' : ', ')}`);
+    }
+    if (parts.length) el.innerHTML = `${f ? `<i class="nb-fit-bar"><i style="width:${(100 * f.ok / f.n).toFixed(0)}%"></i></i>` : ''}${parts.join(' · ')}`;
+  }
+  wirePlate(host);
+}
+
+function wirePlate(host) {
+  const wrap = host.closest('.nb-wrap');
+  const read = host.querySelector('.nb-read');
+  const geos = [...host.querySelectorAll('.nb-geo')];
+  let iso = null;
+  const paintIso = () => {
+    for (const g of geos) g.classList.toggle('dim', !!iso && g.dataset.c !== iso);
+    for (const m of host.querySelectorAll('.nb-mark')) m.classList.toggle('dim', !!iso && m.dataset.c !== iso);
+    for (const c of wrap.querySelectorAll('.nb-cls')) c.classList.toggle('on', c.dataset.c === iso);
+  };
+  for (const c of wrap.querySelectorAll('.nb-cls')) {
+    c.addEventListener('click', () => { iso = iso === c.dataset.c ? null : c.dataset.c; paintIso(); });
+  }
+  host.addEventListener('mouseover', (e) => {
+    const g = e.target.closest('.nb-geo');
+    if (!g) return;
+    for (const x of geos) x.classList.toggle('hot', x.dataset.id === g.dataset.id);
+    read.innerHTML = `<b>${esc(g.dataset.label)}</b>${g.dataset.name ? ` <span>${esc(g.dataset.name)}</span>` : ''}`;
+    read.classList.add('on');
+  });
+  host.addEventListener('mouseleave', () => {
+    for (const x of geos) x.classList.remove('hot');
+    read.classList.remove('on');
+  });
+  host.addEventListener('click', (e) => {
+    const g = e.target.closest('.nb-geo');
+    if (!g) return;
+    closeSheet();
+    select(g.dataset.id);
+  });
+}
+
+/* Provincial roads are numbered by thirty-one provinces at once, so the pane
+   counts the series rather than drawing five thousand lines. */
+const CN_SERIES = [
+  ['radial', /^S1\d\d$/, '#ff5a7a', L('S1xx: out of the provincial capital', 'S1 字头：省会放射线')],
+  ['ns', /^S2\d\d$/, '#35e7ff', L('S2xx: north–south', 'S2 字头：南北纵线')],
+  ['ew', /^S3\d\d$/, '#ffd166', L('S3xx: east–west', 'S3 字头：东西横线')],
+  ['hi', /^S[4-9]\d\d$/, '#ff9f68', L('S4xx and up: connectors and province-specific series', 'S4 字头及以上：联络线与各省自定序列')],
+  ['xway', /^S\d{1,2}$|^S\d{4}$/, '#6ef7a5', L('One, two or four digits: provincial expressways', '一、二或四位数：省级高速公路')],
+];
+
+function nbProvincialPane() {
+  const zh = getLang() === 'zh';
+  const rows = app.index.filter((r) => r.sys === 'cn-provincial');
+  const tally = CN_SERIES.map(([key, re, colour, label]) => {
+    const hit = rows.filter((r) => re.test(String(r.num ?? '')));
+    return { key, colour, label, n: hit.length, mi: hit.reduce((s, r) => s + r.mi, 0) };
+  });
+  const other = rows.length - tally.reduce((s, x) => s + x.n, 0);
+  const max = Math.max(...tally.map((x) => x.n), 1);
+  // The same number in many provinces: each one numbers its own.
+  const where = new Map();
+  for (const r of rows) {
+    if (!where.has(r.num)) where.set(r.num, new Set());
+    where.get(r.num).add(r.st);
+  }
+  const shared = [...where.entries()].sort((a, b) => b[1].size - a[1].size).slice(0, 6);
+  const provinces = new Set(rows.map((r) => r.st)).size;
+  return `${anatomy('cn-provincial')}<div class="nb-wrap nb-wrap-plate">
+    <div class="nb-viz nb-series">
+      ${tally.map((x) => `<div class="nb-ser" style="--k:${x.colour}">
+        <span class="nb-ser-k">${x.label[zh ? 'zh' : 'en']}</span>
+        <span class="nb-ser-bar"><i style="width:${(100 * x.n / max).toFixed(1)}%"></i></span>
+        <span class="nb-ser-v">${num(x.n)}<small>${dist(x.mi)}</small></span>
+      </div>`).join('')}
+      ${other ? `<p class="nb-src">${t('nb.cn.other', { n: num(other) })}</p>` : ''}
+      <h4 class="nb-ser-h">${t('nb.cn.shared')}</h4>
+      <div class="nb-shared">${shared.map(([n, sts]) => `<span><b>${esc(n)}</b>${t('nb.cn.inN', { n: sts.size })}</span>`).join('')}</div>
+    </div>
+    <div class="nb-note">
+      <h4>${t('nb.cn.h')}</h4>
+      <div class="nb-rule"><span class="nb-rule-n">1</span><span class="nb-rule-t">
+        <b>${zh ? '与国道同一套规则，缩到一省之内' : 'The national rule, shrunk to a province'}</b><br>
+        ${zh ? '1 字头从省会放射，2 字头南北、3 字头东西，只是中心换成了省会，范围换成了省界。'
+    : 'Radials out of the provincial capital in the 100s, north–south in the 200s, east–west in the 300s - the national pattern, centred on the capital and bounded by the province.'}
+      </span></div>
+      <div class="nb-rule"><span class="nb-rule-n">2</span><span class="nb-rule-t">
+        <b>${zh ? '每个省各编各的' : 'Every province numbers its own'}</b><br>
+        ${zh ? `本图谱收录 ${provinces} 个省级行政区的省道。号码只在省内唯一，所以同一个 S301 会在许多省份同时出现。`
+    : `Provincial roads from ${provinces} provinces are in this atlas. A number is unique only inside its province, so the same S301 turns up in province after province.`}
+      </span></div>
+      <div class="nb-rule"><span class="nb-rule-n">3</span><span class="nb-rule-t">
+        <b>${zh ? '位数区分高速与普通省道' : 'The digit count tells an expressway'}</b><br>
+        ${zh ? '省级高速用一、二或四位数（S15、S1511），普通省道用三位数（S301）。' : 'Provincial expressways take one, two or four digits (S15, S1511); ordinary provincial roads take three (S301).'}
+      </span></div>
+    </div>
+  </div>`;
+}
+
+/* ── number anatomy: one real number taken apart ────────────────────────── */
+
+const ANATOMY = {
+  'us-interstate': [
+    ['I-95', [['I-', '#8fb4ff', L('Interstate', '州际公路')], ['9', '#35e7ff', L('odd: north–south', '奇数：南北向')], ['5', '#ffd166', L('ends in 5: a long-haul spine', '尾数 5：长途主干线')]]],
+    ['I-80', [['I-', '#8fb4ff', L('Interstate', '州际公路')], ['8', '#35e7ff', L('even: east–west, high = north', '偶数：东西向，号大在北')], ['0', '#ffd166', L('ends in 0: coast to coast', '尾数 0：横贯东西海岸')]]],
+  ],
+  'us-numbered': [
+    ['US 1', [['US ', '#8fb4ff', L('US Route', '美国国道')], ['1', '#35e7ff', L('odd and lowest: the Atlantic edge', '奇数且最小：贴着大西洋岸')]]],
+    ['US 50', [['US ', '#8fb4ff', L('US Route', '美国国道')], ['5', '#35e7ff', L('even: east–west, high = south', '偶数：东西向，号大在南')], ['0', '#ffd166', L('ends in 0: transcontinental', '尾数 0：横贯大陆')]]],
+  ],
+  aux: [
+    ['I-275', [['2', '#6ef7a5', L('even first digit: a loop, both ends on the parent', '首位偶数：环线，两端都接主路')], ['75', '#35e7ff', L('the parent: I-75', '母路：I-75')]]],
+    ['I-175', [['1', '#ffb545', L('odd first digit: a spur, one end only', '首位奇数：支线，只接一端')], ['75', '#35e7ff', L('the parent: I-75', '母路：I-75')]]],
+  ],
+  ca: [
+    ['A-440', [['A-', '#8fb4ff', L('Québec autoroute', '魁北克高速公路')], ['4', '#6ef7a5', L('even first digit: a bypass', '首位偶数：绕行线')], ['40', '#35e7ff', L('the parent: A-40', '母路：A-40')]]],
+    ['A-720', [['A-', '#8fb4ff', L('Québec autoroute', '魁北克高速公路')], ['7', '#ffb545', L('odd first digit: a spur', '首位奇数：支线')], ['20', '#35e7ff', L('the parent: A-20', '母路：A-20')]]],
+  ],
+  'cn-expressway': [
+    ['G4', [['G', '#2fd37a', L('national (国家)', '国家级')], ['4', '#ff5a7a', L('one digit: the 4th radial out of Beijing', '一位数：第 4 条首都放射线')]]],
+    ['G45', [['G', '#2fd37a', L('national', '国家级')], ['45', '#35e7ff', L('odd: north–south, numbered east to west', '奇数：南北纵线，自东向西编号')]]],
+    ['G4201', [['G', '#2fd37a', L('national', '国家级')], ['42', '#ffd166', L('parent: G42, Shanghai–Chengdu', '主线：G42 沪蓉高速')], ['0', '#6ef7a5', L('0: a city ring', '0：城市绕城环线')], ['1', '#8fb4ff', L('the first such ring', '序号')]]],
+    ['G0421', [['G', '#2fd37a', L('national', '国家级')], ['04', '#ff5a7a', L('parent: G4, padded to two digits', '主线：G4，补零为两位')], ['2', '#f06bff', L('2: a parallel line', '2：并行线')], ['1', '#8fb4ff', L('sequence', '序号')]]],
+  ],
+  'cn-national': [
+    ['G109', [['G', '#ff5a5a', L('national road', '国道')], ['1', '#ff5a7a', L('1: out of Beijing', '1：首都放射线')], ['09', '#8fb4ff', L('9th, clockwise', '顺时针第 9 条')]]],
+    ['G219', [['G', '#ff5a5a', L('national road', '国道')], ['2', '#35e7ff', L('2: north–south', '2：南北纵线')], ['19', '#8fb4ff', L('sequence, east to west', '序号，自东向西')]]],
+    ['G318', [['G', '#ff5a5a', L('national road', '国道')], ['3', '#ffd166', L('3: east–west', '3：东西横线')], ['18', '#8fb4ff', L('sequence, north to south', '序号，自北向南')]]],
+  ],
+  'cn-provincial': [
+    ['S301', [['S', '#f4c542', L('provincial (省)', '省道')], ['3', '#ffd166', L('3: east–west', '3：东西横线')], ['01', '#8fb4ff', L('sequence within the province', '省内序号')]]],
+    ['S15', [['S', '#f4c542', L('provincial', '省道')], ['15', '#6ef7a5', L('two digits: a provincial expressway', '两位数：省级高速')]]],
+  ],
+  'tw-freeway': [
+    ['国道3号甲线', [['国道', '#5aa9ff', L('National Freeway', '国道（高速公路）')], ['3', '#35e7ff', L('odd: north–south', '奇数：南北向')], ['甲', '#f06bff', L('甲: the first branch', '甲：第一条支线')]]],
+  ],
+  'tw-provincial': [
+    ['台74线', [['台', '#ff9f68', L('Provincial Highway', '省道')], ['74', '#ffd166', L('even, 62–88: an east–west expressway', '62–88 偶数：东西向快速公路')]]],
+    ['台9丁线', [['台', '#ff9f68', L('Provincial Highway', '省道')], ['9', '#6ef7a5', L('the east-coast trunk road', '东部纵贯干线')], ['丁', '#f06bff', L('丁: the fourth branch', '丁：第四条支线')]]],
+  ],
+  'hk-route': [
+    ['Route 9', [['Route ', '#f06bff', L('Hong Kong trunk route', '香港干线')], ['9', '#ffd166', L('a label: the New Territories circuit', '只是代号：新界环迴线')]]],
+  ],
+};
+
+function anatomy(kind) {
+  const ex = ANATOMY[kind];
+  if (!ex) return '';
+  const zh = getLang() === 'zh';
+  return `<div class="nb-ana">
+    <span class="nb-ana-k">${t('nb.anatomy')}</span>
+    <div class="nb-ana-chips">${ex.map(([code], i) => `<button type="button" class="nb-ana-chip${i ? '' : ' on'}" data-ana="${i}">${esc(code)}</button>`).join('')}</div>
+    ${ex.map(([, parts], i) => `<div class="nb-ana-code${i ? '' : ' on'}" data-ana="${i}">
+      ${parts.map(([txt, colour, cap]) => `<span class="nb-ana-p" style="--k:${colour}"><b>${esc(txt.trim())}</b><small>${cap[zh ? 'zh' : 'en']}</small></span>`).join('')}
+    </div>`).join('')}
+  </div>`;
+}
+
+function wirePane(body) {
+  for (const chip of body.querySelectorAll('.nb-ana-chip')) {
+    chip.addEventListener('click', () => {
+      for (const el of body.querySelectorAll('[data-ana]')) el.classList.toggle('on', el.dataset.ana === chip.dataset.ana);
+    });
+  }
+  const plate = body.querySelector('.nb-plate');
+  if (plate) drawPlate(plate.dataset.plate, plate);
+}
 
 function wireNumbering() {
   const body = document.getElementById('nbBody');
+  const tabsHost = document.getElementById('nbTabs');
   const paint = (kind) => {
-    nbTab = kind;
+    nbTabOf[nbCountry] = kind;
     body.innerHTML = nbPane(kind);
-    for (const line of body.querySelectorAll('.nb-route[data-id]')) {
+    wirePane(body);
+    for (const line of body.querySelectorAll('.nb-viz .nb-route[data-id]')) {
       line.addEventListener('mouseenter', () => {
         const n = line.dataset.n;
         for (const el of body.querySelectorAll('.nb-route')) el.classList.toggle('dim', el.dataset.n !== n);
@@ -457,14 +977,25 @@ function wireNumbering() {
       line.addEventListener('click', () => { closeSheet(); select(line.dataset.id); });
     }
   };
-  paint(nbTab);
-  for (const tab of document.querySelectorAll('[data-nb]')) {
-    tab.classList.toggle('on', tab.dataset.nb === nbTab);
-    tab.addEventListener('click', () => {
-      for (const o of document.querySelectorAll('[data-nb]')) o.classList.toggle('on', o === tab);
-      paint(tab.dataset.nb);
-    });
-  }
+  // Switching language rebuilds the whole sheet, so the country and the tab
+  // within it are kept rather than thrown back to the first.
+  const showCountry = (cc) => {
+    nbCountry = cc;
+    for (const b of document.querySelectorAll('.nb-cc')) b.classList.toggle('on', b.dataset.cc === cc);
+    const c = NB_COUNTRIES.find((x) => x.cc === cc);
+    const kind = c.tabs.includes(nbTabOf[cc]) ? nbTabOf[cc] : c.tabs[0];
+    tabsHost.hidden = c.tabs.length < 2;
+    tabsHost.innerHTML = c.tabs.map((k) => `<button class="btn${k === kind ? ' on' : ''}" data-nb="${k}" type="button">${t(NB_TAB_KEY[k] || `sys.${k}`)}</button>`).join('');
+    for (const tab of tabsHost.querySelectorAll('[data-nb]')) {
+      tab.addEventListener('click', () => {
+        for (const o of tabsHost.querySelectorAll('[data-nb]')) o.classList.toggle('on', o === tab);
+        paint(tab.dataset.nb);
+      });
+    }
+    paint(kind);
+  };
+  for (const b of document.querySelectorAll('.nb-cc')) b.addEventListener('click', () => showCountry(b.dataset.cc));
+  showCountry(nbCountry);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -489,33 +1020,75 @@ function bars(rows, colourOf, maxOverride) {
     </div>`).join('')}</div>`;
 }
 
-function renderDashboard() {
-  const s = app.stats;
-  const totalMi = Object.values(s.bySystem).reduce((a, b) => a + b.mi, 0);
-  const totalRoutes = Object.values(s.bySystem).reduce((a, b) => a + b.routes, 0);
-  const freewayMi = Object.values(s.bySystem).reduce((a, b) => a + b.gsMi, 0);
+/* The page holds the whole atlas and each country in turn. A rail of country
+   cards picks which; every chart below is drawn again for the choice and the
+   headline figures count across from the last one, so switching reads as
+   the same page changing its subject rather than a new page. */
+let dashCc = 'all';
+const dashPrev = {};
 
-  // One row per country, each a bar as long as its network and split into its
-  // systems, so the country split and the system split read off one chart.
-  const countries = DASH_CC.map((cc) => {
+function countryTotals() {
+  const s = app.stats;
+  return DASH_CC.map((cc) => {
     const systems = SYSTEMS.filter((x) => x.cc === cc && s.bySystem[x.id])
       .map((x) => ({ id: x.id, colour: x.colour, ...s.bySystem[x.id] }));
     return { cc, systems, mi: systems.reduce((a, x) => a + x.mi, 0), routes: systems.reduce((a, x) => a + x.routes, 0) };
   }).filter((c) => c.mi > 0);
+}
+
+function renderDashboard() {
+  const countries = countryTotals();
+  const world = countries.reduce((a, c) => a + c.mi, 0);
+  const C = 2 * Math.PI * 15.5;
+  const card = (cc, mi, routes, colour, label) => `
+    <button class="dash-cc${cc === dashCc ? ' on' : ''}" type="button" data-cc="${cc}" style="--cc:${colour}">
+      <svg class="dash-ring" viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15.5"/>
+        <circle class="fg" cx="18" cy="18" r="15.5" stroke-dasharray="${((mi / world) * C).toFixed(2)} ${C.toFixed(2)}"/></svg>
+      <span class="dash-cc-t">${cc === 'all' ? '' : `<i class="flagdot flag-${cc}"></i>`}<b>${label}</b>
+        <small>${num(lenOf(mi))} ${lenUnit()}</small><em>${cc === 'all' ? t('dash.nRoutes', { n: num(routes) }) : `${num((mi / world) * 100, mi / world < 0.1 ? 1 : 0)}%`}</em></span>
+    </button>`;
+  const rail = card('all', world, countries.reduce((a, c) => a + c.routes, 0), '#35e7ff', t('dash.all'))
+    + countries.map((c) => card(c.cc, c.mi, c.routes, CC_COLOUR[c.cc], t(`sys.country.${c.cc}`))).join('');
+  return frame('dash.title', 'dash.sub', `
+    <div class="dash-rail" role="tablist">${rail}</div>
+    <div id="dashBody" class="dash-body">${dashBody(dashCc)}</div>`,
+  { n: num(countries.reduce((a, c) => a + c.routes, 0)) });
+}
+
+function dashBody(cc) {
+  const s = app.stats;
+  const all = cc === 'all';
+  const inCc = (sysId) => all || countryOf(sysId) === cc;
+  const sysStats = Object.entries(s.bySystem).filter(([id]) => inCc(id)).map(([, v]) => v);
+  const totalMi = sysStats.reduce((a, b) => a + b.mi, 0);
+  const totalRoutes = sysStats.reduce((a, b) => a + b.routes, 0);
+  const freewayMi = sysStats.reduce((a, b) => a + b.gsMi, 0);
+  const index = all ? app.index : app.index.filter((r) => countryOf(r.sys) === cc);
+
+  // One row per country, each a bar as long as its network and split into its
+  // systems, so the country split and the system split read off one chart.
+  // A single country gets a row per system instead, on the same idea.
+  const countries = all
+    ? countryTotals()
+    : SYSTEMS.filter((x) => x.cc === cc && s.bySystem[x.id]).map((x) => ({
+      cc, sys: x.id, systems: [{ id: x.id, colour: x.colour, ...s.bySystem[x.id] }],
+      mi: s.bySystem[x.id].mi, routes: s.bySystem[x.id].routes,
+    }));
   const maxCc = Math.max(...countries.map((c) => c.mi));
 
   // Each country ranked against itself: Texas, Ontario and Veracruz are not
   // on the same scale, and one mixed list was American below its third row.
-  const stateRowsOf = (cc) => Object.entries(s.byState)
-    .filter(([, v]) => v.cc === cc)
+  const stateRowsOf = (c, n = 8) => Object.entries(s.byState)
+    .filter(([, v]) => v.cc === c)
     .sort((a, b) => b[1].mi - a[1].mi)
-    .slice(0, 8)
+    .slice(0, n)
     .map(([st, v]) => ({ k: stateName(st), v: lenOf(v.mi), st, cc: v.cc }));
-  const tollMi = Object.values(s.bySystem).reduce((a, b) => a + (b.tollMi || 0), 0);
+  const tollMi = sysStats.reduce((a, b) => a + (b.tollMi || 0), 0);
+  const stateCount = Object.values(s.byState).filter((v) => all || v.cc === cc).length;
 
   // The shape of each system: how many routes, how long the typical one is,
   // and how much of it is freeway or tolled.
-  const profile = SYSTEMS.filter((x) => s.bySystem[x.id]).map((x) => {
+  const profile = SYSTEMS.filter((x) => s.bySystem[x.id] && inCc(x.id)).map((x) => {
     const b = s.bySystem[x.id];
     const own = app.index.filter((r) => r.sys === x.id);
     const lens = own.map((r) => r.mi).sort((p, q) => p - q);
@@ -531,44 +1104,54 @@ function renderDashboard() {
 
   // Route lengths fall over three orders of magnitude, so the buckets do too.
   const EDGES = [0, 10, 25, 50, 100, 250, 500, 1000, Infinity];
+  // Stacked by country for the whole atlas, by system inside one country.
+  const keys = all ? DASH_CC : SYSTEMS.filter((x) => x.cc === cc && s.bySystem[x.id]).map((x) => x.id);
+  const keyOf = all ? (r) => countryOf(r.sys) : (r) => r.sys;
+  const colourOfKey = all ? (k) => CC_COLOUR[k] : (k) => SYS_COLOUR[k];
+  const nameOfKey = all ? (k) => t(`sys.country.${k}`) : (k) => t(`sys.${k}`);
   const hist = EDGES.slice(0, -1).map((lo, i) => {
     const hi = EDGES[i + 1];
-    const by = Object.fromEntries(DASH_CC.map((cc) => [cc, 0]));
-    for (const r of app.index) if (r.mi >= lo && r.mi < hi) by[countryOf(r.sys)] += 1;
+    const by = Object.fromEntries(keys.map((k) => [k, 0]));
+    for (const r of index) if (r.mi >= lo && r.mi < hi) by[keyOf(r)] += 1;
     return { lo, hi, by, n: Object.values(by).reduce((a, b) => a + b, 0) };
   });
-  const histMax = Math.max(...hist.map((h) => h.n));
+  const histMax = Math.max(1, ...hist.map((h) => h.n));
   const edgeLabel = (v) => num(Math.round(lenOf(v) / (v >= 100 ? 10 : 1)) * (v >= 100 ? 10 : 1));
 
-  const widest = app.index.slice().sort((a, b) => b.ns - a.ns || b.mi - a.mi).slice(0, 10);
-  const acc = s.accuracy;
+  const widest = index.slice().sort((a, b) => b.ns - a.ns || b.mi - a.mi).slice(0, 10);
+  // The length check is made against official figures that exist for some
+  // countries only, so it stays with the whole-atlas view.
+  const acc = all ? s.accuracy : null;
   const accX = (pct) => 50 + Math.max(-25, Math.min(25, pct)) * 2;
 
-  const classTotal = Object.values(s.byType).reduce((a, b) => a + b, 0);
-  const classRows = Object.entries(s.byType)
+  const types = all ? s.byType : s.byTypeCc?.[cc];
+  const classTotal = types ? Object.values(types).reduce((a, b) => a + b, 0) : 0;
+  const classRows = types ? Object.entries(types)
     .sort((a, b) => b[1] - a[1])
     .filter(([, v]) => v / classTotal > 0.002)
-    .map(([k, v]) => ({ k: t(`comp.${k}`), v, cls: k }));
+    .map(([k, v]) => ({ k: t(`comp.${k}`), v, cls: k })) : [];
 
-  const longest = app.index.slice().sort((a, b) => b.mi - a.mi).slice(0, 14);
+  const longest = index.slice().sort((a, b) => b.mi - a.mi).slice(0, 14);
   const pctOf = (v, whole) => { const p = (v / whole) * 100; return num(p, p < 10 ? 1 : 0); };
+  const tile = (key, label, v, unit = '') => `<div class="m"><span class="m-k">${label}</span><div class="m-v"><span data-tile="${key}" data-to="${v}">${num(v)}</span>${unit ? `<small>${unit}</small>` : ''}</div></div>`;
+  const stateCols = all ? ['us', 'ca', 'mx', 'cn', 'tw'] : (stateCount > 1 ? [cc] : []);
 
-  return frame('dash.title', 'dash.sub', `
+  return `
     <div class="dash-top">
-      <div class="m"><span class="m-k">${t('dash.totalMi')}</span><div class="m-v">${num(lenOf(totalMi))}<small>${lenUnit()}</small></div></div>
-      <div class="m"><span class="m-k">${t('dash.routes')}</span><div class="m-v">${num(totalRoutes)}</div></div>
-      <div class="m"><span class="m-k">${t('dash.states')}</span><div class="m-v">${num(Object.keys(s.byState).length)}</div></div>
-      <div class="m"><span class="m-k">${t('dash.freeway')}</span><div class="m-v">${num(lenOf(freewayMi))}<small>${lenUnit()}</small></div></div>
-      <div class="m"><span class="m-k">${t('dash.tolled')}</span><div class="m-v">${num(lenOf(tollMi))}<small>${lenUnit()}</small></div></div>
+      ${tile('mi', t('dash.totalMi'), lenOf(totalMi), lenUnit())}
+      ${tile('routes', t('dash.routes'), totalRoutes)}
+      ${tile('states', t('dash.states'), stateCount)}
+      ${tile('fwy', t('dash.freeway'), lenOf(freewayMi), lenUnit())}
+      ${tile('toll', t('dash.tolled'), lenOf(tollMi), lenUnit())}
       ${acc ? `<div class="m" title="${esc(t('dash.accWhy', { n: num(acc.routes) }))}"><span class="m-k">${t('dash.accTile')}</span><div class="m-v">${acc.within5}<small>%</small></div></div>` : ''}
     </div>
 
     <div class="dash-card dash-wide">
-      <h3>${t('dash.bySystem')}</h3>
+      <h3>${t(all ? 'dash.bySystem' : 'dash.bySystemIn', { cc: t(`sys.country.${cc}`) })}</h3>
       <div class="in">
         <div class="cc-rows">${countries.map((c) => `
           <div class="cc-row">
-            <div class="cc-hd"><span class="flagdot flag-${c.cc}"></span><b>${t(`sys.country.${c.cc}`)}</b>
+            <div class="cc-hd">${c.sys ? `<i class="lg-dot" style="--sys-col:${SYS_COLOUR[c.sys]}"></i><b>${t(`sys.${c.sys}`)}</b>` : `<span class="flagdot flag-${c.cc}"></span><b>${t(`sys.country.${c.cc}`)}</b>`}
               <span>${num(lenOf(c.mi))} ${lenUnit()} · ${pctOf(c.mi, totalMi)}% · ${t('dash.nRoutes', { n: num(c.routes) })}</span></div>
             <div class="stack" style="width:${((c.mi / maxCc) * 100).toFixed(1)}%">${c.systems.map((x) => `<i style="flex:${x.mi};background:${x.colour}" title="${esc(t(`sys.${x.id}`))} · ${num(lenOf(x.mi))} ${lenUnit()}"></i>`).join('')}</div>
             <ul class="stack-key">${c.systems.map((x) => `<li><i style="background:${x.colour}"></i>${t(`sys.${x.id}`)}
@@ -578,25 +1161,25 @@ function renderDashboard() {
     </div>
 
     <div class="dash-cols">
-      <div class="dash-card">
+      ${classRows.length ? `<div class="dash-card">
         <h3>${t('dash.byClass')}</h3>
         <div class="in">
           <div class="stack stack-tall">${classRows.map((r) => `<i style="flex:${r.v};background:${CLASS_COLOUR[r.cls] || '#4a5768'}" title="${esc(r.k)}"></i>`).join('')}</div>
           <ul class="stack-key stack-key-col">${classRows.map((r) => `<li><i style="background:${CLASS_COLOUR[r.cls] || '#4a5768'}"></i>${r.k}
             <b>${num(lenOf(r.v))}</b><small>${pctOf(r.v, classTotal)}%</small></li>`).join('')}</ul>
           <p class="hbar-note">${t('dash.byClass.note')}</p></div>
-      </div>
+      </div>` : ''}
       <div class="dash-card">
         <h3>${t('dash.lengths')}</h3>
         <div class="in">
           <div class="hist" role="img">${hist.map((h) => `
             <div class="hist-c" title="${num(h.n)}">
               <span class="hist-n">${num(h.n)}</span>
-              <div class="hist-b" style="height:${((h.n / histMax) * 100).toFixed(1)}%">${[...DASH_CC].reverse().map((cc) => (h.by[cc]
-                ? `<i style="flex:${h.by[cc]};background:${CC_COLOUR[cc]}"></i>` : '')).join('')}</div>
+              <div class="hist-b" style="height:${((h.n / histMax) * 100).toFixed(1)}%">${[...keys].reverse().map((k) => (h.by[k]
+                ? `<i style="flex:${h.by[k]};background:${colourOfKey(k)}"></i>` : '')).join('')}</div>
               <span class="hist-k">${h.hi === Infinity ? `${edgeLabel(h.lo)}+` : edgeLabel(h.hi)}</span>
             </div>`).join('')}</div>
-          <ul class="stack-key">${DASH_CC.map((cc) => `<li><i style="background:${CC_COLOUR[cc]}"></i>${t(`sys.country.${cc}`)}</li>`).join('')}</ul>
+          <ul class="stack-key">${keys.map((k) => `<li><i style="background:${colourOfKey(k)}"></i>${nameOfKey(k)}</li>`).join('')}</ul>
           <p class="hbar-note">${t('dash.lengths.note', { u: lenUnit() })}</p>
         </div>
       </div>
@@ -619,12 +1202,12 @@ function renderDashboard() {
       </table></div>
     </div>
 
-    <div class="dash-card dash-wide">
+    ${stateCols.length ? `<div class="dash-card dash-wide">
       <h3>${t('dash.byState')} · ${t('dash.mostMiles')}</h3>
-      <div class="in dash-3">${['us', 'ca', 'mx', 'cn', 'tw'].map((cc) => `
-        <div><p class="dash-sub"><span class="flagdot flag-${cc}"></span>${t(`sys.country.${cc}`)}</p>
-          ${bars(stateRowsOf(cc), () => CC_COLOUR[cc])}</div>`).join('')}</div>
-    </div>
+      <div class="in ${all ? 'dash-3' : 'dash-1'}">${stateCols.map((c) => `
+        <div><p class="dash-sub"><span class="flagdot flag-${c}"></span>${t(`sys.country.${c}`)}</p>
+          ${bars(stateRowsOf(c, all ? 8 : 16), () => CC_COLOUR[c])}</div>`).join('')}</div>
+    </div>` : ''}
 
     <div class="dash-cols">
       <div class="dash-card">
@@ -665,20 +1248,55 @@ function renderDashboard() {
             <span class="hbar-v">${lenNum(r.mi)}</span>
           </div>`).join('')}</div>
       </div>
-    </div>`, { n: num(totalRoutes) });
+    </div>`;
 }
 
-function wireDashboard() {
-  for (const row of document.querySelectorAll('.hbar-route[data-id], .dash-go[data-id]')) {
+// The headline figures run from what they last said to what they say now.
+function countTiles(host) {
+  const ease = (x) => 1 - (1 - x) ** 3;
+  const t0 = performance.now();
+  const tiles = [...host.querySelectorAll('[data-tile]')].map((el) => ({
+    el, key: el.dataset.tile, to: Number(el.dataset.to), from: dashPrev[el.dataset.tile] ?? 0,
+  }));
+  for (const x of tiles) dashPrev[x.key] = x.to;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const step = (now) => {
+    const k = Math.min(1, (now - t0) / 700);
+    for (const x of tiles) x.el.textContent = num(Math.round(x.from + (x.to - x.from) * ease(k)));
+    if (k < 1 && host.isConnected) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function wireDashBody(host) {
+  for (const row of host.querySelectorAll('.hbar-route[data-id], .dash-go[data-id]')) {
     row.addEventListener('click', () => { closeSheet(); select(row.dataset.id); });
   }
-  for (const bar of document.querySelectorAll('.hbar[data-st]')) {
+  for (const bar of host.querySelectorAll('.hbar[data-st]')) {
     bar.addEventListener('click', () => {
       const st = bar.dataset.st;
       closeSheet();
       loadState(st).then(() => zoomToState(st));
     });
   }
+  host.classList.remove('anim');
+  void host.offsetWidth;
+  host.classList.add('anim');
+  countTiles(host);
+}
+
+function wireDashboard() {
+  const host = document.getElementById('dashBody');
+  for (const b of document.querySelectorAll('.dash-cc')) {
+    b.addEventListener('click', () => {
+      if (b.dataset.cc === dashCc) return;
+      dashCc = b.dataset.cc;
+      for (const o of document.querySelectorAll('.dash-cc')) o.classList.toggle('on', o === b);
+      host.innerHTML = dashBody(dashCc);
+      wireDashBody(host);
+    });
+  }
+  wireDashBody(host);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -1288,7 +1906,7 @@ function renderAbout() {
         <div class="ab-links">${go(copy.links[2][0], copy.links[2][1])}${go(copy.links[3][0], copy.links[3][1])}</div>
       </section>
     </div>
-    <p class="ab-keys"><span>${copy.keys}</span><b>/</b> <b>Ctrl-K</b> ${zh ? '命令面板' : 'command palette'} · <b>F</b> ${zh ? '巡航所选路线' : 'fly the selected route'} · <b>T</b> ${zh ? '三维地形' : '3D terrain'} · <b>Z</b> ${zh ? '隐藏界面' : 'hide the interface'} · <b>L</b> <b>S</b> <b>M</b> ${zh ? '图层、设置、更多' : 'layers, settings, more'} · <b>Esc</b> ${zh ? '返回' : 'back out'}</p>`;
+    <p class="ab-keys"><span>${copy.keys}</span><b>/</b> <b>Ctrl-K</b> ${zh ? '搜索' : 'search'} · <b>F</b> ${zh ? '巡航所选路线' : 'fly the selected route'} · <b>T</b> ${zh ? '三维地形' : '3D terrain'} · <b>Z</b> ${zh ? '隐藏界面' : 'hide the interface'} · <b>L</b> <b>S</b> <b>M</b> ${zh ? '图层、设置、更多' : 'layers, settings, more'} · <b>Esc</b> ${zh ? '返回' : 'back out'}</p>`;
 
   return frame('about.title', 'about.sub', body);
 }

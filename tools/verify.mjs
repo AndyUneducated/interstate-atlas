@@ -140,10 +140,31 @@ await step('interstates rendered', async () => {
   await waitForSource('rt-us-interstate');
 });
 
-await step('results list populated', async () => {
-  await page.waitForSelector('#results .res', { state: 'attached', timeout: 15000 });
-  const n = await page.locator('#results .res').count();
-  if (n < 10) throw new Error(`only ${n} results`);
+await step('the empty search offers both regions\' places and no ranking', async () => {
+  await page.waitForSelector('#results [data-go]', { state: 'attached', timeout: 15000 });
+  const go = await page.$$eval('#results [data-go]', (els) => els.map((e) => e.dataset.go));
+  for (const key of ['l48', 'ak', 'cn', 'tw', 'hk']) if (!go.includes(key)) throw new Error(`no ${key} among ${go}`);
+  if (await page.locator('#results .res').count()) throw new Error('routes listed before anything was typed');
+  if (await page.locator('#resColMi, #resSort, .res-mi').count()) throw new Error('length column still drawn');
+});
+
+await step('search is global: Taiwan from North America, and places and views too', async () => {
+  await page.fill('#q', 'G4');
+  await page.waitForTimeout(400);
+  const first = await page.locator('#results .res[data-id]').first().getAttribute('data-id').catch(() => null);
+  if (first !== 'cn-g4') {
+    await page.fill('#q', '');
+    await page.keyboard.press('Escape');
+    throw new Error(`G4 from the North American view found ${first}`);
+  }
+  await page.fill('#q', 'Ontario');
+  await page.waitForTimeout(300);
+  if (!await page.locator('#results .res-go').filter({ hasText: 'Ontario' }).count()) throw new Error('no place row for Ontario');
+  await page.fill('#q', 'Statistics');
+  await page.waitForTimeout(300);
+  if (!await page.locator('#results .res-go').filter({ hasText: 'Statistics' }).count()) throw new Error('no view row for Statistics');
+  await page.fill('#q', '');
+  await page.keyboard.press('Escape');
 });
 
 await step('the list stays folded until the search box is used', async () => {
@@ -277,8 +298,39 @@ await step('numbering explainer', async () => {
   await page.waitForTimeout(700);
   const lines = await page.locator('.nb-route[data-id]').count();
   if (lines < 8) throw new Error(`only ${lines} grid lines drawn`);
+  if (await page.locator('.nb-cc').count() !== 5) throw new Error('the numbering page does not offer all five countries');
+  if (await page.locator('.nb-cc.on').getAttribute('data-cc') !== 'us') throw new Error('over the US the page did not open on the US');
 });
 await shot('03-numbering.png');
+
+await step('numbering covers China, Taiwan and Hong Kong, drawn from the data', async () => {
+  await page.click('.nb-cc[data-cc="cn"]');
+  await page.waitForSelector('.nb-plate .nb-geo', { timeout: 30000 });
+  const n = await page.locator('.nb-plate .nb-geo').count();
+  if (n < 200) throw new Error(`only ${n} expressways on the plate`);
+  const fits = await page.$$eval('.nb-fit', (els) => els.map((e) => e.textContent.trim()).filter(Boolean));
+  if (!fits.some((f) => /westward/.test(f)) || !fits.some((f) => /southward/.test(f))) throw new Error(`the measured directions are wrong: ${fits.join(' | ')}`);
+  if (!fits.some((f) => /clockwise/.test(f))) throw new Error('no measured direction for the radials');
+  await page.click('.nb-cls[data-c="radial"]');
+  const dimmed = await page.locator('.nb-geo.dim').count();
+  if (dimmed < n / 2) throw new Error('picking a rule did not isolate its roads');
+  await page.click('.nb-ana-chip[data-ana="2"]');
+  if (!(await page.locator('.nb-ana-code.on').textContent()).includes('4201'.slice(0, 2))) throw new Error('the anatomy chip did not switch');
+  await page.waitForTimeout(400);
+  await shot('03a-numbering-cn.png');
+  for (const cc of ['tw', 'hk']) {
+    await page.click(`.nb-cc[data-cc="${cc}"]`);
+    await page.waitForSelector('.nb-plate .nb-geo', { timeout: 15000 });
+  }
+  await page.click('.nb-cc[data-cc="tw"]');
+  await page.click('#nbTabs [data-nb="tw-provincial"]');
+  await page.waitForSelector('.nb-plate .nb-geo', { timeout: 15000 });
+  await page.waitForTimeout(300);
+  const tw = await page.$$eval('.nb-fit', (els) => els.map((e) => e.textContent.trim()).filter(Boolean));
+  if (!tw.some((f) => /southward, ρ = 1\.00/.test(f))) throw new Error(`Taiwan's east–west expressways are not strictly north to south: ${tw.join(' | ')}`);
+  await shot('03b-numbering-tw.png');
+  await page.click('.nb-cc[data-cc="us"]');
+});
 
 await step('dashboard', async () => {
   await page.click('#shClose');
@@ -298,13 +350,36 @@ await step('dashboard charts the countries and the longest routes', async () => 
   if (longest < 10) throw new Error(`only ${longest} longest-route bars`);
 });
 
+await step('statistics switch to one country and back', async () => {
+  const cards = await page.$$eval('.dash-cc', (els) => els.map((e) => e.dataset.cc));
+  if (cards[0] !== 'all' || cards.length !== 7) throw new Error(`country rail is ${cards}`);
+  await page.click('.dash-cc[data-cc="cn"]');
+  await page.waitForTimeout(900);
+  const want = await page.evaluate(async () => {
+    const s = await (await fetch('data/stats.json')).json();
+    return Object.entries(s.bySystem).filter(([k]) => k.startsWith('cn-')).reduce((a, [, v]) => a + v.routes, 0);
+  });
+  const got = Number((await page.locator('[data-tile="routes"]').textContent()).replace(/\D/g, ''));
+  if (got !== want) throw new Error(`China shows ${got} routes, the index has ${want}`);
+  const rows = await page.locator('.cc-row').count();
+  if (rows !== 3) throw new Error(`China should chart its three systems, got ${rows}`);
+  const ids = await page.$$eval('.hbar-route[data-id]', (els) => els.map((e) => e.dataset.id));
+  if (!ids.length || ids.some((id) => !id.startsWith('cn-') && !/^[a-z]{3}-s/.test(id))) throw new Error(`non-Chinese routes in China's lists: ${ids.slice(0, 5)}`);
+  if (!await page.locator('.dash-card .stack-tall').count()) throw new Error('no road-class mix for China');
+  await shot('04c-dashboard-cn.png');
+  await page.click('.dash-cc[data-cc="all"]');
+  await page.waitForTimeout(900);
+  if (await page.locator('.cc-row').count() !== 6) throw new Error('Everywhere did not bring the six countries back');
+});
+
 await step('the More menu opens and closes', async () => {
   await page.click('#shClose');
   await page.click('#btnMore');
   await page.waitForSelector('#menuMore.open', { timeout: 4000 });
-  for (const id of ['btnDash', 'btnNumbering', 'btnTimeline', 'btnPalette', 'btnDocs', 'btnAbout']) {
+  for (const id of ['btnDash', 'btnNumbering', 'btnTimeline', 'btnDocs', 'btnAbout']) {
     if (!await page.locator(`#menuMore #${id}`).isVisible()) throw new Error(`#${id} not in the open menu`);
   }
+  if (await page.locator('#btnPalette').count()) throw new Error('Jump to is still in the More menu');
   // Statistics leads the menu, and the menu is the last thing on the bar.
   const first = await page.evaluate(() => document.querySelector('#menuMore .menu-it')?.id);
   if (first !== 'btnDash') throw new Error(`the More menu starts with #${first}, not Statistics`);
@@ -392,7 +467,18 @@ await step('the settings menu holds units, language, panels, the colour key and 
   for (const sel of ['#unitSeg', '#langSeg', '#themeSeg', '#btnLegend', '#btnZen']) {
     if (!await page.locator(`#menuSettings ${sel}`).isVisible()) throw new Error(`${sel} not in the open settings menu`);
   }
-  // The light panels turn the panel over and leave the map alone.
+  // The light theme turns the panels over and the ground with them; the road
+  // colours stay as they are.
+  const ground = () => page.evaluate(() => {
+    const m = window.__map;
+    const road = m.getStyle().layers.find((l) => l.type === 'line' && l.source === 'rt-us-interstate');
+    return {
+      bg: m.getPaintProperty('background', 'background-color'),
+      water: m.getPaintProperty('water', 'fill-color'),
+      road: road && m.getPaintProperty(road.id, 'line-color'),
+    };
+  });
+  const dark = await ground();
   await page.click('#themeSeg [data-theme="light"]');
   await page.waitForTimeout(300);
   const light = await page.evaluate(() => ({
@@ -402,7 +488,16 @@ await step('the settings menu holds units, language, panels, the colour key and 
   if (light.theme !== 'light' || !/2[34]\d, 2[34]\d, 2[45]\d/.test(light.panel)) {
     throw new Error(`light panels did not apply: ${JSON.stringify(light)}`);
   }
+  const lit = await ground();
+  if (lit.bg !== 'rgb(242,243,240)' || lit.water === dark.water) throw new Error(`the basemap stayed dark: ${JSON.stringify(lit)}`);
+  if (JSON.stringify(lit.road) !== JSON.stringify(dark.road)) throw new Error('the road colours changed with the theme');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(1500);
+  await shot('03c-light.png');
+  await page.keyboard.press('s');
   await page.click('#themeSeg [data-theme="dark"]');
+  await page.waitForTimeout(300);
+  if (JSON.stringify(await ground()) !== JSON.stringify(dark)) throw new Error('switching back did not restore the dark ground');
   await page.keyboard.press('Escape');
 });
 
@@ -456,14 +551,17 @@ await step('buildout scrubber closes', async () => {
   if (ghost !== 'none') throw new Error('ghost network still drawn after closing');
 });
 
-await step('command palette', async () => {
+await step('/ goes to the search box', async () => {
   await dismissSheet();
+  await page.locator('#map canvas').first().click({ position: { x: 600, y: 400 } }).catch(() => {});
   await page.keyboard.press('/');
-  await page.waitForSelector('#palette:not(.hidden)', { timeout: 6000 });
-  await page.fill('#palQ', 'US 66');
+  await page.waitForTimeout(200);
+  if (await page.evaluate(() => document.activeElement?.id) !== 'q') throw new Error('/ did not focus the search box');
+  await page.keyboard.type('US 66');
   await page.waitForTimeout(400);
-  const n = await page.locator('.pal-it').count();
-  if (n < 1) throw new Error('palette empty');
+  if (await page.locator('#results .res[data-id]').count() < 1) throw new Error('no result for US 66');
+  if (await page.locator('#palette').count()) throw new Error('the old palette is still in the page');
+  await page.fill('#q', '');
   await page.keyboard.press('Escape');
 });
 
@@ -492,6 +590,9 @@ await step('language switch to Chinese', async () => {
     return bad;
   });
   if (leftover.length) throw new Error(`untranslated: ${leftover.join(', ')}`);
+  // OSM's name:zh often holds both scripts, "美国;美國"; the map shows the first.
+  const field = await page.evaluate(() => JSON.stringify(window.__map.getLayoutProperty('place_country_major', 'text-field')));
+  if (!field.includes('zh-Hans') || !field.includes('index-of')) throw new Error(`country labels do not prefer Simplified: ${field.slice(0, 160)}`);
 });
 await shot('07-chinese.png');
 
@@ -788,38 +889,15 @@ await step('the unit switch converts, and switches back', async () => {
   if (!(Math.abs(ratio - 1.609) < 0.01 || Math.abs(ratio - 1 / 1.609) < 0.01)) {
     throw new Error(`headline went ${before} -> ${after}, not a unit conversion`);
   }
-  const col = (await page.locator('#resColMi').textContent()).trim();
   await flip();
   if (await read() !== before) throw new Error('switching back does not restore the figure');
-  if ((await page.locator('#resColMi').textContent()).trim() === col) {
-    throw new Error('the list column head does not follow the unit');
-  }
-});
-
-await step('the list says how it is sorted and what its number is', async () => {
-  await page.keyboard.press('Escape');
-  await page.fill('#q', '');
-  await page.waitForTimeout(600);
-  const unsearched = await page.locator('#resSort').textContent();
-  if (!unsearched.trim()) throw new Error('unsearched list does not say how it is ordered');
-  // The right-hand column was a bare number with no unit anywhere on screen.
-  const col = await page.locator('#resColMi').textContent();
-  if (!col.trim()) throw new Error('the mileage column is unlabelled');
-  // And the explanation of what an unsearched list contains has to be reachable.
-  const why = await page.getAttribute('#resSort', 'title');
-  if (!why || why.length < 20) throw new Error('no explanation of the default list');
-
-  await page.fill('#q', 'I-5');
-  await page.waitForTimeout(700);
-  const searched = await page.locator('#resSort').textContent();
-  if (searched === unsearched) throw new Error('sort label does not change when searching');
 });
 
 await step('choosing a route on the map moves the list to it', async () => {
   // The two halves of the screen used to disagree: the map drew the selection
   // and the panel described it, while the list sat wherever it had been left.
   await page.keyboard.press('Escape');
-  await page.fill('#q', '');
+  await page.fill('#q', 'I-');
   await page.waitForTimeout(800);
   await page.locator('#results').evaluate((el) => { el.scrollTop = 0; });
 

@@ -2,8 +2,8 @@
    Detail panel, overlay sheets and the flythrough live in their own modules. */
 
 import {
-  t, setLang, getLang, stateName, dist, num, lenOf, lenName, isProvince, jurisdictionNames,
-  routeLabel, labelAlias, ownerLabel, countryOfJuris, setUnits, getUnits, defaultUnits, lenNum, routeDist,
+  t, setLang, getLang, stateName, dist, num, lenOf, isProvince, jurisdictionNames,
+  routeLabel, labelAlias, countryOfJuris, setUnits, getUnits, defaultUnits,
 } from './i18n.js';
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen } from './sheets.js';
@@ -74,9 +74,7 @@ function applyStaticStrings() {
   for (const el of document.querySelectorAll('[data-count]')) {
     if (el.dataset.n) el.textContent = num(Number(el.dataset.n));
   }
-  document.getElementById('q').placeholder = app.region === 'ea' ? t('search.placeholderEa') : t('search.placeholder');
-  document.getElementById('palQ').placeholder = t('pal.placeholder');
-  for (const el of document.querySelectorAll('#unitSeg [data-u]')) {
+  document.getElementById('q').placeholder = app.region === 'ea' ? t('search.placeholderEa') : t('search.placeholder');  for (const el of document.querySelectorAll('#unitSeg [data-u]')) {
     el.querySelector('b').textContent = t(el.dataset.u === 'metric' ? 'unit.km' : 'unit.mi');
     el.querySelector('small').textContent = t(el.dataset.u === 'metric' ? 'set.unitsMetric' : 'set.unitsImperial');
     el.classList.toggle('on', el.dataset.u === getUnits());
@@ -423,8 +421,13 @@ function renderMapLabels() {
   // localised name; OpenMapTiles exposes name:zh and name:en.
   const map = app.map;
   if (!map || !map.isStyleLoaded()) return;
+  // OSM's name:zh often holds every written form at once - "美国;美國",
+  // "巴哈马 / 巴哈馬" - so the Simplified tag leads, and failing it only the
+  // first form before a separator is shown.
+  const firstOf = (sep, inner) => ['let', 'z', inner, ['let', 'i', ['index-of', sep, ['var', 'z']],
+    ['case', ['>', ['var', 'i'], 0], ['slice', ['var', 'z'], 0, ['var', 'i']], ['var', 'z']]]];
   const field = getLang() === 'zh'
-    ? ['coalesce', ['get', 'name:zh'], ['get', 'name:zh-Hans'], ['get', 'name']]
+    ? firstOf('/', firstOf(' / ', firstOf(';', ['to-string', ['coalesce', ['get', 'name:zh-Hans'], ['get', 'name:zh'], ['get', 'name']]])))
     : ['coalesce', ['get', 'name:en'], ['get', 'name']];
   for (const layer of map.getStyle().layers) {
     if (layer.type !== 'symbol') continue;
@@ -753,6 +756,7 @@ export function setBasemap(mode) {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', mode === 'satellite' ? 'none' : 'visible');
   }
   haloLabels(mode === 'satellite');
+  applyMapTheme();
 
   for (const b of document.querySelectorAll('#basemap [data-base]')) {
     b.classList.toggle('on', b.dataset.base === mode);
@@ -770,15 +774,17 @@ export function toggleTerrain(force) {
   // still flat-shaded; the two controls are otherwise independent.
   // Tilted, the map has a horizon, and without a sky it is a black band. The
   // atmosphere is only worth drawing while there is something to see it above.
+  const light = document.documentElement.dataset.theme === 'light';
+  const ground = light ? '#f2f3f0' : '#05070c';
   map.setSky(next ? {
-    'sky-color': '#071226',
-    'horizon-color': '#1f5480',
-    'fog-color': '#05070c',
+    'sky-color': light ? '#b9d4ec' : '#071226',
+    'horizon-color': light ? '#e8f0f7' : '#1f5480',
+    'fog-color': ground,
     'sky-horizon-blend': 0.55,
     'horizon-fog-blend': 0.6,
     'fog-ground-blend': 0.4,
   } : {
-    'sky-color': '#05070c', 'horizon-color': '#05070c', 'fog-color': '#05070c',
+    'sky-color': ground, 'horizon-color': ground, 'fog-color': ground,
     'sky-horizon-blend': 0, 'horizon-fog-blend': 0, 'fog-ground-blend': 0,
   });
 
@@ -807,7 +813,7 @@ export function toggleTerrain(force) {
 function toggleZen(next = !document.body.classList.contains('zen')) {
   if (next) {
     if (isSheetOpen()) closeSheet();
-    closePalette();
+    setFind(false);
   }
   document.body.classList.toggle('zen', next);
   document.getElementById('btnZen').classList.toggle('on', next);
@@ -830,12 +836,93 @@ function countOverlays() {
   }).catch(() => {});
 }
 
-// The panels only. The road colours were chosen against a near-black ground
-// and the base maps are drawn for one, so the map stays as it is and the
-// light panels sit on it the way paper sits on a light table.
+// The basemap in the light theme, layer by layer, after OpenFreeMap's
+// Positron. Positron is a different style with different layer ids, so rather
+// than swapping styles (which would drop every route layer added since) the
+// dark style's own layers are recoloured in place. The road colours are left
+// alone: they are the data, not the ground.
+const LABEL_LIGHT = { 'text-color': '#2b3440', 'text-halo-color': 'rgba(255,255,255,0.85)' };
+const MOTORWAY_INNER = ['interpolate', ['linear'], ['zoom'], 5.8, 'hsla(0,0%,85%,0.53)', 6, '#fff'];
+const LIGHT_PAINT = {
+  background: { 'background-color': 'rgb(242,243,240)' },
+  water: { 'fill-color': 'rgb(194,200,202)' },
+  landcover_ice_shelf: { 'fill-color': 'hsl(0,0%,98%)' },
+  landcover_glacier: { 'fill-color': 'hsl(0,0%,98%)' },
+  landuse_residential: { 'fill-color': 'rgb(234,234,230)' },
+  landcover_wood: { 'fill-color': 'rgb(220,224,220)', 'fill-pattern': undefined },
+  landuse_park: { 'fill-color': 'rgb(226,233,224)' },
+  waterway: { 'line-color': 'hsl(195,17%,78%)' },
+  water_name: { 'text-color': '#495e91', 'text-halo-color': 'rgba(255,255,255,0.7)' },
+  building: { 'fill-color': 'rgb(234,234,229)', 'fill-outline-color': 'rgb(219,219,218)' },
+  'aeroway-taxiway': { 'line-color': 'hsl(0,0%,88%)' },
+  'aeroway-runway-casing': { 'line-color': 'hsl(0,0%,88%)' },
+  'aeroway-area': { 'fill-color': '#fff' },
+  'aeroway-runway': { 'line-color': '#fff' },
+  road_area_pier: { 'fill-color': 'rgb(242,243,240)' },
+  road_pier: { 'line-color': 'rgb(242,243,240)' },
+  highway_path: { 'line-color': 'rgb(234,234,234)' },
+  highway_minor: { 'line-color': 'hsl(0,0%,88%)' },
+  highway_major_casing: { 'line-color': 'rgb(213,213,213)' },
+  highway_major_inner: { 'line-color': '#fff' },
+  highway_major_subtle: { 'line-color': 'hsla(0,0%,85%,0.69)' },
+  highway_motorway_casing: { 'line-color': 'rgb(213,213,213)' },
+  highway_motorway_inner: { 'line-color': MOTORWAY_INNER },
+  highway_motorway_subtle: { 'line-color': 'hsla(0,0%,85%,0.53)' },
+  railway_transit: { 'line-color': '#dddddd' },
+  railway_transit_dashline: { 'line-color': '#fafafa' },
+  railway_minor: { 'line-color': '#dddddd' },
+  railway_minor_dashline: { 'line-color': '#fafafa' },
+  railway: { 'line-color': '#dddddd' },
+  railway_dashline: { 'line-color': '#fafafa' },
+  highway_name_other: { 'text-color': '#666', 'text-halo-color': '#fff' },
+  highway_name_motorway: { 'text-color': '#666' },
+  boundary_state: { 'line-color': 'hsl(0,0%,70%)' },
+  'boundary_country_z0-4': { 'line-color': 'hsl(0,0%,60%)' },
+  'boundary_country_z5-': { 'line-color': 'hsl(0,0%,60%)' },
+  place_other: LABEL_LIGHT,
+  place_suburb: LABEL_LIGHT,
+  place_village: LABEL_LIGHT,
+  place_town: { ...LABEL_LIGHT, 'text-color': '#1c232c' },
+  place_city: { ...LABEL_LIGHT, 'text-color': '#11161d' },
+  place_city_large: { ...LABEL_LIGHT, 'text-color': '#11161d' },
+  place_state: { ...LABEL_LIGHT, 'text-color': '#55606e' },
+  place_country_other: { ...LABEL_LIGHT, 'text-color': '#11161d' },
+  place_country_minor: { ...LABEL_LIGHT, 'text-color': '#11161d' },
+  place_country_major: { ...LABEL_LIGHT, 'text-color': '#11161d' },
+  ctx: { 'line-color': '#3d6f96', 'line-opacity': 0.22 },
+  hillshade: {
+    'hillshade-shadow-color': '#7d8796',
+    'hillshade-highlight-color': '#ffffff',
+    'hillshade-accent-color': '#b9c2cc',
+  },
+};
+// The dark values, read off the style the first time each layer is touched so
+// that switching back restores exactly what was drawn.
+const darkPaint = new Map();
+function applyMapTheme() {
+  const map = app.map;
+  if (!map?.getLayer('background')) return;
+  const light = document.documentElement.dataset.theme === 'light';
+  for (const [id, paint] of Object.entries(LIGHT_PAINT)) {
+    if (!map.getLayer(id)) continue;
+    if (!darkPaint.has(id)) {
+      darkPaint.set(id, Object.fromEntries(Object.keys(paint).map((k) => [k, map.getPaintProperty(id, k)])));
+    }
+    const dark = darkPaint.get(id);
+    for (const k of Object.keys(paint)) map.setPaintProperty(id, k, light ? paint[k] : dark[k]);
+    // The imagery halo remembers what it covered, which is now the other theme's.
+    if ('text-halo-color' in paint && labelHalo.has(id)) {
+      labelHalo.get(id).color = light ? paint['text-halo-color'] : dark['text-halo-color'];
+    }
+  }
+  if (app.basemap === 'satellite') haloLabels(true);
+}
+
+// The panels follow the theme, and so does the ground under the roads.
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem('ia.theme', theme);
+  applyMapTheme();
   document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#eef2f7' : '#05070c';
   for (const el of document.querySelectorAll('#themeSeg [data-theme]')) {
     el.classList.toggle('on', el.dataset.theme === theme);
@@ -908,6 +995,7 @@ function showRegion(region) {
   }
   renderJumps();
   renderLegend();
+  if (document.getElementById('sysList')?.childElementCount) renderSystems();
   if (document.getElementById('results')?.childElementCount) renderResults();
 }
 
@@ -963,10 +1051,29 @@ function wireRegions() {
   showRegion(regionOfView());
 }
 
+async function jumpTo(r) {
+  setRegionPop(false);
+  app.map.fitBounds(r.bounds, {
+    // No route is selected when you jump to a region, so the detail panel
+    // is not going to open over the view and needs no room reserved.
+    padding: mapPad({ reserveDetail: false }),
+    duration: 1500,
+  });
+  // Flying somewhere with nothing drawn on it is how Alaska came to look
+  // absent in the first place. Alaska now has its four Interstates, but
+  // Hawaii's and Puerto Rico's networks are state routes, which load per
+  // jurisdiction, so bring them along.
+  if (r.st && !app.stateLoaded.has(r.st)) await loadState(r.st);
+}
+
 function renderJumps() {
   const host = document.getElementById('jumps');
   host.innerHTML = '';
-  for (const group of JUMP_GROUPS[app.region] || JUMP_GROUPS.na) {
+  jumpRows(host, app.region, jumpTo);
+}
+
+function jumpRows(host, region, onPick, attr = 'jump') {
+  for (const group of JUMP_GROUPS[region] || JUMP_GROUPS.na) {
     const row = document.createElement('div');
     row.className = 'jump-row';
     if (group !== 'na' && group !== 'ea') {
@@ -982,22 +1089,9 @@ function renderJumps() {
       b.className = 'jump';
       // Addressed by key rather than by position: the row these sit in has
       // grown twice now, and anything counting from the left breaks each time.
-      b.dataset.jump = r.key;
+      b.dataset[attr] = r.key;
       b.textContent = t(r.i18n);
-      b.addEventListener('click', async () => {
-        setRegionPop(false);
-        app.map.fitBounds(r.bounds, {
-          // No route is selected when you jump to a region, so the detail panel
-          // is not going to open over the view and needs no room reserved.
-          padding: mapPad({ reserveDetail: false }),
-          duration: 1500,
-        });
-        // Flying somewhere with nothing drawn on it is how Alaska came to look
-        // absent in the first place. Alaska now has its four Interstates, but
-        // Hawaii's and Puerto Rico's networks are state routes, which load per
-        // jurisdiction, so bring them along.
-        if (r.st && !app.stateLoaded.has(r.st)) await loadState(r.st);
-      });
+      b.addEventListener('click', () => onPick(r));
       row.appendChild(b);
     }
     host.appendChild(row);
@@ -1015,7 +1109,9 @@ function renderSystems() {
   host.innerHTML = '';
   // Grouped by country, because the two sets of tiers are not equivalents of
   // one another and listing all six flat invited reading them as one ladder.
-  for (const cc of COUNTRIES) {
+  // The region on screen comes first, so its switches are the ones in reach.
+  const order = [...COUNTRIES].sort((a, b) => (regionOf(b) === app.region) - (regionOf(a) === app.region));
+  for (const cc of order) {
     const systems = systemsOf(cc);
     if (!systems.length) continue;
     const head = document.createElement('p');
@@ -1119,6 +1215,8 @@ export function searchRoutes(text, { limit = 300, systemsOnly = true } = {}) {
     if (q && String(r.num).toLowerCase() === q) s -= 300;
     if (r.tier === 'primary') s -= 60;
     else if (r.tier === 'auxiliary') s -= 20;
+    // Both halves of the world are searched; the one on screen breaks ties.
+    if (regionOf(countryOf(r.sys)) === app.region) s -= 15;
     return s - Math.min(r.mi, 3000) / 100;
   };
   out.sort((a, b) => rank(a) - rank(b));
@@ -1206,31 +1304,88 @@ export function shieldHtml(r, big = false) {
   return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" title="${title}">${text}</span>`;
 }
 
+const PIN = '<svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/></svg>';
+
+/**
+ * The list under the search box, which searches the whole atlas.
+ *
+ * Typed into, it answers with places first - regions, states, provinces - then
+ * the views, then every route that matches in either half of the world. Left
+ * empty it is a set of places to go, both regions' worth, the one on screen
+ * first. It used to open on the longest routes in view, which read as a
+ * ranking nobody had asked for.
+ */
 function renderResults() {
   const host = document.getElementById('results');
-  const { total, rows } = searchRoutes(query);
+  const q = query.trim();
+  const lq = q.toLowerCase();
+  document.getElementById('resTitle').textContent = t(q ? 'search.results' : 'search.go');
+  host.innerHTML = '';
+  findCursor = -1;
+
+  if (!q) {
+    document.getElementById('resCount').textContent = '';
+    const regions = app.region === 'ea' ? ['ea', 'na'] : ['na', 'ea'];
+    for (const region of regions) {
+      const box = document.createElement('div');
+      box.className = 'jumps res-jumps';
+      jumpRows(box, region, (r) => { setFind(false); jumpTo(r); }, 'go');
+      host.appendChild(box);
+    }
+    host.insertAdjacentHTML('beforeend', `<p class="res-empty res-hint">${t('search.hint')}</p>`);
+    return;
+  }
+
+  const places = REGIONS.filter((r) => t(r.i18n).toLowerCase().includes(lq));
+  const states = Object.keys(app.stats?.byState || {})
+    .filter((st) => stateName(st).toLowerCase().includes(lq) || st.toLowerCase() === lq)
+    .sort((a, b) => stateName(a).localeCompare(stateName(b)))
+    .slice(0, 8);
+  const views = VIEWS.filter((v) => t(v.i18n).toLowerCase().includes(lq));
+  const { total, rows } = searchRoutes(q);
   document.getElementById('resCount').textContent = rows.length
     ? t('search.count', { n: rows.length.toLocaleString(), total: total.toLocaleString() })
     : '';
 
-  // What the list is, when nobody asked it anything. Unsearched, it is the
-  // longest roads in whichever systems are switched on, which is a choice the
-  // list was making silently - a reader could reasonably have read the opening
-  // list as "the important ones" or as all of them.
-  const sort = document.getElementById('resSort');
-  if (sort) {
-    sort.textContent = query ? t('search.sortMatch') : t('search.sortLong');
-    sort.title = query ? t('search.sortMatchWhy') : t('search.sortLongWhy');
-  }
-  const colMi = document.getElementById('resColMi');
-  if (colMi) colMi.textContent = lenName();
-
-  if (!rows.length) {
-    host.innerHTML = `<p class="res-empty">${query ? t('search.none') : t('search.hint')}</p>`;
+  if (!rows.length && !places.length && !states.length && !views.length) {
+    host.innerHTML = `<p class="res-empty">${t('search.none')}</p>`;
     return;
   }
 
   const frag = document.createDocumentFragment();
+  const section = (key) => {
+    const p = document.createElement('p');
+    p.className = 'res-sec';
+    p.textContent = t(key);
+    frag.appendChild(p);
+  };
+  const goRow = (icon, name, sub, onPick) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'res res-go';
+    b.innerHTML = `<span class="res-ico">${icon}</span>
+      <span class="res-txt"><span class="res-name">${name}</span>${sub ? `<span class="res-sub">${sub}</span>` : ''}</span>`;
+    b.addEventListener('click', () => { setFind(false); onPick(); });
+    frag.appendChild(b);
+  };
+
+  if (places.length || states.length) {
+    section('search.places');
+    for (const r of places) {
+      goRow(PIN, t(r.i18n), COUNTRIES.includes(r.group) ? t(`sys.country.${r.group}`) : '', () => jumpTo(r));
+    }
+    for (const st of states) {
+      goRow(PIN, stateName(st), dist(app.stats.byState[st].mi), () => loadState(st).then(() => zoomToState(st)));
+    }
+  }
+  if (views.length) {
+    section('search.views');
+    for (const v of views) {
+      goRow(`<svg viewBox="0 0 24 24"><path d="${v.icon}"/></svg>`, t(v.i18n), '',
+        () => (v.key === 'timeline' ? openTimelapse() : openSheet(v.key)));
+    }
+  }
+  if (rows.length) section('search.routes');
   for (const r of rows) {
     const b = document.createElement('button');
     b.type = 'button';
@@ -1260,8 +1415,7 @@ function renderResults() {
       <span class="res-txt">
         <span class="res-name">${r.label}${written}</span>
         <span class="res-sub">${sub}</span>
-      </span>
-      <span class="res-mi">${lenNum(r.mi)}</span>`;
+      </span>`;
     b.addEventListener('click', () => { setFind(false); select(r.id); });
     frag.appendChild(b);
   }
@@ -1287,8 +1441,9 @@ function setFind(open) {
 }
 
 let findCursor = -1;
+const FIND_ROWS = '#results .res, #results .jump';
 function moveFindCursor(step) {
-  const rows = [...document.querySelectorAll('#results .res')];
+  const rows = [...document.querySelectorAll(FIND_ROWS)];
   if (!rows.length) return;
   findCursor = Math.max(0, Math.min(rows.length - 1, findCursor + step));
   rows.forEach((r, i) => r.classList.toggle('cursor', i === findCursor));
@@ -1330,7 +1485,7 @@ export function toast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('on'), 2600);
 }
 
-/* ── command palette ──────────────────────────────────────────────────── */
+/* ── views, as search finds them ──────────────────────────────────────── */
 
 const VIEWS = [
   { key: 'numbering', i18n: 'nav.numbering', icon: 'M4 9h16M4 15h16M10 3v18M16 3v18' },
@@ -1339,89 +1494,6 @@ const VIEWS = [
   { key: 'docs', i18n: 'nav.docs', icon: 'M6 3h9l4 4v14H6zM9 12h7M9 16h7' },
   { key: 'about', i18n: 'nav.about', icon: 'M12 11v5M12 7.6v.1' },
 ];
-
-let palCursor = 0;
-let palRows = [];
-
-function renderPalette() {
-  const q = document.getElementById('palQ').value.trim().toLowerCase();
-  const host = document.getElementById('palList');
-  palRows = [];
-  host.innerHTML = '';
-
-  const views = VIEWS.filter((v) => !q || t(v.i18n).toLowerCase().includes(q));
-  const states = Object.keys(app.stats?.byState || {})
-    .filter((st) => !q || stateName(st).toLowerCase().includes(q) || st.toLowerCase() === q)
-    .sort();
-  const { rows } = searchRoutes(q, { limit: q ? 40 : 12, systemsOnly: false });
-
-  const section = (label) => {
-    const d = document.createElement('div');
-    d.className = 'pal-sec';
-    d.textContent = label;
-    host.appendChild(d);
-  };
-  const item = (html, onPick) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'pal-it';
-    b.innerHTML = html;
-    const idx = palRows.length;
-    b.addEventListener('click', () => { palRows[idx].pick(); closePalette(); });
-    b.addEventListener('mousemove', () => { palCursor = idx; paintPalCursor(); });
-    host.appendChild(b);
-    palRows.push({ el: b, pick: onPick });
-  };
-
-  if (views.length) {
-    section(t('pal.views'));
-    for (const v of views) {
-      item(`<span class="ico-w"><svg viewBox="0 0 24 24"><path d="${v.icon}"/></svg></span>
-        <span class="pal-it-txt"><span class="pal-it-name">${t(v.i18n)}</span></span>`,
-      () => (v.key === 'timeline' ? openTimelapse() : openSheet(v.key)));
-    }
-  }
-
-  if (rows.length) {
-    section(t('pal.routes'));
-    for (const r of rows) {
-      item(`<span class="ico-w">${shieldHtml(r)}</span>
-        <span class="pal-it-txt"><span class="pal-it-name">${r.label}</span>
-        <span class="pal-it-sub">${ownerLabel(r.sys, r.st)}${r.where ? ` · ${r.where}` : ''} · ${routeDist(r.mi)}</span></span>`,
-      () => select(r.id));
-    }
-  }
-
-  if (states.length && q) {
-    section(t('pal.states'));
-    for (const st of states.slice(0, 8)) {
-      item(`<span class="ico-w"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z"/></svg></span>
-        <span class="pal-it-txt"><span class="pal-it-name">${stateName(st)}</span>
-        <span class="pal-it-sub">${dist(app.stats.byState[st].mi)}</span></span>`,
-      () => loadState(st).then(() => zoomToState(st)));
-    }
-  }
-
-  palCursor = 0;
-  paintPalCursor();
-}
-
-function paintPalCursor() {
-  palRows.forEach((r, i) => r.el.classList.toggle('cursor', i === palCursor));
-  palRows[palCursor]?.el.scrollIntoView({ block: 'nearest' });
-}
-
-export function openPalette() {
-  document.getElementById('palette').classList.remove('hidden');
-  const input = document.getElementById('palQ');
-  input.value = '';
-  renderPalette();
-  input.focus();
-}
-
-function closePalette() {
-  document.getElementById('palette').classList.add('hidden');
-}
 
 export function zoomToState(st) {
   const rows = app.index.filter((r) => r.st === st);
@@ -1456,8 +1528,9 @@ function wire() {
       moveFindCursor(e.key === 'ArrowDown' ? 1 : -1);
       e.preventDefault();
     } else if (e.key === 'Enter') {
-      const rows = document.querySelectorAll('#results .res');
-      rows[Math.max(findCursor, 0)]?.click();
+      const rows = document.querySelectorAll(FIND_ROWS);
+      // With nothing typed, Enter has no best match to take.
+      if (query.trim() || findCursor >= 0) rows[Math.max(findCursor, 0)]?.click();
       if (rows.length) q.blur();
       e.preventDefault();
     } else if (e.key === 'Escape' && document.getElementById('shell').classList.contains('open')) {
@@ -1563,27 +1636,15 @@ function wire() {
   // openTimelapse toggles, and it owns the button's lit state so that closing
   // from the scrubber's own dismiss button leaves the two in step.
   document.getElementById('btnTimeline').addEventListener('click', openTimelapse);
-  document.getElementById('btnPalette').addEventListener('click', () => openPalette());
-
-  document.getElementById('palQ').addEventListener('input', renderPalette);
-  document.getElementById('palette').addEventListener('click', (e) => {
-    if (e.target.id === 'palette') closePalette();
-  });
 
   document.addEventListener('keydown', (e) => {
     const typing = /^(INPUT|TEXTAREA)$/.test(e.target.tagName);
-    const palOpen = !document.getElementById('palette').classList.contains('hidden');
-
-    if (palOpen) {
-      if (e.key === 'Escape') { closePalette(); e.preventDefault(); }
-      if (e.key === 'ArrowDown') { palCursor = Math.min(palCursor + 1, palRows.length - 1); paintPalCursor(); e.preventDefault(); }
-      if (e.key === 'ArrowUp') { palCursor = Math.max(palCursor - 1, 0); paintPalCursor(); e.preventDefault(); }
-      if (e.key === 'Enter') { palRows[palCursor]?.pick(); closePalette(); e.preventDefault(); }
+    if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && !typing && !isZen()) {
+      if (isSheetOpen()) closeSheet();
+      q.focus();
+      q.select();
+      e.preventDefault();
       return;
-    }
-
-    if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && !typing) {
-      openPalette(); e.preventDefault(); return;
     }
     if (e.key === 'Escape') {
       // Ahead of the rest, because with the interface hidden it is the only
@@ -1635,6 +1696,7 @@ async function main() {
       'line-opacity': 0.14,
     },
   });
+  applyMapTheme();
 
   // Every system that starts switched on gets drawn, rather than the
   // Interstates alone. The Trans-Canada is also on by default, and loading

@@ -82,13 +82,6 @@
         <span class="sp"></span>
         <span class="sys-count" id="resCount"></span>
       </div>
-      <!-- The right-hand column was a bare number against every row, and the
-           order of an unsearched list was not stated anywhere. Both are said
-           once, here, rather than repeated down the list. -->
-      <div class="res-cols">
-        <span id="resSort"></span>
-        <span class="res-cols-mi" id="resColMi">Miles</span>
-      </div>
       <div class="results" id="results"></div>
     </div>
   </div>
@@ -98,7 +91,7 @@
   <!-- Three menus, split by what they change. Layers is the map itself: the
        ground and what is drawn on it. Settings is how the interface reads.
        More is every page that explains the atlas. Search is the panel on the
-       left, with the command palette on / and Ctrl-K. -->
+       left, focused by / and Ctrl-K, and finds places and views as well as roads. -->
   <nav class="hud-group" aria-label="Views">
     <div class="menu" id="menuLayers">
       <button class="btn btn-ico" id="btnLayers" type="button" aria-haspopup="true" aria-expanded="false" data-i18n-tip="nav.layers" data-key="L">
@@ -215,10 +208,6 @@
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
           <b data-i18n="nav.timeline">Timeline</b><small data-i18n="nav.timelineSub">watch the network being built</small>
         </button>
-        <button class="menu-it gcard" id="btnPalette" type="button" role="menuitem" style="--c: #c39bff">
-          <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg>
-          <b data-i18n="nav.palette">Jump to</b><small data-i18n="nav.paletteSub">any route, place or view</small><kbd>/</kbd>
-        </button>
         <button class="menu-it gcard" id="btnDocs" type="button" role="menuitem" style="--c: #ff9f68">
           <svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>
           <b data-i18n="nav.docs">Data &amp; sources</b><small data-i18n="nav.docsSub">sources, coverage, decisions, known gaps</small>
@@ -253,22 +242,6 @@
      Docked rather than modal. The point of this control is to watch the map
      change, so it cannot be allowed to cover the map. -->
 <div id="tlapse"></div>
-
-<!-- ── command palette ──────────────────────────────────────────────────── -->
-<div id="palette" class="hidden" role="dialog" aria-modal="true">
-  <div class="pal">
-    <div class="pal-in">
-      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
-      <input id="palQ" type="text" autocomplete="off" spellcheck="false" aria-label="Command palette">
-    </div>
-    <div class="pal-list" id="palList"></div>
-    <div class="pal-ft">
-      <span><b>↑ ↓</b> <span data-i18n="pal.nav">navigate</span></span>
-      <span><b>↵</b> <span data-i18n="pal.open">open</span></span>
-      <span><b>esc</b> <span data-i18n="pal.close">dismiss</span></span>
-    </div>
-  </div>
-</div>
 
 <!-- ── overlay sheet ────────────────────────────────────────────────────── -->
 <div id="sheet" class="hidden" role="dialog" aria-modal="true"><div class="sh" id="sheetInner"></div></div>

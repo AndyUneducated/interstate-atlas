@@ -93,7 +93,6 @@ html[data-theme="light"] .seg { background: rgba(225, 232, 241, 0.8); }
 html[data-theme="light"] .seg-b.on { color: #fff; box-shadow: 0 2px 10px rgba(10, 127, 154, 0.35); }
 html[data-theme="light"] .menu-tg .sw::after { background: #fff; }
 html[data-theme="light"] .menu-tg:not(.on) .sw { background: rgba(28, 58, 98, 0.16); }
-html[data-theme="light"] .pal { background: rgba(248, 250, 253, 0.98); box-shadow: 0 32px 90px rgba(10, 25, 50, 0.35); }
 html[data-theme="light"] .sh { background: rgba(246, 248, 252, 0.95); box-shadow: 0 40px 110px rgba(10, 25, 50, 0.4); }
 html[data-theme="light"] .stmap path { stroke: var(--panel-solid); }
 html[data-theme="light"] .note { color: #6b4a12; }
@@ -432,7 +431,9 @@ html[data-theme="light"] .btn[data-tip]::after { background: rgba(248, 250, 253,
 .menu-it kbd + .sw { margin-left: 2px; }
 .menu-lay {
   display: grid; grid-template-columns: 290px 316px; gap: 0 10px; padding: 8px 8px 6px;
-  max-height: calc(100vh - 76px);
+  /* The row has to be bounded for the columns' own scrolling to engage; left
+     to size itself it grew past the screen and Taiwan and Hong Kong fell off. */
+  grid-template-rows: minmax(0, 1fr); max-height: calc(100vh - 76px);
 }
 .lay-sys, .lay-base { display: flex; flex-direction: column; gap: 1px; min-height: 0; }
 .lay-sys { overflow-y: auto; padding-right: 10px; border-right: 1px solid var(--line); }
@@ -849,19 +850,20 @@ body.tlapse-on #detail { bottom: 108px; }
 .search .clr { position: absolute; right: 9px; top: 9px; width: 24px; height: 24px; }
 .search .clr[hidden] { display: none; }
 
-/* Says what the list is sorted by and what the right-hand number means, once,
-   instead of a unit repeated down three hundred rows. */
-.res-cols {
-  display: flex; align-items: baseline; gap: 8px; padding: 5px 13px 6px;
-  border-bottom: 1px solid var(--line);
-  font-family: var(--mono); font-size: 9px; letter-spacing: 0.13em;
-  text-transform: uppercase; color: var(--ink-faint);
-}
-.res-cols #resSort { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: help; }
-.res-cols-mi { flex: none; }
-
 .results { overflow-y: auto; flex: 1; min-height: 0; }
 .res-empty { padding: 26px 14px; text-align: center; color: var(--ink-faint); font-size: 12px; }
+.res-hint { padding: 10px 16px 14px; text-align: left; line-height: 1.5; }
+.res-sec {
+  padding: 10px 13px 4px; font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint);
+}
+.res-ico { width: 26px; display: grid; place-items: center; flex: none; }
+.res-ico svg { width: 15px; height: 15px; stroke: var(--ink-dim); fill: none; stroke-width: 1.7; }
+.res-go:hover .res-ico svg, .res-go.cursor .res-ico svg { stroke: var(--cyan); }
+/* The empty list: both regions' places, the one on screen first. */
+.res-jumps { padding: 10px 13px 4px; }
+.res-jumps + .res-jumps { border-top: 1px solid var(--line); padding-top: 10px; }
+.jump.cursor { color: var(--cyan); border-color: rgba(53, 231, 255, 0.45); background: rgba(53, 231, 255, 0.08); }
 
 .res {
   display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 13px;
@@ -1077,7 +1079,6 @@ body.tlapse-on #detail { bottom: 108px; }
   display: block; font-family: var(--mono); font-size: 10px; color: var(--ink-faint);
   margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.res-mi { font-family: var(--mono); font-size: 10.5px; color: var(--ink-dim); flex: none; }
 .pill {
   font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.1em;
   text-transform: uppercase; padding: 2px 5px; border-radius: 3px;
@@ -1318,54 +1319,6 @@ body.tlapse-on #detail { bottom: 108px; }
 }
 
 /* ==========================================================================
-   Command palette
-   ========================================================================== */
-
-#palette {
-  position: fixed; inset: 0; z-index: 120; display: grid;
-  place-items: start center; padding-top: 13vh;
-  background: rgba(3, 5, 10, 0.72); backdrop-filter: blur(7px);
-  transition: opacity 0.22s var(--ease), visibility 0.22s;
-}
-#palette.hidden { opacity: 0; visibility: hidden; }
-.pal {
-  width: min(620px, 92vw); background: rgba(10, 14, 24, 0.97);
-  border: 1px solid var(--line-2); border-radius: var(--r-lg);
-  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(53, 231, 255, 0.07);
-  overflow: hidden; transform: translateY(-10px) scale(0.985);
-  transition: transform 0.28s var(--ease);
-}
-#palette:not(.hidden) .pal { transform: none; }
-.pal-in { position: relative; border-bottom: 1px solid var(--line); }
-.pal-in input {
-  width: 100%; height: 54px; padding: 0 16px 0 46px; background: transparent;
-  border: 0; outline: none; font-size: 16px;
-}
-.pal-in input::placeholder { color: var(--ink-faint); }
-.pal-in .ico { position: absolute; left: 17px; top: 19px; width: 17px; height: 17px; stroke: var(--cyan); fill: none; stroke-width: 1.8; }
-.pal-list { max-height: min(440px, 56vh); overflow-y: auto; padding: 6px; }
-.pal-sec {
-  padding: 9px 11px 5px; font-family: var(--mono); font-size: 9px;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint);
-}
-.pal-it {
-  display: flex; align-items: center; gap: 11px; width: 100%; padding: 8px 11px;
-  border-radius: var(--r-sm); text-align: left;
-}
-.pal-it.cursor { background: rgba(53, 231, 255, 0.12); }
-.pal-it .ico-w { width: 26px; display: grid; place-items: center; flex: none; }
-.pal-it svg { width: 15px; height: 15px; stroke: var(--ink-dim); fill: none; stroke-width: 1.7; }
-.pal-it.cursor svg { stroke: var(--cyan); }
-.pal-it-txt { flex: 1; min-width: 0; }
-.pal-it-name { display: block; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pal-it-sub { display: block; font-family: var(--mono); font-size: 10px; color: var(--ink-faint); margin-top: 1px; }
-.pal-ft {
-  display: flex; gap: 15px; padding: 8px 14px; border-top: 1px solid var(--line);
-  font-family: var(--mono); font-size: 9.5px; color: var(--ink-faint);
-}
-.pal-ft b { color: var(--ink-dim); font-weight: 500; }
-
-/* ==========================================================================
    Overlay sheets (numbering, dashboard, timeline)
    ========================================================================== */
 
@@ -1493,9 +1446,154 @@ html[data-lang="zh"] .ab-k { width: 36px; font-size: 12px; }
 
 html[data-lang="zh"] .nb-lad-lv { letter-spacing: 0.04em; text-transform: none; font-size: 10px; }
 
+/* Countries first: a card each, wearing its top system's sign. */
+.nb-rail { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
+.nb-cc {
+  position: relative; display: flex; align-items: center; gap: 11px; padding: 11px 12px;
+  border: 1px solid var(--line); border-radius: var(--r-md); text-align: left; overflow: hidden;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--cc) 9%, transparent), transparent 70%), var(--bg-1);
+  transition: border-color 0.2s, transform 0.2s var(--ease), box-shadow 0.2s;
+}
+.nb-cc::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--cc); transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease);
+}
+.nb-cc:hover { border-color: color-mix(in srgb, var(--cc) 45%, transparent); transform: translateY(-1px); }
+.nb-cc.on { border-color: color-mix(in srgb, var(--cc) 70%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--cc) 30%, transparent), 0 10px 30px color-mix(in srgb, var(--cc) 14%, transparent); }
+.nb-cc.on::after { transform: none; }
+.nb-cc-shield { flex: none; min-width: 34px; display: grid; place-items: center; }
+.nb-cc-t { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.nb-cc-t b { font-size: 13px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nb-cc-t .flagdot { position: absolute; top: 9px; right: 9px; }
+.nb-cc-t small { font-family: var(--mono); font-size: 9.5px; color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nb-tabs[hidden] { display: none; }
+
+/* A real number, taken apart: each part over what it means. */
+.nb-ana {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 16px;
+  padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--r-md);
+  background: radial-gradient(120% 140% at 0 0, rgba(53, 231, 255, 0.07), transparent 60%), var(--bg-1);
+}
+.nb-ana-k { font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); }
+.nb-ana-chips { display: flex; gap: 4px; }
+.nb-ana-chip {
+  font-family: var(--mono); font-size: 10.5px; padding: 3px 9px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink-dim); transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.nb-ana-chip.on, .nb-ana-chip:hover { color: var(--cyan); border-color: rgba(53, 231, 255, 0.45); background: rgba(53, 231, 255, 0.08); }
+.nb-ana-code { display: none; flex-basis: 100%; gap: 6px; align-items: flex-start; }
+.nb-ana-code.on { display: flex; animation: nbIn 0.35s var(--ease); }
+@keyframes nbIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.nb-ana-p { display: flex; flex-direction: column; gap: 6px; min-width: 0; max-width: 220px; }
+.nb-ana-p b {
+  font-family: var(--mono); font-size: 30px; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em;
+  color: var(--k); padding: 2px 8px 4px; border-bottom: 2px solid var(--k);
+  background: color-mix(in srgb, var(--k) 8%, transparent); border-radius: 6px 6px 0 0; align-self: flex-start;
+}
+.nb-ana-p small { font-size: 11px; line-height: 1.45; color: var(--ink-dim); padding: 0 2px; }
+
+/* The plate: the system's own geometry, one colour per rule. */
+.nb-wrap-plate { grid-template-columns: minmax(0, 1fr) 340px; }
+.nb-plate {
+  position: relative; border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px;
+  background: radial-gradient(90% 80% at 50% 40%, rgba(53, 231, 255, 0.05), transparent 70%), var(--bg-1);
+  min-height: 260px; display: grid; place-items: center;
+}
+.nb-plate-svg { display: block; width: 100%; height: auto; max-height: 560px; }
+.nb-load { font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); }
+.nb-geo { fill: none; stroke-linejoin: round; cursor: pointer; transition: opacity 0.3s, stroke-width 0.15s; }
+.nb-geo.dim { opacity: 0.07; }
+.nb-geo.hot { stroke-width: 3.6 !important; opacity: 1; }
+.nb-mark { transition: opacity 0.3s; }
+.nb-mark.dim { opacity: 0.1; }
+.nb-mark line, .nb-arc { stroke-width: 1.6; fill: none; stroke-dasharray: 3 2; }
+.nb-mark text, .nb-hk { font-family: var(--mono); font-size: 9.5px; font-weight: 600; paint-order: stroke; stroke: var(--bg-1); stroke-width: 3px; }
+.nb-hk { font-size: 11px; pointer-events: none; }
+.nb-read {
+  position: absolute; left: 14px; bottom: 12px; padding: 5px 10px; border-radius: var(--r-sm);
+  background: var(--panel-solid); border: 1px solid var(--line-2); font-size: 12px; color: var(--ink);
+  opacity: 0; transform: translateY(4px); transition: opacity 0.18s, transform 0.18s; pointer-events: none;
+}
+.nb-read.on { opacity: 1; transform: none; }
+.nb-read span { color: var(--ink-dim); margin-left: 4px; }
+.nb-hint { margin: 0 0 10px; font-size: 11.5px; line-height: 1.55; color: var(--ink-faint); }
+.nb-clss { display: flex; flex-direction: column; gap: 6px; }
+.nb-cls {
+  display: flex; flex-direction: column; gap: 4px; padding: 9px 11px; text-align: left;
+  border: 1px solid var(--line); border-left: 3px solid var(--k); border-radius: var(--r-sm);
+  background: var(--bg-1); transition: background 0.18s, border-color 0.18s;
+}
+.nb-cls:hover { background: color-mix(in srgb, var(--k) 7%, var(--bg-1)); }
+.nb-cls.on { background: color-mix(in srgb, var(--k) 13%, var(--bg-1)); border-color: color-mix(in srgb, var(--k) 60%, transparent); }
+.nb-cls-hd { display: flex; align-items: baseline; gap: 8px; }
+.nb-cls-hd i { width: 14px; height: 3px; border-radius: 2px; background: var(--k); flex: none; transform: translateY(-3px); }
+.nb-cls-hd b { flex: 1; font-size: 12.5px; color: var(--ink); }
+.nb-cls-hd em { font-style: normal; font-family: var(--mono); font-size: 10.5px; color: var(--k); }
+.nb-cls-p { font-size: 11.5px; line-height: 1.55; color: var(--ink-dim); }
+.nb-fit { display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 9.5px; color: var(--ink-faint); }
+.nb-fit:empty { display: none; }
+.nb-fit-bar { flex: none; width: 46px; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.nb-fit-bar i { display: block; height: 100%; background: var(--k); }
+
+/* Provincial series, counted rather than drawn. */
+.nb-series { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.nb-ser { display: grid; grid-template-columns: minmax(0, 1fr) 140px 92px; gap: 10px; align-items: center; }
+.nb-ser-k { font-size: 12px; color: var(--ink-body); }
+.nb-ser-bar { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.nb-ser-bar i { display: block; height: 100%; background: var(--k); border-radius: 4px; animation: nbGrow 0.7s var(--ease); transform-origin: left; }
+@keyframes nbGrow { from { transform: scaleX(0); } to { transform: none; } }
+.nb-ser-v { font-family: var(--mono); font-size: 12px; color: var(--k); text-align: right; }
+.nb-ser-v small { display: block; font-size: 9.5px; color: var(--ink-faint); }
+.nb-ser-h { margin: 8px 0 0; font-size: 12.5px; color: var(--ink); }
+.nb-shared { display: flex; flex-wrap: wrap; gap: 6px; }
+.nb-shared span { font-size: 11px; color: var(--ink-dim); padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); }
+.nb-shared b { font-family: var(--mono); color: #f4c542; margin-right: 2px; }
+
 /* ==========================================================================
    Dashboard
    ========================================================================== */
+
+/* The country rail: each card a ring of its share of the whole. */
+.dash-rail { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin-bottom: 18px; }
+.dash-cc {
+  position: relative; display: flex; align-items: center; gap: 8px; padding: 10px 9px; text-align: left;
+  border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden;
+  background: linear-gradient(150deg, color-mix(in srgb, var(--cc) 10%, transparent), transparent 65%), var(--bg-1);
+  transition: border-color 0.2s, transform 0.2s var(--ease), box-shadow 0.25s;
+}
+.dash-cc:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--cc) 45%, transparent); }
+.dash-cc.on {
+  border-color: color-mix(in srgb, var(--cc) 75%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cc) 35%, transparent), 0 12px 34px color-mix(in srgb, var(--cc) 18%, transparent);
+}
+.dash-ring { flex: none; width: 28px; height: 28px; transform: rotate(-90deg); }
+.dash-ring circle { fill: none; stroke-width: 3.4; }
+.dash-ring .bg { stroke: var(--line); }
+.dash-ring .fg { stroke: var(--cc); stroke-linecap: round; transition: stroke-dasharray 0.6s var(--ease); }
+.dash-cc.on .dash-ring .fg { filter: drop-shadow(0 0 4px var(--cc)); }
+.dash-cc-t { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.dash-cc-t .flagdot { position: absolute; top: 8px; right: 8px; }
+.dash-cc-t b { font-size: 12px; line-height: 1.2; color: var(--ink); padding-right: 12px; }
+.dash-cc-t small { font-family: var(--mono); font-size: 10px; color: var(--ink-dim); white-space: nowrap; }
+.dash-cc-t em { font-style: normal; font-family: var(--mono); font-size: 9.5px; color: var(--cc); white-space: nowrap; }
+.dash-1 > div { max-width: 760px; }
+
+/* Picking a country draws every chart again from nothing. */
+@keyframes dashGrowX { from { transform: scaleX(0); } to { transform: none; } }
+@keyframes dashGrowY { from { transform: scaleY(0); } to { transform: none; } }
+@keyframes dashFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.dash-body.anim .hbar-t i, .dash-body.anim .stack, .dash-body.anim .pbar i {
+  transform-origin: left; animation: dashGrowX 0.75s var(--ease) both;
+}
+.dash-body.anim .hist-b { transform-origin: bottom; animation: dashGrowY 0.75s var(--ease) both; }
+.dash-body.anim .dash-card, .dash-body.anim .dash-top { animation: dashFade 0.45s var(--ease) both; }
+.dash-body.anim .dash-card:nth-of-type(2) { animation-delay: 0.04s; }
+.dash-body.anim .hbar:nth-child(2) i, .dash-body.anim .cc-row:nth-child(2) .stack { animation-delay: 0.04s; }
+.dash-body.anim .hbar:nth-child(3) i, .dash-body.anim .cc-row:nth-child(3) .stack { animation-delay: 0.08s; }
+.dash-body.anim .hbar:nth-child(4) i, .dash-body.anim .cc-row:nth-child(4) .stack { animation-delay: 0.12s; }
+.dash-body.anim .hbar:nth-child(n+5) i, .dash-body.anim .cc-row:nth-child(n+5) .stack { animation-delay: 0.16s; }
+.dash-body.anim .hist-c:nth-child(2n) .hist-b { animation-delay: 0.05s; }
+@media (prefers-reduced-motion: reduce) { .dash-body.anim * { animation: none !important; } }
 
 .dash-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; margin-bottom: 20px; }
 /* The detail panel's tiles span a six-column track; these sit in their own. */
@@ -1907,7 +2005,9 @@ a.tl-src:hover { color: var(--cyan); }
    ========================================================================== */
 
 @media (max-width: 1180px) {
-  .nb-wrap { grid-template-columns: 1fr; }
+  .nb-wrap, .nb-wrap-plate { grid-template-columns: 1fr; }
+  .nb-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dash-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* The side-by-side layout stops working before it stops fitting, so the docked
