@@ -264,7 +264,7 @@ The data under `data/geo/cn/` is derived from it and is available under the same
 | Source | Used for | Licence |
 | --- | --- | --- |
 | [OpenStreetMap](https://www.openstreetmap.org/copyright), through [Geofabrik's China extract](https://download.geofabrik.de/asia/china.html) | geometry, G and S numbers, road class, route names and planned ends, the towns that name route ends | [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/), © OpenStreetMap contributors |
-| 国家发展改革委、交通运输部《国家公路网规划》(2022) | the main routes counted in the coverage table | government publication |
+| 国家发展改革委、交通运输部《国家公路网规划》(2022), as [Chinese Wikipedia](https://zh.wikipedia.org/wiki/中华人民共和国国道) lists it | the main routes counted in the coverage table; each main route's planned name and listed length | government publication; Wikipedia text [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 
 ### All three
 

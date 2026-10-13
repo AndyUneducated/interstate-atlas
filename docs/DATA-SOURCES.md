@@ -143,7 +143,7 @@ where it comes from.
 | ID | Source | Used for | Edition · retrieved | Licence | Fetched by → stored | Reproducible |
 | --- | --- | --- | --- | --- | --- | --- |
 | CN-1 | [OpenStreetMap](https://www.openstreetmap.org/copyright), through [Geofabrik's China extract](https://download.geofabrik.de/asia/china.html) | geometry, G and S numbers (on the way or its route relation), road class and surface of every numbered way; the route relations' names and planned ends; cities and towns naming route ends | extract of 2026-10-12 · 2026-10-13 | Open Database License 1.0, © OpenStreetMap contributors | `fetch-china.mjs` → `tools/src/cn/` (791,427 ways; the 1.6 GB extract is not kept in the repository) | no, the extract is replaced daily; `edition.json` records its timestamp |
-| CN-2 | 国家发展改革委、交通运输部《国家公路网规划》(2022—2035), issued 2022-07-04 | the main routes it lists: 36 national expressways and 121 ordinary national highways, as the denominator of [§4](#routes-listed-and-routes-drawn) | 2022 · 2026-10-13, checked against the route lists on Chinese Wikipedia | government publication | by hand → `cn-plan.json` | yes |
+| CN-2 | 国家发展改革委、交通运输部《国家公路网规划》(2022—2035), issued 2022-07-04 | the main routes it lists: 36 national expressways and 119 ordinary national highways (G226 and G313 vacant since 2013), as the denominator of [§4](#routes-listed-and-routes-drawn); each main and ring route's planned name, short name and length, shown on its panel beside the drawn length | 2022 · 2026-10-13, the lists, names and lengths as Chinese Wikipedia gives them (中华人民共和国国家高速公路网, 中华人民共和国国道) | government publication; Wikipedia text CC BY-SA 4.0 | by hand → `cn-plan.json` | yes |
 
 ### Every region
 
@@ -205,7 +205,7 @@ has no reason.
 | TW | Provincial Highway | Highway Bureau provincial register (TW-2): each route | 96 | 95 | 1 | 1 carried by no segment of the NLSC centrelines outside a provisional 臨 alignment |
 | HK | Strategic Route | Transport Department, Routes 1 to 10 (HK-1) | 10 | 10 | 0 | — |
 | CN | National Expressway | national highway plan 2022 (CN-2): the 36 main routes | 36 | 36 | 0 | — |
-| CN | National Highway | national highway plan 2022 (CN-2): the 121 main routes | 121 | 120 | 1 | 1 carried by no OpenStreetMap way in the extract |
+| CN | National Highway | national highway plan 2022 (CN-2): the 119 main routes | 119 | 119 | 0 | — |
 
 Of the Mexican state roads counted as drawn, 54 carry INEGI's number rather than SICT's (D-26).
 <!-- /auto:coverage -->
@@ -308,6 +308,7 @@ code that holds the rule, so changing the decision means changing that code.
 | D-69 | A mainland motorway is counted as freeway whether or not it is tagged `toll=yes`, and no mainland route has a toll share. | The tag is on under a third of the expressway network: 70 of 223 expressways longer than 50 mi have it on more than half their length, on a network that is tolled almost throughout. A share read from it would measure the mapping. | `typeOf` in `china.mjs`; `tolled: null` in `buildEastAsia` |
 | D-70 | A national route's name and planned ends are those of the route relation that describes the whole route (official name, then both ends, then a name with no section or direction qualifier), with section qualifiers such as （四川段） and （北京方向） stripped; the ends are quoted, not matched to the drawn line. | Mappers split a route's relation by province or by direction, and each piece repeats the route's name with its own qualifier, so picking the largest piece named G318 after its Sichuan section. | `describe` in `fetch-china.mjs`, `cnFacts` in `detail.js` |
 | D-71 | A national number's pieces are stitched across gaps of up to 30 km, then the pieces across up to 80 km; a provincial number's across 15 km. A provincial piece under 2 km is dropped where the number has a longer piece. | OSM's numbered ways break at every junction where a mapper split a way and did not carry the ref; a national route left in hundreds of pieces is not a route a reader can follow. A provincial stub at a junction is a ramp tagged with the number, not a road. | China block of `buildEastAsia` in `build-data.mjs` |
+| D-72 | A main or ring route carries the 2022 plan's name and, where Chinese Wikipedia lists one, its length, shown as a listed length beside the drawn length and the share drawn, never as the headline. Where only a built length is listed (G3) it is labelled so. The English name is the atlas's romanisation of the planned ends, written by hand; ring routes carry no length. | The plan itself is a PDF the atlas cannot fetch, and Wikipedia's lists were the check on it already (CN-2). A planned length counts unbuilt stretches, so as a headline it would claim road that is not there. OSM's English names cover few routes and are often section names; romanising the ends keeps every main route named in English. The ring lengths listed (144 km for the Central Liaoning ring) are too short for the rings the plan describes to be trusted. | `cn-plan.json`; China block of `buildEastAsia`; `cnFacts` in `detail.js` |
 
 ### Layers and profiles
 
