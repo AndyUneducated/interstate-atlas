@@ -115,6 +115,17 @@ const shot = async (name) => {
 // step does not depend on the menu having been opened first.
 const jsClick = (sel) => page.$eval(sel, (el) => el.click());
 
+// The system switches live in the Layers menu and the region places under the
+// region switch, so a step reaches them the way a reader would.
+const sysClick = async (id) => {
+  if (!await page.locator('#menuLayers.open').count()) await page.click('#btnLayers');
+  await page.click(`.sys[data-sys="${id}"]`);
+};
+const jumpTo = async (key) => {
+  if (!await page.locator('#regionWrap.open').count()) await page.click('#regionSeg .seg-b.on');
+  await page.click(`[data-jump="${key}"]`);
+};
+
 await step('load page', async () => {
   await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 45000 });
 });
@@ -130,9 +141,25 @@ await step('interstates rendered', async () => {
 });
 
 await step('results list populated', async () => {
-  await page.waitForSelector('#results .res', { timeout: 15000 });
+  await page.waitForSelector('#results .res', { state: 'attached', timeout: 15000 });
   const n = await page.locator('#results .res').count();
   if (n < 10) throw new Error(`only ${n} results`);
+});
+
+await step('the list stays folded until the search box is used', async () => {
+  const shown = () => page.locator('#findDrop').isVisible();
+  if (await shown()) throw new Error('results list open before anyone asked');
+  await page.click('#q');
+  if (!await shown()) throw new Error('focusing the search box did not open the list');
+  await page.keyboard.press('Escape');
+  if (await shown()) throw new Error('Escape did not fold the list');
+  await page.fill('#q', 'I-80');
+  if (!await shown()) throw new Error('typing did not open the list');
+  await page.click('#btnLayers');
+  if (await shown()) throw new Error('a click elsewhere did not fold the list');
+  await page.keyboard.press('Escape');
+  await page.fill('#q', '');
+  await page.keyboard.press('Escape');
 });
 
 await step('nothing is parked half on the screen', async () => {
@@ -370,7 +397,7 @@ await step('the settings menu holds units, language, panels, the colour key and 
   await page.waitForTimeout(300);
   const light = await page.evaluate(() => ({
     theme: document.documentElement.dataset.theme,
-    panel: getComputedStyle(document.querySelector('.card')).backgroundColor,
+    panel: getComputedStyle(document.getElementById('shell')).backgroundColor,
   }));
   if (light.theme !== 'light' || !/2[34]\d, 2[34]\d, 2[45]\d/.test(light.panel)) {
     throw new Error(`light panels did not apply: ${JSON.stringify(light)}`);
@@ -441,8 +468,9 @@ await step('command palette', async () => {
 });
 
 await step('US routes layer toggles on', async () => {
-  await page.click('.sys[data-sys="us-numbered"]');
+  await sysClick('us-numbered');
   await waitForSource('rt-us-numbered');
+  await page.keyboard.press('Escape');
 });
 await shot('06-us-routes.png');
 
@@ -505,7 +533,7 @@ await step('terrain toggles back off', async () => {
 });
 
 await step('state routes load', async () => {
-  await page.click('.sys[data-sys="us-state"]');
+  await sysClick('us-state');
   await page.waitForSelector('[data-load="CA"]', { timeout: 10000 });
   await page.click('[data-load="CA"]');
   await waitForSource('st-CA');
@@ -538,17 +566,17 @@ await step('search reaches systems that are switched off', async () => {
   if (!rows) throw new Error(`no results for "US 50" with ${hits} system(s) switched off`);
 });
 
-await step('collapsed panel can be reopened', async () => {
-  await page.click('#btnCollapse');
-  await page.waitForTimeout(700);
-  if (!(await page.locator('#shellOpen').isVisible())) {
-    throw new Error('panel collapsed with no control left to reopen it');
-  }
-  await page.click('#shellOpen');
-  await page.waitForTimeout(700);
-  if (await page.locator('#shell').evaluate((e) => e.classList.contains('hidden'))) {
-    throw new Error('panel did not come back');
-  }
+await step('choosing a result folds the list out of the way', async () => {
+  await page.fill('#q', 'I-40');
+  await page.waitForTimeout(500);
+  await page.locator('#results .res').first().click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  if (await page.locator('#findDrop').isVisible()) throw new Error('list still open over the map');
+  // The query is kept, so going back to the box finds the same list.
+  if (await page.inputValue('#q') !== 'I-40') throw new Error('choosing a result cleared the query');
+  await page.keyboard.press('Escape');
+  await page.fill('#q', '');
+  await page.keyboard.press('Escape');
 });
 
 await step('base maps switch', async () => {
@@ -572,7 +600,7 @@ await step('base maps switch', async () => {
 await shot('11-relief.png');
 
 await step('region jump brings Alaska and its routes', async () => {
-  await page.click('[data-jump="ak"]');
+  await jumpTo('ak');
   await page.waitForTimeout(3800);
   const { lat, feats } = await page.evaluate(() => ({
     lat: window.__map.getCenter().lat,
@@ -617,7 +645,7 @@ await step('a US route shows what the states measured', async () => {
 });
 
 await step('Trans-Canada draws by default', async () => {
-  await page.click('[data-jump="ca"]');
+  await jumpTo('ca');
   await page.waitForTimeout(2600);
   const n = await waitForSource('rt-ca-tch');
   if (n < 5) throw new Error(`only ${n} Trans-Canada routes`);
@@ -647,7 +675,7 @@ await shot('14-canada-detail.png');
 
 await step('provincial highways load by province', async () => {
   await page.keyboard.press('Escape');
-  await page.click('.sys[data-sys="ca-provincial"]');
+  await sysClick('ca-provincial');
   await page.waitForSelector('[data-load="ON"]', { timeout: 10000 });
   await page.click('[data-load="ON"]');
   await waitForSource('st-ON');
@@ -822,45 +850,45 @@ await step('choosing a route on the map moves the list to it', async () => {
   if (visible !== 'in view') throw new Error(`selected row is ${visible} after a map pick`);
 });
 
-await step('folding the panel leaves a key to the colours', async () => {
-  // Collapsing took the system list away with it, and with it the only thing
+// The colour key is read in the browser, so the region test is spelled out
+// there rather than imported.
+const readLegend = () => page.evaluate(() => {
+  const el = document.getElementById('legend');
+  if (!el) return null;
+  const region = document.documentElement.dataset.region;
+  const inRegion = (id) => (/^(tw|hk)-/.test(id) ? 'ea' : 'na') === region;
+  return {
+    shown: !el.hidden && Number(getComputedStyle(el).opacity) > 0.5,
+    rows: el.querySelectorAll('.lg-r').length,
+    on: [...document.querySelectorAll('#sysList .sys.on')].filter((s) => inRegion(s.dataset.sys)).length,
+    colours: [...el.querySelectorAll('.lg-dot')].map((d) => getComputedStyle(d).backgroundColor),
+  };
+});
+
+await step('the map carries a key to its colours', async () => {
+  // The system switches live in a menu, so this is the only thing on screen
   // saying which colour is which on a map that is unlabelled when zoomed out.
   await page.keyboard.press('Escape');
-  await page.click('#btnCollapse');
-  await page.waitForTimeout(900);
-  const legend = await page.evaluate(() => {
-    const el = document.getElementById('legend');
-    if (!el) return null;
-    return {
-      shown: Number(getComputedStyle(el).opacity) > 0.5,
-      rows: el.querySelectorAll('.lg-r').length,
-      on: document.querySelectorAll('#sysList .sys.on').length,
-      colours: [...el.querySelectorAll('.lg-dot')]
-        .map((d) => getComputedStyle(d).backgroundColor),
-    };
-  });
+  await page.waitForTimeout(600);
+  const legend = await readLegend();
   if (!legend) throw new Error('no legend element');
-  if (!legend.shown) throw new Error('legend not visible with the panel folded');
-  // A key to what is drawn, so it has to track the switches rather than list
-  // all six: by this point in the run earlier steps have turned several on.
+  if (!legend.shown) throw new Error('legend not visible');
+  // A key to what is drawn here, so it has to track the switches and the
+  // region: by this point in the run earlier steps have turned several on.
   if (legend.rows !== legend.on) {
-    throw new Error(`legend lists ${legend.rows} systems but ${legend.on} are drawn`);
+    throw new Error(`legend lists ${legend.rows} systems but ${legend.on} are drawn in this region`);
   }
   if (!legend.rows) throw new Error('legend is empty with systems drawn');
   if (new Set(legend.colours).size !== legend.rows) {
     throw new Error('legend swatches share a colour');
   }
-
-  await page.click('#shellOpen');
-  await page.waitForTimeout(800);
-  // The key stays with the panel open, beside it rather than under it, and
-  // the Layers menu switches it off and on again.
-  const beside = await page.evaluate(() => {
+  // It must not sit under the search list when that is open.
+  const clear = await page.evaluate(() => {
     const lg = document.getElementById('legend').getBoundingClientRect();
-    const sh = document.getElementById('shell').getBoundingClientRect();
-    return !document.getElementById('legend').hidden && lg.left >= sh.right;
+    const hud = document.getElementById('hud').getBoundingClientRect();
+    return lg.top > hud.bottom;
   });
-  if (!beside) throw new Error('legend is not beside the open panel');
+  if (!clear) throw new Error('legend overlaps the top bar');
   await page.click('#btnSettings');
   await page.click('#btnLegend');
   const off = await page.evaluate(() => document.getElementById('legend').hidden);
@@ -869,7 +897,7 @@ await step('folding the panel leaves a key to the colours', async () => {
   const back = await page.evaluate(() => !document.getElementById('legend').hidden);
   if (!off || !back) throw new Error(`legend switch: off=${off} back=${back}`);
 });
-await shot('17-collapsed-legend.png');
+await shot('17-legend.png');
 
 await step('the interface can be taken off the map and brought back', async () => {
   await page.keyboard.press('z');
@@ -877,13 +905,14 @@ await step('the interface can be taken off the map and brought back', async () =
   const hidden = await page.evaluate(() => ({
     zen: document.body.classList.contains('zen'),
     hud: Number(getComputedStyle(document.getElementById('hud')).opacity),
-    shell: Number(getComputedStyle(document.getElementById('shell')).opacity),
     out: Number(getComputedStyle(document.getElementById('zenOut')).opacity),
-    // Hidden chrome must not still be catching clicks meant for the map.
-    clicks: getComputedStyle(document.getElementById('hud')).pointerEvents,
+    // Hidden chrome must not still be catching clicks meant for the map,
+    // including the search box, which sits inside the bar.
+    clicks: [...new Set(['hud', 'shell', 'menuLayers']
+      .map((id) => getComputedStyle(document.getElementById(id)).pointerEvents))].join(),
   }));
   if (!hidden.zen) throw new Error('z did not hide the interface');
-  if (hidden.hud > 0.05 || hidden.shell > 0.05) throw new Error('chrome still visible');
+  if (hidden.hud > 0.05) throw new Error('chrome still visible');
   if (hidden.clicks !== 'none') throw new Error('hidden chrome still takes clicks');
   if (hidden.out < 0.1) throw new Error('no way back from a hidden interface');
 });
@@ -1054,6 +1083,27 @@ await step('the region switch flies to East Asia and follows the view', async ()
   if (hk !== 10) throw new Error(`expected Routes 1 to 10, found ${hk}`);
 });
 await shot('19-east-asia.png');
+
+await step('in East Asia the key and the places are East Asian', async () => {
+  const legend = await readLegend();
+  if (!legend.rows || legend.rows !== legend.on) {
+    throw new Error(`legend lists ${legend.rows} systems with ${legend.on} drawn here`);
+  }
+  const names = await page.locator('#legend .lg-r').allTextContents();
+  if (names.some((n) => /Interstate|Trans-Canada|federal/i.test(n))) {
+    throw new Error(`North American systems in the East Asian key: ${names.join(', ')}`);
+  }
+  // Pressing the region already on screen opens its places rather than flying.
+  await page.click('#regionSeg [data-region="ea"]');
+  if (!await page.locator('#regionPop [data-jump="hk"]').isVisible()) throw new Error('region places did not open');
+  await page.click('[data-jump="hk"]');
+  await page.waitForTimeout(1900);
+  if (await page.locator('#regionWrap.open').count()) throw new Error('places stayed open after a jump');
+  const { lng, lat } = await page.evaluate(() => window.__map.getCenter());
+  if (Math.abs(lng - 114.1) > 0.4 || Math.abs(lat - 22.37) > 0.3) {
+    throw new Error(`jump did not reach Hong Kong (${lng.toFixed(2)}, ${lat.toFixed(2)})`);
+  }
+});
 
 await step('國1 finds National Freeway 1 on its plum-blossom shield', async () => {
   await page.fill('#q', '國1');

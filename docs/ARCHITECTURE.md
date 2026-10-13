@@ -769,7 +769,7 @@ rather than warning quietly.
 | `node tools/build-content.mjs` | a figure with a value but no source; a figure with neither a value nor a stated reason for its absence; a localised field missing either language; a dossier whose route cannot be resolved, or that resolves to a route another dossier already claims | English and Chinese paragraph counts that disagree; cost claims superseded by the FHWA table |
 | `node tools/check-data.mjs` | a route id used twice; a geometry file and the index disagreeing on which routes it holds, or a per-jurisdiction file no route belongs to; a remnant under half a mile beside a longer piece of its number; a route filed in no jurisdiction; an id in dossiers, elevation, timeline, tolls, crossings or served places missing from the index | — |
 | `node tools/readme-figures.mjs` | a README marker with no generator, or a generator with no marker; with `--check`, figures that no longer match the build | — |
-| `node tools/verify.mjs` | any of 44 steps against the real site in headless Chromium | console errors and failed network requests |
+| `node tools/verify.mjs` | any of 58 steps against the real site in headless Chromium | console errors and failed network requests |
 
 `npm test` runs the first four, and the fourth rewrites the README's figures from the build.
 The fifth needs `npm run serve` in another terminal.
@@ -785,15 +785,15 @@ writing prose that ignores it.
 **Why `verify.mjs` asserts the way it does.** It reads parsed source data rather than
 rendered tiles, because `querySourceFeatures` reports zero both when loading failed and
 when the map has simply not repainted yet — and headless, with no GPU, repaints come when
-they come. Its 44 steps cover boot, search, selection, detail metrics, termini, official
+they come. Its 58 steps cover boot, search, selection, detail metrics, termini, official
 cost figures on routes with and without a dossier, the numbering explainer, the dashboard,
 the buildout scrubber opening and closing, the command palette, layer toggling, the
 language switch, the flythrough, terrain on and off, per-state loading, marker overflow,
-search reaching systems that are switched off, panel collapse and reopen, basemap
+search reaching systems that are switched off, the search list folding until used and after a pick, basemap
 switching, the Alaska jump and its four unsigned Interstates, HPMS figures on a US route,
 the Trans-Canada drawing by default, Canadian metrics, per-province loading, traffic
 on a route in a publishing province, the unit switch, list sorting and following the map,
-the colour key and hiding the interface, the buildout run stopping at its end, and the
+the colour key following the region and hiding the interface, the buildout run stopping at its end, and the
 border crossing, toll, toll plaza and bridge layers with their popups and panel sections. Screenshots go to
 `tools/shots/` as diagnostics, not assertions; that directory is gitignored.
 

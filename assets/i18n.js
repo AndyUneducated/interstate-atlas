@@ -21,7 +21,6 @@ export const STRINGS = {
     'nav.dashboard': 'Statistics',
     'nav.timeline': 'Timeline',
     'nav.dashboardSub': 'the network in numbers and rankings',
-    'nav.findRoute': 'Find a route',
     'nav.about': 'About',
     'nav.more': 'More',
     'nav.settings': 'Settings',
@@ -197,6 +196,7 @@ export const STRINGS = {
     'sys.pickProvince': 'Choose a province',
 
     'search.placeholder': 'Search I-95, TCH 1, Ontario, Jalisco…',
+    'search.placeholderEa': 'Search Fwy 1, PH 9, Route 3…',
     'search.results': 'Results',
     'search.none': 'Nothing matches that.',
     'search.hint': 'Type a route number, a name, or a state.',
@@ -470,6 +470,7 @@ export const STRINGS = {
 
     'toast.terrainOn': '3D terrain on',
     'toast.terrainOff': '3D terrain off',
+    'jump.title': 'Go to',
     'jump.na': 'North America',
     'jump.l48': 'Lower 48',
     'jump.ak': 'Alaska',
@@ -597,7 +598,6 @@ export const STRINGS = {
     'nav.dashboard': '统计',
     'nav.timeline': '建设时间轴',
     'nav.dashboardSub': '用数字和排行看路网',
-    'nav.findRoute': '查找公路',
     'nav.about': '关于',
     'nav.more': '更多',
     'nav.settings': '设置',
@@ -769,6 +769,7 @@ export const STRINGS = {
     'sys.pickProvince': '选择省份',
 
     'search.placeholder': '搜索 I-95、横加公路 1、安大略、哈利斯科…',
+    'search.placeholderEa': '搜索 國1、台9、3號幹線…',
     'search.results': '结果',
     'search.none': '没有匹配的路线。',
     'search.hint': '可输入公路编号、名称或州名。',
@@ -1026,6 +1027,7 @@ export const STRINGS = {
 
     'toast.terrainOn': '三维地形已开启',
     'toast.terrainOff': '三维地形已关闭',
+    'jump.title': '前往',
     'jump.na': '北美全域',
     'jump.l48': '本土四十八州',
     'jump.ak': '阿拉斯加',

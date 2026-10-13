@@ -53,9 +53,44 @@
   <!-- The atlas covers two separate parts of the world, and a pan across the
        Pacific is not a way to get from one to the other. This follows the
        view as well as setting it, so it always says which one is on screen. -->
-  <div class="seg rseg" id="regionSeg" role="group" aria-label="Region">
-    <button class="seg-b" type="button" data-region="na" data-i18n="region.na">North America</button>
-    <button class="seg-b" type="button" data-region="ea" data-i18n="region.ea">East Asia</button>
+  <!-- Pressing the region already on screen opens its places instead, so the
+       one control both crosses the Pacific and moves around either side. -->
+  <div class="rwrap" id="regionWrap">
+    <div class="seg rseg" id="regionSeg" role="group" aria-label="Region">
+      <button class="seg-b" type="button" data-region="na"><span data-i18n="region.na">North America</span><svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button>
+      <button class="seg-b" type="button" data-region="ea"><span data-i18n="region.ea">East Asia</span><svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button>
+    </div>
+    <div class="menu-pop rpop" id="regionPop" role="group">
+      <p class="menu-hd" data-i18n="jump.title">Go to</p>
+      <div class="jumps" id="jumps"></div>
+    </div>
+  </div>
+
+  <!-- Finding a road is what almost everyone opens this to do, so it is the
+       one thing on the left, and the list only comes down when asked for. -->
+  <div id="shell" role="search">
+    <div class="search">
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Search routes" aria-controls="findDrop">
+      <button class="btn btn-ico clr" id="qClear" type="button" hidden>
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="find-drop" id="findDrop">
+      <div class="card-hd">
+        <h2 id="resTitle" data-i18n="search.results">Results</h2>
+        <span class="sp"></span>
+        <span class="sys-count" id="resCount"></span>
+      </div>
+      <!-- The right-hand column was a bare number against every row, and the
+           order of an unsearched list was not stated anywhere. Both are said
+           once, here, rather than repeated down the list. -->
+      <div class="res-cols">
+        <span id="resSort"></span>
+        <span class="res-cols-mi" id="resColMi">Miles</span>
+      </div>
+      <div class="results" id="results"></div>
+    </div>
   </div>
 
   <div class="hud-sp"></div>
@@ -69,7 +104,15 @@
       <button class="btn btn-ico" id="btnLayers" type="button" aria-haspopup="true" aria-expanded="false" data-i18n-tip="nav.layers" data-key="L">
         <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>
       </button>
+      <!-- What is drawn on the left, what it is drawn on to the right. The
+           systems are listed for both regions, so switching one on never
+           depends on where the map happens to be. -->
       <div class="menu-pop menu-pop-r menu-lay" role="group">
+       <div class="lay-sys">
+        <p class="menu-hd" id="sysTitle" data-i18n="sys.title">Route systems</p>
+        <div class="sys-list" id="sysList"></div>
+       </div>
+       <div class="lay-base">
         <p class="menu-hd" data-i18n="nav.basemap">Base map</p>
         <!-- Each ground is shown rather than named, so the choice is made by
              looking. The previews are the map itself, shot by shoot-bases.mjs. -->
@@ -107,6 +150,7 @@
           <svg viewBox="0 0 24 24"><path d="M3 16l9-5 9 5-9 5z"/><path d="M12 11V4"/><path d="M9 6.5L12 4l3 2.5"/></svg>
           <span class="menu-txt"><b data-i18n="base.tilt">3D tilt</b><small data-i18n="base.tiltSub">terrain, seen from an angle</small></span><kbd>T</kbd><i class="sw"></i>
         </button>
+       </div>
       </div>
     </div>
 
@@ -187,56 +231,6 @@
     </div>
   </nav>
 </header>
-
-<!-- ── left shell ───────────────────────────────────────────────────────────
-     Finding a road comes first, because it is what almost everyone opens this
-     to do. The systems below it decide what is drawn, which is a thing you
-     adjust once and then leave alone. -->
-<div id="shell">
-  <section class="card card-find">
-    <div class="search">
-      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
-      <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Search routes">
-      <button class="btn btn-ico clr" id="qClear" type="button" hidden>
-        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-      <button class="btn btn-ico fold" id="btnCollapse" type="button" title="Hide panel" aria-label="Hide panel">
-        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="1.7"><path d="M15 6l-6 6 6 6"/></svg>
-      </button>
-    </div>
-    <div class="card-hd" style="border-top:0">
-      <h2 id="resTitle" data-i18n="search.results">Results</h2>
-      <span class="sp"></span>
-      <span class="sys-count" id="resCount"></span>
-    </div>
-    <!-- The right-hand column was a bare number against every row, and the
-         order of an unsearched list was not stated anywhere. Both are said
-         once, here, rather than repeated down the list. -->
-    <div class="res-cols">
-      <span id="resSort"></span>
-      <span class="res-cols-mi" id="resColMi">Miles</span>
-    </div>
-    <div class="results" id="results"></div>
-  </section>
-
-  <section class="card card-sys" aria-labelledby="sysTitle">
-    <div class="card-hd">
-      <h2 id="sysTitle" data-i18n="sys.title">Route systems</h2>
-    </div>
-    <div class="sys-list" id="sysList"></div>
-    <!-- Alaska, Hawaii and Puerto Rico are all in the data and all off the
-         edge of the opening view, which made them look absent. -->
-    <div class="jumps" id="jumps"></div>
-  </section>
-</div>
-
-<!-- Lives outside #shell on purpose: the collapse control is inside the panel
-     and goes with it, so the way back has to be somewhere the panel cannot
-     take with it. -->
-<button id="shellOpen" type="button" title="Show route panel" aria-label="Show route panel">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-  <span class="so-txt" data-i18n="nav.findRoute">Find a route</span>
-</button>
 
 <!-- The key to the line colours, switched from the Layers menu. -->
 <div id="legend" aria-hidden="true"></div>

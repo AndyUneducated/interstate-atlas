@@ -267,21 +267,39 @@ a { color: var(--cyan); text-decoration: none; }
 }
 
 /* ==========================================================================
-   Left shell: search, systems, results
+   Search capsule and its results, region places
    ========================================================================== */
 
+/* One box on the map, the list under it only while it is being used: a
+   standing column of three hundred rows was taking a quarter of the screen
+   from a map most people had come to look at. */
 #shell {
-  position: fixed; left: 10px; top: 62px; bottom: 10px; width: var(--shell);
-  z-index: 15; display: flex; flex-direction: column; gap: 8px;
-  transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
+  position: relative; width: var(--shell); flex: none;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--r-lg); backdrop-filter: blur(18px) saturate(1.3);
+  transition: opacity 0.35s var(--ease), border-color 0.2s, box-shadow 0.2s;
 }
-#shell.hidden { transform: translateX(calc(-100% - 14px)); opacity: 0; pointer-events: none; }
+#shell:focus-within { border-color: var(--line-2); }
+#shell.open { box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45); }
+#shell.hidden { opacity: 0; pointer-events: none; }
+.find-drop {
+  display: none; flex-direction: column;
+  max-height: calc(100vh - 86px); border-top: 1px solid var(--line);
+}
+#shell.open .find-drop { display: flex; }
 
-/* Region jumps: the map does not end at the frame. */
-.jumps {
-  display: flex; flex-direction: column; gap: 5px;
-  padding: 9px 13px 11px; border-top: 1px solid var(--line);
+/* The places in a region hang off the region switch itself. */
+.rwrap { position: relative; flex: none; }
+.rseg .cv {
+  width: 12px; height: 12px; margin: 0 -3px 0 3px; flex: none;
+  stroke: currentColor; fill: none; stroke-width: 2; display: none;
+  transition: transform 0.2s var(--ease);
 }
+.rseg .seg-b.on .cv { display: block; }
+.rwrap.open .rseg .seg-b.on .cv { transform: rotate(180deg); }
+.rpop { left: 0; width: 316px; padding: 8px 6px 6px; }
+.rwrap.open > .rpop { opacity: 1; transform: none; pointer-events: auto; }
+.jumps { display: flex; flex-direction: column; gap: 6px; padding: 2px 8px 6px; }
 .jump-row { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
 .jump-row > .flagdot { margin-right: 2px; }
 .jump {
@@ -316,9 +334,12 @@ a { color: var(--cyan); text-decoration: none; }
   color: var(--bg); background: var(--cyan);
   box-shadow: 0 0 14px rgba(53, 231, 255, 0.4);
 }
-.rseg { margin-left: 0; }
-.rseg .seg-b { width: auto; padding: 0 11px; font-size: 11.5px; letter-spacing: 0.02em; white-space: nowrap; }
-@media (max-width: 720px) { .rseg { margin-left: 6px; } .rseg .seg-b { padding: 0 7px; font-size: 10.5px; } }
+.rseg { padding: 3px; border-radius: var(--r-lg); backdrop-filter: blur(16px) saturate(1.3); }
+.rseg .seg-b {
+  display: flex; align-items: center; width: auto; height: 36px; padding: 0 12px;
+  font-size: 11.5px; letter-spacing: 0.02em; white-space: nowrap;
+}
+@media (max-width: 720px) { .rseg .seg-b { padding: 0 8px; font-size: 10.5px; } }
 .seg-wide { width: 100%; }
 .seg-wide .seg-b {
   flex: 1; width: auto; height: 30px; display: flex; gap: 6px; justify-content: center;
@@ -409,9 +430,26 @@ a { color: var(--cyan); text-decoration: none; }
 html[data-theme="light"] .btn[data-tip]::after { background: rgba(248, 250, 253, 0.98); box-shadow: 0 8px 20px rgba(10, 25, 50, 0.18); }
 
 .menu-it kbd + .sw { margin-left: 2px; }
-.menu-lay { min-width: 316px; padding: 8px 8px 6px; }
+.menu-lay {
+  display: grid; grid-template-columns: 290px 316px; gap: 0 10px; padding: 8px 8px 6px;
+  max-height: calc(100vh - 76px);
+}
+.lay-sys, .lay-base { display: flex; flex-direction: column; gap: 1px; min-height: 0; }
+.lay-sys { overflow-y: auto; padding-right: 10px; border-right: 1px solid var(--line); }
+.lay-base { overflow-y: auto; }
 .menu-lay .menu-hd { margin-top: 8px; }
 .menu-lay .menu-hd:first-child { margin-top: 2px; }
+/* The system rows, tightened to sit in a menu rather than fill a column. */
+.lay-sys .sys { padding: 6px 8px; border-bottom: 0; border-radius: var(--r-sm); gap: 10px; }
+.lay-sys .sys-name { font-size: 12px; }
+.lay-sys .sys-meta { font-size: 9.5px; }
+.lay-sys .sys-country { padding: 8px 8px 3px; }
+.lay-sys .sys-country:not(:first-child) { margin-top: 4px; }
+@media (max-width: 720px) {
+  .menu-lay { grid-template-columns: min(316px, calc(100vw - 32px)); overflow-y: auto; }
+  .lay-sys { overflow: visible; padding-right: 0; border-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+  .lay-base { overflow: visible; }
+}
 
 /* Base maps, chosen by looking at them. */
 .bcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; padding: 0 2px; }
@@ -485,33 +523,10 @@ html[data-theme="light"] .btn[data-tip]::after { background: rgba(248, 250, 253,
 .gcard.on { border-color: color-mix(in srgb, var(--c) 55%, transparent); }
 html[data-theme="light"] :is(.otile, .gcard) { background: rgba(28, 58, 98, 0.03); }
 
-/* The way back in. Hidden while the panel is open, so the edge stays clean. */
-#shellOpen {
-  position: fixed; left: 10px; top: 62px; z-index: 16;
-  display: flex; align-items: center; gap: 7px;
-  height: 38px; padding: 0 13px 0 11px;
-  background: var(--panel); border: 1px solid var(--line);
-  border-radius: var(--r-lg); backdrop-filter: blur(18px) saturate(1.3);
-  color: var(--ink-dim); font-family: var(--mono); font-size: 10.5px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  opacity: 0; pointer-events: none; transform: translateX(-10px);
-  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease),
-              color 0.2s, border-color 0.2s;
-}
-#shellOpen svg {
-  width: 15px; height: 15px; flex: none;
-  stroke: currentColor; fill: none; stroke-width: 1.8;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-#shellOpen:hover { color: var(--cyan); border-color: var(--line-2); }
-body.shell-off #shellOpen { opacity: 1; pointer-events: auto; transform: none; }
-body.is-booting #shellOpen { opacity: 0 !important; pointer-events: none; }
-
-/* The colour key. With the panel open it sits on the map at the panel's
-   bottom edge; with the panel folded it takes the panel's place, directly
-   under the way back in. Switched from the Layers menu. */
+/* The colour key, in the bottom-left corner the old panel used to fill.
+   Switched from the Settings menu. */
 #legend {
-  position: fixed; left: calc(var(--shell) + 20px); bottom: 10px; z-index: 15;
+  position: fixed; left: 10px; bottom: 10px; z-index: 15;
   padding: 9px 12px 10px; pointer-events: none;
   background: var(--panel); border: 1px solid var(--line);
   border-radius: var(--r-lg); backdrop-filter: blur(18px) saturate(1.3);
@@ -520,13 +535,8 @@ body.is-booting #shellOpen { opacity: 0 !important; pointer-events: none; }
   animation: lg-in 0.35s var(--ease);
 }
 @keyframes lg-in { from { opacity: 0; transform: translateY(6px); } }
-body.shell-off #legend { left: 10px; bottom: auto; top: 108px; }
 body.tlapse-on #legend { bottom: 108px; }
-body.shell-off.tlapse-on #legend { bottom: auto; }
 body.is-booting #legend, body.zen #legend { opacity: 0 !important; }
-@media (max-width: 1080px) {
-  body:not(.shell-off) #legend { display: none; }
-}
 .lg-h {
   margin: 0 0 6px; font-family: var(--mono); font-size: 8.5px;
   letter-spacing: 0.19em; text-transform: uppercase; color: var(--ink-faint);
@@ -545,10 +555,13 @@ body.is-booting #legend, body.zen #legend { opacity: 0 !important; }
    This takes the panels, the bar and the header off it in one gesture. The
    chrome is faded and made inert rather than removed, so nothing re-lays-out
    and coming back is the same animation in reverse. */
-body.zen :is(#hud, #shell, #shellOpen, #detail, #tlapse, #fly) {
+body.zen :is(#hud, #detail, #tlapse, #fly) {
   opacity: 0; pointer-events: none;
   transition: opacity 0.4s var(--ease);
 }
+/* The bar's children switch clicks back on for themselves, so they have to be
+   switched off again here or the invisible search box still takes them. */
+body.zen #hud > * { pointer-events: none; }
 #zenOut {
   position: fixed; z-index: 30; left: 50%; bottom: 22px; transform: translate(-50%, 14px);
   display: flex; align-items: center; gap: 9px; height: 36px; padding: 0 14px;
@@ -656,7 +669,7 @@ body.is-booting #zenOut { opacity: 0 !important; pointer-events: none; }
 
 #tlapse {
   position: fixed; z-index: 18;
-  left: calc(var(--shell) + 20px); right: 10px; bottom: 10px;
+  left: 10px; right: 10px; bottom: 10px;
   display: none; align-items: stretch; gap: 16px;
   padding: 11px 14px;
   background: var(--panel); border: 1px solid var(--line);
@@ -664,8 +677,6 @@ body.is-booting #zenOut { opacity: 0 !important; pointer-events: none; }
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
 }
 body.tlapse-on #tlapse { display: flex; }
-/* With the panel collapsed the bar takes the width it was denied. */
-body.shell-off #tlapse { left: 10px; }
 /* The detail panel and this bar both want the bottom-right; the bar wins,
    because it is the thing being driven. */
 body.tlapse-on #detail { bottom: 108px; }
@@ -822,29 +833,20 @@ body.tlapse-on #detail { bottom: 108px; }
 .jur { border: 0; background: var(--panel-solid); }
 
 /* search */
-/* The panel's own card: search, then what the search found, taking whatever
-   height is left over. */
-.card-find { display: flex; flex-direction: column; flex: 1; min-height: 0; }
-/* With three countries the systems and region jumps outgrow a laptop screen,
-   so they give way and scroll rather than squeezing the results to one row. */
-.card-sys { flex: 0 1 auto; min-height: 0; max-height: 52%; overflow-y: auto; }
-
 .search { position: relative; }
 .search input {
-  width: 100%; height: 42px; padding: 0 68px 0 38px; background: transparent;
-  border: 0; border-bottom: 1px solid var(--line); outline: none;
-  font-size: 13.5px; letter-spacing: 0.01em;
+  width: 100%; height: 42px; padding: 0 40px 0 38px; background: transparent;
+  border: 0; outline: none; font-size: 13.5px; letter-spacing: 0.01em;
 }
 .search input::placeholder { color: var(--ink-faint); }
-.search input:focus { border-bottom-color: var(--cyan-dim); }
+.search input::-webkit-search-cancel-button { display: none; }
 .search .ico {
   position: absolute; left: 13px; top: 13px; width: 16px; height: 16px;
   stroke: var(--ink-faint); fill: none; stroke-width: 1.7; pointer-events: none;
 }
-.search .clr { position: absolute; right: 36px; top: 9px; width: 24px; height: 24px; }
-/* The panel folds away from its own top corner, which is where the way back
-   in reappears. */
-.search .fold { position: absolute; right: 7px; top: 8px; width: 26px; height: 26px; }
+#shell:focus-within .search .ico { stroke: var(--cyan); }
+.search .clr { position: absolute; right: 9px; top: 9px; width: 24px; height: 24px; }
+.search .clr[hidden] { display: none; }
 
 /* Says what the list is sorted by and what the right-hand number means, once,
    instead of a unit repeated down three hundred rows. */
@@ -1895,10 +1897,10 @@ a.tl-src:hover { color: var(--cyan); }
    one takes over at 1080 rather than 900. Between those two widths the map was
    a strip between two panels. */
 @media (max-width: 1080px) {
-  :root { --shell: 100vw; }
   #hud { inset: 8px 8px auto 8px; flex-wrap: wrap; }
-  #shell { left: 0; right: 0; top: auto; bottom: 0; width: 100vw; height: 58vh; }
-  #shell .card { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+  /* The capsule takes a row of its own under the switches. */
+  #shell { order: 9; width: 100%; }
+  .find-drop { max-height: 55vh; }
   #detail { left: 0; right: 0; top: auto; bottom: 0; width: 100vw; height: 74vh; border-radius: var(--r-lg) var(--r-lg) 0 0; }
   #detail.hidden { transform: translateY(calc(100% + 14px)); }
   /* Setting the gap rather than `bottom` keeps the parked offset in step. */

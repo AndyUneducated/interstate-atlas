@@ -74,7 +74,7 @@ function applyStaticStrings() {
   for (const el of document.querySelectorAll('[data-count]')) {
     if (el.dataset.n) el.textContent = num(Number(el.dataset.n));
   }
-  document.getElementById('q').placeholder = t('search.placeholder');
+  document.getElementById('q').placeholder = app.region === 'ea' ? t('search.placeholderEa') : t('search.placeholder');
   document.getElementById('palQ').placeholder = t('pal.placeholder');
   for (const el of document.querySelectorAll('#unitSeg [data-u]')) {
     el.querySelector('b').textContent = t(el.dataset.u === 'metric' ? 'unit.km' : 'unit.mi');
@@ -606,11 +606,10 @@ export const STACKED = 1080;
 /**
  * Padding that lands a route in the gap the panels leave, not under one.
  *
- * The panel widths are fluid, so this measures them rather than naming them -
- * at 1150px the sidebar is 288px wide and reserving the old hard-coded 400
- * would push the route off to the right of the slot it is supposed to sit in.
- * The detail panel is counted even when it is closed, so that opening it does
- * not shift a route that was just framed.
+ * The detail panel's width is fluid, so this measures it rather than naming
+ * it. It is counted even when it is closed, so that opening it does not shift
+ * a route that was just framed. The left side only has the search box, which
+ * sits in the top bar and is already inside the top padding.
  */
 export function mapPad({ reserveDetail = true } = {}) {
   if (window.innerWidth <= STACKED) return { top: 90, bottom: 70, left: 30, right: 30 };
@@ -619,7 +618,7 @@ export function mapPad({ reserveDetail = true } = {}) {
   return {
     top: 90,
     bottom: 70,
-    left: document.body.classList.contains('shell-off') ? 40 : width('shell') + GAP,
+    left: 50,
     right: reserveDetail ? width('detail') + GAP : 80,
   };
 }
@@ -874,16 +873,26 @@ const JUMP_GROUPS = { na: ['na', 'us', 'ca', 'mx'], ea: ['ea', 'tw', 'hk'] };
 
 app.region = 'na';
 
-/** Set the header switch, the tagline and the jump rows to a region. */
+/** Set the header switch, the jumps, the key and the list to a region. */
 function showRegion(region) {
   app.region = region;
   for (const b of document.querySelectorAll('#regionSeg [data-region]')) {
-    b.classList.toggle('on', b.dataset.region === region);
-    b.setAttribute('aria-pressed', String(b.dataset.region === region));
+    const on = b.dataset.region === region;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', String(on));
+    b.title = on ? t('jump.title') : '';
+    if (!on) b.removeAttribute('aria-expanded');
   }
   document.documentElement.dataset.region = region;
+  document.getElementById('q').placeholder = region === 'ea' ? t('search.placeholderEa') : t('search.placeholder');
   renderJumps();
+  renderLegend();
   if (document.getElementById('results')?.childElementCount) renderResults();
+}
+
+function setRegionPop(open) {
+  document.getElementById('regionWrap').classList.toggle('open', open);
+  document.querySelector('#regionSeg .on')?.setAttribute('aria-expanded', String(open));
 }
 
 function flyToRegion(region) {
@@ -900,9 +909,27 @@ function regionOfView() {
 }
 
 function wireRegions() {
+  // The region not on screen is a destination; the one that is opens its
+  // places, since flying to where you already are does nothing.
+  const wrap = document.getElementById('regionWrap');
   for (const b of document.querySelectorAll('#regionSeg [data-region]')) {
-    b.addEventListener('click', () => flyToRegion(b.dataset.region));
+    b.addEventListener('click', () => {
+      if (b.dataset.region === app.region) {
+        setRegionPop(!wrap.classList.contains('open'));
+        return;
+      }
+      setRegionPop(false);
+      flyToRegion(b.dataset.region);
+    });
   }
+  document.addEventListener('pointerdown', (e) => {
+    if (!wrap.contains(e.target)) setRegionPop(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !wrap.classList.contains('open')) return;
+    setRegionPop(false);
+    e.stopImmediatePropagation();
+  }, true);
   app.map.on('moveend', () => {
     const r = regionOfView();
     if (r !== app.region) showRegion(r);
@@ -937,6 +964,7 @@ function renderJumps() {
       b.dataset.jump = r.key;
       b.textContent = t(r.i18n);
       b.addEventListener('click', async () => {
+        setRegionPop(false);
         app.map.fitBounds(r.bounds, {
           // No route is selected when you jump to a region, so the detail panel
           // is not going to open over the view and needs no room reserved.
@@ -991,6 +1019,11 @@ function renderSystems() {
         <span class="sys-count">${t('sys.routes', { n: (counts[s.id] || 0).toLocaleString() })}</span>`;
       btn.addEventListener('click', () => {
         if (s.perJuris) {
+          // The sheet is where these are switched, so the menu that led to
+          // it gets out of the way.
+          const menu = document.getElementById('menuLayers');
+          menu.classList.remove('open');
+          menu.querySelector('[aria-haspopup]').setAttribute('aria-expanded', 'false');
           openSheet({ us: 'states', ca: 'provinces', mx: 'mxstates' }[s.cc]);
           return;
         }
@@ -1006,19 +1039,18 @@ function renderSystems() {
 /**
  * What the colours mean, on the map itself.
  *
- * The map is otherwise unlabelled below zoom 7, and with the sidebar folded
- * away the system list goes too, which left cyan, amber and pink lines and
- * nothing to tell them apart. The key is on unless the reader switches it off
- * in the Layers menu; it sits beside the panel when the panel is open and in
- * its place when it is folded.
+ * The map is otherwise unlabelled below zoom 7, and the system switches live
+ * in a menu, which left cyan, amber and pink lines and nothing on screen to
+ * tell them apart. The key is on unless the reader switches it off.
  *
- * Only the systems actually drawn are listed, so this is a key to what is on
- * the screen rather than a second copy of the switch panel.
+ * Only the systems actually drawn in the region on screen are listed, so this
+ * is a key to what is in front of the reader rather than a second copy of the
+ * switches: Taiwan's freeways mean nothing over Ohio.
  */
 function renderLegend() {
   const host = document.getElementById('legend');
   if (!host) return;
-  const on = SYSTEMS.filter((s) => app.systems.get(s.id).on);
+  const on = SYSTEMS.filter((s) => app.systems.get(s.id).on && regionOf(s.cc) === app.region);
   if (!on.length || !app.legend) { host.innerHTML = ''; host.hidden = true; return; }
   host.hidden = false;
   host.innerHTML = `<p class="lg-h">${t('legend.title')}</p>`
@@ -1198,12 +1230,37 @@ function renderResults() {
         <span class="res-sub">${sub}</span>
       </span>
       <span class="res-mi">${lenNum(r.mi)}</span>`;
-    b.addEventListener('click', () => select(r.id));
+    b.addEventListener('click', () => { setFind(false); select(r.id); });
     frag.appendChild(b);
   }
   host.innerHTML = '';
   host.appendChild(frag);
+  findCursor = -1;
   revealSelected(host);
+}
+
+/**
+ * Open or close the list under the search box.
+ *
+ * It comes down when the box is used and goes when a route is chosen or the
+ * reader looks elsewhere. Closing keeps the query, so coming back to the box
+ * finds the list as it was left.
+ */
+function setFind(open) {
+  const shell = document.getElementById('shell');
+  if (shell.classList.contains('open') === open) return;
+  shell.classList.toggle('open', open);
+  document.getElementById('q').setAttribute('aria-expanded', String(open));
+  if (open) revealSelected(document.getElementById('results'));
+}
+
+let findCursor = -1;
+function moveFindCursor(step) {
+  const rows = [...document.querySelectorAll('#results .res')];
+  if (!rows.length) return;
+  findCursor = Math.max(0, Math.min(rows.length - 1, findCursor + step));
+  rows.forEach((r, i) => r.classList.toggle('cursor', i === findCursor));
+  rows[findCursor].scrollIntoView({ block: 'nearest' });
 }
 
 /**
@@ -1357,9 +1414,31 @@ function wire() {
     query = q.value;
     document.getElementById('qClear').hidden = !query;
     renderResults();
+    setFind(true);
+  });
+  q.addEventListener('focus', () => setFind(true));
+  q.addEventListener('pointerdown', () => setFind(true));
+  q.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      setFind(true);
+      moveFindCursor(e.key === 'ArrowDown' ? 1 : -1);
+      e.preventDefault();
+    } else if (e.key === 'Enter') {
+      const rows = document.querySelectorAll('#results .res');
+      rows[Math.max(findCursor, 0)]?.click();
+      if (rows.length) q.blur();
+      e.preventDefault();
+    } else if (e.key === 'Escape' && document.getElementById('shell').classList.contains('open')) {
+      setFind(false);
+      q.blur();
+      e.stopPropagation();
+    }
   });
   document.getElementById('qClear').addEventListener('click', () => {
     q.value = ''; query = ''; document.getElementById('qClear').hidden = true; renderResults(); q.focus();
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (!document.getElementById('shell').contains(e.target)) setFind(false);
   });
 
   document.getElementById('langSeg').addEventListener('click', (e) => {
@@ -1397,13 +1476,6 @@ function wire() {
     new MutationObserver(() => tg.setAttribute('aria-pressed', String(tg.classList.contains('on'))))
       .observe(tg, { attributes: true, attributeFilter: ['class'] });
   }
-
-  const setShell = (open) => {
-    document.getElementById('shell').classList.toggle('hidden', !open);
-    document.body.classList.toggle('shell-off', !open);
-  };
-  document.getElementById('btnCollapse').addEventListener('click', () => setShell(false));
-  document.getElementById('shellOpen').addEventListener('click', () => setShell(true));
 
   document.getElementById('basemap').addEventListener('click', (e) => {
     const b = e.target.closest('[data-base]');
