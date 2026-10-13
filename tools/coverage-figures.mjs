@@ -96,6 +96,7 @@ const RULE_REASONS = {
     zh: '国土测绘中心中心线里，除临时线（臨）外没有任何路段带这个编号',
   },
   notInCsdi: { en: 'carried by no segment of the Transport Department centrelines', zh: '运输署中心线里没有任何路段带这个编号' },
+  notInOsm: { en: 'carried by no OpenStreetMap way in the extract', zh: 'OpenStreetMap 提取数据里没有任何道路带这个编号' },
 };
 
 async function rows() {
@@ -238,6 +239,30 @@ async function rows() {
     }
   }
 
+  // Mainland China: the main routes of the 2022 national highway plan, held by
+  // hand because the plan is a PDF (cn-plan.json). The link routes it numbers
+  // are not counted, so the drawn figure is of main routes only.
+  {
+    const plan = await read('content/reference/cn-plan.json');
+    const nums = async (f) => new Set((await read(`data/geo/${f}.json`)).features.map((x) => x.properties.num));
+    const span = ({ from, to }) => Array.from({ length: to - from + 1 }, (_, i) => `G${from + i}`);
+    const tiers = [
+      ['cn-expressway', 'cn/expressway', { en: 'National Expressway', zh: '国家高速公路' },
+        Object.values(plan.expressway).flat(),
+        { en: 'national highway plan 2022 (CN-2): the 36 main routes', zh: '《国家公路网规划》2022（CN-2）：36 条主线' }],
+      ['cn-national', 'cn/national', { en: 'National Highway', zh: '普通国道' },
+        Object.values(plan.national).flatMap(span),
+        { en: 'national highway plan 2022 (CN-2): the 121 main routes', zh: '《国家公路网规划》2022（CN-2）：121 条主线' }],
+    ];
+    for (const [sys, file, tier, listed, by] of tiers) {
+      const drawn = await nums(file).catch(() => null);
+      if (!drawn) continue;
+      const absent = listed.filter((n) => !drawn.has(n));
+      row('cn', sys, tier, by, listed.length, listed.length - absent.length,
+        absent.length ? [{ key: 'notInOsm', n: absent.length }] : []);
+    }
+  }
+
   const reasons = {};
   for (const r of out) {
     for (const { key } of r.why) {
@@ -250,7 +275,7 @@ async function rows() {
   return { rows: out, reasons, note };
 }
 
-const FLAG = { us: '🇺🇸', ca: '🇨🇦', mx: '🇲🇽', tw: 'TW', hk: 'HK' };
+const FLAG = { us: '🇺🇸', ca: '🇨🇦', mx: '🇲🇽', cn: 'CN', tw: 'TW', hk: 'HK' };
 
 function markdown({ rows: rs, reasons, note }) {
   const cell = (n) => (n == null ? '—' : fmt(n));

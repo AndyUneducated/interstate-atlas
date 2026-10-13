@@ -22,6 +22,7 @@ const COUNTRY = {
   us: { flag: '🇺🇸', name: 'US' },
   ca: { flag: '🇨🇦', name: 'CA' },
   mx: { flag: '🇲🇽', name: 'MX' },
+  cn: { flag: 'CN', name: 'CN' },
   tw: { flag: 'TW', name: 'TW' },
   hk: { flag: 'HK', name: 'HK' },
 };
@@ -40,6 +41,9 @@ const COVERAGE = {
   'tw-freeway': { name: 'National Freeways (國道)', note: 'the numbered freeways and their lettered spurs' },
   'tw-provincial': { name: 'Provincial Highways (省道)', note: 'including the 快速公路 expressways, 台61 and up; provisional 臨 alignments left out' },
   'hk-route': { name: 'Strategic Routes', note: 'Routes 1 to 10' },
+  'cn-expressway': { name: 'National Expressways (国家高速)', note: 'from OpenStreetMap, not an official source (D-66); G with one, two or four digits' },
+  'cn-national': { name: 'National Highways (普通国道)', note: 'from OpenStreetMap (D-66); G with three digits' },
+  'cn-provincial': { name: 'Provincial Roads (省道)', note: 'from OpenStreetMap (D-66), numbered roads in {n} provinces, loaded per province' },
 };
 
 const fmt = (n) => n.toLocaleString('en-US');
@@ -57,7 +61,7 @@ async function figures() {
   const miles = rows.reduce((a, r) => a + r.mi, 0);
   const juris = Object.keys(stats.byState).length;
   const countries = COUNTRIES.filter((cc) => rows.some((r) => r.s.cc === cc));
-  const order = ['us', 'ca', 'mx', 'tw', 'hk'].filter((cc) => countries.includes(cc));
+  const order = ['us', 'ca', 'mx', 'cn', 'tw', 'hk'].filter((cc) => countries.includes(cc));
   const jurisIn = (id) => Object.values(stats.byState).filter((j) => j[id] > 0).length;
   const deps = Object.keys(pkg.dependencies ?? {}).length;
   const dev = Object.keys(pkg.devDependencies ?? {}).length;

@@ -125,16 +125,47 @@ export const SYSTEMS = [
     geo: 'hk/routes.json',
     on: true,
   },
+  // Mainland China's three numbered tiers, as GB/T 917 numbers them: national
+  // expressways (G with one, two or four digits), ordinary national highways
+  // (G with three) and each province's own S roads, its expressways included.
+  {
+    id: 'cn-expressway',
+    code: 'ze',
+    cc: 'cn',
+    colour: '#2fd37a',
+    geo: 'cn/expressway.json',
+    on: true,
+    // Four times the Interstates' file, so it is fetched when the reader
+    // first looks at East Asia rather than at boot.
+    deferred: true,
+  },
+  {
+    id: 'cn-national',
+    code: 'zn',
+    cc: 'cn',
+    colour: '#ff5a5a',
+    geo: 'cn/national.json',
+    on: false,
+  },
+  {
+    id: 'cn-provincial',
+    code: 'zs',
+    cc: 'cn',
+    colour: '#f4c542',
+    dir: 'cn/provincial',
+    perJuris: true,
+    on: false,
+  },
 ];
 
 /** Country codes in the order the atlas presents them: North America north to
  *  south, then East Asia. */
-export const COUNTRIES = ['ca', 'us', 'mx', 'tw', 'hk'];
+export const COUNTRIES = ['ca', 'us', 'mx', 'cn', 'tw', 'hk'];
 
 /** The two regions the header switches between, and the countries in each. */
 export const REGIONS = {
   na: { countries: ['ca', 'us', 'mx'], bounds: [[-126.5, 15.5], [-58.5, 55.5]] },
-  ea: { countries: ['tw', 'hk'], bounds: [[113.6, 21.7], [122.2, 25.5]] },
+  ea: { countries: ['cn', 'tw', 'hk'], bounds: [[73.5, 17.5], [135.1, 53.6]] },
 };
 export const regionOf = (cc) => (REGIONS.ea.countries.includes(cc) ? 'ea' : 'na');
 
@@ -177,7 +208,7 @@ export function geoPath(id, juris) {
  * both sides at once.
  */
 export const FIELDS = [
-  'id', 'label', 'sys', 'tier', 'st', 'mi', 'base', 'num', 'cx', 'cy', 'gs', 'ns', 'where',
+  'id', 'label', 'sys', 'tier', 'st', 'mi', 'base', 'num', 'cx', 'cy', 'gs', 'ns', 'where', 'aka',
 ];
 
 export const IX = Object.fromEntries(FIELDS.map((f, i) => [f, i]));

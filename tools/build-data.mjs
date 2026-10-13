@@ -30,7 +30,8 @@ import {
 import { STEPS as HPMS_STEPS, HPMS_YEAR } from './fetch-hpms.mjs';
 import { canadaLabel, canadaSystem, loadCanada, PR_NAME } from './canada.mjs';
 import { loadMexico, mexicoLabel } from './mexico.mjs';
-import { loadStateLocator, BOUNDARY_SOURCE } from './mx-states.mjs';
+import { loadStateLocator, loadProvinceLocator, BOUNDARY_SOURCE } from './mx-states.mjs';
+import { loadChina, chinaLabel, placeFinder, PROVINCE_CODE } from './china.mjs';
 import { writeOut } from './write.mjs';
 import { addNamedFreeways } from './named-freeways.mjs';
 import { loadTchList, tchFlags } from './tch.mjs';
@@ -1458,6 +1459,11 @@ async function readUnitedStates(contextLines) {
  * termini for a provincial highway travel with it as the register's, beside
  * the official length, held to the longest piece of the number (D-59).
  */
+function akaOf(r) {
+  const names = [r.osm?.name, r.osm?.nameEn, r.osm?.official, ...(r.named ?? []).slice(0, 2)].filter(Boolean);
+  return names.length ? [...new Set(names)].join(' ') : null;
+}
+
 async function buildEastAsia() {
   const routes = [];
   const sources = {};
@@ -1495,15 +1501,16 @@ async function buildEastAsia() {
         bbox: bboxOf([...pieces, ...comp.branches]).map((v) => Math.round(v * 1000) / 1000),
         states: stats.states,
         types: stats.types,
-        gradeSeparated: extra.cc === 'tw' ? stats.gradeSeparated : null,
+        gradeSeparated: extra.cc === 'tw' || extra.cc === 'cn' ? stats.gradeSeparated : null,
         tolled: null,
         unpaved: stats.unpaved,
         dividedShare: null,
         dividedCov: null,
         breaks: comp.pieces.length - 1,
         gapMi: Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI),
-        start: endOf(edges, false),
-        end: endOf(edges, true),
+        start: extra.placeAt ? extra.placeAt(flat[0]) : endOf(edges, false),
+        end: extra.placeAt ? extra.placeAt(flat[flat.length - 1]) : endOf(edges, true),
+        osm: extra.osm ?? null,
         _pieces: pieces,
         _branches: comp.branches,
         _primarySt: primarySt,
@@ -1566,6 +1573,50 @@ async function buildEastAsia() {
       });
     }
     console.log(`  ${routes.length - before} Hong Kong routes from ${hk.features} centrelines`);
+  }
+
+  const locate = await loadProvinceLocator((iso) => PROVINCE_CODE[iso]);
+  const cn = await loadChina(locate);
+  if (cn) {
+    const before = routes.length;
+    const placeAt = placeFinder(cn.places, locate);
+    sources.cn = { ...cn.edition, unplaced: cn.unplaced };
+    let done = 0;
+    for (const grp of cn.groups.values()) {
+      if (++done % 500 === 0) console.log(`  ${done}/${cn.groups.size}`);
+      const national = grp.system !== 'cn-provincial';
+      const first = stitchRoute(grp.parts, {
+        snapDeg: US_SNAP, bridgeKm: national ? 30 : 15, minComponentKm: 1, dedupe: true, bridgeFromExtremities: true,
+      });
+      if (!first.length) continue;
+      let comps = first;
+      if (national && first.length > 1) {
+        const parts = first.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
+        comps = stitchComponents(parts, US_SNAP, 80, { bridgeFromExtremities: true }).sort((a, b) => b.km - a.km);
+      }
+      // A provincial number under 2 km that has a longer road elsewhere is a
+      // stub at a junction rather than a road.
+      const keep = comps.filter((c) => c && (c.km >= 2 || comps.length === 1));
+      const info = national ? cn.info[grp.number] : null;
+      const at = routes.length;
+      push(grp, keep, {
+        key: national ? `${grp.system}|${grp.number}|CN` : `${grp.system}|${grp.number}|${grp.st}`,
+        cc: 'cn',
+        system: grp.system,
+        tier: grp.tier,
+        label: chinaLabel(grp.number),
+        named: [...grp.names].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([n]) => n),
+        st: grp.st,
+        placeAt,
+      });
+      // The relation's planned name and ends, as mapped, go on the longest piece.
+      const longest = routes.slice(at).sort((a, b) => b.mi - a.mi)[0];
+      if (info && longest) {
+        longest.osm = { name: info.name, nameEn: info.nameEn, official: info.official, from: info.from, to: info.to };
+      }
+    }
+    console.log(`  ${routes.length - before} mainland Chinese routes from ${cn.read} OSM ways`
+      + ` (${cn.unplaced} outside the provinces), edition ${cn.edition.timestamp}`);
   }
   return { routes, sources };
 }
@@ -1728,7 +1779,7 @@ async function main() {
   }
   for (const [key, rs] of byKey) {
     const [system, number, st] = key.split('|');
-    const prefix = { 'us-interstate': 'i', 'us-numbered': 'us', 'tw-freeway': 'tw-fwy', 'tw-provincial': 'tw', 'hk-route': 'hk' }[system];
+    const prefix = { 'us-interstate': 'i', 'us-numbered': 'us', 'tw-freeway': 'tw-fwy', 'tw-provincial': 'tw', 'hk-route': 'hk', 'cn-expressway': 'cn', 'cn-national': 'cn' }[system];
     const slug = `${prefix ?? st.toLowerCase()}-${number.toLowerCase()}`;
     rs.sort((a, b) => b.mi - a.mi);
     rs.forEach((r, i) => {
@@ -1853,6 +1904,10 @@ async function main() {
         // and Taiwan's register row: its termini, districts and revision date.
         offSrc: r.offSrc ?? null,
         reg: r.register ?? null,
+        // Mainland China: what the OSM route relation says the route is called
+        // and where it runs between, quoted as mapped. Written only where there
+        // is one, so the other countries' files do not each carry a null.
+        ...(r.osm ? { osm: r.osm } : {}),
       },
       geometry: { type: 'MultiLineString', coordinates: [...main, ...branches] },
     };
@@ -1871,6 +1926,7 @@ async function main() {
     'mx-federal': 0.004, 'mx-state': 0.006,
     // An island and a city are read close up, so they keep far more of their line.
     'tw-freeway': 0.0008, 'tw-provincial': 0.001, 'hk-route': 0.0002,
+    'cn-expressway': 0.002, 'cn-national': 0.003, 'cn-provincial': 0.002,
   };
 
   for (const s of SYSTEMS) {
@@ -1931,6 +1987,9 @@ async function main() {
       // Only set where a number is shared, so it costs nothing on the
       // overwhelming majority of routes that need no disambiguation.
       r.gradeSeparated, r.states.length, r.where ?? null,
+      // What a mainland route is called, for search only: its number is how
+      // the atlas labels it, but 京港澳 and 沪昆 are how it is known.
+      r.country === 'cn' ? akaOf(r) : null,
     ]),
   });
 
@@ -1953,6 +2012,7 @@ async function main() {
       mx: 'INEGI Red Nacional de Caminos, SICT Datos Viales',
       tw: 'NLSC national and provincial highway centrelines, Highway Bureau provincial register',
       hk: 'Transport Department Road Network',
+      cn: 'OpenStreetMap contributors (Geofabrik extract), Natural Earth admin-1 boundaries',
     },
     eastAsia: eastAsia.sources,
     // How the federal network's per-state figures were located, since the

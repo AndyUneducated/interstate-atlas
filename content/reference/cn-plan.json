@@ -1,0 +1,17 @@
+{
+  "source": "国家发展改革委、交通运输部《国家公路网规划》(2022年—2035年), issued 2022-07-04",
+  "url": "https://www.ndrc.gov.cn/",
+  "checkedAgainst": "zh.wikipedia.org 中国国家高速公路网 and 中华人民共和国国道, which list the plan's routes, retrieved 2026-10-13",
+  "retrieved": "2026-10-13",
+  "note": "The plan's main routes only. Its link, parallel and ring routes - 163 expressway links and the 5xx, 6xx and 7xx ordinary links - are numbered by the plan but not listed here.",
+  "expressway": {
+    "radial": ["G1", "G2", "G3", "G4", "G5", "G6", "G7"],
+    "northSouth": ["G11", "G15", "G25", "G35", "G45", "G55", "G59", "G65", "G69", "G75", "G85"],
+    "eastWest": ["G10", "G12", "G16", "G18", "G20", "G22", "G30", "G36", "G40", "G42", "G50", "G56", "G60", "G70", "G72", "G76", "G78", "G80"]
+  },
+  "national": {
+    "radial": { "from": 101, "to": 112 },
+    "northSouth": { "from": 201, "to": 248 },
+    "eastWest": { "from": 301, "to": 361 }
+  }
+}
