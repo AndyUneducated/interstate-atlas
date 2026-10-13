@@ -2,8 +2,6 @@
   "id": "i-49",
   "name": { "en": "Interstate 49", "zh": "49 号州际公路" },
   "tagline": { "en": "Lafayette to Shreveport, the first piece of a longer idea", "zh": "从拉法耶特到什里夫波特，一个更大构想的第一段" },
-  "officialMi": 249.93,
-  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
   "completedYear": 1996,
   "termini": {
     "start": { "en": "I-10 in Lafayette, Louisiana", "zh": "路易斯安那州拉法耶特，与 I-10 相接" },

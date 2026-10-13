@@ -3,8 +3,6 @@
   "route": { "anchor": [-84.55, 42.73] },
   "name": { "en": "Interstate 69", "zh": "69 号州际公路" },
   "tagline": { "en": "Evansville to Port Huron — the newest long Interstate", "zh": "从埃文斯维尔到休伦港，最新的长距离州际公路" },
-  "officialMi": 523.36,
-  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
   "completedYear": 2024,
   "termini": {
     "start": { "en": "US 41 and Veterans Memorial Parkway on the south side of Evansville, Indiana — a temporary end until the Ohio River bridge is built", "zh": "印第安纳州埃文斯维尔南侧，与 US 41、退伍军人纪念大道相接；在俄亥俄河大桥建成前为临时终点" },

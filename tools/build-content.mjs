@@ -177,10 +177,16 @@ async function main() {
   // above the figure. The claims are dropped here rather than edited out of
   // content/, so the reason lives in one place and the removals are reported.
   const costed = new Set();
+  // The FHWA route log's length, joined by the data build, per route id.
+  const routeLog = new Map();
   try {
     const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', geoPath('us-interstate')), 'utf8'));
-    for (const f of fc.features) if (f.properties.offCostK) costed.add(f.properties.id);
+    for (const f of fc.features) {
+      if (f.properties.offCostK) costed.add(f.properties.id);
+      if (f.properties.offMi != null) routeLog.set(f.properties.id, f.properties.offMi);
+    }
   } catch { /* geometry not built yet; nothing to reconcile against */ }
+  const measuredMi = new Map(index.routes.map((r) => [r[IX.id], r[IX.mi]]));
 
   const ROUTE_COST_LABEL = /^(total|route-wide|original|overall)?\s*construction cost$|^cost of the whole route$/i;
   const superseded = [];
@@ -260,6 +266,25 @@ async function main() {
 
     if (d.officialMi != null && !d.mileageSource) {
       fail(file, 'officialMi given without mileageSource');
+    }
+    // A dossier's official length overrides the route log on the page, so it
+    // must be about the same stretch of road. Where an official figure spans
+    // several of the atlas's pieces, `officialCovers` names them and the page
+    // compares against their sum.
+    if (d.officialCovers) {
+      const unknown = d.officialCovers.filter((c) => !measuredMi.has(c));
+      if (unknown.length) fail(file, `officialCovers names routes the atlas does not have: ${unknown.join(', ')}`);
+      else d = { ...d, coveredMi: Math.round(d.officialCovers.reduce((s, c) => s + measuredMi.get(c), 0)) };
+    }
+    if (d.officialMi != null) {
+      const logged = routeLog.get(id);
+      const base = d.coveredMi ?? measuredMi.get(id);
+      if (logged != null && Math.abs(d.officialMi - logged) > Math.max(1, logged * 0.02)) {
+        fail(file, `officialMi ${d.officialMi} disagrees with the route log's ${logged} mi for ${id}; drop it or correct it`);
+      } else if (logged == null && base && Math.abs(d.officialMi / base - 1) > 0.2) {
+        fail(file, `officialMi ${d.officialMi} is ${Math.round((d.officialMi / base - 1) * 100)}% off the ${base} mi measured`
+          + ` for ${id}; name the pieces it covers in "officialCovers"`);
+      }
     }
 
     if (costed.has(id) && Array.isArray(d.figures)) {

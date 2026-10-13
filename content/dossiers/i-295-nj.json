@@ -2,8 +2,6 @@
   "id": "i-295-nj",
   "name": { "en": "Interstate 295", "zh": "295 号州际公路" },
   "tagline": { "en": "The free road beside the New Jersey Turnpike", "zh": "新泽西收费高速旁的免费替代线" },
-  "officialMi": 93.08,
-  "mileageSource": "FHWA Route Log and Finder List, Table 2, January 2026",
   "completedYear": 1994,
   "termini": {
     "start": { "en": "I-95 at Newport, Delaware", "zh": "特拉华州纽波特，与 I-95 相接" },

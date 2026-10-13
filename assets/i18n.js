@@ -323,9 +323,11 @@ export const STRINGS = {
     // Captions for the headline figure. Short, because they sit under a very
     // large number; the section further down gives both lengths and the gap.
     'len.heroOfficial': 'official length',
+    'len.heroOfficialCovers': 'official, over {n} mapped pieces',
     'len.heroTiger': 'measured off the Census centreline',
     'len.heroNrn': 'measured off the national road network',
     'len.measuredSrc': 'End-to-end along the mapped centreline, counting each carriageway once',
+    'len.measuredCovers': 'Summed over the {n} mapped pieces the official figure covers, each measured along its centreline',
     'len.delta': 'Difference',
     // The usual reason the two disagree is a rule, not an error, and saying so
     // is the difference between a figure a reader can use and one they distrust.
@@ -852,9 +854,11 @@ export const STRINGS = {
     'len.official': '官方里程',
     'len.measured': '本站实测',
     'len.heroOfficial': '官方公布里程',
+    'len.heroOfficialCovers': '官方里程，涵盖地图上 {n} 段',
     'len.heroTiger': '基于人口普查局路网中心线量得',
     'len.heroNrn': '基于国家道路网数据量得',
     'len.measuredSrc': '沿地图中心线端到端量算，分向车道只计一次',
+    'len.measuredCovers': '官方数字涵盖地图上的 {n} 段，此为各段沿中心线量算之和',
     'len.delta': '差值',
     'len.deltaWhy': '两条州际公路共用同一段路面时，官方名录只把这段里程记在其中一条名下，而端到端量算会为两条都计入。较小的差值属于测绘细节。此外，官方名录本身也有已知的疏漏。',
 

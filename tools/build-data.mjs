@@ -493,10 +493,16 @@ function attachOfficial(routes, ref) {
   // states are missing from a table is something that table does not cover —
   // an unsigned or renumbered designation still present in the geometry — and
   // a partial sum for it would be worse than nothing, so it gets neither.
+  //
+  // A state the route only grazes is not one the table has forgotten: TIGER
+  // puts a mile of I-49 in Texas at Texarkana, which FHWA lists in Louisiana,
+  // Arkansas and Missouri alone, and requiring Texas cost I-49 its official
+  // length altogether. Two miles or less is a graze.
   const sumOverStates = (entry, mine) => {
     if (!entry) return null;
-    const known = mine.filter((st) => entry.states[st] != null);
-    if (!known.length || known.length < mine.length) return null;
+    const need = mine.filter((s) => entry.states[s.st] != null || s.mi > 2);
+    const known = need.filter((s) => entry.states[s.st] != null).map((s) => s.st);
+    if (!known.length || known.length < need.length) return null;
     return { known, value: known.reduce((s, st) => s + entry.states[st], 0) };
   };
 
@@ -520,7 +526,7 @@ function attachOfficial(routes, ref) {
 
   for (const r of routes) {
     if (r.system !== 'us-interstate') continue;
-    const mine = r.states.map((s) => s.st);
+    const mine = r.states;
 
     const miEntry = lookup(ref.mileage.routes, r.number);
     const mi = sumOverStates(miEntry, mine);
@@ -549,7 +555,7 @@ function attachOfficial(routes, ref) {
       costed++;
     } else if (costEntry?.total != null) {
       const tbl = Object.keys(costEntry.states);
-      const shared = mine.filter((st) => tbl.includes(st)).length;
+      const shared = mine.filter((s) => tbl.includes(s.st)).length;
       if (shared >= tbl.length - 1 && shared >= mine.length - 2 && shared / tbl.length >= 0.8) {
         r.offCostK = Math.round(costEntry.total);
         r.offCostWhole = true;
@@ -1631,7 +1637,10 @@ async function main() {
     fields: FIELDS,
     routes: routes.map((r) => [
       r.id, r.label, system(r.system).code, TIER_CODE[r.tier],
-      r._primarySt, r.offMi ? Math.round(r.offMi) : r.mi, r.base, r.nameOnly ? '' : r.number,
+      // Measured, like every other length in a list or a total. The official
+      // figure is a different extent for a fifth of the Interstates, and a
+      // list that mixed the two sorted I-90 by one and US 20 by the other.
+      r._primarySt, r.mi, r.base, r.nameOnly ? '' : r.number,
       Math.round(((r.bbox[0] + r.bbox[2]) / 2) * 100) / 100,
       Math.round(((r.bbox[1] + r.bbox[3]) / 2) * 100) / 100,
       // Only set where a number is shared, so it costs nothing on the

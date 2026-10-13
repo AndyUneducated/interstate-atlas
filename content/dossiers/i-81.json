@@ -2,8 +2,6 @@
   "id": "i-81",
   "name": { "en": "Interstate 81", "zh": "81 号州际公路" },
   "tagline": { "en": "The Great Valley truck road, Tennessee to the Thousand Islands", "zh": "大峡谷货运通道，自田纳西至千岛群岛" },
-  "officialMi": 781.3,
-  "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
   "designatedYear": 1957,
   "termini": {
     "start": { "en": "I-40 near Dandridge, Tennessee", "zh": "田纳西州丹德里奇附近，与 I-40 相接" },

@@ -1047,6 +1047,12 @@ body.tlapse-on #detail { bottom: 108px; }
 .mhero-v small {
   font-size: 13px; color: var(--ink-faint); margin-left: 3px; letter-spacing: 0;
 }
+.mhero-row { display: flex; align-items: flex-end; gap: 14px; }
+.mhero-off {
+  font-family: var(--mono); font-size: 10px; line-height: 1.35; color: var(--ink-faint);
+  padding: 0 0 2px 12px; border-left: 1px solid var(--line-2);
+}
+.mhero-off b { font-size: 14px; font-weight: 500; color: var(--ink-dim); }
 .mhero-s {
   display: block; margin-top: 4px;
   font-family: var(--mono); font-size: 10px; color: var(--ink-faint);

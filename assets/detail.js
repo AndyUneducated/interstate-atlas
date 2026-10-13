@@ -105,19 +105,19 @@ const covBadge = (pct) => (pct != null && pct < 98 ? `${num(pct)}%` : null);
  * type, as what share of it is tolled. This lifts it out of the grid and the
  * other five stay in it.
  *
- * The caption says which of the two lengths this is, because they differ and
- * the page refuses to pretend otherwise; the provenance section below gives
- * both and explains the gap. The other unit sits under the headline one
+ * The headline is the measured length, the same figure every list and total
+ * uses, so the road is the same length here as in the row that opened it.
+ * The official figure sits beside it where there is one; the provenance
+ * section below explains the gap. The other unit sits under the headline one
  * unconditionally: the reader's choice of unit is theirs, but the sign at the
  * side of the road is in whichever unit its country uses.
  */
-function heroLength(p, officialMi, ca) {
-  const mi = officialMi ?? p.mi;
+function heroLength(p, officialMi, ca, covers = 0) {
   return `<div class="mhero">
     <span class="m-k">${t('dt.length')}</span>
-    <div class="mhero-v">${lenNum(mi)}<small>${lenUnit()}</small></div>
-    <span class="mhero-s">${distAlt(mi)} · ${
-  officialMi != null ? t('len.heroOfficial') : t(ca ? 'len.heroNrn' : 'len.heroTiger')}</span>
+    <div class="mhero-row"><div class="mhero-v">${lenNum(p.mi)}<small>${lenUnit()}</small></div>${officialMi != null
+    ? `<span class="mhero-off"><b>${lenNum(officialMi)}</b> ${lenUnit()}<br>${covers > 1 ? t('len.heroOfficialCovers', { n: covers }) : t('len.heroOfficial')}</span>` : ''}</div>
+    <span class="mhero-s">${distAlt(p.mi)} · ${t(ca ? 'len.heroNrn' : 'len.heroTiger')}</span>
   </div>`;
 }
 
@@ -662,7 +662,7 @@ export async function renderDetail(id) {
         ${terminusRow('to', end, endCoord, dossier?.termini?.end, axis)}
       </div>
 
-      ${heroLength(p, officialMi, ca)}
+      ${heroLength(p, officialMi, ca, dossier?.officialCovers?.length)}
 
       <div class="mgrid">
         ${metric(ca ? 'dt.provinces' : 'dt.states', num(states.length))}
@@ -787,14 +787,18 @@ export async function renderDetail(id) {
 
   // Where the two lengths disagree the reason is usually structural rather
   // than an error, so name the likely cause instead of leaving a bare gap.
-  const delta = officialMi ? Math.round(p.mi - officialMi) : 0;
+  // An official figure for a road the atlas splits in pieces is compared with
+  // the pieces it covers, not with this one.
+  const covered = dossier?.coveredMi != null ? dossier : null;
+  const measuredMi = covered?.coveredMi ?? p.mi;
+  const delta = officialMi ? Math.round(measuredMi - officialMi) : 0;
   const lengthRows = officialMi ? `<div class="figs" style="margin-top:11px">
     <div class="fig"><span class="fig-k">${t('len.official')}</span>
       <span class="fig-v"><b>${num(lenOf(officialMi))}</b> ${lenUnit()}
       ${officialSrc ? `<span class="src">${esc(officialSrc)}</span>` : ''}</span></div>
     <div class="fig"><span class="fig-k">${t('len.measured')}</span>
-      <span class="fig-v"><b>${num(lenOf(p.mi))}</b> ${lenUnit()}
-      <span class="src">${t('len.measuredSrc')}</span></span></div>
+      <span class="fig-v"><b>${num(lenOf(measuredMi))}</b> ${lenUnit()}
+      <span class="src">${covered ? t('len.measuredCovers', { n: covered.officialCovers.length }) : t('len.measuredSrc')}</span></span></div>
     ${Math.abs(delta) >= Math.max(3, officialMi * 0.02) ? `<div class="fig">
       <span class="fig-k">${t('len.delta')}</span>
       <span class="fig-v">${delta > 0 ? '+' : ''}<b>${num(lenOf(delta))}</b> ${lenUnit()}
