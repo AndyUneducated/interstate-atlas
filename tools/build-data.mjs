@@ -1460,7 +1460,8 @@ async function readUnitedStates(contextLines) {
  * the official length, held to the longest piece of the number (D-59).
  */
 function akaOf(r) {
-  const names = [r.osm?.name, r.osm?.nameEn, r.osm?.official, ...(r.named ?? []).slice(0, 2)].filter(Boolean);
+  const names = [r.plan?.short, r.plan?.zh, r.plan?.en, r.osm?.name, r.osm?.nameEn, r.osm?.official,
+    ...(r.named ?? []).slice(0, 2)].filter(Boolean);
   return names.length ? [...new Set(names)].join(' ') : null;
 }
 
@@ -1577,6 +1578,7 @@ async function buildEastAsia() {
 
   const locate = await loadProvinceLocator((iso) => PROVINCE_CODE[iso]);
   const cn = await loadChina(locate);
+  const cnPlan = cn ? JSON.parse(await readFile(join(ROOT, 'content', 'reference', 'cn-plan.json'), 'utf8')).routes : {};
   if (cn) {
     const before = routes.length;
     const placeAt = placeFinder(cn.places, locate);
@@ -1613,6 +1615,12 @@ async function buildEastAsia() {
       const longest = routes.slice(at).sort((a, b) => b.mi - a.mi)[0];
       if (info && longest) {
         longest.osm = { name: info.name, nameEn: info.nameEn, official: info.official, from: info.from, to: info.to };
+      }
+      const plan = national ? cnPlan[grp.number] : null;
+      if (plan) {
+        const pieces = routes.slice(at);
+        const drawnMi = Math.round(pieces.reduce((s, r) => s + r.mi, 0) * 10) / 10;
+        for (const r of pieces) r.plan = { ...plan, drawnMi, pieces: pieces.length };
       }
     }
     console.log(`  ${routes.length - before} mainland Chinese routes from ${cn.read} OSM ways`
@@ -1908,6 +1916,8 @@ async function main() {
         // and where it runs between, quoted as mapped. Written only where there
         // is one, so the other countries' files do not each carry a null.
         ...(r.osm ? { osm: r.osm } : {}),
+        // The 2022 plan's name and listed length for a main or ring route (CN-2).
+        ...(r.plan ? { plan: r.plan } : {}),
       },
       geometry: { type: 'MultiLineString', coordinates: [...main, ...branches] },
     };
