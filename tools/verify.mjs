@@ -1169,7 +1169,8 @@ await step('a Chinese province loads its provincial roads', async () => {
 await shot('22-sichuan.png');
 
 await step('the switch flies back to North America', async () => {
-  if (await page.locator('#dtClose').isVisible()) await page.click('#dtClose');
+  if (await page.locator('#menuLayers.open').count()) await page.click('#btnLayers');
+  if (await page.locator('#detail:not(.hidden)').count()) await page.click('#dtClose');
   await page.click('#regionSeg [data-region="na"]');
   await page.waitForTimeout(3200);
   const lng = await page.evaluate(() => window.__map.getCenter().lng);
