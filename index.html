@@ -72,6 +72,14 @@
     </span>
   </div>
 
+  <!-- The atlas covers two separate parts of the world, and a pan across the
+       Pacific is not a way to get from one to the other. This follows the
+       view as well as setting it, so it always says which one is on screen. -->
+  <div class="seg rseg" id="regionSeg" role="group" aria-label="Region">
+    <button class="seg-b" type="button" data-region="na" data-i18n="region.na">North America</button>
+    <button class="seg-b" type="button" data-region="ea" data-i18n="region.ea">East Asia</button>
+  </div>
+
   <div class="hud-sp"></div>
 
   <!-- Three menus, split by what they change. Layers is the map itself: the

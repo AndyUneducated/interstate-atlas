@@ -109,6 +109,7 @@ export const STRINGS = {
     'dv.stage.stitch': 'Stitch',
     'dv.stage.build': 'Build',
     'dv.stage.check': 'Check',
+    'dv.reg.ea': 'Taiwan & Hong Kong',
     'dv.stage.page': 'Page',
     'dv.reg.all': 'Every source',
     'dv.reg.layers': 'Layers & profiles',
@@ -162,10 +163,35 @@ export const STRINGS = {
     'sys.country.mx': 'Mexico',
     'sys.mx-federal': 'Federal Highways',
     'sys.mx-state': 'State Highways',
+    'sys.country.tw': 'Taiwan',
+    'sys.country.hk': 'Hong Kong',
+    'sys.tw-freeway': 'National Freeways',
+    'sys.tw-provincial': 'Provincial Highways',
+    'sys.hk-route': 'Strategic Routes',
+    'sys.tw-freeway.meta': '國道, the tolled freeway network',
+    'sys.tw-provincial.meta': '省道, with the 快速公路 expressways',
+    'sys.hk-route.meta': 'Routes 1 to 10 and their exits',
+    'src.thb': 'Highway Bureau provincial highway register, updated {date}',
+    'ea.counties': 'Counties',
+    'ea.termini': 'Register termini',
+    'ea.places': 'Passes through',
+    'ea.roads': 'Roads it follows',
+    'ea.note.tw': 'Drawn from the NLSC centrelines, which number every segment as it is signed. Provisional 臨 alignments are left out. The register’s ends and districts are quoted as the Highway Bureau writes them.',
+    'ea.note.hk': 'Drawn from the Transport Department’s centrelines, which tag every segment with its strategic route. The source records no road class, tolls or lanes.',
+    'region.na': 'North America',
+    'region.ea': 'East Asia',
     'sys.mx-federal.meta': 'administered by the federation',
     'sys.mx-state.meta': 'numbered state roads, load by state',
     'sys.pickMxState': 'Choose a Mexican state',
     'sys.routes': '{n} routes',
+    'sub.county': 'one county',
+    'sub.counties': '{n} counties',
+    'dt.onRoad': 'on {road}',
+    'sect.countiesList': 'Length by county',
+    'len.heroRnc': 'measured off the national road network',
+    'len.heroNlsc': 'measured off the NLSC centrelines',
+    'len.heroTd': 'measured off the Transport Department centrelines',
+    'note.gaps.ea': 'The source centrelines leave {n} gap(s) along this route, {d} in total. Those stretches are missing from the drawn line and from the length above.',
     'sys.miles': '{n} mi',
     'sub.state': 'one state',
     'sub.states': '{n} states',
@@ -459,6 +485,13 @@ export const STRINGS = {
     'jump.us.group': 'United States',
     'jump.ca.group': 'Canada',
     'jump.mx': 'Mexico',
+    'jump.ea': 'Taiwan and Hong Kong',
+    'jump.tw': 'Taiwan',
+    'jump.twnorth': 'The north',
+    'jump.twcentre': 'The centre',
+    'jump.twsouth': 'The south',
+    'jump.tweast': 'The east coast',
+    'jump.hk': 'Hong Kong',
     'jump.mxnorth': 'Northern Mexico',
     'jump.mxcentre': 'Central Mexico',
     'jump.mxsouth': 'The south and Yucatán',
@@ -652,6 +685,7 @@ export const STRINGS = {
     'dv.stage.fetch': '抓取',
     'dv.stage.ref': '人工清单',
     'dv.stage.read': '读取',
+    'dv.reg.ea': '台湾与香港',
     'dv.stage.stitch': '拼接',
     'dv.stage.build': '构建',
     'dv.stage.check': '检查',
@@ -701,10 +735,35 @@ export const STRINGS = {
     'sys.ca-tch.meta': '主线与分支，由各省编号',
     'sys.ca-nhs.meta': '联邦与各省共同划定的国家路网',
     'sys.ca-provincial.meta': '收录全部编号路线，按省加载',
+    'sys.country.tw': '台湾',
+    'sys.country.hk': '香港',
+    'sys.tw-freeway': '國道',
+    'sys.tw-provincial': '省道',
+    'sys.hk-route': '主要幹線',
+    'sys.tw-freeway.meta': '收费高速公路网',
+    'sys.tw-provincial.meta': '含快速公路',
+    'sys.hk-route.meta': '1 至 10 号干线及出口编号',
+    'src.thb': '交通部公路局《省道公路路線表》，{date} 更新',
+    'ea.counties': '县市',
+    'ea.termini': '公路局所列起迄',
+    'ea.places': '经过地名',
+    'ea.roads': '沿途道路',
+    'ea.note.tw': '线形取自国土测绘中心道路中心线，每段都按标志编号。临时线（臨）不计入。起迄点与经过地名按公路局原文引用。',
+    'ea.note.hk': '线形取自运输署道路中心线，每段都标有所属主要干线。来源不含道路等级、收费与车道数。',
+    'region.na': '北美',
+    'region.ea': '东亚',
     'sys.country.mx': '墨西哥',
     'sys.mx-federal': '联邦公路',
     'sys.mx-state': '州公路',
     'sys.mx-federal.meta': '由联邦政府管理',
+    'sub.county': '1 个县市',
+    'sub.counties': '{n} 个县市',
+    'dt.onRoad': '位于{road}',
+    'sect.countiesList': '各县市里程',
+    'len.heroRnc': '基于国家道路网数据量得',
+    'len.heroNlsc': '基于国土测绘中心道路中心线量得',
+    'len.heroTd': '基于运输署道路中心线量得',
+    'note.gaps.ea': '来源中心线在本路线上有 {n} 处缺口，合计约 {d}。上方的长度和图上的线条都不包含这些路段。',
     'sys.mx-state.meta': '有编号的州道，按州加载',
     'sys.pickMxState': '选择墨西哥的州',
     'sys.routes': '{n} 条',
@@ -982,6 +1041,13 @@ export const STRINGS = {
     'jump.cawest': '加拿大西部',
     'jump.caeast': '加拿大东部',
     'jump.canorth': '北部三地区',
+    'jump.ea': '台湾与香港',
+    'jump.tw': '台湾全岛',
+    'jump.twnorth': '北部',
+    'jump.twcentre': '中部',
+    'jump.twsouth': '南部',
+    'jump.tweast': '东部',
+    'jump.hk': '香港',
     'jump.us.group': '美国',
     'jump.ca.group': '加拿大',
     'jump.mx': '墨西哥',
@@ -1132,16 +1198,35 @@ export const MX_STATE_LABEL = {
   JAL: ['Jalisco', '哈利斯科'], MEX: ['Estado de México', '墨西哥州'], MIC: ['Michoacán', '米却肯'],
   MOR: ['Morelos', '莫雷洛斯'], NAY: ['Nayarit', '纳亚里特'], NLE: ['Nuevo León', '新莱昂'],
   OAX: ['Oaxaca', '瓦哈卡'], PUE: ['Puebla', '普埃布拉'], QUE: ['Querétaro', '克雷塔罗'],
+// Taiwan's municipalities and counties, keyed by the ISO 3166-2:TW suffix,
+// and Hong Kong as one jurisdiction. Place names here are written as they are
+// locally, in traditional characters, in both languages' Chinese column.
+export const EA_LABEL = {
+  TPE: ['Taipei', '臺北市'], NWT: ['New Taipei', '新北市'], KEE: ['Keelung', '基隆市'],
+  TAO: ['Taoyuan', '桃園市'], HSZ: ['Hsinchu City', '新竹市'], HSQ: ['Hsinchu County', '新竹縣'],
+  MIA: ['Miaoli', '苗栗縣'], TXG: ['Taichung', '臺中市'], CHA: ['Changhua', '彰化縣'],
+  NAN: ['Nantou', '南投縣'], YUN: ['Yunlin', '雲林縣'], CYI: ['Chiayi City', '嘉義市'],
+  CYQ: ['Chiayi County', '嘉義縣'], TNN: ['Tainan', '臺南市'], KHH: ['Kaohsiung', '高雄市'],
+  PIF: ['Pingtung', '屏東縣'], ILA: ['Yilan', '宜蘭縣'], HUA: ['Hualien', '花蓮縣'],
+  TTT: ['Taitung', '臺東縣'], PEN: ['Penghu', '澎湖縣'], KIN: ['Kinmen', '金門縣'],
+  LIE: ['Lienchiang', '連江縣'],
+  HK: ['Hong Kong', '香港'],
+};
+
   ROO: ['Quintana Roo', '金塔纳罗奥'], SLP: ['San Luis Potosí', '圣路易斯波托西'],
   SIN: ['Sinaloa', '锡那罗亚'], SON: ['Sonora', '索诺拉'], TAB: ['Tabasco', '塔巴斯科'],
   TAM: ['Tamaulipas', '塔毛利帕斯'], TLA: ['Tlaxcala', '特拉斯卡拉'], VER: ['Veracruz', '韦拉克鲁斯'],
   YUC: ['Yucatán', '尤卡坦'], ZAC: ['Zacatecas', '萨卡特卡斯'],
 };
+  if (code === 'HK') return 'hk';
+  if (Object.hasOwn(EA_LABEL, code)) return 'tw';
 
 export function isProvince(code) { return Object.hasOwn(PROVINCE_LABEL, code); }
 export function isMxState(code) { return Object.hasOwn(MX_STATE_LABEL, code); }
+const labelPair = (code) => STATE_LABEL[code] || PROVINCE_LABEL[code] || MX_STATE_LABEL[code] || EA_LABEL[code];
 
-/** The country a state, province or Mexican state code belongs to. */
+
+/** The country a state, province, Mexican state or Taiwanese county belongs to. */
 export function countryOfJuris(code) {
   return isProvince(code) ? 'ca' : isMxState(code) ? 'mx' : 'us';
 }
@@ -1154,7 +1239,7 @@ export function countryOfJuris(code) {
  * names costs nothing and means "ontario" and "安大略" both work either way.
  */
 export function jurisdictionNames(code) {
-  const pair = STATE_LABEL[code] || PROVINCE_LABEL[code] || MX_STATE_LABEL[code];
+  const pair = labelPair(code);
   return pair ? `${pair[0]} ${pair[1]}` : code;
 }
 
@@ -1178,7 +1263,7 @@ export function t(key, vars) {
 
 /** The name of a state, province or territory, in the current language. */
 export function stateName(code) {
-  const pair = STATE_LABEL[code] || PROVINCE_LABEL[code] || MX_STATE_LABEL[code];
+  const pair = labelPair(code);
   if (!pair) return code;
   return lang === 'zh' ? pair[1] : pair[0];
 }
@@ -1277,9 +1362,31 @@ export function heightFt(ft) {
  * "I-95", "US 66", "ON 401" and "A-20" read the same either way, because the
  * number and the jurisdiction code are what is on the sign. The Trans-Canada
  * is the exception - it is a name rather than a code - so it translates.
+// Taiwan's suffixes are the celestial stems, 甲 to 庚, which the English
+// labels carry as A to G. Hong Kong's routes are 幹線 on their own signs.
+const STEM = { A: '甲', B: '乙', C: '丙', D: '丁', E: '戊', F: '己', G: '庚' };
+const EA_ZH = [
+  [/^Fwy (\d+)([A-G]?)$/, (n, s) => `國${n}${STEM[s] ?? ''}`],
+  [/^PH (\d+)([A-G]?)$/, (n, s) => `台${n}${STEM[s] ?? ''}`],
+  [/^Route (\d+)$/, (n) => `${n}號幹線`],
+];
+
+function zhLabel(label) {
+  if (!label) return null;
+  if (label.startsWith('TCH ')) return `横加公路 ${label.slice(4)}`;
+  for (const [re, fn] of EA_ZH) {
+    const m = re.exec(label);
+    if (m) return fn(m[1], m[2]);
+  }
+  return null;
+}
+
+/** A label's Chinese form where it has one, for the search haystack. */
+export function labelAlias(label) { return zhLabel(label) ?? ''; }
+
  */
 export function routeLabel(label) {
-  if (lang === 'zh' && label?.startsWith('TCH ')) return `横加公路 ${label.slice(4)}`;
+  if (lang === 'zh') return zhLabel(label) ?? label ?? '';
   return label ?? '';
 }
 

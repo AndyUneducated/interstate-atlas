@@ -474,7 +474,8 @@ function wireNumbering() {
    through this table and draw their bars with `undefined` as a fill. */
 const SYS_COLOUR = Object.fromEntries(SYSTEMS.map((s) => [s.id, s.colour]));
 /** Each country by the colour of its top tier, which is how the map shows it. */
-const CC_COLOUR = Object.fromEntries(['us', 'ca', 'mx'].map((cc) => [cc, SYSTEMS.find((s) => s.cc === cc)?.colour]));
+const DASH_CC = ['us', 'ca', 'mx', 'tw', 'hk'];
+const CC_COLOUR = Object.fromEntries(DASH_CC.map((cc) => [cc, SYSTEMS.find((s) => s.cc === cc)?.colour]));
 
 function bars(rows, colourOf, maxOverride) {
   const max = maxOverride ?? Math.max(...rows.map((r) => r.v));
@@ -494,7 +495,7 @@ function renderDashboard() {
 
   // One row per country, each a bar as long as its network and split into its
   // systems, so the country split and the system split read off one chart.
-  const countries = ['us', 'ca', 'mx'].map((cc) => {
+  const countries = DASH_CC.map((cc) => {
     const systems = SYSTEMS.filter((x) => x.cc === cc && s.bySystem[x.id])
       .map((x) => ({ id: x.id, colour: x.colour, ...s.bySystem[x.id] }));
     return { cc, systems, mi: systems.reduce((a, x) => a + x.mi, 0), routes: systems.reduce((a, x) => a + x.routes, 0) };
@@ -530,9 +531,9 @@ function renderDashboard() {
   const EDGES = [0, 10, 25, 50, 100, 250, 500, 1000, Infinity];
   const hist = EDGES.slice(0, -1).map((lo, i) => {
     const hi = EDGES[i + 1];
-    const by = { us: 0, ca: 0, mx: 0 };
+    const by = Object.fromEntries(DASH_CC.map((cc) => [cc, 0]));
     for (const r of app.index) if (r.mi >= lo && r.mi < hi) by[countryOf(r.sys)] += 1;
-    return { lo, hi, by, n: by.us + by.ca + by.mx };
+    return { lo, hi, by, n: Object.values(by).reduce((a, b) => a + b, 0) };
   });
   const histMax = Math.max(...hist.map((h) => h.n));
   const edgeLabel = (v) => num(Math.round(lenOf(v) / (v >= 100 ? 10 : 1)) * (v >= 100 ? 10 : 1));
@@ -589,11 +590,11 @@ function renderDashboard() {
           <div class="hist" role="img">${hist.map((h) => `
             <div class="hist-c" title="${num(h.n)}">
               <span class="hist-n">${num(h.n)}</span>
-              <div class="hist-b" style="height:${((h.n / histMax) * 100).toFixed(1)}%">${['mx', 'ca', 'us'].map((cc) => (h.by[cc]
+              <div class="hist-b" style="height:${((h.n / histMax) * 100).toFixed(1)}%">${[...DASH_CC].reverse().map((cc) => (h.by[cc]
                 ? `<i style="flex:${h.by[cc]};background:${CC_COLOUR[cc]}"></i>` : '')).join('')}</div>
               <span class="hist-k">${h.hi === Infinity ? `${edgeLabel(h.lo)}+` : edgeLabel(h.hi)}</span>
             </div>`).join('')}</div>
-          <ul class="stack-key">${['us', 'ca', 'mx'].map((cc) => `<li><i style="background:${CC_COLOUR[cc]}"></i>${t(`sys.country.${cc}`)}</li>`).join('')}</ul>
+          <ul class="stack-key">${DASH_CC.map((cc) => `<li><i style="background:${CC_COLOUR[cc]}"></i>${t(`sys.country.${cc}`)}</li>`).join('')}</ul>
           <p class="hbar-note">${t('dash.lengths.note', { u: lenUnit() })}</p>
         </div>
       </div>
@@ -618,7 +619,7 @@ function renderDashboard() {
 
     <div class="dash-card dash-wide">
       <h3>${t('dash.byState')} · ${t('dash.mostMiles')}</h3>
-      <div class="in dash-3">${['us', 'ca', 'mx'].map((cc) => `
+      <div class="in dash-3">${['us', 'ca', 'mx', 'tw'].map((cc) => `
         <div><p class="dash-sub"><span class="flagdot flag-${cc}"></span>${t(`sys.country.${cc}`)}</p>
           ${bars(stateRowsOf(cc), () => CC_COLOUR[cc])}</div>`).join('')}</div>
     </div>
@@ -777,7 +778,7 @@ function docTable(b) {
 function coverageChart(cov) {
   const lang = getLang();
   const shades = ['#ff9f5a', '#ffd166', '#c792ea', '#7aa2ff', '#ff6b8b', '#5ad1a8'];
-  const byCountry = ['us', 'ca', 'mx'].map((cc) => [cc, cov.rows.filter((r) => r.cc === cc)]);
+  const byCountry = DASH_CC.map((cc) => [cc, cov.rows.filter((r) => r.cc === cc)]).filter(([, rows]) => rows.length);
   return `<div class="cov">${byCountry.map(([cc, rows]) => `
     <section class="cov-cc">
       <h4><span class="flagdot flag-${cc}"></span>${t(`sys.country.${cc}`)}</h4>
@@ -896,6 +897,9 @@ const FLOWS = [
   ['CA-4–10', 'traffic', ['ca-tch', 'ca-nhs', 'ca-provincial']],
   ['MX-1', 'geom', ['mx-federal', 'mx-state']],
   ['MX-3', 'traffic', ['mx-federal', 'mx-state']],
+  ['TW-1', 'geom', ['tw-freeway', 'tw-provincial']],
+  ['TW-2', 'official', ['tw-provincial']],
+  ['HK-1', 'geom', ['hk-route']],
 ];
 
 /**
@@ -950,7 +954,7 @@ function lineagePanel(cc, ins, reg) {
 function lineage(ins) {
   const reg = new Map(registerRows(docsData.docs[getLang()] || docsData.docs.en).map((r) => [plain(r[0]), plain(r[1])]));
   return `<div class="dash-card dv-card"><h3>${t('dv.flow.title')}</h3><div class="in dv-sk">
-    ${['us', 'ca', 'mx'].map((cc) => lineagePanel(cc, ins, reg)).join('')}
+    ${DASH_CC.map((cc) => lineagePanel(cc, ins, reg)).join('')}
     <p class="hbar-note">${t('dv.flow.note')}</p></div></div>`;
 }
 
@@ -985,7 +989,7 @@ function crosschecks(ins) {
 /* Decisions: where each is enforced, for which country, and what it cites. */
 
 const STAGES = ['fetch', 'ref', 'read', 'stitch', 'build', 'check', 'page'];
-const REGIONS = ['all', 'us', 'ca', 'mx', 'layers'];
+const REGIONS = ['all', 'us', 'ca', 'mx', 'ea', 'layers'];
 
 function stagesOf(enforced) {
   const out = new Set();
@@ -1022,7 +1026,7 @@ function decisionViews(docs) {
   const regLabel = (r) => (['us', 'ca', 'mx'].includes(r) ? t(`sys.country.${r}`) : t(`dv.reg.${r}`));
   const count = (st, rg) => ds.filter((d) => (!st || d.stages.includes(st)) && (!rg || d.region === rg));
   const maxCell = Math.max(1, ...STAGES.flatMap((s) => REGIONS.map((r) => count(s, r).length)));
-  const REG_COLOUR = { all: '#e6edf6', us: CC_COLOUR.us, ca: CC_COLOUR.ca, mx: '#6ef7a5', layers: '#c792ea' };
+  const REG_COLOUR = { all: '#e6edf6', us: CC_COLOUR.us, ca: CC_COLOUR.ca, mx: '#6ef7a5', ea: CC_COLOUR.hk, layers: '#c792ea' };
 
   const W = 640; const H = 150; const base = H - 26;
   const sorted = ds.slice().sort((a, b) => a.n - b.n);
@@ -1106,7 +1110,7 @@ function gapKinds(docs) {
   const table = tableOf(docs);
   const en = tableOf(docsData.docs.en);
   if (!table || !en) return '';
-  const FLAG = { '🇺🇸': 'us', '🇨🇦': 'ca', '🇲🇽': 'mx' };
+  const FLAG = { '🇺🇸': 'us', '🇨🇦': 'ca', '🇲🇽': 'mx', TW: 'tw', HK: 'hk' };
   const rows = table.rows.map((r, i) => {
     const flags = plain(r[0]).split(/\s+/).map((f) => FLAG[f]).filter(Boolean);
     return {
@@ -1117,7 +1121,7 @@ function gapKinds(docs) {
     };
   });
   const topics = GAP_TOPICS.map(([k]) => k).filter((k) => rows.some((r) => r.topic === k));
-  const byCc = ['us', 'ca', 'mx', 'all'].map((cc) => ({ cc, rows: rows.filter((r) => r.cc === cc) })).filter((c) => c.rows.length);
+  const byCc = [...DASH_CC, 'all'].map((cc) => ({ cc, rows: rows.filter((r) => r.cc === cc) })).filter((c) => c.rows.length);
   const max = Math.max(...byCc.map((c) => c.rows.length));
   const pending = rows.filter((r) => r.pending).length;
   return `<div class="dash-card dv-card"><h3>${t('dv.gk.title', { n: num(rows.length) })}</h3><div class="in">
@@ -1216,17 +1220,19 @@ function renderAbout() {
       : '',
   };
 
-  const sysChips = ['us', 'ca', 'mx'].map((cc) => `<p class="ab-cc"><span class="flagdot flag-${cc}"></span><b>${t(`sys.country.${cc}`)}</b>
+  const sysChips = DASH_CC.map((cc) => `<p class="ab-cc"><span class="flagdot flag-${cc}"></span><b>${t(`sys.country.${cc}`)}</b>
     ${SYSTEMS.filter((x) => x.cc === cc).map((x) => `<span class="ab-chip" style="--sys-col:${x.colour}">${t(`sys.${x.id}`)}</span>`).join('')}</p>`).join('');
   const go = (tab, label) => `<button class="ab-go" type="button" data-docs="${tab}">${label}<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>`;
   const L = (href, text) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`;
 
   const copy = zh ? {
-    what: ['它是什么', `三个国家的编号公路网：${SYSTEMS.length} 个路网系统、${num(app.index.length)} 条路线、${dist(totalMi)} 制图里程，覆盖 ${juris} 个州、省与地区。每条线都可以点开，看起止点、分州里程、路段构成、海拔剖面，部分路线还有成文介绍。`],
+    what: ['它是什么', `北美三国与台湾、香港的编号公路网：${SYSTEMS.length} 个路网系统、${num(app.index.length)} 条路线、${dist(totalMi)} 制图里程，覆盖 ${juris} 个州、省、地区与县市。每条线都可以点开，看起止点、分州里程、路段构成、海拔剖面，部分路线还有成文介绍。`],
     data: ['数据从哪里来', [
       ['us', `几何取自 ${L('https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html', 'TIGER/Line')}，官方里程取自 FHWA 路线名录，车流、路况、车道取自 ${L('https://www.fhwa.dot.gov/policyinformation/hpms.cfm', 'HPMS')}。`],
       ['ca', `几何取自加拿大统计局《${L('https://www.statcan.gc.ca/en/lode/databases/odr', '国家道路网')}》，NHS 名录取自交通部，车流量取自公开批量数据的七个省与地区。`],
       ['mx', `几何取自 INEGI《${L('https://www.inegi.org.mx/programas/rnc/', '国家道路网')}》2025 版，车流量取自 SICT《${L('https://www.datos.gob.mx/dataset/datos_viales', 'Datos Viales')}》。`],
+      ['tw', `几何取自国土测绘中心《${L('https://data.gov.tw/dataset/73232', '道路中心線')}》，省道官方里程取自交通部公路局《${L('https://data.gov.tw/dataset/105020', '省道公路路線表')}》。`],
+      ['hk', `几何取自运输署《${L('https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844', '道路網絡')}》（空间数据共享平台）。`],
     ], '底图 OpenFreeMap（OpenStreetMap），卫星影像 Esri，地形 Mapzen。'],
     read: ['怎么读', [
       ['实测', `长度、起止点、分州里程、路段等级，均由几何在本站算出，分向行驶的公路只计一次。${acc.zh}`],
@@ -1236,11 +1242,13 @@ function renderAbout() {
     links: [['sources', '全部来源与许可'], ['coverage', '覆盖率'], ['accuracy', '准确性与已知缺口'], ['decisions', '处理决策']],
     keys: '键盘',
   } : {
-    what: ['What it is', `The numbered highway networks of three countries: ${SYSTEMS.length} route systems, ${num(app.index.length)} routes and ${dist(totalMi)} of mapped road across ${juris} states, provinces and territories. Every line opens into its termini, its length by jurisdiction, what it is built as, an elevation profile and, for some, a written profile.`],
+    what: ['What it is', `The numbered highway networks of the three North American countries, Taiwan and Hong Kong: ${SYSTEMS.length} route systems, ${num(app.index.length)} routes and ${dist(totalMi)} of mapped road across ${juris} states, provinces, territories and counties. Every line opens into its termini, its length by jurisdiction, what it is built as, an elevation profile and, for some, a written profile.`],
     data: ['Where the data comes from', [
       ['us', `Geometry from ${L('https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html', 'TIGER/Line')}, official lengths from the FHWA Route Log, traffic, condition and lanes from ${L('https://www.fhwa.dot.gov/policyinformation/hpms.cfm', 'HPMS')}.`],
       ['ca', `Geometry from Statistics Canada's ${L('https://www.statcan.gc.ca/en/lode/databases/odr', 'National Road Network')}, the NHS from Transport Canada, traffic from the seven jurisdictions that publish counts in bulk.`],
       ['mx', `Geometry from INEGI's ${L('https://www.inegi.org.mx/programas/rnc/', 'Red Nacional de Caminos')} 2025, traffic from SICT's ${L('https://www.datos.gob.mx/dataset/datos_viales', 'Datos Viales')}.`],
+      ['tw', `Geometry from the NLSC's ${L('https://data.gov.tw/dataset/73232', 'road centrelines')}, provincial official lengths from the Highway Bureau's ${L('https://data.gov.tw/dataset/105020', 'provincial highway register')}.`],
+      ['hk', `Geometry from the Transport Department's ${L('https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844', 'Road Network')}, on the CSDI portal.`],
     ], 'Base map OpenFreeMap (OpenStreetMap), imagery Esri, terrain Mapzen.'],
     read: ['How to read it', [
       ['Measured', `Length, termini, length by jurisdiction and roadway class, computed here from the geometry, with a divided highway counted once. ${acc.en}`],

@@ -3,7 +3,7 @@
 
 import {
   t, setLang, getLang, stateName, dist, num, lenOf, lenName, isProvince, jurisdictionNames,
-  routeLabel, ownerLabel, countryOfJuris, setUnits, getUnits, defaultUnits, lenNum, routeDist,
+  routeLabel, labelAlias, ownerLabel, countryOfJuris, setUnits, getUnits, defaultUnits, lenNum, routeDist,
 } from './i18n.js';
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen } from './sheets.js';
@@ -14,6 +14,7 @@ import { toggleTolls, tollAt, raiseTolls, closeTollPopup } from './tolls.js';
 import { toggleBridges, bridgeAt, raiseBridges, closeBridge } from './bridges.js';
 import {
   SYSTEMS, COUNTRIES, TIER_BY_CODE, geoPath, isPerJuris, systemsOf, systemOfCode, countryOf,
+  REGIONS as WORLD_REGIONS, regionOf,
 } from './schema.js';
 
 /* The route systems, their colours and where their geometry lives, all come
@@ -118,7 +119,8 @@ async function loadIndex() {
     // "saskatchewan" find their routes without the user knowing the code. So
     // is the place a shared number is told apart by, so "ON 21 Goderich" picks
     // the right one out of the twenty-two Ontario roads numbered 21.
-    hay: `${label} ${num} ${st} ${jurisdictionNames(st)} ${where || ''}`.toLowerCase(),
+    // Taiwan and Hong Kong's routes answer to their own signs too: 國1, 台9, 3號幹線.
+    hay: `${label} ${labelAlias(label)} ${num} ${st} ${jurisdictionNames(st)} ${where || ''}`.toLowerCase(),
   }));
   for (const r of app.index) app.byId.set(r.id, r);
   app.generated = raw.generated;
@@ -858,15 +860,68 @@ const REGIONS = [
   { group: 'mx', key: 'mxnorth', i18n: 'jump.mxnorth', bounds: [[-117.2, 22.5], [-97.1, 32.8]] },
   { group: 'mx', key: 'mxcentre', i18n: 'jump.mxcentre', bounds: [[-105.8, 17.8], [-96.2, 22.6]] },
   { group: 'mx', key: 'mxsouth', i18n: 'jump.mxsouth', bounds: [[-98.6, 14.4], [-86.6, 21.7]] },
+  { group: 'ea', key: 'ea', i18n: 'jump.ea', bounds: WORLD_REGIONS.ea.bounds },
+  { group: 'tw', key: 'tw', i18n: 'jump.tw', bounds: [[119.9, 21.85], [122.05, 25.35]] },
+  { group: 'tw', key: 'twnorth', i18n: 'jump.twnorth', bounds: [[120.85, 24.4], [122.0, 25.32]] },
+  { group: 'tw', key: 'twcentre', i18n: 'jump.twcentre', bounds: [[120.2, 23.4], [121.45, 24.5]] },
+  { group: 'tw', key: 'twsouth', i18n: 'jump.twsouth', bounds: [[120.0, 21.85], [121.0, 23.5]] },
+  { group: 'tw', key: 'tweast', i18n: 'jump.tweast', bounds: [[120.85, 22.0], [121.95, 24.9]] },
+  { group: 'hk', key: 'hk', i18n: 'jump.hk', bounds: [[113.82, 22.17], [114.42, 22.56]] },
 ];
+
+// Which of the jump rows belong to each region; the whole-region row leads.
+const JUMP_GROUPS = { na: ['na', 'us', 'ca', 'mx'], ea: ['ea', 'tw', 'hk'] };
+
+app.region = 'na';
+
+/** Set the header switch, the tagline and the jump rows to a region. */
+function showRegion(region) {
+  app.region = region;
+  for (const b of document.querySelectorAll('#regionSeg [data-region]')) {
+    b.classList.toggle('on', b.dataset.region === region);
+    b.setAttribute('aria-pressed', String(b.dataset.region === region));
+  }
+  document.documentElement.dataset.region = region;
+  renderJumps();
+  if (document.getElementById('results')?.childElementCount) renderResults();
+}
+
+function flyToRegion(region) {
+  showRegion(region);
+  app.map.fitBounds(WORLD_REGIONS[region].bounds, { padding: mapPad({ reserveDetail: false }), duration: 2200 });
+}
+
+// The two regions are half a world apart, so whichever one the centre of the
+// view is nearer to is the one being looked at.
+function regionOfView() {
+  const { lng } = app.map.getCenter();
+  const east = ((lng % 360) + 360) % 360;
+  return east > 40 && east < 200 ? 'ea' : 'na';
+}
+
+function wireRegions() {
+  for (const b of document.querySelectorAll('#regionSeg [data-region]')) {
+    b.addEventListener('click', () => flyToRegion(b.dataset.region));
+  }
+  app.map.on('moveend', () => {
+    const r = regionOfView();
+    if (r !== app.region) showRegion(r);
+    localStorage.setItem('ia.region', r);
+  });
+  // A reader who left in East Asia comes back to it.
+  if (localStorage.getItem('ia.region') === 'ea') {
+    app.map.fitBounds(WORLD_REGIONS.ea.bounds, { padding: mapPad({ reserveDetail: false }), duration: 0 });
+  }
+  showRegion(regionOfView());
+}
 
 function renderJumps() {
   const host = document.getElementById('jumps');
   host.innerHTML = '';
-  for (const group of ['na', 'us', 'ca', 'mx']) {
+  for (const group of JUMP_GROUPS[app.region] || JUMP_GROUPS.na) {
     const row = document.createElement('div');
     row.className = 'jump-row';
-    if (group !== 'na') {
+    if (group !== 'na' && group !== 'ea') {
       const label = document.createElement('i');
       label.className = `flagdot flag-${group}`;
       label.title = t(`sys.country.${group}`);
@@ -994,7 +1049,9 @@ export function searchRoutes(text, { limit = 300, systemsOnly = true } = {}) {
   const restrict = systemsOnly && !terms.length;
   const out = [];
   for (const r of app.index) {
-    if (restrict && !app.systems.get(r.sys).on) continue;
+    // Browsing also keeps to the region on screen: Taiwan's view opening on a
+    // list of American highways answers a question nobody looking at it asked.
+    if (restrict && (!app.systems.get(r.sys).on || regionOf(countryOf(r.sys)) !== app.region)) continue;
     if (terms.length) {
       let ok = true;
       for (const term of terms) if (!r.hay.includes(term)) { ok = false; break; }
@@ -1028,7 +1085,14 @@ const SHIELD_CLASS = {
   'ca-provincial': 'shield-pr',
   'mx-federal': 'shield-mxf',
   'mx-state': 'shield-mxs',
+  'tw-freeway': 'shield-twf',
+  'tw-provincial': 'shield-twp',
+  'hk-route': 'shield-hk',
 };
+
+// Shields that carry the number alone, with no jurisdiction code to add.
+const BARE_SHIELD = new Set(['shield-i', 'shield-us', 'shield-tch', 'shield-mxf', 'shield-twf', 'shield-twp', 'shield-twx', 'shield-hk']);
+const STEM = { A: '甲', B: '乙', C: '丙', D: '丁', E: '戊', F: '己', G: '庚' };
 
 // The stylesheet reads system colours as --c-<system id>, so they are defined
 // here from the one table rather than restated in CSS.
@@ -1069,10 +1133,15 @@ export function shieldHtml(r, big = false) {
   const raw = String(r.num ?? '');
   // A freeway known only by its name has no number to put on a sign.
   if (!raw) return `<span class="shield shield-named${big ? ' shield-lg' : ''}" title="${t('dt.nameOnly')}"></span>`;
-  const text = (countryOf(r.sys) === 'mx' ? raw.replace(/^0+(?=\d)/, '') : raw).replace(/[<>&]/g, '');
-  const prefixed = cls !== 'shield-i' && cls !== 'shield-us' && cls !== 'shield-tch' && cls !== 'shield-mxf';
-  return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" `
-    + `title="${prefixed ? `${r.st} ` : ''}${text}">${text}</span>`;
+  // Taiwan's expressways, 台61 and up, are provincial highways on a red
+  // shield rather than the blue one, and its spurs are signed 甲 乙 丙.
+  if (cls === 'shield-twp' && Number(r.base) >= 61) cls = 'shield-twx';
+  const cc = countryOf(r.sys);
+  let text = cc === 'mx' ? raw.replace(/^0+(?=\d)/, '') : raw;
+  if (cc === 'tw') text = text.replace(/[A-G]$/, (s) => STEM[s]);
+  text = text.replace(/[<>&]/g, '');
+  const title = cc === 'tw' || cc === 'hk' ? routeLabel(r.label) : `${BARE_SHIELD.has(cls) ? '' : `${r.st} `}${text}`;
+  return `<span class="shield ${cls}${big ? ' shield-lg' : ''}" title="${title}">${text}</span>`;
 }
 
 function renderResults() {
@@ -1112,10 +1181,14 @@ function renderResults() {
     // of its run instead, since its number is unique already. And a route
     // sharing a number inside one jurisdiction adds the place that tells the
     // namesakes apart.
-    const byJurisdiction = isPerJuris(r.sys) || isProvince(r.st);
+    const cc = countryOf(r.sys);
+    const byJurisdiction = isPerJuris(r.sys) || isProvince(r.st) || cc === 'hk';
+    const count = cc === 'tw'
+      ? (r.ns === 1 ? t('sub.county') : t('sub.counties', { n: r.ns }))
+      : (r.ns === 1 ? t('sub.state') : t('sub.states', { n: r.ns }));
     const sub = r.where ? `${stateName(r.st)} · ${r.where}`
       : byJurisdiction ? stateName(r.st)
-        : `${r.ns === 1 ? t('sub.state') : t('sub.states', { n: r.ns })}`
+        : count
           + ` · ${r.gs}% ${t('dt.gradeSep').toLowerCase()}`;
     const written = writtenIds.has(r.id)
       ? `<span class="res-pen" title="${t('search.written')}"></span>` : '';
@@ -1477,7 +1550,7 @@ async function main() {
 
   boot(86, 'boot.step.ready');
   renderSystems();
-  renderJumps();
+  wireRegions();
   renderResults();
 
   boot(100, 'boot.step.ready');

@@ -52,7 +52,10 @@ function terminusRow(kind, place, coord, dossierText, axis) {
   if (written) {
     body = esc(written);
   } else if (place?.tramo) {
-    body = t('dt.onTramo', { tramo: esc(place.name) });
+    const name = (getLang() === 'zh' && place.nameZh) || place.name || place.nameZh;
+    // Mexico's ends are SICT sections; Taiwan's and Hong Kong's are streets.
+    const key = place.nameZh !== undefined ? 'dt.onRoad' : 'dt.onTramo';
+    body = name ? t(key, { road: esc(name), tramo: esc(name) }) : '—';
   } else if (place) {
     body = place.km <= 6
       ? esc(`${place.name}, ${place.st}`)
@@ -112,12 +115,14 @@ const covBadge = (pct) => (pct != null && pct < 98 ? `${num(pct)}%` : null);
  * unconditionally: the reader's choice of unit is theirs, but the sign at the
  * side of the road is in whichever unit its country uses.
  */
+const HERO_SRC = { mx: 'len.heroRnc', tw: 'len.heroNlsc', hk: 'len.heroTd' };
+
 function heroLength(p, officialMi, ca, covers = 0) {
   return `<div class="mhero">
     <span class="m-k">${t('dt.length')}</span>
     <div class="mhero-row"><div class="mhero-v">${lenNum(p.mi)}<small>${lenUnit()}</small></div>${officialMi != null
     ? `<span class="mhero-off"><b>${lenNum(officialMi)}</b> ${lenUnit()}<br>${covers > 1 ? t('len.heroOfficialCovers', { n: covers }) : t('len.heroOfficial')}</span>` : ''}</div>
-    <span class="mhero-s">${distAlt(p.mi)} · ${t(ca ? 'len.heroNrn' : 'len.heroTiger')}</span>
+    <span class="mhero-s">${distAlt(p.mi)} · ${t(ca ? 'len.heroNrn' : HERO_SRC[p.cc] ?? 'len.heroTiger')}</span>
   </div>`;
 }
 
@@ -342,6 +347,25 @@ function mexicanTraffic(p) {
   rows.push(['', `<span class="src"><a href="${esc(meta.url)}" target="_blank" rel="noopener">`
     + `${esc(meta.agency ?? meta.source)}</a> · ${esc(meta.licence)}</span>`]);
   return figBox(t('mx.tr.title'), t('mx.tr.sub', { n: num(tr.stations), year: tr.year }), rows);
+}
+
+/**
+ * What Taiwan's register and Hong Kong's road network record beside the line.
+ *
+ * The provincial register gives each route's two named ends and the districts
+ * it passes, as the Highway Bureau writes them; they are quoted, not matched to
+ * the geometry, so they do not say which end of the drawn line is which.
+ */
+function eaFacts(p) {
+  if (p.cc !== 'tw' && p.cc !== 'hk') return '';
+  const rows = [];
+  const reg = p.reg;
+  if (reg?.from || reg?.to) rows.push([t('ea.termini'), esc([reg.from, reg.to].filter(Boolean).join(' — '))]);
+  if (reg?.places) rows.push([t('ea.places'), `<span class="fig-s">${esc(reg.places)}</span>`]);
+  if (p.named?.length) rows.push([t('ea.roads'), p.named.map((n) => esc(n)).join(' · ')]);
+  rows.push(['', `<span class="fig-s">${t(p.cc === 'hk' ? 'ea.note.hk' : 'ea.note.tw')}</span>`]);
+  return `<div class="figs ca-facts">${rows.map(([k, v]) =>
+    `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}</div>`;
 }
 
 /** What the RNC records about a Mexican route that is not a measurement. */
@@ -629,10 +653,12 @@ export async function renderDetail(id) {
   // headline takes the most authoritative available and the provenance section
   // shows the disagreement rather than hiding it.
   const officialMi = dossier?.officialMi ?? p.offMi ?? null;
-  const officialSrc = dossier?.mileageSource || (p.offMi != null ? t('src.routelog') : null);
+  const officialSrc = dossier?.mileageSource || (p.offMi == null ? null
+    : p.offSrc === 'thb' ? t('src.thb', { date: p.reg?.updated ?? '' }) : t('src.routelog'));
+  const ea = p.cc === 'tw' || p.cc === 'hk';
   const gapNote = p.breaks > 0
     ? `<div class="note gap"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17v.1"/><circle cx="12" cy="12" r="9"/></svg>
-       <span>${t(ca ? 'note.gaps.ca' : 'note.gaps', { n: p.breaks, d: dist(p.gapMi) })}</span></div>` : '';
+       <span>${t(ca ? 'note.gaps.ca' : ea ? 'note.gaps.ea' : 'note.gaps', { n: p.breaks, d: dist(p.gapMi) })}</span></div>` : '';
 
   host.innerHTML = `
     <div class="dt-hd">
@@ -665,9 +691,14 @@ export async function renderDetail(id) {
       ${heroLength(p, officialMi, ca, dossier?.officialCovers?.length)}
 
       <div class="mgrid">
-        ${metric(ca ? 'dt.provinces' : 'dt.states', num(states.length))}
+        ${p.cc === 'hk' ? '' : metric(ca ? 'dt.provinces' : p.cc === 'tw' ? 'ea.counties' : 'dt.states', num(states.length))}
         ${metric('dt.straight', `${num(lenOf(p.spanMi))}<small>${lenUnit()}</small>`)}
-        ${mx
+        ${ea
+          // Taiwan's centrelines are classed freeway, expressway or ordinary
+          // road, so the freeway share is measured. Hong Kong's say nothing
+          // about a road's standard, and neither source records tolls or lanes.
+          ? metric('dt.gradeSep', p.gs == null ? null : `${num(p.gs, p.gs % 1 ? 1 : 0)}<small>%</small>`)
+          : mx
           // The RNC has no functional class, so it cannot say what share of a
           // road is freeway. The tile it would have gone in carries the toll
           // share instead, which the RNC does record, segment by segment.
@@ -777,10 +808,11 @@ export async function renderDetail(id) {
   // is long enough to push everything else off the panel, so it waits behind
   // its heading.
   parts.push(section('measured', [
-    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), caFacts(p), mxFacts(p), caInventory(p),
+    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), caFacts(p), mxFacts(p), eaFacts(p), caInventory(p),
   ].join('').trim()));
   parts.push(section('composition', compositionBlock(types), !dossier));
-  parts.push(section('statesList', statesBlock(states)));
+  // Hong Kong is one jurisdiction, so a breakdown by it says nothing.
+  if (p.cc !== 'hk') parts.push(section(p.cc === 'tw' ? 'countiesList' : 'statesList', statesBlock(states)));
   parts.push(section('tolls', '<div id="dtTolls"></div>'));
   parts.push(section('served', '<div id="dtServed"></div>'));
   parts.push(section('elevation', '<div id="dtElev"></div>'));

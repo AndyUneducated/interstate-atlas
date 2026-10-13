@@ -266,7 +266,7 @@ await shot('04-dashboard.png');
 
 await step('dashboard charts the countries and the longest routes', async () => {
   const rows = await page.locator('.cc-row').count();
-  if (rows !== 3) throw new Error(`expected a bar per country, got ${rows}`);
+  if (rows !== 5) throw new Error(`expected a bar per country or region, got ${rows}`);
   const longest = await page.locator('.hbar-route[data-id]').count();
   if (longest < 10) throw new Error(`only ${longest} longest-route bars`);
 });
@@ -1037,6 +1037,56 @@ await step('bridges draw, colour by year, and say the year is not the road\'s', 
   await shot('13-bridges.png');
   await jsClick('#btnBridges');
   if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
+});
+
+await step('the region switch flies to East Asia and follows the view', async () => {
+  await dismissSheet();
+  await page.click('#regionSeg [data-region="ea"]');
+  await page.waitForTimeout(3200);
+  const lng = await page.evaluate(() => window.__map.getCenter().lng);
+  if (lng < 112 || lng > 124) throw new Error(`switch did not reach East Asia (lng ${lng.toFixed(1)})`);
+  if (!(await page.locator('#regionSeg [data-region="ea"].on').count())) throw new Error('switch does not show East Asia');
+  if (!(await page.locator('[data-jump="tw"]').count())) throw new Error('no Taiwan jump row');
+  if (await page.locator('[data-jump="ak"]').count()) throw new Error('North American jumps still shown');
+  const fw = await waitForSource('rt-tw-freeway');
+  const hk = await waitForSource('rt-hk-route');
+  if (fw < 10) throw new Error(`only ${fw} Taiwanese freeways`);
+  if (hk !== 10) throw new Error(`expected Routes 1 to 10, found ${hk}`);
+});
+await shot('19-east-asia.png');
+
+await step('國1 finds National Freeway 1 on its plum-blossom shield', async () => {
+  await page.fill('#q', '國1');
+  await page.waitForTimeout(700);
+  const first = page.locator('#results .res').first();
+  if (!(await first.locator('.shield-twf').count())) throw new Error('first result has no 國道 shield');
+  await first.click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(900);
+  const title = await page.textContent('.dt-name');
+  if (title.trim() !== 'Fwy 1') throw new Error(`opened ${title}`);
+});
+
+await step('a provincial highway gives the Highway Bureau length and termini', async () => {
+  await page.fill('#q', '台9');
+  await page.waitForTimeout(700);
+  await page.locator('#results .res').first().click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1200);
+  const text = await page.textContent('#detail');
+  if (!/Highway Bureau/.test(text)) throw new Error('no register length on PH 9');
+  if (!/Register termini/.test(text)) throw new Error('no register termini on PH 9');
+  if (!(await page.locator('.dt-hd .shield-twp').count())) throw new Error('PH 9 has no 省道 shield');
+});
+await shot('20-taiwan-detail.png');
+
+await step('the switch flies back to North America', async () => {
+  await page.click('#dtClose');
+  await page.click('#regionSeg [data-region="na"]');
+  await page.waitForTimeout(3200);
+  const lng = await page.evaluate(() => window.__map.getCenter().lng);
+  if (lng > -50) throw new Error(`switch did not return (lng ${lng.toFixed(1)})`);
+  if (!(await page.locator('[data-jump="ak"]').count())) throw new Error('North American jumps not restored');
 });
 
 console.log(`\nsteps failed:    ${failures}`);
