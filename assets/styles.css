@@ -96,7 +96,6 @@ html[data-theme="light"] .menu-tg:not(.on) .sw { background: rgba(28, 58, 98, 0.
 html[data-theme="light"] .pal { background: rgba(248, 250, 253, 0.98); box-shadow: 0 32px 90px rgba(10, 25, 50, 0.35); }
 html[data-theme="light"] .sh { background: rgba(246, 248, 252, 0.95); box-shadow: 0 40px 110px rgba(10, 25, 50, 0.4); }
 html[data-theme="light"] .stmap path { stroke: var(--panel-solid); }
-html[data-theme="light"] .brand-name { text-shadow: none; }
 html[data-theme="light"] .note { color: #6b4a12; }
 html[data-theme="light"] .note.gap { color: #8a2232; }
 html[data-theme="light"] .dc-body code { color: #0b5f73; }
@@ -112,7 +111,7 @@ html[data-theme="light"] *::-webkit-scrollbar-thumb { background: rgba(28, 58, 9
    labels use to look engineered in English. The 11px floor is because a
    character with fifteen strokes needs more room than a capital H. */
 html[data-lang="zh"] :is(
-  .brand-name, .m-k, .term-k, .figs-h, .sect-hd h3, .card-hd h2, .dash-card h3,
+  .m-k, .term-k, .figs-h, .sect-hd h3, .card-hd h2, .dash-card h3,
   .tlx-k, .fly-r-k, .jump, .sys-country, .sys-meta, .res-sub, .hbar-k,
   .sh-hd h2, .pill, .chip, table.tbl th
 ) {
@@ -236,41 +235,7 @@ a { color: var(--cyan); text-decoration: none; }
   display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap;
   pointer-events: none; transition: opacity 0.6s var(--ease);
 }
-#hud .brand { flex: none; }
 #hud > * { pointer-events: auto; }
-
-.brand {
-  display: flex; align-items: center; gap: 11px; padding: 9px 15px;
-  background: var(--panel); border: 1px solid var(--line);
-  border-radius: var(--r-md); backdrop-filter: blur(16px) saturate(1.3);
-}
-.brand-mark { width: 22px; height: 22px; flex: none; overflow: visible; }
-/* The carriageway in perspective, filled faintly so the silhouette survives
-   at favicon size where an outline alone turns to mush. */
-.bm-road {
-  fill: rgba(53, 231, 255, 0.16); stroke: var(--cyan); stroke-width: 1.5;
-  stroke-linejoin: round;
-}
-.bm-lane { fill: none; stroke: var(--cyan); stroke-width: 2.1; stroke-linecap: round; }
-/* The international boundary the road crosses, dashed as maps draw them. */
-.bm-edge {
-  fill: none; stroke: var(--ink-dim); stroke-width: 1;
-  stroke-dasharray: 2.8 2.4; opacity: 0.8;
-}
-.brand:hover .bm-road { fill: rgba(53, 231, 255, 0.26); }
-.brand:hover .bm-edge { stroke: var(--cyan); opacity: 0.6; }
-.bm-road, .bm-edge { transition: fill 0.25s, stroke 0.25s, opacity 0.25s; }
-.brand-txt { display: flex; flex-direction: column; line-height: 1.25; }
-/* Sans at a heavy weight reads as a logotype; monospace at 0.3em tracking,
-   which this was, reads as a terminal status line. */
-.brand-name {
-  font-family: var(--sans); font-size: 13px; font-weight: 650;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink);
-  text-shadow: 0 0 20px rgba(53, 231, 255, 0.2);
-}
-html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
-.brand-sub { font-size: 10.5px; color: var(--ink-faint); letter-spacing: 0.04em; }
-.brand-sub-s { display: none; }
 
 .hud-sp { flex: 1; }
 
@@ -316,9 +281,6 @@ html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
 .jumps {
   display: flex; flex-direction: column; gap: 5px;
   padding: 9px 13px 11px; border-top: 1px solid var(--line);
-.rseg { margin-left: 0; }
-.rseg .seg-b { width: auto; padding: 0 11px; font-size: 11.5px; letter-spacing: 0.02em; white-space: nowrap; }
-@media (max-width: 720px) { .rseg { margin-left: 6px; } .rseg .seg-b { padding: 0 7px; font-size: 10.5px; } }
 }
 .jump-row { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
 .jump-row > .flagdot { margin-right: 2px; }
@@ -354,6 +316,9 @@ html[data-lang="zh"] .brand-name { font-size: 15px; font-weight: 600; }
   color: var(--bg); background: var(--cyan);
   box-shadow: 0 0 14px rgba(53, 231, 255, 0.4);
 }
+.rseg { margin-left: 0; }
+.rseg .seg-b { width: auto; padding: 0 11px; font-size: 11.5px; letter-spacing: 0.02em; white-space: nowrap; }
+@media (max-width: 720px) { .rseg { margin-left: 6px; } .rseg .seg-b { padding: 0 7px; font-size: 10.5px; } }
 .seg-wide { width: 100%; }
 .seg-wide .seg-b {
   flex: 1; width: auto; height: 30px; display: flex; gap: 6px; justify-content: center;
@@ -636,9 +601,6 @@ body.is-booting #zenOut { opacity: 0 !important; pointer-events: none; }
 .sys:last-child { border-bottom: 0; }
 .sys:hover { background: rgba(120, 170, 220, 0.055); }
 .sys-dot {
-/* Marked by their own route colours rather than by flags. */
-.flag-tw { background: linear-gradient(90deg, var(--c-tw-freeway) 0 50%, var(--c-tw-provincial) 50% 100%); }
-.flag-hk { background: var(--c-hk-route); }
   width: 9px; height: 9px; border-radius: 50%; flex: none;
   border: 1.5px solid currentColor; transition: box-shadow 0.2s, background 0.2s;
 }
@@ -674,6 +636,9 @@ body.is-booting #zenOut { opacity: 0 !important; pointer-events: none; }
 .flag-mx {
   background: linear-gradient(90deg, #2f9e5b 0 33.3%, #e8eef6 33.3% 66.7%, #d94a5a 66.7% 100%);
 }
+/* Marked by their own route colours rather than by flags. */
+.flag-tw { background: linear-gradient(90deg, var(--c-tw-freeway) 0 50%, var(--c-tw-provincial) 50% 100%); }
+.flag-hk { background: var(--c-hk-route); }
 .sys-txt { flex: 1; min-width: 0; }
 .sys-name { display: block; font-size: 12.5px; color: var(--ink); letter-spacing: 0.02em; }
 .sys.on .sys-name { color: currentColor; }
@@ -964,29 +929,6 @@ body.tlapse-on #detail { bottom: 108px; }
     /* a maple leaf, centred and dim enough to read behind a number */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(255,255,255,0.22)' d='M12 2l1.2 3.6 2.6-1.3-.7 3.3 3.1-.6-1.9 2.6 3.7 1.5-3.1 1.6 1.4 2.3-3.4-.4.5 3.6-2.4-1.9-1 2.9-1-2.9-2.4 1.9.5-3.6-3.4.4 1.4-2.3L2 14.7l3.7-1.5L3.8 10.6l3.1.6-.7-3.3 2.6 1.3z'/%3E%3C/svg%3E")
       center / 86% no-repeat,
-/* Taiwan and Hong Kong, as the sign rules describe them: 國道 is a white plum
-   blossom with a green edge and black figures, 省道 a blue shield with a white
-   inner frame, red for the 快速公路, and Hong Kong's routes a black number on a
-   yellow bullet. Drawn from those descriptions, not traced. */
-.shield-twf {
-  color: #10141c; padding: 1px 4px 0; font-size: calc(var(--sh-fs) - 1px);
-  min-width: calc(var(--sh-h) + 2px);
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='%23157a3c'%3E%3Ccircle cx='20' cy='11' r='10.6'/%3E%3Ccircle cx='28.6' cy='17.2' r='10.6'/%3E%3Ccircle cx='25.3' cy='27.3' r='10.6'/%3E%3Ccircle cx='14.7' cy='27.3' r='10.6'/%3E%3Ccircle cx='11.4' cy='17.2' r='10.6'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Ccircle cx='20' cy='11' r='8.8'/%3E%3Ccircle cx='28.6' cy='17.2' r='8.8'/%3E%3Ccircle cx='25.3' cy='27.3' r='8.8'/%3E%3Ccircle cx='14.7' cy='27.3' r='8.8'/%3E%3Ccircle cx='11.4' cy='17.2' r='8.8'/%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
-}
-.shield-twp, .shield-twx {
-  --sh-ink: #1f56b4;
-  color: #fff; background: var(--sh-ink);
-  border-radius: 3px 3px 50% 50% / 3px 3px 70% 70%;
-  box-shadow: inset 0 0 0 1.5px var(--sh-ink), inset 0 0 0 2.6px #fff;
-  padding-bottom: 2px;
-}
-.shield-twx { --sh-ink: #c62a33; }
-.shield-hk {
-  color: #10141c; background: #ffd21f;
-  border-radius: 4px 4px 50% 50% / 4px 4px 60% 60%;
-  padding-bottom: 2px;
-}
-
     linear-gradient(180deg, #1d8b58 0%, #0d5734 100%);
   border-radius: 4px 4px 9px 9px;
   box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.5);
@@ -1020,6 +962,29 @@ body.tlapse-on #detail { bottom: 108px; }
   color: var(--c-mx-state);
   border: 1.5px solid currentColor; border-radius: 5px;
   background: rgba(255, 224, 102, 0.1);
+}
+
+/* Taiwan and Hong Kong, as the sign rules describe them: 國道 is a white plum
+   blossom with a green edge and black figures, 省道 a blue shield with a white
+   inner frame, red for the 快速公路, and Hong Kong's routes a black number on a
+   yellow bullet. Drawn from those descriptions, not traced. */
+.shield-twf {
+  color: #10141c; padding: 1px 4px 0; font-size: calc(var(--sh-fs) - 1px);
+  min-width: calc(var(--sh-h) + 2px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='%23157a3c'%3E%3Ccircle cx='20' cy='11' r='10.6'/%3E%3Ccircle cx='28.6' cy='17.2' r='10.6'/%3E%3Ccircle cx='25.3' cy='27.3' r='10.6'/%3E%3Ccircle cx='14.7' cy='27.3' r='10.6'/%3E%3Ccircle cx='11.4' cy='17.2' r='10.6'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Ccircle cx='20' cy='11' r='8.8'/%3E%3Ccircle cx='28.6' cy='17.2' r='8.8'/%3E%3Ccircle cx='25.3' cy='27.3' r='8.8'/%3E%3Ccircle cx='14.7' cy='27.3' r='8.8'/%3E%3Ccircle cx='11.4' cy='17.2' r='8.8'/%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+.shield-twp, .shield-twx {
+  --sh-ink: #1f56b4;
+  color: #fff; background: var(--sh-ink);
+  border-radius: 3px 3px 50% 50% / 3px 3px 70% 70%;
+  box-shadow: inset 0 0 0 1.5px var(--sh-ink), inset 0 0 0 2.6px #fff;
+  padding-bottom: 2px;
+}
+.shield-twx { --sh-ink: #c62a33; }
+.shield-hk {
+  color: #10141c; background: #ffd21f;
+  border-radius: 4px 4px 50% 50% / 4px 4px 60% 60%;
+  padding-bottom: 2px;
 }
 
 /* ── provincial signs ─────────────────────────────────────────────────────
@@ -1932,8 +1897,6 @@ a.tl-src:hover { color: var(--cyan); }
 @media (max-width: 1080px) {
   :root { --shell: 100vw; }
   #hud { inset: 8px 8px auto 8px; flex-wrap: wrap; }
-  .brand-sub { display: none; }
-  .brand-sub-s { display: block; }
   #shell { left: 0; right: 0; top: auto; bottom: 0; width: 100vw; height: 58vh; }
   #shell .card { border-radius: var(--r-lg) var(--r-lg) 0 0; }
   #detail { left: 0; right: 0; top: auto; bottom: 0; width: 100vw; height: 74vh; border-radius: var(--r-lg) var(--r-lg) 0 0; }

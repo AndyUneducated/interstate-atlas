@@ -451,8 +451,8 @@ await step('language switch to Chinese', async () => {
   await page.click('#langSeg [data-lang="zh"]');
   await page.keyboard.press('Escape');
   await page.waitForTimeout(900);
-  const brand = await page.locator('.brand-name').textContent();
-  if (!/[\u4e00-\u9fff]/.test(brand)) throw new Error(`brand not translated: ${brand}`);
+  const region = await page.locator('#regionSeg [data-region="na"]').textContent();
+  if (!/[\u4e00-\u9fff]/.test(region)) throw new Error(`region switch not translated: ${region}`);
   const leftover = await page.evaluate(() => {
     const bad = [];
     for (const el of document.querySelectorAll('#hud, #shell, #detail')) {

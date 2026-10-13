@@ -50,28 +50,6 @@
 
 <!-- ── top bar ──────────────────────────────────────────────────────────── -->
 <header id="hud">
-  <div class="brand">
-    <!-- One road crossing one border. The mark used to be a US highway
-         escutcheon, which said "United States" on a product whose own tagline
-         claims North America; the dashed rule is the cartographic convention
-         for an international boundary, and it is the border that makes the
-         road a continental one. The centre line is three explicit strokes
-         rather than a dasharray, because a dasharray on a stroke this short
-         renders as a smudge at favicon size. -->
-    <svg viewBox="0 0 24 24" aria-hidden="true" class="brand-mark">
-      <path class="bm-road" d="M3.8 22 L10.1 5.4 H13.9 L20.2 22 Z"/>
-      <path class="bm-lane" d="M12 7.6v2.1M12 12.1v2.7M12 17.1v3.4"/>
-      <path class="bm-edge" d="M1.6 11.4h20.8"/>
-    </svg>
-    <span class="brand-txt">
-      <span class="brand-name" data-i18n="app.name">HIGHWAY ATLAS</span>
-      <span class="brand-sub" data-i18n="app.tagline">the highway network of North America</span>
-      <!-- The narrow layout used to hide the tagline outright, which left the
-           brand claiming less than the atlas covers. It shortens instead. -->
-      <span class="brand-sub brand-sub-s" data-i18n="app.taglineShort">North America</span>
-    </span>
-  </div>
-
   <!-- The atlas covers two separate parts of the world, and a pan across the
        Pacific is not a way to get from one to the other. This follows the
        view as well as setting it, so it always says which one is on screen. -->
