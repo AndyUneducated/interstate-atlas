@@ -21,7 +21,10 @@ const pct = (v) => (v == null ? 0 : Math.max(0, Math.min(1, v / 100)));
 // that carries the attribute, or undefined where the country's sources do not
 // publish it at all, which is drawn as "not published" rather than as zero.
 const FIELDS = {
-  official: { us: (p, s) => (s === 'us-interstate' ? (p.offMi != null ? 1 : 0) : undefined) },
+  official: {
+    us: (p, s) => (s === 'us-interstate' ? (p.offMi != null ? 1 : 0) : undefined),
+    tw: (p, s) => (s === 'tw-provincial' ? (p.offMi != null ? 1 : 0) : undefined),
+  },
   cost: { us: (p, s) => (s === 'us-interstate' ? (p.offCostK || p.offCostWhole ? 1 : 0) : undefined) },
   traffic: { us: (p) => pct(p.hpms?.aadt?.cover), ca: (p) => (p.traffic ? 1 : 0), mx: (p) => (p.mxTraffic ? 1 : 0) },
   lanes: { us: (p) => pct(p.hpms?.lanes?.cover), ca: (p) => pct(p.lanesCov), mx: (p) => pct(p.lanesCov) },

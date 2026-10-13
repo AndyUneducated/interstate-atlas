@@ -34,6 +34,8 @@ import { loadStateLocator, BOUNDARY_SOURCE } from './mx-states.mjs';
 import { writeOut } from './write.mjs';
 import { addNamedFreeways } from './named-freeways.mjs';
 import { loadTchList, tchFlags } from './tch.mjs';
+import { loadTaiwan, loadRegister, taiwanLabel } from './taiwan.mjs';
+import { loadHongKong, hongKongLabel } from './hongkong.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'tools', 'src');
@@ -1299,6 +1301,131 @@ async function readUnitedStates(contextLines) {
   return { groups: out, read };
 }
 
+/**
+ * Build Taiwan and Hong Kong.
+ *
+ * Both sources number every segment, so a route is the set of segments that
+ * carry its number, stitched as the Mexican federal network is: one road per
+ * number, with the pieces that will not join kept as roads of their own.
+ *
+ * A route's ends are named from the segments it ends on - an interchange on a
+ * freeway, a street in Hong Kong - rather than from a gazetteer, because no
+ * open gazetteer covers either in both languages. The Highway Bureau's own
+ * termini for a provincial highway travel with it as the register's, beside
+ * the official length, held to the longest piece of the number (D-59).
+ */
+async function buildEastAsia() {
+  const routes = [];
+  const sources = {};
+  const endOf = (edges, last) => {
+    const list = last ? [...edges].reverse() : edges;
+    const named = list.find((e) => e.props.name);
+    const e = named ?? list[0];
+    if (!e) return null;
+    return { name: e.props.name ?? null, nameZh: e.props.nameZh ?? null, st: e.props.state ?? null, km: 0, tramo: true };
+  };
+  const push = (grp, comps, extra) => {
+    for (const comp of comps) {
+      if (!comp || comp.km < 0.8) continue;
+      const pieces = orientMainline(comp.pieces);
+      comp.branches = chainLines(comp.branches);
+      const stats = compositionOf(comp.pathEdges);
+      const flat = pieces.flat();
+      const reversed = pieces !== comp.pieces;
+      const edges = reversed ? [...comp.pathEdges].reverse() : comp.pathEdges;
+      const primarySt = stats.states[0]?.st ?? extra.st;
+      if (!primarySt) continue;
+      routes.push({
+        key: extra.key,
+        country: extra.cc,
+        system: extra.system,
+        tier: extra.tier,
+        number: grp.number,
+        base: grp.base ?? (Number.parseInt(grp.number, 10) || null),
+        label: extra.label,
+        qualifier: null,
+        named: extra.named,
+        mi: Math.round(stats.km / KM_PER_MI),
+        pavedMi: Math.round(comp.km / KM_PER_MI),
+        spanMi: Math.round(haversineKm(flat[0], flat[flat.length - 1]) / KM_PER_MI),
+        bbox: bboxOf([...pieces, ...comp.branches]).map((v) => Math.round(v * 1000) / 1000),
+        states: stats.states,
+        types: stats.types,
+        gradeSeparated: extra.cc === 'tw' ? stats.gradeSeparated : null,
+        tolled: null,
+        unpaved: stats.unpaved,
+        dividedShare: null,
+        dividedCov: null,
+        breaks: comp.pieces.length - 1,
+        gapMi: Math.round(comp.gaps.reduce((s, g) => s + g, 0) / KM_PER_MI),
+        start: endOf(edges, false),
+        end: endOf(edges, true),
+        _pieces: pieces,
+        _branches: comp.branches,
+        _primarySt: primarySt,
+      });
+    }
+  };
+
+  const tw = await loadTaiwan();
+  const register = await loadRegister();
+  if (tw) {
+    sources.tw = { edition: tw.edition, provisional: tw.provisional, register: register?.size ?? 0 };
+    for (const grp of tw.groups.values()) {
+      const freeway = grp.system === 'tw-freeway';
+      const first = stitchRoute(grp.parts, { snapDeg: US_SNAP, bridgeKm: freeway ? 30 : 20, minComponentKm: 0.8, dedupe: true, bridgeFromExtremities: true });
+      if (!first.length) continue;
+      let comps = first;
+      if (first.length > 1) {
+        const parts = first.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
+        comps = stitchComponents(parts, US_SNAP, 40, { bridgeFromExtremities: true }).sort((a, b) => b.km - a.km);
+      }
+      const before = routes.length;
+      push(grp, comps, {
+        key: `${grp.system}|${grp.number}|TW`,
+        cc: 'tw',
+        system: grp.system,
+        // A lettered number is a spur of the route it is numbered from.
+        tier: grp.suffix ? 'auxiliary' : 'primary',
+        label: taiwanLabel(grp.system, grp.number),
+        named: [...grp.names].slice(0, 4),
+      });
+      const reg = freeway ? null : register?.get(grp.number);
+      const longest = routes.slice(before).sort((a, b) => b.mi - a.mi)[0];
+      if (reg && longest) {
+        longest.offMi = reg.km / KM_PER_MI;
+        longest.offSrc = 'thb';
+        longest.register = { from: reg.from, to: reg.to, places: reg.places, km: reg.km, updated: reg.updated };
+      }
+    }
+    const missing = register ? [...register.keys()].filter((n) => !tw.groups.has(`tw-provincial|${n}`)) : [];
+    sources.tw.unmapped = missing;
+    console.log(`  ${routes.length} Taiwanese routes from ${tw.read} centrelines`
+      + ` (${tw.provisional} provisional 臨 segments left out); register ${register?.size ?? 0} routes,`
+      + ` ${missing.length} without geometry${missing.length ? `: ${missing.join(' ')}` : ''}`);
+  }
+
+  const hk = await loadHongKong();
+  if (hk) {
+    const before = routes.length;
+    sources.hk = { edition: hk.edition };
+    for (const grp of hk.groups.values()) {
+      const comps = stitchRoute(grp.parts, { snapDeg: US_SNAP, bridgeKm: 4, minComponentKm: 0.5, dedupe: true, dedupeTolKm: 0.12, bridgeFromExtremities: true });
+      push(grp, comps, {
+        key: `hk-route|${grp.number}|HK`,
+        cc: 'hk',
+        system: 'hk-route',
+        tier: 'primary',
+        label: hongKongLabel(grp.number),
+        named: [...grp.names].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([n]) => n),
+        st: 'HK',
+      });
+    }
+    console.log(`  ${routes.length - before} Hong Kong routes from ${hk.features} centrelines`);
+  }
+  return { routes, sources };
+}
+
 async function main() {
   // Read before the geometry rather than after it: the register is the only
   // thing that knows I-35E is a route and I-35N is a direction, and the road
@@ -1433,6 +1560,10 @@ async function main() {
   const mexico = await buildMexico(contextLines);
   routes.push(...mexico.routes);
 
+  console.log('\nreading Taiwanese and Hong Kong road networks...');
+  const eastAsia = await buildEastAsia();
+  routes.push(...eastAsia.routes);
+
   // A piece under half a mile of a number that has a longer piece elsewhere is
   // a remnant of the source's digitising rather than a road: it printed as
   // 0 mi beside the real one. A short road that is the only one of its number
@@ -1453,7 +1584,8 @@ async function main() {
   }
   for (const [key, rs] of byKey) {
     const [system, number, st] = key.split('|');
-    const slug = `${system === 'us-interstate' ? 'i' : system === 'us-numbered' ? 'us' : st.toLowerCase()}-${number.toLowerCase()}`;
+    const prefix = { 'us-interstate': 'i', 'us-numbered': 'us', 'tw-freeway': 'tw-fwy', 'tw-provincial': 'tw', 'hk-route': 'hk' }[system];
+    const slug = `${prefix ?? st.toLowerCase()}-${number.toLowerCase()}`;
     rs.sort((a, b) => b.mi - a.mi);
     rs.forEach((r, i) => {
       if (rs.length === 1) { r.id = slug.replace(/[^a-z0-9-]/g, ''); return; }
@@ -1570,6 +1702,10 @@ async function main() {
         invNum: r.inventoryNumber ?? null,
         admin: r.administra ?? null,
         mxTraffic: r.mxTraffic ?? null,
+        // Where the official length comes from when it is not the Route Log,
+        // and Taiwan's register row: its termini, districts and revision date.
+        offSrc: r.offSrc ?? null,
+        reg: r.register ?? null,
       },
       geometry: { type: 'MultiLineString', coordinates: [...main, ...branches] },
     };
@@ -1586,6 +1722,8 @@ async function main() {
     'us-interstate': 0.004, 'us-numbered': 0.005, 'us-state': 0.006,
     'ca-tch': 0.004, 'ca-nhs': 0.005, 'ca-provincial': 0.006,
     'mx-federal': 0.004, 'mx-state': 0.006,
+    // An island and a city are read close up, so they keep far more of their line.
+    'tw-freeway': 0.0008, 'tw-provincial': 0.001, 'hk-route': 0.0002,
   };
 
   for (const s of SYSTEMS) {
@@ -1666,7 +1804,10 @@ async function main() {
         + `FHWA HPMS ${HPMS_YEAR}`,
       ca: 'Statistics Canada National Road Network, Transport Canada National Highway System',
       mx: 'INEGI Red Nacional de Caminos, SICT Datos Viales',
+      tw: 'NLSC national and provincial highway centrelines, Highway Bureau provincial register',
+      hk: 'Transport Department Road Network',
     },
+    eastAsia: eastAsia.sources,
     // How the federal network's per-state figures were located, since the
     // source itself does not say.
     mxBoundaries: mexico.routes.length ? BOUNDARY_SOURCE : null,
@@ -1758,7 +1899,7 @@ async function main() {
  * with it, and when it regresses, that shows too.
  */
 function accuracy(routes) {
-  const checked = routes.filter((r) => r.offMi > 5).map((r) => ({
+  const checked = routes.filter((r) => r.offMi > 5 && r.system === 'us-interstate').map((r) => ({
     r, err: ((r.mi - r.offMi) / r.offMi) * 100,
   }));
   if (!checked.length) return null;
@@ -1782,7 +1923,7 @@ function accuracySummary(routes) {
 
 // Run only when invoked directly, so one country's step can be exercised on
 // its own without the two-hour whole-continent build in front of it.
-export { buildMexico, attachMexicanTraffic, loadOfficial };
+export { buildMexico, attachMexicanTraffic, loadOfficial, buildEastAsia };
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((e) => { console.error(e); process.exit(1); });
 }

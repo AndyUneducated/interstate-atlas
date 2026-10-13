@@ -97,10 +97,46 @@ export const SYSTEMS = [
     perJuris: true,
     on: false,
   },
+  // Taiwan's two numbered tiers, as the Highway Act defines them: national
+  // freeways, and provincial highways including the 快速公路 expressways,
+  // which are provincial highways numbered from 61 up.
+  {
+    id: 'tw-freeway',
+    code: 'tf',
+    cc: 'tw',
+    colour: '#5aa9ff',
+    geo: 'tw/freeway.json',
+    on: true,
+  },
+  {
+    id: 'tw-provincial',
+    code: 'tp',
+    cc: 'tw',
+    colour: '#ff9f68',
+    geo: 'tw/provincial.json',
+    on: false,
+  },
+  // Hong Kong's ten Strategic Routes.
+  {
+    id: 'hk-route',
+    code: 'hr',
+    cc: 'hk',
+    colour: '#f06bff',
+    geo: 'hk/routes.json',
+    on: true,
+  },
 ];
 
-/** Country codes in the order the atlas presents them, north to south. */
-export const COUNTRIES = ['ca', 'us', 'mx'];
+/** Country codes in the order the atlas presents them: North America north to
+ *  south, then East Asia. */
+export const COUNTRIES = ['ca', 'us', 'mx', 'tw', 'hk'];
+
+/** The two regions the header switches between, and the countries in each. */
+export const REGIONS = {
+  na: { countries: ['ca', 'us', 'mx'], bounds: [[-126.5, 15.5], [-58.5, 55.5]] },
+  ea: { countries: ['tw', 'hk'], bounds: [[113.6, 21.7], [122.2, 25.5]] },
+};
+export const regionOf = (cc) => (REGIONS.ea.countries.includes(cc) ? 'ea' : 'na');
 
 const BY_ID = new Map(SYSTEMS.map((s) => [s.id, s]));
 const BY_CODE = new Map(SYSTEMS.map((s) => [s.code, s]));

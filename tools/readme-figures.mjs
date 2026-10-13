@@ -22,6 +22,8 @@ const COUNTRY = {
   us: { flag: '🇺🇸', name: 'US' },
   ca: { flag: '🇨🇦', name: 'CA' },
   mx: { flag: '🇲🇽', name: 'MX' },
+  tw: { flag: 'TW', name: 'TW' },
+  hk: { flag: 'HK', name: 'HK' },
 };
 
 // The coverage table's wording. {n} is the number of jurisdictions the
@@ -35,6 +37,9 @@ const COVERAGE = {
   'ca-provincial': { name: 'Provincial & Municipal Routes', note: 'routes in {n} provinces and territories, loaded per jurisdiction' },
   'mx-federal': { name: 'Federal Highways', note: 'numbered roads the federation administers' },
   'mx-state': { name: 'State Highways', note: 'numbered state roads in {n} states, loaded per state; most state roads carry no number' },
+  'tw-freeway': { name: 'National Freeways (國道)', note: 'the numbered freeways and their lettered spurs' },
+  'tw-provincial': { name: 'Provincial Highways (省道)', note: 'including the 快速公路 expressways, 台61 and up; provisional 臨 alignments left out' },
+  'hk-route': { name: 'Strategic Routes', note: 'Routes 1 to 10' },
 };
 
 const fmt = (n) => n.toLocaleString('en-US');
@@ -52,7 +57,7 @@ async function figures() {
   const miles = rows.reduce((a, r) => a + r.mi, 0);
   const juris = Object.keys(stats.byState).length;
   const countries = COUNTRIES.filter((cc) => rows.some((r) => r.s.cc === cc));
-  const order = ['us', 'ca', 'mx'].filter((cc) => countries.includes(cc));
+  const order = ['us', 'ca', 'mx', 'tw', 'hk'].filter((cc) => countries.includes(cc));
   const jurisIn = (id) => Object.values(stats.byState).filter((j) => j[id] > 0).length;
   const deps = Object.keys(pkg.dependencies ?? {}).length;
   const dev = Object.keys(pkg.devDependencies ?? {}).length;
@@ -73,11 +78,11 @@ async function figures() {
       badge('routes', fmt(routes), 'ffd166'),
       badge('jurisdictions', juris, '4fe3b0'),
       badge('route systems', rows.length, 'ffd166', 'systems'),
-      badge('countries', order.map((cc) => COUNTRY[cc].name).join(' · '), 'ff4d6d'),
+      badge('regions', order.map((cc) => COUNTRY[cc].name).join(' · '), 'ff4d6d'),
       badge('languages', 'English · 简体中文', 'a78bfa'),
     ].join('\n'),
     deps: badge('npm dependencies', `${deps} build · ${dev} dev`, 'ff9ecb', 'build deps'),
-    summary: `${fmt(routes)} routes across ${juris} states, provinces and territories in ${countries.length} countries, measuring ${fmt(miles)} miles of road, in the build dated ${date}.`,
+    summary: `${fmt(routes)} routes across ${juris} states, provinces, territories and counties in ${countries.length} countries and regions, measuring ${fmt(miles)} miles of road, in the build dated ${date}.`,
     coverage: table.join('\n'),
     accuracy: (() => {
       const a = stats.accuracy;

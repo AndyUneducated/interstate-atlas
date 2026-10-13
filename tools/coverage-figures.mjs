@@ -91,6 +91,11 @@ const RULE_REASONS = {
     en: 'drawn under the number, but on a road whose tramo names do not match SICT\'s',
     zh: '已按该编号绘制，但路段名与 SICT 的不符',
   },
+  notInNlsc: {
+    en: 'carried by no segment of the NLSC centrelines outside a provisional 臨 alignment',
+    zh: '国土测绘中心中心线里，除临时线（臨）外没有任何路段带这个编号',
+  },
+  notInCsdi: { en: 'carried by no segment of the Transport Department centrelines', zh: '运输署中心线里没有任何路段带这个编号' },
 };
 
 async function rows() {
@@ -210,6 +215,29 @@ async function rows() {
     };
   }
 
+  // Taiwan and Hong Kong. The build records which register numbers it found
+  // no geometry for, so this reads the build rather than the raw downloads.
+  {
+    const ea = (await read('data/stats.json')).eastAsia ?? {};
+    const count = async (f) => new Set((await read(`data/geo/${f}.json`)).features.map((x) => x.properties.num)).size;
+    const tw = ea.tw;
+    if (tw) {
+      row('tw', 'tw-freeway', { en: 'National Freeway', zh: '國道' },
+        { en: 'no published register (TW-1 numbers what it draws)', zh: '没有公开的路线登记（TW-1 按其图层编号）' },
+        null, await count('tw/freeway'), []);
+      const unmapped = tw.unmapped ?? [];
+      row('tw', 'tw-provincial', { en: 'Provincial Highway', zh: '省道' },
+        { en: 'Highway Bureau provincial register (TW-2): each route', zh: '公路局省道路线表（TW-2）：每条路线' },
+        tw.register, tw.register - unmapped.length, unmapped.length ? [{ key: 'notInNlsc', n: unmapped.length }] : []);
+    }
+    if (ea.hk) {
+      const n = await count('hk/routes');
+      row('hk', 'hk-route', { en: 'Strategic Route', zh: '主要幹線' },
+        { en: 'Transport Department, Routes 1 to 10 (HK-1)', zh: '运输署 1 至 10 号干线（HK-1）' },
+        10, n, n < 10 ? [{ key: 'notInCsdi', n: 10 - n }] : []);
+    }
+  }
+
   const reasons = {};
   for (const r of out) {
     for (const { key } of r.why) {
@@ -222,7 +250,7 @@ async function rows() {
   return { rows: out, reasons, note };
 }
 
-const FLAG = { us: '🇺🇸', ca: '🇨🇦', mx: '🇲🇽' };
+const FLAG = { us: '🇺🇸', ca: '🇨🇦', mx: '🇲🇽', tw: 'TW', hk: 'HK' };
 
 function markdown({ rows: rs, reasons, note }) {
   const cell = (n) => (n == null ? '—' : fmt(n));
