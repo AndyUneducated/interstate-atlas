@@ -1152,6 +1152,7 @@ await step('京港澳 finds G4, drawn from OpenStreetMap and named so', async ()
   const text = await page.textContent('#detail');
   if (!/OpenStreetMap/.test(text)) throw new Error('G4 does not say it is drawn from OpenStreetMap');
   if (!/Guangdong|Beijing/.test(text)) throw new Error('G4 names neither Guangdong nor Beijing');
+  if (!/Listed length|所列里程/.test(text)) throw new Error('G4 gives no listed length from the plan');
 });
 await shot('21-china-g4.png');
 

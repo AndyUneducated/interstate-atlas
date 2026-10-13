@@ -425,11 +425,21 @@ function eaFacts(p) {
 function cnFacts(p) {
   const rows = [];
   const o = p.osm;
+  const plan = p.plan;
   const zh = getLang() === 'zh';
-  const name = zh ? o?.name : (o?.nameEn || o?.name);
+  const name = zh ? (plan?.short || o?.name) : (plan?.en || o?.nameEn || o?.name);
+  const official = plan?.zh || o?.official;
   if (name) rows.push([t('cn.name'), esc(name)]);
-  if (o?.official && o.official !== o.name) rows.push([t('cn.official'), esc(o.official)]);
+  if (official && official !== name) rows.push([t('cn.official'), esc(official)]);
   if (o?.from || o?.to) rows.push([t('cn.ends'), esc([o.from, o.to].filter(Boolean).join(' — '))]);
+  const listedKm = plan?.km ?? plan?.builtKm;
+  if (listedKm) {
+    rows.push([t('cn.listed'), `<b>${num(lenOfKm(listedKm))}</b> ${lenUnit()}
+      <span class="src">${t(plan.km ? 'cn.listedSrc' : 'cn.builtSrc')}</span>`]);
+    const pct = `${Math.round((plan.drawnMi * 1.609344 / listedKm) * 100)}%`;
+    rows.push([t('cn.drawn'), `<b>${num(lenOf(plan.drawnMi))}</b> ${lenUnit()}
+      <span class="src">${t(plan.pieces > 1 ? 'cn.drawnPieces' : 'cn.drawnOf', { pct, n: plan.pieces })}</span>`]);
+  }
   if (p.named?.length) rows.push([t('ea.roads'), p.named.map((n) => esc(n)).join(' · ')]);
   if (!rows.length) return '';
   return `<div class="figs ca-facts">${rows.map(([k, v]) =>

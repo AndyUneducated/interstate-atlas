@@ -121,7 +121,7 @@ async function loadIndex() {
     // the right one out of the twenty-two Ontario roads numbered 21.
     // Taiwan and Hong Kong's routes answer to their own signs too: 國1, 台9, 3號幹線,
     // and the mainland's to their names: 京港澳, 沪昆, 沪聂.
-    hay: `${label} ${labelAlias(label)} ${num} ${st} ${jurisdictionNames(st)} ${where || ''} ${aka || ''}`.toLowerCase(),
+    hay: `${label} ${labelAlias(label)} ${num} ${st} ${jurisdictionNames(st)} ${where || ''} ${aka || ''}`.toLowerCase().replace(/[–—]/g, '-'),
   }));
   for (const r of app.index) app.byId.set(r.id, r);
   app.generated = raw.generated;
@@ -1093,7 +1093,7 @@ dossierIds().then((ids) => {
 });
 
 export function searchRoutes(text, { limit = 300, systemsOnly = true } = {}) {
-  const q = text.trim().toLowerCase();
+  const q = text.trim().toLowerCase().replace(/[–—]/g, '-');
   const terms = q.split(/\s+/).filter(Boolean);
   // Browsing follows the map, searching searches everything. Restricting a
   // typed query to the systems currently drawn meant "200" answered "nothing
