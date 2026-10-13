@@ -245,14 +245,14 @@ async function rows() {
   {
     const plan = await read('content/reference/cn-plan.json');
     const nums = async (f) => new Set((await read(`data/geo/${f}.json`)).features.map((x) => x.properties.num));
-    const span = ({ from, to }) => Array.from({ length: to - from + 1 }, (_, i) => `G${from + i}`);
+    const vacant = new Set(plan.vacant ?? []);
+    const span = ({ from, to }) => Array.from({ length: to - from + 1 }, (_, i) => `G${from + i}`).filter((n) => !vacant.has(n));
+    const by = (n) => ({ en: `national highway plan 2022 (CN-2): the ${n} main routes`, zh: `《国家公路网规划》2022（CN-2）：${n} 条主线` });
+    const expressways = Object.values(plan.expressway).flat();
+    const nationals = Object.values(plan.national).flatMap(span);
     const tiers = [
-      ['cn-expressway', 'cn/expressway', { en: 'National Expressway', zh: '国家高速公路' },
-        Object.values(plan.expressway).flat(),
-        { en: 'national highway plan 2022 (CN-2): the 36 main routes', zh: '《国家公路网规划》2022（CN-2）：36 条主线' }],
-      ['cn-national', 'cn/national', { en: 'National Highway', zh: '普通国道' },
-        Object.values(plan.national).flatMap(span),
-        { en: 'national highway plan 2022 (CN-2): the 121 main routes', zh: '《国家公路网规划》2022（CN-2）：121 条主线' }],
+      ['cn-expressway', 'cn/expressway', { en: 'National Expressway', zh: '国家高速公路' }, expressways, by(expressways.length)],
+      ['cn-national', 'cn/national', { en: 'National Highway', zh: '普通国道' }, nationals, by(nationals.length)],
     ];
     for (const [sys, file, tier, listed, by] of tiers) {
       const drawn = await nums(file).catch(() => null);
