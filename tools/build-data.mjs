@@ -2015,6 +2015,7 @@ async function main() {
     bySystem: {},
     byState: {},
     byType: {},
+    byTypeCc: {},
     sources: {
       us: `US Census TIGER/Line ${TIGER_YEAR} roads, US Census gazetteer, FHWA Route Log, `
         + `FHWA HPMS ${HPMS_YEAR}`,
@@ -2077,8 +2078,13 @@ async function main() {
       e[r.system] = (e[r.system] || 0) + mi;
       e.routes++;
     }
+    // The same tally per country, so the statistics page can show one
+    // country's mix of road classes rather than only the world's.
+    const cc = stats.byTypeCc[r.country ?? 'us'] ||= {};
     for (const [t, share] of Object.entries(r.types)) {
-      stats.byType[t] = (stats.byType[t] || 0) + Math.round((share / 100) * r.mi);
+      const mi = Math.round((share / 100) * r.mi);
+      stats.byType[t] = (stats.byType[t] || 0) + mi;
+      cc[t] = (cc[t] || 0) + mi;
     }
   }
   await write(join(OUT, 'stats.json'), stats);
