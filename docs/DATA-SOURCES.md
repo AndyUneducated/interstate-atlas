@@ -124,7 +124,15 @@ update that row too.
 | MX-6 | [INDAABIN *Puertos fronterizos*](https://www.datos.gob.mx/dataset/puertos_fronterizos_centros_atencion_transito_fronterizo) | Mexican border crossings, north and south, with coordinates | 2025 list · 2026-10-04 | CC BY 4.0 | `fetch-border-crossings.mjs` → `border-crossings.json` | no; the newer quarterly lists drop the coordinates |
 | MX-7 | [SICT *Puentes de la Red Federal libre de peaje*](https://datos.gob.mx/dataset/puentes-de-la-red-federal-de-carreteras-libres-de-peaje) | 9,818 federal bridges with year built, drawn in the bridge layer | 2026-09-22 | Libre Uso MX | `fetch-bridges.mjs` → `bridges.json` → `build-bridges.mjs` | yes |
 
-### All three
+### Taiwan and Hong Kong
+
+| ID | Source | Used for | Edition · retrieved | Licence | Fetched by → stored | Reproducible |
+| --- | --- | --- | --- | --- | --- | --- |
+| TW-1 | [NLSC 國道及省道（含快速公路以上等級）道路中線](https://data.gov.tw/dataset/73232) | geometry and route number of every 國道 and 省道 segment, road class (freeway, expressway, ordinary), road name | 2026-04-09 · 2026-10-13 | Open Government Data License, version 1.0 | `fetch-taiwan.mjs` → `tools/src/tw/` | no, replaced each release; `editions.json` records it |
+| TW-2 | [Highway Bureau 省道公路路線表](https://data.gov.tw/dataset/105020) | each provincial route's official length, termini and the districts it passes | per row, 更新日期 · 2026-10-13 | same | same → `thb-list.csv` | no |
+| HK-1 | [Transport Department *Road Network*](https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844), CENTERLINE layer, CSDI | geometry of Routes 1 to 10, the route number and exit number of each segment, English and Chinese street names | 2026-10-12 · 2026-10-13 | Hong Kong Government open data terms of use | `fetch-hongkong.mjs` → `tools/src/hk/routes.json` (the 1,522 numbered segments of 36,525) | no |
+
+### Every region
 
 | ID | Source | Used for | Edition · retrieved | Licence | Fetched by → stored | Reproducible |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -139,25 +147,25 @@ update that row too.
 The grain is uneven because the sources are. Where a cell is empty, no publisher releases
 the data in a form that meets [§2](#2-what-a-source-must-meet), unless it says *pending*.
 
-| Kind of figure | United States | Canada | Mexico |
-| --- | --- | --- | --- |
-| Geometry | per state, TIGER 2025, one year for all | per province, NRN editions differ by province | one national file, RNC |
-| Route numbers | every signed system | every number in the NRN, municipal and provincial alike | numbered roads only: 265 of the 711 state roads SICT counts carry a number |
-| Route ends | Census place names | NRN place names on each side of the road | SICT section (tramo), no gazetteer |
-| Official length | Interstates only, FHWA register | NHS network totals, not per route | none |
-| Traffic | HPMS sections, length-weighted per route, 2024; Tennessee unmatched | 7 of 13 jurisdictions, years from 2015–2018 (PEI) to 2025 (AB), length-weighted plus busiest point | count stations, median, lowest and highest; not averaged; 2024, or 2023 in twelve states |
-| Pavement condition, lanes, speed | HPMS, with coverage share | lanes and paved share from the NRN | lanes, surface, divided from the RNC; no speed limit |
-| Toll share | HPMS toll flag | none on the roadway; 7 facilities drawn | RNC per-segment flag; 1,376 toll plazas drawn; 75 concession titles, 41 linked |
-| Opening years | Interstates with a documented year (71 routes), buildout curve 1960–1997 | Quebec autoroutes per tronçon; Trans-Canada events from the Year Book | none |
-| Construction cost | Interstates, FHWA 1991 estimate | in dossiers only, where published | none |
-| Bridges with year built | none read (NBI not yet read) | Ontario only, provincial structures and culverts | federal free network; not the tolled network |
-| Border crossings | the US side is only a check (BTS) | 116 CBSA highway offices, geocoded | 45 northern and the southern ports, INDAABIN coordinates |
-| Written dossiers | 155 | 17 | none |
-| Elevation profiles | every route with a dossier | every route with a dossier | none, as there are no dossiers |
+| Kind of figure | United States | Canada | Mexico | Taiwan | Hong Kong |
+| --- | --- | --- | --- | --- | --- |
+| Geometry | per state, TIGER 2025, one year for all | per province, NRN editions differ by province | one national file, RNC | one national file, NLSC | one territory file, Transport Department |
+| Route numbers | every signed system | every number in the NRN, municipal and provincial alike | numbered roads only: 265 of the 711 state roads SICT counts carry a number | every 國道 and 省道 number; provisional 臨 alignments left out (D-60) | Routes 1 to 10 |
+| Route ends | Census place names | NRN place names on each side of the road | SICT section (tramo), no gazetteer | the road the end lies on; the register's termini quoted beside it (D-62) | the road the end lies on |
+| Official length | Interstates only, FHWA register | NHS network totals, not per route | none | 省道, Highway Bureau register; none for the 國道 | none |
+| Traffic | HPMS sections, length-weighted per route, 2024; Tennessee unmatched | 7 of 13 jurisdictions, years from 2015–2018 (PEI) to 2025 (AB), length-weighted plus busiest point | count stations, median, lowest and highest; not averaged; 2024, or 2023 in twelve states | none read | none read |
+| Pavement condition, lanes, speed | HPMS, with coverage share | lanes and paved share from the NRN | lanes, surface, divided from the RNC; no speed limit | road class only (freeway, expressway, ordinary) | none |
+| Toll share | HPMS toll flag | none on the roadway; 7 facilities drawn | RNC per-segment flag; 1,376 toll plazas drawn; 75 concession titles, 41 linked | none | none |
+| Opening years | Interstates with a documented year (71 routes), buildout curve 1960–1997 | Quebec autoroutes per tronçon; Trans-Canada events from the Year Book | none | none | none |
+| Construction cost | Interstates, FHWA 1991 estimate | in dossiers only, where published | none | none | none |
+| Bridges with year built | none read (NBI not yet read) | Ontario only, provincial structures and culverts | federal free network; not the tolled network | none | none |
+| Border crossings | the US side is only a check (BTS) | 116 CBSA highway offices, geocoded | 45 northern and the southern ports, INDAABIN coordinates | — | none drawn |
+| Written dossiers | 155 | 17 | none | none | none |
+| Elevation profiles | every route with a dossier | every route with a dossier | none, as there are no dossiers | none | none |
 
 ### Routes listed and routes drawn
 
-How many routes each country's own register lists, how many of them the atlas draws, and
+How many routes each country's or region's own register lists, how many of them the atlas draws, and
 why each of the rest is absent. A route counts once in each state or province it runs
 through, because that is how every register is kept: FHWA lists I-95 once in each of its
 fifteen states. "Drawn" means the atlas has a route of that number there. Where it is drawn
@@ -180,6 +188,9 @@ has no reason.
 | 🇨🇦 | Provincial | provincial traffic registers (CA-4 to CA-10), QC, ON, AB, NS, NB, PE, NT: each route; the other six publish none | 1,373 | 1,349 | 24 | 24 the NRN gives no road in that province this number (D-50) |
 | 🇲🇽 | Federal | SICT Datos Viales 2025 (MX-4): each route in each state | 281 | 260 | 21 | 9 the RNC carries the number, but none of its segments is located in that state against Natural Earth's generalised boundaries (D-29); 7 the RNC numbers the tramo SICT names differently, and it is drawn under that number; 4 no RNC segment carries the name SICT gives the tramo; 1 the RNC gives the tramo SICT names no number (D-27) |
 | 🇲🇽 | State | SICT Datos Viales 2025 (MX-4): each numbered state road | 235 | 168 | 67 | 40 carried by no atlas route under the number or SICT's tramo names (D-51); 27 drawn under the number, but on a road whose tramo names do not match SICT's |
+| TW | National Freeway | no published register (TW-1 numbers what it draws) | — | 10 | — | — |
+| TW | Provincial Highway | Highway Bureau provincial register (TW-2): each route | 96 | 95 | 1 | 1 carried by no segment of the NLSC centrelines outside a provisional 臨 alignment |
+| HK | Strategic Route | Transport Department, Routes 1 to 10 (HK-1) | 10 | 10 | 0 | — |
 
 Of the Mexican state roads counted as drawn, 54 carry INEGI's number rather than SICT's (D-26).
 <!-- /auto:coverage -->
@@ -260,6 +271,15 @@ code that holds the rule, so changing the decision means changing that code.
 | D-51 | A state route named only as a ramal, acceso or offset is kept where SICT's 2025 index lists the same number, in the same state, for a tramo of the same name. SICT state numbers the RNC does not carry are not placed. | Refusing every such route (D-27's reasoning, `isBranchOnly`) also dropped roads two agencies designate alike: Hidalgo's HGO-017 Tepeji del Río–Tlahuelilpan, Quintana Roo's QR-018. Of the 122 SICT state designations absent from the atlas, most are roads the RNC numbers differently (D-26) or that cannot be found in it by name; placing those by position was rejected. | `loadListed`, `readRedVial` in `mexico.mjs` |
 | D-44 | A federal route with no segment inside any state's generalised boundary is filed in the nearest state; its per-state mileage stays empty. | `mex-174` (Ciudad Juárez) and a Sonoran piece of MEX-15 were filed in "MX". Pushing their segments into the nearest state's mileage was rejected, as D-29 leaves such segments unassigned. | `locate.nearest` in `mx-states.mjs` |
 | D-56 | A Mexican route's breaks are bridged from each piece's two geographic extremities as well as from its dead ends. Federal numbers written only in a segment's name are not read. | The RNC draws divided federal highways as two one-way carriageways that meet at the end of each piece, so the piece has no dead end there, and the only bridges left ran from ramp stubs: MEX-85 jumped 117 km from Mante to Victoria past a 119 km piece of itself 3 km off either end, which was drawn as a branch and left out of the length. The pieces break where another number's CODIGO takes over a shared stretch (MEX-80 at Mante, MEX-2 at Nuevo Laredo), since the field holds one number. Reading numbers from NOMBRE was rejected: of 1,100 km of segments whose name writes a federal number, almost all are state roads named for the junction they leave from ("E.C. México 15 – Ocoroni"), and the few that are the highway itself are city streets. | `bridgeFromExtremities` in `geo.mjs`, `buildMexico` |
+
+### Taiwan and Hong Kong
+
+| ID | Decision | Why, and what was rejected | Enforced |
+| --- | --- | --- | --- |
+| D-60 | A Taiwanese route is every NLSC segment whose ROADNUM writes its number: 國3甲 is National Freeway 3A, 台14乙 Provincial Highway 14B, the stems 甲 to 庚 read as A to G. A provisional number, 台16臨29, is left out, as are its 209 segments. The 快速公路 expressways, 台61 to 台88, are provincial highways, drawn with the rest. | The number is in the source, so nothing is matched. A 臨 alignment is a temporary road carrying another route's number while the route itself is rebuilt, and drawing it would double the route. | `parseNumber` in `taiwan.mjs` |
+| D-61 | Taiwan's centrelines are in TWD97 TM2 (EPSG:3826) and are converted to longitude and latitude by the Krüger series, with no projection library. | One zone and one formula; a dependency for it was rejected. The output was checked against the Keelung end of 國1. | `tm2ToLonLat` in `taiwan.mjs` |
+| D-62 | A Taiwanese or Hong Kong route ends at the road the end lies on, as the source names it. The Highway Bureau's termini and districts are quoted beside, not matched to an end. | Neither file carries a gazetteer. The register writes 臺北—楓港 without saying which end of the drawn line is which, and placing it by position would be a join D-2 refuses. | `buildEastAsia` in `build-data.mjs`, `eaFacts` in `detail.js` |
+| D-63 | A provincial highway's official length is the register's, against the longest piece the atlas draws of it; a national freeway has none. Hong Kong's road network records no road class, so its routes have no freeway share. | No per-route freeway length was found as open data on data.gov.tw or from the Freeway Bureau; whether to take one from another publication is open ([ACCURACY.md §6](ACCURACY.md#6-known-gaps)). Calling every Hong Kong route a freeway would be an inference. | `buildEastAsia` in `build-data.mjs`; `hongkong.mjs` |
 
 ### Layers and profiles
 

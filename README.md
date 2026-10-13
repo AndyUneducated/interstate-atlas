@@ -19,10 +19,10 @@ that have one.
 <br/>
 
 <!-- auto:badges -->
-![routes](https://img.shields.io/badge/routes-22%2C274-ffd166?style=flat-square&labelColor=0b1220)
-![jurisdictions](https://img.shields.io/badge/jurisdictions-96-4fe3b0?style=flat-square&labelColor=0b1220)
-![systems](https://img.shields.io/badge/route%20systems-8-ffd166?style=flat-square&labelColor=0b1220)
-![countries](https://img.shields.io/badge/countries-US%20%C2%B7%20CA%20%C2%B7%20MX-ff4d6d?style=flat-square&labelColor=0b1220)
+![routes](https://img.shields.io/badge/routes-22%2C389-ffd166?style=flat-square&labelColor=0b1220)
+![jurisdictions](https://img.shields.io/badge/jurisdictions-116-4fe3b0?style=flat-square&labelColor=0b1220)
+![systems](https://img.shields.io/badge/route%20systems-11-ffd166?style=flat-square&labelColor=0b1220)
+![regions](https://img.shields.io/badge/regions-US%20%C2%B7%20CA%20%C2%B7%20MX%20%C2%B7%20TW%20%C2%B7%20HK-ff4d6d?style=flat-square&labelColor=0b1220)
 ![languages](https://img.shields.io/badge/languages-English%20%C2%B7%20%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-a78bfa?style=flat-square&labelColor=0b1220)
 <!-- /auto:badges -->
 
@@ -74,7 +74,7 @@ that have one.
 | **Bridges** | 14,856 structures from the two inventories that record a year built, Mexico's federal free network and Ontario's provincial highways, coloured by that year. The year dates the structure, never the road. |
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
-| **Statistics dashboard** | Network totals by system and by jurisdiction, all three countries. |
+| **Statistics dashboard** | Network totals by system and by jurisdiction, every country and region. |
 | **Elevation profiles** | Sampled from open terrain data for curated routes. |
 | **Units** | Miles or kilometres everywhere, switched in one place. |
 | **Command palette** | <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to reach any route, jurisdiction or view. |
@@ -121,7 +121,7 @@ flowchart LR
 
 ## Coverage
 
-<!-- auto:summary -->22,274 routes across 96 states, provinces and territories in 3 countries, measuring 725,885 miles of road, in the build dated 2026-10-13.<!-- /auto:summary -->
+<!-- auto:summary -->22,389 routes across 116 states, provinces, territories and counties in 5 countries and regions, measuring 729,829 miles of road, in the build dated 2026-10-13.<!-- /auto:summary -->
 
 <!-- auto:coverage -->
 | Country | System | Routes | Miles | Notes |
@@ -134,6 +134,9 @@ flowchart LR
 | 🇨🇦 | Provincial & Municipal Routes | 2,900 | 69,855 | routes in 12 provinces and territories, loaded per jurisdiction |
 | 🇲🇽 | Federal Highways | 176 | 24,092 | numbered roads the federation administers |
 | 🇲🇽 | State Highways | 1,714 | 21,937 | numbered state roads in 32 states, loaded per state; most state roads carry no number |
+| TW | National Freeways (國道) | 10 | 622 | the numbered freeways and their lettered spurs |
+| TW | Provincial Highways (省道) | 95 | 3,173 | including the 快速公路 expressways, 台61 and up; provisional 臨 alignments left out |
+| HK | Strategic Routes | 10 | 149 | Routes 1 to 10 |
 <!-- /auto:coverage -->
 
 Nunavut has no numbered route in the national road file, and no road connects it to the
@@ -261,7 +264,7 @@ rather than fetched from a CDN.
 
 | Scope | Package | Used by | What for |
 | --- | --- | --- | --- |
-| `dependencies` | [shapefile](https://github.com/mbostock/shapefile) | `tiger.mjs`, `canada.mjs`, `mexico.mjs`, `mx-states.mjs`, `border.mjs` | streams `.shp`/`.dbf` pairs a feature at a time, so a 2.4 GB attribute file need not fit in memory |
+| `dependencies` | [shapefile](https://github.com/mbostock/shapefile) | `tiger.mjs`, `canada.mjs`, `mexico.mjs`, `taiwan.mjs`, `mx-states.mjs`, `border.mjs` | streams `.shp`/`.dbf` pairs a feature at a time, so a 2.4 GB attribute file need not fit in memory |
 | `dependencies` | [pngjs](https://github.com/pngjs/pngjs) | `build-elevation.mjs` | decodes Terrarium terrain tiles |
 | `devDependencies` | [playwright-core](https://playwright.dev/) | `verify.mjs`, `shoot-hero.mjs`, `shoot-bases.mjs`, `fetch-quebec-autoroutes.mjs` | drives headless Chromium |
 | `devDependencies` | [pdfjs-dist](https://github.com/mozilla/pdf.js) | `fetch-mexico-designations.mjs` | reads the road index out of SICT's per-state PDFs |
@@ -290,6 +293,8 @@ sit in the repository. The scripts below rebuild the *data*.
 | `npm run fetch:qc` | the MTQ répertoire, for autoroute opening years | `content/reference/qc-autoroutes.json` |
 | `npm run fetch:mx` | INEGI Red Nacional de Caminos, SICT traffic, SICT's road index | `tools/src/mx/`, `content/reference/` |
 | `npm run fetch:mx:check` | preflight only: what is reachable, how big, whether it can resume | — |
+| `npm run fetch:tw` | NLSC freeway and provincial centrelines, the Highway Bureau's provincial register | `tools/src/tw/` |
+| `npm run fetch:hk` | the Transport Department's road network, keeping the numbered routes | `tools/src/hk/` |
 | `npm run fetch:bridges` | bridge inventories with a year built | `content/reference/bridges.json` |
 | `npm run fetch:borders` | CBSA and INDAABIN crossing lists; geocodes the Canadian offices | `content/reference/border-crossings.json` |
 | `npm run fetch:tolls` | SICT's concession register (Canadian facilities are kept by hand in `tolls-ca.json`) | `content/reference/mx-concessions.json` |
@@ -312,7 +317,7 @@ npm run verify          # headless run-through against the served site
 ```
 
 `build-data.mjs` is the slow step: a shortest-path search over a graph built from every road
-fragment in three countries, taking tens of minutes. It needs no network once the sources are
+fragment in five countries and regions, taking tens of minutes. It needs no network once the sources are
 on disk, except that TIGER/Line and Natural Earth download themselves on first use.
 
 ## Working on a second machine
@@ -325,6 +330,8 @@ the large downloads need fetching again:
 | --- | ---: | --- |
 | `tools/src/ca/` | ~5.4 GB | `npm run fetch:ca` (a 1.5 GB download; shapefiles inflate on unpacking) |
 | `tools/src/mx/` | ~3.2 GB | `npm run fetch:mx` |
+| `tools/src/tw/` | ~34 MB | `npm run fetch:tw` |
+| `tools/src/hk/` | ~1 MB | `npm run fetch:hk` (a 507 MB download, filtered as it streams) |
 | `tools/src/tiger/` | ~476 MB | the build itself, one state at a time |
 | `tools/src/ne/` | ~49 MB | the build itself, on first use |
 | `tools/src/2023_Gaz_place_national.txt` | 6 MB | `npm run fetch` |

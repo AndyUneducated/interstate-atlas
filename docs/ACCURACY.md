@@ -151,6 +151,12 @@ and not yet built.
 | 🇲🇽 | Spanish interface | pending | English and Chinese only. |
 | 🇲🇽 | Numbering explainer, construction timeline | pending | Neither has a Mexico view yet. |
 | 🇲🇽 | CAPUFE toll-road traffic and tariffs | pending | Monthly flows and historical tariffs are published separately and not yet read. The 1,376 toll plazas the RNC records are drawn as points, without fares. |
+| TW | National freeway lengths | source | No per-route length for the 國道 was found as open data, so a freeway's panel shows its measurement alone (D-63). The provincial highways have the Highway Bureau's register. |
+| TW | Traffic | pending | No traffic source for Taiwan has been read. Freeway ETC gantry counts and provincial highway count surveys are published by the two bureaus and have not been assessed. |
+| TW | Stretches the centrelines leave out | source | A provincial highway is drawn as its centrelines are. Where they leave a stretch out, it is a gap against the register's length: 台8 measures 161 km against 187.8, 台20 143 against 203.9, 台26 68 against 93.5, each across mountain or coast that has a gap of 14 km or more in the file. Why each stretch is absent, whether closed, unbuilt or unmapped, has not been traced. |
+| TW | 台74 | pending | The Taichung ring measures 23 km against the register's 37.8; the stitcher does not close it. |
+| HK | Official lengths and traffic | source | The Transport Department publishes no per-route length for Routes 1 to 10 in a form the atlas reads, and its traffic census has not been read. |
+| HK | Road class | source | The road network records no road class, so a route's freeway share is not given (D-63). |
 | 🇺🇸 | Local-grade state routes | source | The American network is TIGER's primary and secondary roads. State systems TIGER files only among local roads are not drawn: North Carolina's secondary routes, South Carolina's S-roads, most Texas farm-to-market roads, and the like (D-47). |
 | 🇺🇸 | Unsigned internal numbers | source | A freeway TIGER names without a number is titled by its name. Some states keep unsigned internal numbers for such roads (Kentucky's parkways are 9000-series); no source the atlas reads carries them, so none is shown (D-49). |
 | 🇺🇸 | Interstates newer than TIGER | source | TIGER 2025 does not yet carry the newest sections of I-295 around Fayetteville, so it is drawn at 14 of the Route Log's 22.48 mi. The headline shows FHWA's figure; the map is short until TIGER adds them. |
