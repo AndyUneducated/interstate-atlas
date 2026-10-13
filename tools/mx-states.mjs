@@ -81,7 +81,25 @@ const inPolygon = (rings, x, y) => inRing(rings[0], x, y) && !rings.slice(1).som
  * road, and those segments stay unlocated rather than being pushed into the
  * nearest state.
  */
-export async function loadStateLocator() {
+export function loadStateLocator() {
+  // Mexico City is still filed under DIF, the Distrito Federal it was until
+  // 2016; ISO and the rest of the atlas call it CMX.
+  return loadLocator('MX', (iso) => {
+    const code = iso.replace(/^MX-/, '');
+    return code === 'DIF' ? 'CMX' : /^[A-Z]{3}$/.test(code) ? code : null;
+  }, 32, 'Mexican states');
+}
+
+/**
+ * The same for China's 31 province-level divisions, under the codes `codeOf`
+ * gives the ISO suffix. The South China Sea islands Natural Earth files apart
+ * from any province are left out, so a point there is in none.
+ */
+export function loadProvinceLocator(codeOf) {
+  return loadLocator('CN', (iso) => codeOf(iso.replace(/^CN-/, '')) ?? null, 31, 'Chinese provinces');
+}
+
+async function loadLocator(country, codeOf, expected, what) {
   const base = await ensure();
   const src = await shapefile.open(`${base}.shp`, `${base}.dbf`, { encoding: 'utf-8' });
   const states = [];
@@ -92,12 +110,9 @@ export async function loadStateLocator() {
     // The attribute table pads its fixed-width strings with NULs rather than
     // spaces, so "MX-SON" arrives as "MX-SON\0\0" and matches nothing.
     const field = (v) => String(v ?? '').replace(/\0/g, '').trim();
-    if (field(p.iso_a2) !== 'MX') continue;
-    // Mexico City is still filed under DIF, the Distrito Federal it was until
-    // 2016; ISO and the rest of the atlas call it CMX.
-    const iso = field(p.iso_3166_2).replace(/^MX-/, '');
-    const code = iso === 'DIF' ? 'CMX' : iso;
-    if (!/^[A-Z]{3}$/.test(code)) continue;
+    if (field(p.iso_a2) !== country) continue;
+    const code = codeOf(field(p.iso_3166_2));
+    if (!code) continue;
     const g = r.value.geometry;
     const polys = g.type === 'Polygon' ? [g.coordinates] : g.type === 'MultiPolygon' ? g.coordinates : [];
     for (const rings of polys) {
@@ -110,7 +125,7 @@ export async function loadStateLocator() {
     }
   }
   const codes = new Set(states.map((s) => s.code));
-  if (codes.size !== 32) throw new Error(`expected 32 Mexican states in the boundary file, found ${codes.size}`);
+  if (codes.size !== expected) throw new Error(`expected ${expected} ${what} in the boundary file, found ${codes.size}`);
 
   // A coarse grid over the bounding boxes, so a lookup tests a handful of
   // polygons rather than all of them.
@@ -138,6 +153,20 @@ export async function loadStateLocator() {
     let best = null;
     let d = Infinity;
     for (const s of states) {
+      for (const [px, py] of s.rings[0]) {
+        const v = (px - x) ** 2 + (py - y) ** 2;
+        if (v < d) { d = v; best = s.code; }
+      }
+    }
+    return best;
+  };
+  // The state whose boundary passes within `maxDeg`, for a point the
+  // generalised coastline leaves at sea: a reclaimed shore, a causeway.
+  locate.near = ([x, y], maxDeg) => {
+    let best = null;
+    let d = maxDeg * maxDeg;
+    for (const s of states) {
+      if (x < s.box[0] - maxDeg || x > s.box[2] + maxDeg || y < s.box[1] - maxDeg || y > s.box[3] + maxDeg) continue;
       for (const [px, py] of s.rings[0]) {
         const v = (px - x) ** 2 + (py - y) ** 2;
         if (v < d) { d = v; best = s.code; }
