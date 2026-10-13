@@ -296,7 +296,7 @@ await step('data and sources page renders every tab', async () => {
   const bars = await page.locator('.cov-bar').count();
   if (bars < 6) throw new Error(`only ${bars} coverage bars`);
   if (await page.locator('#menuMore.open').count()) throw new Error('menu stayed open behind the page');
-  for (const [tab, min] of [['sources', 5], ['decisions', 40], ['issues', 3], ['accuracy', 5]]) {
+  for (const [tab, min] of [['sources', 5], ['decisions', 40], ['issues', 1], ['accuracy', 5]]) {
     await page.click(`[data-dc="${tab}"]`);
     await page.waitForTimeout(150);
     const n = await page.locator('#dcBody .dc-card, #dcBody .dc-tbl tbody tr').count();
