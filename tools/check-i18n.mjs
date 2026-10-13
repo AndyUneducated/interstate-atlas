@@ -29,7 +29,7 @@ const BUILT = [
   'sys.', 'comp.', 'sect.', 'ca.nhs.', 'jump.', 'src.',
   'dt.from', 'dt.to', 'hp.good', 'hp.fair', 'hp.poor', 'ca.tr.note.', 'mx.admin.',
   'nb.ca.lv.', 'toll.kind.', 'toll.cur.', 'toll.plaza.admin.', 'toll.plaza.mode.', 'toll.plaza.dir.', 'toll.plaza.place.', 'bridge.kind.', 'xing.border.', 'xing.precision.', 'toast.base.',
-  'docs.tab.',
+  'docs.tab.', 'dv.f.', 'dv.flow.', 'dv.cross.', 'dv.v.', 'dv.stage.', 'dv.reg.', 'dv.gk.',
 ];
 
 async function main() {
