@@ -56,10 +56,10 @@
     {
       "key": "condition",
       "en": [
-        "Criticism that the Island Eastern Corridor had cut North Point and Quarry Bay off from the harbour led eventually to the East Coast Boardwalk, a promenade built beneath the viaduct at a cost of HK$1.68 billion, which opened in 2025."
+        "Criticism that the Island Eastern Corridor had cut North Point and Quarry Bay off from the harbour led eventually to the East Coast Boardwalk, a promenade built beneath the viaduct with about HK$1.68 billion of approved funding, which opened in two sections in 2025."
       ],
       "zh": [
-        "东区走廊被批评把北角和鲗鱼涌与海港隔开，最终促成了在高架桥下兴建的东岸板道。板道耗资 16.8 亿港元，于 2025 年启用。"
+        "东区走廊被批评把北角和鲗鱼涌与海港隔开，最终促成了在高架桥下兴建的东岸板道。板道获批拨款约 16.8 亿港元，2025 年分两段启用。"
       ]
     }
   ],
@@ -90,8 +90,8 @@
     },
     {
       "label": { "en": "East Coast Boardwalk", "zh": "东岸板道" },
-      "value": { "en": "HK$1.68 billion, opened 2025", "zh": "16.8 亿港元，2025 年启用" },
-      "source": "Chinese Wikipedia, 东区走廊"
+      "value": { "en": "About HK$1.68 billion approved by the Legislative Council's Public Works Subcommittee in September 2021; the western section opened on 26 January 2025 and the eastern on 29 December 2025", "zh": "2021 年 9 月立法会工务小组委员会通过拨款约 16.8 亿港元；西段于 2025 年 1 月 26 日启用，东段于 2025 年 12 月 29 日开放" },
+      "source": "周皓宜, 「16.8億興建東區走廊行人板道」, 香港01, 17 September 2021, as cited in Chinese Wikipedia, 東區走廊"
     }
   ],
   "timeline": [
