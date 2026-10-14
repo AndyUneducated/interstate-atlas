@@ -11,7 +11,12 @@
 import { readdir, readFile, mkdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { IX, SECTION_KEYS, geoPath, system, systemOfCode } from '../assets/schema.js';
-import { writeOut } from './write.mjs';
+import { writeOut as write } from './write.mjs';
+
+// `--check` validates without touching data/, so several authors can check
+// their dossiers at once without racing each other's output.
+const CHECK = process.argv.includes('--check');
+const writeOut = CHECK ? async () => {} : write;
 
 const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'content', 'dossiers');
@@ -67,7 +72,7 @@ async function anchorDistanceKm(row, [ax, ay]) {
 function selectorFrom(slug, declared) {
   if (declared?.num) {
     return {
-      sys: declared.sys ? SYS_CODE[declared.sys] : null,
+      sys: declared.sys ? system(declared.sys)?.code ?? declared.sys : null,
       st: declared.st || null,
       num: String(declared.num).toLowerCase(),
       anchor: declared.anchor || null,
@@ -191,8 +196,10 @@ async function main() {
   const ROUTE_COST_LABEL = /^(total|route-wide|original|overall)?\s*construction cost$|^cost of the whole route$/i;
   const superseded = [];
 
-  await rm(OUT, { recursive: true, force: true });
-  await mkdir(OUT, { recursive: true });
+  if (!CHECK) {
+    await rm(OUT, { recursive: true, force: true });
+    await mkdir(OUT, { recursive: true });
+  }
 
   const timelineRoutes = [];
   const timelineEvents = [];

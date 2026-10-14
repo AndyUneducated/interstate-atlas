@@ -1,0 +1,118 @@
+{
+  "id": "tw-fwy-1",
+  "route": { "sys": "tw-freeway", "num": "1" },
+  "name": { "en": "Sun Yat-sen Freeway", "zh": "中山高速公路" },
+  "aka": [
+    { "en": "North–South Freeway", "zh": "南北高速公路" },
+    { "en": "Zhongshan Gao", "zh": "中山高" }
+  ],
+  "tagline": { "en": "Taiwan's first freeway, from Keelung harbour to Kaohsiung harbour", "zh": "台湾第一条高速公路，自基隆港直抵高雄港" },
+  "completedYear": 1978,
+  "termini": {
+    "start": { "en": "Keelung harbour, reached over the Keelung Port West Viaduct, rebuilt in 2017", "zh": "基隆港，经 2017 年重建的基隆港西高架桥衔接" },
+    "end": { "en": "The Xinsheng Road and Yugang Road junction in Qianzhen, Kaohsiung, by the harbour — the end since 2015, when 1.56 km of harbour viaduct was added to the freeway", "zh": "高雄市前镇区新生路与渔港路口，紧邻高雄港——2015 年 1.56 公里港区高架纳编国道后的新终点" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "National Freeway 1 runs the length of Taiwan's western plain, from the port of Keelung in the north to the port of Kaohsiung in the south, 374.3 km through fourteen cities and counties: Keelung, New Taipei, Taipei, Taoyuan, Hsinchu county and city, Miaoli, Taichung, Changhua, Yunlin, Chiayi county and city, Tainan and Kaohsiung.",
+        "It is not the longest freeway on the island — National Freeway 3, the Formosa Freeway, is longer — but it is the one that goes through the middle of things. Freeway 3 was built later and further inland; Freeway 1 runs through the cores of the western cities and the industrial zones around them, which is why it is the busier road and why it has twice been given a second deck rather than widened."
+      ],
+      "zh": [
+        "国道一号纵贯台湾西部平原，北起基隆港，南抵高雄港，全长 374.3 公里，途经十四个县市：基隆市、新北市、台北市、桃园市、新竹县、新竹市、苗栗县、台中市、彰化县、云林县、嘉义县、嘉义市、台南市与高雄市。",
+        "它并不是岛上最长的高速公路——国道三号福尔摩沙高速公路更长——但它是从城市中间穿过去的那一条。国道三号建得更晚、走得更靠内陆；国道一号则穿过西部各大城市的核心及其周边工业区，所以车流更大，也因此两度靠「往上叠」而不是往两边拓宽来扩容。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "As completed in 1978 the road had 75 interchanges, 2 tunnels and 349 bridges, and took 3,231 hectares of land. The two tunnels are still the only ones on it, both in Keelung: Zhongxing, finished in 1963 for the earlier MacArthur Highway and now southbound, and Daye, opened in 1979 for northbound traffic. Both are limited to 60 km/h.",
+        "The largest bridges cross the three big rivers of the western plain — the Da'an, the Zhuoshui and the Zengwen. The Zhuoshui crossing is the Sino-Saudi Bridge, named for the country that lent money to build the road.",
+        "Four straight sections are wartime runways for the air force: at Huatan in Changhua, Minxiong in Chiayi, Madou and Rende in Tainan. A fifth, at Zhongli, was released in March 2006. In April 2019 the Han Kuang exercise put fighter aircraft down on the Huatan section.",
+        "Between Taipei and Taoyuan the capacity problem was solved by building a second freeway on top of the first. The Xizhi–Wugu viaduct, 20.7 km over the Taipei section, was completed in 1997; the Wugu–Yangmei viaduct, begun in November 2009 and fully open in April 2013, carries it on for roughly another 39 km to Yangmei. Below them the ground-level road runs from four lanes at Keelung to ten between Dingjin and Kaohsiung."
+      ],
+      "zh": [
+        "1978 年建成时，全线共有交流道 75 座、隧道 2 座、桥梁 349 座，用地 3,231 公顷。那两座隧道至今仍是全线仅有的隧道，都在基隆：中兴隧道 1963 年为更早的麦帅公路而建，今为南下线；大业隧道 1979 年通车，为北上线。两者限速均为每小时 60 公里。",
+        "最大的几座桥跨越西部平原的三条大河——大安溪、浊水溪与曾文溪。浊水溪上的那座叫中沙大桥，以借款兴建这条路的沙特阿拉伯命名。",
+        "全线有四段笔直路段兼作空军战备跑道：彰化花坛、嘉义民雄、台南麻豆与仁德；第五处中坜战备道已于 2006 年 3 月解除管制。2019 年 4 月汉光演习中，战机曾在花坛路段起降。",
+        "台北至桃园之间的容量问题，是靠在原路上方再盖一条高速公路来解决的。汐止—五股高架覆盖台北路段 20.7 公里，1997 年完工；五股—杨梅高架 2009 年 11 月动工、2013 年 4 月全线通车，再向南延伸约 39 公里至杨梅。高架之下的平面主线，车道数自基隆端的双向四车道，到鼎金至高雄之间增至双向十车道。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The first piece was built as something else. The MacArthur Highway, begun in May 1961 and opened on 2 May 1964 from Keelung harbour to Nanjing East Road in Taipei, was Taiwan's first motorway, numbered Provincial Highway 5A. Most of it was later widened into the freeway.",
+        "The freeway itself was Chiang Ching-kuo's. In 1970, chairing the council for international economic cooperation, he pushed the North–South Freeway through over opposition; a freeway engineering bureau was set up that June, and ground was broken on 14 August 1971. It became one of the Ten Major Construction Projects, criticised at the time as a road built for the rich, in a country where few people owned a car.",
+        "It opened in pieces: 30.1 km from Sanchong to Neili on 29 July 1974, the rebuilt MacArthur Highway from Keelung to Neihu in July 1977, and the last sections on 31 October 1978, when the transport minister, Lin Chin-sheng, and Saudi Arabia's deputy transport minister opened the whole road together. On 19 April 1979 the Executive Yuan named it the Sun Yat-sen Freeway."
+      ],
+      "zh": [
+        "这条路最早建成的一段，挂的是别的名字。麦克阿瑟公路（麦帅公路）1961 年 5 月动工，1964 年 5 月 2 日通车，自基隆港至台北南京东路，是台湾第一条汽车专用公路，编为省道台 5 甲线。它的大部分路段后来被拓宽并入高速公路。",
+        "高速公路本身则出自蒋经国。1970 年，时任行政院国际经济合作发展委员会主任委员的他力排众议，推动通过南北高速公路兴建案；同年 6 月成立台湾区高速公路工程局，1971 年 8 月 14 日动土。它被列为十大建设之一；在当时多数人还没有汽车的台湾，曾被批评为「为富人而建」。",
+        "全线分段通车：1974 年 7 月 29 日三重至内坜 30.1 公里率先通车；1977 年 7 月，由麦帅公路改建的基隆至内湖段通车；1978 年 10 月 31 日最后路段通车，由交通部长林金生与沙特阿拉伯交通部副部长共同主持全线通车仪式。1979 年 4 月 19 日，行政院将其命名为中山高速公路。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The budget was about NT$42.9 billion, of which NT$8.1 billion was borrowed abroad. Saudi Arabia was the lender the road remembers: it provided an interest-free loan, which the finance minister, K. T. Li, helped to raise, and the bridge over the Zhuoshui carries the two countries' names.",
+        "It has always been tolled. Since 30 December 2013 the charge is by distance, collected electronically: a car's first 20 km each day are free, the next 180 km cost NT$1.2 a kilometre and anything beyond 200 km NT$0.9."
+      ],
+      "zh": [
+        "总预算约新台币 429 亿元，其中 81 亿元为国际贷款。这条路记住的出资方是沙特阿拉伯：沙方提供了无息贷款，财政部长李国鼎亲自参与筹款，浊水溪上的大桥也以两国国名命名。",
+        "这条路一直收费。2013 年 12 月 30 日起改为电子计程收费：小型车每日前 20 公里免费，20 至 200 公里每公里 1.2 元，200 公里以上每公里 0.9 元。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The speed limit is 100 km/h north of the Da'an River bridge, 110 from there to Nanzi — raised in March 2008 — then 100 again, and 60 to 80 through the last few kilometres into Kaohsiung. Heavy motorcycles over 550 cc, which may use some other freeways, are still barred from all of Freeway 1, including both viaducts.",
+        "When it opened, the drive from Keelung to Taipei fell from 39 minutes to 18."
+      ],
+      "zh": [
+        "大安溪桥北端以北限速每小时 100 公里，自大安溪桥至楠梓 110 公里（2008 年 3 月调高），其后恢复 100 公里，进入高雄的最后几公里为 60 至 80 公里。排气量 550 cc 以上的大型重型机车至今仍不得行驶国道一号全线，两段高架亦然。",
+        "通车之后，基隆到台北的车程由 39 分钟缩短为 18 分钟。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "value": { "en": "About NT$42.9 billion as budgeted for the 1971–1978 build, NT$8.1 billion of it international loans", "zh": "1971—1978 年建设总预算约新台币 429 亿元，其中国际贷款 81 亿元" },
+      "source": "Council for Economic Planning and Development, 十項重要建設評估 (Assessment of the Ten Major Construction Projects), November 1979, pp. 5–12, as cited in Chinese Wikipedia, 十大建設"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The government of the Republic of China, with an interest-free loan from Saudi Arabia. The Zhuoshui River bridge is named the Sino-Saudi Bridge in thanks.", "zh": "中华民国政府出资，并获沙特阿拉伯无息贷款；浊水溪上的中沙大桥即为致谢而命名。" },
+      "source": "Han Cheung, “Taiwan in Time: The last great friend”, Taipei Times, 4 July 2021; Chinese Wikipedia, 中山高速公路"
+    },
+    {
+      "label": { "en": "As built, 1978", "zh": "1978 年建成规模" },
+      "value": { "en": "75 interchanges, 2 tunnels, 349 bridges, 3,231 hectares of land", "zh": "交流道 75 座、隧道 2 座、桥梁 349 座，用地 3,231 公顷" },
+      "source": "Council for Economic Planning and Development, 十項重要建設評估, November 1979, as cited in Chinese Wikipedia, 十大建設"
+    },
+    {
+      "label": { "en": "Wugu–Yangmei viaduct", "zh": "五杨高架" },
+      "value": { "en": "Reported at nearly US$3 billion. The figure is a trade-press one; the Freeway Bureau's own project total has not been checked here.", "zh": "据报道造价近 30 亿美元。该数字出自行业媒体，尚未与高速公路局公布的项目总额核对。" },
+      "source": "“Wugu-Yangmei elevated expressway”, Siglite, 25 April 2013, as cited in English Wikipedia, National Freeway 1"
+    },
+    {
+      "label": { "en": "Built by", "zh": "兴建单位" },
+      "value": { "en": "Taiwan Provincial Highway Bureau (Zhongxing tunnel); the National Expressway Engineering Bureau (Keelung to the Zhongshan 4th Road ramp in Kaohsiung, Daye tunnel); the Freeway Bureau (the Kaohsiung harbour extension). Maintained by the Freeway Bureau.", "zh": "台湾省公路局（中兴隧道）；国道新建工程局（基隆端至高雄端中山四路匝道、大业隧道）；高速公路局（高雄港区延伸段）。由交通部高速公路局养护。" },
+      "source": "Chinese Wikipedia, 中山高速公路"
+    }
+  ],
+  "timeline": [
+    { "year": 1964, "en": "The MacArthur Highway opens on 2 May from Keelung harbour to Taipei — Taiwan's first motorway, and the freeway's first piece.", "zh": "5 月 2 日，麦帅公路自基隆港至台北通车——台湾第一条汽车专用公路，也是日后中山高速公路的第一段。" },
+    { "year": 1970, "en": "The North–South Freeway is approved, and a freeway engineering bureau is set up on 8 June.", "zh": "南北高速公路兴建案通过；6 月 8 日成立台湾区高速公路工程局。" },
+    { "year": 1971, "en": "Ground is broken on 14 August.", "zh": "8 月 14 日动土兴建。" },
+    { "year": 1974, "en": "The first 30.1 km, Sanchong to Neili, opens on 29 July.", "zh": "7 月 29 日，三重至内坜 30.1 公里率先通车。" },
+    { "year": 1978, "en": "The whole road opens on 31 October, Keelung to Kaohsiung, with the Sino-Saudi Bridge over the Zhuoshui.", "zh": "10 月 31 日全线通车，基隆至高雄贯通，浊水溪上的中沙大桥同时启用。" },
+    { "year": 1979, "en": "The Executive Yuan names it the Sun Yat-sen Freeway on 19 April.", "zh": "4 月 19 日，行政院命名为中山高速公路。" },
+    { "year": 1989, "en": "Typhoon damage brings down the Bazhang River bridge on 11 September.", "zh": "9 月 11 日，八掌溪桥因台风损毁。" },
+    { "year": 1997, "en": "The Xizhi–Wugu viaduct is completed over the Taipei section.", "zh": "汐止—五股高架全线通车。" },
+    { "year": 2006, "en": "Electronic toll collection begins on 10 February; the Zhongli wartime runway is released in March.", "zh": "2 月 10 日启用电子收费；3 月，中坜战备跑道解除管制。" },
+    { "year": 2013, "en": "The Wugu–Yangmei viaduct opens in full on 20 April; distance-based tolling replaces the toll stations on 30 December.", "zh": "4 月 20 日五杨高架全线通车；12 月 30 日改为计程收费，取代收费站。" },
+    { "year": 2015, "en": "1.56 km of Kaohsiung harbour viaduct is added to the freeway, moving its southern end to Xinsheng Road.", "zh": "高雄港区 1.56 公里高架纳编国道一号，南端终点移至新生路。" }
+  ]
+}
