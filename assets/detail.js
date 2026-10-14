@@ -455,7 +455,8 @@ function listedEnds(p, names) {
 function roadsBlock(p, own, hk) {
   const listed = hk?.roads?.map(([en, zh]) => (getLang() === 'zh' ? zh : en));
   const roads = (listed ?? p.named ?? []).filter((n) => !own.includes(n)
-    && !/^\d+\s*(?:国道|省道)$|^[GSX]\d+$/.test(n) && !/\s[-－–—]\s/.test(n));
+    && !/^\d+\s*(?:国道|省道)$|^[GSX]\d+$/.test(n) && !/\s[-－–—]\s/.test(n)
+    && !/(?:服[務务]區|服务区|休息站|轉接道|转接道|交流道|匝道|收[費费]站|Service Area|Interchange)$/i.test(n));
   if (!roads.length) return '';
   return `<div class="figs ca-facts"><div class="fig"><span class="fig-k">${t('ea.roads')}</span>
     <span class="fig-v">${roads.map((n) => esc(n)).join(' · ')}</span></div></div>`;

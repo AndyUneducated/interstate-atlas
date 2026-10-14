@@ -9,7 +9,7 @@
   "tagline": { "en": "Taiwan's first freeway, from Keelung harbour to Kaohsiung harbour", "zh": "台湾第一条高速公路，自基隆港直抵高雄港" },
   "completedYear": 1978,
   "termini": {
-    "start": { "en": "Keelung harbour, reached over the Keelung Port West Viaduct, rebuilt in 2017", "zh": "基隆港，经 2017 年重建的基隆港西高架桥衔接" },
+    "start": { "at": [121.74, 25.13], "en": "Keelung harbour, reached over the Keelung Port West Viaduct, rebuilt in 2017", "zh": "基隆港，经 2017 年重建的基隆港西高架桥衔接" },
     "end": { "en": "The Xinsheng Road and Yugang Road junction in Qianzhen, Kaohsiung, by the harbour — the end since 2015, when 1.56 km of harbour viaduct was added to the freeway", "zh": "高雄市前镇区新生路与渔港路口，紧邻高雄港——2015 年 1.56 公里港区高架纳编国道后的新终点" }
   },
   "sections": [

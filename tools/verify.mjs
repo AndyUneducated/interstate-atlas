@@ -1328,6 +1328,19 @@ await step('Hong Kong Route 9 gives the census traffic and its roads in Chinese'
   if (!/吐露港公路/.test(zh) || /Tuen Mun Road/.test(zh)) throw new Error('Route 9 does not list its roads in Chinese');
 });
 
+await step('the Sun Yat-sen Freeway dossier gives cost, funding and its ends the right way round', async () => {
+  await page.click('#dtClose');
+  await page.evaluate(() => window.__select('tw-fwy-1'));
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1500);
+  const text = await page.textContent('#detail');
+  if (!/Sun Yat-sen Freeway/.test(text) || !/North–South Freeway/.test(text)) throw new Error('no dossier name or former name');
+  if (!/NT\$42\.9 billion/.test(text) || !/Saudi Arabia/.test(text)) throw new Error('no construction cost or funder');
+  const south = await page.textContent('#detail .termini .term.from');
+  if (!/Southern/i.test(south) || !/Xinsheng Road/.test(south)) throw new Error(`the southern end reads ${south}`);
+  if (/服務區|轉接道/.test(text)) throw new Error('service areas listed as roads it follows');
+});
+
 await step('a Chinese province loads its provincial roads', async () => {
   await page.click('#dtClose');
   await page.fill('#q', '');

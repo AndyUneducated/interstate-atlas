@@ -34,10 +34,27 @@ async function geometryOf(row) {
   const file = geoFile(row);
   if (!geoCache.has(file)) {
     const fc = JSON.parse(await readFile(join(ROOT, 'data', 'geo', file), 'utf8'));
-    geoCache.set(file, new Map(fc.features.map((f) => [f.properties.id, f.geometry.coordinates])));
+    geoCache.set(file, new Map(fc.features.map((f) => [f.properties.id, f])));
   }
-  return geoCache.get(file).get(row[IX.id]) || [];
+  return geoCache.get(file).get(row[IX.id])?.geometry.coordinates || [];
 }
+
+/**
+ * The two points the page labels as the route's start and end: the ends of
+ * its main pieces, in drawing order, exactly as the detail panel picks them.
+ */
+async function endsOf(row) {
+  await geometryOf(row);
+  const f = geoCache.get(geoFile(row)).get(row[IX.id]);
+  if (!f) return null;
+  const c = f.geometry.coordinates;
+  const lines = Array.isArray(c[0]?.[0]) ? c : (c.length ? [c] : []);
+  const np = Math.min(f.properties.np ?? lines.length, lines.length) || lines.length;
+  const main = lines.slice(0, np);
+  return main.length ? [main[0][0], main[main.length - 1].at(-1)] : null;
+}
+
+const kmBetween = ([ax, ay], [bx, by]) => Math.hypot((ax - bx) * Math.cos((ay * Math.PI) / 180), ay - by) * 111.32;
 
 /** How far an anchor is from the nearest point of a route, in km. */
 async function anchorDistanceKm(row, [ax, ay]) {
@@ -234,6 +251,18 @@ async function main() {
     if (d.termini) {
       checkLocalised(file, 'termini.start', d.termini.start, { allowNull: true });
       checkLocalised(file, 'termini.end', d.termini.end, { allowNull: true });
+      // The page pairs termini.start with the end the geometry is drawn from,
+      // which an author cannot see. A terminus that says where it is lets the
+      // build put the two the right way round.
+      const ends = await endsOf(hit.row);
+      const at = d.termini.start?.at ?? d.termini.end?.at;
+      if (ends && at) {
+        const startIsAt = d.termini.start?.at === at;
+        const nearStart = kmBetween(at, ends[0]) < kmBetween(at, ends[1]);
+        if (startIsAt !== nearStart) d = { ...d, termini: { start: d.termini.end, end: d.termini.start } };
+      } else if (ends && /^(cn|tw|hk)-/.test(id)) {
+        warn(file, `termini have no "at" coordinate, so they may be shown the wrong way round`);
+      }
     }
 
     if (!Array.isArray(d.sections) || !d.sections.length) {
