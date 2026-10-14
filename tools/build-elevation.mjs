@@ -3,6 +3,7 @@
 //   node tools/build-elevation.mjs            # routes with a published dossier
 //   node tools/build-elevation.mjs i-70 i-80  # named routes, by route id
 //   node tools/build-elevation.mjs --all      # every primary Interstate and US route
+//   node tools/build-elevation.mjs --east-asia  # every mainland national route, Taiwan, Hong Kong
 //
 // Run it after `npm run build`: the dossier list is read from data/dossiers/,
 // where each profile is already filed under the route id the site looks up.
@@ -33,10 +34,11 @@ const Z = 9;
 const SAMPLES = 220;
 const M_TO_FT = 3.280839895;
 
-// The only dry land in North America below sea level, as [west, south, east,
-// north]. Anywhere else a reading under zero is the bed of the water a bridge,
-// tunnel or ferry crosses: the tiles carry bathymetry.
+// The only dry land below sea level that the atlas's routes cross, as [west,
+// south, east, north]. Anywhere else a reading under zero is the bed of the
+// water a bridge, tunnel or ferry crosses: the tiles carry bathymetry.
 const BELOW_SEA_LEVEL = [
+  [88.3, 42.3, 90.6, 43.3], // Turpan Depression
   [-116.7, 31.9, -114.9, 33.9], // Salton Trough, Imperial and Mexicali valleys, Laguna Salada
   [-117.5, 35.8, -116.3, 36.9], // Death Valley
   [-90.4, 29.8, -89.8, 30.1], // New Orleans
@@ -168,12 +170,16 @@ async function profileFor(feature) {
 async function main() {
   const args = process.argv.slice(2);
   const all = args.includes('--all');
+  // East Asia's routes have no dossiers yet, so they are profiled by system:
+  // the mainland's national network, and everything in Taiwan and Hong Kong.
+  const eastAsia = args.includes('--east-asia');
+  const EA_SYSTEMS = new Set(['cn-expressway', 'cn-national', 'tw-freeway', 'tw-provincial', 'hk-route']);
   const named = args.filter((a) => !a.startsWith('--'));
 
   // A dossier's filename is not its route id - the content build resolves it
   // by number and place - so the list comes from what that build published.
   let wanted = new Set(named);
-  if (!named.length) {
+  if (!named.length && !eastAsia) {
     const manifest = join(ROOT, 'data', 'dossiers', 'index.json');
     if (!existsSync(manifest)) throw new Error('data/dossiers/index.json is missing: run npm run build first');
     wanted = new Set(JSON.parse(await readFile(manifest, 'utf8')).ids);
@@ -189,7 +195,7 @@ async function main() {
       for (const f of fc.features) {
         const p = f.properties;
         const inAll = all && (s.id === 'us-numbered' || (s.id === 'us-interstate' && p.tier === 'primary'));
-        if (inAll || wanted.has(p.id)) features.push(f);
+        if (inAll || (eastAsia && EA_SYSTEMS.has(s.id)) || wanted.has(p.id)) features.push(f);
       }
     }
   }

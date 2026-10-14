@@ -110,6 +110,286 @@
       "en": "The system stands at 46,876 miles, including roughly 2,900 miles of turnpikes that were folded in rather than built new.",
       "zh": "系统总里程为 46,876 英里，其中约 2,900 英里是并入的既有收费公路，而非新建路段。",
       "source": "FHWA Interstate Frequently Asked Questions; FHWA Route Log and Finder List, January 2026"
+    },
+    {
+      "year": 1984,
+      "kind": "cnx",
+      "en": "Work begins in June on the Shenyang–Dalian road, the first expressway on the mainland to be started. Policy allows it to be approved only as a first-class road, so it is built to expressway standard under that name.",
+      "zh": "6 月，沈大公路开工，是中国大陆最早开工的高速公路。受政策限制，它名义上按一级汽车专用公路立项，实际按高速公路标准修建。",
+      "source": "zh.wikipedia, 中华人民共和国高速公路 (大事记); 沈大高速公路 (建设历程)"
+    },
+    {
+      "year": 1988,
+      "kind": "cnx",
+      "en": "The Shanghai–Jiading Expressway opens on 31 October, officially the first expressway on the mainland to open throughout.",
+      "zh": "10 月 31 日，沪嘉高速公路通车，官方认定为中国大陆第一条全线通车的高速公路。",
+      "source": "zh.wikipedia, 沪嘉高速公路; 中华人民共和国高速公路 (大事记)"
+    },
+    {
+      "year": 1990,
+      "kind": "cnx",
+      "en": "The Shenyang–Dalian Expressway opens throughout on 20 August: 375 km, four lanes, every junction grade-separated. It is called the first road of China.",
+      "zh": "8 月 20 日，沈大高速公路全线建成通车：全长 375 公里，四车道，全立交。它被称为“神州第一路”。",
+      "source": "zh.wikipedia, 沈大高速公路"
+    },
+    {
+      "year": 1993,
+      "kind": "cnx",
+      "en": "The Ministry of Communications issues the national trunk highway plan drawn up in 1992, five north–south and seven east–west corridors of about 35,000 km, three quarters of them to expressway standard.",
+      "zh": "交通部正式颁布 1992 年制定的“五纵七横”国道主干线系统规划：12 条通道，约 3.5 万公里，其中约四分之三按高速公路标准修建。",
+      "source": "zh.wikipedia, 中华人民共和国国道 (“五纵七横”国道主干线); 中华人民共和国高速公路 (规划沿革)"
+    },
+    {
+      "year": 1999,
+      "kind": "cnx",
+      "en": "The Jinan–Tai'an Expressway opens on 31 October and the network passes 10,000 km. It ends the year at 11,650 km, third in the world.",
+      "zh": "10 月 31 日，济南至泰安高速公路通车，中国大陆高速公路通车里程突破 1 万公里。年末总里程 11,650 公里，居世界第三。",
+      "source": "zh.wikipedia, 中华人民共和国高速公路 (大事记)"
+    },
+    {
+      "year": 2005,
+      "kind": "cnx",
+      "en": "The National Expressway Network Plan is published in January: seven radials from Beijing, nine north–south and eighteen east–west routes, about 85,000 km. The trunk-plan numbers G010 to G075 lapse with it.",
+      "zh": "1 月，《国家高速公路网规划》公布：7 条首都放射线、9 条南北纵线、18 条东西横线，简称“7918 网”，总规模约 8.5 万公里。“五纵七横”的 G010 至 G075 编号随之废止。",
+      "source": "zh.wikipedia, 中华人民共和国高速公路 (规划沿革)"
+    },
+    {
+      "year": 2007,
+      "kind": "cnx",
+      "en": "The five-by-seven trunk network is essentially complete, and the year ends with 53,600 km of expressway.",
+      "zh": "“五纵七横”国道主干线基本建成，年末高速公路里程 5.36 万公里。",
+      "source": "zh.wikipedia, 中华人民共和国国道; 中华人民共和国高速公路 (大事记)"
+    },
+    {
+      "year": 2011,
+      "kind": "cnx",
+      "en": "At 85,000 km by the end of the year, the mainland's expressway network overtakes that of the United States as the world's longest.",
+      "zh": "年末通车里程达 8.5 万公里，超过美国，居世界第一。",
+      "source": "zh.wikipedia, 中华人民共和国高速公路 (大事记)"
+    },
+    {
+      "year": 2013,
+      "kind": "cnx",
+      "en": "The National Highway Network Plan 2013–2030 is issued in May. The expressway network becomes seven radials, eleven north–south and eighteen east–west routes, about 118,000 km, with 18,000 km more of long-term lines, mostly in the sparsely settled west.",
+      "zh": "5 月，《国家公路网规划（2013年—2030年）》印发。国家高速公路网调整为 7 条首都放射线、11 条北南纵线、18 条东西横线，简称“71118 网”，约 11.8 万公里；另规划远期展望线约 1.8 万公里，主要位于西部地广人稀地区。",
+      "source": "zh.wikipedia, 中华人民共和国高速公路 (大事记, 规划沿革)"
+    },
+    {
+      "year": 2020,
+      "kind": "cnx",
+      "en": "Every toll station on a provincial boundary closes at midnight on 1 January, and tolls are taken through an upgraded electronic system instead.",
+      "zh": "1 月 1 日零时起，全国高速公路省界收费站全部取消，启用升级后的电子收费系统。",
+      "source": "zh.wikipedia, 中华人民共和国高速公路 (收费模式), citing 国务院办公厅 2019-05-16 实施方案"
+    },
+    {
+      "year": 2022,
+      "kind": "cnx",
+      "en": "The National Highway Network Plan to 2035 is issued on 4 July. It keeps the 7–11–18 framework and enlarges the network to about 162,000 km, 8,000 km of it long-term lines, adding twelve metropolitan rings.",
+      "zh": "7 月 4 日，《国家公路网规划》印发，规划期至 2035 年。保持“71118”框架，国家高速公路增至约 16.2 万公里（含远景展望线约 0.8 万公里），新增 12 条都市圈环线。",
+      "source": "国家发展改革委、交通运输部《国家公路网规划》, 2022; zh.wikipedia, 中华人民共和国高速公路"
+    },
+    {
+      "year": 2025,
+      "kind": "cnx",
+      "en": "The year ends with 199,400 km of expressway on the mainland.",
+      "zh": "年末中国大陆高速公路通车里程达 19.94 万公里。",
+      "source": "zh.wikipedia, 中华人民共和国高速公路 (大事记)"
+    },
+    {
+      "year": 1981,
+      "kind": "cnn",
+      "en": "The State Planning Commission, State Economic Commission and Ministry of Communications issue the trial national trunk highway network in November: 70 routes, twelve radiating from Beijing, 28 north–south and 30 east–west, about 109,200 km.",
+      "zh": "11 月，经国务院授权，国家计委、国家经委和交通部联合发布《国家干线公路网（试行方案）》：“12 射、28 纵、30 横”共 70 条国道，规划总里程约 10.92 万公里。",
+      "source": "zh.wikipedia, 中华人民共和国国道 (国家干线公路网（试行方案）)"
+    },
+    {
+      "year": 2006,
+      "kind": "cnn",
+      "en": "The zero-kilometre marker of China's highways is set in Tiananmen Square, below the south side of Qianmen, the point the radial routes are measured from.",
+      "zh": "中国公路零公里标志在天安门广场设立，位于前门城楼南侧下方，放射线国道由此起算。",
+      "source": "zh.wikipedia, 中华人民共和国国道 (国道编号)"
+    },
+    {
+      "year": 2013,
+      "kind": "cnn",
+      "en": "The 2013–2030 plan enlarges the ordinary national highways to twelve radials, 47 north–south and 60 east–west routes, 119 in all, with 81 link routes numbered from 5, about 265,000 km. Most of the growth is former provincial and county road in the west.",
+      "zh": "2013—2030 年规划把普通国道扩至“12 射、47 纵、60 横”共 119 条，另增 81 条以 5 开头编号的联络线，总里程约 26.5 万公里，其中利用原省道 12.4 万公里、原县乡道 2.9 万公里，扩展重点在西部。",
+      "source": "zh.wikipedia, 中华人民共和国国道 (国家公路网规划（2013年—2030年）)"
+    },
+    {
+      "year": 2017,
+      "kind": "cnn",
+      "en": "A revised national standard for highway signing and route numbering fixes the new routes' names and numbers.",
+      "zh": "国家标准《公路标识规则和国道编号》修订通过，新的国道名称及编号正式确定。",
+      "source": "zh.wikipedia, 中华人民共和国国道"
+    },
+    {
+      "year": 2022,
+      "kind": "cnn",
+      "en": "The plan to 2035 adds about 34,000 km of ordinary national highway net and 101 link routes, the first numbered from 6 and 7, and realigns 41 existing routes.",
+      "zh": "至 2035 年的《国家公路网规划》使普通国道净增约 3.4 万公里，增设 101 条联络线并启用 6、7 开头的编号，调整 41 条既有路线走向。",
+      "source": "zh.wikipedia, 中华人民共和国国道 (国家公路网规划（2022年—2035年）)"
+    },
+    {
+      "year": 1964,
+      "kind": "twf",
+      "en": "The MacArthur Highway opens on 2 May between Keelung and Taipei, Taiwan's first road for motor vehicles only. Most of it later becomes the north end of Freeway 1.",
+      "zh": "5 月 2 日，基隆至台北的麦帅公路通车，是台湾第一条汽车专用公路，后来大部分并入国道 1 号北段。",
+      "source": "zh.wikipedia, 中山高速公路 (历史)"
+    },
+    {
+      "year": 1971,
+      "kind": "twf",
+      "en": "Construction of the North–South Freeway begins on 14 August.",
+      "zh": "8 月 14 日，南北高速公路动工。",
+      "source": "zh.wikipedia, 中山高速公路 (历史)"
+    },
+    {
+      "year": 1974,
+      "kind": "twf",
+      "en": "The first 30.1 km, Sanchong to Neili, opens on 29 July.",
+      "zh": "7 月 29 日，三重至内坜段 30.1 公里通车，为第一段。",
+      "source": "zh.wikipedia, 中山高速公路 (历史)"
+    },
+    {
+      "year": 1978,
+      "kind": "twf",
+      "en": "The freeway opens throughout from Keelung to Kaohsiung on 31 October, with the Sino-Saudi Bridge over the Zhuoshui River, named in thanks for the Saudi funding that helped build it. It is named the Sun Yat-sen Freeway the next April.",
+      "zh": "10 月 31 日，基隆至高雄全线通车，跨浊水溪的中沙大桥同日启用，以纪念沙特阿拉伯的资助而得名。次年 4 月定名为中山高速公路。",
+      "source": "zh.wikipedia, 中山高速公路 (历史, 主要桥梁)"
+    },
+    {
+      "year": 1987,
+      "kind": "twf",
+      "en": "Work begins in the north on the Second Freeway, planned to take traffic off a Freeway 1 already near capacity and to reach the inland towns it bypasses.",
+      "zh": "北部第二高速公路动工，目的是分担趋于饱和的国道 1 号车流，并连接其绕过的内陆城镇。",
+      "source": "zh.wikipedia, 福爾摩沙高速公路 (历史)"
+    },
+    {
+      "year": 1993,
+      "kind": "twf",
+      "en": "The first stretch of Freeway 3, Tucheng to Sanying, opens on 19 January.",
+      "zh": "1 月 19 日，国道 3 号首段土城至三莺通车。",
+      "source": "zh.wikipedia, 福爾摩沙高速公路 (历史)"
+    },
+    {
+      "year": 2004,
+      "kind": "twf",
+      "en": "Freeway 3 opens throughout on 11 January, 431 km from Keelung to Linbian, and a public naming contest makes it the Formosa Freeway. Over a third of it is on bridges.",
+      "zh": "1 月 11 日，国道 3 号全线通车，基隆至林边 431 公里，经公开征名定为福尔摩沙高速公路。全线桥梁占约 36.5%。",
+      "source": "zh.wikipedia, 福爾摩沙高速公路 (简介, 历史)"
+    },
+    {
+      "year": 2006,
+      "kind": "twf",
+      "en": "Electronic toll collection starts on 10 February. On 16 June Freeway 5 opens to Yilan through the 12.9 km Hsuehshan Tunnel, then Taiwan's longest road tunnel.",
+      "zh": "2 月 10 日，国道开始电子收费。6 月 16 日，国道 5 号通车，经 12.9 公里的雪山隧道通往宜兰，为当时台湾最长的公路隧道。",
+      "source": "zh.wikipedia, 中山高速公路 (历史); 蔣渭水高速公路"
+    },
+    {
+      "year": 2013,
+      "kind": "twf",
+      "en": "The Wugu–Yangmei Viaduct, a second deck above Freeway 1, opens throughout on 20 April. On 30 December the toll stations give way to charging by the kilometre on every freeway.",
+      "zh": "4 月 20 日，叠在国道 1 号上方的五杨高架全线通车。12 月 30 日，国道全面改为电子计程收费，收费站停用。",
+      "source": "zh.wikipedia, 中山高速公路 (历史); 福爾摩沙高速公路 (历史)"
+    },
+    {
+      "year": 1939,
+      "kind": "twp",
+      "en": "The Fenggang–Taitung road, begun in 1933 under Japanese rule, is finished for motor traffic. It is today's South Link Highway on PH 9.",
+      "zh": "日治时期 1933 年动工的枫港台东道完工，可通行汽车，即今台 9 线的南回公路。",
+      "source": "zh.wikipedia, 南迴公路 (历史)"
+    },
+    {
+      "year": 1956,
+      "kind": "twp",
+      "en": "Work on the Central Cross-Island Highway starts at both ends on 7 July. American aid pays about four fifths of the cost, and more than ten thousand discharged soldiers build it.",
+      "zh": "7 月 7 日，中部横贯公路东西两端同时开工。美援负担约八成经费，动员一万多名退伍荣民修建。",
+      "source": "zh.wikipedia, 中部橫貫公路"
+    },
+    {
+      "year": 1960,
+      "kind": "twp",
+      "en": "The Central Cross-Island Highway opens on 9 May, half a year early, the first road across the island. It cost about NT$494.6 million, NT$389.9 million of it American aid.",
+      "zh": "5 月 9 日，中部横贯公路提前半年通车，是台湾第一条串联东西部的公路。工程费约新台币 4 亿 9,456 万元，其中美援 3 亿 8,994 万元。",
+      "source": "zh.wikipedia, 中部橫貫公路"
+    },
+    {
+      "year": 1999,
+      "kind": "twp",
+      "en": "The Chi-Chi earthquake on 21 September destroys PH 8 between Guguan and Deji. The stretch stays closed to general traffic, open only to residents, works crews and, from 2018, buses; in 2024 the Executive Yuan approves a feasibility study for rebuilding it, by 2037 at the earliest.",
+      "zh": "9 月 21 日的集集大地震重创台 8 线谷关至德基段，此后不对一般车辆开放，只供沿线居民、工程人员及（2018 年起）公车通行。2024 年行政院通过复建可行性评估，最快 2037 年完工。",
+      "source": "zh.wikipedia, 中部橫貫公路"
+    },
+    {
+      "year": 2026,
+      "kind": "twp",
+      "en": "On 12 January the Executive Yuan swaps the alignments of PH 9 and PH 9B, and the Fengtian–Malan stretch becomes part of the new 9B.",
+      "zh": "1 月 12 日，行政院公告台 9 线主线与台 9 乙线互换并调整路线，丰田至马兰段改编入新台 9 乙线。",
+      "source": "zh.wikipedia, 南迴公路 (路线)"
+    },
+    {
+      "year": 1972,
+      "kind": "hk",
+      "en": "The Cross-Harbour Tunnel opens, the first road under Victoria Harbour. Route 1 is numbered first because of it.",
+      "zh": "海底隧道通车，为第一条穿越维多利亚港的道路。1 号干线因此排在首位。",
+      "source": "en.wikipedia, Hong Kong Strategic Route and Exit Number System"
+    },
+    {
+      "year": 1974,
+      "kind": "hk",
+      "en": "The second generation of route numbers comes into use: trunk routes keep their numbers and the distributors of the 1968 Long Term Road Study lose theirs.",
+      "zh": "第二代干线编号启用：只保留干线编号，1968 年《香港长远道路研究》中的分支道路不再编号。",
+      "source": "en.wikipedia, Hong Kong Strategic Route and Exit Number System (History)"
+    },
+    {
+      "year": 1989,
+      "kind": "hk",
+      "en": "The Eastern Harbour Crossing opens, the second road tunnel under the harbour. It is today's Route 2.",
+      "zh": "东区海底隧道通车，为第二条过海行车隧道，即今 2 号干线。",
+      "source": "en.wikipedia, Hong Kong Strategic Route and Exit Number System"
+    },
+    {
+      "year": 1997,
+      "kind": "hk",
+      "en": "The Western Harbour Crossing opens, and on 22 May the Lantau Link and North Lantau Highway open with the Tsing Ma Bridge, carrying the airport road that is now Route 8.",
+      "zh": "西区海底隧道通车。5 月 22 日，青屿干线与北大屿山公路连同青马大桥通车，即今 8 号干线的机场段。",
+      "source": "en.wikipedia, Hong Kong Strategic Route and Exit Number System; zh.wikipedia, 香港8號幹線"
+    },
+    {
+      "year": 2004,
+      "kind": "hk",
+      "en": "The present Routes 1 to 10 and their exit numbers are introduced, with a public campaign: Remember the Numbers; Make Driving Easier.",
+      "zh": "现行 1 至 10 号干线及出口编号启用，并以“认路记号码，唔使路路查”为口号推广。",
+      "source": "en.wikipedia, Hong Kong Strategic Route and Exit Number System"
+    },
+    {
+      "year": 2007,
+      "kind": "hk",
+      "en": "Route 10, the Shenzhen Bay Bridge and Kong Sham Western Highway, opens on 1 July and joins Hong Kong's roads to Guangdong's expressways.",
+      "zh": "7 月 1 日，10 号干线（深圳湾公路大桥与港深西部公路）通车，与广东省高速公路网相连。",
+      "source": "zh.wikipedia, 香港10號幹線"
+    },
+    {
+      "year": 2009,
+      "kind": "hk",
+      "en": "The Stonecutters Bridge and Nam Wan Tunnel open on 20 December and complete Route 8, the route with the most tunnels.",
+      "zh": "12 月 20 日，昂船洲大桥与南湾隧道通车，8 号干线全线贯通，成为途经隧道最多的干线。",
+      "source": "zh.wikipedia, 香港8號幹線"
+    },
+    {
+      "year": 2019,
+      "kind": "hk",
+      "en": "The Central–Wan Chai Bypass opens on 20 January and carries Route 4 under the north shore of the island.",
+      "zh": "1 月 20 日，中环湾仔绕道通车，4 号干线改经港岛北岸地下。",
+      "source": "zh.wikipedia, 香港1號幹線; 香港4號幹線"
+    },
+    {
+      "year": 2025,
+      "kind": "hk",
+      "en": "The Yau Ma Tei section of the Central Kowloon Bypass, the first part of Route 6, opens on 21 December.",
+      "zh": "12 月 21 日，中九龙绕道油麻地段通车，为 6 号干线的第一段。",
+      "source": "Information Services Department, 26 November 2025; en.wikipedia, Hong Kong Strategic Route and Exit Number System"
     }
   ]
 }

@@ -12,8 +12,15 @@
 // fetch-china.mjs. Implicit limits ("CN:motorway", "TW:urban") are not read:
 // they restate the law, which build-speed.mjs applies itself and labels as such.
 //
+// The same ways say what else is mapped on them - lane count, toll, bridge or
+// tunnel - so a numbered way carrying any of those is kept too, for the
+// route figures East Asia's own sources do not publish.
+//
 // Usage: node tools/fetch-osm-speed.mjs [cn] [tw] [mx]
-//   writes tools/src/osm/<cc>-speed.ndjson: [highway, ref;ref, kph, lon,lat,...]
+//   writes tools/src/osm/<cc>-speed.ndjson:
+//   [highway, ref;ref, kph, lanes, toll, structure, oneway, lon,lat,...]
+//   kph and lanes null where untagged; toll 1, 0 or null; structure 'b'
+//   (bridge), 't' (tunnel) or null; oneway 1 for one carriageway of a pair.
 
 import { createWriteStream } from 'node:fs';
 import { mkdir, open, stat, writeFile } from 'node:fs/promises';
@@ -91,6 +98,12 @@ export function kphOf(raw) {
   return v >= 5 && v <= 140 ? Math.round(v) : null;
 }
 
+/** A plain lane count, 1 to 12; "2;3" and the like are not read. */
+function lanesOf(raw) {
+  const n = Number(raw);
+  return Number.isInteger(n) && n >= 1 && n <= 12 ? n : null;
+}
+
 function speedOf(tags) {
   const both = kphOf(tags.maxspeed);
   if (both) return both;
@@ -141,16 +154,22 @@ async function run(cc) {
       way(id, tags, refs) {
         if (!ROADS.has(tags.highway)) return;
         const kph = speedOf(tags);
-        if (!kph) return;
+        const lanes = lanesOf(tags.lanes);
+        const toll = tags.toll === 'yes' ? 1 : tags.toll === 'no' ? 0 : null;
+        const structure = tags.tunnel && !['no', 'culvert'].includes(tags.tunnel) ? 't'
+          : tags.bridge && tags.bridge !== 'no' ? 'b' : null;
+        if (!kph && !lanes && toll == null && !structure) return;
         const raw = [tags.ref, ...(relRefs.get(id) ?? [])].filter(Boolean).join(';');
         if (!raw) return;
         const mine = [...new Set(cfg.refs(raw, tags.highway))];
         if (!mine.length) return;
-        ways.push({ hw: tags.highway, refs: mine, kph, nodes: refs() });
+        const oneway = tags.oneway === 'yes' || tags.oneway === '1'
+          || (tags.highway === 'motorway' && tags.oneway !== 'no') ? 1 : 0;
+        ways.push({ hw: tags.highway, refs: mine, kph, lanes, toll, structure, oneway, nodes: refs() });
       },
     });
   }
-  console.log(`${cc} pass 2: ${ways.length} numbered ways with a limit (${lap()})`);
+  console.log(`${cc} pass 2: ${ways.length} numbered ways with a limit, lanes, toll or structure (${lap()})`);
 
   let n = 0;
   for (const w of ways) n += w.nodes.length;
@@ -203,7 +222,7 @@ async function run(cc) {
     if (coords.length < 4) continue;
     const refs = w.refs.filter((r) => cfg.keep(r, coords[0], coords[1]));
     if (!refs.length) continue;
-    const line = JSON.stringify([w.hw, refs.join(';'), w.kph, ...coords]);
+    const line = JSON.stringify([w.hw, refs.join(';'), w.kph, w.lanes, w.toll, w.structure, w.oneway, ...coords]);
     if (!out.write(`${line}\n`)) await new Promise((r) => out.once('drain', r));
     written++;
   }
@@ -213,6 +232,7 @@ async function run(cc) {
     licence: 'Open Database License 1.0',
     attribution: '© OpenStreetMap contributors',
     timestamp: timestamp ? new Date(timestamp * 1000).toISOString() : null,
+    fields: ['highway', 'refs', 'kph', 'lanes', 'toll', 'structure', 'oneway', '...coords'],
     ways: written,
   }, null, 2));
   console.log(`${cc}: wrote ${written} ways (${lap()})`);

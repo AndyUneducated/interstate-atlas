@@ -14,7 +14,7 @@
    earliest the road could have opened, and it is worded that way. */
 
 import { t, getLang, num, distKm, routeLabel } from './i18n.js';
-import { app, toast, select } from './app.js';
+import { app, toast, select, whereOf } from './app.js';
 
 const SRC = 'toll';
 const LINE_HIT = `${SRC}-line-hit`;
@@ -185,7 +185,7 @@ function facilityBody(id, { routes = true } = {}) {
     if (on.length) {
       rows.push(`<div class="tl-h">${esc(t('toll.routes'))}</div>${on.map((r) => {
         const meta = app.byId.get(r);
-        return meta ? `<button class="xg-r" type="button" data-id="${esc(r)}"><b>${esc(routeLabel(meta.label))}</b><span>${esc(meta.where ?? '')}</span><em></em></button>` : '';
+        return meta ? `<button class="xg-r" type="button" data-id="${esc(r)}"><b>${esc(routeLabel(meta.label))}</b><span>${esc(whereOf(meta) ?? '')}</span><em></em></button>` : '';
       }).join('')}`);
     }
   }

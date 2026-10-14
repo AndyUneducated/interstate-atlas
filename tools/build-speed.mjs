@@ -142,11 +142,21 @@ async function main() {
     const file = join(OSM, `${src}-speed.ndjson`);
     if (!await stat(file).then(() => true, () => false)) { console.log(`${src}: no OSM file, skipped`); continue; }
     editions[src] = JSON.parse(await readFile(join(OSM, `${src}-speed.json`), 'utf8'));
+    // A file fetched before the lane, toll and structure columns has the
+    // coordinates straight after the limit.
+    const wide = !!editions[src].fields;
     let segs = 0, matched = 0;
     const rl = createInterface({ input: createReadStream(file, { encoding: 'utf8' }) });
     for await (const line of rl) {
       if (!line) continue;
-      const [, refs, kph, ...c] = JSON.parse(line);
+      const row = JSON.parse(line);
+      const [, refs, kph] = row;
+      const [lanes, , structure, oneway] = wide ? row.slice(3, 7) : [null, null, null, 0];
+      const c = row.slice(wide ? 7 : 3);
+      // One carriageway of a divided road is half of the road's length, and
+      // its lane count is one direction's.
+      const half = oneway ? 0.5 : 1;
+      const across = lanes ? lanes * (oneway ? 2 : 1) : null;
       const wanted = new Map();
       for (const ref of refs.split(';')) {
         const cc = ref.startsWith('HK') ? 'hk' : src;
@@ -177,7 +187,12 @@ async function main() {
             }
           }
           for (const { r } of best.values()) {
-            r.bins.set(kph, (r.bins.get(kph) || 0) + len);
+            if (kph) r.bins.set(kph, (r.bins.get(kph) || 0) + len);
+            const a = r.attrs ??= { lanesSum: 0, lanesKm: 0, bridge: 0, tunnel: 0 };
+            const w = len * half;
+            if (across) { a.lanesSum += across * w; a.lanesKm += w; }
+            if (structure === 'b') a.bridge += w;
+            else if (structure === 't') a.tunnel += w;
             matched++;
           }
         }
@@ -258,6 +273,32 @@ async function main() {
     routes: out,
   }));
   console.log('routes by source', JSON.stringify(counts));
+
+  // What else OpenStreetMap maps along East Asia's routes, whose own sources
+  // publish no lane counts, toll shares or structures. Each share is of the
+  // route's measured length, and the lane figure says what share of the road
+  // it was read over, as the Canadian and Mexican ones do. Tolls are not
+  // given: mappers tag a toll far more often than its absence, so a road free
+  // but for one tunnel reads as nearly all tolled.
+  const MIN_LANES_COV = 20;
+  const attrs = {};
+  const pct = (v, r) => Math.min(100, Math.round((v / Math.max(r.km, 0.1)) * 1000) / 10);
+  for (const r of routes.values()) {
+    if (!r.attrs || !['cn', 'hk', 'tw'].includes(r.cc)) continue;
+    const a = r.attrs;
+    const lanesCov = pct(a.lanesKm, r);
+    attrs[r.id] = [
+      lanesCov >= MIN_LANES_COV ? Math.round((a.lanesSum / a.lanesKm) * 10) / 10 : null, lanesCov,
+      pct(a.bridge, r), pct(a.tunnel, r),
+    ];
+  }
+  await writeFile(join(ROOT, 'data', 'osm-attrs.json'), JSON.stringify({
+    generated: new Date().toISOString().slice(0, 10),
+    fields: ['lanes, both directions', 'lanes coverage %', 'bridge % of length', 'tunnel % of length'],
+    osm: Object.fromEntries(Object.entries(editions).filter(([k]) => k !== 'mx').map(([k, v]) => [k, { timestamp: v.timestamp }])),
+    routes: attrs,
+  }));
+  console.log(`osm-attrs: ${Object.keys(attrs).length} East Asian routes`);
   const bySys = {};
   for (const r of routes.values()) {
     const s = bySys[r.sys] ??= { km: 0, measured: 0 };

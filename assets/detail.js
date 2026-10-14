@@ -8,10 +8,10 @@
    says so rather than guessing. */
 
 import {
-  t, getLang, stateName, num, isProvince, ownerLabel, lenNum,
+  t, getLang, stateName, num, isProvince, ownerLabel, lenNum, routeLabel,
   lenOf, lenOfKm, lenUnit, dist, distKm, distAlt, speedKph, speedMph, heightFt, getUnits,
 } from './i18n.js';
-import { app, shieldHtml, clearSelection, fitTo, loadDossier } from './app.js';
+import { app, shieldHtml, clearSelection, fitTo, loadDossier, routeNames, whereOf } from './app.js';
 import { startFly } from './fly.js';
 import { tollSection } from './tolls.js';
 import { loadSpeed, speedColour, speedNum, speedUnit, bandLabel } from './speed.js';
@@ -124,11 +124,18 @@ const covBadge = (pct) => (pct != null && pct < 98 ? `${num(pct)}%` : null);
  */
 const HERO_SRC = { mx: 'len.heroRnc', tw: 'len.heroNlsc', hk: 'len.heroTd', cn: 'len.heroOsm' };
 
-function heroLength(p, officialMi, ca, covers = 0) {
+const OFFICIAL_KEYS = {
+  Official: ['len.heroOfficial', 'len.heroOfficialCovers', 'len.official'],
+  Planned: ['len.heroPlanned', 'len.heroPlannedCovers', 'len.planned'],
+  Built: ['len.heroBuilt', 'len.heroBuiltCovers', 'len.built'],
+};
+
+function heroLength(p, officialMi, ca, covers = 0, kind = 'Official') {
+  const [one, many] = OFFICIAL_KEYS[kind];
   return `<div class="mhero">
     <span class="m-k">${t('dt.length')}</span>
     <div class="mhero-row"><div class="mhero-v">${lenNum(p.mi)}<small>${lenUnit()}</small></div>${officialMi != null
-    ? `<span class="mhero-off"><b>${lenNum(officialMi)}</b> ${lenUnit()}<br>${covers > 1 ? t('len.heroOfficialCovers', { n: covers }) : t('len.heroOfficial')}</span>` : ''}</div>
+    ? `<span class="mhero-off"><b>${lenNum(officialMi)}</b> ${lenUnit()}<br>${covers > 1 ? t(many, { n: covers }) : t(one)}</span>` : ''}</div>
     <span class="mhero-s">${distAlt(p.mi)} · ${t(ca ? 'len.heroNrn' : HERO_SRC[p.cc] ?? 'len.heroTiger')}</span>
   </div>`;
 }
@@ -396,55 +403,62 @@ function taiwanTraffic(p) {
   return figBox(t(tr.kind === 'freeway' ? 'tw.tr.titleFwy' : 'tw.tr.titlePv'), sub, rows);
 }
 
-/**
- * What Taiwan's register and Hong Kong's road network record beside the line.
- *
- * The provincial register gives each route's two named ends and the districts
- * it passes, as the Highway Bureau writes them; they are quoted, not matched to
- * the geometry, so they do not say which end of the drawn line is which.
- */
-function eaFacts(p) {
-  if (p.cc === 'cn') return cnFacts(p);
-  if (p.cc !== 'tw' && p.cc !== 'hk') return '';
-  const rows = [];
-  const reg = p.reg;
-  if (reg?.from || reg?.to) rows.push([t('ea.termini'), esc([reg.from, reg.to].filter(Boolean).join(' — '))]);
-  if (reg?.places) rows.push([t('ea.places'), `<span class="fig-s">${esc(reg.places)}</span>`]);
-  if (p.named?.length) rows.push([t('ea.roads'), p.named.map((n) => esc(n)).join(' · ')]);
-  if (!rows.length) return '';
-  return `<div class="figs ca-facts">${rows.map(([k, v]) =>
-    `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}</div>`;
+function hongKongTraffic(hk, census) {
+  const tr = hk?.traffic;
+  if (!tr || !census) return '';
+  const day = (n) => t('hp.trafficVal', { n: num(n) });
+  const at = ([road, from, to]) => `<span class="fig-s"> · ${esc(road)}, ${esc(from)} – ${esc(to)}</span>`;
+  const rows = [[t('hk.tr.median'), day(tr.median)]];
+  if (tr.stations > 1) {
+    rows.push([t('tw.tr.busiestStation'), `${day(tr.max)}${at(tr.maxAt)}`]);
+    const low = tr.list.reduce((a, b) => (b[5] < a[5] ? b : a));
+    rows.push([t('hk.tr.quietest'), `${day(low[5])}${at([low[2], low[3], low[4]])}`]);
+  }
+  rows.push(['', `<span class="src"><a href="${esc(census.url)}" target="_blank" rel="noopener">`
+    + `${esc(census.source)}</a></span>`]);
+  return figBox(t('hk.tr.title'), t('hk.tr.sub', { n: num(tr.stations), core: num(tr.core), year: tr.year }), rows);
+}
+
+let hkRoutesPromise = null;
+function loadHkRoutes() {
+  hkRoutesPromise ||= fetch('data/hk-routes.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  return hkRoutesPromise;
 }
 
 /**
- * What OpenStreetMap's route relation says about a mainland route.
+ * The ends an authority lists for the route, under the two drawn ones.
  *
- * The planned name and ends are the relation's tags, typed in by mappers from
- * the national plan; they are quoted as tagged and say nothing about whether
- * the road is built that far.
+ * A mainland route's are the plan's, as its OSM relation is tagged; a
+ * Taiwanese provincial highway's are the Highway Bureau's register. Both are
+ * quoted, not matched to the geometry, so they do not say which drawn end is
+ * which, and they are in the script the authority wrote them in.
  */
-function cnFacts(p) {
-  const rows = [];
-  const o = p.osm;
-  const plan = p.plan;
-  const zh = getLang() === 'zh';
-  const name = zh ? (plan?.short || o?.name) : (plan?.en || o?.nameEn || o?.name);
-  const official = plan?.zh || o?.official;
-  if (name) rows.push([t('cn.name'), esc(name)]);
-  if (official && official !== name) rows.push([t('cn.official'), esc(official)]);
-  if (o?.from || o?.to) rows.push([t('cn.ends'), esc([o.from, o.to].filter(Boolean).join(' — '))]);
-  const listedKm = plan?.km ?? plan?.builtKm;
-  if (listedKm) {
-    rows.push([t('cn.listed'), `<b>${num(lenOfKm(listedKm))}</b> ${lenUnit()}
-      <span class="src">${t(plan.km ? 'cn.listedSrc' : 'cn.builtSrc')}</span>`]);
-    const pct = `${Math.round((plan.drawnMi * 1.609344 / listedKm) * 100)}%`;
-    rows.push([t('cn.drawn'), `<b>${num(lenOf(plan.drawnMi))}</b> ${lenUnit()}
-      <span class="src">${t(plan.pieces > 1 ? 'cn.drawnPieces' : 'cn.drawnOf', { pct, n: plan.pieces })}</span>`]);
-  }
-  if (p.named?.length) rows.push([t('ea.roads'), p.named.map((n) => esc(n)).join(' · ')]);
-  if (!rows.length) return '';
-  return `<div class="figs ca-facts">${rows.map(([k, v]) =>
-    `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}</div>`;
+function listedEnds(p, names) {
+  const cn = p.cc === 'cn';
+  const from = cn ? p.osm?.from : p.reg?.from;
+  const to = cn ? p.osm?.to : p.reg?.to;
+  const full = cn ? names?.full : null;
+  if (!from && !to && !full) return '';
+  const ends = [from, to].filter(Boolean).join(' — ');
+  const body = [full, ends].filter(Boolean).map((s) => esc(s)).join(getLang() === 'zh' ? '：' : ' · ');
+  return `<div class="term-list"><span class="term-k">${t(cn ? 'dt.plannedEnds' : 'dt.registerEnds')}</span>
+    <span class="term-v" lang="zh">${body}</span></div>`;
+}
+
+/**
+ * The roads a route runs along, as its source names them, less the route's
+ * own names, bare numbers (219国道) and pairs of ends (喀纳斯 - 东兴), which
+ * the header and the termini already say. A Hong Kong route's are the whole
+ * list from its reference file, in the order its exits run and in both
+ * languages, where the road file keeps four English names.
+ */
+function roadsBlock(p, own, hk) {
+  const listed = hk?.roads?.map(([en, zh]) => (getLang() === 'zh' ? zh : en));
+  const roads = (listed ?? p.named ?? []).filter((n) => !own.includes(n)
+    && !/^\d+\s*(?:国道|省道)$|^[GSX]\d+$/.test(n) && !/\s[-－–—]\s/.test(n));
+  if (!roads.length) return '';
+  return `<div class="figs ca-facts"><div class="fig"><span class="fig-k">${t('ea.roads')}</span>
+    <span class="fig-v">${roads.map((n) => esc(n)).join(' · ')}</span></div></div>`;
 }
 
 /** What the RNC records about a Mexican route that is not a measurement. */
@@ -578,10 +592,20 @@ function figuresBlock(figures) {
 
 // Québec's directory dates each tronçon's opening; the Year Book dates the
 // Trans-Canada's Act, agreements and openings; the Interstate system has its
-// Acts and milestones. All of them sit in the network-wide history file rather
-// than in a dossier, so they are fetched only for those routes and only once.
-// A system's event belongs to the whole system, so every route in it carries it.
-const SYSTEM_HISTORY = { 'ca-tch': (e) => e.kind === 'tch', 'us-interstate': (e) => e.system === true && !e.kind };
+// Acts and milestones, as do the East Asian systems their plans and openings.
+// All of them sit in the network-wide history file rather than in a dossier,
+// so they are fetched only for those routes and only once. A system's event
+// belongs to the whole system, so every route in it carries it.
+const kindIs = (k) => (e) => e.kind === k;
+const SYSTEM_HISTORY = {
+  'ca-tch': kindIs('tch'),
+  'us-interstate': (e) => e.system === true && !e.kind,
+  'cn-expressway': kindIs('cnx'),
+  'cn-national': kindIs('cnn'),
+  'tw-freeway': kindIs('twf'),
+  'tw-provincial': kindIs('twp'),
+  'hk-route': kindIs('hk'),
+};
 let historyPromise = null;
 function historyEvents(id, sys) {
   historyPromise ||= fetch('data/timeline.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
@@ -658,11 +682,27 @@ function servedFor(id) {
   return servedPromise.then((m) => m[id] || null);
 }
 
-function servedBlock(cities) {
+// A mainland national route's cities come from OpenStreetMap instead, as
+// [zh, en] pairs in the order the line meets them.
+let townsPromise = null;
+function townsFor(id) {
+  townsPromise ||= fetch('data/towns.json').then((r) => (r.ok ? r.json() : { routes: {} })).catch(() => ({ routes: {} }));
+  return townsPromise.then((m) => m.routes[id]?.map(([zh, en]) => (getLang() === 'zh' ? zh : en)) ?? null);
+}
+
+// East Asian routes' lanes, toll share and structures, read from
+// OpenStreetMap's tags along each route by tools/build-speed.mjs.
+let osmAttrsPromise = null;
+function loadOsmAttrs() {
+  osmAttrsPromise ||= fetch('data/osm-attrs.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  return osmAttrsPromise;
+}
+
+function servedBlock(cities, src = 'served.src') {
   if (!cities?.length) return '';
   const chips = cities.map((c) => `<span class="chip">${esc(c)}</span>`).join('');
   return `<div class="chips">${chips}</div>
-    <p class="srcline">${t('served.src')}</p>`;
+    <p class="srcline">${t(src)}</p>`;
 }
 
 /* ── elevation ────────────────────────────────────────────────────────── */
@@ -794,21 +834,36 @@ export async function renderDetail(id) {
   const ca = p.cc === 'ca' || isProvince(meta.st);
   const mx = p.cc === 'mx';
 
-  const title = pick(dossier?.name) || meta.label;
-  // A route that shares its number says where it is, so the panel is not
-  // ambiguous about which of the namesakes is open.
-  const subtitle = pick(dossier?.tagline)
-    || (meta.where
-      ? `${ownerLabel(meta.sys, meta.st)} · ${meta.where}`
-      : ownerLabel(meta.sys, meta.st));
+  // The number and the name carry the same weight: the shield is the number,
+  // and the name sits beside it at the size a title is read at. A route known
+  // only by its number has its number spelt out there instead. The other
+  // language's name is under it, then whose road it is.
+  const names = routeNames(meta);
+  const title = pick(dossier?.name) || names?.main || routeLabel(meta.label);
+  const aka = [...(dossier?.aka || []).map(pick), ...(names?.alt ?? [])].filter((n) => n && n !== title);
+  const where = whereOf(meta);
+  const owner = where ? `${ownerLabel(meta.sys, meta.st)} · ${where}` : ownerLabel(meta.sys, meta.st);
+  const subtitle = [names?.other && names.other !== title ? names.other : null, owner].filter(Boolean)
+    .map((s, i, all) => (i === 0 && all.length > 1 ? `<span class="dt-other">${esc(s)}</span>` : esc(s))).join(' · ');
+  const tagline = pick(dossier?.tagline);
 
   // Three lengths can be in play and they answer different questions, so the
   // headline takes the most authoritative available and the provenance section
-  // shows the disagreement rather than hiding it.
-  const officialMi = dossier?.officialMi ?? p.offMi ?? null;
-  const officialSrc = dossier?.mileageSource || (p.offMi == null ? null
-    : p.offSrc === 'thb' ? t('src.thb', { date: p.reg?.updated ?? '' }) : t('src.routelog'));
+  // shows the disagreement rather than hiding it. A mainland route's is the
+  // plan's listed length, which includes what is planned but not yet built.
+  const plan = p.cc === 'cn' ? p.plan : null;
+  const planKm = plan?.km ?? plan?.builtKm ?? null;
+  const officialMi = dossier?.officialMi ?? p.offMi ?? (planKm ? planKm / 1.609344 : null);
+  const officialSrc = dossier?.mileageSource || (planKm && dossier?.officialMi == null
+    ? t(plan.km ? 'cn.listedSrc' : 'cn.builtSrc')
+    : p.offMi == null ? null
+      : p.offSrc === 'thb' ? t('src.thb', { date: p.reg?.updated ?? '' }) : t('src.routelog'));
+  const heroKind = planKm && dossier?.officialMi == null ? (plan.km ? 'Planned' : 'Built') : 'Official';
   const ea = p.cc === 'tw' || p.cc === 'hk' || p.cc === 'cn';
+  const osm = ea ? (await loadOsmAttrs())?.routes?.[id] ?? null : null;
+  const hkData = p.cc === 'hk' ? await loadHkRoutes() : null;
+  const hk = hkData?.routes?.[id] ?? null;
+  if (app.selected !== id) return;
   const gapNote = p.breaks > 0
     ? `<div class="note gap"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17v.1"/><circle cx="12" cy="12" r="9"/></svg>
        <span>${t(ca ? 'note.gaps.ca' : ea ? 'note.gaps.ea' : 'note.gaps', { n: p.breaks, d: dist(p.gapMi) })}</span></div>` : '';
@@ -817,11 +872,15 @@ export async function renderDetail(id) {
     <div class="dt-hd">
       <div class="dt-hd-top">
         ${shieldHtml(meta, true)}
+        <span class="dt-bar" aria-hidden="true"></span>
         <div class="dt-titles">
           <h2 class="dt-name">${esc(title)}</h2>
-          <p class="dt-sub">${esc(subtitle)}</p>
+          <p class="dt-sub">${subtitle}</p>
         </div>
       </div>
+      ${tagline ? `<p class="dt-tag">${esc(tagline)}</p>` : ''}
+      ${aka.length ? `<div class="dt-aka"><span class="dt-aka-k">${t('dt.aka')}</span>${
+    aka.map((n) => `<span class="dt-aka-n">${esc(n)}</span>`).join('')}</div>` : ''}
       <button class="dt-x" id="dtClose" type="button" aria-label="Close">
         <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
@@ -839,18 +898,31 @@ export async function renderDetail(id) {
       <div class="termini">
         ${terminusRow('from', start, startCoord, dossier?.termini?.start, axis)}
         ${terminusRow('to', end, endCoord, dossier?.termini?.end, axis)}
+        ${dossier?.termini ? '' : listedEnds(p, names)}
       </div>
 
-      ${heroLength(p, officialMi, ca, dossier?.officialCovers?.length)}
+      ${heroLength(p, officialMi, ca, dossier?.officialCovers?.length ?? (planKm ? plan.pieces : 0), heroKind)}
 
       <div class="mgrid">
-        ${p.cc === 'hk' ? '' : metric(ca || p.cc === 'cn' ? 'dt.provinces' : p.cc === 'tw' ? 'ea.counties' : 'dt.states', num(states.length))}
+        ${p.cc === 'hk'
+    // Hong Kong is one jurisdiction, so its first tile is what the census
+    // counted on the route instead of how many it crosses.
+    ? metric('hk.tr.tile', hk?.traffic ? `${num(hk.traffic.median)}<small>${t('unit.vpd')}</small>` : null, '',
+      hk?.traffic ? t('hk.tr.tileTip', { year: hk.traffic.year, n: num(hk.traffic.stations) }) : null)
+    : metric(ca || p.cc === 'cn' ? 'dt.provinces' : p.cc === 'tw' ? 'ea.counties' : 'dt.states', num(states.length))}
         ${metric('dt.straight', `${num(lenOf(p.spanMi))}<small>${lenUnit()}</small>`)}
         ${ea
           // Taiwan's centrelines are classed freeway, expressway or ordinary
           // road, so the freeway share is measured. Hong Kong's say nothing
-          // about a road's standard, and neither source records tolls or lanes.
-          ? metric('dt.gradeSep', p.gs == null ? null : `${num(p.gs, p.gs % 1 ? 1 : 0)}<small>%</small>`)
+          // about a road's standard. Neither records lanes or structures, so
+          // those are OpenStreetMap's, read along the route; the lane count
+          // says what share of the road it was read over. The share on
+          // bridges and in tunnels is the figure Chinese sources give a road.
+          ? `${metric('dt.gradeSep', p.gs == null ? null : `${num(p.gs, p.gs % 1 ? 1 : 0)}<small>%</small>`)}
+             ${metric('ea.structures', osm ? `${num(osm[2] + osm[3], 1)}<small>%</small>` : null,
+            '', osm ? t('ea.structTip', { b: num(osm[2], 1), t: num(osm[3], 1) }) : null)}
+             ${metric('hp.lanes', osm?.[0] == null ? null : num(osm[0], osm[0] % 1 ? 1 : 0),
+            covBadge(osm?.[1]), osm?.[0] == null ? null : t('ea.osmTip', { pct: num(osm[1]) }))}`
           : mx
           // The RNC has no functional class, so it cannot say what share of a
           // road is freeway. The tile it would have gone in carries the toll
@@ -938,12 +1010,29 @@ export async function renderDetail(id) {
     source: 'FHWA, Interstate System engineering data, notes to the cost tables',
   }]) : '';
 
+  // How much of a mountain road is bridge or tunnel is the short account of
+  // what building it took, and OpenStreetMap tags both along the whole route.
+  const structFigure = osm && (osm[2] || osm[3]) ? figuresBlock([{
+    label: { en: 'On bridges and in tunnels', zh: '桥隧比' },
+    value: {
+      en: `${num(osm[2], 1)}% of the route is bridge and ${num(osm[3], 1)}% is tunnel`,
+      zh: `桥梁约占全线 ${num(osm[2], 1)}%，隧道约占 ${num(osm[3], 1)}%`,
+    },
+    source: 'OpenStreetMap, bridge and tunnel tags on the ways the route follows',
+  }]) : '';
+
   const written = new Map((dossier?.sections || []).map((s) => [s.key, s]));
   let first = true;
+  // Where nothing is written about a road's character, what its source says it
+  // runs along is the start of one, and it is not a measurement.
+  const roads = p.cc === 'mx' || ca ? '' : roadsBlock(p, [title, names?.main, names?.other, names?.full, ...aka].filter(Boolean), hk);
   for (const key of SECTION_ORDER) {
     const s = written.get(key);
-    if (!s && !(key === 'money' && costFigure)) continue;
+    if (!s && !(key === 'money' && costFigure) && !(key === 'character' && roads)
+      && !(key === 'engineering' && structFigure)) continue;
     let body = s ? prose(s[getLang()] || s.en) : '';
+    if (key === 'character') body += roads;
+    if (key === 'engineering') body += structFigure;
     if (key === 'money') body += figuresBlock(dossier?.figures) + costFigure;
     if (key === 'traffic' && dossier?.trafficFigures) body += figuresBlock(dossier.trafficFigures);
     if (key === 'condition' && dossier?.conditionFigures) body += figuresBlock(dossier.conditionFigures);
@@ -964,7 +1053,8 @@ export async function renderDetail(id) {
   // is long enough to push everything else off the panel, so it waits behind
   // its heading.
   parts.push(section('measured', [
-    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), taiwanTraffic(p), caFacts(p), mxFacts(p), eaFacts(p), caInventory(p),
+    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), taiwanTraffic(p), hongKongTraffic(hk, hkData?.census),
+    caFacts(p), mxFacts(p), caInventory(p),
   ].join('').trim()));
   parts.push(section('composition', compositionBlock(types), !dossier));
   // Hong Kong is one jurisdiction, so a breakdown by it says nothing.
@@ -979,11 +1069,12 @@ export async function renderDetail(id) {
   // than an error, so name the likely cause instead of leaving a bare gap.
   // An official figure for a road the atlas splits in pieces is compared with
   // the pieces it covers, not with this one.
-  const covered = dossier?.coveredMi != null ? dossier : null;
+  const covered = dossier?.coveredMi != null ? dossier
+    : heroKind !== 'Official' && plan.pieces > 1 ? { coveredMi: plan.drawnMi, officialCovers: { length: plan.pieces } } : null;
   const measuredMi = covered?.coveredMi ?? p.mi;
   const delta = officialMi ? Math.round(measuredMi - officialMi) : 0;
   const lengthRows = officialMi ? `<div class="figs" style="margin-top:11px">
-    <div class="fig"><span class="fig-k">${t('len.official')}</span>
+    <div class="fig"><span class="fig-k">${t(OFFICIAL_KEYS[heroKind][2])}</span>
       <span class="fig-v"><b>${num(lenOf(officialMi))}</b> ${lenUnit()}
       ${officialSrc ? `<span class="src">${esc(officialSrc)}</span>` : ''}</span></div>
     <div class="fig"><span class="fig-k">${t('len.measured')}</span>
@@ -992,7 +1083,8 @@ export async function renderDetail(id) {
     ${Math.abs(delta) >= Math.max(3, officialMi * 0.02) ? `<div class="fig">
       <span class="fig-k">${t('len.delta')}</span>
       <span class="fig-v">${delta > 0 ? '+' : ''}<b>${num(lenOf(delta))}</b> ${lenUnit()}
-      <span class="src">${t('len.deltaWhy')}</span></span></div>` : ''}
+      <span class="src">${t(heroKind !== 'Official' ? 'cn.deltaWhy'
+    : p.offSrc === 'thb' && !dossier?.officialMi ? 'tw.deltaWhy' : 'len.deltaWhy')}</span></span></div>` : ''}
   </div>` : '';
 
   // Every page says where its numbers came from, and for a Canadian route
@@ -1052,12 +1144,15 @@ export async function renderDetail(id) {
     slot.innerHTML = html;
   });
 
-  servedFor(id).then((cities) => {
+  (p.cc === 'cn' ? townsFor(id).then((c) => [c, 'served.srcOsm']) : servedFor(id).then((c) => [c, 'served.src'])).then(([listed, src]) => {
     const slot = document.getElementById('dtServed');
     if (!slot || app.selected !== id) return;
     const sect = slot.closest('.sect');
+    // Taiwan's register lists the districts a provincial highway passes, the
+    // nearest thing it has to the Route Log's list of towns served.
+    const cities = listed?.length ? listed : p.reg?.places ?? null;
     if (!cities?.length) { sect?.remove(); return; }
-    slot.innerHTML = servedBlock(cities);
+    slot.innerHTML = servedBlock(cities, listed?.length ? src : 'served.srcThb');
     sect.querySelector('h3').textContent = `${t('sect.served')} · ${cities.length}`;
   });
 }

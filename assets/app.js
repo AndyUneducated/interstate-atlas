@@ -110,22 +110,55 @@ export function relabel() {
 /* ── data ─────────────────────────────────────────────────────────────── */
 
 async function loadIndex() {
-  const res = await fetch('data/index.json');
-  const raw = await res.json();
-  app.index = raw.routes.map(([id, label, sys, tier, st, mi, base, num, cx, cy, gs, ns, where, aka]) => ({
-    id, label, sys: systemOfCode(sys)?.id ?? null, tier: TIER_BY_CODE[tier], st, mi, base, num, cx, cy, gs, ns, where,
-    // Pre-lowered haystack so keystroke filtering stays cheap across 11,000
-    // rows. The jurisdiction's full name is in it too, so "ontario" and
-    // "saskatchewan" find their routes without the user knowing the code. So
-    // is the place a shared number is told apart by, so "ON 21 Goderich" picks
-    // the right one out of the twenty-two Ontario roads numbered 21.
-    // Taiwan and Hong Kong's routes answer to their own signs too: 國1, 台9, 3號幹線,
-    // and the mainland's to their names: 京港澳, 沪昆, 沪聂.
-    hay: `${label} ${labelAlias(label)} ${num} ${st} ${jurisdictionNames(st)} ${where || ''} ${aka || ''}`.toLowerCase().replace(/[–—]/g, '-'),
-  }));
+  const [raw, names] = await Promise.all([
+    fetch('data/index.json').then((r) => r.json()),
+    fetch('data/names.json').then((r) => (r.ok ? r.json() : { routes: {} })).catch(() => ({ routes: {} })),
+  ]);
+  app.index = raw.routes.map(([id, label, sys, tier, st, mi, base, num, cx, cy, gs, ns, where, aka]) => {
+    const nm = names.routes[id] ?? null;
+    return {
+      id, label, sys: systemOfCode(sys)?.id ?? null, tier: TIER_BY_CODE[tier], st, mi, base, num, cx, cy, gs, ns, where,
+      nm, wz: nm?.wz ?? null, aka: aka ?? null,
+      // Pre-lowered haystack so keystroke filtering stays cheap across 11,000
+      // rows. The jurisdiction's full name is in it too, so "ontario" and
+      // "saskatchewan" find their routes without the user knowing the code. So
+      // is the place a shared number is told apart by, so "ON 21 Goderich" picks
+      // the right one out of the twenty-two Ontario roads numbered 21.
+      // Taiwan and Hong Kong's routes answer to their own signs too: 國1, 台9, 3號幹線,
+      // and every named route to its names: 京港澳, 沪昆, 中山高速公路, Formosa.
+      hay: `${label} ${labelAlias(label)} ${num} ${st} ${jurisdictionNames(st)} ${where || ''} ${nm?.wz || ''} ${
+        [nm?.zh, nm?.en, nm?.full, ...(nm?.alt ?? [])].filter(Boolean).join(' ')} ${aka || ''}`
+        .toLowerCase().replace(/[–—]/g, '-'),
+    };
+  });
   for (const r of app.index) app.byId.set(r.id, r);
   app.generated = raw.generated;
 }
+
+/**
+ * A route's own name, in the reader's language first and the other second.
+ *
+ * Null for the routes known only by their number; `main` is null for one
+ * whose stretches are named but not the whole (台9). Where a name exists in
+ * one language only, it is the name in both: 通定高速 has no English, and an
+ * English reader is better served by the name on the sign than by none.
+ */
+export function routeNames(r) {
+  const nm = r?.nm;
+  if (!nm?.zh && !nm?.en && !nm?.alt?.length) return null;
+  const zh = getLang() === 'zh';
+  return {
+    main: (zh ? (nm.zh || nm.en) : (nm.en || nm.zh)) ?? null,
+    other: nm.zh && nm.en ? (zh ? nm.en : nm.zh) : null,
+    full: nm.full ?? null,
+    alt: nm.alt ?? [],
+  };
+}
+
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/** The place that tells a route from its namesakes, in the reader's language. */
+export const whereOf = (r) => (getLang() === 'zh' && r?.wz) || r?.where || null;
 
 async function loadStats() {
   app.stats = await (await fetch('data/stats.json')).json();
@@ -1290,6 +1323,7 @@ export function searchRoutes(text, { limit = 300, systemsOnly = true } = {}) {
     let s = 0;
     if (q && r.label.toLowerCase() === q) s -= 400;
     if (q && String(r.num).toLowerCase() === q) s -= 300;
+    if (q && (r.nm?.zh?.toLowerCase().startsWith(q) || r.nm?.en?.toLowerCase().startsWith(q))) s -= 250;
     if (r.tier === 'primary') s -= 60;
     else if (r.tier === 'auxiliary') s -= 20;
     // Both halves of the world are searched; the one on screen breaks ties.
@@ -1531,15 +1565,29 @@ function historyRow(h, frag) {
       : cc === 'cn'
         ? (r.ns === 1 ? stateName(r.st) : t('sub.cnProvinces', { n: r.ns }))
         : (r.ns === 1 ? t('sub.state') : t('sub.states', { n: r.ns }));
-    const sub = r.where ? `${stateName(r.st)} · ${r.where}`
+    const where = whereOf(r);
+    let sub = where ? `${stateName(r.st)} · ${esc(where)}`
       : byJurisdiction ? stateName(r.st)
         : count
           + (r.gs == null ? '' : ` · ${r.gs}% ${t('dt.gradeSep').toLowerCase()}`);
+    const names = routeNames(r);
+    // A route found by a name it does not carry as its own - a former name,
+    // or a road it runs along - says which, or the row reads as a wrong hit.
+    const lq = h.k === 'route' && query.trim() ? query.trim().toLowerCase() : '';
+    if (lq) {
+      const own = [r.label, labelAlias(r.label), r.num, names?.main, names?.other, names?.full]
+        .some((s) => s && String(s).toLowerCase().includes(lq));
+      if (!own) {
+        const alt = names?.alt.find((n) => n.toLowerCase().includes(lq));
+        const via = alt ?? r.aka?.split(/\s+/).find((n) => n.toLowerCase().includes(lq));
+        if (via) sub = `${t(alt ? 'search.aka' : 'search.via', { name: `<mark>${esc(via)}</mark>` })} · ${sub}`;
+      }
+    }
     const written = writtenIds.has(r.id)
       ? `<span class="res-pen" title="${t('search.written')}"></span>` : '';
     b.innerHTML = `${shieldHtml(r)}
       <span class="res-txt">
-        <span class="res-name">${r.label}${written}</span>
+        <span class="res-name">${r.label}${names?.main ? `<span class="res-nm">${esc(names.main)}</span>` : ''}${written}</span>
         <span class="res-sub">${sub}</span>
       </span>`;
     pick(b, () => select(r.id));

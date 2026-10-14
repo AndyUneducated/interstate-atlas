@@ -1,0 +1,48 @@
+{
+  "source": "Transport Department, Hong Kong Strategic Route, Exit Number and Chainage Marker System; the roads of each route as listed in the route's junction table on Chinese and English Wikipedia",
+  "checkedAgainst": "Transport Department, The Annual Traffic Census 2024, Appendix B (station road names and limits)",
+  "retrieved": "2026-10-14",
+  "note": "roads: the roads each route is made of, in the order the route's exits run, as [English, Chinese]. census: the Annual Traffic Census stations on the route's own carriageway, chosen by the streets each station's limits name. Stations on slip roads, ramps, ground-level roads beside a flyover, and on a named road's stretches the route does not use are left out. A station on a road two routes share is listed under both.",
+  "routes": {
+    "hk-1": {
+      "roads": [["Wong Chuk Hang Road", "黃竹坑道"], ["Aberdeen Tunnel", "香港仔隧道"], ["Wong Nai Chung Gap Flyover", "黃泥涌峽天橋"], ["Canal Road Flyover", "堅拿道天橋"], ["Cross-Harbour Tunnel", "海底隧道"], ["Hong Chong Road", "康莊道"], ["Princess Margaret Road", "公主道"], ["Waterloo Road", "窩打老道"], ["Lion Rock Tunnel Road", "獅子山隧道公路"], ["Lion Rock Tunnel", "獅子山隧道"], ["Sha Tin Road", "沙田路"]],
+      "census": [2005, 1004, 2004, 2003, 2002, 1022, 3201, 3202, 3801, 3001, 4001, 3402, 3404, 3602, 3802, 4002, 5607, 5024, 5405, 5002, 5605, 5606, 5806]
+    },
+    "hk-2": {
+      "roads": [["Eastern Harbour Crossing", "東區海底隧道"], ["Kwun Tong Bypass", "觀塘繞道"], ["Tate's Cairn Tunnel", "大老山隧道"], ["Tate's Cairn Highway", "大老山公路"]],
+      "census": [1025, 3023, 3701, 4219, 5022, 6088, 5892, 5497]
+    },
+    "hk-3": {
+      "roads": [["Western Harbour Crossing", "西區海底隧道"], ["West Kowloon Highway", "西九龍公路"], ["Tsing Kwai Highway", "青葵公路"], ["Rambler Channel Bridge", "長青橋"], ["Cheung Tsing Tunnel", "長青隧道"], ["Cheung Tsing Highway", "長青公路"], ["Tsing Long Highway", "青朗公路"], ["Ting Kau Bridge", "汀九橋"], ["Tai Lam Tunnel", "大欖隧道"]],
+      "census": [1026, 3502, 3707, 3503, 3024, 4092, 5703, 5903, 5026, 6099, 5034, 5509, 5033, 5029]
+    },
+    "hk-4": {
+      "roads": [["Shing Sai Road", "城西道"], ["Connaught Road West Flyover", "干諾道西天橋"], ["Central–Wan Chai Bypass", "中環灣仔繞道"], ["Island Eastern Corridor", "東區走廊"]],
+      "census": [1027, 2216, 1803, 1804, 1805, 1202, 1003, 1807, 1810, 1404, 1602]
+    },
+    "hk-5": {
+      "roads": [["Tsuen Wan Road", "荃灣路"], ["Kwai Chung Road", "葵涌道"], ["West Kowloon Corridor", "西九龍走廊"], ["Chatham Road North", "漆咸道北"], ["East Kowloon Corridor", "東九龍走廊"], ["Kai Tak Tunnel", "啟德隧道"], ["Kai Fuk Road", "啟福道"]],
+      "census": [5805, 5804, 5604, 5403, 5030, 5201, 3804, 3807, 3888, 3212, 4208, 4213, 3004, 3206, 3409]
+    },
+    "hk-6": {
+      "roads": [["Central Kowloon Bypass", "中九龍繞道"], ["Tseung Kwan O–Lam Tin Tunnel", "將軍澳－藍田隧道"]],
+      "census": [5043]
+    },
+    "hk-7": {
+      "roads": [["Ching Cheung Road", "呈祥道"], ["Lung Cheung Road", "龍翔道"], ["Kwun Tong Road", "觀塘道"], ["Tseung Kwan O Road", "將軍澳道"], ["Tseung Kwan O Tunnel", "將軍澳隧道"], ["Tseung Kwan O Tunnel Road", "將軍澳隧道公路"], ["Wan Po Road", "環保大道"]],
+      "census": [4003, 3205, 3407, 3002, 3204, 3405, 3603, 3027, 4004, 3605, 4216, 3806, 3012, 3833, 4030, 3834, 3438, 5021, 6103, 5304]
+    },
+    "hk-8": {
+      "roads": [["North Lantau Highway", "北大嶼山公路"], ["Lantau Link", "青嶼幹線"], ["Kap Shui Mun Bridge", "汲水門大橋"], ["Tsing Ma Bridge", "青馬大橋"], ["Cheung Tsing Highway", "長青公路"], ["Tsing Sha Highway", "青沙公路"], ["Nam Wan Tunnel", "南灣隧道"], ["Stonecutters Bridge", "昂船洲大橋"], ["Eagle's Nest Tunnel", "尖山隧道"], ["Sha Tin Heights Tunnel", "沙田嶺隧道"], ["Tai Wai Tunnel", "大圍隧道"]],
+      "census": [5031, 5300, 5027, 5704, 5509, 5038, 5039, 5037]
+    },
+    "hk-9": {
+      "roads": [["Shing Mun Tunnels", "城門隧道"], ["Shing Mun Tunnel Road", "城門隧道公路"], ["Tai Po Road – Sha Tin", "大埔公路－沙田段"], ["Tolo Highway", "吐露港公路"], ["Fanling Highway", "粉嶺公路"], ["San Tin Highway", "新田公路"], ["Yuen Long Highway", "元朗公路"], ["Tuen Mun Road", "屯門公路"], ["Castle Peak Road – Tsuen Wan", "青山公路－荃灣段"]],
+      "census": [5020, 6083, 5286, 5419, 5620, 5819, 5807, 6003, 5203, 5013, 5808, 6004, 5253, 5461, 6084, 5003, 5204, 5269, 5656, 5044, 5508, 5025, 5694, 5894, 6095, 5404, 5001, 6002, 6001, 6050, 5855, 5012, 5035, 5811, 5609, 5610]
+    },
+    "hk-10": {
+      "roads": [["Kong Sham Western Highway", "港深西部公路"], ["Shenzhen Bay Bridge", "深圳灣公路大橋"]],
+      "census": [5516, 5907, 5040]
+    }
+  }
+}

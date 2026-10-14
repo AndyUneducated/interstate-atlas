@@ -156,18 +156,22 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `fetch-mexico-designations.mjs` | ✅ | SICT's per-state road index PDFs | `content/reference/mx-designations.json` |
 | `fetch-taiwan.mjs` | ✅ | NLSC's freeway and provincial centrelines, the Highway Bureau's register CSV | `tools/src/tw/` |
 | `fetch-hongkong.mjs` | ✅ | the Transport Department's road network GeoJSON, streamed and filtered to Routes 1 to 10 | `tools/src/hk/routes.json` |
+| `fetch-hk-census.mjs` | ✅ | the newest Annual Traffic Census PDF, Appendix B read by column position | `content/reference/hk-census.json`: one row per counting station |
 | `fetch-china.mjs` | ✅ | Geofabrik's OpenStreetMap extract for China, read in three passes (relations, numbered ways, their nodes); needs `--max-old-space-size` | `tools/src/cn/` |
 | `fetch-bridges.mjs` | ✅ | bridge inventories that carry a year built | `content/reference/bridges.json` |
 | `fetch-border-crossings.mjs` | ✅ | CBSA's office directory, INDAABIN's border ports, the NRCan geocoder | `content/reference/border-crossings.json` |
 | `fetch-mx-concessions.mjs` | ✅ | SICT's register of concession titles | `content/reference/mx-concessions.json` |
-| `fetch-osm-speed.mjs` | ✅ | Geofabrik's China, Taiwan and Mexico extracts, read in three passes for the `maxspeed` of ways carrying a route number | `tools/src/osm/<cc>-speed.ndjson` and `.json` (edition) |
+| `fetch-osm-speed.mjs` | ✅ | Geofabrik's China, Taiwan and Mexico extracts, read in three passes for the `maxspeed`, `lanes`, `toll`, `bridge`, `tunnel` and `oneway` of ways carrying a route number | `tools/src/osm/<cc>-speed.ndjson` and `.json` (edition) |
 | `build-data.mjs` | ⚠️ TIGER, Natural Earth | `tools/src/`, `content/reference/` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/served.json` |
+| `build-names.mjs` | ❌ | `data/geo/cn/`, `content/reference/cn-plan.json`, `tw-names.json` | `data/names.json`: each East Asian route's name in both languages, its other names, and its disambiguating place in Chinese |
+| `build-towns.mjs` | ❌ | `data/geo/cn/`, `tools/src/cn/places.json` | `data/towns.json`: the cities and counties within 10 km of each mainland route, in the order it meets them |
+| `build-hk-traffic.mjs` | ❌ | `content/reference/hk-routes.json`, `hk-census.json` | `data/hk-routes.json`: each Hong Kong route's roads in both languages and its census stations |
 | `build-crossings.mjs` | ❌ | `content/reference/border-crossings.json`, `data/geo/` | `data/crossings.json` |
 | `build-bridges.mjs` | ❌ | `content/reference/bridges.json` | `data/bridges.json` |
 | `build-tolls.mjs` | ❌ | `content/reference/tolls-ca.json`, `mx-concessions.json`, `mx-concession-matches.json`, `tools/src/mx/plaza_cobro`, `data/geo/` | `data/tolls.json` |
-| `build-speed.mjs` | ❌ | `data/geo/` (HPMS and NRN limits already joined), `tools/src/osm/*-speed.ndjson` | `data/speed.json`: one limit per route with its source tier, and the per-country and per-system mileage by limit |
+| `build-speed.mjs` | ❌ | `data/geo/` (HPMS and NRN limits already joined), `tools/src/osm/*-speed.ndjson` | `data/speed.json`: one limit per route with its source tier, and the per-country and per-system mileage by limit; `data/osm-attrs.json`: East Asian routes' lanes and bridge and tunnel shares |
 | `build-content.mjs` | ❌ | `content/dossiers/`, `content/reference/milestones.json` and `interstate-mileage.json`, `data/index.json`, `data/geo/` | `data/dossiers/`, `data/timeline.json` |
-| `build-elevation.mjs` | ✅ tiles | `data/dossiers/index.json` for the route list, `data/geo/`, terrain tiles cached in `tools/cache/` | `data/elevation/` |
+| `build-elevation.mjs` | ✅ tiles | `data/dossiers/index.json` for the route list, or with `--east-asia` every mainland expressway and national road, Taiwanese freeway and provincial highway and Hong Kong route; `data/geo/`, terrain tiles cached in `tools/cache/` | `data/elevation/` |
 | `build-insights.mjs` | ❌ | `data/geo/`, `data/dossiers/index.json`, the three `*-crosscheck.json` | `data/insights.json`: field coverage, worst gaps, length against the Route Log, crosscheck verdicts for the Data & sources views |
 | `propose-mx-concession-matches.mjs` | ❌ | `mx-concessions.json`, `mx-designations.json`, `mx-traffic.json`, `data/geo/` | `content/reference/mx-concession-matches.json`, for a person to approve |
 | `check-mexico-numbers.mjs` | ❌ | `mx-designations.json`, `data/geo/` | `content/reference/mx-crosscheck.json` |
@@ -608,9 +612,11 @@ fetched here.
 | `geo/us/state/<ST>.json`, `geo/ca/provincial/<PR>.json`, `geo/mx/state/<ST>.json` | per jurisdiction, on demand | over 18,000 routes between them; shipping them as three files would be tens of megabytes |
 | `dossiers/index.json` | once, in the background | the manifest that badges search results |
 | `dossiers/<id>.json` | when a route is opened | gated on the manifest, so a route without one costs no request |
-| `elevation/<id>.json` | when a route is opened | same; every route with a dossier has one |
+| `elevation/<id>.json` | when a route is opened | same; every route with a dossier has one, and so does every East Asian route of the main systems |
+| `towns.json`, `osm-attrs.json`, `hk-routes.json` | when an East Asian route panel opens | its towns, its lanes and structures, and Hong Kong's roads and census counts |
 | `served.json`, `timeline.json` | on demand | the towns an Interstate serves; a route's dates and the dashboard's buildout curve |
 | `speed.json` | when a route panel or the dashboard opens, or the speed layer is switched on | one limit per route, about 270 kB |
+| `names.json` | at boot, beside `index.json` | what East Asian routes are called, for the panel title and for search, about 190 kB |
 | `crossings.json`, `tolls.json`, `bridges.json` | when the layer is switched on, or a route panel lists its tolls | the three overlay layers |
 
 Search covers the whole network from `index.json` whether or not a system is drawn, so
@@ -635,7 +641,11 @@ Everything the client reads is in `data/`, and the shapes are fixed.
 | `bridges.json` | `{ sets, missing, roads, fields, rows }`, positional rows as `index.json` | one structure per row; `set` indexes the inventory, `road` indexes `roads`; the browser builds the GeoJSON |
 | `served.json` | `{ [routeId]: ["City, ST", …] }` | split out of the geometry because it is only read when a panel opens |
 | `timeline.json` | `{ range, coverage, mileage, routes, events }` | dated events per route, Quebec's tronçon openings (`kind: "qc"`) and FHWA's mileage series |
+| `names.json` | `{ generated, sources, routes }` | `routes[id]` is `{ zh, en, full, alt, wz }`: the route's name in each language, its full planned name, what else it is called along part of its length, and its disambiguating place in Chinese |
 | `speed.json` | `{ generated, fields, law, osm, summary, systems, routes }` | `routes[id]` is `[kph, source, coverage %, OSM km by limit]`, source `p` posted, `o` OpenStreetMap, `l` law; `summary` and `systems` keep measured miles (`bands`) apart from statutory defaults (`law`) |
+| `towns.json` | `{ generated, source, radiusKm, routes }` | `routes[id]` is `[[zh, en], …]` in the order the route meets them |
+| `osm-attrs.json` | `{ generated, fields, osm, routes }` | `routes[id]` is `[lanes, lanes coverage %, bridge %, tunnel %]`; lanes count both directions and are null under 20% coverage |
+| `hk-routes.json` | `{ generated, census, routes }` | `routes[id]` is `{ roads: [[en, zh]], traffic: { year, stations, core, median, max, maxAt, list } }` |
 | `dossiers/index.json`, `elevation/index.json` | `{ ids: [] }` | manifests, so absence costs no request |
 
 Two conventions in the feature properties are worth knowing before reading `detail.js`:

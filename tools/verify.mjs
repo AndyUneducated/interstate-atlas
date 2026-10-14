@@ -1237,7 +1237,8 @@ await step('國1 finds National Freeway 1 on its plum-blossom shield', async () 
   await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
   await page.waitForTimeout(900);
   const title = await page.textContent('.dt-name');
-  if (title.trim() !== 'Fwy 1') throw new Error(`opened ${title}`);
+  if (title.trim() !== 'Sun Yat-sen Freeway') throw new Error(`opened ${title}`);
+  if (!/中山高速公路/.test(await page.textContent('.dt-sub'))) throw new Error('Fwy 1 does not give its Chinese name');
   const text = await page.textContent('#detail');
   if (!/What the Freeway Bureau publishes/.test(text)) throw new Error('no Freeway Bureau traffic on Fwy 1');
   if (!/reference values/.test(text) || /AADT/.test(text)) throw new Error('Fwy 1 traffic not labelled as reference values');
@@ -1251,7 +1252,8 @@ await step('a provincial highway gives the Highway Bureau length and termini', a
   await page.waitForTimeout(1200);
   const text = await page.textContent('#detail');
   if (!/Highway Bureau/.test(text)) throw new Error('no register length on PH 9');
-  if (!/Register termini/.test(text)) throw new Error('no register termini on PH 9');
+  if (!/Register ends/.test(await page.textContent('.termini'))) throw new Error('no register ends beside the termini on PH 9');
+  if (!/蘇花公路/.test(await page.textContent('.dt-aka'))) throw new Error('PH 9 does not list the names of its stretches');
   if (!/What the Highway Bureau counts/.test(text)) throw new Error('no survey traffic on PH 9');
   if (/工程處/.test(text)) throw new Error('PH 9 names a works office as its busiest station');
   if (!(await page.locator('.dt-hd .shield-twp').count())) throw new Error('PH 9 has no 省道 shield');
@@ -1267,14 +1269,64 @@ await step('京港澳 finds G4, drawn from OpenStreetMap and named so', async ()
   await first.click();
   await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
   await page.waitForTimeout(1200);
+  // The number is the shield, the name is the title, the other language's
+  // name is under it, and none of it is filed under the measured figures.
   const title = (await page.textContent('.dt-name')).trim();
-  if (title !== 'G4') throw new Error(`opened ${title}`);
+  if (title !== 'Beijing–Hong Kong–Macau Expressway') throw new Error(`opened ${title}`);
+  if ((await page.textContent('.dt-hd .shield')).trim() !== 'G4') throw new Error('G4 shield lost its number');
+  if (!/京港澳高速/.test(await page.textContent('.dt-sub'))) throw new Error('G4 does not give its Chinese name');
+  if (!/京珠高速/.test(await page.textContent('.dt-aka'))) throw new Error('G4 does not list its former name');
   const text = await page.textContent('#detail');
   if (!/OpenStreetMap/.test(text)) throw new Error('G4 does not say it is drawn from OpenStreetMap');
   if (!/Guangdong|Beijing/.test(text)) throw new Error('G4 names neither Guangdong nor Beijing');
-  if (!/Listed length|所列里程/.test(text)) throw new Error('G4 gives no listed length from the plan');
+  if (!/planned length/.test(await page.textContent('.mhero'))) throw new Error('G4 gives no planned length beside its own');
+  const measured = await page.evaluate(() => [...document.querySelectorAll('#detail .sect')]
+    .filter((s) => /Measured figures/.test(s.querySelector('h3')?.textContent))
+    .map((s) => s.textContent).join(' '));
+  if (/Name|Planned|京港澳/.test(measured)) throw new Error('names or plan filed under the measured figures');
+  // What North American routes have from their authorities, East Asian ones
+  // have from OpenStreetMap and the terrain tiles.
+  const tiles = await page.evaluate(() => Object.fromEntries([...document.querySelectorAll('#detail .mgrid .m')]
+    .map((m) => [m.querySelector('.m-k').textContent.trim(), m.querySelector('.m-v').textContent.trim()])));
+  if (!/^\d+(\.\d)?%$/.test(tiles['Bridges and tunnels'] ?? '')) throw new Error(`G4 bridges and tunnels tile reads ${tiles['Bridges and tunnels']}`);
+  if (!/^\d(\.\d)?/.test(tiles.Lanes ?? '')) throw new Error(`G4 lanes tile reads ${tiles.Lanes}`);
+  if (!/Wuhan/.test(text) || !/Changsha/.test(text)) throw new Error('G4 lists no towns served');
+  if (!/Elevation profile[\s\S]*Highest point/.test(text)) throw new Error('G4 has no elevation profile');
+  // A former name finds the route and says it is one.
+  await page.click('#dtClose');
+  await page.fill('#q', '京珠');
+  await page.waitForTimeout(700);
+  const row = page.locator('#results .res').first();
+  if (!/G4/.test(await row.textContent()) || !/also called/.test(await row.locator('.res-sub').textContent())) {
+    throw new Error('京珠 does not find G4 as a former name');
+  }
+  await row.click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(900);
 });
 await shot('21-china-g4.png');
+
+await step('Hong Kong Route 9 gives the census traffic and its roads in Chinese', async () => {
+  await page.click('#dtClose');
+  await page.evaluate(() => window.__select('hk-9'));
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1500);
+  const text = await page.textContent('#detail');
+  if (!/What the Transport Department counts/.test(text)) throw new Error('no census traffic on Route 9');
+  if (!/Tolo Highway/.test(text) || !/157,910/.test(text)) throw new Error('Route 9 does not name Tolo Highway as its busiest station');
+  if (!/vehicles a day/.test(text)) throw new Error('Route 9 traffic has no unit');
+  if (!/Remember the Numbers/.test(text)) throw new Error('Route 9 does not carry the route system history');
+  await page.click('#btnSettings');
+  await page.click('#langSeg [data-lang="zh"]');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(1500);
+  const zh = await page.textContent('#detail');
+  await page.click('#btnSettings');
+  await page.click('#langSeg [data-lang="en"]');
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(1500);
+  if (!/吐露港公路/.test(zh) || /Tuen Mun Road/.test(zh)) throw new Error('Route 9 does not list its roads in Chinese');
+});
 
 await step('a Chinese province loads its provincial roads', async () => {
   await page.click('#dtClose');
