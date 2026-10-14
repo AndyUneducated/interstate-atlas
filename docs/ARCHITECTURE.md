@@ -95,7 +95,7 @@ flowchart TB
     ST["stats.json<br/>served.json · timeline.json"]
   end
 
-  CLIENT["Browser<br/><i>MapLibre 4.7.1 + ten ES modules</i>"]
+  CLIENT["Browser<br/><i>MapLibre 4.7.1 + twelve ES modules</i>"]
 
   G1 -.->|"self-downloads<br/>per state at build time"| BD
   G2 --> F1 --> SRC
@@ -171,6 +171,7 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `build-insights.mjs` | ❌ | `data/geo/`, `data/dossiers/index.json`, the three `*-crosscheck.json` | `data/insights.json`: field coverage, worst gaps, length against the Route Log, crosscheck verdicts for the Data & sources views |
 | `propose-mx-concession-matches.mjs` | ❌ | `mx-concessions.json`, `mx-designations.json`, `mx-traffic.json`, `data/geo/` | `content/reference/mx-concession-matches.json`, for a person to approve |
 | `check-mexico-numbers.mjs` | ❌ | `mx-designations.json`, `data/geo/` | `content/reference/mx-crosscheck.json` |
+| `build-globe.mjs` | ❌ | Natural Earth's states and provinces in `tools/src/ne/` | `assets/globe-dots.js`: the land dots of the region globes, each marked with the region it lies in |
 | `check-i18n.mjs` | ❌ | `assets/*.js`, `index.html` | — |
 | `check-data.mjs` | ❌ | everything in `data/` that names a route | — |
 | `readme-figures.mjs` | ❌ | `data/stats.json`, `data/index.json`, `package.json` | the marked figures in `README.md` |
@@ -473,7 +474,7 @@ route because that is what it is.
 
 `index.html` is the entire markup: a static page with no templating, loading one plain
 `<script>` for MapLibre and one `<script type="module">` for `app.js`. Everything else is
-ten ES modules the browser loads and resolves itself.
+twelve ES modules the browser loads and resolves itself.
 
 ```mermaid
 flowchart TD
@@ -489,6 +490,7 @@ flowchart TD
   XG["<b>crossings.js</b><br/>border crossing layer"]
   TO["<b>tolls.js</b><br/>toll layer · plazas · panel section"]
   BR["<b>bridges.js</b><br/>bridge layer"]
+  GL["<b>globe.js</b><br/>region globes<br/><i>land dots from globe-dots.js</i>"]
 
   HTML --> MLGL
   HTML ==>|"module entry"| APP
@@ -501,6 +503,7 @@ flowchart TD
   APP --> XG
   APP --> TO
   APP --> BR
+  APP --> GL
   DET --> FLY
   DET --> TO
   DET --> SP
@@ -552,6 +555,7 @@ scripts, which is why it holds plain data and touches neither the DOM nor Node.
 | `crossings.js` | the border crossing layer and its popup, with the routes near each crossing | route geometry |
 | `tolls.js` | the toll facility layer and Mexico's toll plazas, their popups with dated fares, and the toll section of the route panel | route geometry |
 | `bridges.js` | the bridge layer, coloured by year built, and its popup | route geometry; a bridge year never reaches the route panel |
+| `globe.js` | the dotted globes on the search box and the region cards: their projection, the turn between regions, the theme colours they read from CSS | the map, and which region is shown, which `app.js` decides |
 
 ### Boot
 

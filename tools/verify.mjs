@@ -127,7 +127,7 @@ const sysClick = async (id) => {
   await page.click(`.sys[data-sys="${id}"]`);
 };
 const jumpTo = async (key) => {
-  if (!await page.locator('#regionWrap.open').count()) await page.click('#regionSeg .seg-b.on');
+  if (!await page.locator('#shell.rpop-open').count()) await page.click('#globeBtn');
   await page.click(`[data-jump="${key}"]`);
 };
 
@@ -649,7 +649,7 @@ await step('language switch to Chinese', async () => {
   await page.click('#langSeg [data-lang="zh"]');
   await page.keyboard.press('Escape');
   await page.waitForTimeout(900);
-  const region = await page.locator('#regionSeg [data-region="na"]').textContent();
+  const region = await page.locator('.rcard[data-region="na"] b').textContent();
   if (!/[\u4e00-\u9fff]/.test(region)) throw new Error(`region switch not translated: ${region}`);
   const leftover = await page.evaluate(() => {
     const bad = [];
@@ -1187,13 +1187,16 @@ await step('bridges draw, colour by year, and say the year is not the road\'s', 
 
 await step('the region switch flies to East Asia and follows the view', async () => {
   await dismissSheet();
-  await page.click('#regionSeg [data-region="ea"]');
+  await page.click('#globeBtn');
+  await page.click('.rcard[data-region="ea"]');
   await page.waitForTimeout(3200);
+  await shot('19b-region-pop.png');
   const lng = await page.evaluate(() => window.__map.getCenter().lng);
   if (lng < 90 || lng > 125) throw new Error(`switch did not reach East Asia (lng ${lng.toFixed(1)})`);
-  if (!(await page.locator('#regionSeg [data-region="ea"].on').count())) throw new Error('switch does not show East Asia');
+  if (!(await page.locator('.rcard[data-region="ea"].on').count())) throw new Error('switch does not show East Asia');
   if (!(await page.locator('[data-jump="tw"]').count())) throw new Error('no Taiwan jump row');
   if (await page.locator('[data-jump="ak"]').count()) throw new Error('North American jumps still shown');
+  await page.keyboard.press('Escape');
   const fw = await waitForSource('rt-tw-freeway');
   const hk = await waitForSource('rt-hk-route');
   if (fw < 10) throw new Error(`only ${fw} Taiwanese freeways`);
@@ -1213,12 +1216,12 @@ await step('in East Asia the key and the places are East Asian', async () => {
   if (names.some((n) => /Interstate|Trans-Canada|federal/i.test(n))) {
     throw new Error(`North American systems in the East Asian key: ${names.join(', ')}`);
   }
-  // Pressing the region already on screen opens its places rather than flying.
-  await page.click('#regionSeg [data-region="ea"]');
+  // The globe opens the places of the region on screen.
+  await page.click('#globeBtn');
   if (!await page.locator('#regionPop [data-jump="hk"]').isVisible()) throw new Error('region places did not open');
   await page.click('[data-jump="hk"]');
   await page.waitForTimeout(1900);
-  if (await page.locator('#regionWrap.open').count()) throw new Error('places stayed open after a jump');
+  if (await page.locator('#shell.rpop-open').count()) throw new Error('places stayed open after a jump');
   const { lng, lat } = await page.evaluate(() => window.__map.getCenter());
   if (Math.abs(lng - 114.1) > 0.4 || Math.abs(lat - 22.37) > 0.3) {
     throw new Error(`jump did not reach Hong Kong (${lng.toFixed(2)}, ${lat.toFixed(2)})`);
@@ -1289,8 +1292,10 @@ await shot('22-sichuan.png');
 await step('the switch flies back to North America', async () => {
   if (await page.locator('#menuLayers.open').count()) await page.click('#btnLayers');
   if (await page.locator('#detail:not(.hidden)').count()) await page.click('#dtClose');
-  await page.click('#regionSeg [data-region="na"]');
+  await page.click('#globeBtn');
+  await page.click('.rcard[data-region="na"]');
   await page.waitForTimeout(3200);
+  await page.keyboard.press('Escape');
   const lng = await page.evaluate(() => window.__map.getCenter().lng);
   if (lng > -50) throw new Error(`switch did not return (lng ${lng.toFixed(1)})`);
   if (!(await page.locator('[data-jump="ak"]').count())) throw new Error('North American jumps not restored');

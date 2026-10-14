@@ -12,6 +12,7 @@ import { toggleCrossings, crossingAt, raiseCrossings, closeCrossing } from './cr
 import { toggleTolls, tollAt, raiseTolls, closeTollPopup } from './tolls.js';
 import { toggleBridges, bridgeAt, raiseBridges, closeBridge } from './bridges.js';
 import { toggleSpeed, trackSource, speedOn, speedLegend } from './speed.js';
+import { Globe } from './globe.js';
 import {
   SYSTEMS, COUNTRIES, TIER_BY_CODE, geoPath, isPerJuris, systemsOf, systemOfCode, countryOf,
   REGIONS as WORLD_REGIONS, regionOf,
@@ -933,6 +934,7 @@ function setTheme(theme) {
     el.classList.toggle('on', el.dataset.theme === theme);
   }
   syncBaseCards();
+  redrawGlobes();
 }
 
 // The plain ground is the theme's own, so its card is named and pictured as
@@ -995,21 +997,27 @@ const REGIONS = [
   { group: 'hk', key: 'hk', i18n: 'jump.hk', bounds: [[113.82, 22.17], [114.42, 22.56]] },
 ];
 
-// Which of the jump rows belong to each region; the whole-region row leads.
-const JUMP_GROUPS = { na: ['na', 'us', 'ca', 'mx'], ea: ['ea', 'cn', 'tw', 'hk'] };
+// Which of the jump rows belong to each region. The whole region is its card.
+const JUMP_GROUPS = { na: ['us', 'ca', 'mx'], ea: ['cn', 'tw', 'hk'] };
 
 app.region = 'na';
 
-/** Set the header switch, the jumps, the key and the list to a region. */
+// The globe in the search box, and one on each region card; all redrawn
+// when the theme changes their colours.
+let globe = null;
+const globes = [];
+const redrawGlobes = () => { for (const g of globes) g.draw(); };
+
+/** Set the globe, the region cards, the jumps, the key and the list to a region. */
 function showRegion(region) {
+  const changed = app.region !== region;
   app.region = region;
-  for (const b of document.querySelectorAll('#regionSeg [data-region]')) {
+  for (const b of document.querySelectorAll('.rcard[data-region]')) {
     const on = b.dataset.region === region;
     b.classList.toggle('on', on);
     b.setAttribute('aria-pressed', String(on));
-    b.title = on ? t('jump.title') : '';
-    if (!on) b.removeAttribute('aria-expanded');
   }
+  if (globe) globe.turn(region, { ms: changed ? 1100 : 0 });
   document.documentElement.dataset.region = region;
   document.getElementById('q').placeholder = region === 'ea' ? t('search.placeholderEa') : t('search.placeholder');
   for (const s of SYSTEMS) {
@@ -1022,8 +1030,24 @@ function showRegion(region) {
 }
 
 function setRegionPop(open) {
-  document.getElementById('regionWrap').classList.toggle('open', open);
-  document.querySelector('#regionSeg .on')?.setAttribute('aria-expanded', String(open));
+  const shell = document.getElementById('shell');
+  if (shell.classList.contains('rpop-open') === open) return;
+  if (open) {
+    setFind(false);
+    countRegions();
+  }
+  shell.classList.toggle('rpop-open', open);
+  document.getElementById('globeBtn').setAttribute('aria-expanded', String(open));
+}
+
+/** Under each card, its countries and how many routes the atlas draws there. */
+function countRegions() {
+  for (const el of document.querySelectorAll('[data-rsub]')) {
+    const region = el.dataset.rsub;
+    const n = app.index.filter((r) => regionOf(countryOf(r.sys)) === region).length;
+    el.innerHTML = WORLD_REGIONS[region].countries.map((cc) => `<i class="flagdot flag-${cc}" title="${t(`sys.country.${cc}`)}"></i>`).join('')
+      + (n ? `<span>${t('dash.nRoutes', { n: num(n) })}</span>` : '');
+  }
 }
 
 function flyToRegion(region) {
@@ -1040,24 +1064,28 @@ function regionOfView() {
 }
 
 function wireRegions() {
-  // The region not on screen is a destination; the one that is opens its
-  // places, since flying to where you already are does nothing.
-  const wrap = document.getElementById('regionWrap');
-  for (const b of document.querySelectorAll('#regionSeg [data-region]')) {
+  const shell = document.getElementById('shell');
+  const btn = document.getElementById('globeBtn');
+  const pop = document.getElementById('regionPop');
+  globe = new Globe(document.getElementById('globe'), { region: app.region });
+  globes.push(globe);
+  btn.addEventListener('click', () => setRegionPop(!shell.classList.contains('rpop-open')));
+  btn.addEventListener('pointerenter', () => globe.nudge(24));
+  // The other region's card crosses the Pacific and leaves the card open on
+  // that side's places; the region already on screen frames the whole of it.
+  for (const b of document.querySelectorAll('.rcard[data-region]')) {
+    const region = b.dataset.region;
+    globes.push(new Globe(b.querySelector('canvas'), { region, dot: 1.15 }));
     b.addEventListener('click', () => {
-      if (b.dataset.region === app.region) {
-        setRegionPop(!wrap.classList.contains('open'));
-        return;
-      }
-      setRegionPop(false);
-      flyToRegion(b.dataset.region);
+      if (region === app.region) jumpTo(REGIONS.find((r) => r.key === region));
+      else flyToRegion(region);
     });
   }
   document.addEventListener('pointerdown', (e) => {
-    if (!wrap.contains(e.target)) setRegionPop(false);
+    if (!pop.contains(e.target) && !btn.contains(e.target)) setRegionPop(false);
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape' || !wrap.classList.contains('open')) return;
+    if (e.key !== 'Escape' || !shell.classList.contains('rpop-open')) return;
     setRegionPop(false);
     e.stopImmediatePropagation();
   }, true);
@@ -1532,6 +1560,7 @@ function setFind(open) {
   if (shell.classList.contains('open') === open) return;
   // The trail may have grown since the list was last drawn.
   if (open && !query.trim()) renderResults();
+  if (open) setRegionPop(false);
   shell.classList.toggle('open', open);
   document.getElementById('q').setAttribute('aria-expanded', String(open));
   if (open) revealSelected(document.getElementById('results'));

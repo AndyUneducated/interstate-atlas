@@ -50,27 +50,17 @@
 
 <!-- ── top bar ──────────────────────────────────────────────────────────── -->
 <header id="hud">
-  <!-- The atlas covers two separate parts of the world, and a pan across the
-       Pacific is not a way to get from one to the other. This follows the
-       view as well as setting it, so it always says which one is on screen. -->
-  <!-- Pressing the region already on screen opens its places instead, so the
-       one control both crosses the Pacific and moves around either side. -->
-  <div class="rwrap" id="regionWrap">
-    <div class="seg rseg" id="regionSeg" role="group" aria-label="Region">
-      <button class="seg-b" type="button" data-region="na"><span data-i18n="region.na">North America</span><svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button>
-      <button class="seg-b" type="button" data-region="ea"><span data-i18n="region.ea">East Asia</span><svg class="cv" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button>
-    </div>
-    <div class="menu-pop rpop" id="regionPop" role="group">
-      <p class="menu-hd" data-i18n="jump.title">Go to</p>
-      <div class="jumps" id="jumps"></div>
-    </div>
-  </div>
-
   <!-- Finding a road is what almost everyone opens this to do, so it is the
        one thing on the left, and the list only comes down when asked for. -->
   <div id="shell" role="search">
     <div class="search">
-      <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+      <!-- The atlas covers two separate parts of the world, and a pan across
+           the Pacific is not a way to get from one to the other. The globe
+           faces whichever is on screen and opens the way to both, and to the
+           places in each. -->
+      <button class="globe-b" id="globeBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="regionPop" data-i18n-title="jump.title">
+        <canvas id="globe" aria-hidden="true"></canvas>
+      </button>
       <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Search routes" aria-controls="findDrop">
       <button class="btn btn-ico clr" id="qClear" type="button" hidden>
         <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -83,6 +73,14 @@
         <span class="sys-count" id="resCount"></span>
       </div>
       <div class="results" id="results"></div>
+    </div>
+    <div class="menu-pop rpop" id="regionPop" role="group">
+      <div class="rcards">
+        <button class="rcard" type="button" data-region="na"><canvas aria-hidden="true"></canvas><b data-i18n="region.na">North America</b><small data-rsub="na"></small></button>
+        <button class="rcard" type="button" data-region="ea"><canvas aria-hidden="true"></canvas><b data-i18n="region.ea">East Asia</b><small data-rsub="ea"></small></button>
+      </div>
+      <p class="menu-hd" data-i18n="jump.title">Go to</p>
+      <div class="jumps" id="jumps"></div>
     </div>
   </div>
 
