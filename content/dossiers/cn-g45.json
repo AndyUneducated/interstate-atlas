@@ -1,0 +1,117 @@
+{
+  "id": "cn-g45",
+  "route": { "sys": "cn-expressway", "num": "G45" },
+  "name": { "en": "Daqing–Guangzhou Expressway", "zh": "大广高速公路" },
+  "aka": [
+    { "en": "Beijing–Chengde Expressway (Chengde to Beijing)", "zh": "京承高速公路（承德至北京段）" },
+    { "en": "Beijing–Kaifeng Expressway (Beijing section)", "zh": "京开高速公路（北京段）" }
+  ],
+  "tagline": { "en": "From the Daqing oilfield to Guangzhou by way of Beijing: the one national line that is not a capital radial but still goes through the capital", "zh": "从大庆油田经北京到广州：国家高速公路网中唯一一条途经北京的非放射线" },
+  "completedYear": 2015,
+  "termini": {
+    "start": { "at": [125.14, 46.75], "en": "Sartu Airport, Sartu district, Daqing, Heilongjiang", "zh": "黑龙江省大庆市萨尔图区萨尔图机场" },
+    "end": { "at": [113.3, 23.28], "en": "The airport interchange in Baiyun district, Guangzhou, where it meets the Guangzhou Airport Expressway — not the airport itself", "zh": "广东省广州市白云区机场立交，接广州机场高速（并非白云机场本身）" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G45 is one of the longest roads in the network: 3,550 km as reported when it was completed in 2015, 3,453 km in the 2022 plan, and 3,421 km on the chainage in Chinese Wikipedia. It runs from the Daqing oilfield south through Songyuan and Shuangliao in Jilin, Tongliao and Chifeng in Inner Mongolia, through the Maojingba tunnel to Chengde, past the Great Wall at Jinshanling into Beijing, out again through Hebei by Bazhou, Hengshui and Daming, across Henan by Puyang, the Yellow River at Kaifeng, Zhoukou and Xinyang, through Macheng, Huanggang and Huangshi in Hubei, the length of western Jiangxi by Xiushui, Xinyu, Ji'an and Ganzhou, and over the Jiulian mountains to Conghua and Guangzhou.",
+        "By the chainage, Inner Mongolia and Jiangxi carry the most, 568 and 603 km; Hebei has two pieces, 164 km north of Beijing and 405 km south of it. Chinese Wikipedia notes two distinctions: it is the only line other than the capital radials to pass through Beijing, and it crosses more of the planned east–west lines — seventeen of the eighteen, all but G80 — than any other road.",
+        "Inside Beijing the number is barely signed. The road is made up of the Beijing–Chengde expressway from Simatai to Gaoliying, about 86 km of the Sixth Ring Road round the east of the city, and the Beijing–Kaifeng expressway south to the Hebei border, and most of it is still signed by those names, some stretches with their old kilometre posts. Since 20 April 2025 the ring-road part through Tongzhou has run in the new East Sixth Ring tunnel."
+      ],
+      "zh": [
+        "G45 是国家网中最长的路线之一：2015 年全线贯通时报道为 3,550 公里，2022 年规划为 3,453 公里，中文维基百科所列里程桩号为 3,421 公里。它自大庆油田南下，经吉林松原、双辽，内蒙古通辽、赤峰，穿茅荆坝隧道至承德，过金山岭长城进入北京，再出京经河北霸州、衡水、大名，纵贯河南经濮阳、开封黄河大桥、周口、信阳，经湖北麻城、黄冈、黄石，纵穿赣西经修水、新余、吉安、赣州，越九连山抵从化、广州。",
+        "按里程桩号，内蒙古与江西境内最长，分别为 568 公里和 603 公里；河北分两段，北京以北 164 公里、以南 405 公里。中文维基百科指出它的两项特别之处：它是国家高速公路网中除首都放射线外唯一途经北京的线路，也是与规划东西横线相交最多的高速公路——18 条横线中除广昆高速外的 17 条。",
+        "在北京境内，这个编号几乎看不到。该段由司马台至高丽营的京承高速、环绕城区东部约 86 公里的六环路和南至京冀界的京开高速组成，大部分路段仍沿用原有路名，部分路段沿用原来的里程桩号。2025 年 4 月 20 日起，六环路通州段改经新建的东六环隧道。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Most of the road is on plains, and the structures that matter are at the mountain crossings and the big rivers. The Maojingba tunnel on the Inner Mongolia–Hebei border is 6.774 km and was the longest road tunnel in North China when it opened on 9 December 2013. The E–Gan tunnel under the Mufu mountains between Hubei and Jiangxi, about 6.9 km per bore, is the longest on the route; it was begun on 6 August 2008 and holed through on 9 March 2010.",
+        "The E'dong Yangtze bridge between Xishui and Huangshi, which G45 shares with G50 and G70, is a hybrid cable-stayed bridge with a 926-metre main span, opened on 28 September 2010. The Hubei section south of it, Huangshi to Tongshan, has 141 bridges and nine tunnels in 107 km. At the southern end the Guangdong section stays low: its highest point is 410 metres, against more than 800 metres on G4 over the Nanling, which the provincial press noted makes it less exposed to ice storms like those that stranded traffic in northern Guangdong in 2008."
+      ],
+      "zh": [
+        "全线大部分是平原路段，关键的结构物都在越山和跨大河处。蒙冀交界的茅荆坝隧道长 6.774 公里，2013 年 12 月 9 日通车时是华北地区最长的公路隧道。鄂赣交界、穿越幕阜山的鄂赣隧道单洞约 6.9 公里，是大广高速全线最长的隧道，2008 年 8 月 6 日开工，2010 年 3 月 9 日贯通。",
+        "浠水与黄石之间的鄂东长江大桥由 G45 与 G50、G70 共用，为混合梁斜拉桥，主跨 926 米，2010 年 9 月 28 日通车。其南的湖北黄石至通山段 107 公里内有桥梁 141 座、隧道 9 座。南端的广东段地势较低：最高海拔仅 410 米，而京港澳高速翻越南岭处在 800 米以上；省内媒体指出，这使它遭遇 2008 年粤北那样的冰冻灾害、车辆受困的概率大大降低。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The first piece was in Beijing. The first phase of the Beijing–Chengde expressway, from the Fourth to the Sixth Ring Road, opened in October 2002; the second, from Gaoliying to Miyun, in September 2006; the Hebei section from Simatai to Chengde in December 2006; and the third, from Miyun through the Simatai Great Wall area to the Hebei border, on 27 September 2009, completing the road from Beijing to Chengde. The number G45 came from the 2005 national plan, in which north–south lines take odd numbers counted from east to west.",
+        "The north-east followed in 2007–2013. Tongliao–Chifeng, the first expressway in eastern Inner Mongolia, opened on 18 October 2007; Zhaoyuan–Songyuan on 16 September 2008; Songyuan–Shuangliao on 6 September 2010; Daqing–Zhaoyuan on 20 September 2011 and Shuangliao–Tongliao in November that year. The Chifeng–Chengde link through the Maojingba tunnel was last, in 2013. In the middle, Hubei's Macheng–Xishui section opened on 16 April 2009.",
+        "The final gaps were in the south. The last 6 km in Jiangxi, from Yangcun in Longnan to the Guangdong boundary, opened on 30 December 2015, and the 182 km Lianping–Conghua section in Guangdong, begun in September 2012, at 12:08 the next day, which Guangzhou Daily reported as completing the whole 3,550 km route."
+      ],
+      "zh": [
+        "最早的一段在北京。京承高速一期（四环至六环）于 2002 年 10 月通车；二期高丽营至密云段于 2006 年 9 月通车；河北境内司马台至承德段于 2006 年 12 月通车；三期自密云穿越司马台长城风景区至京冀界，于 2009 年 9 月 27 日通车，北京至承德全线贯通。G45 编号来自 2005 年国家高速公路网规划，其中南北纵线取奇数，自东向西编号。",
+        "东北段在 2007—2013 年间建成。内蒙古东部第一条高速公路通赤高速于 2007 年 10 月 18 日通车；肇源至松原段 2008 年 9 月 16 日通车；松原至双辽段 2010 年 9 月 6 日通车；大庆至肇源段 2011 年 9 月 20 日、双辽至通辽段同年 11 月通车。穿越茅荆坝隧道的赤峰至承德段最后建成，于 2013 年通车。中段的湖北麻城至浠水段于 2009 年 4 月 16 日通车。",
+        "最后的缺口在南方。江西境内龙南杨村至赣粤界的最后 6 公里于 2015 年 12 月 30 日通车；2012 年 9 月动工、全长 182 公里的广东连平至从化段于次日 12 时 08 分通车，《广州日报》报道称，全长 3,550 公里的大广高速至此全线贯通。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost for the whole road has been published; it was built by nine provinces, autonomous regions and municipalities as separate projects over thirteen years. The largest single figure is for the last: about 22.436 billion yuan for the 181.85 km Lianping–Conghua section in Guangdong. In Beijing the second and third phases of the Beijing–Chengde expressway cost 3.919 and 6.2 billion; the Hebei section to Chengde 2.755 billion. In Hubei, Macheng–Xishui cost 5.402 billion, the E'dong Yangtze bridge 3.1934 billion and Huangshi–Tongshan about 6.3 billion.",
+        "The sections were financed by the provinces' own expressway companies and repaid from tolls: Huangshi–Tongshan, for example, was built and is run by the Hubei A-Shen-Nan Expressway Development Company, and Macheng–Xishui is run by the Hubei Daguangbei Expressway Company."
+      ],
+      "zh": [
+        "全线总造价没有公开数字；它由九个省、自治区、直辖市在十三年间分项目建成。最大的单项数字属于最后一段：广东连平至从化段 181.85 公里总投资约 224.36 亿元。北京境内京承高速二期、三期分别投资 39.19 亿元和 62 亿元，河北境内至承德段 27.55 亿元。湖北境内麻城至浠水段 54.02 亿元，鄂东长江大桥 31.934 亿元，黄石至通山段约 63 亿元。",
+        "各段由各省的高速公路公司筹资建设，以通行费还贷：例如黄石至通山段由湖北阿深南高速公路发展有限公司投资建设、经营管理，麻城至浠水段由湖北大广北高速公路有限责任公司运营。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Southbound traffic is checked at Simatai as it enters Beijing, and northbound at Qiuxian; both are inspection stations for traffic entering the capital. At the other end, a 2020 Guangdong police notice requires vehicles that have entered from Hong Kong or Macau to leave G45 at Shangping, the last exit before Jiangxi."
+      ],
+      "zh": [
+        "广州方向在司马台、大庆方向在求贤各设进京检查站。在另一端，广东省公安厅 2020 年通告规定，港澳入境车辆须在进入江西前的最后一个出口上坪驶离大广高速。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published. G45 was built by nine provinces, autonomous regions and municipalities as separately financed projects between 2002 and 2015, each accounted for on its own; sourced section figures are given below.", "zh": "全线没有公开的总造价。G45 由九个省、自治区、直辖市在 2002 至 2015 年间分项目分别筹资建设、分别核算；下列为有来源的分段数字。" }
+    },
+    {
+      "label": { "en": "Lianping–Conghua section (Guangdong)", "zh": "连平至从化段（广东）" },
+      "value": { "en": "About 22.436 billion yuan for 181.85 km (2012–2015)", "zh": "181.85 公里总投资约 224.36 亿元（2012—2015）" },
+      "source": "Chinese Wikipedia, 大广高速公路粤境段"
+    },
+    {
+      "label": { "en": "Beijing–Chengde sections", "zh": "京承各段" },
+      "value": { "en": "Beijing phase II, Gaoliying–Shayugou, 46.7 km: 3.919 billion yuan (2004–2006). Phase III, Shayugou–Simatai, 62.7 km: 6.2 billion (to 2009). Hebei, Simatai–Chengde, 76.7 km: 2.755 billion (to 2006).", "zh": "北京二期高丽营至沙峪沟段 46.7 公里 39.19 亿元（2004—2006）；三期沙峪沟至司马台段 62.7 公里 62 亿元（2009 年建成）；河北司马台至承德段 76.7 公里 27.55 亿元（2006 年建成）。" },
+      "source": "Chinese Wikipedia, 北京—承德高速公路"
+    },
+    {
+      "label": { "en": "Hubei sections", "zh": "湖北各段" },
+      "value": { "en": "Macheng–Xishui, 147.115 km: 5.402 billion yuan (opened 2009). E'dong Yangtze bridge, shared with G50 and G70: 3.1934 billion (2006–2010). Huangshi–Tongshan, 107.1 km: about 6.3 billion.", "zh": "麻城至浠水段 147.115 公里 54.02 亿元（2009 年通车）；鄂东长江大桥（与 G50、G70 共用）31.934 亿元（2006—2010）；黄石至通山段 107.1 公里约 63 亿元。" },
+      "source": "Hubei Chutian Smart Communication Co., 2020; Hubei E'dong Yangtze River Bridge Co., archived; China Economic Net, 2012; all as cited in Chinese Wikipedia, 大庆—广州高速公路 and 鄂东长江大桥"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The provinces, autonomous regions and municipalities along the route through their expressway companies, repaid from tolls. No foreign loan is recorded for G45 in the sources consulted.", "zh": "沿线各省、自治区、直辖市通过各自的高速公路公司出资，以通行费还贷。所查来源中未见 G45 使用外国贷款的记载。" },
+      "source": "Chinese Wikipedia, 大庆—广州高速公路"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "3,550 km as reported on completion in 2015; 3,453 km in the 2022 plan; 3,421 km on the chainage listed in Chinese Wikipedia", "zh": "2015 年贯通时报道为 3,550 公里；2022 年规划为 3,453 公里；中文维基百科所列里程桩号为 3,421 公里" },
+      "source": "Guangzhou Daily, 1 January 2016, via Sina; Chinese Wikipedia, 中华人民共和国国家高速公路网 and 大庆—广州高速公路"
+    }
+  ],
+  "timeline": [
+    { "year": 2002, "en": "The first phase of the Beijing–Chengde expressway opens in October.", "zh": "10 月，京承高速一期通车。" },
+    { "year": 2005, "en": "The national expressway plan numbers the line G45.", "zh": "国家高速公路网规划将本线编为 G45。" },
+    { "year": 2006, "en": "Beijing–Chengde reaches Miyun in September; Hebei's Simatai–Chengde section opens on 14 December.", "zh": "9 月，京承高速二期通车至密云；12 月 14 日，河北司马台至承德段通车。" },
+    { "year": 2007, "en": "Tongliao–Chifeng, eastern Inner Mongolia's first expressway, opens on 18 October.", "zh": "10 月 18 日，内蒙古东部首条高速公路通赤高速通车。" },
+    { "year": 2009, "en": "Macheng–Xishui in Hubei opens on 16 April; Beijing–Chengde is complete on 27 September.", "zh": "4 月 16 日，湖北麻城至浠水段通车；9 月 27 日，京承高速全线贯通。" },
+    { "year": 2010, "en": "Songyuan–Shuangliao opens on 6 September; the E'dong Yangtze bridge on 28 September.", "zh": "9 月 6 日，松原至双辽段通车；9 月 28 日，鄂东长江大桥通车。" },
+    { "year": 2011, "en": "Daqing–Zhaoyuan opens on 20 September, giving Heilongjiang its section.", "zh": "9 月 20 日，大庆至肇源段通车，黑龙江段建成。" },
+    { "year": 2013, "en": "The Maojingba tunnel opens on 9 December, linking Chifeng to Chengde.", "zh": "12 月 9 日，茅荆坝隧道通车，赤峰与承德相连。" },
+    { "year": 2015, "en": "The last Jiangxi gap opens on 30 December and Lianping–Conghua on 31 December, completing the road.", "zh": "12 月 30 日江西最后一段通车，12 月 31 日连平至从化段通车，全线贯通。" },
+    { "year": 2025, "en": "The Beijing ring-road section through Tongzhou moves into the East Sixth Ring tunnel on 20 April.", "zh": "4 月 20 日，北京六环路通州段改经东六环隧道。" }
+  ]
+}

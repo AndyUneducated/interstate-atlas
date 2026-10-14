@@ -177,10 +177,10 @@ the data in a form that meets [§2](#2-what-a-source-must-meet), unless it says 
 | Speed limit (D-73) | HPMS posted limit, length-weighted: 69% of Interstate, 60% of US route, 41% of state route length | NRN posted limit: 44–51% of length by tier | OpenStreetMap: 78% of federal, 31% of state length | OpenStreetMap: 18% of expressway, 6–10% of other length; the rest the statutory default | OpenStreetMap: 99% of freeway, 69% of provincial length; the rest the statutory default | OpenStreetMap: all ten routes |
 | Toll share | HPMS toll flag | none on the roadway; 7 facilities drawn | RNC per-segment flag; 1,376 toll plazas drawn; 75 concession titles, 41 linked | none: the OSM toll tag is too sparse (D-69) | none | none |
 | Opening years | Interstates with a documented year (71 routes), buildout curve 1960–1997 | Quebec autoroutes per tronçon; Trans-Canada events from the Year Book | none | the system's plans and milestones, 1981–2025, on every national route; none per route | the freeways' openings 1964–2013 and the provincial highways' 1939–2026, on every route of each; none per route | the route system's history 1972–2025 on every route |
-| Construction cost | Interstates, FHWA 1991 estimate | in dossiers only, where published | none | none | none | none |
+| Construction cost | Interstates, FHWA 1991 estimate | in dossiers only, where published | none | in dossiers only: no route-wide total is published, so each says so and gives the sections' published costs | in dossiers only, where published; several freeways were costed as one programme | in dossiers only, where published |
 | Bridges with year built | none read (NBI not yet read) | Ontario only, provincial structures and culverts | federal free network; not the tolled network | none | none | none |
 | Border crossings | the US side is only a check (BTS) | 116 CBSA highway offices, geocoded | 45 northern and the southern ports, INDAABIN coordinates | none drawn | — | none drawn |
-| Written dossiers | 155 | 17 | none | none | none | none |
+| Written dossiers | 155 | 17 | none | 39: the national expressways' 36 main routes, G219, G318 and the Shanghai–Jiading Expressway | 16: freeways 1 to 6 and 10, and nine provincial highways | all ten routes |
 | Elevation profiles | every route with a dossier | every route with a dossier | none, as there are no dossiers | every national expressway and national highway | every freeway and provincial highway | all ten routes |
 
 ### Routes listed and routes drawn

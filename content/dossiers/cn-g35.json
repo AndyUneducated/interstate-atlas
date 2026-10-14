@@ -1,0 +1,122 @@
+{
+  "id": "cn-g35",
+  "route": { "sys": "cn-expressway", "num": "G35" },
+  "name": { "en": "Jinan–Guangzhou Expressway", "zh": "济广高速公路" },
+  "aka": [
+    { "en": "Jinan–Heze Expressway (Jinan to Heze)", "zh": "济菏高速公路（济南至菏泽段）" },
+    { "en": "Guangzhou–Huizhou Expressway (Huizhou to Guangzhou)", "zh": "广惠高速公路（惠州至广州段）" }
+  ],
+  "tagline": { "en": "A second north–south line east of G4: Jinan to Guangzhou by the Dabie mountains, Jingdezhen, Ruijin and the Meizhou hills", "zh": "京港澳以东的又一条南北通道：自济南经大别山、景德镇、瑞金、梅州山区到广州" },
+  "termini": {
+    "start": { "at": [117.28, 36.78], "en": "Tangwang interchange with the Qingdao–Yinchuan expressway (G20), Licheng district, Jinan — kilometre 0", "zh": "山东省济南市历城区唐王立交，接青银高速——零公里点" },
+    "end": { "at": [113.49, 23.19], "en": "Luogang interchange with the Guangzhou ring expressway, Guangzhou — kilometre 1,986", "zh": "广东省广州市萝岗立交，接广州绕城高速——1,986 公里处" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G35 is one of the north–south lines of the national expressway network, 1,986 km on the chainage. Its first 22 km into Jinan are the western end of the original Jinan–Qingdao expressway; it then shares the Jinan ring and the Beijing–Taipei expressway round the west of the city to Yinjialin and runs south-west by Changqing, Pingyin, Dongping, Liangshan and Jiaxiang to Heze, Dingtao and Cao county. After 58 km across Shangqiu in Henan it crosses Anhui from Bozhou and Fuyang through Lu'an and over the Dabie mountains by Huoshan, Yuexi and Qianshan to Wangjiang, where it crosses the Yangtze to Dongzhi.",
+        "In Jiangxi it runs through Jingdezhen, Leping, Poyang, Wannian and Yingtan, then south along the eastern edge of the province by Jinxi, Nancheng, Nanfeng, Guangchang, Ningdu, Ruijin, Huichang and Xunwu. In Guangdong it crosses the Meizhou hills by Pingyuan, Xingning and Wuhua, shares the Shantou–Zhanjiang and then the Changchun–Shenzhen expressways through Heyuan's Zijin county to Huizhou, and ends at Luogang in Guangzhou on the Guangzhou–Huizhou expressway. Jiangxi carries 625 km, Anhui 544, Guangdong 417, Shandong 342 and Henan 58.",
+        "English Wikipedia gives a length of 8,350 km for the completed route and says a section at Xingning is still under construction; both disagree with the Chinese sources and are not used here."
+      ],
+      "zh": [
+        "G35 是国家高速公路网的南北纵线之一，按里程桩号全长 1,986 公里。进入济南的头 22 公里是原济青高速的西端；此后与济南绕城高速、京台高速共线绕经城西至殷家林，向西南经长清、平阴、东平、梁山、嘉祥到菏泽、定陶、曹县。在河南商丘境内经过 58 公里后进入安徽，自亳州、阜阳经六安，翻越大别山经霍山、岳西、潜山到望江，在此跨越长江到东至。",
+        "江西境内经景德镇、乐平、鄱阳、万年、鹰潭，再沿江西东缘南下，经金溪、南城、南丰、广昌、宁都、瑞金、会昌、寻乌。广东境内穿越梅州山区经平远、兴宁、五华，先后与汕湛高速、长深高速共线，经河源紫金到惠州，再沿广惠高速止于广州萝岗。江西段 625 公里，安徽段 544 公里，广东段 417 公里，山东段 342 公里，河南段 58 公里。",
+        "英文维基百科称全线建成后长 8,350 公里，并称兴宁一段仍在施工；二者均与中文资料不符，此处不采用。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The largest structure is the Wangdong Yangtze River bridge between Wangjiang and Dongzhi, the first road bridge on the upper Anhui reach of the river. Its 1,250-metre cable-stayed main bridge, with spans of 78, 228, 638, 228 and 78 metres and diamond-shaped towers 217 metres high, had the longest main span of any steel–concrete composite cable-stayed bridge in the world when it opened in 2016; the crossing is 3.6 km long and the whole project, with its approaches, 38 km.",
+        "In the hills of Fuliang county north of Jingdezhen the Jingdezhen–Yingtan section was laid out as a chain of tunnels and open stretches nearly 11 km long to spare the forest, which the designers said added close to 100 million yuan. The Pingyuan–Xingning section in Meizhou has 14.3 km of large and extra-large bridges in its 98.5 km. The Jinan–Heze section, opened as four lanes in 2007, was rebuilt to eight lanes in 2022–2024, mostly by widening on both sides, with 30 MW of solar panels along the road; Shandong describes it as China's first 'zero-carbon' widened expressway."
+      ],
+      "zh": [
+        "全线最大的结构物是望江与东至之间的望东长江公路大桥，为八百里皖江上游第一座公路大桥。主桥为双塔双索面组合梁斜拉桥，长 1,250 米，跨径布置 78＋228＋638＋228＋78 米，钻石型主塔高 217 米；2016 年通车时，其 638 米主跨为世界同类钢—混凝土组合梁斜拉桥之最。大桥全长约 3.6 公里，连同两岸接线项目全长 38 公里。",
+        "景德镇以北浮梁县山区，景鹰段为保护森林植被，以隧道群与露天路段相连的方案穿山布线，长近 11 公里，设计方称因此增加建设成本近 1 亿元。梅州平远至兴宁段 98.5 公里，设特大桥、大桥共 14.3 公里。济菏段 2007 年按四车道通车，2022 至 2024 年以两侧拼宽为主改扩建为八车道，沿线布设 30 兆瓦光伏；山东方面称其为全国首条改扩建零碳高速公路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The first piece in use is the western end of the Jinan–Qingdao expressway, opened in December 1993. The route itself was laid out in the 2005 national plan, in which Jinan–Guangzhou is the fourth of the north–south lines, and most of it opened between 2006 and 2016. Bozhou–Fuyang in Anhui opened on 15 December 2006; Jinan–Heze on 28 September 2007, after two years and ten months of work; and Jingdezhen–Yingtan, 202.6 km, on 28 November 2007.",
+        "Yingtan–Ruijin, 308.8 km and the longest single expressway project Jiangxi had undertaken, was begun on 30 June 2008, and Ruijin–Xunwu, the last section in Jiangxi, opened on 28 December 2011. In Anhui, Lu'an–Qianshan opened on 28 December 2009 and Zhouji–Lu'an on 20 January 2012. Guangdong's Pingyuan–Xingning section, begun on 29 December 2012, opened on 30 December 2015; the Meizhou press called it the last gap in G35.",
+        "That was premature. The Wangdong Yangtze bridge, begun in December 2011, opened only on 30 December 2016; Anhui's government announced that it completed the route in the province. No source found states a completion date for the whole line, so none is given here. Since then the Jinan–Heze section has been widened to eight lanes, reopening on 20 December 2024."
+      ],
+      "zh": [
+        "最早投入使用的一段是 1993 年 12 月通车的济青高速西端。济广线本身出自 2005 年的国家高速公路网规划，为南北纵线中的第 4 条，大部分路段在 2006 至 2016 年间通车。安徽亳阜段 2006 年 12 月 15 日通车；济菏段历时两年十个月，2007 年 9 月 28 日通车；202.6 公里的景鹰段 2007 年 11 月 28 日通车。",
+        "全长 308.8 公里、为江西当时一次性建设里程最长的鹰瑞段于 2008 年 6 月 30 日开工；江西境内最后一段瑞寻段于 2011 年 12 月 28 日通车。安徽六潜段 2009 年 12 月 28 日通车，周六段 2012 年 1 月 20 日通车。广东平兴段 2012 年 12 月 29 日动工，2015 年 12 月 30 日通车，梅州当地报纸称其打通了济广高速最后一段「盲肠」。",
+        "这一说法为时过早。2011 年 12 月动工的望东长江公路大桥直到 2016 年 12 月 30 日才通车，安徽省政府宣布济广高速由此在安徽境内全线贯通。所查资料中没有全线贯通日期的明确记载，此处不作推断。此后济菏段改扩建为八车道，于 2024 年 12 月 20 日通车。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total has been published. The section figures that are public include 13 billion yuan budgeted for Yingtan–Ruijin (2008), 6.05 billion for the 124 km Ruijin–Xunwu section (2011), 8.03 billion for Pingyuan–Xingning (2015) and 5.04 billion for the Wangdong bridge project (2016). For Jinan–Heze the provincial press gave 4.44 billion on its opening in 2007, against a budget of 2.24 billion reported in 2005; its widening in 2022–2024 was budgeted at 18.61 billion, about four times the 2007 figure.",
+        "It is a toll road, built by provincial companies and repaid from tolls: Shandong Hi-Speed Group's Hong Kong-listed Qilu Expressway for the Jinan–Heze widening, Anhui's provincial expressway holding group, which maintains the Wangdong bridge, and Guangdong Pingxing Expressway Co. for Pingyuan–Xingning. Jiangxi set the toll period on Ruijin–Xunwu at thirty years, to 27 December 2041."
+      ],
+      "zh": [
+        "全线没有公开的总造价。已公开的分段数字包括：鹰瑞段概算约 130 亿元（2008），瑞寻段 124 公里约 60.49 亿元（2011），平兴段 80.34 亿元（2015），望东长江大桥项目 50.38 亿元（2016）。济菏段 2007 年通车时省内报纸报道投资 44.4 亿元，而 2005 年的报道为概算 22.4 亿元；其 2022—2024 年改扩建概算 186.14 亿元，约为 2007 年数字的四倍。",
+        "它是收费公路，由各省公司建设、以通行费还贷：济菏改扩建由山东高速集团旗下港股上市公司齐鲁高速投资，望东长江大桥由安徽省高速公路控股集团负责维护，平兴段建设单位为广东平兴高速公路有限公司。江西将瑞寻段收费期限定为 30 年，至 2041 年 12 月 27 日。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The Jinan–Heze section is now eight lanes at 120 km/h. Under a 2020 Guangdong public security notice cited in Chinese Wikipedia, vehicles entering from Hong Kong and Macau must leave the road at the Wuzhishi exit in Pingyuan, near the Jiangxi line."
+      ],
+      "zh": [
+        "济菏段现为双向八车道，设计时速 120 公里。据中文维基百科引用的 2020 年广东省公安厅通告，港澳入境车辆须在平远县五指石出口驶离，该出口靠近赣粤省界。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published. Apart from its first 22 km, G35 was built by five provinces between 2002 and 2016 as separately financed projects, each accounted for on its own; sourced section figures are given below.", "zh": "全线没有公开的总造价。除最初 22 公里外，G35 于 2002 至 2016 年间由五个省份分别立项筹资、分别核算；下列为有来源的分段数字。" }
+    },
+    {
+      "label": { "en": "Jinan–Heze section (Shandong)", "zh": "济菏段（山东）" },
+      "value": { "en": "Reported at 4.44 billion yuan for 154.3 km on opening in September 2007; a 2005 report gave a budget of 2.24 billion. The two have not been reconciled.", "zh": "2007 年 9 月通车时报道 154.3 公里投资 44.4 亿元；2005 年报道的概算为 22.4 亿元，二者未能核对。" },
+      "source": "Qilu Evening News, 28 September 2007, via Sina; Life Daily, 2 October 2005, via Qingdao News"
+    },
+    {
+      "label": { "en": "Jiangxi sections", "zh": "江西各段" },
+      "value": { "en": "Yingtan–Ruijin, 308.77 km: about 13 billion yuan budgeted (begun 2008). Ruijin–Xunwu, 123.956 km: about 6.049 billion (opened 2011).", "zh": "鹰瑞段 308.77 公里概算总投资约 130 亿元（2008 年开工）；瑞寻段 123.956 公里总投资约 60.49 亿元（2011 年通车）。" },
+      "source": "Report of 30 June 2008, via Hunan Provincial Department of Industry and Information Technology; Jiangxi Department of Communications, via 56885.net, 22 December 2011"
+    },
+    {
+      "label": { "en": "Anhui and Guangdong sections", "zh": "安徽、广东各段" },
+      "value": { "en": "Wangdong Yangtze bridge and approaches, 38 km: 5.038 billion yuan (2011–2016). Pingyuan–Xingning, 98.5 km: 8.034 billion (2012–2015).", "zh": "望东长江大桥及接线 38 公里总投资 50.38 亿元（2011—2016）；平兴段 98.5 公里总投资 80.34 亿元（2012—2015）。" },
+      "source": "Chinese Wikipedia, 望东长江大桥; Guangdong Department of Ecology and Environment, 粤环审〔2019〕505号; Guangdong Department of Transport, 28 April 2020"
+    },
+    {
+      "label": { "en": "Jinan–Heze widening, 2022–2024", "zh": "济菏段改扩建（2022—2024）" },
+      "value": { "en": "18.614 billion yuan budgeted for 152.758 km, four lanes to eight", "zh": "152.758 公里四改八，概算总投资 186.14 亿元" },
+      "source": "Shandong Provincial Department of Transport, 9 January 2024; Dazhong Daily, 27 December 2023"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The provinces and their expressway companies, repaid from tolls: Shandong Hi-Speed Group and its listed Qilu Expressway, Anhui's provincial expressway holding group, Guangdong Pingxing Expressway Co., among others. Ruijin–Xunwu carries a thirty-year toll period to 2041. No foreign loan is recorded for G35 in the sources consulted.", "zh": "沿线各省及其高速公路公司出资，以通行费还贷：山东高速集团及旗下上市公司齐鲁高速、安徽省高速公路控股集团、广东平兴高速公路有限公司等。瑞寻段收费期 30 年，至 2041 年。所查来源中未见 G35 使用外国贷款的记载。" },
+      "source": "Dazhong Daily, 27 December 2023; Anqing Municipal Government, 30 December 2016, archived; Guangdong Department of Transport, 2020; 56885.net, 22 December 2011"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "1,986 km on the chainage table in Chinese Wikipedia", "zh": "中文维基百科里程表为 1,986 公里" },
+      "source": "Chinese Wikipedia, 济南—广州高速公路"
+    }
+  ],
+  "timeline": [
+    { "year": 1993, "en": "The Jinan–Qingdao expressway opens; its western end later becomes the first 22 km of G35.", "zh": "济青高速通车，其西端后来成为 G35 最初的 22 公里。" },
+    { "year": 2005, "en": "The national expressway plan lists Jinan–Guangzhou as G35.", "zh": "国家高速公路网规划将济南至广州列为 G35。" },
+    { "year": 2006, "en": "Bozhou–Fuyang in Anhui opens on 15 December.", "zh": "12 月 15 日，安徽亳阜段通车。" },
+    { "year": 2007, "en": "Jinan–Heze opens on 28 September and Jingdezhen–Yingtan on 28 November.", "zh": "9 月 28 日济菏段通车；11 月 28 日景鹰段通车。" },
+    { "year": 2008, "en": "Work on Yingtan–Ruijin begins on 30 June.", "zh": "6 月 30 日，鹰瑞段开工。" },
+    { "year": 2009, "en": "Lu'an–Qianshan opens on 28 December.", "zh": "12 月 28 日，六潜段通车。" },
+    { "year": 2011, "en": "Ruijin–Xunwu, the last section in Jiangxi, opens on 28 December.", "zh": "12 月 28 日，江西境内最后一段瑞寻段通车。" },
+    { "year": 2012, "en": "Zhouji–Lu'an opens on 20 January.", "zh": "1 月 20 日，周六段通车。" },
+    { "year": 2015, "en": "Pingyuan–Xingning in Guangdong opens on 30 December.", "zh": "12 月 30 日，广东平兴段通车。" },
+    { "year": 2016, "en": "The Wangdong Yangtze bridge opens on 30 December, completing the route in Anhui.", "zh": "12 月 30 日，望东长江公路大桥通车，济广高速安徽段全线贯通。" },
+    { "year": 2024, "en": "The Jinan–Heze section reopens at eight lanes on 20 December.", "zh": "12 月 20 日，济菏段八车道改扩建通车。" }
+  ]
+}

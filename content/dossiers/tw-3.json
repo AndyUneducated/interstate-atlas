@@ -1,0 +1,106 @@
+{
+  "id": "tw-3",
+  "route": { "sys": "tw-provincial", "num": "3" },
+  "name": { "en": "Provincial Highway 3", "zh": "台 3 线" },
+  "aka": [
+    { "en": "Inland Mountain Highway", "zh": "内山公路" },
+    { "en": "Romantic Route 3 (Hakka Romantic Avenue)", "zh": "浪漫台三线（台三线客庄浪漫大道）" },
+    { "en": "Zhongfeng Highway (Longtan–Fengyuan section)", "zh": "中丰公路（龙潭—丰原段）" }
+  ],
+  "tagline": { "en": "The inland north–south road through the foothills, laid out for war and tea and rebranded in 2016 as a Hakka cultural route", "zh": "穿行西部浅山的内陆纵贯公路，因战备与茶业而生，2016 年起被打造为客家文化廊道" },
+  "termini": {
+    "start": { "at": [121.52, 25.045], "en": "Zhongxiao West Road at Zhongshan South Road, outside the Executive Yuan in Taipei — the zero point of Taiwan's highways", "zh": "台北市中正区忠孝西路与中山南路口，行政院大门前——台湾公路原点" },
+    "end": { "at": [120.50, 22.66], "en": "Pingtung city, outside the Seventh River Management Branch of the Water Resources Agency, where it meets Provincial Highway 1", "zh": "屏东市水利署第七河川分署前，与台 1 线交会" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Provincial Highway 3 is the second north–south road of western Taiwan, the inland twin of Highway 1. Both start at the zero point outside the Executive Yuan, but where Highway 1 keeps to the plain, Highway 3 leaves the Taipei basin at Sanxia and climbs into the foothills west of the Central Mountain Range, through hill country of terraces and small valleys: Daxi, Longtan, Guanxi, Zhudong, Beipu, Shitan, Dahu, Zhuolan, Dongshi, then Fengyuan, Taichung, Caotun, Nantou, Zhushan and Douliu, the Chiayi hills, and down through Nanxi and Qishan to Pingtung.",
+        "The northern half is Hakka country. The road passes sixteen Hakka townships, and in Taoyuan, Hsinchu and Miaoli the tea country, food and old streets of the towns along it are what the 'Romantic Route 3' programme set out to promote. Locals still use older names for parts of it: the Zhongfeng Highway between Longtan and Fengyuan, from the Zhongli–Fengyuan road, and the Yunmi combat-readiness road between Yunshui in Chiayi and Mizhi in Tainan.",
+        "Inside the cities it is hard to see. In Taipei and New Taipei it is a chain of ordinary streets — Zhongxiao West, Zhonghua and Heping West Roads, then Banqiao and Tucheng — without provincial highway signs, because the municipalities do not post them."
+      ],
+      "zh": [
+        "台 3 线是台湾西部的第二条南北纵贯公路，可说是台 1 线的内陆孪生兄弟。两者都从行政院前的公路原点出发，但台 1 线沿平原而行，台 3 线则自三峡离开台北盆地，转入中央山脉以西的浅山丘陵，穿行于台地与小河谷之间：大溪、龙潭、关西、竹东、北埔、狮潭、大湖、卓兰、东势，再经丰原、台中、草屯、南投、竹山、斗六、嘉义山区，经楠西、旗山南下至屏东。",
+        "北半段是客家地区：沿线共有 16 个客家庄，桃竹苗一带小镇的茶园、饮食与老街，正是「浪漫台三线」计划所要推广的对象。部分路段至今仍有旧称：龙潭至丰原一带称中丰公路，源自中坜—丰原道路；嘉义沄水至台南密枝一段则称沄密战备道路。",
+        "在都市里很难认出它。台北市与新北市境内，它是由忠孝西路、中华路、和平西路，以及板桥、土城的几条街道接成的普通市街；直辖市不设省道标志，一般人每天经过也未必知道脚下就是台 3 线。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "In the Qing the stretch from Daxi to Dongshi followed the boundary between Han settlement and indigenous land, and travellers kept to the line. Rhythms Monthly traces military roads here to Shen Baozhen's campaign to 'open the mountains and pacify the aborigines' from about 1874. The Japanese turned the pieces into roads: the Zhongli–Fengyuan army road, which Chinese Wikipedia dates to 1933, and from Taichung south a chain of designated roads — Taichung–Nantou, Nantou–Zhushan, Zhushan–Linnei, Douliu–Xiaomei and Xiaomei–Zhuqi. A defence ministry officer told Rhythms Monthly that the idea was a 'last line': if Highway 1 on the plain were bombed, an inland road would still carry tanks.",
+        "Trade shaped it as much as war. Tea, sugar and camphor made up 94 per cent of Taiwan's exports between 1860 and 1895, and the tea districts lay almost along the northern and central hill sections of today's Highway 3; the roads that carried them became its forerunners.",
+        "When the highways were first numbered after the Highway Act, Highway 3 was two separate roads, each with its own kilometre count: a northern line from the Executive Yuan to Yunshui in Chiayi and a southern line from Pingtung to Nanxi. The 1978 renumbering joined them by taking in the Yunmi road, which, according to a memorial beside it, was rebuilt after 1961 high in the hills, about 800 m, as a hidden route that could garrison a large army above the Chianan plain.",
+        "A first widening from 1983 gave at least two lanes throughout. A second, proposed in 1985, was nearly stopped by the Council for Economic Planning and Development, which doubted it would pay; the highway bureau's director who led the project argued that good roads would bring prosperity, and it went ahead. The defence minister of the day asked him whether the road would take an American M60 tank. The work was finished in 1997, with four lanes or more except in central Banqiao, by the Liyutan reservoir, in the Yunlin hills, on the Yunmi road and in Pingtung city.",
+        "In 2016 Tsai Ing-wen's government made the road the axis of a Hakka revival programme, the Hakka Romantic Avenue, modelled on Germany's Romantic Road, and the Executive Yuan's coordinating platform met for the first time on 22 March 2017. Its long-distance walking route, the Raknus Selu (Camphor Trail), more than 400 km of old paths and farm tracks along the corridor, was named in 2018. That year 26 bends, mostly in Miaoli, were straightened and the line adjusted; in January 2026 the Longtan section was moved off County Road 113 onto the northern bypass."
+      ],
+      "zh": [
+        "清代，大溪至东势一段是所谓「汉番交界线」，旅人依此线而行，渐成通道。《经典》杂志认为，约 1874 年起沈葆桢「开山抚番」时，这一带已开辟军用道路。日人再把零星路段修成道路：中坜—丰原的陆军战备道路（中文维基百科记为 1933 年兴建），以及台中以南「台中南投道」「南投竹山道」「竹山林内道」「斗六小梅道」「小梅竹崎道」等指定道路。一位国防部军官向《经典》解释，台 3 线是所谓「最后确保线」：平原上的台 1 线一旦被炸毁，深处内地的道路仍可供战车机动。",
+        "产业对它的塑造不亚于军事。1860 至 1895 年间，茶、糖与樟脑占台湾出口总值的 94%，而茶的主要产地几乎就沿着今天台 3 线的中北部丘陵路段展开；运送这些物产的地方道路，便成了台 3 线的前身。",
+        "公路法实施后第一次编号时，台 3 线分为北线与南线，里程各自计算：北线自行政院至嘉义县中埔乡沄水，南线自屏东市至台南楠西。1978 年整编纳入沄密战备道路，两线才连成一线。据路旁纪念碑所记，沄密战道于 1961 年后重新修辟，海拔高达约 800 米，林木茂密、地势隐蔽，可驻防大军并俯瞰嘉南平原。",
+        "1983 年起第一次拓宽改善，使全线至少维持双向双车道。1985 年提出的第二次拓宽案，曾因经建会质疑不符经济效益而几乎被挡下；时任公路局局长严启昌以「交通建设得好，自然会带动地方繁荣」力争，才得以照原计划进行。国防部长宋长志还曾亲自问他，台 3 线能否承受美制 M60 战车的载重。工程于 1997 年全面完工，除板桥市区、鲤鱼潭水库、云林山区、沄密战备道路及屏东市区等路段外，均拓宽为双向四车道以上。",
+        "2016 年，蔡英文政府以这条路为轴线推动客家文艺复兴计划「台三线客庄浪漫大道」，构想参考德国的「浪漫之路」；行政院治理平台于 2017 年 3 月 22 日召开第一次会议。计划中的长程步道「樟之细路」，串连沿线古道、农路与郊山步道，全长 400 余公里，2018 年正式命名。同年有 26 处截弯取直、调整路线，大多在苗栗县；2026 年 1 月，龙潭市区段取消与市道 113 号共线，改行北侧外环道。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The road's bridges record the hill country's building history. A government history of the route picks out the four generations of the Zhihu bridge at Baishou in Shitan, built from the Japanese period onward by different methods and all still standing; the Diyi Yuli ('First Prestressed') bridge between Sanxia and Daxi; the Jingshan bridge over the Liyutan reservoir, the longest-span cantilever bridge of its day; and the Dongshi bridge, rebuilt after the 1999 earthquake still keeping its flying-dragon sculptures by a noted Taiwanese artist."
+      ],
+      "zh": [
+        "沿线桥梁记录了山区的营建史。一本官方出版的台 3 线公路史特别举出：狮潭百寿的四代纸湖桥，保留了自日治时期以来以不同工法建造的四座桥梁；连接三峡与大溪的「第一预力桥」；跨越鲤鱼潭水库、为当时跨距最长悬臂桥的景山桥；以及九二一地震后重建、仍保留艺术家杨英风飞龙塑像的东势大桥。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost has been published for the road or for its two widening programmes. The best-documented spending on it is not for construction at all: the Romantic Route 3 programme was planned at NT$8.212 billion over four years, from the regular and special budgets, for trails, cycle routes and bus links, landscaping, street-front renewal, heritage buildings and support for young people returning to the Hakka villages. The Hakka Affairs Council put the first phase, 2016–2019, at about one hundred projects and NT$5.6 billion, plus NT$2 billion of central special budget from 2017 to 2020 under the Forward-looking Infrastructure programme."
+      ],
+      "zh": [
+        "这条路及其两次拓宽工程都没有公开的造价。记录最完整的一笔支出其实与修路无关：「浪漫台三线」计划以年度预算与特别预算，四年共投入新台币 82.12 亿元，用于步道、自行车道与观光巴士路网、地景营造、街区立面改造、客家历史馆舍修复，以及辅导青年返乡。客委会表示，第一阶段（2016—2019 年）约一百项计划、预算约 56 亿元，另配合前瞻基础建设计划，自 2017 至 2020 年匡列中央特别预算 20 亿元。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Limits are 40 to 70 km/h. North of Taichung it is a pleasant, slow hill road through tea country and Hakka towns, busy at weekends and in the tung-blossom season; south of Nantou the mountain sections, especially the Yunmi road, remain two-lane and winding. Since 2018 the Tour de Taiwan has run a 'Romantic Route 3' stage across Hsinchu, Miaoli and Taichung; riders, put off by its length and climbing, have called it 'the unromantic stage'."
+      ],
+      "zh": [
+        "速限为每小时 40 至 70 公里。台中以北是一条舒缓的丘陵公路，穿过茶乡与客家小镇，周末与桐花季车多；南投以南的山区路段，尤其是沄密战备道路，仍是蜿蜒的双车道。2018 年起，国际自由车环台公路大赛设有横跨新竹、苗栗、台中的「浪漫台三线站」，因路程长、起伏大，被参赛选手评为「不浪漫的分站」。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "Highway 3 was assembled from Qing tracks, Japanese military and designated roads and post-war mountain roads, and widened in two programmes (from 1983, and 1985–1997); no cost has been published for the road or either programme.", "zh": "台 3 线由清代小径、日治时期战备道路与指定道路及战后山区道路连成，并经两次拓宽（1983 年起，以及 1985—1997 年）；道路本身及两次拓宽均无公开造价。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "The sources say the widening was a provincial highway bureau project that needed the Council for Economic Planning and Development's approval, but not how it was financed.", "zh": "资料只说明拓宽案由省公路局主导、须经经建会审议，未说明经费来源。" }
+    },
+    {
+      "label": { "en": "Romantic Route 3 programme", "zh": "浪漫台三线计划" },
+      "value": { "en": "NT$8.212 billion over four years, regular and special budgets (2017 plan); a cultural and tourism programme, not road construction", "zh": "四年共新台币 82.12 亿元，含年度及特别预算（2017 年规划）；属文化与观光计划，非道路工程" },
+      "source": "Newtalk, 23 March 2017, as cited in Chinese Wikipedia, 台3線"
+    },
+    {
+      "label": { "en": "Second widening", "zh": "第二次拓宽" },
+      "value": { "en": "Proposed 1985, finished 1997; four lanes or more except five named sections", "zh": "1985 年提出，1997 年完工；除五处路段外均达双向四车道以上" },
+      "source": "Rhythms Monthly (經典雜誌), 內山公路台三線, by 陳世慧, interview with the former highway bureau director 嚴啟昌; Chinese Wikipedia, 台3線"
+    }
+  ],
+  "timeline": [
+    { "year": 1874, "en": "Shen Baozhen's 'open the mountains' campaign brings the first military roads to the foothills.", "zh": "沈葆桢「开山抚番」，浅山地区开辟最早的军用道路。" },
+    { "year": 1933, "en": "The Japanese build the Zhongli–Fengyuan army road, the future Zhongfeng Highway.", "zh": "日人兴建中坜—丰原陆军战备道路，即日后的中丰公路。" },
+    { "year": 1978, "en": "Renumbering takes in the Yunmi road and joins the northern and southern lines into one Highway 3.", "zh": "公路整编纳入沄密战备道路，南北两线合为一条台 3 线。" },
+    { "year": 1983, "en": "A first widening gives at least two lanes throughout.", "zh": "第一次拓宽改善，全线至少达双向双车道。" },
+    { "year": 1985, "en": "The second widening is proposed and survives the planning council's doubts.", "zh": "第二次拓宽案提出，经经建会质疑后仍获通过。" },
+    { "year": 1997, "en": "The second widening is finished; most of the road has four lanes or more.", "zh": "第二次拓宽全面完工，大部分路段达双向四车道以上。" },
+    { "year": 2016, "en": "The new government announces the Romantic Route 3 Hakka programme.", "zh": "新政府推出「浪漫台三线」客家计划。" },
+    { "year": 2017, "en": "The Executive Yuan's Romantic Route 3 platform meets for the first time on 22 March.", "zh": "3 月 22 日，行政院台三线客庄浪漫大道治理平台召开第一次会议。" },
+    { "year": 2018, "en": "The Raknus Selu walking route is named; 26 bends are straightened.", "zh": "「樟之细路」长程步道正式命名；26 处截弯取直。" },
+    { "year": 2026, "en": "The Longtan section moves to the northern bypass in January.", "zh": "1 月，龙潭市区段改行北侧外环道。" }
+  ]
+}

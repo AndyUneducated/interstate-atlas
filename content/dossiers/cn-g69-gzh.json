@@ -1,0 +1,126 @@
+{
+  "id": "cn-g69-gzh",
+  "route": { "sys": "cn-expressway", "num": "G69", "anchor": [108.21, 30.38] },
+  "name": { "en": "Yinchuan–Baise Expressway", "zh": "银川—百色高速公路" },
+  "aka": [
+    { "en": "Yinbai Expressway", "zh": "银百高速" }
+  ],
+  "tagline": { "en": "From the Yellow River at Yinchuan to the Vietnamese border at Longbang, through the Daba Mountains on roads that are almost all bridge and tunnel; complete on Christmas Day 2025", "zh": "自黄河畔的银川至中越边境龙邦口岸，以几乎全是桥隧的路段穿越大巴山；2025 年 12 月 25 日全线通车" },
+  "completedYear": 2025,
+  "termini": {
+    "start": { "at": [106.35, 38.46], "en": "Yinchuan toll station on the Yingu road, Xingqing District, Yinchuan, Ningxia — kilometre 0", "zh": "宁夏银川市兴庆区银古公路银川收费站——零公里处" },
+    "end": { "at": [106.32, 22.88], "en": "The Longbang border crossing, Jingxi, Baise, Guangxi, facing Trà Lĩnh in Vietnam — kilometre 2,284", "zh": "广西百色市靖西市龙邦口岸，对面是越南茶岭口岸——2,284 公里处" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G69 is one of the national north–south expressways, linking the north-west interior to a border crossing into Vietnam through six provincial-level regions. From Yinchuan it runs south-east past Ningdong and across the dry uplands of central Ningxia to Tianshuibao, then down the loess country of Qingyang in Gansu by Huanxian, Qingcheng, Heshui and Ningxian. In Shaanxi it passes Xunyi and Xianyang to Xi'an, crosses the Qinling to Ankang and the Daba Mountains by Langao; in Chongqing it runs by Chengkou, Kaizhou, Wanzhou, Zhongxian, Fengdu, Fuling and Nanchuan; in Guizhou by Daozhen, Zheng'an, Meitan, Weng'an, Guiyang, Huishui and Luodian; and in Guangxi it crosses the Hongshui River into Tian'e and continues by Leye, Lingyun, Baise and Jingxi to Longbang.",
+        "The Ministry of Transport gives 2,281 km; Chinese Wikipedia's chainage table 2,284. Much of it runs on older roads with other numbers: G20 from Yinchuan to Ningdong, G70 between Xianyang and Xi'an, G65 from Xi'an to Ankang and again near Nanchuan, G42 for part of the way between Kaizhou and Wanzhou, G78 between Namu and Yongle, and G80 around Baise. The Ministry describes it as an important route from the north-western interior to the ports and border crossings facing ASEAN."
+      ],
+      "zh": [
+        "银百高速是国家高速公路网的南北纵线之一，串联六个省级行政区，把西北内陆与通往越南的口岸连接起来。它从银川出发，向东南经宁东，横穿宁夏中部干旱带至甜水堡；再沿甘肃庆阳的黄土高原南下，经环县、庆城、合水、宁县。在陕西经旬邑、咸阳至西安，翻秦岭到安康，经岚皋穿越大巴山；在重庆经城口、开州、万州、忠县、丰都、涪陵、南川；在贵州经道真、正安、湄潭、瓮安、贵阳、惠水、罗甸；在广西跨红水河进入天峨，经乐业、凌云、百色、靖西，终至龙邦。",
+        "交通运输部称全长 2,281 公里，中文维基百科的里程表为 2,284 公里。大量路段利用其他编号的既有道路：银川至宁东与 G20 青银高速共线，咸阳至西安与 G70 福银高速共线，西安至安康及南川一带与 G65 包茂高速共线，开州至万州间部分路段与 G42 沪蓉高速共线，那暮至永乐与 G78 汕昆高速共线，百色一带与 G80 广昆高速共线。交通运输部称其为西北内陆通往东盟口岸的重要通道。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Between Xi'an and Ankang G69 shares the Xi'an–Ankang expressway, which goes under the Zhongnan range of the Qinling in the Zhongnanshan Tunnel: twin bores 18.04 km long, opened in 2007 and, by English Wikipedia's account, the longest twin-tube road tunnel in China, built for ¥3.2 billion.",
+        "The crossing of the Daba Mountains between Shaanxi and Chongqing was the last and hardest part. The 41 km from Langao to the provincial border are 96% bridge and tunnel, the highest share of any mountain expressway in Shaanxi, and end inside the Daba Mountain tunnel at the boundary. On the Chongqing side the Chengkou–Kaizhou expressway, 128.5 km at 80 km/h, is 77.6% bridge and tunnel, and its final 7.6 km to the border 84%.",
+        "In Guangxi, Leye–Baise, 170 km at 80 km/h design speed, has 174 bridges and 40 tunnels, about half its length. Its northern end is the Hongshui River bridge on the Guizhou–Guangxi boundary, built under a joint agreement between the two provinces."
+      ],
+      "zh": [
+        "西安至安康间，G69 与西康高速共线，以秦岭终南山公路隧道穿越秦岭终南山：上下行双洞，全长 18.04 公里，2007 年通车；据英文维基百科，它是中国最长的双洞公路隧道，造价 32 亿元。",
+        "陕渝之间翻越大巴山是最后、也是最难的一段。岚皋至陕渝界的 41 公里桥隧比高达 96%，是陕西省桥隧比最高的山区高速公路，终点就在省界处的大巴山隧道内。重庆一侧的城开高速全长 128.5 公里，设计时速 80 公里，桥隧比 77.6%，最后通到陕渝界的 7.6 公里桥隧比达 84%。",
+        "广西乐业至百色段全长约 170 公里，设计时速 80 公里，有桥梁 174 座、隧道 40 座，桥隧约占一半。它的北端是黔桂界上的红水河特大桥，按桂黔两省（区）的接线协议共同建设。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The oldest parts are the shared ones. The Xianyang airport expressway between Xi'an and Xianyang opened on 29 September 2003 and the Xi'an–Ankang expressway on 28 May 2009; around Baise, the sections now shared with G80 opened in 2005 and 2007. Building G69's own sections began in the 2010s: Nanchuan–Fuling opened in 2013, Guiyang–Huishui on 10 October 2013, Xianyang–Xunyi on 3 December 2014 and Baise–Jingxi on 16 December 2014. Guizhou finished in 2015, with Huishui–Luodian in August and the 343 km from Daozhen to Guiyang on 31 December; Chongqing's Wanzhou–Zhongxian and Fengdu–Zhongxian sections opened on 9 December 2016, and Jingxi–Longbang on 19 December 2018.",
+        "The northern and southern ends followed in 2020–2022: Leye–Baise on 8 January 2020, joining Guizhou to Guangxi; Qiupotou–Xunyi on 22 October and Ningdong–Tianshuibao on 27 November 2020; Ankang–Langao on 23 December 2020; and Tianshuibao–Yonghe in Gansu, 279.7 km, in July 2021, with its last bridge and tunnel on 1 January 2022. Chongqing's Chengkou–Kaizhou, begun in March 2017, opened in stages from July 2022.",
+        "That left the Daba Mountains. On 25 December 2025 the 7.6 km from the Shaanxi border to Beiping in Chongqing and the 41 km from Langao to the border opened together, and the Ministry of Transport announced the whole of G69 open. The drive from Chengkou to Ankang fell from 140 minutes to about 40."
+      ],
+      "zh": [
+        "最早的是共线路段。西安至咸阳的咸阳机场高速 2003 年 9 月 29 日通车，西康高速 2009 年 5 月 28 日通车；百色一带今与 G80 共线的路段分别于 2005、2007 年通车。G69 自有路段的建设始于 2010 年代：南涪高速 2013 年通车，贵惠高速 2013 年 10 月 10 日，咸旬高速 2014 年 12 月 3 日，百靖高速 2014 年 12 月 16 日。贵州段于 2015 年完成：惠罗高速 8 月通车，道真至贵阳的 343 公里于 12 月 31 日通车；重庆万忠、丰忠高速于 2016 年 12 月 9 日通车，靖龙高速于 2018 年 12 月 19 日通车。",
+        "南北两端在 2020—2022 年相继建成：乐百高速 2020 年 1 月 8 日通车，黔桂两省接通；湫旬高速 10 月 22 日、宁东至甜水堡段 11 月 27 日通车；安康至岚皋段 2020 年 12 月 23 日通车；甘肃甜永高速 279.7 公里于 2021 年 7 月分段通车，最后的大桥与隧道于 2022 年 1 月 1 日开通。重庆城开高速 2017 年 3 月开工，2022 年 7 月起分段通车。",
+        "剩下的就是大巴山。2025 年 12 月 25 日，城开高速陕渝界至北屏段 7.6 公里与安岚高速岚皋至陕渝界段 41 公里同步通车，交通运输部宣布银百高速全线通车。城口至安康的车程由 140 分钟缩短到 40 分钟左右。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total has been published, but because so much of G69 was built recently the section figures are unusually complete, and large. The Gansu section, Tianshuibao–Yonghe, 303.6 km including its connector, was budgeted at ¥34.93 billion; Chengkou–Kaizhou, 128.5 km, cost about ¥23.46 billion, or about ¥180 million a kilometre; Leye–Baise ¥19.08 billion; Ankang–Langao, 88.6 km, ¥15.686 billion; Guiyang–Weng'an about ¥11.18 billion.",
+        "The financing varied. Gansu's section was paid for by the provincial Highway, Aviation and Tourism Investment Group. Ningdong–Tianshuibao was Ningxia's first expressway public–private partnership, one of the Ministry of Transport's first PPP pilots, built as build–operate–transfer with an engineering contract and a government subsidy; ¥6.203 billion had been invested by opening. For Leye–Baise the National Development and Reform Commission's 2015 approval set ¥4.905 billion of central vehicle-purchase-tax money as capital, 27.3% of the then estimate, with the rest from domestic bank loans."
+      ],
+      "zh": [
+        "全线没有公开的总造价，但由于大部分路段建得晚，分段数字相当齐全，而且数额很大。甘肃甜永段含连接线共 303.6 公里，概算总投资 349.30 亿元；城开高速 128.5 公里，总投资约 234.6 亿元，每公里约 1.8 亿元；乐百高速概算 190.8 亿元；安岚高速 88.6 公里，批复概算 156.86 亿元；贵瓮高速总投资约 111.81 亿元。",
+        "融资方式各不相同。甘肃段由甘肃省公路航空旅游投资集团出资建设。宁东至甜水堡段是宁夏首个高速公路 PPP 项目，属交通运输部第一批 PPP 试点，采用「BOT＋施工总承包＋政府补贴」模式，通车时累计完成投资 62.03 亿元。乐百高速 2015 年获国家发展改革委批复时，安排中央车购税资金 49.05 亿元作为资本金，约占当时估算总投资的 27.3%，其余利用国内银行贷款。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Most of the new mountain sections are designed for 80 km/h. Guizhou's transport department said in 2020 that, with Leye–Baise open, Guiyang to Baise took about four hours, nearly two less than by the Shantou–Kunming expressway."
+      ],
+      "zh": [
+        "新建的山区路段大多按时速 80 公里设计。贵州省交通运输厅 2020 年称，乐百高速通车后，贵阳至百色约需 4 小时，比经汕昆高速前往节省近 2 小时。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure is published. G69 was built by six provincial-level regions as separately financed projects, mostly between 2010 and 2025, and costs are reported per section; sourced figures are listed below.", "zh": "未公布全线总造价。G69 由六个省级行政区分项目筹资修建，大部分建于 2010 至 2025 年间，造价按路段公布；有来源的数字列于下方。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Section by section: Gansu by the provincial Highway, Aviation and Tourism Investment Group; Ningdong–Tianshuibao as a PPP (build–operate–transfer with engineering contract and government subsidy); Leye–Baise with ¥4.905 billion of central vehicle-purchase-tax capital and domestic bank loans. Other sections' financing not found.", "zh": "分段而言：甘肃段由甘肃省公路航空旅游投资集团出资；宁东至甜水堡段为 PPP 项目（BOT＋施工总承包＋政府补贴）；乐百高速以中央车购税资金 49.05 亿元为资本金，其余为国内银行贷款。其他路段的出资情况未查到。" },
+      "source": "China Gansu Net, 28 June 2021; China National Radio, 27 November 2020; National Development and Reform Commission, 发改基础〔2015〕3015号"
+    },
+    {
+      "label": { "en": "Tianshuibao–Yonghe, Gansu (303.6 km with connector, 2021–2022)", "zh": "甘肃甜水堡至永和段（含连接线 303.6 公里，2021—2022）" },
+      "value": { "en": "¥34.93 billion budgeted", "zh": "概算总投资 349.30 亿元" },
+      "source": "China Gansu Net, 28 June 2021"
+    },
+    {
+      "label": { "en": "Chengkou–Kaizhou, Chongqing (128.5 km, 2022–2025)", "zh": "重庆城口至开州段（128.5 公里，2022—2025）" },
+      "value": { "en": "About ¥23.46 billion", "zh": "总投资约 234.6 亿元" },
+      "source": "Chongqing Municipal Government, 25 December 2025"
+    },
+    {
+      "label": { "en": "Leye–Baise, Guangxi (about 170 km, 2017–2020)", "zh": "广西乐业至百色段（约 170 公里，2017—2020）" },
+      "value": { "en": "¥19.08 billion budgeted; ¥17.996 billion estimated at approval in 2015", "zh": "概算总投资 190.8 亿元；2015 年批复时估算 179.96 亿元" },
+      "source": "China News Service, 8 January 2020; National Development and Reform Commission, 2015"
+    },
+    {
+      "label": { "en": "Ankang–Langao to the Chongqing border (88.6 km, 2020–2025)", "zh": "安康至岚皋（陕渝界）段（88.6 公里，2020—2025）" },
+      "value": { "en": "¥15.686 billion approved, of which ¥7.353 billion for the 41 km Langao–border section", "zh": "批复概算 156.86 亿元，其中岚皋至陕渝界段 41 公里概算 73.53 亿元" },
+      "source": "Ankang Municipal Transport Bureau; Ankang Traffic Radio, 24 April 2025"
+    },
+    {
+      "label": { "en": "Ningdong–Tianshuibao, Ningxia (opened 2020)", "zh": "宁夏宁东至甜水堡段（2020 年通车）" },
+      "value": { "en": "¥6.203 billion invested by opening", "zh": "通车时累计完成固定资产投资 62.03 亿元" },
+      "source": "China National Radio, 27 November 2020"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "2,281 km; Chinese Wikipedia's chainage table gives 2,284 km", "zh": "2,281 公里；中文维基百科里程表作 2,284 公里" },
+      "source": "Ministry of Transport, 26 December 2025; Chinese Wikipedia, 银川—百色高速公路"
+    }
+  ],
+  "timeline": [
+    { "year": 2003, "en": "The Xianyang airport expressway, now shared with G69, opens on 29 September.", "zh": "9 月 29 日，今与 G69 共线的咸阳机场高速通车。" },
+    { "year": 2007, "en": "The Zhongnanshan Tunnel under the Qinling opens.", "zh": "穿越秦岭的终南山公路隧道通车。" },
+    { "year": 2009, "en": "The Xi'an–Ankang expressway opens on 28 May.", "zh": "5 月 28 日，西康高速通车。" },
+    { "year": 2014, "en": "Xianyang–Xunyi opens on 3 December and Baise–Jingxi on 16 December.", "zh": "12 月 3 日咸旬高速通车，12 月 16 日百靖高速通车。" },
+    { "year": 2015, "en": "Daozhen–Weng'an–Guiyang opens on 31 December, completing the Guizhou section.", "zh": "12 月 31 日，道瓮、贵瓮高速通车，贵州段全线贯通。" },
+    { "year": 2016, "en": "Wanzhou–Zhongxian and Fengdu–Zhongxian open on 9 December.", "zh": "12 月 9 日，万忠高速、丰忠高速通车。" },
+    { "year": 2018, "en": "Jingxi–Longbang, to the Vietnamese border, opens on 19 December.", "zh": "12 月 19 日，通往中越边境的靖龙高速通车。" },
+    { "year": 2020, "en": "Leye–Baise opens on 8 January; Ningdong–Tianshuibao on 27 November; Ankang–Langao on 23 December.", "zh": "1 月 8 日乐百高速通车；11 月 27 日宁东至甜水堡段通车；12 月 23 日安康至岚皋段通车。" },
+    { "year": 2022, "en": "The Gansu section is open throughout on 1 January; Chengkou–Kaizhou begins opening in stages on 30 July.", "zh": "1 月 1 日，甘肃甜永段全线通车；7 月 30 日起，城开高速分段通车。" },
+    { "year": 2025, "en": "The Daba Mountain sections open on 25 December and G69 is complete.", "zh": "12 月 25 日，大巴山路段通车，银百高速全线通车。" }
+  ]
+}

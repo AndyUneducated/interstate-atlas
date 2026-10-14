@@ -1,0 +1,113 @@
+{
+  "id": "cn-g78",
+  "route": { "sys": "cn-expressway", "num": "G78" },
+  "name": { "en": "Shantou–Kunming Expressway", "zh": "汕头—昆明高速公路" },
+  "aka": [
+    { "en": "Shankun Expressway", "zh": "汕昆高速" },
+    { "en": "Longchuan–Huaiji Expressway (northern Guangdong)", "zh": "龙怀高速公路（粤北段）" }
+  ],
+  "tagline": { "en": "The first east–west expressway across northern Guangdong, then on through the karst of Guangxi to Kunming — its last link a road abandoned half-built by its investor", "zh": "粤北第一条东西向高速公路，再穿桂西喀斯特山地直抵昆明——最后接通的一段，曾被投资方修到一半弃置" },
+  "termini": {
+    "start": { "at": [116.73, 23.45], "en": "Jinzhou interchange with G15 Shenyang–Haikou Expressway, Longhu District, Shantou, Guangdong — kilometre 0", "zh": "广东省汕头市龙湖区金洲立交，接 G15 沈海高速——零公里点" },
+    "end": { "at": [102.75, 25.02], "en": "Fuhai, on Kunming's West Second Ring Road, Xishan District, Yunnan, where it ends together with G80 Guangzhou–Kunming", "zh": "云南省昆明市西山区福海，接昆明西二环，与 G80 广昆高速同一终点" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G78 runs west from Shantou through Jieyang, Fengshun and Meizhou, then across the whole of northern Guangdong — Xingning, Longchuan, Lianping, Wengyuan, Yingde, Yangshan — to Huaiji and the Guangxi border. In Guangxi it passes Hezhou, Pingle, Yangshuo and Lipu to Liuzhou, then Yizhou, Hechi, Donglan, Bama and Baise, and Longlin at the Guizhou border; it crosses the south-western corner of Guizhou by Anlong and Xingyi, and enters Yunnan at Luoping, running by Shizong and Luliang to Shilin and Kunming.",
+        "Chinese Wikipedia gives 1,867 km on the chainage: 625 km in Guangdong, 870 in Guangxi, 100 in Guizhou and 272 in Yunnan. Long stretches are shared: with G25 Changchun–Shenzhen from Xingning to Longchuan, with G65 Baotou–Maoming from Zhongshan county by Pingle to Yangshuo, with G72 Quanzhou–Nanning near Liuzhou, with G75 Lanzhou–Haikou at Hechi, with G69 Yinchuan–Baise at Baise, and with G80 Guangzhou–Kunming for the last 92 km from Shilin into Kunming. Chinese Wikipedia notes that, as of 2022, it was the only east–west main line in the national plan with no spur or parallel route of its own."
+      ],
+      "zh": [
+        "G78 自汕头向西，经揭阳、丰顺、梅州，再横贯整个粤北——兴宁、龙川、连平、翁源、英德、阳山——至怀集和粤桂界。广西境内经贺州、平乐、阳朔、荔浦至柳州，再经宜州、河池、东兰、巴马、百色，至桂黔界的隆林；经安龙、兴义穿过贵州西南一角，在罗平进入云南，经师宗、陆良至石林、昆明。",
+        "据中文维基百科，按里程桩号全长 1,867 公里：广东 625 公里、广西 870 公里、贵州 100 公里、云南 272 公里。多段与其他线路共线：兴宁至龙川与 G25 长深高速共线，钟山经平乐至阳朔与 G65 包茂高速共线，柳州附近与 G72 泉南高速共线，河池与 G75 兰海高速共线，百色与 G69 银百高速共线，石林至昆明最后 92 公里与 G80 广昆高速共线。中文维基百科指出，截至 2022 年，它是国家公路网规划中唯一没有同步分配联络线和并行线的东西横线主线。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Longchuan–Huaiji section in northern Guangdong is about 365 km of four-lane road for 100 km/h, through the Niululing tunnel, and was the longest and most expensive expressway project Guangdong had approved in a single scheme. In Guizhou, the 129.6 km Banba–Jiangdi section was built for 80 km/h on a 24.5 m roadbed, splitting into separate 12.25 m carriageways where the ground demands it.",
+        "The Hechi–Baise section, 179.2 km through the karst of north-western Guangxi, is the hardest. It was built for 80 km/h with 105 bridges and 31 twin-bore tunnels totalling 37.5 km; Chinese Wikipedia puts bridges and tunnels at 36% of the main line, a record for a Guangxi road at the time. The slopes have given trouble since: on 27 May 2019 a landslide of about 2,000 cubic metres at the Jindong tunnel cut the road for 19 hours."
+      ],
+      "zh": [
+        "粤北的龙川至怀集段约 365 公里，双向四车道，设计时速 100 公里，经牛路岭隧道，是广东高速公路建设史上单次立项里程最长、投资最大的项目。贵州境内板坝至江底段 129.6 公里，设计时速 80 公里，整体式路基宽 24.5 米，地形需要处分离为两幅各 12.25 米。",
+        "最难的是广西西北喀斯特山区的河池至百色段，主线 179.2 公里，设计时速 80 公里，设桥梁 105 座、双洞隧道 31 座，隧道总长 37.5 公里；据中文维基百科，桥隧比约 36%，创当时广西公路之最。此后边坡问题不断：2019 年 5 月 27 日，金洞隧道附近约 2,000 立方米边坡塌方，交通中断 19 小时。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "G78 is a creation of the national expressway plan rather than a successor to an old trunk line, and it was filled in from the middle outwards. Guizhou's Banba–Jiangdi section opened on 31 December 2011. In Guangdong the National Development and Reform Commission approved the Longchuan–Huaiji section in December 2014; its eastern part, Longchuan–Lianping, opened on 28 December 2017, and the rest on 28 December 2018, which the Guangdong press described as completing the provincial section and giving northern Guangdong its first east–west expressway. In Yunnan, the Jiangdi–Zhaokua section from the Guizhou border opened on 1 February 2018, and in Guangxi Hechi–Baise opened on 28 November 2018, bringing expressways to Donglan, Bama and Fengshan for the first time.",
+        "The last piece was Yangshuo–Luzhai, 86.9 km linking the Guilin–Wuzhou and Guilin–Liuzhou roads. Begun around 2009–2010 as Guangxi's first expressway built with foreign investment, it stalled when the investor's money ran out in 2013, and work stopped completely in August 2014, leaving piers and culverts and large unpaid bills. In March 2018 the regional government handed it to Guangxi Communications Investment Group, which reopened the site on 9 March 2018 and opened the road on 30 July 2019, completing G78 in Guangxi. Chinese Wikipedia gives that date as the route's most recent opening."
+      ],
+      "zh": [
+        "G78 是国家高速公路网规划新设的线路，并非由旧国道主干线演变而来，修建顺序是从中间向两头。贵州板坝至江底段 2011 年 12 月 31 日通车。广东方面，国家发展改革委于 2014 年 12 月批复龙川至怀集段；其东段龙川至连平 2017 年 12 月 28 日通车，其余路段 2018 年 12 月 28 日通车，广东媒体称汕昆高速广东段由此全线贯通，粤北有了第一条东西向高速公路。云南境内，自滇黔界起的江底至召夸段 2018 年 2 月 1 日通车；广西河池至百色段 2018 年 11 月 28 日通车，东兰、巴马、凤山三县自此结束不通高速的历史。",
+        "最后一段是连接桂梧、桂柳两条高速的阳朔至鹿寨段，全长 86.9 公里。它约在 2009—2010 年开工，是广西首个由境外企业投资建设的高速公路项目；2013 年投资方资金链断裂，2014 年 8 月全面停工，只留下桥墩、涵洞和大量拖欠的工程款。2018 年 3 月，自治区政府决定由广西交通投资集团接手，3 月 9 日复工，2019 年 7 月 30 日建成通车，汕昆高速广西段全线贯通。中文维基百科将这一天列为该路最近一次通车日期。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total has been published. The largest single figure is for Longchuan–Huaiji: the Commission's approval put it at about ¥40.18 billion, with ¥16.072 billion of capital — ¥3.953 billion from the central vehicle-purchase-tax fund and ¥12.119 billion of Guangdong provincial money — and the remaining ¥24.108 billion from domestic bank loans. It is the only section of G78 for which a full funding breakdown has been found.",
+        "Elsewhere there are costs but little on who paid. Banba–Jiangdi cost ¥9.23 billion; Hechi–Baise, built by Guangxi Communications Investment Group, is given by Chinese Wikipedia as ¥15.79 billion budgeted and in a 2026 report on its completion acceptance as ¥17.35 billion. In Yunnan, the provincial transport department's 2014 preliminary estimate for a 148 km rebuilt Jiangdi–Shilin road was ¥13 billion, about ¥100 million a kilometre."
+      ],
+      "zh": [
+        "全线没有公开的总造价。最大的单项数字属于龙川至怀集段：国家发展改革委批复估算总投资约 401.8 亿元，其中项目资本金 160.72 亿元——中央车购税专项资金 39.53 亿元、广东省财政性资金 121.19 亿元——其余 241.08 亿元利用国内银行贷款。这是 G78 唯一查到完整资金构成的路段。",
+        "其余路段有造价、少有出资方信息。板坝至江底段总投资 92.3 亿元；广西交通投资集团建设的河池至百色段，中文维基百科作概算 157.9 亿元，2026 年竣工验收报道作批复概算 173.5 亿元。云南方面，省交通运输厅 2014 年对改建后 148 公里的江底至石林段初步估算投资 130 亿元，平均每公里约 1 亿元。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Hong Kong and Macau cross-border vehicles heading west must leave the road at Liangcun in Huaiji, short of the Guangxi border, under a Guangdong public security notice of 2020. Hechi–Baise is designed for 80 km/h with long tunnel sequences; Longchuan–Huaiji cut the drive from Longchuan to Huaiji from about six or seven hours to around three and a half."
+      ],
+      "zh": [
+        "根据广东省公安厅 2020 年的通告，西行的港澳入境车辆须在怀集梁村驶出，不得继续驶往广西。河池至百色段设计时速 80 公里，隧道连续成群；龙怀高速通车后，龙川至怀集的车程由约六七个小时缩短到三个半小时左右。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure is published. G78 was built by four provinces as separately approved and financed sections, mostly between 2009 and 2019; sourced section costs are listed below.", "zh": "未公布全线总造价。G78 由四省区分段立项、分段筹资，主要建于 2009 至 2019 年间；有来源的分段造价列于下方。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Longchuan–Huaiji: 40% capital (¥3.953 billion central vehicle-purchase-tax fund, ¥12.119 billion Guangdong provincial funds), 60% domestic bank loans. Hechi–Baise and the completion of Yangshuo–Luzhai: Guangxi Communications Investment Group. Other sections: not found.", "zh": "龙怀段：资本金约占 40%（中央车购税专项资金 39.53 亿元、广东省财政性资金 121.19 亿元），其余约 60% 为国内银行贷款。河百段及阳鹿段复工建设：广西交通投资集团。其余路段：未查到。" },
+      "source": "National Development and Reform Commission, 发改基础〔2014〕2203号; Guangxi Communications Investment Group, July 2019; Guangxi News, 31 July 2019"
+    },
+    {
+      "label": { "en": "Longchuan–Huaiji section (about 365 km, 2014–2018)", "zh": "龙川至怀集段（约 365 公里，2014—2018）" },
+      "value": { "en": "About ¥40.18 billion estimated (static ¥37.02 billion); reported in 2017 as about ¥40.2 billion. Yingde–Huaiji part, 89 km: about ¥5.33 billion", "zh": "估算总投资约 401.8 亿元（静态投资 370.2 亿元）；2017 年报道约 402 亿元。其中英德至怀集段 89 公里约 53.3 亿元" },
+      "source": "National Development and Reform Commission, 发改基础〔2014〕2203号; China Transport News via rmjtxw.com, 5 September 2017; The Paper, 29 December 2018"
+    },
+    {
+      "label": { "en": "Banba–Jiangdi section, Guizhou (129.6 km, opened 2011)", "zh": "贵州板坝至江底段（129.6 公里，2011 年通车）" },
+      "value": { "en": "¥9.23 billion total investment", "zh": "总投资 92.3 亿元" },
+      "source": "Xinhua, 31 December 2011, archived, as cited in Chinese Wikipedia, 汕头—昆明高速公路"
+    },
+    {
+      "label": { "en": "Hechi–Baise section (179.2 km, 2014–2018)", "zh": "河池至百色段（179.2 公里，2014—2018）" },
+      "value": { "en": "Reported as ¥15.79 billion budgeted (Chinese Wikipedia) and as ¥17.35 billion approved budget (2026 report on completion acceptance); the two have not been reconciled", "zh": "中文维基百科作概算 157.9 亿元，2026 年竣工验收报道作批复概算 173.5 亿元；两者口径未能核对" },
+      "source": "Chinese Wikipedia, 河池—百色高速公路; Toutiao report of the Ministry of Transport completion acceptance, 16 June 2026"
+    },
+    {
+      "label": { "en": "Jiangdi–Shilin, Yunnan (preliminary estimate, 2014)", "zh": "云南江底至石林段（2014 年初步估算）" },
+      "value": { "en": "About ¥13 billion for a 148.5 km rebuilt road; a planning estimate, not an outturn", "zh": "改建后 148.5 公里初步估算投资 130 亿元；为前期估算，非决算" },
+      "source": "Yunnan Provincial Department of Transport, 27 June 2014, archived"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "1,867 km on the chainage (Chinese Wikipedia); English Wikipedia gives 1,882 km", "zh": "按里程桩号 1,867 公里（中文维基百科）；英文维基百科作 1,882 公里" },
+      "source": "Chinese Wikipedia, 汕头—昆明高速公路; English Wikipedia, G78 Shantou–Kunming Expressway"
+    }
+  ],
+  "timeline": [
+    { "year": 2011, "en": "Banba–Jiangdi in Guizhou opens on 31 December.", "zh": "12 月 31 日，贵州板坝至江底段通车。" },
+    { "year": 2014, "en": "Work on Hechi–Baise begins on 26 September; Yangshuo–Luzhai stops completely in August; the Longchuan–Huaiji section is approved in December.", "zh": "8 月，阳鹿高速全面停工；9 月 26 日，河百高速开工；12 月，龙怀高速获国家发展改革委批复。" },
+    { "year": 2015, "en": "Work on Jiangdi–Zhaokua in Yunnan begins in April.", "zh": "4 月，云南江底至召夸段开工。" },
+    { "year": 2017, "en": "Longchuan–Lianping opens on 28 December.", "zh": "12 月 28 日，龙川至连平段通车。" },
+    { "year": 2018, "en": "Jiangdi–Zhaokua opens on 1 February; Yangshuo–Luzhai resumes on 9 March; Hechi–Baise opens on 28 November; Lianping–Huaiji opens on 28 December, completing the Guangdong section.", "zh": "2 月 1 日，江召段通车；3 月 9 日，阳鹿高速复工；11 月 28 日，河百高速通车；12 月 28 日，连平至怀集段通车，广东段全线贯通。" },
+    { "year": 2019, "en": "A landslide at the Jindong tunnel closes Hechi–Baise for 19 hours on 27 May; Yangshuo–Luzhai opens on 30 July, completing the Guangxi section.", "zh": "5 月 27 日，金洞隧道边坡塌方，河百段中断 19 小时；7 月 30 日，阳鹿高速通车，广西段全线贯通。" }
+  ]
+}

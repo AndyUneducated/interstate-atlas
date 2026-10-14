@@ -1,0 +1,101 @@
+{
+  "id": "cn-g36",
+  "route": { "sys": "cn-expressway", "num": "G36" },
+  "name": { "en": "Nanjing–Luoyang Expressway", "zh": "宁洛高速公路" },
+  "tagline": { "en": "From Nanjing over the Yangtze and the Huai, straight across the plain of northern Anhui and Henan to Luoyang", "zh": "自南京跨长江、过淮河，横穿皖北与豫中平原直达洛阳" },
+  "completedYear": 2006,
+  "termini": {
+    "start": { "at": [118.9, 32.06], "en": "The Maqun interchange with G42 on the eastern edge of Nanjing, in Qixia district", "zh": "江苏省南京市栖霞区马群枢纽，与 G42 相接" },
+    "end": { "at": [112.4, 34.7], "en": "Renzhuang, Mengjin district, north-west of Luoyang, at the junction with G30", "zh": "河南省洛阳市孟津区任庄，与 G30 连霍高速相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G36 runs north-west from Nanjing to Luoyang, 761 km on the chainage and in the 2022 plan, and it is short for an east–west national line: a near-straight diagonal across the plain between the Yangtze and the Yellow River. From the Maqun interchange it crosses the Yangtze at Baguazhou, runs briefly with G40 at Luhe, and enters Anhui over the Chu River. In Anhui it passes Chuzhou, Mingguang and Fengyang, with an exit for Xiaogang village, crosses the Huai River and goes by Bengbu, Huaiyuan, Mengcheng, Lixin, Taihe and Jieshou. In Henan it continues through Shenqiu, Xiangcheng, Zhoukou, Luohe, Wuyang, Ye county, Pingdingshan and Ruzhou, shares the road with G55 from Ruyang to Yichuan, and ends on the north-west side of Luoyang.",
+        "By the chainage, Jiangsu has 39 km, Anhui 349 and Henan 373. It meets four of the main north–south lines on the way — G3 near Bengbu, G45 near Zhoukou, G4 at Luohe and G55 at Ruyang — and links the Nanjing area with the Central Plains without passing through either Hefei or Zhengzhou."
+      ],
+      "zh": [
+        "G36 自南京向西北通往洛阳，按里程桩号及 2022 年规划全长 761 公里，在东西横线中算是短的：它是一条斜穿长江与黄河之间平原、几乎笔直的对角线。自马群枢纽起，经八卦洲跨长江，在六合与 G40 短暂共线，越滁河进入安徽。安徽境内经滁州、明光、凤阳，设有小岗村出入口，跨淮河经蚌埠、怀远、蒙城、利辛、太和、界首。河南境内续经沈丘、项城、周口、漯河、舞阳、叶县、平顶山、汝州，自汝阳至伊川与 G55 共线，止于洛阳西北。",
+        "按里程桩号，江苏段 39 公里、安徽段 349 公里、河南段 373 公里。沿途与四条主要纵线相交——蚌埠附近的 G3、周口附近的 G45、漯河的 G4、汝阳的 G55——不经过合肥或郑州，就把南京地区与中原连了起来。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The largest structure is the first. The Baguazhou Yangtze bridge, opened in 2001 as the Nanjing Second Yangtze Bridge and renamed in 2019, is a 21.337 km project with two bridges over the two channels either side of Baguazhou island. The southern bridge is a steel-box-girder cable-stayed bridge with a 628-metre main span, at its opening the third longest of its kind in the world after the Tatara bridge in Japan and the Pont de Normandie; the northern one is a prestressed-concrete continuous box-girder bridge about 2.2 km long. The whole crossing is six lanes on a 32-metre deck.",
+        "West of the river the road is a plains expressway; the Anhui sections were built as four lanes for 120 km/h, with the Huai River bridge in Fengyang as the main crossing. The Jieshou–Fuyang–Bengbu section was laid in concrete, which was replaced with asphalt from 2009. The Chuzhou sections are now being rebuilt to eight lanes: Lai'an to Mingguang, 72.275 km, was widened on both sides between August 2022 and December 2024, and Mingguang to Bengbu, 80.9 km, passed handover inspection at the same time."
+      ],
+      "zh": [
+        "最大的结构物就在起点。八卦洲长江大桥原名南京长江第二大桥，2001 年通车，2019 年更名，全线长 21.337 公里，由八卦洲两侧南、北两汊的两座大桥组成。南汊桥为钢箱梁斜拉桥，主跨 628 米，建成时仅次于日本多多罗大桥和法国诺曼底大桥，居世界同类桥梁第三；北汊桥为长约 2.2 公里的预应力混凝土连续箱梁桥。全线为六车道，桥面宽 32 米。",
+        "过江以西是平原高速公路；安徽各段按四车道、设计时速 120 公里修建，主要跨河工程为凤阳境内的淮河特大桥。界阜蚌段原为水泥路面，2009 年起改为沥青路面。滁州境内各段正在改扩建为八车道：来安至明光段 72.275 公里于 2022 年 8 月至 2024 年 12 月以两侧拼宽方式扩建完成，明光至蚌埠段 80.9 公里同时通过交工验收。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Like most mainland expressways, G36 was assembled from provincial projects. The Nanjing bridge was begun on 6 October 1997 and opened on 26 March 2001. In Anhui the Jieshou–Fuyang–Bengbu expressway, the first in north-west Anhui, opened in three phases from 16 April 2001; in Henan the 125.1 km Luohe–Zhoukou–Jieshou expressway, begun in January 1999, opened on 26 December 2002 and gave Zhoukou its first expressway. Bengbu–Mingguang opened on 28 December 2005.",
+        "The last gaps were at the eastern end: the Chuzhou–Nanjing section in Anhui and the short Jiangsu link from the bridge to the provincial boundary both opened on 30 September 2006, completing the road. It had been numbered G36 in the national expressway plan of January 2005, in which east–west lines take even numbers counted from north to south; it sits between G30, the Lianyungang–Khorgas line, and G40.",
+        "Less than twenty years on, the four-lane road is being widened from the east: the Chuzhou sections reopened at eight lanes at the end of 2024."
+      ],
+      "zh": [
+        "与大多数中国大陆高速公路一样，G36 由各省项目拼接而成。南京二桥于 1997 年 10 月 6 日开工，2001 年 3 月 26 日通车。安徽境内皖西北首条高速公路界阜蚌高速自 2001 年 4 月 16 日起分三期通车；河南境内 125.1 公里的漯周界高速 1999 年 1 月动工，2002 年 12 月 26 日通车，结束了周口没有高速公路的历史。蚌明段于 2005 年 12 月 28 日通车。",
+        "最后的缺口在东端：安徽滁宁段与江苏境内自大桥至省界的短途接线于 2006 年 9 月 30 日同时通车，全线贯通。此前，2005 年 1 月公布的国家高速公路网规划已将其编为 G36——东西横线取偶数，自北向南编号，它位于连霍线 G30 与 G40 之间。",
+        "通车不到二十年，这条四车道公路已开始自东端扩建：滁州境内各段于 2024 年底以八车道重新通车。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost for the whole road has been published; each province financed and accounts for its own sections. The figures that are public are for pieces: 3.3 billion yuan for the Luohe–Zhoukou–Jieshou expressway in Henan (1999–2002), and 3.35 billion for the Nanjing bridge, which was built as a joint venture between the Nanjing municipal government and a Malaysian company recorded in Chinese as 成功集团.",
+        "The widening is now the large cost. Lai'an–Mingguang was budgeted at 6.216 billion yuan, and Mingguang–Bengbu was estimated at its feasibility stage at about 8.024 billion. The road is tolled throughout, the bridge separately."
+      ],
+      "zh": [
+        "全线总造价没有公开数字，各省分别筹资、分别核算。公开的都是分段数字：河南漯周界高速 33 亿元（1999—2002）；南京二桥 33.5 亿元，由南京市人民政府与马来西亚成功集团合资兴建。",
+        "如今的大笔开支在于改扩建：来安至明光段概算总投资 62.16 亿元，明光至蚌埠段在可行性研究阶段估算约 80.24 亿元。全线收费，大桥另行收费。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published. G36 was built by Jiangsu, Anhui and Henan as separately financed projects between 1997 and 2006, each accounted for on its own; sourced section figures are given below.", "zh": "全线没有公开的总造价。G36 由江苏、安徽、河南三省在 1997 至 2006 年间分项目分别筹资建设、分别核算；下列为有来源的分段数字。" }
+    },
+    {
+      "label": { "en": "Nanjing Second (Baguazhou) Yangtze Bridge", "zh": "南京长江第二大桥（八卦洲长江大桥）" },
+      "value": { "en": "3.35 billion yuan for the 21.337 km crossing, according to the bridge company; the same article elsewhere gives 3.2 billion (1997–2001)", "zh": "据大桥公司资料，21.337 公里全线总投资 33.5 亿元；同一条目另处作 32 亿元（1997—2001）" },
+      "source": "Nanjing Yangtze River Second Bridge Co., 工程简介, archived, as cited in Chinese Wikipedia, 南京八卦洲长江大桥"
+    },
+    {
+      "label": { "en": "Luohe–Zhoukou–Jieshou section (Henan)", "zh": "漯周界段（河南）" },
+      "value": { "en": "3.3 billion yuan for 125.1 km (1999–2002)", "zh": "125.1 公里总投资 33 亿元（1999—2002）" },
+      "source": "Zhoukou Evening News (周口晚报), 车流奔腾入我怀, 22 December 2008"
+    },
+    {
+      "label": { "en": "Chuzhou widening, 2022–2024", "zh": "滁州段改扩建（2022—2024）" },
+      "value": { "en": "Lai'an–Mingguang, 72.275 km, four lanes to eight: 6.216 billion yuan budgeted. Mingguang–Bengbu, 80.9 km: about 8.024 billion, a feasibility-stage estimate.", "zh": "来安至明光段 72.275 公里四改八，概算总投资 62.16 亿元；明光至蚌埠段 80.9 公里约 80.24 亿元，为可行性研究阶段估算。" },
+      "source": "Anhui Daily, 2 January 2025, via People's Daily Online; Huaishang District Government, Bengbu, social stability risk notice for the Mingguang–Bengbu widening"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The three provinces, each building and tolling its own sections, repaid from tolls; the Nanjing bridge as a joint venture of the Nanjing municipal government and a Malaysian company recorded in Chinese as 成功集团.", "zh": "沿线三省分别建设、分别收费，以通行费还贷；南京二桥由南京市人民政府与马来西亚成功集团合资兴建。" },
+      "source": "Chinese Wikipedia, 南京八卦洲长江大桥 and 南京－洛阳高速公路"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "761 km on the chainage and in the 2022 plan", "zh": "按里程桩号及 2022 年规划为 761 公里" },
+      "source": "Chinese Wikipedia, 南京－洛阳高速公路 and 中华人民共和国国家高速公路网"
+    }
+  ],
+  "timeline": [
+    { "year": 1997, "en": "Work on the Nanjing Second Yangtze Bridge begins on 6 October.", "zh": "10 月 6 日，南京长江第二大桥开工。" },
+    { "year": 1999, "en": "Work on the Luohe–Zhoukou–Jieshou expressway begins in January.", "zh": "1 月，漯周界高速公路开工。" },
+    { "year": 2001, "en": "The bridge opens on 26 March; the first phase of Jieshou–Fuyang–Bengbu opens on 16 April.", "zh": "3 月 26 日，南京二桥通车；4 月 16 日，界阜蚌高速一期通车。" },
+    { "year": 2002, "en": "Luohe–Zhoukou–Jieshou opens on 26 December.", "zh": "12 月 26 日，漯周界高速全线通车。" },
+    { "year": 2005, "en": "The national plan numbers the line G36 in January; Bengbu–Mingguang opens on 28 December.", "zh": "1 月，国家高速公路网规划将本线编为 G36；12 月 28 日，蚌明段通车。" },
+    { "year": 2006, "en": "Chuzhou–Nanjing and the Jiangsu link open on 30 September, completing the road.", "zh": "9 月 30 日，滁宁段与江苏段通车，全线贯通。" },
+    { "year": 2019, "en": "The Nanjing Second Yangtze Bridge is renamed the Baguazhou Yangtze bridge on 20 December.", "zh": "12 月 20 日，南京长江第二大桥更名为八卦洲长江大桥。" },
+    { "year": 2022, "en": "Widening of Lai'an–Mingguang to eight lanes begins in August.", "zh": "8 月，来安至明光段四改八工程开工。" },
+    { "year": 2024, "en": "Lai'an–Mingguang reopens at eight lanes on 28 December; Mingguang–Bengbu passes handover inspection.", "zh": "12 月 28 日，来安至明光段八车道建成通车，明光至蚌埠段通过交工验收。" }
+  ]
+}

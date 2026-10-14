@@ -1,0 +1,125 @@
+{
+  "id": "cn-g56",
+  "route": { "sys": "cn-expressway", "num": "G56" },
+  "name": { "en": "Hangzhou–Ruili Expressway", "zh": "杭州—瑞丽高速公路" },
+  "aka": [
+    { "en": "Hangrui Expressway", "zh": "杭瑞高速" },
+    { "en": "Hangzhou–Huangshan Expressway (Hangzhou to Tunxi)", "zh": "杭徽高速公路（杭州至屯溪段）" },
+    { "en": "Longling–Ruili Expressway (the western end)", "zh": "龙瑞高速公路（西端）" }
+  ],
+  "tagline": { "en": "From West Lake to the Burmese border, across Dongting Lake on a 1,480 m span and the Nizhu gorge 565 m up", "zh": "从西湖畔到中缅边境，以 1,480 米主跨越洞庭湖，在 565 米高处跨过尼珠河峡谷" },
+  "termini": {
+    "start": { "at": [120.05, 30.25], "en": "Liuxia interchange on the Hangzhou ring expressway, Xihu District, Hangzhou — kilometre 0", "zh": "杭州市西湖区留下枢纽，接杭州绕城高速——零公里处" },
+    "end": { "at": [97.83, 24.02], "en": "Ruili West toll station, Ruili, Dehong, Yunnan, near the border with Myanmar — kilometre 2,953", "zh": "云南省德宏州瑞丽市瑞丽西收费站，邻近中缅边境——2,953 公里处" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G56 is one of the national east–west expressways, running from the east coast to the south-western border. From Hangzhou it climbs west through Lin'an and over the Yuling Pass into Anhui at Shexian and Tunxi (Huangshan), crosses Wuyuan and Jingdezhen in Jiangxi, the head of Poyang Lake between Duchang and Xingzi, and Jiujiang and Ruichang; in Hubei it passes Yangxin, Tongshan, Chongyang and Tongcheng. In Hunan it crosses the outlet of Dongting Lake at Yueyang and runs by Huarong, Anxiang, Changde, Taoyuan, Yuanling, Jishou and Fenghuang; in Guizhou by Tongren, Jiangkou, Yinjiang, Sinan, Meitan, Zunyi, Jinsha, Bijie and Liupanshui; and in Yunnan by Xuanwei, Qujing, Kunming, Chuxiong, Dali, Baoshan, Longling and Mangshi to Ruili.",
+        "Chinese Wikipedia's chainage table gives 2,953 km; English Wikipedia gives 2,935. From Kunming to Ruili it is part of Asian Highway 14 and often follows the line of the wartime Burma Road. It shares its carriageway with G3 around Tunxi, G70 near Jiujiang, G65 between Jishou and Fenghuang, G76 near Bijie, and G60 from Malong in Qujing to Kunming.",
+        "Through Kunming itself the road is not continuous. Between 2019 and 2024 G56 was signed round the city on the Kunming east and south link expressways; when Yunnan's new provincial road plan of May 2024 renumbered those S4212 and S4213, the urban Kunming–Qujing and Kunming–Anning roads returned to G56, with city streets between them."
+      ],
+      "zh": [
+        "杭瑞高速是国家高速公路网的东西横线之一，自东部沿海一直通到西南边境。它出杭州向西，经临安、翻昱岭关入安徽歙县、屯溪（黄山）；在江西经婺源、景德镇，在都昌至星子间跨过鄱阳湖湖口，再经九江、瑞昌；在湖北经阳新、通山、崇阳、通城。在湖南于岳阳跨越洞庭湖出口，经华容、安乡、常德、桃源、沅陵、吉首、凤凰；在贵州经铜仁、江口、印江、思南、湄潭、遵义、金沙、毕节、六盘水；在云南经宣威、曲靖、昆明、楚雄、大理、保山、龙陵、芒市，终至瑞丽。",
+        "按中文维基百科的里程表，全线 2,953 公里；英文维基百科作 2,935 公里。昆明至瑞丽段属亚洲公路 14 号线，走向多与抗战时期的滇缅公路相近。沿途与 G3 京台高速在屯溪附近、G70 福银高速在九江附近、G65 包茂高速在吉首至凤凰间、G76 厦蓉高速在毕节附近、G60 沪昆高速自曲靖马龙至昆明共线。",
+        "在昆明城内，这条路并不连续。2019 至 2024 年间，G56 改经昆明东连接线和昆明南连接线绕城而过；2024 年 5 月新版《云南省公路网规划》将两条连接线改编为 S4212 和 S4213，穿城的昆曲高速与昆安高速重新划回 G56 主线，两者之间则是城市道路。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Beipanjiang First Bridge, also called the Duge or Nizhu River bridge, carries G56 across the Nizhu River gorge on the Guizhou–Yunnan boundary. It is a cable-stayed bridge 1,341.4 m long with a 720 m main span on a continuous steel truss — the longest of that type in the world — and two towers of 269 m and 246.5 m. Its deck stands 565.4 m above the valley floor, which made it the highest bridge in the world when it opened on 29 December 2016; Guinness World Records certified it in 2018. The two provinces disputed the name: Yunnan's Qujing city agreed in 2016 to call it the Nizhu River Bridge, Guizhou's builders refused.",
+        "The Dongting Lake Bridge at Yueyang, on the Linxiang–Yueyang section where the lake drains into the Yangtze, is a steel-truss suspension bridge 2,390 m long with a 1,480 m main span and towers of 206 and 203 m, carrying six lanes at 100 km/h. Hunan's state-owned assets commission described the span as first in China and second in the world among steel-truss stiffened suspension bridges.",
+        "At the western end the Longling–Ruili section, 128.4 km at 80 km/h, comes down from the southern spurs of the Gaoligong Mountains to the Mangshi basin, about 700 m lower and 15 km away in a straight line, by looping viaducts and tunnels. It has 9 extra-large bridges totalling 7,576 m, 91 large bridges totalling 46,168 m and 15 tunnels totalling 13,142 m."
+      ],
+      "zh": [
+        "北盘江第一桥，又称都格北盘江大桥、尼珠河大桥，把 G56 送过黔滇两省交界处的尼珠河峡谷。大桥为斜拉桥，全长 1,341.4 米，主跨 720 米，采用连续钢桁梁，是世界上主跨最长的同类桥梁；两座索塔分别高 269 米和 246.5 米。桥面距谷底 565.4 米，2016 年 12 月 29 日通车时是世界上桥面最高的桥梁，2018 年获吉尼斯世界纪录认证。两省为桥名起过争执：2016 年云南曲靖方面同意更名为「尼珠河大桥」，贵州建设方则表示不可能更名。",
+        "岳阳的洞庭湖大桥位于洞庭湖汇入长江的咽喉处，属临湘至岳阳段，是一座钢桁加劲梁悬索桥，全长 2,390 米，主跨 1,480 米，索塔高 206 米和 203 米，双向六车道，设计时速 100 公里。湖南省国资委称其主跨在钢桁加劲梁悬索桥中居国内第一、世界第二。",
+        "西端的龙瑞段全长 128.4 公里，设计时速 80 公里，从高黎贡山南脉下到芒市坝子——两地海拔相差约 700 米，直线距离仅 15 公里——靠盘旋的高架桥和隧道降下高差。全线有特大桥 9 座共 7,576 米、大桥 91 座共 46,168 米、隧道 15 座共 13,142 米。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The oldest piece is in Yunnan. The Chuxiong–Dali expressway, 179 km, was begun on 8 November 1995 and complete in May 1999 — the first expressway in Yunnan built with foreign investment. At the eastern end, the Anhui part of the Hangzhou–Huangshan road opened on 18 October 2004 and the Zhejiang part on 25 December 2006, completing 230 km from Hangzhou to Tunxi.",
+        "Most of the rest was built in the 2010s. In Hunan, Changde–Jishou opened on 18 December 2008 and Yueyang–Changde on 30 December 2013; in Guizhou, Bijie–Zunyi on 31 December 2012 and Dalong–Sinan on 5 December 2013. The last 128 km in Yunnan, Longling–Ruili, opened in stages through 2015, the final stretch on 31 December. Bijie–Duge in Guizhou, with the Beipanjiang bridge, followed on 29 December 2016.",
+        "The Dongting Lake Bridge opened on 1 February 2018, and Hunan's transport department and the state-owned assets commission announced that G56 was complete from end to end. That was not quite the last work on it: the second Poyang Lake bridge on the Duchang–Jiujiang section opened on 28 June 2019, and the Kunming renumbering of 2024 left the route broken again in the city."
+      ],
+      "zh": [
+        "最早的一段在云南。全长 179 公里的楚大高速 1995 年 11 月 8 日开工，1999 年 5 月全线建成，是云南首条引进外资修建的高速公路。东端的杭徽高速，安徽段于 2004 年 10 月 18 日通车，浙江段于 2006 年 12 月 25 日全线通车，杭州至屯溪 230 公里由此贯通。",
+        "其余大部分建于 2010 年代。湖南常吉段 2008 年 12 月 18 日通车，岳常段 2013 年 12 月 30 日通车；贵州毕遵段 2012 年 12 月 31 日通车，大思段 2013 年 12 月 5 日通车。云南最西端的 128 公里龙瑞段于 2015 年分段通车，最后一段在 12 月 31 日开通。贵州毕都段连同北盘江第一桥于 2016 年 12 月 29 日通车。",
+        "2018 年 2 月 1 日洞庭湖大桥通车，湖南省交通运输厅和国资委宣布杭瑞高速全线贯通。但这并非最后一项工程：都九高速上的鄱阳湖二桥于 2019 年 6 月 28 日才通车；而 2024 年昆明路段的编号调整，又让这条路在城区再度断开。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total has been published; each province financed its own sections. The figures that are public include ¥10.75 billion approved for Longling–Ruili, ¥3.739 billion budgeted for the Dongting Lake Bridge, and ¥778.86 million for the Beipanjiang First Bridge.",
+        "Longling–Ruili shows the mix behind a frontier road: ¥1.228 billion of special funds from the Ministry of Transport, a US$230 million loan from the Asian Development Bank, and the rest from domestic banks. The Beipanjiang bridge was paid for by both provinces, although built by Guizhou; Guizhou's project office put Yunnan's share at ¥537 million (52.24%) and Guizhou's at ¥491 million (47.76%) — figures that add up to more than the bridge's published cost and are not reconciled in the sources."
+      ],
+      "zh": [
+        "全线没有公开的总造价；各省分别为境内路段筹资。已公开的数字包括：龙瑞段批复概算 107.5 亿元，洞庭湖大桥概算 37.39 亿元，北盘江第一桥总投资 7.7886 亿元。",
+        "龙瑞段反映了一条边境公路背后的资金构成：交通运输部安排专项资金 12.28 亿元，向亚洲开发银行贷款 2.3 亿美元，其余为国内银行贷款。北盘江第一桥虽由贵州建设，却由两省共同出资；据贵州毕都高速项目办，云南出资 5.37 亿元（52.24%），贵州出资 4.91 亿元（47.76%）——两者相加超过该桥公布的总投资，来源中未作解释。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "Traffic figures are published for the Hangzhou–Huangshan section at the eastern end. Zhejiang Communications Investment Group's 2024 rating report put its 2023 traffic at 29,073 full-length-equivalent vehicles a day, and its toll income that year at ¥762 million."
+      ],
+      "zh": [
+        "东端的杭徽高速公布了交通量数据。浙江省交通投资集团 2024 年跟踪评级报告称，2023 年杭徽高速平均日全程流量为 29,073 辆，全年通行费收入 7.62 亿元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure is published. G56 was built by seven provinces as separately financed projects between 1995 and 2019, and costs are reported per section; sourced figures are listed below.", "zh": "未公布全线总造价。G56 由七个省份在 1995 至 2019 年间分项目筹资修建，造价按路段公布；有来源的数字列于下方。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No breakdown has been found for most sections. Where one is published — Longling–Ruili and the Beipanjiang bridge, below — it is provincial money with central grants and loans, including from the Asian Development Bank; Chuxiong–Dali used foreign investment of an unpublished amount.", "zh": "多数路段未查到出资构成。已公布的龙瑞段和北盘江第一桥（见下）为省级资金，辅以中央专项资金和贷款，其中包括亚洲开发银行贷款；楚大高速引进了外资，金额未见公布。" }
+    },
+    {
+      "label": { "en": "Longling–Ruili section (128.4 km, opened 2015)", "zh": "龙瑞段（128.4 公里，2015 年通车）" },
+      "value": { "en": "¥10.75 billion approved estimate: ¥1.228 billion Ministry of Transport special funds, a US$230 million Asian Development Bank loan, the rest domestic bank loans", "zh": "批复概算 107.5 亿元：交通运输部专项资金 12.28 亿元，亚洲开发银行贷款 2.3 亿美元，其余为国内银行贷款" },
+      "source": "Dehong Tuanjie Daily, 17 January 2013, as cited in Chinese Wikipedia, 龙陵—瑞丽高速公路"
+    },
+    {
+      "label": { "en": "Dongting Lake Bridge (opened 2018)", "zh": "洞庭湖大桥（2018 年通车）" },
+      "value": { "en": "¥3.739 billion budgeted", "zh": "概算投资 37.39 亿元" },
+      "source": "Chinese Wikipedia, 洞庭湖大桥 (杭瑞高速)"
+    },
+    {
+      "label": { "en": "Beipanjiang First Bridge (opened 2016)", "zh": "北盘江第一桥（2016 年通车）" },
+      "value": { "en": "¥778.86 million total investment. Separately reported provincial shares — Yunnan ¥537 million, Guizhou ¥491 million — do not match this total.", "zh": "总投资 7.7886 亿元。另有报道的两省出资——云南 5.37 亿元、贵州 4.91 亿元——与此总额不符。" },
+      "source": "Bijie Daily, 28 December 2010; Xuanwei zhi Chuang, 27 September 2016; both as cited in Chinese Wikipedia, 北盘江第一桥"
+    },
+    {
+      "label": { "en": "Deck height, Beipanjiang First Bridge", "zh": "北盘江第一桥桥面高度" },
+      "value": { "en": "565.4 m above the valley floor; certified the world's highest bridge by Guinness World Records in 2018", "zh": "距谷底 565.4 米；2018 年获吉尼斯世界纪录认证为世界最高桥" },
+      "source": "State-owned Assets Supervision and Administration Commission, 9 October 2018, as cited in Chinese Wikipedia, 北盘江第一桥"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "2,953 km on the chainage; English Wikipedia gives 2,935 km", "zh": "按里程桩号 2,953 公里；英文维基百科作 2,935 公里" },
+      "source": "Chinese Wikipedia, 杭州—瑞丽高速公路; English Wikipedia, G56 Hangzhou–Ruili Expressway"
+    }
+  ],
+  "timeline": [
+    { "year": 1995, "en": "Work on the Chuxiong–Dali expressway begins on 8 November.", "zh": "11 月 8 日，楚大高速开工。" },
+    { "year": 1999, "en": "Chuxiong–Dali is complete in May.", "zh": "5 月，楚大高速全线建成。" },
+    { "year": 2004, "en": "The Anhui section of the Hangzhou–Huangshan road opens on 18 October.", "zh": "10 月 18 日，徽杭高速安徽段通车。" },
+    { "year": 2006, "en": "The Zhejiang section opens on 25 December, completing Hangzhou–Tunxi.", "zh": "12 月 25 日，杭徽高速浙江段通车，杭州至屯溪全线贯通。" },
+    { "year": 2008, "en": "Changde–Jishou in Hunan opens on 18 December.", "zh": "12 月 18 日，湖南常吉段通车。" },
+    { "year": 2012, "en": "Bijie–Zunyi in Guizhou opens on 31 December.", "zh": "12 月 31 日，贵州毕遵段通车。" },
+    { "year": 2013, "en": "Dalong–Sinan opens on 5 December and Yueyang–Changde on 30 December.", "zh": "12 月 5 日大思段通车，12 月 30 日岳常段通车。" },
+    { "year": 2015, "en": "Longling–Ruili, the western end, is open throughout on 31 December.", "zh": "12 月 31 日，最西端的龙瑞段全线通车。" },
+    { "year": 2016, "en": "Bijie–Duge and the Beipanjiang First Bridge open on 29 December.", "zh": "12 月 29 日，毕都段及北盘江第一桥通车。" },
+    { "year": 2018, "en": "The Dongting Lake Bridge opens on 1 February and G56 is declared complete.", "zh": "2 月 1 日，洞庭湖大桥通车，杭瑞高速宣告全线贯通。" },
+    { "year": 2019, "en": "The second Poyang Lake bridge on Duchang–Jiujiang opens on 28 June.", "zh": "6 月 28 日，都九高速鄱阳湖二桥通车。" },
+    { "year": 2024, "en": "The Kunming bypass links are renumbered in May, leaving G56 broken in the city.", "zh": "5 月，昆明绕城连接线改编为省道，G56 在昆明城区再度断开。" }
+  ]
+}

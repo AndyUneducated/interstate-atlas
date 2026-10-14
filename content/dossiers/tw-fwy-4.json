@@ -1,0 +1,114 @@
+{
+  "id": "tw-fwy-4",
+  "route": { "sys": "tw-freeway", "num": "4" },
+  "name": { "en": "Taichung Ring Freeway", "zh": "台中环线" },
+  "aka": [
+    { "en": "Guo Si", "zh": "国四" }
+  ],
+  "tagline": { "en": "A freeway round the north of Taichung, from the port at Qingshui to Tanzi, closed through the Fengyuan hills in 2023", "zh": "绕行台中北缘的高速公路，自清水港区至潭子，2023 年穿越丰原山区后才接通" },
+  "completedYear": 2023,
+  "termini": {
+    "start": { "at": [120.56, 24.27], "en": "Qingshui end, Qingshui District, Taichung, on Provincial Highway 17 (Lingang Road) by Taichung Port", "zh": "台中市清水区清水端，接台 17 线（临港路），邻近台中港" },
+    "end": { "at": [120.72, 24.21], "en": "Tanzi junction with Provincial Highway 74, the Taichung Ring Expressway, Tanzi District, Taichung", "zh": "台中市潭子区潭子系统交流道，接台 74 线台中环线快速公路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "National Freeway 4 lies wholly within Taichung. It runs 26.8 km east from Qingshui, near the port, roughly along the south bank of the Dajia River, through Shengang to Fengyuan, then turns south through three tunnels to Tanzi, where it meets Provincial Highway 74. On the way it crosses both north–south freeways: Freeway 3 at the Zhonggang junction and Freeway 1 at the Taichung junction.",
+        "Together with Highway 74 it makes an outer ring round the Taichung basin. Its job is to take traffic for the north and east of the city off Freeway 1 between Fengyuan and Daya, which the Freeway Bureau describes as severely congested."
+      ],
+      "zh": [
+        "国道四号全线位于台中市境内。它自邻近台中港的清水向东，大致沿大甲溪南岸，经神冈至丰原，再折向南穿过三座隧道到潭子，与台 74 线相接，全长 26.8 公里。途中先后与两条南北向高速公路交会：在中港系统交流道接国道三号，在台中系统交流道接国道一号。",
+        "它与台 74 线一起构成环绕台中盆地的外环路网。它的作用，是把往台中北区与东区的车流从国道一号丰原至大雅路段分流出来——高速公路局形容该路段交通严重壅塞。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Lane counts vary along it: four lanes from Qingshui to the Zhonggang junction, six from Zhonggang to Houfeng, then four again to Tanzi. Most of the road is limited to 100 km/h.",
+        "The Fengyuan–Tanzi section, about 10.9 km, was the hard part. From the old end near Provincial Highway 3 it rises onto viaduct over farmland and Fengyuan's sixth cemetery, then goes under the hills south-east of Fengyuan in three tunnels — Fengyuan No. 1, about 1.79 km in each bore, No. 2, of roughly 440–470 m, and No. 3, about 1.59 km — with viaducts over the Zhongkeng, Nankeng and Wuniulan streams between them, before crossing the hill country south-west to Tanzi. It was let as five civil contracts plus electrical and traffic-control contracts; digging for one of them, C712, uncovered the Pukou archaeological site."
+      ],
+      "zh": [
+        "全线车道数不一：清水端至中港系统为双向四车道，中港系统至后丰为双向六车道，其后至潭子恢复双向四车道。大部分路段速限每小时 100 公里。",
+        "难点在于约 10.9 公里的丰原潭子段。它自台 3 线附近的旧终点起，以高架跨越丰原农业区与第六公墓，随后以三座隧道穿过丰原东南侧山区——丰原一号隧道单孔约 1.79 公里，二号隧道约 440 至 470 米，三号隧道约 1.59 公里——其间以高架桥跨越中坑溪、南坑溪与乌牛栏溪，再向西南穿过丘陵抵达潭子。工程分五个土木标及机电、交控标发包；其中 C712 标施工时发掘出朴口文化遗址。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The ring was one of the branches of the Second Freeway follow-on programme, the plan that also produced Freeways 6, 8 and 10. Its first part, Qingshui to Fengyuan, about 17.8 km as planned, was begun on 9 April 1997 and opened on 16 November 2001. Land for it was fought over: at one point protesters held engineering-bureau staff inside the Legislative Yuan, and it took mediation by local representatives and the Speaker, Liu Sung-pan, before the original line was kept.",
+        "Also in 1997 the transport ministry took Taichung's planned Living-Circle Road No. 5 into the national freeway system as the Fengyuan–Wufeng section of the ring. The government could not afford both that and the parallel Living-Circle Road No. 4, and in August 2003 it decided to build the freeway first only from Fengyuan to Dakeng. A 2013 alternative study, approved in principle by the Executive Yuan on 28 November, renamed the project the Fengyuan–Tanzi section and ended it at Highway 74 instead.",
+        "Ground was broken on 18 July 2017. The road opened in pieces: the westbound entrance at Fengshi on 26 November 2021, the Tanzi end with its link roads on 22 January 2022, the eastbound exit at Fengshi on 30 May 2022, and the last stretch, through the tunnels, on 16 January 2023.",
+        "Two pieces of unfinished business remain. Houfeng has only an eastbound exit and westbound entrance; in 2024 the transport minister said a full interchange was needed and that the ministry would pay for the works if Taichung bought the land. And at Qingshui the freeway ends at a signalled junction with Highway 17; after a fatal crash there on 27 December 2022, residents asked for it to be carried on into the port."
+      ],
+      "zh": [
+        "台中环线是第二高速公路后续计划的环支线之一，国道六号、八号与十号也出自同一计划。第一段清水至丰原，规划长约 17.8 公里，1997 年 4 月 9 日开工，2001 年 11 月 16 日通车。用地取得曾引发激烈抗争：一度有抗争民众把国工局人员困在立法院内，经地方民意代表与时任立法院长刘松藩协调，才得以维持原规划路线。",
+        "同在 1997 年，交通部将台中生活圈 5 号线纳入国道系统，作为台中环线丰原雾峰段。由于政府财政难以同时推动该路段与平行的台中生活圈 4 号线，2003 年 8 月决定国道只先兴建丰原至大坑段。2013 年的替代方案可行性研究于 11 月 28 日获行政院原则同意，计划更名为丰原潭子段，终点改为衔接台 74 线。",
+        "2017 年 7 月 18 日动土。全段分次通车：2021 年 11 月 26 日丰势交流道西行入口匝道通车，2022 年 1 月 22 日潭子端及其联络道通车，2022 年 5 月 30 日丰势交流道东行出口匝道通车，最后穿越隧道的路段于 2023 年 1 月 16 日通车。",
+        "至今仍有两件未了之事。后丰交流道只有东出与西入匝道；2024 年交通部长表示确有增设全套匝道的必要，并承诺台中市负责用地、工程费由交通部全额支应。清水端则以号志路口与台 17 线平面相接；2022 年 12 月 27 日该处发生死亡车祸后，地方要求将国道延伸进入台中港。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The Qingshui–Fengyuan section has no separately published price. It was financed within the Second Freeway follow-on programme, for which the Executive Yuan approved NT$525.1 billion; the engineering bureau's former director says the programme as a whole came in far under budget, with NT$254.2 billion saved.",
+        "The Fengyuan–Tanzi section was approved in September 2014 at NT$26.651 billion. Land valuations came in above the plan, and in May 2017 the Executive Yuan raised it to NT$31.115 billion; the Freeway Bureau gives the completed plan total as NT$30.487 billion. Taichung's mayor said at the opening that the central government paid all of it and the city nothing, though in 2013 the planning council had asked the city to help acquire the land by zone expropriation to keep the cost down."
+      ],
+      "zh": [
+        "清水至丰原段没有单独公布的造价。它的经费包含在第二高速公路后续计划之内，该计划经行政院核定预算 5,251 亿元；据前国工局长回忆，计划整体大幅低于预算，共节约 2,542 亿元。",
+        "丰原潭子段建设计划于 2014 年 9 月核定，总经费 266.51 亿元；因用地市价查估高于核定金额，行政院于 2017 年 5 月修正为 311.15 亿元；高速公路局公布的竣工计划总经费为 304.87 亿元。台中市长在通车时表示，经费全由中央编列，地方未负担分毫；不过 2013 年经建会审议时，曾要求台中市政府协助以区段征收等方式取得用地，以撙节建设成本。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The limit was 80 km/h when the road opened in 2001, 90 from 2003 and 100 since 1 June 2012. The Taichung government reckoned the Fengyuan–Tanzi section saves about 20 minutes. Westbound drivers who want Fengyuan town should note that Houfeng cannot be used to leave the freeway in that direction; use Fengshi instead."
+      ],
+      "zh": [
+        "2001 年通车时速限每小时 80 公里，2003 年起为 90 公里，2012 年 6 月 1 日起提高为 100 公里。台中市政府估计丰原潭子段可节省约 20 分钟车程。西行欲前往丰原市区者须注意，后丰交流道不能西向下匝道，应改由丰势交流道驶离。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No separate figure is published for the original 2001 section, which was financed within the NT$525.1 billion Second Freeway follow-on programme. The later Fengyuan–Tanzi section is costed separately below.", "zh": "2001 年通车的原路段没有单独公布造价，其经费包含在总额 5,251 亿元的第二高速公路后续计划中。其后的丰原潭子段造价另列于下。" }
+    },
+    {
+      "label": { "en": "Fengyuan–Tanzi section", "zh": "丰原潭子段" },
+      "value": { "en": "NT$30.487 billion, completed plan total (approved at NT$26.651 billion in 2014, revised to NT$31.115 billion in 2017)", "zh": "竣工计划总经费 304.87 亿元（2014 年核定 266.51 亿元，2017 年修正为 311.15 亿元）" },
+      "source": "Freeway Bureau, Second New Construction Branch, 國道4號臺中環線豐原潭子段計畫 (completed projects); National Development Council, 108年度政府公共建設計畫中央公務預算（行政院核定）"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Central government. The 2019 allocation for the Fengyuan–Tanzi section came from the National Freeway Fund (NT$3.1 billion); Taichung's mayor said the city paid nothing. The source of money for the 2001 section is not stated beyond the Executive Yuan's programme budget.", "zh": "中央政府出资。丰原潭子段 2019 年度经费由国道基金匡列 31 亿元；台中市长称地方未负担经费。2001 年路段的经费来源，资料只说明列入行政院核定的计划预算。" },
+      "source": "National Development Council, 108年度政府公共建設計畫中央公務預算（行政院核定）; Taichung City Government, 「節省20分車程！國4豐潭段全線通車 盧市長：建構台中完整路網」, January 2023"
+    },
+    {
+      "label": { "en": "Second Freeway follow-on programme", "zh": "二高后续计划" },
+      "value": { "en": "NT$525.1 billion approved for the whole programme (Freeway 3 Hsiangshan–Linbian plus branches 4, 6, 8 and 10); NT$254.2 billion reported saved", "zh": "整体计划（国道三号香山至林边段及国道四、六、八、十号等环支线）核定 5,251 亿元，据称节约 2,542 亿元" },
+      "source": "鄭文隆, 「國道三號高速公路全線完工十周年回顧」, 現代營建 no. 421 (archived copy)"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "26.8 km", "zh": "26.8 公里" },
+      "source": "Chinese Wikipedia, 國道四號 (中華民國)"
+    },
+    {
+      "label": { "en": "Built by", "zh": "兴建单位" },
+      "value": { "en": "National Expressway Engineering Bureau (Qingshui–Fengyuan); Freeway Bureau, Second New Construction Branch (Fengyuan–Tanzi). Maintained by the Freeway Bureau.", "zh": "交通部台湾区国道新建工程局（清水至丰原段）；交通部高速公路局第二新建工程分局（丰原潭子段）。由高速公路局养护。" },
+      "source": "Freeway Bureau, 國道3號及國道2號、4號、8號、10號工程; Freeway Bureau, 國道4號臺中環線豐原潭子段計畫"
+    }
+  ],
+  "timeline": [
+    { "year": 1997, "en": "Work on Qingshui–Fengyuan begins on 9 April; Living-Circle Road No. 5 is taken into the freeway system as the Fengyuan–Wufeng section.", "zh": "4 月 9 日清水至丰原段开工；台中生活圈 5 号线纳入国道系统，作为丰原雾峰段。" },
+    { "year": 2001, "en": "Qingshui to Fengyuan opens on 16 November, limited to 80 km/h.", "zh": "11 月 16 日清水至丰原段通车，速限每小时 80 公里。" },
+    { "year": 2003, "en": "The limit becomes 90 km/h throughout in April; in August the eastern extension is cut back to Fengyuan–Dakeng.", "zh": "4 月全线速限统一为 90 公里；8 月东段延伸计划缩为丰原至大坑段。" },
+    { "year": 2012, "en": "The limit is raised to 100 km/h on 1 June.", "zh": "6 月 1 日速限提高为每小时 100 公里。" },
+    { "year": 2013, "en": "The environmental assessment passes on 19 June; the Executive Yuan approves the Fengyuan–Tanzi alternative on 28 November.", "zh": "6 月 19 日环评通过；11 月 28 日行政院原则同意丰原潭子段替代方案。" },
+    { "year": 2017, "en": "The cost is revised to NT$31.115 billion in May; ground is broken on 18 July.", "zh": "5 月总经费修正为 311.15 亿元；7 月 18 日动土。" },
+    { "year": 2022, "en": "The Tanzi end opens on 22 January.", "zh": "1 月 22 日潭子端通车。" },
+    { "year": 2023, "en": "The tunnel section opens on 16 January, completing the road to Highway 74.", "zh": "1 月 16 日隧道路段通车，国道四号全线接通台 74 线。" }
+  ]
+}

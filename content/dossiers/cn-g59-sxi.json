@@ -1,0 +1,109 @@
+{
+  "id": "cn-g59-sxi",
+  "route": { "sys": "cn-expressway", "num": "G59", "anchor": [111.17, 33.2] },
+  "name": { "en": "Hohhot–Beihai Expressway", "zh": "呼和浩特—北海高速公路" },
+  "aka": [
+    { "en": "Hu–Bei Expressway", "zh": "呼北高速" }
+  ],
+  "tagline": { "en": "Down the mountain country west of G55, from Hohhot to the Gulf of Tonkin — most of it built after 2010, with one Hunan section still unfinished in October 2026", "zh": "沿二广高速以西的山地南下，从呼和浩特直到北部湾——大部分建于 2010 年后，至 2026 年 10 月湖南境内仍有一段未完工" },
+  "termini": {
+    "start": { "at": [111.8, 40.76], "en": "Babai East interchange at the end of the Horqin urban expressway, Saihan District, Hohhot — kilometre 0", "zh": "呼和浩特市赛罕区八拜东互通，科尔沁快速路末端——零公里处" },
+    "end": { "at": [110.55, 25.63], "en": "Near Xing'an, Guilin, Guangxi, where the drawn line ends. The route continues past Guilin and Yangshuo, much of the way on other expressways, and on by Lipu and Yulin to Tieshangang District, Beihai, on the Gulf of Tonkin; the atlas draws that part separately", "zh": "广西桂林兴安附近，所绘线段止于此。路线继续经桂林、阳朔（多与其他高速共线），再经荔浦、玉林，终至北部湾畔的北海市铁山港区；该段在图集中另行绘出" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G59 is a north–south national expressway of 2,741 km, according to Chinese Wikipedia, laid out to the west of G55 through some of the most mountainous country in central China. From Hohhot it runs south through Horinger to Shahukou on the Inner Mongolia–Shanxi border, where it has its longest share, 786.7 km, down the west of the province by Youyu, Shuozhou, Shenchi, Kelan, Lüliang, Xixian, Jixian, Hejin and Yuncheng. It crosses the Yellow River into Henan at Lingbao and continues by Lushi and Xixia; in Hubei by Shiyan, Fangxian, Baokang and Yichang; in Hunan by Cili, Zhangjiajie, Yuanling, Anhua, Xinhua, Wugang and Xinning; and in Guangxi by Ziyuan, Xing'an, Guilin, Yangshuo, Lipu, Pingnan and Yulin to Beihai.",
+        "Around Guilin it has little road of its own: from Yanguan to Lingchuan it shares the carriageway with both G72 and G76, then runs on the Guilin bypass, and from Guilin to Yangshuo on G65. The atlas draws the route in two pieces with the break in that stretch; this page is anchored on the northern piece, Hohhot to Xing'an."
+      ],
+      "zh": [
+        "据中文维基百科，呼北高速是全长 2,741 公里的国家高速南北纵线，布设在二广高速以西，穿越华中一带最为多山的地区。它从呼和浩特向南经和林格尔，至蒙晋界杀虎口进入山西；山西境内最长，为 786.7 公里，沿全省西部经右玉、朔州、神池、岢岚、吕梁、隰县、吉县、河津、运城南下。在灵宝跨黄河入河南，经卢氏、西峡；在湖北经十堰、房县、保康、宜昌；在湖南经慈利、张家界、沅陵、安化、新化、武冈、新宁；在广西经资源、兴安、桂林、阳朔、荔浦、平南、玉林，终至北海。",
+        "在桂林一带，它几乎没有自己的路：严关至灵川段与 G72 泉南高速、G76 厦蓉高速三线共用，再走桂林绕城高速，桂林至阳朔段与 G65 包茂高速共线。图集把这条路线画成两段，断开处就在这一带；本页定位在北段，即呼和浩特至兴安。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Where G59 crosses from Shanxi into Henan it goes under the Zhongtiao Mountains and over the Yellow River. The Zhongtiaoshan Tunnel on the Yuncheng–Lingbao section, twin bores 9,670.9 m long, was holed through in 2014 and opened at the end of 2015; the Yunbao Yellow River Bridge beyond it, 1,933 m long and 32 m wide for six lanes, with a 200 m main span, opened on 23 August 2019.",
+        "In the Lüliang Mountains of western Shanxi the last sections were costly: Lishi–Xixian, 82.9 km, was budgeted at ¥10.49 billion, about ¥127 million a kilometre, and Xixian–Jixian was estimated at ¥12.338 billion. In Hubei, the Yidu Yangtze River Bridge, 2.67 km of bridge in a 15.7 km project, opened on 9 February 2021.",
+        "In Guangxi the Lipu–Yulin section, 261.7 km with 198 bridges and 14 tunnels, includes the Wenxu Tunnel, described as the longest on Guangxi's national expressways. The Pingnan Third Bridge over the Xun River, a 575 m-span arch called by the builders the longest-span arch bridge in the world, was built with it, but on the Pingnan North connector rather than the main line."
+      ],
+      "zh": [
+        "G59 自山西进入河南处，要穿中条山、跨黄河。运宝高速上的中条山隧道为上下行分离式，全长 9,670.9 米，2014 年贯通，2015 年底通车；其后的运宝黄河大桥全长 1,933 米，桥宽 32 米，双向六车道，主跨 200 米，于 2019 年 8 月 23 日通车。",
+        "晋西吕梁山区的最后几段造价高昂：离石至隰县段 82.9 公里，投资概算 104.9 亿元，每公里约 1.27 亿元；隰县至吉县段投资估算 123.38 亿元。湖北境内，宜都长江公路大桥项目全长 15.7 公里，其中大桥 2.67 公里，于 2021 年 2 月 9 日通车。",
+        "广西荔浦至玉林段 261.7 公里，有桥梁 198 座、隧道 14 座，其中文圩隧道被称为广西国家高速公路网最长的隧道。同期建成的平南三桥跨越浔江，主跨 575 米，建设方称其为世界跨径最大的拱桥；但它位于平南北互通连接线上，并不在主线上。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Much of G59 is recent. The earliest stretches it uses are shared ones — G70 near Shiyan in 2004, the Guilin bypass in 2008, Guilin–Yangshuo on G65 in 2009. Its own sections began in the south of Shanxi and Henan, with Hejin–Yuncheng on 7 December 2012 and Lingbao–Lushi on 31 December 2012; Hohhot–Shahukou opened on 20 December 2013 and Yulin–Tieshangang in April 2013. Henan's mountain sections to the Hubei border opened on 26 December 2015.",
+        "Shanxi took until 2023. Its last three sections — Shuocheng–Shenchi, and Xixian–Jixian and Lishi–Xixian in the Lüliang Mountains — opened on 18 March, 26 April and 21 December 2023, completing the 786.7 km in the province. Guangxi was done earlier: Lipu–Yulin, its longest single project, opened on 28 December 2020 after two years' building.",
+        "Hunan was the last. The Hubei–Hunan border sections, from Wufeng and from Luhongshan to Cili, opened on 29 September 2025, and Xinhua–Xinning, 192.6 km, on 26 January 2026. That left Zhangjiajie–Guanzhuang, 82.3 km through the Wuling Mountains, of which only the Gaoping–Guanzhuang stretch opened in December 2025. As of early October 2026 the contractor reported the paving finished and the project in its final acceptance stage; Hunan's reports call it the last link in G59."
+      ],
+      "zh": [
+        "呼北高速大部分修得很晚。它最早利用的路段都是共线段：十堰附近与福银高速共线的一段 2004 年通车，桂林绕城高速 2008 年，与包茂高速共线的桂林至阳朔段 2009 年。自有路段从山西南部和河南开始：河运段 2012 年 12 月 7 日通车，灵卢段 2012 年 12 月 31 日通车；呼杀段 2013 年 12 月 20 日、玉铁段 2013 年 4 月相继通车。河南山区路段至豫鄂界于 2015 年 12 月 26 日通车。",
+        "山西一直到 2023 年才修完。最后三段——朔神段，以及吕梁山区的隰吉段和离隰段——分别于 2023 年 3 月 18 日、4 月 26 日和 12 月 21 日通车，山西境内 786.7 公里全线贯通。广西完成得更早：区内最长的单个项目荔玉高速施工两年，于 2020 年 12 月 28 日通车。",
+        "湖南最后。湘鄂界附近的五峰至鄂湘界段和炉红山至慈利段于 2025 年 9 月 29 日通车，新化至新宁段 192.6 公里于 2026 年 1 月 26 日通车。剩下的是穿越武陵山区的张家界至官庄段 82.3 公里，其中只有高坪至官庄一段于 2025 年 12 月通车。截至 2026 年 10 月上旬，施工方称全线沥青摊铺已经完成，项目进入交工收尾阶段；湖南方面称之为呼北高速贯通的「最后一环」。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total has been published. The section figures that are public are large, because most of the road was built late and through mountains: ¥23.06 billion budgeted for Lipu–Yulin, invested by Guangxi Communications Investment Group; about ¥27 billion for Xinhua–Xinning; ¥10.49 billion for Lishi–Xixian; and ¥3.075 billion for the 30 km Jiezhou–Monan section with the Zhongtiaoshan Tunnel, including a ¥356 million connector.",
+        "Xinhua–Xinning was a public–private partnership. Its investor was a consortium of thirteen companies led by Hunan Expressway Group and including China Gezhouba Group and MCC."
+      ],
+      "zh": [
+        "全线没有公开的总造价。已公开的分段数字都很大，因为大部分路段建得晚、又穿山越岭：荔玉高速概算总投资 230.6 亿元，由广西交通投资集团投资建设；新化至新宁段总投资约 270 亿元；离隰段概算 104.9 亿元；含中条山隧道的解州至陌南段 30 公里总投资 30.75 亿元，其中含连接线 3.56 亿元。",
+        "新化至新宁段采用政府和社会资本合作（PPP）模式，投资人为湖南省高速公路集团牵头、中国葛洲坝集团、中冶集团等 13 家单位组成的联合体。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure is published. G59 was built by six provinces as separately financed projects mostly from 2009 onwards and is still not complete; costs are reported per section, and sourced figures are listed below.", "zh": "未公布全线总造价。G59 由六个省区主要自 2009 年起分项目筹资修建，至今尚未全线贯通；造价按路段公布，有来源的数字列于下方。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No route-wide breakdown exists. Of the sections with published financing, Lipu–Yulin was invested by Guangxi Communications Investment Group and Xinhua–Xinning was a public–private partnership (below); for the rest, who contributed capital and who lent has not been found.", "zh": "没有全线的出资构成。已公布融资方式的路段中，荔玉高速由广西交通投资集团投资，新化至新宁段为 PPP 项目（见下）；其余路段由谁出资本金、向谁借款，未查到。" }
+    },
+    {
+      "label": { "en": "Xinhua–Xinning section (192.6 km, opened 2026)", "zh": "新化至新宁段（192.6 公里，2026 年通车）" },
+      "value": { "en": "About ¥27.01 billion total investment (¥27.122 billion in another estimate at the start of work), as a public–private partnership with a 13-company consortium led by Hunan Expressway Group", "zh": "总投资约 270.1 亿元（开工时另有估算为 271.22 亿元），采用 PPP 模式，投资人为湖南省高速公路集团牵头的 13 家单位联合体" },
+      "source": "Rednet (红网) transport channel, 8 April 2021; Shaoyang News, 8 April 2021"
+    },
+    {
+      "label": { "en": "Lipu–Yulin section (261.7 km, opened 2020)", "zh": "荔浦至玉林段（261.7 公里，2020 年通车）" },
+      "value": { "en": "¥23.06 billion budgeted; invested by Guangxi Communications Investment Group", "zh": "概算总投资 230.6 亿元；由广西交通投资集团投资建设" },
+      "source": "Guangxi Daily, 1 January 2021; CCTV News, 28 December 2020"
+    },
+    {
+      "label": { "en": "Lishi–Xixian section (82.9 km, opened 2023)", "zh": "离石至隰县段（82.9 公里，2023 年通车）" },
+      "value": { "en": "¥10.49 billion budgeted", "zh": "投资概算 104.9 亿元" },
+      "source": "Chinese Wikipedia, 呼和浩特—北海高速公路"
+    },
+    {
+      "label": { "en": "Jiezhou–Monan section with the Zhongtiaoshan Tunnel (30.3 km, opened 2015)", "zh": "解州至陌南段（含中条山隧道，30.3 公里，2015 年通车）" },
+      "value": { "en": "¥3.075 billion, including ¥356 million for a 20.9 km class-I connector to Ruicheng", "zh": "总投资 30.75 亿元，其中含 20.9 公里芮城一级公路连接线 3.56 亿元" },
+      "source": "Shanxi Daily, 16 February 2016, as cited in Chinese Wikipedia, 呼和浩特—北海高速公路"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "2,741 km planned", "zh": "规划全长 2,741 公里" },
+      "source": "Chinese Wikipedia, 呼和浩特—北海高速公路"
+    }
+  ],
+  "timeline": [
+    { "year": 2012, "en": "Hejin–Yuncheng opens on 7 December and Lingbao–Lushi on 31 December.", "zh": "12 月 7 日河运段通车，12 月 31 日灵卢段通车。" },
+    { "year": 2013, "en": "Hohhot–Shahukou on the Inner Mongolia–Shanxi border opens on 20 December.", "zh": "12 月 20 日，呼和浩特至杀虎口（蒙晋界）段通车。" },
+    { "year": 2015, "en": "Henan's sections to the Hubei border open on 26 December; Jiezhou–Monan with the Zhongtiaoshan Tunnel on 31 December.", "zh": "12 月 26 日，河南境内至豫鄂界路段通车；12 月 31 日，含中条山隧道的解州至陌南段通车。" },
+    { "year": 2019, "en": "The Yunbao Yellow River Bridge opens on 23 August, joining Shanxi to Henan.", "zh": "8 月 23 日，运宝黄河大桥通车，晋豫两省接通。" },
+    { "year": 2020, "en": "Lipu–Yulin opens on 28 December.", "zh": "12 月 28 日，荔玉高速通车。" },
+    { "year": 2021, "en": "The Yidu Yangtze River Bridge opens on 9 February.", "zh": "2 月 9 日，宜都长江公路大桥通车。" },
+    { "year": 2023, "en": "Lishi–Xixian opens on 21 December, completing the Shanxi section.", "zh": "12 月 21 日，离隰段通车，山西境内全线贯通。" },
+    { "year": 2025, "en": "The Hubei–Hunan border sections open on 29 September.", "zh": "9 月 29 日，湘鄂界附近路段通车。" },
+    { "year": 2026, "en": "Xinhua–Xinning opens on 26 January; Zhangjiajie–Guanzhuang is the last section left.", "zh": "1 月 26 日，新化至新宁段通车；张家界至官庄段成为最后未通的一段。" }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "cn-g12",
+  "route": { "sys": "cn-expressway", "num": "G12" },
+  "name": { "en": "Hunchun–Ulanhot Expressway", "zh": "珲春—乌兰浩特高速公路" },
+  "aka": [
+    { "en": "Hunwu Expressway", "zh": "珲乌高速" },
+    { "en": "Changchun–Hunchun Expressway (Changchun to Hunchun)", "zh": "长珲高速公路（长春至珲春段）" }
+  ],
+  "tagline": { "en": "Across Jilin from the North Korean border on the Tumen River to Ulanhot in Inner Mongolia", "zh": "横贯吉林：从图们江畔的中朝边境，到内蒙古的乌兰浩特" },
+  "termini": {
+    "start": { "at": [130.5, 42.6], "en": "Quanhe border crossing, Hunchun, Yanbian, Jilin, facing Wonjong in North Korea — kilometre 0", "zh": "吉林省延边朝鲜族自治州珲春市圈河口岸，对面为朝鲜元汀口岸——零公里点" },
+    "end": { "at": [122.0, 46.05], "en": "Hejiatun interchange outside Ulanhot, Hinggan League, Inner Mongolia, with the Jining–Arong Banner expressway", "zh": "内蒙古自治区兴安盟乌兰浩特市何家屯枢纽，接集阿高速" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G12 crosses Jilin from east to west, 924 km on the national chainage in the Chinese Wikipedia exit list (the same article gives 931.5 km in its text, and English Wikipedia 926 km). It starts at the Quanhe crossing on the Tumen River opposite North Korea and climbs through the Yanbian hills by Tumen and Yanji, then runs by Antu, Dunhua and Jiaohe to Jilin city and Changchun. West of Changchun it is a plains road, by Nong'an and Songyuan on the Songhua, past Lake Chagan to Da'an and Baicheng, and crosses into Inner Mongolia at Shitoujingzi for the last 33 km to Ulanhot.",
+        "All but those 33 km are in Jilin. It is part of Asian Highway 32, and in Changchun it runs with G1 and the city's ring road. The eastern half was conceived as the Changchun–Hunchun branch of the old Tongjiang–Sanya trunk line, the road from the provincial capital to the Tumen River area. It is the spine of the Changchun–Jilin–Tumen development zone, which the province presents as its gateway to North-east Asia."
+      ],
+      "zh": [
+        "G12 自东向西横贯吉林，据中文维基百科出口列表，按国家里程桩号全长 924 公里（同一条目正文作 931.5 公里，英文维基百科作 926 公里）。它起于图们江畔与朝鲜隔江相望的圈河口岸，经图们、延吉穿过延边山区，再经安图、敦化、蛟河抵吉林市和长春。长春以西为平原路段，经农安、松花江畔的松原，过查干湖至大安、白城，在石头井子进入内蒙古，最后 33 公里抵乌兰浩特。",
+        "除这 33 公里外，全线都在吉林境内。它是亚洲公路 32 号线的组成部分，在长春与 G1 京哈高速及长春绕城高速共线。东半段最初是作为同江至三亚国道主干线的长春至珲春支线规划的——即省会通往图们江地区的道路。它是长吉图开发开放先导区的交通主轴，吉林省把这一地区定位为面向东北亚开放的门户。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The mountain sections in the east are where the money went. Jilin–Yanji, 284.7 km, was built for 80 km/h on a 24.5-metre roadbed with five tunnels totalling about 7 km; it was the first expressway in Jilin with a long-life pavement, 25 cm of asphalt, and at the time the longest in China built that way. Tumen–Hunchun, 62.7 km, has five tunnels totalling 12.2 km and eight viaducts; the Banshi viaduct has piers 70 metres tall and a deck 103 metres above the valley floor, then the highest bridge in Jilin.",
+        "Further west the road is a conventional four-lane plains expressway, designed for 100 km/h between Changchun and Songyuan. The Yanji–Tumen section, opened in 2001, was first paved in concrete; it was resurfaced in asphalt in 2018, because concrete joints were noisy and the surface could not be treated with de-icing salt."
+      ],
+      "zh": [
+        "投资主要花在东部山区。吉林至延吉段 284.7 公里，按设计时速 80 公里、路基宽 24.5 米建设，有隧道 5 座、合计约 7 公里；它是吉林省第一条采用长寿命路面结构的高速公路，沥青路面厚 25 厘米，也是当时国内采用此种结构最长的高速公路。图们至珲春段 62.7 公里，有隧道 5 座、合计 12.2 公里，高架桥 8 座；板石高架桥主墩高 70 米，桥面距沟底 103 米，是当时吉林省第一高桥。",
+        "往西则是普通的四车道平原高速公路，长春至松原段设计时速 100 公里。2001 年通车的延吉至图们段最初为水泥混凝土路面，接缝多、噪声大，且不能撒融雪剂，2018 年完成「白改黑」，改为沥青路面。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The first piece was Changchun–Jilin, begun on 18 May 1995 and opened on 9 September 1997. Yanji–Tumen, 28.7 km and the first expressway in Yanbian, followed on 2 September 2001. Jilin–Yanji took five years and opened on 28 September 2008, which joined Changchun to Tumen; Tumen–Hunchun, begun in July 2007, opened on 27 September 2010 and completed Changchun–Hunchun, cutting the drive between them to about five hours.",
+        "The western half was built quickly after the 2005 plan made Hunchun–Ulanhot one line, G12. Songyuan–Shitoujingzi, begun in April 2009, opened on 29 October 2010 and Changchun–Songyuan on 20 November 2010. Across the Inner Mongolia line, Shitoujingzi–Ulanhot, the first expressway in Hinggan League, was handed over in November 2010 and opened to traffic on 15 March 2011.",
+        "At the east end, the Chinese Wikipedia article notes that a link onward from the Quanhe crossing to Fangchuan, at the tip of Chinese territory on the Tumen, is still only planned."
+      ],
+      "zh": [
+        "最早的一段是长春至吉林段，1995 年 5 月 18 日开工，1997 年 9 月 9 日通车。延吉至图们段 28.7 公里，是延边州第一条高速公路，于 2001 年 9 月 2 日通车。吉林至延吉段历时五年，2008 年 9 月 28 日通车，长春与图们由此连通；2007 年 7 月开工的图们至珲春段于 2010 年 9 月 27 日通车，长珲高速全线贯通，长春至珲春车程缩短至约 5 小时。",
+        "2005 年规划把珲春至乌兰浩特合为一条线、编为 G12 之后，西半段很快建成。2009 年 4 月开工的松原至石头井子段于 2010 年 10 月 29 日通车，长春至松原段于 2010 年 11 月 20 日通车。进入内蒙古后的石头井子至乌兰浩特段是兴安盟第一条高速公路，2010 年 11 月交工验收，2011 年 3 月 15 日开通运营。",
+        "在东端，中文维基百科指出，自圈河口岸继续通往图们江畔中国领土尽头防川的连接路段仍在规划之中。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost for the whole road has been published. The section figures include 1.163 billion yuan for the 32.9 km in Inner Mongolia, 4.83 billion for the 140.6 km Changchun–Songyuan and about 9 billion for the 284.7 km Jilin–Yanji. The dearest by far was the 62.7 km Tumen–Hunchun, 3.46 billion or 55 million yuan a kilometre, the highest of any expressway built in Jilin at the time.",
+        "Changchun–Jilin, the first section, cost 1.9178 billion yuan and came in 107 million under budget. Like the other sections it is a toll road repaid from tolls."
+      ],
+      "zh": [
+        "全线没有公开的总造价。公开的分段数字有：内蒙古境内 32.9 公里 11.63 亿元，长春至松原段 140.6 公里 48.3 亿元，吉林至延吉段 284.7 公里约 90 亿元。单位造价最高的是图们至珲春段，62.7 公里 34.6 亿元，每公里 5,500 万元，为同期吉林省高速公路造价最高。",
+        "最早的长吉段投资 19.178 亿元，节余 1.071 亿元。与其他路段一样，它是收费公路，以通行费还贷。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "In Yanbian, the Korean autonomous prefecture, the road signs are in Chinese, English and Korean. The Tumen–Hunchun section was designed for 80 km/h through the hills."
+      ],
+      "zh": [
+        "在延边朝鲜族自治州境内，路牌以中文、英文和朝鲜文三种文字标注。图们至珲春山区段设计时速为 80 公里。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published. G12 was built by Jilin and Inner Mongolia as at least seven separately financed projects between 1995 and 2011, and costs are reported per project; sourced section figures are given below.", "zh": "全线没有公开的总造价。G12 由吉林和内蒙古在 1995 至 2011 年间分至少七个项目分别筹资建设，造价按项目公布；下列为有来源的分段数字。" }
+    },
+    {
+      "label": { "en": "Eastern sections (Changchun to Hunchun)", "zh": "东段（长春至珲春）" },
+      "value": { "en": "Changchun–Jilin: 1.9178 billion yuan (1995–1997). Yanji–Tumen, 28.7 km: 740.5 million (1997–2001). Jilin–Yanji, 284.7 km: about 9 billion per the Jilin high-grade highway bureau; China News Service reported 9.5 billion at the opening and China National Radio 9.98 billion (2003–2008). Tumen–Hunchun, 62.7 km: 3.46 billion (2007–2010).", "zh": "长春至吉林段 19.178 亿元（1995—1997）；延吉至图们段 28.7 公里 7.4054 亿元（1997—2001）；吉林至延吉段 284.7 公里，吉林省高等级公路建设局称总投资约 90 亿元，通车时中新网报道为 95 亿元、中广网报道为 99.8 亿元（2003—2008）；图们至珲春段 62.7 公里 34.6 亿元（2007—2010）。" },
+      "source": "Chinese Wikipedia, 珲春－乌兰浩特高速公路; Jilin Transportation Science & Technology, 2001 no. 3; Jilin Provincial High-Grade Highway Construction Bureau, archived; China News Service, 28 September 2008; China National Radio, 28 September 2008, via 56885.net; Xinhua, 27 September 2010, via Sina"
+    },
+    {
+      "label": { "en": "Western sections (Changchun to Ulanhot)", "zh": "西段（长春至乌兰浩特）" },
+      "value": { "en": "Changchun–Songyuan, 140.6 km: 4.83 billion yuan (2010). Songyuan–Shitoujingzi, 242 km: 6.629 billion budgeted (2009–2010), from secondary web sources only. Shitoujingzi–Ulanhot, 32.9 km: 1.163 billion (2008–2011).", "zh": "长春至松原段 140.6 公里 48.3 亿元（2010）；松原至石头井子段 242 公里概算 66.29 亿元（2009—2010），仅见于转载网站；石头井子至乌兰浩特段 32.9 公里 11.63 亿元（2008—2011）。" },
+      "source": "Baidu Baike, 长松高速公路; 360 Baike, 珲乌高速公路; Inner Mongolia Radio, 15 March 2011, via jiaotongxing.com"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "The sources consulted give costs but not the split between central subsidy, provincial funds and loans for any G12 section. Like other mainland expressways, it is tolled to repay construction debt.", "zh": "所查来源只给出各段造价，未说明任何一段中央补助、省级资金与贷款的构成。与大陆其他高速公路一样，它以收取通行费偿还建设债务。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "924 km on the national chainage: 891 km in Jilin, 33 km in Inner Mongolia (the same article's text gives 931.5 km; English Wikipedia, citing the China Highway Information Service, gives 926.22 km)", "zh": "按国家里程桩号 924 公里：吉林 891 公里，内蒙古 33 公里（同一条目正文作 931.5 公里；英文维基百科引中国公路信息服务网作 926.22 公里）" },
+      "source": "Chinese Wikipedia, 珲春－乌兰浩特高速公路; English Wikipedia, G12 Hunchun–Ulanhot Expressway"
+    }
+  ],
+  "timeline": [
+    { "year": 1995, "en": "Work on Changchun–Jilin begins on 18 May.", "zh": "5 月 18 日，长吉高速开工。" },
+    { "year": 1997, "en": "Changchun–Jilin opens on 9 September.", "zh": "9 月 9 日，长吉高速通车。" },
+    { "year": 2001, "en": "Yanji–Tumen, Yanbian's first expressway, opens on 2 September.", "zh": "9 月 2 日，延边第一条高速公路延图段通车。" },
+    { "year": 2005, "en": "The national expressway plan joins Hunchun–Changchun and Changchun–Ulanhot as G12.", "zh": "国家高速公路网规划将珲春至长春、长春至乌兰浩特合编为 G12。" },
+    { "year": 2008, "en": "Jilin–Yanji opens on 28 September, joining Changchun to Tumen.", "zh": "9 月 28 日，吉延高速通车，长春至图们连通。" },
+    { "year": 2010, "en": "Tumen–Hunchun opens on 27 September, Songyuan–Shitoujingzi on 29 October and Changchun–Songyuan on 20 November.", "zh": "9 月 27 日图珲段通车，10 月 29 日松原至石头井子段通车，11 月 20 日长松段通车。" },
+    { "year": 2011, "en": "Shitoujingzi–Ulanhot opens on 15 March, the first expressway in Hinggan League.", "zh": "3 月 15 日，兴安盟第一条高速公路石头井子至乌兰浩特段开通运营。" },
+    { "year": 2018, "en": "Yanji–Tumen is resurfaced in asphalt, reopening on 31 August.", "zh": "8 月 31 日，延图段「白改黑」工程竣工通车。" }
+  ]
+}
