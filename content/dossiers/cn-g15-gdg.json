@@ -1,0 +1,135 @@
+{
+  "id": "cn-g15-gdg",
+  "route": { "sys": "cn-expressway", "num": "G15", "anchor": [121.13, 30.45] },
+  "name": { "en": "Shenyang–Haikou Expressway", "zh": "沈海高速公路" },
+  "aka": [
+    { "en": "Shenyang–Dalian Expressway (the Liaoning section)", "zh": "沈大高速公路（辽宁段）" },
+    { "en": "Shenhai Expressway", "zh": "沈海高速" }
+  ],
+  "tagline": { "en": "The coast road, from the mainland's first expressway at Shenyang to Haikou, broken twice by the sea", "zh": "沿海大通道：自沈阳的「神州第一路」直至海口，中间两度被海峡隔断" },
+  "termini": {
+    "start": { "at": [121.37, 37.59], "en": "Yantai, Shandong, where the drawn line stops at the Bohai Strait. Across the strait the route continues from Dalian to its northern end, the Jinbaotai interchange in Sujiatun, Shenyang, which the atlas draws as a separate piece", "zh": "山东烟台，所绘线段止于渤海海峡。海峡对岸，路线自大连续行至北端——沈阳市苏家屯区金宝台枢纽；该段在图集中另绘为一段" },
+    "end": { "en": "The Mei'an interchange in Xiuying District, Haikou, on the Hainan ring expressway", "zh": "海口市秀英区美安枢纽，接海南环岛高速" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G15 follows the eastern seaboard for its whole length. From Shenyang it runs down the Liaodong peninsula by Liaoyang, Anshan, Haicheng and Yingkou to Dalian; resumes across the Bohai Strait at Yantai and runs by Qingdao and Rizhao into Jiangsu at Lianyungang; crosses the coastal plain by Yancheng and Nantong to the Yangtze, which it bridges to Changshu and Taicang; passes west of Shanghai's centre and Hongqiao; crosses Hangzhou Bay to Ningbo; and follows the coast by Taizhou, Wenzhou, Ningde, Fuzhou, Putian, Quanzhou, Xiamen and Zhangzhou into Guangdong, where it runs by Chaozhou, Shantou and Shanwei to Shenzhen, round the Pearl River Delta by Guangzhou, Foshan and Jiangmen, and west by Yangjiang, Maoming and Zhanjiang to the Leizhou peninsula.",
+        "Its length is 3,632 km on the Ministry of Transport's mileage scheme, by province: Liaoning 399.5 km, Shandong 359.1, Jiangsu 493, Shanghai 92.1, Zhejiang 497, Fujian 649.4 and Guangdong 1,134.9. That figure leaves out the two sea crossings it was drawn across — the Bohai Strait between Dalian and Yantai, and the Qiongzhou Strait between the Leizhou peninsula and Hainan — neither of which has been built. Ferries carry vehicles over both. On Hainan, a 13.7 km stub, shared with G75, takes it to Haikou. Because of the Bohai gap the atlas draws G15 as two pieces, the Liaoning one and the long one from Yantai to Haikou; this page is anchored on the second but covers both."
+      ],
+      "zh": [
+        "沈海高速全程沿东部海岸线而行。自沈阳南下辽东半岛，经辽阳、鞍山、海城、营口至大连；隔渤海海峡在烟台续接，经青岛、日照，于连云港进入江苏；穿过盐城、南通一带的沿海平原抵长江，跨江至常熟、太仓；经上海市区以西、虹桥一侧；跨杭州湾至宁波；沿海岸经台州、温州、宁德、福州、莆田、泉州、厦门、漳州进入广东，经潮州、汕头、汕尾至深圳，绕珠江三角洲经广州、佛山、江门，再向西经阳江、茂名、湛江抵雷州半岛。",
+        "按交通运输部里程桩号方案，全长 3,632 公里，分省为：辽宁 399.5 公里、山东 359.1 公里、江苏 493 公里、上海 92.1 公里、浙江 497 公里、福建 649.4 公里、广东 1,134.9 公里。这个数字不含规划中的两处跨海通道——大连与烟台之间的渤海海峡、雷州半岛与海南之间的琼州海峡——两处均未修建，车辆靠轮渡过海。海南岛上另有 13.7 公里，与 G75 兰海高速共线，通到海口。因渤海缺口，地图把沈海高速画成两段：辽宁段，以及烟台至海口的长段；本页定位在后者，但内容涵盖全线。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Shenyang–Dalian section was built with four lanes, every junction grade-separated and every access controlled. Near kilometre 220 a straight stretch served as a wartime runway; it was given up in the widening of 2002–2004, which rebuilt 348 km to eight lanes on a 42 m formation for 120 km/h and roughly tripled its capacity, to 130,000–150,000 vehicles a day. The road was widened equally on both sides. With no Chinese precedent or standard for widening an expressway, the engineers went to South Korea twice to learn how, and the whole road was resurfaced in stone-mastic asphalt with modified binder.",
+        "The Sutong Bridge carries G15 over the Yangtze between Nantong and Changshu. The whole project is 32.4 km including approaches, of which the river crossing is 8,206 m. Its cable-stayed main span of 1,088 m was the longest in the world when it opened in 2008, and held the record until Russia's Russky Bridge in 2012; the towers are about 300 m high, and the channel beneath is 891 m wide with 62 m of clearance, enough for 50,000-tonne container ships.",
+        "The Hangzhou Bay Bridge, 36 km from Haiyan in Jiaxing to Cixi in Ningbo, was the longest bridge across the sea in the world when it opened in 2008. Hangzhou Bay is one of the world's three great tidal bays, with typhoons, fast and confused currents, scour, and gas in the mud flats of the south shore. The deck is 33 m wide with six lanes for 100 km/h, laid out in an S-curve partly to keep drivers alert. Its northern navigation channel is 325 m wide with 47 m of clearance. About 14 km from the south shore there is a 12,000 m² platform in the sea for rescue services and sightseeing."
+      ],
+      "zh": [
+        "沈大段按双向四车道、全立交、全封闭、全部控制出入口的标准修建。约 220 公里处设有一段战备飞机跑道，在 2002—2004 年扩建中取消。那次扩建把 348 公里改建为双向八车道，路基宽 42 米，计算行车速度每小时 120 公里，昼夜通行能力达 13 万至 15 万辆次，约为扩建前的三倍。扩建采用路基两侧均匀加宽的办法。由于国内高速公路改扩建既无先例可循，也无技术标准可依，建设者两次赴韩国「取经」；全线路面采用 SMA 改性沥青。",
+        "苏通长江公路大桥在南通与常熟之间承载沈海高速跨越长江。工程全长 32.4 公里（含两岸接线），跨江大桥长 8,206 米。主跨 1,088 米的斜拉桥在 2008 年通车时为世界最大跨径斜拉桥，直到 2012 年才被俄罗斯岛大桥超过；桥塔高约 300 米，主通航孔净宽 891 米、净高 62 米，可通行 5 万吨级集装箱货轮。",
+        "杭州湾跨海大桥自嘉兴海盐至宁波慈溪，全长 36 公里，2008 年建成时为世界最长的跨海大桥。杭州湾是世界三大强潮海湾之一，台风多，水流湍急紊乱，冲刷严重，南岸滩涂地下还有沼气。桥面宽 33 米，双向六车道，设计时速 100 公里，线形呈 S 形，部分用意是减轻驾驶疲劳。北航道宽 325 米、净高 47 米。距南岸约 14 公里处设有一座面积 1.2 万平方米的海中平台，兼作交通服务救援与观光之用。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Shenyang–Dalian Expressway was the first expressway on the mainland to be started, which is why it is called 'the first road of the divine land' (神州第一路). Work began on 27 June 1984 on a much smaller plan: the State Planning Commission had approved class-I highway at the Shenyang and Dalian ends and class-II in the middle. It took until 1986 to get the middle upgraded to class-I, and in 1987 the province approved motorway standard at the two ends. Liaoning's provincial party committee and government then settled on a four-lane expressway for the whole road; as Xinhua put it in 2004, 'whether to build it, and to what standard, was argued over intensely'.",
+        "In October 1988, 131 km at the two ends — Shenyang to Anshan, and Houyan to Sanshilipu outside Dalian — opened as tolled, controlled-access expressway. Shanghai's short Shanghai–Jiading Expressway, begun six months after Shenda, opened in full on 31 October and so became the first complete expressway on the mainland. Shenda opened throughout, 375 km, for trial traffic on 20 August 1990, with a ceremony on 1 September. Zou Jiahua, who had told a national conference on high-grade roads in Shenyang in 1989 that expressways were 'not a question of whether, but a necessity', called it, as State Councillor, 'a road of ambition, a road of take-off'.",
+        "In 2002 Shenda also became the first mainland expressway to be rebuilt on a large scale. Work started on 28 May 2002, the road was closed for works from March 2003, and the eight-lane road reopened on 29 August 2004.",
+        "Shenda was part of the Tongjiang–Sanya national trunk route, and the rest of the coast was built through the 1990s and 2000s; the whole was later numbered G15 in the national expressway network. The two great estuary crossings opened within weeks of each other in 2008. The Hainan stub was begun on 13 April 2020 and opened on 28 December 2022."
+      ],
+      "zh": [
+        "沈大高速是中国大陆第一条开工建设的高速公路，因此被称为「神州第一路」。它在 1984 年 6 月 27 日开工时，规划要小得多：国家计委批复的是沈阳、大连两头修一级公路、中间段保持二级公路。直到 1986 年，中间段才获批改扩建为一级公路；1987 年，辽宁省批复两头按汽车专用公路建设。此后辽宁省委、省政府拍板全线按四车道高速公路标准修建；用新华社 2004 年的话说，「对于该不该修、修什么标准，争论极大」。",
+        "1988 年 10 月，两头共 131 公里——沈阳至鞍山、大连后盐至三十里堡——作为全立交、全封闭、全部控制出入口的收费高速公路通车。比沈大晚半年开工的上海沪嘉高速，于同月 31 日全线通车，由此成为大陆首条全线通车的高速公路。沈大高速 375 公里于 1990 年 8 月 20 日全线试通车，9 月 1 日举行通车典礼。邹家华 1989 年在沈阳召开的全国高等级公路建设现场会上说过「高速公路不是要不要发展的问题，而是必须发展」；时任国务委员的他称沈大高速是「志气之路，腾飞之路」。",
+        "2002 年，沈大高速又成为大陆第一条大规模全线改扩建的高速公路：2002 年 5 月 28 日开工，2003 年 3 月起封闭施工，2004 年 8 月 29 日八车道新路全线通车。",
+        "沈大高速是国道主干线同江至三亚线的组成部分；沿海其余路段在 1990 年代与 2000 年代陆续建成，后来整体编入国家高速公路网，编号 G15。两座跨江海大桥在 2008 年相隔不到两个月先后通车。海南段 2020 年 4 月 13 日开工，2022 年 12 月 28 日通车。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total for G15 has been published; costs are reported section by section. Shenda cost ¥2.2 billion when it was begun in 1984 — more than ¥5 million a kilometre, 'an astronomical figure at the time' — and about 80% of it was raised by Liaoning itself. The widening of 2002–2004 cost ¥7.2 billion.",
+        "The Sutong Bridge cost about ¥6.45 billion: ¥2.2 billion of capital from its company, Jiangsu Sutong Bridge Development Co., and about ¥4.25 billion in domestic bank loans, repaid from the tolls.",
+        "The Hangzhou Bay Bridge was paid for without central government money. Total investment was expected to exceed ¥16.1 billion — ¥11.8 billion for the 36 km bridge, ¥1.7 billion for the northern approach and ¥3.4 billion for the southern — raised mainly by local governments in Zhejiang and by Zhejiang private companies, including Youngor and Fotile; private capital made up about half. The toll concession runs 30 years. In July 2013 Shanghai Industrial Holdings paid ¥1.466 billion for 23.0584% of the bridge."
+      ],
+      "zh": [
+        "沈海高速没有公布过全线总造价，造价按路段公布。沈大高速 1984 年开工时投资 22 亿元，每公里 500 多万元，「在当时是一个天文数字」，其中约八成由辽宁自筹。2002—2004 年改扩建总投资 72 亿元。",
+        "苏通大桥总投资约 64.5 亿元：江苏苏通大桥发展有限责任公司资本金 22 亿元，其余约 42.5 亿元通过国内银行贷款解决，以过桥费还贷。",
+        "杭州湾跨海大桥没有依靠国家投资。总投资预计超过 161 亿元——36 公里大桥 118 亿元、北岸连接线 17 亿元、南岸连接线 34 亿元——主要来自浙江地方政府和浙江民营企业，雅戈尔、方太等参与投资，民间资本约占一半。收费年限 30 年。2013 年 7 月，上海实业（集团）以 14.66 亿元收购大桥 23.0584% 股权。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "Shenda carried 1.42 million vehicles in 1990; by 2000 it was 57.14 million, and overloaded lorries had badly damaged the surface — the reasons it was the first to be widened. The Hangzhou Bay Bridge set its daily record of 141,894 vehicles on 1 May 2024, the first day of the Labour Day holiday."
+      ],
+      "zh": [
+        "沈大高速 1990 年车流量为 142 万台次，到 2000 年增至 5,714 万台次，超载车辆造成路面严重损毁——这正是它第一个改扩建的原因。杭州湾跨海大桥的单日车流纪录为 141,894 辆，创于 2024 年「五一」假期首日（5 月 1 日）。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "There is no road between Dalian and Yantai: the through route is the Bohai train-and-vehicle ferry. The same is true of the Qiongzhou Strait, where the Guangdong–Hainan ferry carries vehicles to the island.",
+        "The Hangzhou Bay Bridge charges ¥80 for a car; heavy lorries were not allowed on it until 11 October 2008. On the Sutong Bridge a car with up to seven seats pays ¥30. Chinese Wikipedia records the main line through Taizhou in Zhejiang as closed from 10 July 2024 to 9 January 2027."
+      ],
+      "zh": [
+        "大连与烟台之间没有公路，连续通行靠渤海湾的烟大轮渡（客滚与火车轮渡）。琼州海峡亦然，车辆经粤海轮渡上岛。",
+        "杭州湾跨海大桥小型客车通行费 80 元；大货车直到 2008 年 10 月 11 日才获准上桥。苏通大桥 7 座及以下客车每车次 30 元。据中文维基百科，沈海高速台州段主线自 2024 年 7 月 10 日至 2027 年 1 月 9 日封闭。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide total is published. G15 was assembled from provincial sections built between 1984 and 2022, and costs are reported per section; the published ones are listed below.", "zh": "未公布全线总造价。沈海高速由 1984—2022 年间各省分段修建的路段组成，造价按路段公布；已公布者见下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Not published for the whole route. Where it is known — Shenda: about 80% raised by Liaoning province. Sutong Bridge: the bridge company's ¥2.2 billion capital plus domestic bank loans repaid from tolls. Hangzhou Bay Bridge: Zhejiang local governments and Zhejiang private firms, with no central investment; private capital about half.", "zh": "全线出资构成未公布。已知的几段——沈大高速：约八成由辽宁自筹。苏通大桥：大桥公司资本金 22 亿元，其余为国内银行贷款，以通行费偿还。杭州湾跨海大桥：浙江地方政府与浙江民营企业出资，未用国家投资，民间资本约占一半。" },
+      "source": "The Paper (澎湃新闻), “历史上的今天”, 20 August 2019; Chinese Wikipedia, 苏通长江公路大桥; Chinese Wikipedia, 杭州湾跨海大桥"
+    },
+    {
+      "label": { "en": "Shenyang–Dalian Expressway, original build (375 km, 1984–1990)", "zh": "沈大高速原建（375 公里，1984—1990 年）" },
+      "value": { "en": "¥2.2 billion, more than ¥5 million per km", "zh": "22 亿元，每公里 500 多万元" },
+      "source": "Xinhua, 29 August 2004, via Sohu; The Paper (澎湃新闻), 20 August 2019"
+    },
+    {
+      "label": { "en": "Shenyang–Dalian widening to eight lanes (348 km, 2002–2004)", "zh": "沈大高速改扩建为八车道（348 公里，2002—2004 年）" },
+      "value": { "en": "¥7.2 billion", "zh": "72 亿元" },
+      "source": "Xu Yang, Xinhua, 29 August 2004, via Sina Finance"
+    },
+    {
+      "label": { "en": "Sutong Yangtze River Bridge (32.4 km, 2003–2008)", "zh": "苏通长江公路大桥（32.4 公里，2003—2008 年）" },
+      "value": { "en": "About ¥6.45 billion. The same article elsewhere gives 'more than ¥8 billion' when explaining the toll; the lower figure is the one tied to the financing plan.", "zh": "约 64.5 亿元。同一条目在解释收费标准时又称「投资高达 80 多亿元」；较低的数字是与筹资方案对应的那个。" },
+      "source": "Chinese Wikipedia, 苏通长江公路大桥"
+    },
+    {
+      "label": { "en": "Hangzhou Bay Bridge and approaches (2003–2008)", "zh": "杭州湾跨海大桥及连接线（2003—2008 年）" },
+      "value": { "en": "Expected to exceed ¥16.1 billion: bridge ¥11.8 billion, northern approach ¥1.7 billion, southern approach ¥3.4 billion. These are pre-completion estimates.", "zh": "预计超过 161 亿元：大桥 118 亿元、北岸连接线 17 亿元、南岸连接线 34 亿元。均为建成前的预计数。" },
+      "source": "Chinese Wikipedia, 杭州湾跨海大桥"
+    },
+    {
+      "label": { "en": "Sutong Bridge main span", "zh": "苏通大桥主跨" },
+      "value": { "en": "1,088 m, the world's longest cable-stayed span from 2008 until 2012", "zh": "1,088 米，2008—2012 年间为世界最大跨径斜拉桥" },
+      "source": "Chinese Wikipedia, 苏通长江公路大桥; People's Daily, 1 July 2008, as cited there"
+    }
+  ],
+  "timeline": [
+    { "year": 1984, "en": "Work starts on the Shenyang–Dalian road on 27 June — the first expressway on the mainland to be begun.", "zh": "6 月 27 日，沈大公路开工——中国大陆第一条开工建设的高速公路。" },
+    { "year": 1988, "en": "131 km at the Shenyang and Dalian ends open in October as tolled expressway.", "zh": "10 月，沈阳、大连两头共 131 公里作为收费高速公路通车。" },
+    { "year": 1990, "en": "The whole 375 km opens for trial traffic on 20 August, with a ceremony on 1 September.", "zh": "8 月 20 日，沈大高速 375 公里全线试通车；9 月 1 日举行通车典礼。" },
+    { "year": 2002, "en": "Widening of Shenda to eight lanes begins on 28 May.", "zh": "5 月 28 日，沈大高速八车道改扩建开工。" },
+    { "year": 2003, "en": "Work starts on the Hangzhou Bay Bridge on 8 June and on the Sutong Bridge on 27 June.", "zh": "6 月 8 日杭州湾跨海大桥奠基，6 月 27 日苏通大桥开工。" },
+    { "year": 2004, "en": "The widened Shenda reopens on 29 August, the mainland's first eight-lane expressway.", "zh": "8 月 29 日，改扩建后的沈大高速全线通车，成为大陆第一条八车道高速公路。" },
+    { "year": 2008, "en": "The Hangzhou Bay Bridge opens on 1 May and the Sutong Bridge on 30 June.", "zh": "5 月 1 日杭州湾跨海大桥通车，6 月 30 日苏通大桥正式通车。" },
+    { "year": 2022, "en": "The Hainan section, 13.7 km to Haikou, opens on 28 December.", "zh": "12 月 28 日，通往海口的海南段 13.7 公里通车。" },
+    { "year": 2024, "en": "The Hangzhou Bay Bridge carries 141,894 vehicles on 1 May, its busiest day.", "zh": "5 月 1 日，杭州湾跨海大桥通行 141,894 辆，创单日纪录。" }
+  ]
+}

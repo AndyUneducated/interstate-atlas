@@ -1,0 +1,108 @@
+{
+  "id": "cn-g7",
+  "route": { "sys": "cn-expressway", "num": "G7" },
+  "name": { "en": "Beijing–Ürümqi Expressway", "zh": "京新高速公路" },
+  "aka": [
+    { "en": "Beijing–Baotou Expressway (the eastern end)", "zh": "京包高速公路（东段）" },
+    { "en": "Jingxin Expressway", "zh": "京新高速" }
+  ],
+  "tagline": { "en": "Beijing to Xinjiang the short way, across 930 km of Inner Mongolian desert by Ejin", "zh": "北京直通新疆的捷径，经额济纳横穿内蒙古 930 公里沙漠戈壁" },
+  "termini": {
+    "start": { "at": [116.34, 40.0], "en": "Yuequan Road in Haidian District, Beijing, just inside the Fifth Ring Road", "zh": "北京市海淀区月泉路，北五环内侧" },
+    "end": { "en": "The West Station interchange in Ürümqi, where it meets G30", "zh": "乌鲁木齐西站立交，与连霍高速相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G7 is the radial expressway from Beijing to Xinjiang. Its eastern half follows the old Beijing–Baotou corridor: out of Beijing to Zhangjiakou, across a corner of Shanxi and over the Inner Mongolian plateau by Jining to Hohhot, and then, sharing its carriageway with G6, through Baotou to Linhe (Bayannur). The western half is the reason it was built. From Linhe it strikes due west across the Alxa League — the Ulan Buh, Tengger and Badain Jaran deserts and the Gobi beyond — by Ejin Banner, crosses the far north of Gansu at Mazongshan, and enters Xinjiang at Mingshui. Since 2021 it has continued on its own line north of the Tianshan, by Yiwu, Barkol, Mulei, Qitai and Fukang, to Ürümqi.",
+        "Chinese Wikipedia, citing the Ministry of Transport's 2008 mileage scheme, gives 2,856 km; Xinhua's 2017 figure was 2,582 km. Xinhua reported that opening the desert section shortened the road distance from Beijing to Ürümqi by nearly 1,300 km. At Ejin, an official of the banner told Yicai in 2017 that the expressway, the Jingxin railway, the China–Mongolia border corridor and the Jiayuguan–Ceke railway together were turning the banner into a new land transport hub, and that an 89-hectare, ¥1 billion logistics park was planned by the expressway entrance at Dalaihubu.",
+        "One piece is still missing at the Beijing end. Between the Deshengkou tunnel in Changping and the Mijiabao interchange in Yanqing, the outbound carriageway has not been built and the inbound one is only partly built, so outbound traffic continues on National Road 110."
+      ],
+      "zh": [
+        "京新高速是北京通往新疆的首都放射线。东半段沿袭旧京包走廊：出北京至张家口，擦过山西一角，经集宁越过内蒙古高原至呼和浩特，再与 G6 京藏高速共线经包头至临河（巴彦淖尔）。西半段才是修这条路的理由：自临河一路向西，横穿阿拉善盟的乌兰布和、腾格里、巴丹吉林三大沙漠及其外的戈壁，经额济纳旗，穿过甘肃最北端的马鬃山，在明水进入新疆。2021 年起，它在天山以北另走新线，经伊吾、巴里坤、木垒、奇台、阜康抵乌鲁木齐。",
+        "中文维基百科依据交通运输部 2008 年里程桩号方案，给出全长 2,856 公里；新华社 2017 年的数字是 2,582 公里。据新华社报道，沙漠段通车使北京至乌鲁木齐的公路里程缩短近 1,300 公里。额济纳旗官员 2017 年对第一财经说，京新高速、京新铁路、中蒙国际通道和嘉策铁路正把额济纳旗变成新的陆上交通枢纽，旗里已计划在京新高速达来呼布镇入口附近建设占地 89 公顷、投资 10 亿元的物流园。",
+        "北京一端至今还缺一段。昌平德胜口隧道至延庆米家堡立交之间，出京半幅尚未修建，进京半幅也只建成一部分，出京车辆须改走 110 国道。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Linhe–Baigeda section, 930 km of four-lane expressway through the deserts of western Inner Mongolia, was described by Xinhua as the longest expressway across desert in the world. Through Alxa Right Banner and Ejin Banner it crosses country where fewer than ten herding households live; there was no water, no power and no telephone signal. The builders first put up 935 km of power lines, 447 km of water pipe and more than 900 km of access roads. Construction power came from generators and water was trucked from more than 300 km away. When Xinhua's reporter drove it in July 2017 the air temperature was 44°C and the ground above 70°C. In Bayannur a grid of sand barriers lines one side of the road.",
+        "On China Railway's 352 km lot through Alxa, where the recorded minimum annual rainfall is 35 mm against up to 4,217 mm of evaporation, the contractor dug several hundred trial pits to find eight water sources that supplied more than 70% of what the earthworks needed, and mixed water into the fill three times over to cut consumption by about 30%.",
+        "In Xinjiang, the 178 km Mingshui–Hami section opened in 2017 was built for 120 km/h with separate carriageways."
+      ],
+      "zh": [
+        "临河至白疙瘩段是穿越内蒙古西部沙漠的 930 公里双向四车道高速公路，新华社称之为世界上穿越沙漠最长的高速公路。阿拉善右旗、额济纳旗境内的路段几乎是在无人区中穿行，沿线牧民不到 10 户；无水、无电、无通讯信号。建设者先架设了 935 公里供电线路、447 公里供水管道，修了 900 多公里施工便道。施工用电全靠发电机，用水从 300 多公里外拉来。2017 年 7 月新华社记者驱车探访时，车外气温 44 摄氏度，地表温度超过 70 摄氏度。巴彦淖尔境内，道路一侧是防沙网格。",
+        "中国中铁承建的阿拉善境内 352 公里标段，当地年最小降水量仅 35 毫米，最大蒸发量达 4,217 毫米。施工方在戈壁上挖了几百个探水坑，找到 8 处水源，供给了 70% 以上的工程用水；又在取土、运料、碾压中三次加水拌和，节水约 30%。",
+        "新疆境内，2017 年通车的明水至哈密段 178 公里，设计时速 120 公里，分离式路基。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The oldest part is at the Xinjiang end. Dahuangshan–Ürümqi was built as part of the Turpan–Ürümqi–Dahuangshan high-grade road, begun on 21 March 1995 and opened on 20 August 1998. In Beijing, the old Beijing–Baotou Expressway opened in stages from the Sixth Ring Road outwards to Deshengkou in 2008, then inwards: the Fifth Ring Road to Beiqing Road on 31 December 2011, Beiqing Road to the Sixth Ring on 24 May 2014, and Yuequan Road to the Fifth Ring on 18 July 2015. In Xinjiang, Qitai–Dahuangshan opened on 17 December 2012 and Mulei–Qitai in 2013.",
+        "The desert section was begun in Inner Mongolia in September 2014. Its main pavement was continuous by October 2016, and on 15 July 2017 it opened together with Baigeda–Mingshui in Gansu and Mingshui–Hami in Xinjiang; the Ministry of Transport and the three regional governments announced that day that the Beijing–Xinjiang corridor was through. West of Hami, G7 still ran on G30 to Ürümqi.",
+        "That changed on 30 June 2021, when the 515 km Wutongdaquan–Mulei section opened and G7 took its own line north of the Tianshan. The link from Wutongdaquan down to G30 was downgraded to a provincial expressway. The gaps in Hebei and Shanxi had closed on 23 April 2019, and the Shanxi border–Hohhot section, begun in April 2011, on 16 November 2016."
+      ],
+      "zh": [
+        "最早的一段在新疆一端。大黄山至乌鲁木齐段原为吐（鲁番）乌（鲁木齐）大（黄山）高等级公路的一部分，1995 年 3 月 21 日开工，1998 年 8 月 20 日通车。北京境内，原京包高速先由六环向外通至德胜口（2008 年），再向内延伸：五环至北清路段 2011 年 12 月 31 日通车，北清路至六环段 2014 年 5 月 24 日通车，月泉路至五环段 2015 年 7 月 18 日通车。新疆境内，奇台至大黄山段 2012 年 12 月 17 日通车，木垒至奇台段 2013 年通车。",
+        "沙漠段内蒙古境内于 2014 年 9 月开工，2016 年 10 月主线路面全线贯通，2017 年 7 月 15 日与甘肃白疙瘩至明水段、新疆明水至哈密段同日通车；交通运输部与三省区政府当天宣布北京至新疆公路大通道贯通。当时哈密以西，京新高速仍与连霍高速共线至乌鲁木齐。",
+        "2021 年 6 月 30 日，梧桐大泉至木垒段 515 公里建成通车，京新高速在天山以北另辟新线，原梧桐大泉接连霍高速的路段降为省级高速。此前，河北、山西境内的缺口已于 2019 年 4 月 23 日接通；2011 年 4 月开工的晋蒙界至呼和浩特段则于 2016 年 11 月 16 日通车。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Yicai reported in 2017 that a total investment for G7 could not yet be calculated, and none has been published since. The three sections opened that July were costed separately: Linhe–Baigeda at ¥37 billion, Baigeda–Mingshui at about ¥6.13 billion and Mingshui–Hami at about ¥5.2 billion. Linhe–Baigeda was reported at the time as the largest single highway project, by length and by investment, ever built in one go in China.",
+        "Its construction was let in lots to the big state contractors. China Railway's lot through Alxa — 352 km of main line and 62 km of link roads — was worth ¥8.691 billion, and was let on an 'equity investment plus general contracting' basis: the company took a stake in the project as well as the contract, the first such arrangement between China Railway and the Inner Mongolia transport department. China Communications Construction built the 358 km lot through the Badain Jaran."
+      ],
+      "zh": [
+        "第一财经 2017 年报道，京新高速的总投资「目前还无法测算」，此后也未见公布。当年 7 月通车的三段分别核算：临河至白疙瘩段总投资 370 亿元，白疙瘩至明水段约 61.3 亿元，明水至哈密段约 52 亿元。临白段在当时被报道为我国一次性建设里程最长、投资规模最大的单体高速公路工程。",
+        "临白段分标段由大型央企承建。中国中铁承建的阿拉善境内二标段，主线 352 公里、连接线 62 公里，合同总价值 86.91 亿元，采用「股权投资＋施工总承包」模式——中铁既入股项目也承包施工，这是中国中铁与内蒙古自治区交通厅以此模式合作的首期工程。中国交建承建了穿越巴丹吉林沙漠的三标段，共 358 公里。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide total is published; Yicai reported in 2017 that one could not yet be calculated. Costs are given per section, as below.", "zh": "未公布全线总造价；第一财经 2017 年报道称「目前还无法测算」。造价按路段公布，见下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Not published as a whole. On China Railway's Alxa lot of the desert section, the contractor took an equity stake in the project as well as the construction contract, under an 'equity investment plus general contracting' arrangement with the Inner Mongolia transport department, which was the owner.", "zh": "未公布全线出资构成。沙漠段阿拉善境内中国中铁标段采用「股权投资＋施工总承包」模式，中铁入股项目并承包施工；建设单位为内蒙古自治区交通运输厅。" },
+      "source": "Workers' Daily Online (中工网), July 2016, via China News Service; 中工网, project summary of China Railway's LBAMSG-2 lot, March 2017"
+    },
+    {
+      "label": { "en": "Linhe–Baigeda section (930 km, opened 2017)", "zh": "临河至白疙瘩段（930 公里，2017 年通车）" },
+      "value": { "en": "¥37 billion total investment", "zh": "总投资 370 亿元" },
+      "source": "Yicai (第一财经), 15 July 2017; Workers' Daily Online via China News Service, 28 July 2016"
+    },
+    {
+      "label": { "en": "Baigeda–Mingshui (Gansu) and Mingshui–Hami (Xinjiang) sections, opened 2017", "zh": "白疙瘩至明水段（甘肃）、明水至哈密段（新疆），2017 年通车" },
+      "value": { "en": "About ¥6.13 billion and about ¥5.2 billion. Single press report; not checked against the provincial approvals.", "zh": "分别约 61.3 亿元、约 52 亿元。仅见一家媒体报道，未与省级批复核对。" },
+      "source": "Yicai (第一财经), 15 July 2017"
+    },
+    {
+      "label": { "en": "Desert section, temporary works", "zh": "沙漠段临时配套工程" },
+      "value": { "en": "935 km of power lines, 447 km of water pipe and more than 900 km of access roads", "zh": "供电线路 935 公里、供水管道 447 公里、施工便道 900 多公里" },
+      "source": "Xinhua, “世界上穿越沙漠最长的高速公路是怎么炼成的？”, 15 July 2017"
+    },
+    {
+      "label": { "en": "Distance saved, Beijing–Ürümqi", "zh": "北京至乌鲁木齐缩短里程" },
+      "value": { "en": "Nearly 1,300 km", "zh": "近 1,300 公里" },
+      "source": "Xinhua, 15 July 2017"
+    }
+  ],
+  "timeline": [
+    { "year": 1998, "en": "The Turpan–Ürümqi–Dahuangshan road opens on 20 August; its Dahuangshan–Ürümqi part is now G7.", "zh": "8 月 20 日，吐乌大高等级公路通车，其中大黄山至乌鲁木齐段今属京新高速。" },
+    { "year": 2008, "en": "The Beijing–Baotou Expressway opens from the Sixth Ring Road to Deshengkou.", "zh": "京包高速六环至德胜口段通车。" },
+    { "year": 2012, "en": "Qitai–Dahuangshan opens in Xinjiang on 17 December.", "zh": "12 月 17 日，新疆奇台至大黄山段通车。" },
+    { "year": 2014, "en": "Work begins in September on the 930 km desert section from Linhe to Baigeda.", "zh": "9 月，临河至白疙瘩 930 公里沙漠段开工。" },
+    { "year": 2015, "en": "The Beijing end reaches Yuequan Road inside the Fifth Ring on 18 July.", "zh": "7 月 18 日，北京段延伸至五环内的月泉路。" },
+    { "year": 2016, "en": "The Shanxi border–Hohhot section opens on 16 November.", "zh": "11 月 16 日，晋蒙界至呼和浩特段通车。" },
+    { "year": 2017, "en": "The desert section opens on 15 July with Baigeda–Mingshui and Mingshui–Hami; the Beijing–Xinjiang corridor is declared through.", "zh": "7 月 15 日，沙漠段与白明段、明哈段同日通车，北京至新疆公路大通道宣告贯通。" },
+    { "year": 2019, "en": "The Hebei and Shanxi gaps close on 23 April.", "zh": "4 月 23 日，河北、山西境内缺口接通。" },
+    { "year": 2021, "en": "Wutongdaquan–Mulei, 515 km, opens on 30 June, giving G7 its own line north of the Tianshan.", "zh": "6 月 30 日，梧桐大泉至木垒段 515 公里通车，京新高速在天山北麓有了自己的线路。" }
+  ]
+}

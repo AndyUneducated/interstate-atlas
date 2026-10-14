@@ -1,0 +1,116 @@
+{
+  "id": "cn-g219-xiz-1",
+  "route": { "sys": "cn-national", "num": "G219", "anchor": [80.0931, 32.5005] },
+  "name": { "en": "Kanas–Dongxing Highway", "zh": "喀纳斯—东兴公路" },
+  "aka": [
+    { "en": "Kadong line", "zh": "喀东线" },
+    { "en": "Xinjiang–Tibet Highway (the original G219, Yecheng–Lhatse)", "zh": "新藏公路（原 219 国道，叶城—拉孜）" },
+    { "en": "Yela Highway", "zh": "叶拉公路" }
+  ],
+  "tagline": { "en": "China's longest national highway, built round the 1957 road across the Aksai Chin", "zh": "中国最长的国道，以 1957 年翻越阿克赛钦的新藏公路为骨干" },
+  "termini": {
+    "start": { "en": "North-east of Kashgar, where the drawn line begins. The route's northern end is at Kanas Lake in Burqin county, Altay, Xinjiang; the atlas draws the section from there as separate pieces", "zh": "喀什东北，所绘线段由此开始。路线北端在新疆阿勒泰地区布尔津县喀纳斯湖；自北端起的路段在图集中另绘为数段", "at": [76.65, 40.03] },
+    "end": { "en": "Zhushan village, Dongxing, Guangxi, on the Vietnamese border", "zh": "广西东兴市中越边境竹山村", "at": [108.0, 21.55] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Under the national highway plan of June 2013, G219 runs from Kanas Lake in the far north of Xinjiang to Dongxing on the Vietnamese border in Guangxi: 10,065 km as planned, the longest national highway in China and the only one over 10,000 km. It follows the north-western and south-western borders — Altay, Tacheng, Bortala, Zhaosu, Aksu and Kashgar; Yecheng, Rutog, Gar, Zhongba and Saga in Tibet; then Gyirong, Tingri, Gamba, Lhozhag, Lhünzê, Mainling, Mêdog and Zayü; Gongshan, Tengchong, Jinghong and Lüchun in Yunnan; and Pingxiang to Dongxing in Guangxi. With G331 along the northern border and G228 along the coast it closes a ring round the edge of the country.",
+        "Its spine is older. Between Yecheng and Lhatse, G219 is the Xinjiang–Tibet Highway of 1957, the road across the Kunlun and the Aksai Chin to Ngari, and that is the stretch the name G219 meant until 2013. The atlas draws G219 in several pieces; this profile is attached to the longest, which carries the Xinjiang–Tibet road. The other pieces are short fragments."
+      ],
+      "zh": [
+        "按 2013 年 6 月公布的《国家公路网规划》，G219 自新疆最北端的喀纳斯湖至广西中越边境的东兴，规划里程 10065 公里，是中国最长、也是唯一超过一万公里的国道。它沿西北和西南边境走行——新疆阿勒泰、塔城、博尔塔拉、昭苏、阿克苏、喀什；西藏叶城以南的日土、噶尔、仲巴、萨嘎，再经吉隆、定日、岗巴、洛扎、隆子、米林、墨脱、察隅；云南贡山、腾冲、景洪、绿春；广西凭祥至东兴。它与沿北部边境的 G331、沿海岸的 G228 一起，构成环绕国土边缘的一圈。",
+        "它的骨干要老得多。叶城至拉孜之间，G219 就是 1957 年的新藏公路——翻越昆仑山和阿克赛钦通往阿里的那条路，2013 年以前「219 国道」指的就是这一段。本图集把 G219 分成若干段绘制；本条目挂在最长的一段上，即承载新藏公路的那一段，其余几段都是很短的碎片。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Xinjiang–Tibet road climbs from Yecheng at the edge of the Tarim basin over the Kudi pass, the first big climb into the Kunlun, then Mazar pass at 4,969 m and the Kekeat (Heikazi) pass at 4,909 m, and runs for hundreds of kilometres across the uninhabited high plateau of the Aksai Chin at 4,000 to 5,000 m. It crosses more than ten snow passes. The highest, Jieshan Daban, has been given heights from 5,248 m to 6,700 m on signs and in official material; the figures do not agree and none is checked here.",
+        "The ground is hard on a road: deep winter snow, summer floods and mud flows, fine silt and frequent collapses. In Xinhua's account the line is known as a 'museum' of road hazards. Kilometre posts are not continuous: at the Xinjiang–Tibet boundary the Xinjiang count of K662 gives way to a Tibetan count of K649.",
+        "The new southern parts are a different kind of engineering. On the Pai–Mêdog road, begun in 2014, the 4,789 m Doxong La tunnel takes the road through the Himalaya into Mêdog. In Xinjiang, the Zhaosu–Wensu section, 232.6 km, crosses the Tianshan through the 15.7 km West Tianshan tunnel and will cut the road distance from Yining to Aksu by more than 440 km."
+      ],
+      "zh": [
+        "新藏公路从塔里木盆地边缘的叶城出发，先翻库地达坂——进入昆仑山的第一座险山——再过海拔 4969 米的麻扎达坂、4909 米的黑卡子达坂，然后在海拔四五千米、杳无人烟的阿克赛钦高原上走几百公里，全线翻越十多个雪山达坂。最高的界山达坂，路牌和官方资料给出的海拔从 5248 米到 6700 米不等，彼此不一致，此处未作核对。",
+        "沿线条件对公路极不友好：冬季积雪厚，夏季洪水、泥石流、翻浆泛滥，粉土、塌方频繁，据新华社记述，被称为公路灾害的「博物馆」。里程桩也不连续：过新藏界时，新疆一侧的 K662 变成了西藏一侧的 K649。",
+        "新延伸的南段是另一种工程。2014 年开工的派墨公路以全长 4789 米的多雄拉隧道穿越喜马拉雅山进入墨脱。新疆昭苏至温宿段全长 232.6 公里，以 15.7 公里的西天山特长隧道穿越天山，建成后伊宁至阿克苏的里程将缩短 440 余公里。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "In the early 1950s supplies reached Ngari from Xinjiang only by pack animal, and many of the animals died on the way; the region's 30,000 or so Tibetans, mostly herders, bought grain and basic goods from Indian traders. From March 1956 to October 1957 border troops and more than 3,000 civilian labourers built a road from Yecheng over the Kunlun and the Gangdise ranges to Gartok in Ngari, 1,179 km. In the first months tools, materials and food for thousands of workers were carried up from Yecheng by donkey. It opened on 6 October 1957, the third road into Tibet after the Sichuan–Tibet and Qinghai–Tibet highways, and the only road link between the north of the Tibetan plateau and the outside.",
+        "It was later carried on south and east to Lhatse, where it meets G318; the Tibet transport department gives the Yecheng–Lhatse road as 2,143 km. For half a century it stayed a gravel road, in places only 2.5 m wide. Paving came late: the 133 km from Shiquanhe to Rutog was surfaced in September 2006, and Xinjiang rebuilt its section to second- and third-class standard with asphalt between August 2010 and the end of August 2012 — the first upgrade in fifty years — cutting the journey from Yecheng to Ngari from three days to one.",
+        "The 2013 plan stretched the number at both ends: north from Yecheng through western Xinjiang to Kanas, and south-east from Saga along the Himalayan border through Mêdog and Zayü into Yunnan and Guangxi to Dongxing. The stretch from Gamba in Tibet to Gongshan in Yunnan had no road at all and is entirely new. In April 2019 the Altay prefecture press described the new G219 as China's first national highway of more than 10,000 km. The new parts are still being built: on 17 January 2023 an avalanche at the Mêdog end of the Doxong La tunnel on the Pai–Mêdog road killed 28 people."
+      ],
+      "zh": [
+        "1950 年代初，新疆向阿里供应物资只能靠畜力，牲畜死亡率很高；阿里三万多藏族群众以游牧为主，粮食和日用品主要从印度商人手中购买。1956 年 3 月至 1957 年 10 月，边防部队会同 3000 多名民工，修通了自叶城越昆仑山、冈底斯山至阿里噶大克的公路，全长 1179 公里。施工初期，工具、材料和数千人的生活物资全靠毛驴从叶城运上工地。公路于 1957 年 10 月 6 日通车，是继川藏、青藏公路之后进入西藏的第三条公路，成为藏北高原连接外界的唯一通道。",
+        "公路后来继续向东南延伸至拉孜，与 G318 相接；西藏自治区交通运输厅给出的叶城至拉孜全长为 2143 公里。半个世纪里它一直是砂砾路，最窄处仅 2.5 米。铺装来得很晚：狮泉河至日土 133 公里油路于 2006 年 9 月铺通；新疆段于 2010 年 8 月至 2012 年 8 月底按二、三级公路标准改建为沥青路面——这是五十年来的首次等级改造——叶城到阿里的车程由 3 天缩短为 1 天。",
+        "2013 年的规划把这个编号向两头延长：北起叶城经新疆西部至喀纳斯，东南自萨嘎沿喜马拉雅边境经墨脱、察隅入云南、广西，至东兴。西藏岗巴至云南贡山段原本无路，完全新建。2019 年 4 月，阿勒泰新闻网称新 G219 为中国境内第一条突破一万公里的国道。新增路段仍在修建：2023 年 1 月 17 日，派墨公路多雄拉隧道墨脱方向出口发生雪崩，28 人遇难。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost was published for the 1956–1957 road, and none exists for the 10,000 km route. Like every road in Tibet, the Tibetan part is paid for by the central government. Individual projects are priced on their own: the Shiquanhe–Rutog paving was reported at more than 370 million yuan, and on the Zhaosu–Wensu section in Xinjiang a single 44.4 km design-and-build contract, which includes part of the West Tianshan tunnel, is worth 4.44 billion yuan."
+      ],
+      "zh": [
+        "1956—1957 年的公路没有公布造价，万公里全线也没有总造价。和西藏所有公路一样，西藏境内路段由国家全额投资。各项目单独计价：狮泉河至日土段油路据报道总投资 3.7 亿多元；新疆昭苏至温宿段仅 EPC-1 一个 44.4 公里的标段（含西天山隧道一部分）合同额就达 44.4 亿元。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Xinhua's account gives the Xinjiang–Tibet road a normal season of eight months, April to November. Between Yecheng and Shiquanhe there are some 1,300 km with few settlements; Sanshili Yingfang at K364, with its medical post, is the busiest stop on that stretch, and Kangxiwar, K425, is the site of a martyrs' cemetery.",
+        "Much of the route is at altitudes that cause altitude sickness, and the new Himalayan sections in south-eastern Tibet are exposed to avalanches and landslides."
+      ],
+      "zh": [
+        "据新华社的记述，新藏公路一般全年通车时间为 4 月至 11 月，共 8 个月。叶城至狮泉河之间约 1300 公里人烟稀少；K364 的三十里营房设有医疗站，是这一段最热闹的地方，K425 的康西瓦则有烈士陵园。",
+        "全线大部分路段海拔足以引起高原反应；藏东南喜马拉雅新路段则面临雪崩和滑坡的威胁。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No cost was published for the 1956–1957 Xinjiang–Tibet road, and none exists for the planned 10,000 km route, which is being built and upgraded project by project. Sourced project figures are listed below.", "zh": "1956—1957 年新藏公路未公布造价；规划万公里的全线按项目分别新建、改建，也没有总造价。已查到来源的项目数字分列于下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Built in 1956–1957 by People's Liberation Army border troops with more than 3,000 civilian labourers. In Tibet, road building is wholly funded by the central government (325.096 billion yuan for all Tibetan roads, 1953–2023). No route-wide funding statement exists for the Xinjiang, Yunnan and Guangxi sections.", "zh": "1956—1957 年由边防部队会同 3000 多名民工修建。西藏境内公路建设由国家全额投资（1953—2023 年全区公路累计 3250.96 亿元）。新疆、云南、广西各段未见全线出资说明。" },
+      "source": "Xinhua, 新中国档案：新藏公路建成通车, 3 September 2009; 西藏日报, 国家累计为西藏公路交通投资3250.96亿元, 1 August 2024"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "10,065 km as planned in 2013; 10,068.637 km as given in Chinese Wikipedia's route box", "zh": "2013 年规划里程 10065 公里；中文维基百科信息框给出 10068.637 公里" },
+      "source": "Chinese Wikipedia, 219国道, citing 阿勒泰新闻网, 征服中国境内第一条突破1万公里的新G219, 29 April 2019"
+    },
+    {
+      "label": { "en": "Xinjiang–Tibet road as built, 1957", "zh": "1957 年建成的新藏公路" },
+      "value": { "en": "Yecheng to Gartok, 1,179 km; built March 1956 – October 1957; opened 6 October 1957", "zh": "叶城至噶大克，全长 1179 公里；1956 年 3 月动工，1957 年 10 月 6 日通车" },
+      "source": "Xinhua, 新中国档案：新藏公路建成通车, 3 September 2009; Tibet Autonomous Region Department of Transport, 新藏公路简介, 30 November 2016"
+    },
+    {
+      "label": { "en": "Shiquanhe–Rutog paving (133 km)", "zh": "狮泉河至日土段油路（133 公里）" },
+      "value": { "en": "Reported at more than 370 million yuan, surfaced September 2006. Taken from a secondary compilation of a 2006 news report; not checked against the Tibet transport department.", "zh": "据报道总投资 3.7 亿多元，2006 年 9 月铺通。出自转载 2006 年新闻的二手汇编，未与西藏交通运输厅核对。" },
+      "source": "中文百科全书 (cnenc.net), 新藏公路, quoting a September 2006 news report"
+    },
+    {
+      "label": { "en": "Zhaosu–Wensu section, EPC-1 contract", "zh": "昭苏至温宿段 EPC-1 标段" },
+      "value": { "en": "4.44 billion yuan for a 44.4 km design-and-build contract, due 30 October 2027. This is one contract, not the project total.", "zh": "44.4 公里标段合同额 44.4 亿元，计划 2027 年 10 月 30 日完工。这是单一标段，不是项目总投资。" },
+      "source": "Xinjiang Uygur Autonomous Region Department of Transport, G219线昭苏至温宿公路项目建设加速推进中, May 2024"
+    }
+  ],
+  "timeline": [
+    { "year": 1956, "en": "Work starts in March on a road from Yecheng to Gartok in Ngari.", "zh": "3 月，叶城至阿里噶大克的公路动工。" },
+    { "year": 1957, "en": "The Xinjiang–Tibet Highway, 1,179 km, opens on 6 October.", "zh": "10 月 6 日，全长 1179 公里的新藏公路通车。" },
+    { "year": 2006, "en": "The 133 km from Shiquanhe to Rutog is paved in September.", "zh": "9 月，狮泉河至日土 133 公里油路铺通。" },
+    { "year": 2010, "en": "Xinjiang starts rebuilding its section of the road in August, its first upgrade in fifty years.", "zh": "8 月，新疆启动新藏公路新疆段改建，为五十年来首次等级改造。" },
+    { "year": 2012, "en": "The rebuilt, asphalted Xinjiang section opens at the end of August.", "zh": "8 月底，改建为沥青路面的新疆段建成通车。" },
+    { "year": 2013, "en": "The national highway plan extends G219 to Kanas in the north and Dongxing in the south.", "zh": "《国家公路网规划》将 G219 北延至喀纳斯、南延至东兴。" },
+    { "year": 2014, "en": "Work starts on the Pai–Mêdog road through the Doxong La tunnel.", "zh": "经多雄拉隧道的派墨公路开工。" },
+    { "year": 2019, "en": "The new G219 is described as China's first national highway over 10,000 km.", "zh": "新 G219 被称为中国境内第一条突破一万公里的国道。" },
+    { "year": 2023, "en": "An avalanche at the Doxong La tunnel on 17 January kills 28 people.", "zh": "1 月 17 日，多雄拉隧道出口发生雪崩，28 人遇难。" }
+  ]
+}

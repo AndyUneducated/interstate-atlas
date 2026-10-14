@@ -1,0 +1,119 @@
+{
+  "id": "cn-g3",
+  "route": { "sys": "cn-expressway", "num": "G3" },
+  "name": { "en": "Beijing–Taipei Expressway", "zh": "京台高速公路" },
+  "aka": [
+    { "en": "Beijing–Fuzhou Expressway (the 1992 trunk line G020)", "zh": "京福高速公路（1992 年规划的 020 国道主干线）" }
+  ],
+  "tagline": { "en": "Built as far as Pingtan Island; the crossing of the Taiwan Strait to Taipei exists only in the plan", "zh": "已修到平潭岛；跨越台湾海峡通往台北的一段只存在于规划图上" },
+  "termini": {
+    "start": { "at": [116.42, 39.78], "en": "Jiugong Xinqiao on Beijing's South Fifth Ring Road, in Daxing district, where the road continues as Dexian Road", "zh": "北京市大兴区南五环旧宫新桥，向北接德贤路" },
+    "end": { "en": "Zhongshan Avenue (Provincial Road 502) in Pingtan county, Fujian, on Haitan Island. The planned terminus is Taipei.", "zh": "福建省福州市平潭县海坛岛中山大道（502 省道）。规划终点为台北。" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G3 is the radial from Beijing to the south-south-east. It runs through Langfang and Cangzhou in Hebei, Dezhou, Jinan, Tai'an, Qufu and Zaozhuang in Shandong, a short stretch of Jiangsu at Xuzhou, then the length of Anhui — Huaibei, Suzhou, Bengbu, Hefei, Tongling, Huangshan — before crossing the corner of western Zhejiang at Quzhou and descending through northern Fujian by Wuyishan, Nanping and Jian'ou to Fuzhou. From Fuzhou it continues south-east to the coast and over the strait to Haitan Island. Built, it is about 2,100 km; Anhui has the most of it, 647 km.",
+        "Most of the road is two lanes each way, and much of it south of the Yangtze runs through hill country. It parallels G2 across the North China Plain, a little inland of it, and south of the Yangtze it is the expressway from Hefei through the Huangshan hills to Fuzhou.",
+        "The plan carries it on from Pingtan to Taipei. That part has no start date and none is foreseen: the two sides of the strait are governed separately, the government in Taipei does not recognise the plan, and when the route appeared on mainland maps in 2008 Taiwanese internet users mocked it."
+      ],
+      "zh": [
+        "G3 是自北京向南偏东方向的首都放射线。它经河北廊坊、沧州，山东德州、济南、泰安、曲阜、枣庄，穿过江苏徐州一小段，再纵贯安徽——淮北、宿州、蚌埠、合肥、铜陵、黄山，随后切过浙西衢州一角，经武夷山、南平、建瓯沿闽北山区南下福州。出福州后再向东南抵达海岸，跨海进入海坛岛。已建成部分约 2,100 公里，其中安徽段最长，为 647 公里。",
+        "全线大部分为双向四车道，长江以南多穿行于丘陵山地。它在华北平原上与 G2 并行，位置略偏内陆；过长江后，它是自合肥穿越黄山山区通往福州的高速公路。",
+        "规划中它还要从平潭继续通到台北。这一段没有开工时间，也看不到开工的可能：海峡两岸分治，台北当局不承认这一规划；2008 年这条线出现在大陆地图上时，曾遭台湾网友嘲讽。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The crossing to Pingtan is the road's largest structure. The Pingtan Strait Road-Rail Bridge spans the northern mouth of the Haitan Strait from Songxia in Changle to Su'ao on Haitan Island, by way of the islands of Renyu, Tangyu, Xiaolian and Dalian. It is a double-deck bridge: six lanes of expressway at 100 km/h on top, a twin-track railway for 200 km/h below. The road deck is 15.67 km long, of which 14.4 km is shared with the railway, and the largest of the three cable-stayed navigation spans, over the Yuanhong channel, is 532 metres with 54 metres of clearance.",
+        "The strait is one of the windiest stretches of sea in the world, and wave forces were put at more than ten times those on a Yangtze bridge. To lift the spans in that sea, the contractor, China Railway Major Bridge Engineering Group, had a self-propelled 3,600-tonne crane ship built for 340 million yuan.",
+        "In Anhui the Tongling–Tangkou section climbs from the Yangtze plain into the Huangshan mountains: of its 116 km, about 57 are plain road designed for 100 km/h and about 59 mountain road for 80. Near Bengbu the road is being widened to eight lanes, and its Huai River bridge rebuilt — a new left carriageway alongside, the old right-hand bridge demolished and replaced, with a 225-metre steel tied-arch main span; that work began in January 2024."
+      ],
+      "zh": [
+        "通往平潭的跨海段是全线最大的结构物。平潭海峡公铁大桥跨越海坛海峡北口，自长乐区松下镇起，经人屿岛、塘屿岛、小练岛与大练岛，抵达海坛岛苏澳镇。大桥为双层：上层为双向六车道高速公路，设计时速 100 公里；下层为时速 200 公里的双线铁路。公路桥全长 15.67 公里，其中与铁路合建 14.4 公里；三座斜拉通航孔主桥中最大的元洪航道桥主跨 532 米，通航净高 54 米。",
+        "这片海峡是世界上风力最强的海域之一，波流力被估算为长江等内河桥梁的十倍以上。为在这样的海况下架梁，施工方中铁大桥局耗资 3.4 亿元专门建造了一艘起重能力 3,600 吨的自航式起重船。",
+        "安徽境内的铜汤段自长江平原爬升进入黄山山区：116 公里中，约 57 公里为平原微丘区路段，设计时速 100 公里；约 59 公里为山岭重丘区路段，设计时速 80 公里。蚌埠附近路段正改扩建为八车道，淮河特大桥采取左幅分离新建、右幅老桥拆除重建的方式，主桥为 225 米简支下承式钢箱系杆拱桥，2024 年 1 月开工。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "In the 1992 trunk plan the route was the Beijing–Fuzhou line, G020, and it took a different way south. Beyond Hefei the old Beijing–Fuzhou line swung west through Anqing and Huanggang in Hubei before turning back east to Fuzhou on what is now the Fuzhou–Yinchuan expressway. Under the national expressway plans that replaced the trunk plan — '7918' from January 2005, '71118' from 2013 — the route became Beijing–Taipei, numbered G3 because the radials are counted clockwise from due north, and it now follows a new line through Tongling, Huangshan and Quzhou. The national plan also carried a G99 ring around Taiwan; it was never used on any road and was dropped in the 2022 plan, while G3 kept its Taipei terminus.",
+        "Some of the older pieces were landmarks in their own right. When the Jinan–Tai'an expressway, now part of G3, opened on 31 October 1999, it took the mainland's expressway network past 10,000 km, and a monument was put up to mark it.",
+        "The new line was filled in over the following decade: Lujiang–Tongling opened on 18 January 2005, and Tongling–Tangkou and Tangkou–Tunxi, through the Huangshan hills, on 28 September 2007. The Fujian section was completed on 18 December 2015, when 155.7 km from Jian'ou to Minhou opened and gave Gutian county its first expressway. Beijing's 26.6 km, eight lanes across Daxing, were the last of the seven capital radials to be started; they opened on 9 December 2016.",
+        "The road reached the sea last. The Pingtan bridge was begun on 30 October 2013, joined on 25 September 2019, and opened to road traffic on 1 October 2020; the railway below followed on 26 December. A 2024 plan moves the line between Yanping and Minhou to a new alignment further south, handing the old road to other routes."
+      ],
+      "zh": [
+        "在 1992 年的国道主干线规划中，这条线是京福线（020 国道主干线），南下走的是另一条路。旧京福线过合肥后向西经安庆、湖北黄冈，再沿今福银高速折回东面抵达福州。在取代国道主干线规划的国家高速公路网规划中——2005 年 1 月起的「7918 网」与 2013 年起的「71118 网」——这条线改称京台线，因首都放射线自正北起按顺时针方向编号而编为 G3，如今改走经铜陵、黄山、衢州的新线位。国家规划中还曾有一条环台湾的 G99，从未有任何路段使用该编号，已在 2022 年规划中取消，而 G3 保留了台北这一规划终点。",
+        "它的一些早期路段本身就是里程碑。今属 G3 的济南至泰安高速公路于 1999 年 10 月 31 日建成通车，使中国大陆高速公路通车里程突破 1 万公里，为此还专门建了一座纪念塔。",
+        "新线位在此后十年间逐段建成：庐江至铜陵段 2005 年 1 月 18 日通车，穿越黄山山区的铜陵至汤口、汤口至屯溪两段于 2007 年 9 月 28 日通车。2015 年 12 月 18 日，建瓯至闽侯段 155.7 公里通车，福建段全线贯通，古田县从此有了高速公路。北京段 26.6 公里双向八车道，全部位于大兴区，是七条首都放射线中最后一条启动建设的，2016 年 12 月 9 日通车。",
+        "最后修到的是海边。平潭海峡公铁大桥 2013 年 10 月 30 日开工，2019 年 9 月 25 日全桥贯通，2020 年 10 月 1 日公路面试通车；下层铁路于同年 12 月 26 日通车。2024 年的规划显示，延平至闽侯段将向南改线，旧线移交其他线路。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total has been published. Like the rest of the national network, G3 was financed section by section by the provinces it crosses and is repaid from tolls. The figures that are public are for single projects: 10.9 billion yuan for the Pingtan bridge, which carries the railway as well as the road; an estimated 9.3 billion for widening 107 km near Bengbu to eight lanes, planned from December 2023 over three years; and, reported at planning stage, 5.36 billion for the 53 km Langfang section in Hebei.",
+        "The Pingtan bridge's preliminary design was approved jointly by China Railway Corporation and the Fujian provincial government in May 2013, and the Fuzhou–Pingtan railway company let contracts for it; how its cost was divided between road and rail has not been found."
+      ],
+      "zh": [
+        "全线没有公开的总造价。与国家高速公路网的其余部分一样，G3 由沿线各省分段筹资建设，以通行费还贷。公开的都是单个项目的数字：平潭海峡公铁大桥 109.04 亿元（含铁路部分）；蚌埠附近 107 公里八车道改扩建预计投资约 93.18 亿元，计划 2023 年 12 月开工，工期三年；河北廊坊段 53 公里，规划阶段报道的概算为 53.583 亿元。",
+        "平潭大桥的初步设计于 2013 年 5 月由中国铁路总公司与福建省人民政府联合批复，部分工程由福建福平铁路有限责任公司招标；其造价在公路与铁路之间如何分摊，未查到资料。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The Jian'ou–Minhou section in Fujian is limited to 100 km/h, 110 on parts. On Haitan Island the road ends at Zhongshan Avenue in Pingtan; there is no onward crossing."
+      ],
+      "zh": [
+        "福建建瓯至闽侯段限速每小时 100 公里，部分路段 110 公里。在海坛岛上，道路止于平潭中山大道，没有继续前行的通道。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published. Mainland expressways are financed and accounted for by section and by province; G3 was assembled from more than a dozen projects between the 1990s and 2020. Sourced section figures are given below.", "zh": "全线没有公开的总造价。中国大陆高速公路按路段、按省份筹资和核算；G3 由 1990 年代至 2020 年间十余个项目拼接而成。下列为有来源的分段数字。" }
+    },
+    {
+      "label": { "en": "Pingtan Strait Road-Rail Bridge", "zh": "平潭海峡公铁大桥" },
+      "value": { "en": "10.904 billion yuan for the whole bridge, road and railway decks together (2013–2020)", "zh": "全桥（公路、铁路两层合计）109.04 亿元（2013—2020）" },
+      "source": "Chinese Wikipedia, 平潭海峡公铁大桥"
+    },
+    {
+      "label": { "en": "Bengbu interchange – Lukou junction widening", "zh": "蚌埠互通至路口枢纽段改扩建" },
+      "value": { "en": "Estimated at about 9.318 billion yuan for 107 km, four lanes to eight; an estimate at the start of works, not a final account", "zh": "107 公里四改八，预计总投资约 93.18 亿元；为开工前估算，非决算" },
+      "source": "Chinese Wikipedia, 京台高速公路"
+    },
+    {
+      "label": { "en": "Langfang (Hebei) section", "zh": "廊坊段" },
+      "value": { "en": "Reported at 5.3583 billion yuan budgeted for 53 km (an earlier estimate gave 5.03 billion). The figure is from an encyclopedia mirror, not checked against the Hebei transport department.", "zh": "据报道 53 公里概算 53.583 亿元（更早的估算为 50.3 亿元）。数字出自百科镜像网站，尚未与河北省交通运输厅公布数字核对。" },
+      "source": "中文百科全书 (newton.com.tw), 京台高速公路"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The provinces and municipalities along the route, repaid from tolls; the Pingtan bridge jointly with the railway, its design approved by China Railway Corporation and the Fujian provincial government.", "zh": "沿线各省市出资，以通行费还贷；平潭大桥为公铁合建，初步设计由中国铁路总公司与福建省人民政府联合批复。" },
+      "source": "Chinese Wikipedia, 京台高速公路 and 平潭海峡公铁大桥 (citing China News Service, 27 May 2013)"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "2,100.70 km built, Beijing to Pingtan; the length to Taipei is not given in the plan", "zh": "北京至平潭已建成 2,100.70 公里；规划未给出至台北的总长度" },
+      "source": "Chinese Wikipedia, 京台高速公路 and 中华人民共和国国家高速公路网"
+    }
+  ],
+  "timeline": [
+    { "year": 1992, "en": "The trunk-road plan includes a Beijing–Fuzhou line, G020, running south of Hefei by way of Anqing and Huanggang.", "zh": "国道主干线规划列入京福线（020），合肥以南经安庆、黄冈。" },
+    { "year": 1999, "en": "Jinan–Tai'an opens on 31 October, taking the mainland's expressways past 10,000 km.", "zh": "10 月 31 日，济南至泰安高速通车，中国大陆高速公路通车里程突破 1 万公里。" },
+    { "year": 2005, "en": "The '7918' plan renames the route Beijing–Taipei and numbers it G3; Lujiang–Tongling opens on 18 January.", "zh": "「7918 网」规划将该线改称京台高速，编号 G3；1 月 18 日庐铜段通车。" },
+    { "year": 2007, "en": "The Tongling–Tangkou and Tangkou–Tunxi sections through the Huangshan hills open on 28 September.", "zh": "9 月 28 日，穿越黄山山区的铜汤、汤屯两段通车。" },
+    { "year": 2013, "en": "Work on the Pingtan Strait Road-Rail Bridge begins on 30 October.", "zh": "10 月 30 日，平潭海峡公铁大桥开工。" },
+    { "year": 2015, "en": "Jian'ou–Minhou opens on 18 December, completing the Fujian section.", "zh": "12 月 18 日，建瓯至闽侯段通车，福建段全线贯通。" },
+    { "year": 2016, "en": "The Beijing section opens on 9 December, the last of the capital radials to be started.", "zh": "12 月 9 日，北京段通车；它是七条首都放射线中最后启动建设的一段。" },
+    { "year": 2020, "en": "The Pingtan bridge opens to road traffic on 1 October, carrying the expressway to Haitan Island.", "zh": "10 月 1 日，平潭海峡公铁大桥公路面试通车，京台高速延伸至海坛岛。" },
+    { "year": 2022, "en": "The new national plan drops the G99 Taiwan ring but keeps Taipei as G3's planned terminus.", "zh": "新版国家公路网规划取消 G99 台湾环线，保留 G3 的台北规划终点。" },
+    { "year": 2024, "en": "Rebuilding of the Huai River bridge near Bengbu begins in January.", "zh": "1 月，蚌埠淮河特大桥改扩建开工。" }
+  ]
+}

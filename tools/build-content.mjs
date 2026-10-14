@@ -259,6 +259,8 @@ async function main() {
       if (ends && at) {
         const startIsAt = d.termini.start?.at === at;
         const nearStart = kmBetween(at, ends[0]) < kmBetween(at, ends[1]);
+        const off = Math.min(kmBetween(at, ends[0]), kmBetween(at, ends[1]));
+        if (off > 60) warn(file, `the terminus "at" is ${Math.round(off)} km from either end of the drawn route`);
         if (startIsAt !== nearStart) d = { ...d, termini: { start: d.termini.end, end: d.termini.start } };
       } else if (ends && /^(cn|tw|hk)-/.test(id)) {
         warn(file, `termini have no "at" coordinate, so they may be shown the wrong way round`);

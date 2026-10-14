@@ -1,0 +1,134 @@
+{
+  "id": "cn-g65-sha",
+  "route": { "sys": "cn-expressway", "num": "G65", "anchor": [108.9782, 33.877] },
+  "name": { "en": "Baotou–Maoming Expressway", "zh": "包茂高速公路" },
+  "aka": [
+    { "en": "Xi'an–Ankang Expressway (the Qinling section)", "zh": "西康高速（秦岭段）" },
+    { "en": "Chongqing–Hunan Expressway (the Chongqing section)", "zh": "渝湘高速（重庆段）" }
+  ],
+  "tagline": { "en": "From the Yellow River at Baotou to the South China Sea at Maoming, under the Qinling by an 18 km tunnel", "zh": "自包头黄河畔直抵茂名南海之滨，以 18 公里长隧穿越秦岭" },
+  "completedYear": 2017,
+  "termini": {
+    "start": { "en": "Jiuyuan, Baotou, Inner Mongolia, on the G6 and G7; G65's own carriageway begins at the Shaerqin junction east of the city", "zh": "内蒙古包头市九原，接 G6、G7；包茂高速正线自城东沙尔沁枢纽起", "at": [109.85, 40.6] },
+    "end": { "en": "Dianbai District, Maoming, Guangdong, past the Dachangkou junction with G15", "zh": "广东省茂名市电白区，过大昌口枢纽与 G15 沈海高速相接", "at": [111.0, 21.5] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G65 runs 3,005 km from north to south across the middle of China: Baotou, Ordos, Yulin, Yan'an, Huangling, Tongchuan, Xi'an, Ankang, Dazhou, Chongqing, Nanchuan, Qianjiang, Jishou, Huaihua, Guilin, Wuzhou and Maoming. It starts on the Ordos plateau, crosses the Loess Plateau of northern Shaanxi, the Qinling and the Daba Shan, the Wuling mountains of south-eastern Chongqing and western Hunan, and the karst of Guilin and Yangshuo, and ends in the lowlands of western Guangdong.",
+        "Much of it is shared: with G6 and G7 out of Baotou, with the Xi'an ring and several other expressways around Xi'an, with G69 from Xi'an to Ankang, with G50 through Chongqing, with G56 between Jishou and Fenghuang, and in Guangxi with G76, G59, G78 and G80 in turn. The atlas draws G65 as one long line and a short separate piece in eastern Guangxi; this profile is about the whole road."
+      ],
+      "zh": [
+        "G65 自北向南纵贯中国中部，全长 3,005 公里，途经包头、鄂尔多斯、榆林、延安、黄陵、铜川、西安、安康、达州、重庆、南川、黔江、吉首、怀化、桂林、梧州、茂名。它从鄂尔多斯高原出发，穿过陕北黄土高原，翻越秦岭、大巴山，再穿过渝东南与湘西的武陵山区和桂林、阳朔的喀斯特地貌，止于粤西平原。",
+        "全线多处共线：出包头与 G6、G7 共线，西安一带与西安绕城高速等多条高速共线，西安至安康与 G69 银百高速共线，重庆市区与 G50 沪渝高速共线，吉首至凤凰与 G56 杭瑞高速共线，广西境内又先后与 G76、G59、G78、G80 共线。本图集把 G65 画成一条长线加广西东部一小段独立线段；本文介绍的是整条路。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Qinling crossing south of Xi'an is the route's signature. The Qinling Zhongnanshan tunnel takes two bores of two lanes each under the Zhongnan range for 18.02 km (Chinese Wikipedia's article on the tunnel gives 18.040 km), at 80 km/h, with up to 1,640 m of rock overhead. Three ventilation shafts serve it, the deepest 661 m and up to 11.5 m across. About every 5 km each bore widens into a 150 m chamber lit with coloured light and images, to break the drive into shorter tunnels in the driver's eye — described as a first for an expressway tunnel. It was dug from the parallel pilot heading of the Xi'an–Ankang railway's Qinling tunnel, which saved about 354 million yuan and two and a half years; at the south portal five tunnels emerge within 100 m of one another — a water-transfer tunnel, the two road bores and the two railway bores.",
+        "When it opened in January 2007 it was the longest twin-bore road tunnel in China and the longest road tunnel in Asia. South of it the road keeps tunnelling: the 71.67 km from Zhashui to Xiaohe has 27.22 km of bridges and 18.72 km of tunnels, and on the Xiaohe–Ankang section the Baojiashan tunnel, 11.2 km, was China's second-longest road tunnel when it opened in 2009.",
+        "In western Hunan the Aizhai Bridge carries the road over the Dehang gorge near Jishou: a steel-truss suspension bridge with a 1,176 m main span, its deck 355 m above the valley floor, described as the longest-span steel-truss suspension bridge across a canyon in the world. On the Shaanxi–Sichuan border the road passes the Daba Shan by the Dabashan tunnel, of which 3.38 km lies in Shaanxi but is built and run by Sichuan."
+      ],
+      "zh": [
+        "西安以南的秦岭段是这条路的标志。秦岭终南山公路隧道以双洞、各双车道的形式从终南山下穿过，长 18.02 公里（维基百科隧道条目作 18.040 公里），设计时速 80 公里，最大埋深 1,640 米。隧道设三座通风竖井，最深 661 米，最大直径 11.5 米。每条隧道内约每 5 公里设一处长 150 米的特殊灯光段，以灯光与图案把特长隧道在视觉上分成几段较短的隧道，据称为世界高速公路隧道首创。隧道利用已贯通的西康铁路秦岭隧道平行导洞施工，节省投资约 3.54 亿元、缩短工期两年半；南口不到 100 米的范围内并列着五条隧道：引水隧洞、两条公路隧道和两条铁路隧道。",
+        "2007 年 1 月通车时，它是中国最长的双洞公路隧道、亚洲最长的公路隧道。隧道以南依然隧道连连：柞水至小河 71.67 公里，桥梁 27.22 公里、隧道 18.72 公里；小河至安康段的包家山隧道长 11.2 公里，2009 年通车时是中国第二长的公路隧道。",
+        "湘西吉首附近，矮寨大桥跨越德夯峡谷：钢桁梁悬索桥，主跨 1,176 米，桥面距谷底 355 米，被称为世界上峡谷跨径最大的钢桁梁悬索桥。陕川交界处，道路以大巴山隧道穿越大巴山，其中陕西境内 3.38 公里由四川负责建设和运营管理。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road began as a western development corridor. In 2000 the Ministry of Communications named eight inter-provincial routes for the western regions, among them Baotou to Beihai by way of Xi'an and Chongqing; its northern half is today's G65 and its southern half part of G75. The 2005 national expressway plan turned the corridor towards Maoming and numbered it G65.",
+        "It was built from the middle outwards. Dazhou to Chongqing came first: Luojiang–Dazhu in December 2000, Dazhu to the Chongqing border on 20 June 2004, and the Chongqing–Linshui road on 15 July 2004, the centenary of Deng Xiaoping's birth. The Qinling tunnel and the Xi'an–Zhashui road opened on 20 January 2007, Zhashui–Xiaohe on 28 November 2008 and Xiaohe–Ankang on 28 May 2009. Chongqing's 413.6 km to the Hunan border opened on 30 September 2010, the Dazhou–Shaanxi road on 12 April 2012.",
+        "Hunan's Jishou–Chadong section opened with the Aizhai Bridge on 31 March 2012, Jishou–Huaihua on 23 December 2012 and the road to the Guangxi border on 25 December 2013. Guangdong had planned its 121.4 km for 2021–2030 but brought it forward; its environmental approval was held up by the crossing of the Gaozhou reservoir until 5 November 2012, and the section was ready on 30 December 2015. It could not be used to the border until Guangxi finished the Junchang tunnel: the Cenxi–Shuiwen link opened on 5 January 2017. The last gap, at the Hunan–Guangxi border, closed later in 2017 — 5 July by Chinese Wikipedia, 1 November by other encyclopaedia accounts."
+      ],
+      "zh": [
+        "这条路起源于西部开发通道。2000 年交通部提出八条西部省际公路通道，其中一条是包头经西安、重庆至北海；其北半段即今 G65，南半段则成为 G75 的一部分。2005 年国家高速公路网规划把这条通道的南端改向茂名，编号 G65。",
+        "全线从中段向两端修建。最早通车的是达州至重庆：罗江至大竹 2000 年 12 月通车，大竹至川渝界 2004 年 6 月 20 日通车，渝邻高速 2004 年 7 月 15 日——邓小平诞辰 100 周年当天——全线贯通。秦岭终南山隧道与西柞高速 2007 年 1 月 20 日通车，柞小高速 2008 年 11 月 28 日、小康高速 2009 年 5 月 28 日通车。重庆至渝湘界 413.6 公里于 2010 年 9 月 30 日全面通车，达陕高速于 2012 年 4 月 12 日通车。",
+        "湖南吉茶段连同矮寨大桥于 2012 年 3 月 31 日通车，吉怀段于 2012 年 12 月 23 日通车，至湘桂界路段于 2013 年 12 月 25 日通车。广东原计划在 2021—2030 年间建设境内 121.4 公里，后提前实施；因跨越高州水库，环评一度受阻，至 2012 年 11 月 5 日才获批，2015 年 12 月 30 日具备通车条件。但要等广西均昌隧道完工，才能通到省界：岑溪至水汶段于 2017 年 1 月 5 日通车。最后一处缺口在湘桂交界，于 2017 年内打通——维基百科记为 7 月 5 日，其他百科资料记为 11 月 1 日。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost for the whole road has been published; it was financed province by province. The figures that are public are for sections. The Qinling Zhongnanshan tunnel cost 3.193 billion yuan; the Xi'an–Zhashui road around it, 43.5 km, was estimated at 1.925 billion; the Xiaohe–Ankang section, 58.26 km, at 5.18 billion, of which the Baojiashan tunnel was 1.2 billion. The Chongqing–Linshui road cost 1.914 billion yuan, Chongqing's 413.6 km to Hunan more than 30 billion, and Guangdong's 121.4 km about 11.5 billion. The Asian Development Bank lent US$208 million towards the Aizhai Bridge."
+      ],
+      "zh": [
+        "全线没有公布过总造价，各省分别筹资。公开的数字都是分段的。秦岭终南山公路隧道总投资 31.93 亿元；隧道两侧的西柞高速 43.5 公里概算 19.25 亿元；小康高速 58.26 公里概算 51.8 亿元，其中包家山隧道 12 亿元。渝邻高速总投资 19.14 亿元，重庆至渝湘界 413.6 公里总投资超过 300 亿元，广东段 121.4 公里约 115 亿元。亚洲开发银行为矮寨大桥提供了 2.08 亿美元贷款。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The Qinling tunnel has its own toll on top of the distance charge: 20 yuan a trip for a car, by Shaanxi's 2022 schedule. It takes about a quarter of an hour, watched by 288 cameras, one every 125 m in each bore. Once through, the 2008 opening of Zhashui–Xiaohe put Zhen'an about 90 minutes from Xi'an. Further south, the Aizhai Bridge sits just west of Jishou, between the Aizhai and Jishou West exits."
+      ],
+      "zh": [
+        "秦岭终南山隧道在计程通行费之外另行加收：按陕西 2022 年标准，小客车每车次 20 元。穿越隧道约需一刻钟，两洞每隔 125 米设一台摄像机，共 288 台。出隧道南行，2008 年柞小高速通车后，西安至镇安约需 90 分钟。再往南，矮寨大桥位于吉首以西，在矮寨与吉首西两个出口之间。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published. G65 was financed and built by seven provinces and regions separately between 2000 and 2017; the sourced section costs are given separately below.", "zh": "全线总造价未见公布。G65 由沿线七个省区在 2000 至 2017 年间分别筹资建设；已查到出处的路段造价另列如下。" }
+    },
+    {
+      "label": { "en": "Qinling Zhongnanshan tunnel", "zh": "秦岭终南山公路隧道" },
+      "value": { "en": "3.193 billion yuan", "zh": "总投资 31.93 亿元" },
+      "source": "Xinhua Shaanxi, “秦岭终南山公路隧道20日通车”, 18 January 2007, as cited in Chinese Wikipedia, 秦岭终南山公路隧道"
+    },
+    {
+      "label": { "en": "Xi'an–Zhashui", "zh": "西柞高速" },
+      "value": { "en": "Estimated at 1.925 billion yuan for 43.5 km, excluding the tunnel and its approaches", "zh": "43.5 公里（不含秦岭终南山隧道及其连接线），概算 19.25 亿元" },
+      "source": "Shaanxi Provincial Department of Transport, 西柞高速公路项目简介, 29 May 2006, as cited in Chinese Wikipedia, 西康高速公路"
+    },
+    {
+      "label": { "en": "Xiaohe–Ankang", "zh": "小康高速" },
+      "value": { "en": "Estimated at 5.18 billion yuan for 58.26 km; the Baojiashan tunnel 1.2 billion", "zh": "58.26 公里，概算 51.8 亿元；其中包家山隧道 12 亿元" },
+      "source": "Shaanxi Provincial People's Government, 28 May 2009, and 胡平, 公路隧道, 2011 (1), as cited in Chinese Wikipedia, 西康高速公路"
+    },
+    {
+      "label": { "en": "Chongqing–Linshui", "zh": "渝邻高速" },
+      "value": { "en": "1.914 billion yuan for 53.6 km", "zh": "53.6 公里，总投资 19.14 亿元" },
+      "source": "Chinese Wikipedia, 包茂高速公路"
+    },
+    {
+      "label": { "en": "Chongqing to the Hunan border", "zh": "渝湘高速（重庆段）" },
+      "value": { "en": "More than 30 billion yuan for 413.6 km", "zh": "413.6 公里，总投资超过 300 亿元" },
+      "source": "People's Daily Online Chongqing, as cited in Chinese Wikipedia, 包茂高速公路"
+    },
+    {
+      "label": { "en": "Guangdong section", "zh": "广东段" },
+      "value": { "en": "About 11.5 billion yuan for 121.4 km", "zh": "121.4 公里，投资约 115 亿元" },
+      "source": "Chinese Wikipedia, 包茂高速公路"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The provinces and their expressway companies, section by section. The Qinling tunnel is owned by a dedicated company, Shaanxi Qinling Zhongnanshan Highway Tunnel Co.; the Asian Development Bank lent US$208 million towards the Aizhai Bridge.", "zh": "沿线各省区及其高速公路公司分段出资。秦岭终南山隧道的业主为专设的陕西秦岭终南山公路隧道有限责任公司；矮寨大桥获亚洲开发银行 2.08 亿美元贷款。" },
+      "source": "Chinese Wikipedia, 秦岭终南山公路隧道 and 矮寨大桥 (the latter citing an archived Asian Development Bank document)"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "3,005 km", "zh": "3,005 公里" },
+      "source": "Ministry of Transport, national expressway network layout, as cited in Chinese Wikipedia, 包茂高速公路"
+    },
+    {
+      "label": { "en": "Aizhai Bridge", "zh": "矮寨大桥" },
+      "value": { "en": "Steel-truss suspension bridge, 1,176 m main span, 1,534 m long, deck 355 m above the valley floor; opened 31 March 2012", "zh": "钢桁梁悬索桥，主跨 1,176 米，全长 1,534 米，桥面距谷底 355 米；2012 年 3 月 31 日通车" },
+      "source": "Hunan Provincial Department of Transportation, 矮寨特大悬索桥项目工程概要, and China National Radio, 31 March 2012, as cited in Chinese Wikipedia, 矮寨大桥"
+    }
+  ],
+  "timeline": [
+    { "year": 2000, "en": "The Ministry of Communications names Baotou–Beihai one of eight western inter-provincial corridors; Luojiang–Dazhu in Sichuan opens in December.", "zh": "交通部将包头至北海列为八条西部省际通道之一；12 月，四川罗江至大竹段通车。" },
+    { "year": 2004, "en": "The Chongqing–Linshui road opens on 15 July, completing the Dazhou–Chongqing link.", "zh": "7 月 15 日渝邻高速贯通，达州至重庆连通。" },
+    { "year": 2007, "en": "The Qinling Zhongnanshan tunnel opens on 20 January with the Xi'an–Zhashui road.", "zh": "1 月 20 日，秦岭终南山公路隧道与西柞高速同日通车。" },
+    { "year": 2009, "en": "Xiaohe–Ankang, with the Baojiashan tunnel, opens on 28 May, completing Xi'an–Ankang.", "zh": "5 月 28 日小康高速（含包家山隧道）通车，西康高速全线建成。" },
+    { "year": 2010, "en": "Chongqing's road to the Hunan border opens on 30 September.", "zh": "9 月 30 日，渝湘高速重庆段全面通车。" },
+    { "year": 2012, "en": "The Aizhai Bridge and the Jishou–Chadong road open on 31 March; Dazhou–Shaanxi on 12 April.", "zh": "3 月 31 日矮寨大桥与吉茶高速通车；4 月 12 日达陕高速通车。" },
+    { "year": 2013, "en": "Hunan's road from Zhutian to the Guangxi border opens on 25 December.", "zh": "12 月 25 日，湖南竹田至湘桂界段通车。" },
+    { "year": 2015, "en": "The Guangdong section is ready on 30 December, but the border link waits for Guangxi.", "zh": "12 月 30 日广东段具备通车条件，但省界段须等待广西。" },
+    { "year": 2017, "en": "Cenxi–Shuiwen and the Guangdong border link open on 5 January; the last gap, at the Hunan–Guangxi border, closes later in the year.", "zh": "1 月 5 日岑溪至水汶段与粤桂省界站通车；同年稍后，湘桂交界最后一段打通。" }
+  ]
+}

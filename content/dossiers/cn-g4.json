@@ -1,0 +1,128 @@
+{
+  "id": "cn-g4",
+  "route": { "sys": "cn-expressway", "num": "G4" },
+  "name": { "en": "Beijing–Hong Kong–Macau Expressway", "zh": "京港澳高速公路" },
+  "aka": [
+    { "en": "Beijing–Zhuhai Expressway (G030)", "zh": "京珠高速公路（030 国道主干线）" },
+    { "en": "Beijing–Shijiazhuang Expressway (Beijing to Shijiazhuang)", "zh": "京石高速公路（北京至石家庄段）" }
+  ],
+  "tagline": { "en": "Eighteen years from Beijing to the Pearl River: the first national trunk line built to expressway standard throughout", "zh": "从北京修到珠江口用了十八年：第一条全部以高速公路标准贯通的国道主干线" },
+  "completedYear": 2004,
+  "termini": {
+    "start": { "at": [116.3, 39.88], "en": "Liuliqiao on Beijing's West Third Ring Road, in Fengtai district — kilometre 0", "zh": "北京市丰台区六里桥，接西三环——零公里点" },
+    "end": { "en": "Huanggang, Futian district, Shenzhen, at the border crossing to Hong Kong — kilometre 2,282.6. Macau is reached by connecting routes.", "zh": "深圳市福田区皇岗口岸，可由此进入香港——2,282.6 公里处。澳门须经联络线前往。" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G4 runs due south from Beijing for 2,282.6 km on the national chainage, across the North China Plain through Baoding, Shijiazhuang, Xingtai and Handan, across Henan by Anyang, Xinxiang, Zhengzhou, Xuchang, Zhumadian and Xinyang, through Wuhan and Xianning in Hubei, Yueyang, Changsha, Xiangtan, Zhuzhou, Hengyang and Chenzhou in Hunan, over the Nanling mountains and down through Shaoguan to Guangzhou, Dongguan and Shenzhen.",
+        "Despite the name it touches neither Hong Kong nor Macau. It ends at the Huanggang crossing in Shenzhen, across the river from Hong Kong; for Macau, drivers turn off onto the Guangzhou–Macau expressway or the Pearl River Delta ring to the Hong Kong–Zhuhai–Macau Bridge or the Zhuhai crossings.",
+        "It is the country's central north–south road, and it shows. Hubei described its section as the busiest expressway in the province, carrying more than 50,000 vehicles a day before widening; the Changsha–Xiangtan section is the busiest in Hunan; and the Guangzhou–Shenzhen expressway at the southern end has been called the most profitable road in China, and is congested often enough that Guangdong built a second road beside it."
+      ],
+      "zh": [
+        "G4 自北京正南而下，按国家里程桩号全长 2,282.6 公里：穿越华北平原，经保定、石家庄、邢台、邯郸，纵贯河南经安阳、新乡、郑州、许昌、驻马店、信阳，穿过湖北孝感、武汉、咸宁，湖南岳阳、长沙、湘潭、株洲、衡阳、郴州，越南岭经韶关南下，抵达广州、东莞与深圳。",
+        "虽然名为「京港澳」，它既不进入香港，也不进入澳门。它止于深圳皇岗口岸，与香港隔河相望；前往澳门须转广澳高速或珠三角环线高速，经港珠澳大桥口岸或珠海其他陆路口岸入境。",
+        "它是全国居中的南北主干道，路况也说明了这一点。湖北段扩建前日均过境车辆超过 5 万辆，是湖北省最繁忙的高速公路；长潭段是湖南省境内最繁忙的路段；南端的广深高速被称为「中国最赚钱的高速公路」，堵车频繁，以致广东另建了广深沿江高速分流。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The largest structure is the Liujiang Yellow River Bridge north of Zhengzhou, opened in 2004 as the Zhengzhou Second Yellow River Bridge: 9,848 metres long and 42 metres wide, at the time the longest and widest highway bridge over the Yellow River. Henan's transport department put its cost at about 100 million yuan a kilometre. Further south, the Wuhan Junshan Yangtze River Bridge takes the road across the Yangtze south-west of the city centre.",
+        "The hardest section was the 109.9 km across the Nanling range in northern Guangdong, from the Hunan border to Shaoguan, built in 1998–2003. Designed for 80 and 100 km/h depending on the terrain, it was described at its opening as the longest, most expensive and most difficult mountain expressway in China, and in the provincial press as 'China's most challenging highway project'.",
+        "Almost the whole road was built as four lanes and has been widened since. Hebei rebuilt its section to eight lanes on a 42-metre roadbed in 2012–2014, moving the line east to bypass central Shijiazhuang; most of Henan's sections were widened to eight lanes between 2010 and 2015; Hubei's northern section from the Henan border to Junshan was finished at eight lanes on 6 February 2026. Hunan's 522 km, still four lanes, are now being rebuilt."
+      ],
+      "zh": [
+        "全线最大的结构物是郑州以北的刘江黄河大桥，2004 年通车时称郑州黄河二桥：全长 9,848 米，宽 42 米，是当时黄河上最长、最宽的公路大桥。河南省交通厅称其造价平均每公里约 1 亿元。再往南，武汉军山长江公路大桥在武汉市区西南把这条路送过长江。",
+        "最难修的是粤北穿越南岭的 109.9 公里，自湘粤界至韶关，1998—2003 年建成。依地形分段按时速 80 公里和 100 公里设计，通车时被称为国内里程最长、投资最大、施工难度最大的山区高速公路，省内媒体称之为「中国最具挑战性公路项目」。",
+        "全线几乎都按四车道修建，此后陆续拓宽。河北段 2012—2014 年改扩建为八车道，路基宽 42 米，并将石家庄一段东移、绕开市区；河南大部分路段于 2010 至 2015 年间扩建为八车道；湖北北段自豫鄂界至军山于 2026 年 2 月 6 日建成八车道。湖南境内 522 公里仍为四车道，目前正在改扩建。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The first piece is the Beijing section of the Beijing–Shijiazhuang expressway, begun in April 1986 in four phases — Beijing's first expressway and the third on the mainland to start construction. Its first stretch, from Liuliqiao to Zhaoxindian, was finished in 1987, which, by the account in Chinese Wikipedia, makes it the mainland's first expressway in use, ahead of the Shanghai–Jiading road usually given that title. Hebei's 225 km to Shijiazhuang, the province's first expressway, followed in 1993.",
+        "The rest was built over the next decade as the Beijing–Zhuhai trunk line, G030 in the 1992 plan. The Guangzhou–Shenzhen expressway opened in 1994, Changsha–Xiangtan in 1996, Shijiazhuang–Anyang and Anyang–Xinxiang in 1997; most of the remainder opened between 1998 and 2003. The last project started, Xinxiang–Zhengzhou with the second Yellow River bridge, opened on 30 September 2004, and the vice-minister of communications, Feng Zhenglin, declared the 2,291 km line from Beijing to Zhuhai complete after eighteen years — the first national trunk line built entirely to expressway standard.",
+        "When the '7918' plan of January 2005 numbered the capital radials, the main line to Shenzhen became G4, the fourth clockwise from due north, named for Hong Kong and Macau. The Guangzhou–Zhuhai end of the old Beijing–Zhuhai line is today part of a parallel route, the G0425 Guangzhou–Macau expressway."
+      ],
+      "zh": [
+        "最早的一段是京石高速公路北京段，1986 年 4 月动工，分四期建设，是北京最早建设的高速公路，也是中国大陆第三条开工的高速公路。六里桥至赵辛店一段于 1987 年建成；按中文维基百科的说法，它因此才是中国大陆最早通车的高速公路，早于通常被冠以此名的沪嘉高速。河北境内至石家庄的 225 公里是河北省第一条高速公路，于 1993 年建成通车。",
+        "其余路段在此后十余年间作为京珠国道主干线（1992 年规划中的 030）陆续修建。广深高速 1994 年通车，长潭段 1996 年，石安段与安新段 1997 年；其余大部分路段在 1998 至 2003 年间通车。最后开工的新乡至郑州段连同郑州黄河二桥于 2004 年 9 月 30 日通车，交通部副部长冯正霖宣布：经过 18 年建设，北京至珠海全长 2,291 公里的京珠高速全线贯通——这是我国第一条全部以高速公路标准建成的国道主干线。",
+        "2005 年 1 月「7918 网」为首都放射线编号时，通往深圳的主线编为 G4——自正北起按顺时针方向的第四条——并以港澳命名。旧京珠线的广州至珠海一端，今天属于并行线 G0425 广澳高速。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total has been published; it was built as more than a dozen separately financed provincial projects. The section figures that are public run from 1.19 billion yuan for the 44.8 km Changsha–Xiangtan section (1994–1996) to 10.7 billion budgeted for the 199 km Guangzhou–Shaoguan section (2001–2003) and 12.26 billion for Hubei's 339 km (1998–2002).",
+        "The World Bank lent to two of them: US$400 million towards Hubei's section and US$200 million towards Hunan's Lintang–Changsha section, which also had 1.007 billion yuan from the Ministry of Communications. At the southern end the Guangzhou–Shenzhen expressway was built as a joint venture between Hopewell Highway Infrastructure, a subsidiary of Hong Kong's Hopewell Holdings, and Guangdong's provincial expressway company under a build-operate-transfer arrangement, with a thirty-year concession that runs from 1 July 1997 to 2027.",
+        "The road is tolled, apart from short stretches inside cities. Rebuilding is now the large expense: the Hunan widening from Yanglousi on the Hubei border through Yueyang to Guangfu, begun on 16 January 2025, is budgeted at about 24.1 billion yuan, and widening the Guangzhou–Shenzhen expressway to ten or twelve lanes was estimated at 47.1 billion."
+      ],
+      "zh": [
+        "全线没有公开的总造价；它由十余个分别筹资的省级项目建成。公开的分段数字从长潭段 44.8 公里的 11.9 亿元（1994—1996），到广韶段 199 公里概算 107 亿元（2001—2003）、湖北段 339 公里概算 122.6 亿元（1998—2002）不等。",
+        "世界银行为其中两段提供了贷款：湖北段 4 亿美元，湖南临长段 2 亿美元（该段另有交通部投资 10.07 亿元）。南端的广深高速由香港合和实业旗下公司与广东省高速公路发展公司以建设—经营—转让（BOT）模式合资兴建，专营期三十年，自 1997 年 7 月 1 日至 2027 年。",
+        "除城区内少数路段外全线收费。如今的大笔开支在于改扩建：2025 年 1 月 16 日开工的湖南羊楼司（湘鄂界）经岳阳至广福段扩容工程概算约 241 亿元；广深高速扩建为 10 至 12 车道，估算为 471 亿元。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Within Beijing's Fifth Ring Road the limit is 80 to 90 km/h, and 120 beyond it. In Hunan the widening works have the road down to alternating half-carriageway running; as of June 2026 drivers were being directed to use the parallel Xuchang–Guangzhou or Wuhan–Shenzhen expressways instead."
+      ],
+      "zh": [
+        "北京五环路以内限速每小时 80 至 90 公里，五环以外 120 公里。湖南段因扩容施工实行交替半幅通行；截至 2026 年 6 月，车辆被引导绕行并行的许广高速或武深高速。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published. G4 was built by five provinces and Beijing as more than a dozen separately financed projects from 1986 to 2004, each accounted for on its own; sourced section figures are given below.", "zh": "全线没有公开的总造价。G4 由北京及五个省份在 1986 至 2004 年间分十余个项目分别筹资建设、分别核算；下列为有来源的分段数字。" }
+    },
+    {
+      "label": { "en": "Hubei section", "zh": "湖北段" },
+      "value": { "en": "12.26 billion yuan budgeted for 339 km including the Junshan Yangtze bridge, with a US$400 million World Bank loan (1998–2002)", "zh": "339 公里（含军山长江大桥）概算总投资 122.6 亿元，其中世界银行贷款 4 亿美元（1998—2002）" },
+      "source": "Hubei Provincial Department of Transport, 京珠高速公路湖北段, archived, as cited in Chinese Wikipedia, 京港澳高速公路"
+    },
+    {
+      "label": { "en": "Hunan sections", "zh": "湖南各段" },
+      "value": { "en": "Lintang–Changsha, 183 km: 5.092 billion yuan, including 1.007 billion from the Ministry of Communications and a US$200 million World Bank loan (2000–2002). Changsha–Xiangtan: 1.19 billion (1994–1996). Xiangtan–Leiyang: 4.48 billion (1997–2000). Leiyang–Yizhang: 3.9188 billion (1998–2001).", "zh": "临长段 183 公里 50.92 亿元，其中交通部投资 10.07 亿元、世界银行贷款 2 亿美元（2000—2002）；长潭段 11.9 亿元（1994—1996）；潭耒段 44.8 亿元（1997—2000）；耒宜段 39.188 亿元（1998—2001）。" },
+      "source": "Chinese Wikipedia, 京港澳高速公路 and 京珠高速公路"
+    },
+    {
+      "label": { "en": "Guangdong sections", "zh": "广东各段" },
+      "value": { "en": "Northern (Nanling) section, 109.93 km: 5.656 billion yuan budgeted (1998–2003). Guangzhou–Shaoguan, 199.3 km: 10.7 billion budgeted (2001–2003).", "zh": "粤境北段（南岭段）109.93 公里概算 56.56 亿元（1998—2003）；广韶段 199.3 公里概算累计 107 亿元（2001—2003）。" },
+      "source": "Nanfang Daily Online, 14 February 2003; Guangdong Provincial Road & Bridge Construction Development Co., archived; both as cited in Chinese Wikipedia, 京港澳高速公路"
+    },
+    {
+      "label": { "en": "Henan and Hebei sections", "zh": "河南、河北各段" },
+      "value": { "en": "Xinxiang–Zhengzhou with the second Yellow River bridge, 94.79 km: 4.577 billion yuan (2002–2004; Chinese Wikipedia gives 4.47 billion). Shijiazhuang–Anyang, 216 km: 4.548 billion (1994–1997).", "zh": "新乡至郑州段（含郑州黄河二桥）94.79 公里 45.77 亿元（2002—2004；中文维基百科作 44.7 亿元）；石安段 216 公里 45.48 亿元（1994—1997）。" },
+      "source": "Dahe Daily, 1 October 2004, via Sohu; Hebei Shi'an Expressway Administration, archived, as cited in Chinese Wikipedia, 京港澳高速公路"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The provinces and Beijing, repaid from tolls; World Bank loans of US$400 million (Hubei) and US$200 million (Hunan); the Guangzhou–Shenzhen expressway as a build-operate-transfer joint venture of Hopewell Holdings and the Guangdong provincial expressway company, concession to 2027.", "zh": "沿线各省市出资，以通行费还贷；世界银行贷款湖北段 4 亿美元、湖南段 2 亿美元；广深高速由合和实业与广东省高速公路发展公司以 BOT 模式合资兴建，专营期至 2027 年。" },
+      "source": "Chinese Wikipedia, 京港澳高速公路 and 广深高速公路"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "2,282.6 km on the national chainage; the Beijing–Zhuhai line completed in 2004 was 2,291 km", "zh": "按国家里程桩号 2,282.6 公里；2004 年贯通的京珠线全长 2,291 公里" },
+      "source": "Ministry of Transport, 交公路发〔2008〕157号, as cited in Chinese Wikipedia, 京港澳高速公路; Xinhua, 30 September 2004, via Sina"
+    }
+  ],
+  "timeline": [
+    { "year": 1986, "en": "Work on the Beijing–Shijiazhuang expressway begins in April.", "zh": "4 月，京石高速公路开工。" },
+    { "year": 1987, "en": "Liuliqiao–Zhaoxindian in Beijing opens.", "zh": "北京六里桥至赵辛店段建成通车。" },
+    { "year": 1993, "en": "Beijing–Shijiazhuang is complete in November.", "zh": "11 月，京石高速全线建成。" },
+    { "year": 1994, "en": "The Guangzhou–Shenzhen expressway opens on 18 July.", "zh": "7 月 18 日，广深高速公路通车。" },
+    { "year": 1997, "en": "Shijiazhuang–Anyang and Anyang–Xinxiang open, joining Hebei to Henan.", "zh": "石安段、安新段相继通车，河北与河南连通。" },
+    { "year": 2002, "en": "Hubei's 339 km are formally opened on 28 September; Lintang–Changsha opens on 30 November.", "zh": "9 月 28 日湖北段举行全线贯通仪式；11 月 30 日临长段通车。" },
+    { "year": 2003, "en": "The Nanling section in northern Guangdong opens on 3 April; Guangzhou–Shaoguan is complete on 22 November.", "zh": "4 月 3 日粤境北段通车；11 月 22 日广韶段全线开通。" },
+    { "year": 2004, "en": "Xinxiang–Zhengzhou and the second Yellow River bridge open on 30 September, completing Beijing–Zhuhai.", "zh": "9 月 30 日，新郑段及郑州黄河二桥通车，京珠高速全线贯通。" },
+    { "year": 2005, "en": "The '7918' plan numbers the main line G4, Beijing–Hong Kong–Macau.", "zh": "「7918 网」规划将主线编为 G4，定名京港澳高速。" },
+    { "year": 2014, "en": "Hebei's eight-lane rebuild opens on 21 December, bypassing central Shijiazhuang.", "zh": "12 月 21 日，河北段八车道改扩建通车，绕开石家庄市区。" },
+    { "year": 2025, "en": "Widening of the Hunan section from the Hubei border through Yueyang begins on 16 January.", "zh": "1 月 16 日，湖南湘鄂界经岳阳段扩容工程开工。" },
+    { "year": 2026, "en": "Hubei's northern section reopens at eight lanes on 6 February.", "zh": "2 月 6 日，湖北北段八车道改扩建工程建成通车。" }
+  ]
+}

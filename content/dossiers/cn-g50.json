@@ -1,0 +1,133 @@
+{
+  "id": "cn-g50",
+  "route": { "sys": "cn-expressway", "num": "G50" },
+  "name": { "en": "Shanghai–Chongqing Expressway", "zh": "沪渝高速公路" },
+  "aka": [
+    { "en": "Hurong Xi Expressway (the western Hubei section's project name)", "zh": "沪蓉西高速（湖北西段的项目名）" }
+  ],
+  "tagline": { "en": "Shanghai to Chongqing up the Yangtze, the last link forced through the mountains of western Hubei in 2009", "zh": "自上海溯长江而上直抵重庆，最后一段于 2009 年在鄂西群山中打通" },
+  "completedYear": 2009,
+  "termini": {
+    "start": { "en": "Shanghai, at the Hu-Qing-Ping interchange where the Yan'an Elevated Road meets the Outer Ring; Chinese Wikipedia gives the Bund as the nominal start", "zh": "上海，延安高架路与外环线相交的沪青平立交；维基百科以外滩为名义起点", "at": [121.37, 31.19] },
+    "end": { "en": "The Beihuan main toll station by the Yujiawan interchange, Yubei District, Chongqing", "zh": "重庆市渝北区北环（余家湾立交）主线收费站", "at": [106.53, 29.62] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G50 runs 1,775 km from Shanghai to Chongqing through Jiangsu, Zhejiang, Anhui and Hubei, by way of Huzhou, Xuancheng, Wuhu, Tongling, Anqing, Huangmei, Huangshi, Wuhan, Jingzhou, Yichang, Enshi, Zhongxian and Dianjiang. By the provincial mileage table in Chinese Wikipedia, Hubei carries about 822 km of it — close to half — Anhui about 479 and Chongqing about 267.",
+        "It is one of two national expressways from Shanghai up the Yangtze. G42, the Shanghai–Chengdu, goes north through Nanjing and Hefei; G50 keeps south through Huzhou and Wuhu, the two meet around Wuhan, and west of Yichang they part again, G42 by Wanzhou and G50 by Enshi. On the way G50 crosses the Yangtze four times: at Anqing, on the E'dong bridge between Xishui and Huangshi, at Yichang, and on the Zhongzhou bridge at Zhongxian.",
+        "Long stretches are shared. From Huangmei to the Baoxie junction east of Wuhan the road carries G70 as well, and through Chongqing it shares the carriageway with G65 between Heishizi and the Tongjiayuanzi interchange."
+      ],
+      "zh": [
+        "G50 自上海至重庆，全长 1,775 公里，途经江苏、浙江、安徽、湖北，经湖州、宣城、芜湖、铜陵、安庆、黄梅、黄石、武汉、荆州、宜昌、恩施、忠县、垫江。按维基百科所列分省里程，湖北段约 822 公里，接近全线一半；安徽段约 479 公里，重庆段约 267 公里。",
+        "从上海溯长江而上的国家高速有两条。G42 沪蓉高速偏北，经南京、合肥；G50 偏南，经湖州、芜湖。两路在武汉一带交会，过宜昌后又分开：G42 走万州，G50 走恩施。沿途 G50 四跨长江：安庆长江大桥、浠水与黄石之间的鄂东长江大桥、宜昌长江公路大桥，以及忠县的忠州长江大桥。",
+        "全线有不少共线路段：自黄梅至武汉东面的豹澥枢纽与 G70 福银高速共线；在重庆市区，自黑石子至童家院子立交与 G65 包茂高速共线。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The hard part is western Hubei. The section from the Yichang Yangtze bridge to Yuquankou on the Chongqing border, about 325 km, was built as the Hurong Xi project through the Wuling mountains: four lanes, 80 km/h, 370 bridges totalling 196.6 km and 46 tunnels totalling more than 70 km, ten of them over 3 km. Bridges and tunnels make up 52.1% of its length, and 60.1% between Yichang and Enshi.",
+        "Its best-known structure is the Sidu River Bridge at Yesanguan in Badong county, a suspension bridge with a 900 m main span over a gorge about 500 m deep. The deck is about 496 m above the valley floor (published measurements differ), which made it the highest bridge deck in the world from 2009 until the Beipanjiang Bridge on the Hangzhou–Ruili Expressway. The gorge had no room for piers; the pilot line was carried across by rocket, the first time this was done in China, and on the Yichang side the bridge runs straight into a tunnel, its cables held by anchorages built into the rock on either side of it.",
+        "Further east, the Longtan River bridge near Langping is a rigid-frame bridge whose pier no. 7 is 178 m tall, then the tallest pier of any beam bridge. The Jinlong tunnel, built as the Longtan tunnel, is the longest on the section at 8,694 m (left) and 8,599 m (right); the Yunwushan tunnel between Enshi and Lichuan is about 6.7 km. Over the border in Chongqing, the Fangdoushan tunnel at Shizhu, 7,562 m and 7,600 m, was the longest road tunnel in south-west China when it was built; it was holed through in December 2006 and won a Luban Prize in 2009."
+      ],
+      "zh": [
+        "难点在鄂西。自宜昌长江公路大桥至鄂渝交界鱼泉口约 325 公里，以「沪蓉西」项目穿越武陵山区修建：双向四车道，设计时速 80 公里，桥梁 370 座、总长 196.6 公里，隧道 46 座、总长 7 万余米，其中特长隧道 10 座。全线桥隧比 52.1%，宜昌至恩施段达 60.1%。",
+        "其中最著名的是巴东县野三关镇的四渡河大桥：悬索桥，主跨 900 米，跨越一道深约 500 米的峡谷。桥面距谷底约 496 米（各方测量数据不一），2009 年起是世界桥面最高的桥梁，直到杭瑞高速北盘江第一桥建成。峡谷内无处立墩；先导索靠火箭抛射过谷，为中国首次；宜昌岸桥隧直接相连，主缆锚固在隧道两侧山体内的隧道式锚碇上。",
+        "再往东，榔坪附近的龙潭河大桥为刚构桥，7 号墩高 178 米，是当时世界梁式桥最高墩。金龙隧道（原名龙潭隧道）是该段最长隧道，左线 8,694 米、右线 8,599 米；恩施至利川之间的云雾山隧道长约 6.7 公里。进入重庆，石柱县的方斗山隧道左线 7,562 米、右线 7,600 米，建成时是西南地区最长的公路隧道，2006 年 12 月贯通，获 2009 年度鲁班奖。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Much of the western half was built under another name. In the 1992 national trunk highway plan the Shanghai–Chengdu line was G055, Hurong, and the Hubei mountain section was carried out as the Hubei Hurong Xi (Hurong West) Expressway; People's Daily reported the Zhongxian–Dianjiang section in Chongqing as part of the Hurong trunk line. When the 2005 national expressway plan replaced the old scheme, these pieces were assigned to G50, Shanghai–Chongqing, and the Hurong name went to G42.",
+        "Chongqing's end came first. The 85 km from Shangqiao to Taohuajie in Changshou opened on 28 April 2000 and the rest of the Dianjiang–Chongqing road on 12 December 2003; Zhongxian–Dianjiang, begun on 20 November 2004, opened on 28 December 2007; the Shizhu–Zhongxian road opened in two stages in 2009, the second, to the Hubei border at Lengshui, on 28 September.",
+        "In Hubei the 16.5 km from the Yichang bridge to Changyang opened on 30 December 2005, and work on the main Yichang–Enshi section began on 20 August 2004. It opened piece by piece — Gaoping to Jixin in June 2008, the Sidu River Bridge on 15 November 2009 — until on 19 December 2009 the whole section went into trial operation, which Xinhua reported as the completion of G50. One bore of the Longtan tunnel was still shut and traffic detoured on National Highway 318 until 18 January 2010; Chinese Wikipedia gives 18 April 2010 for the formal opening."
+      ],
+      "zh": [
+        "西半段的许多路段，修建时挂的是别的名字。1992 年国道主干线规划中，上海至成都线编号 G055，称「沪蓉」；湖北山区段即以「湖北省沪蓉西高速公路」立项建设，人民网报道重庆忠县至垫江段时也称其为国道「沪蓉」横干线。2005 年国家高速公路网规划取代旧规划后，这些路段归入 G50 沪渝高速，「沪蓉」之名则由 G42 承继。",
+        "重庆一端最先建成。上桥至长寿桃花街 85 公里于 2000 年 4 月 28 日通车，垫江至重庆其余路段于 2003 年 12 月 12 日通车；忠县至垫江段 2004 年 11 月 20 日开工，2007 年 12 月 28 日通车；石柱至忠县段 2009 年分两期通车，二期石柱至鄂渝界冷水于 9 月 28 日开通。",
+        "湖北境内，宜昌长江公路大桥至长阳 16.5 公里于 2005 年 12 月 30 日通车；宜昌至恩施主体工程于 2004 年 8 月 20 日开工。此后分段开通——2008 年 6 月高坪至吉心，2009 年 11 月 15 日四渡河大桥——直到 2009 年 12 月 19 日全段投入试运行，新华社称沪渝高速由此全线贯通。当时龙潭隧道仍有一洞未通，车辆须绕行 318 国道，至 2010 年 1 月 18 日方双向通车；维基百科记正式通车日期为 2010 年 4 月 18 日。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No route-wide cost has been published; mainland expressways are financed and accounted for section by section. The Hurong Xi section was estimated at 20.452 billion yuan — 13.244 billion for Yichang–Enshi and about 7.2 billion for Enshi–Lichuan — and Xinhua put it at 20.4 billion yuan when it opened in 2009, calling it the largest road investment in Hubei's history. Within it, the Yichang–Changyang stretch was budgeted at 910 million yuan and Gaoping–Jixin at 2.59 billion. In Chongqing the Fangdoushan tunnel alone cost 755 million yuan."
+      ],
+      "zh": [
+        "全线没有公布过总造价；大陆高速公路按路段分别筹资、分别核算。沪蓉西段估算总投资 204.52 亿元，其中宜昌至恩施段 132.44 亿元，恩施至利川段约 72 亿元；2009 年通车时新华社报道其造价为 204 亿元，称其为湖北有史以来投资最大的公路工程。其中宜昌至长阳段概算 9.1 亿元，高坪至吉心段 25.9 亿元。重庆境内，仅方斗山隧道一项总造价即达 7.55 亿元。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The eastern end is being rebuilt to eight lanes. In Anhui the 91.5 km from the Zhejiang border through Guangde to the Wuhu–Xuancheng junction was widened between December 2021 and January 2025, with a new northern line around Guangde; widening of the 109.8 km from the Gezidun junction to the Hubei border, through Huaining, Qianshan, Taihu and Susong, began at the end of 2024."
+      ],
+      "zh": [
+        "东段正在改扩建为八车道。安徽境内自皖浙界经广德至芜宣枢纽的 91.5 公里，2021 年 12 月开工、2025 年 1 月通车，并在广德城北新建北线；鸽子墩枢纽至皖鄂界约 109.8 公里（经怀宁、潜山、太湖、宿松）的改扩建于 2024 年底开工。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "When the Hubei mountain section opened, Xinhua reported that Wuhan to Enshi fell from more than ten hours to five, Wuhan to Chongqing from a day and a night to under ten hours, and Shanghai to Chongqing to seventeen. West of Yichang the road is built for 80 km/h and the scenery comes in short glimpses between tunnels; the Sidu River Bridge lies between the Baziling and Yesanguan tunnels, just before the Badong exit at Yesanguan."
+      ],
+      "zh": [
+        "鄂西山区段通车时，新华社报道：武汉至恩施由十多个小时缩短为 5 小时，武汉至重庆由一天一夜缩短至不到 10 小时，上海至重庆只需 17 小时。宜昌以西按时速 80 公里设计，风景多是隧道之间的匆匆一瞥；四渡河大桥位于八字岭隧道与野三关隧道之间，紧邻野三关的巴东出口。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published for the whole route. Mainland expressways are financed and costed section by section, by different provincial companies over two decades; the sourced section costs are given separately below.", "zh": "全线总造价未见公布。大陆高速公路由各省公司在二十余年间分段筹资、分段核算；已查到出处的路段造价另列如下。" }
+    },
+    {
+      "label": { "en": "Hurong Xi section (Yichang–Lichuan)", "zh": "沪蓉西段（宜昌—利川）" },
+      "value": { "en": "Estimated at 20.452 billion yuan: 13.244 billion Yichang–Enshi, about 7.2 billion Enshi–Lichuan. Xinhua gave 20.4 billion yuan at the 2009 opening.", "zh": "估算总投资 204.52 亿元：宜昌至恩施段 132.44 亿元，恩施至利川段约 72 亿元。2009 年通车时新华社报道为 204 亿元。" },
+      "source": "“总投资为200亿元，湖北沪蓉西高速公路开工”, 中国工程机械商贸网, 20 August 2004, as cited in Chinese Wikipedia, 沪蓉西高速公路; Xinhua, 19 December 2009, as carried by Sina Finance (“中国东西主干线沪渝高速公路全线贯通”)"
+    },
+    {
+      "label": { "en": "Gaoping–Jixin (Jianshi–Enshi)", "zh": "高坪—吉心段" },
+      "value": { "en": "2.59 billion yuan for 64.35 km. Uncited in the article; not checked against a Hubei government source.", "zh": "64.35 公里，投资 25.9 亿元。条目未注出处，尚未与湖北官方资料核对。" },
+      "source": "Chinese Wikipedia, 沪蓉西高速公路"
+    },
+    {
+      "label": { "en": "Fangdoushan tunnel", "zh": "方斗山隧道" },
+      "value": { "en": "755 million yuan", "zh": "总造价 7.55 亿元" },
+      "source": "Chinese Wikipedia, 沪渝高速公路, citing 沪蓉国道主干线石忠高速公路方斗山隧道 (Youku, 2009)"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "The sources found name the builders — Hubei's Hurong Xi expressway headquarters for the mountain section — but not how the money was raised, and no route-wide account exists.", "zh": "已查到的资料只写明建设方（山区段为湖北沪蓉西高速公路指挥部），未说明资金来源构成，全线也没有统一账目。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "1,775 km", "zh": "1,775 公里" },
+      "source": "National Expressway Network Plan, as cited in Chinese Wikipedia, 沪渝高速公路 and 中华人民共和国国家高速公路网"
+    },
+    {
+      "label": { "en": "Hubei mountain section, as built", "zh": "湖北山区段建设规模" },
+      "value": { "en": "About 325 km; 370 bridges (196.6 km), 46 tunnels (over 70 km); bridges and tunnels 52.1% of length", "zh": "约 325 公里；桥梁 370 座（196.6 公里），隧道 46 座（7 万余米）；桥隧比 52.1%" },
+      "source": "Chinese Wikipedia, 沪蓉西高速公路, citing 宜昌市交通运输局 (2010) and 荆楚网 (2009)"
+    },
+    {
+      "label": { "en": "Sidu River Bridge", "zh": "四渡河大桥" },
+      "value": { "en": "Suspension bridge, 900 m main span, 1,105 m long; deck about 496 m above the valley floor (Sakowski's measurement; Wang gives 500 m)", "zh": "悬索桥，主跨 900 米，全长 1,105 米；桥面距谷底约 496 米（Sakowski 实测；王崇旭论文为 500 米）" },
+      "source": "Chinese Wikipedia, 四渡河大桥, citing China Communications Construction (2007), HighestBridges.com, and Wang et al., Civil Engineering (ASCE), January 2009"
+    }
+  ],
+  "timeline": [
+    { "year": 2000, "en": "The Shangqiao–Changshou road, the first 85 km of the Chongqing end, opens on 28 April.", "zh": "4 月 28 日，上桥至长寿段 85 公里通车，为重庆端最早建成的路段。" },
+    { "year": 2003, "en": "The rest of the Dianjiang–Chongqing road opens on 12 December.", "zh": "12 月 12 日，垫江至重庆其余路段通车。" },
+    { "year": 2004, "en": "Work on the Hurong Xi mountain section from Yichang to Enshi, including the Sidu River Bridge, begins on 20 August.", "zh": "8 月 20 日，沪蓉西宜昌至恩施段（含四渡河大桥）开工。" },
+    { "year": 2005, "en": "The Yichang–Changyang stretch opens on 30 December.", "zh": "12 月 30 日，宜昌至长阳段通车试运营。" },
+    { "year": 2007, "en": "Zhongxian–Dianjiang in Chongqing opens on 28 December.", "zh": "12 月 28 日，重庆忠县至垫江段通车。" },
+    { "year": 2008, "en": "Gaoping–Jixin, between Jianshi and Enshi, opens on 18 June.", "zh": "6 月 18 日，建始高坪至恩施吉心段通车试运营。" },
+    { "year": 2009, "en": "The Sidu River Bridge opens on 15 November; on 19 December the whole Hubei mountain section goes into trial operation and G50 is reported complete.", "zh": "11 月 15 日四渡河大桥通车；12 月 19 日湖北沪蓉西全段试运行，沪渝高速宣告全线贯通。" },
+    { "year": 2010, "en": "The second bore of the Longtan (Jinlong) tunnel opens on 18 January, ending the detour on National Highway 318.", "zh": "1 月 18 日，龙潭（金龙）隧道双向通车，结束绕行 318 国道。" },
+    { "year": 2025, "en": "The widened eight-lane Guangde–Xuancheng section in Anhui opens on 12 January.", "zh": "1 月 12 日，安徽广德至宣城段改扩建工程通车。" }
+  ]
+}

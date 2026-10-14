@@ -1,0 +1,120 @@
+{
+  "id": "cn-g6-qhi",
+  "route": { "sys": "cn-expressway", "num": "G6", "anchor": [94.9, 36.4] },
+  "name": { "en": "Beijing–Lhasa Expressway", "zh": "京藏高速公路" },
+  "aka": [
+    { "en": "Badaling Expressway (the Beijing section)", "zh": "八达岭高速公路（北京段）" },
+    { "en": "Jingzang Expressway", "zh": "京藏高速" }
+  ],
+  "tagline": { "en": "From Beijing's Third Ring Road over the Great Wall to Golmud, and again from Nagqu to Lhasa — with the Tibetan plateau still unbuilt between", "zh": "自北京三环越长城直抵格尔木，再从那曲接到拉萨——中间的青藏高原段尚未修建" },
+  "termini": {
+    "start": { "at": [116.38, 39.97], "en": "Madian Bridge on Beijing's North Third Ring Road, Xicheng District, at the top of Deshengmen Outer Street", "zh": "北京市西城区德胜门外大街北端的马甸桥（北三环）" },
+    "end": { "en": "Golmud, Qinghai, where the drawn line ends. The route continues across the Kunlun and the Tibetan plateau to Xiangxiong Avenue in Doilungdêqên District, Lhasa; the atlas draws that section separately, where it is built", "zh": "青海格尔木，所绘线段止于此。路线继续翻越昆仑山、穿过青藏高原，至西藏自治区拉萨市堆龙德庆区香雄大道；该段已建成部分在图集中另行绘出", "at": [94.81, 36.33] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G6 is one of the radial expressways out of Beijing, planned to reach Lhasa through seven provincial-level regions: Beijing, Hebei, Inner Mongolia, Ningxia, Gansu, Qinghai and Tibet. It leaves Beijing to the north-west through the Juyong Pass and Badaling, follows the old Beijing–Zhangjiakou road into Hebei, crosses the Inner Mongolian plateau by Ulanqab (Jining), Hohhot, Baotou, Bayannur (Linhe) and Wuhai, comes down the Yellow River into Ningxia at Shizuishan, Yinchuan, Wuzhong and Zhongwei, and reaches Gansu at Baiyin and Lanzhou. From Lanzhou it climbs the Huangshui valley to Xining, crosses the Riyue Mountain to Gonghe and Chaka, and runs along the southern edge of the Qaidam basin by Dulan to Golmud.",
+        "For long stretches it shares its carriageway with other national routes: with G7 from Hohhot to Linhe, with G70 between Yinchuan and Zhongwei, and with G30 for a short way north of Lanzhou. Chinese Wikipedia gives about 2,856 km open. The road stops at Golmud; the roughly 992 km on to Nagqu, over the Kunlun and Tanggula ranges, has not been built. It starts again at Nagqu and runs 295 km to Lhasa. The atlas draws the route as two pieces for that reason, Beijing–Golmud and Nagqu–Lhasa; this page is anchored on the first."
+      ],
+      "zh": [
+        "京藏高速是首都放射线之一，规划途经北京、河北、内蒙古、宁夏、甘肃、青海、西藏七个省级行政区，终至拉萨。它出北京向西北，穿居庸关、过八达岭，沿旧京张公路进入河北；经乌兰察布（集宁）、呼和浩特、包头、巴彦淖尔（临河）、乌海横越内蒙古高原；顺黄河而下进入宁夏，经石嘴山、银川、吴忠、中卫；再入甘肃，经白银、兰州。自兰州沿湟水谷地上行至西宁，翻日月山到共和、茶卡，沿柴达木盆地南缘经都兰抵格尔木。",
+        "沿途多段与其他国家高速共线：呼和浩特至临河与 G7 京新高速共线，银川至中卫与 G70 福银高速共线，兰州以北一小段与 G30 连霍高速共线。据中文维基百科，已通车约 2,856 公里。高速公路在格尔木戛然而止；向前翻越昆仑山、唐古拉山至那曲的约 992 公里尚未修建，到那曲才重新开始，再行 295 公里抵拉萨。地图因此把这条路画成两段：北京—格尔木与那曲—拉萨；本页定位在前一段。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "In the mountains below the Great Wall the two directions part company. About 500 m south of the Juyong Pass they split: the outbound carriageway goes through the pass itself, alongside provincial road S216, and through the Tanqinxia, Shifosi, Badaling and Chadaocheng tunnels; the inbound one runs separately through its own string of tunnels — Juyongguan, Shanyangwa, Donglaoyu and Tanyugou. The speed limit on the Beijing section is 100 km/h at most and 60 km/h through the mountains.",
+        "West of Xining the road is not, strictly, an expressway all the way. The Xining–Huangyuan section, 48.45 km, was built as a class-I highway for 100 km/h, and the Huangyuan–Daotanghe section over the Riyue Mountain, 47.3 km, as a class-I highway for 60 km/h.",
+        "The Chaka–Golmud section, finished in 2016, is the longest single piece in Qinghai: 470.22 km of four-lane road at 100 km/h across the Gobi, with 8 interchanges, 11 large bridges, 608 culverts, 282 underpasses and one tunnel. The provincial transport department described it as the longest expressway in Qinghai to be built with both carriageways at once.",
+        "Nagqu–Lhasa, opened in 2020 and 2021, is described by the Ministry of Transport and Xinhua as the highest expressway in the world, at an average altitude above 4,500 m. The Nagqu–Yangbajing part is designed for 120 km/h, Yangbajing–Lhasa for 100. The builders reported spending more than ¥400 million on environmental work on the Nagqu–Yangbajing part: wildlife and livestock crossings, stripping alpine turf and relaying it, and long continuous spans on some bridges to disturb less of the ground beneath."
+      ],
+      "zh": [
+        "在长城脚下的山区，上下行分道而行。京藏高速在居庸关以南约 500 米处分叉：出京方向直穿关口，与 S216 省道并行，依次穿过弹琴峡、石佛寺、八达岭、岔道城等隧道；进京方向另走一线，穿居庸关、山羊洼、东老峪、潭峪沟等隧道。北京段最高限速每小时 100 公里，山区路段限速 60 公里。",
+        "西宁以西，这条路严格说来并非全程高速公路。西宁至湟源段 48.45 公里按设计时速 100 公里的一级公路修建；翻越日月山的湟源至倒淌河段 47.3 公里，则是设计时速 60 公里的一级公路。",
+        "2016 年建成的茶卡至格尔木段是青海境内最长的一段：主线 470.22 公里，双向四车道，设计时速 100 公里，横穿戈壁荒漠，设互通立交 8 处、大桥 11 座、涵洞 608 道、通道 282 道、隧道 1 座。青海省交通运输厅称其为全省首条双幅建成里程最长的高速公路。",
+        "2020、2021 年分段通车的那曲至拉萨段，被交通运输部和新华社称为世界上海拔最高的高速公路，平均海拔 4,500 米以上。那曲至羊八井段设计时速 120 公里，羊八井至拉萨段 100 公里。建设方称那羊段环保投入超过 4 亿元：预留野生动物及牲畜通道，剥离高山草甸草皮后回铺，部分桥梁采用大跨度连续主梁以减少对环境的扰动。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Beijing end was built in the 1990s as the Badaling Expressway, a road to the Great Wall as much as to the north-west. Madian to Changping, 31.2 km, opened on 14 November 1996; Changping over Badaling to Xibozi in Yanqing on 9 November 1998; Xibozi to Kangzhuang, with the Yanqing link, on 8 September 2001. It was then part of the Dandong–Lhasa national trunk route, G025. In April 2010, under the national numbering rules, it was re-signed G6.",
+        "That summer the road became known well beyond China. From 14 August 2010 traffic heading into Beijing jammed for nearly ten days, with thousands of lorries, most of them coal lorries, queued for more than 100 km back from Hebei into Inner Mongolia. Reports blamed a surge of coal traffic, roadworks on the parallel National Road 110, the ban on heavy lorries entering Beijing, and drivers unwilling to detour through coal inspection stations.",
+        "The western end came late. The Xining bypass was begun in June 2007 and opened on 28 October 2010; Chaka–Golmud opened on 20 October 2016. In Tibet, Yangbajing–Lhasa opened for trial operation on 1 October 2020 and Nagqu–Yangbajing on 21 August 2021, cutting the drive between Lhasa and Nagqu from more than six hours on National Road 109 to three. The gap between Golmud and Nagqu remains; Xinhua reported in 2021 that Tibet would push to start a trial section of it during the 14th Five-Year Plan."
+      ],
+      "zh": [
+        "北京一端是 1990 年代作为八达岭高速公路修建的，既是通往西北的干道，也是去长城的路。马甸至昌平 31.2 公里于 1996 年 11 月 14 日通车；昌平经八达岭至延庆西拨子段于 1998 年 11 月 9 日通车；西拨子至康庄段及延庆联络线于 2001 年 9 月 8 日通车。它当时属于国道主干线丹东至拉萨线（G025）。2010 年 4 月，按国家高速公路网命名编号规则，改挂 G6 京藏高速路牌。",
+        "同年夏天，这条路在国外也出了名。自 2010 年 8 月 14 日起，进京方向持续拥堵近十天，数千辆大货车——多数是运煤车——从河北一直排进内蒙古，车龙绵延上百公里。报道将原因归于运煤车激增、并行的 110 国道大修、进京方向禁止大货车通行，以及司机不愿绕行经过煤检站。",
+        "西段修得较晚。西宁过境高速 2007 年 6 月开工，2010 年 10 月 28 日试通车；茶卡至格尔木段 2016 年 10 月 20 日通车。西藏境内，羊八井至拉萨段 2020 年 10 月 1 日通车试运行，那曲至羊八井段 2021 年 8 月 21 日通车试运行，拉萨至那曲的车程由走 109 国道的 6 个多小时缩短到 3 小时。格尔木至那曲的缺口依然存在；新华社 2021 年报道，西藏将在「十四五」期间推进启动格尔木至那曲试验段建设。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total cost for G6 has been published; it was built by provinces, section by section, over a quarter of a century. Section figures that have been published show what the plateau does to the price. The 20.05 km Xining bypass cost more than ¥1.7 billion; the approved estimate for the 48.45 km Xining–Huangyuan class-I road was ¥1.497 billion; Chaka–Golmud, 470.22 km across the Qaidam, cost ¥10.691 billion.",
+        "In Tibet, the 69 km Yangbajing–Lhasa section cost ¥8.88 billion and the 226.9 km Nagqu–Yangbajing section ¥21.89 billion — more than four times as much per kilometre as Chaka–Golmud. Yangbajing–Lhasa opened toll-free for its trial operation in 2020."
+      ],
+      "zh": [
+        "京藏高速没有公布过总造价；它由沿线各省区分段修建，前后跨越二十多年。已公布的分段数字可以看出高原对造价的影响：20.05 公里的西宁过境高速总投资 17 亿多元；48.45 公里的西宁至湟源一级公路批准概算 14.97 亿元；横穿柴达木的茶卡至格尔木段 470.22 公里，总投资 106.91 亿元。",
+        "西藏境内，69 公里的羊八井至拉萨段总投资 88.8 亿元，226.9 公里的那曲至羊八井段总投资 218.9 亿元——每公里造价是茶格段的四倍多。羊八井至拉萨段 2020 年通车试运行期间免费通行。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "The Beijing section has long been the capital's main road for lorries from Shanxi, Hebei and Inner Mongolia. In 2010 Changping district's transport office put peak-day traffic at about 17,000 vehicles, most of them heavy lorries; the climb from the Juyong Pass to Badaling, with several consecutive upgrades, was the habitual bottleneck."
+      ],
+      "zh": [
+        "北京段长期是山西、河北、内蒙古大货车进京的主要通道。2010 年，昌平区交通部门称高峰日交通量约 1.7 万辆，大部分是重型货车；居庸关至八达岭景区有几段连续上坡，是惯常的拥堵点。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure is published. G6 was financed and built province by province from 1996 to 2021, and costs are reported per section; the published section costs are listed separately below.", "zh": "未公布全线总造价。京藏高速自 1996 年至 2021 年由各省区分段筹资修建，造价按路段公布；已公布的路段造价另列如下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No breakdown of who paid has been found for any G6 section. Most mainland expressways are built on borrowed money repaid from tolls, but who lent and who contributed capital for this road is not published.", "zh": "未查到任何一段京藏高速的出资构成。大陆多数高速公路采取「贷款建路、收费还贷」的方式，但这条路由谁出资本金、向谁借款，未见公布。" }
+    },
+    {
+      "label": { "en": "Chaka–Golmud section (470.22 km, opened 2016)", "zh": "茶卡至格尔木段（470.22 公里，2016 年通车）" },
+      "value": { "en": "¥10.691 billion total investment", "zh": "总投资 106.91 亿元" },
+      "source": "Qinghai Provincial Department of Transport press conference, 19 October 2016, reported by Qinghai Daily and the Qinghai government information office"
+    },
+    {
+      "label": { "en": "Nagqu–Yangbajing section (226.9 km, opened 2021)", "zh": "那曲至羊八井段（226.9 公里，2021 年通车）" },
+      "value": { "en": "¥21.89 billion total investment", "zh": "总投资 218.9 亿元" },
+      "source": "Tibet Autonomous Region Department of Transport, reported by China Tibet News, 24 August 2020"
+    },
+    {
+      "label": { "en": "Yangbajing–Lhasa section (69 km, opened 2020)", "zh": "羊八井至拉萨段（69 公里，2020 年通车）" },
+      "value": { "en": "¥8.88 billion total investment", "zh": "总投资 88.8 亿元" },
+      "source": "Xu Wenqiang, director of the Tibet Department of Transport, quoted in Economic Daily via China Economic Net, 1 October 2020"
+    },
+    {
+      "label": { "en": "Xining bypass (20.05 km, opened 2010)", "zh": "西宁过境段（20.05 公里，2010 年通车）" },
+      "value": { "en": "More than ¥1.7 billion", "zh": "总投资 17 亿多元" },
+      "source": "huaxia.com, October 2010, as cited in Chinese Wikipedia, 京藏高速公路"
+    },
+    {
+      "label": { "en": "Average altitude, Nagqu–Lhasa", "zh": "那曲至拉萨段平均海拔" },
+      "value": { "en": "Above 4,500 m — described as the highest expressway in the world", "zh": "4,500 米以上——被称为世界上海拔最高的高速公路" },
+      "source": "Xinhua, 21 August 2021; People's Daily Online, 21 August 2021"
+    }
+  ],
+  "timeline": [
+    { "year": 1996, "en": "Madian to Changping, the first 31.2 km of the Badaling Expressway, opens on 14 November.", "zh": "11 月 14 日，八达岭高速马甸至昌平段 31.2 公里通车。" },
+    { "year": 1998, "en": "Changping to Xibozi, over Badaling, opens on 9 November.", "zh": "11 月 9 日，昌平经八达岭至西拨子段通车。" },
+    { "year": 2001, "en": "Xibozi to Kangzhuang opens on 8 September, completing the Beijing section.", "zh": "9 月 8 日，西拨子至康庄段通车，北京段全线建成。" },
+    { "year": 2010, "en": "The Badaling Expressway is re-signed G6 in April; from 14 August a jam of coal lorries lasts nearly ten days; the Xining bypass opens on 28 October.", "zh": "4 月，八达岭高速改挂 G6 路牌；8 月 14 日起，运煤货车大堵车持续近十天；10 月 28 日，西宁过境高速试通车。" },
+    { "year": 2016, "en": "Chaka–Golmud, 470 km across the Qaidam, opens on 20 October.", "zh": "10 月 20 日，横穿柴达木的茶卡至格尔木段 470 公里通车。" },
+    { "year": 2018, "en": "Work starts on Nagqu–Yangbajing in June.", "zh": "6 月，那曲至羊八井段开工。" },
+    { "year": 2020, "en": "Yangbajing–Lhasa opens for trial operation, toll-free, on 1 October; the Yinchuan bypass opens on 1 November.", "zh": "10 月 1 日，羊八井至拉萨段免费通车试运行；11 月 1 日，银川过境段试通车。" },
+    { "year": 2021, "en": "Nagqu–Yangbajing opens on 21 August, completing the 295 km Nagqu–Lhasa section.", "zh": "8 月 21 日，那曲至羊八井段通车试运行，295 公里的那曲至拉萨段全线通车。" }
+  ]
+}

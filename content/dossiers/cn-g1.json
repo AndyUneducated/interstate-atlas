@@ -1,0 +1,114 @@
+{
+  "id": "cn-g1",
+  "route": { "sys": "cn-expressway", "num": "G1" },
+  "name": { "en": "Beijing–Harbin Expressway", "zh": "京哈高速公路" },
+  "aka": [
+    { "en": "Beijing–Shenyang Expressway (Beijing to Shenyang)", "zh": "京沈高速公路（北京至沈阳段）" }
+  ],
+  "tagline": { "en": "The north-east radial: Beijing through the Shanhai Pass to Shenyang, Changchun and Harbin", "zh": "东北方向的首都放射线：出山海关，经沈阳、长春直抵哈尔滨" },
+  "completedYear": 2001,
+  "termini": {
+    "start": { "at": [116.48, 39.87], "en": "Sifang Bridge on Beijing's East Fourth Ring Road, in Chaoyang district — kilometre 0", "zh": "北京市朝阳区四方桥，接东四环——零公里点" },
+    "end": { "en": "Wapenyao in Xiangfang district, Harbin, where the road becomes Xuefu Road", "zh": "黑龙江省哈尔滨市香坊区瓦盆窑，接学府路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G1 is the capital's radial to the north-east, 1,209 km on the national chainage. It leaves Beijing past Tongzhou, crosses a corner of Hebei at Xianghe and Tianjin's Baodi district, runs along the Bohai coast through Tangshan and Qinhuangdao, passes the Great Wall at Shanhaiguan and enters Liaoning, then turns north through Jinzhou, Panjin, Shenyang, Tieling, Siping and Changchun to Harbin.",
+        "Liaoning carries the largest share, 548.6 km; Heilongjiang the least, 72 km from the Lalin River to Harbin. The Beijing–Shenyang part is also Asian Highway 1, and Shenyang–Harbin Asian Highway 31. For most of its length it is a plains road with few large structures; its significance is the corridor, the main road link between the North China Plain and the north-east."
+      ],
+      "zh": [
+        "G1 是首都向东北方向的放射线，按国家里程桩号全长 1,209 公里。它自北京经通州出城，穿过河北香河与天津宝坻一角，沿渤海湾经唐山、秦皇岛，过山海关进入辽宁，再折向北经锦州、盘锦、沈阳、铁岭、四平、长春，抵达哈尔滨。",
+        "辽宁段最长，为 548.6 公里；黑龙江段最短，自拉林河至哈尔滨仅 72 公里。北京至沈阳段同时编入亚洲公路 1 号线，沈阳至哈尔滨段编入亚洲公路 31 号线。全线大部分是平原路段，大型结构物不多；它的分量在于通道本身——华北平原与东北之间的主干公路联系。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Beijing–Shenyang section was designed for six lanes, on a 34.5-metre roadbed, for 120 km/h. When the Liaoning part — the Shenyang–Shanhaiguan expressway — was finished in 2000, the provincial press described it as the highest-standard, largest and most expensive expressway project then built in China.",
+        "North of Shenyang the road was built to four lanes and has been widened since. The 70.955 km in Heilongjiang, opened in 2001, were rebuilt from four lanes to eight between May 2019 and October 2021 by adding lanes either side of the existing road; the roadbed went from 28 to 42 metres, and it became the province's first eight-lane expressway."
+      ],
+      "zh": [
+        "北京至沈阳段按六车道标准设计，路基宽 34.5 米，设计时速 120 公里。辽宁境内的沈山高速公路 2000 年全线建成时，省内报纸称其为当时国内设计标准最高、工程规模最大、投资最多的高速公路建设项目。",
+        "沈阳以北的路段原按四车道修建，此后陆续拓宽。黑龙江境内 70.955 公里于 2001 年通车，2019 年 5 月至 2021 年 10 月在既有路基两侧拼宽，由四车道改扩建为八车道，路基宽度由 28 米增至 42 米，成为黑龙江省第一条八车道高速公路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road was assembled from provincial projects built in the 1990s. The piece around Shenyang, which G1 now shares with the city's ring road, opened in September 1995; Changchun–Siping in September 1996; Shenyang–Siping in August 1998. In the 1992 trunk-road plan, the 'five verticals and seven horizontals', Beijing–Shenyang was part of the Dandong–Lhasa line (G025) and Shenyang–Harbin part of the Tongjiang–Sanya line (G010); Beijing–Shenyang was also one of the 'three important sections' the state singled out for early completion.",
+        "Beijing–Shenyang opened in stages in September 1999 — Baodi to Shanhaiguan, Beijing to Xianghe, Shanhaiguan to Jinzhou, Tianjin — and was finished on 15 September 2000 when Jinzhou–Shenyang opened. Liaoning's 361 km had taken three years and three months from June 1997. It was the first of those priority sections to be completed. The last gap closed on 28 September 2001 with the 72 km Harbin–Shuangcheng expressway.",
+        "The number came in January 2005, with the national expressway network plan known as '7918' — seven radials from Beijing, nine north–south and eighteen east–west lines. Radials take single digits, counted clockwise from due north, so the road to the north-east is G1. The 2013 plan, which became the '71118' network with eleven north–south lines, and the 2022 plan both kept the seven radials and their numbers."
+      ],
+      "zh": [
+        "这条路由 1990 年代各省分别修建的路段拼接而成。G1 今与沈阳绕城高速共线的沈阳过境段于 1995 年 9 月通车；长春至四平段 1996 年 9 月通车；沈阳至四平段 1998 年 8 月通车。在 1992 年的「五纵七横」国道主干线规划中，北京至沈阳属丹东—拉萨线（G025），沈阳至哈尔滨属同江—三亚线（G010）；北京至沈阳还是国家确定优先建成的「三个重要路段」之一。",
+        "京沈高速 1999 年 9 月分段通车——宝坻至山海关、北京至香河、山海关至锦州及天津段——2000 年 9 月 15 日锦州至沈阳段通车，全线贯通。辽宁境内 361 公里自 1997 年 6 月动工，历时三年零三个月。它是「两纵两横三个重要路段」中第一个全线贯通的。2001 年 9 月 28 日，72 公里的哈双高速通车，全线最后一段缺口打通。",
+        "G1 这个编号来自 2005 年 1 月公布的《国家高速公路网规划》，即「7918 网」——7 条首都放射线、9 条南北纵线、18 条东西横线。放射线取一位数，自正北起按顺时针方向编号，通往东北的这一条便是 G1。2013 年规划调整为 11 条纵线的「71118 网」，2022 年规划再次修订，7 条放射线及其编号均保持不变。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost for the whole road has been published; it was financed section by section by the provinces it crosses. The best figure is for Beijing–Shenyang: nearly 20 billion yuan for 658 km when it was finished in 2000, of which the Liaoning section accounted for nearly 11 billion. A 2009 trade-press account gives 19.51 billion.",
+        "It is a toll road, like nearly all mainland expressways, which repay construction loans from tolls. Inside Beijing the first stretch, from Sifang Bridge to the Bailu toll station, has always been free, and since 10 June 2022 the whole section inside the Sixth Ring Road has been toll-free in both directions."
+      ],
+      "zh": [
+        "全线总造价没有公开数字，各段由沿线省份分别筹资建设。最完整的数字是京沈段：2000 年全线贯通时，658 公里总投资近 200 亿元，其中辽宁段近 110 亿元。2009 年一篇行业网站报道给出的数字为 195.1 亿元。",
+        "与中国大陆几乎所有高速公路一样，它是收费公路，以通行费偿还建设贷款。北京市区内自四方桥至白鹿主线收费站的一段始终免费；2022 年 6 月 10 日起，六环路以内路段双向全时段免费通行。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The Beijing section is limited to 110 km/h. Westbound, 1.7 km before the Beijing–Hebei line, the Xiji inspection station stops vehicles not registered in Beijing, which need an entry permit to go on into the city."
+      ],
+      "zh": [
+        "北京段最高限速每小时 110 公里。进京方向在京冀界以西 1.7 公里处设有西集综合检查站，非北京号牌机动车须在此办理进京证方可继续进京。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published for the whole 1,209 km. Mainland expressways are financed and accounted for by section and by province, and G1 was built as at least six separately funded projects between 1995 and 2001. Sourced section figures are given below.", "zh": "全线 1,209 公里没有公开的总造价。中国大陆高速公路按路段、按省份筹资和核算，G1 在 1995 至 2001 年间至少分作六个独立出资的项目建成。下列为有来源的分段数字。" }
+    },
+    {
+      "label": { "en": "Beijing–Shenyang section", "zh": "京沈段造价" },
+      "value": { "en": "Nearly 20 billion yuan for 658 km, as reported on completion in September 2000 (a 2009 trade-press account gives 19.51 billion)", "zh": "2000 年 9 月全线贯通时报道，658 公里总投资近 200 亿元（2009 年行业网站报道为 195.1 亿元）" },
+      "source": "Guangming Daily, 16 September 2000; Liaoshen Evening News, 15 September 2000, via Sina; China Highway (chinahighway.com), 9 October 2009, archived"
+    },
+    {
+      "label": { "en": "Shenyang–Shanhaiguan (Liaoning) section", "zh": "沈山段（辽宁段）造价" },
+      "value": { "en": "Nearly 11 billion yuan for 361 km, built June 1997 – September 2000", "zh": "361 公里总投资近 110 亿元，1997 年 6 月至 2000 年 9 月建成" },
+      "source": "Liaoshen Evening News, 15 September 2000, via Sina"
+    },
+    {
+      "label": { "en": "Heilongjiang widening, 2019–2021", "zh": "黑龙江段改扩建（2019—2021）" },
+      "value": { "en": "Reported at 5.864 billion yuan for 70.955 km, four lanes to eight. The figure is from a construction-procurement database, not checked against the provincial transport department.", "zh": "据报道 70.955 公里四改八工程总投资 58.64 亿元。该数字出自工程招投标数据库，尚未与省交通运输厅公布数字核对。" },
+      "source": "Jianguanjia (cha.jiangongdata.com), Lalin River–Harbin widening design contract record; length and dates from People's Daily Online (Heilongjiang), 30 October 2021"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The provinces and municipalities along the route, each building and tolling its own sections, repaid from tolls. No foreign loan is recorded for G1 in the sources consulted.", "zh": "沿线各省市分别建设、分别收费，以通行费还贷。所查来源中未见 G1 使用外国贷款的记载。" },
+      "source": "Chinese Wikipedia, 京哈高速公路 and 中华人民共和国高速公路"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "1,209 km on the national chainage (the 2022 plan lists the line at 1,214 km)", "zh": "按国家里程桩号 1,209 公里（2022 年规划列为 1,214 公里）" },
+      "source": "Ministry of Transport, 国家高速公路网里程桩号传递方案 (交公路发〔2008〕157号), as cited in Chinese Wikipedia, 京哈高速公路; Chinese Wikipedia, 中华人民共和国国家高速公路网"
+    }
+  ],
+  "timeline": [
+    { "year": 1992, "en": "The 'five verticals and seven horizontals' trunk plan puts Beijing–Shenyang on the Dandong–Lhasa line and Shenyang–Harbin on the Tongjiang–Sanya line.", "zh": "「五纵七横」国道主干线规划将北京至沈阳列入丹拉线、沈阳至哈尔滨列入同三线。" },
+    { "year": 1995, "en": "The Shenyang bypass section opens in September.", "zh": "9 月，沈阳过境段（今沈阳绕城高速共线段）建成通车。" },
+    { "year": 1996, "en": "Changchun–Siping opens in September.", "zh": "9 月，长春至四平段通车。" },
+    { "year": 1998, "en": "Shenyang–Siping opens in August.", "zh": "8 月，沈阳至四平段通车。" },
+    { "year": 1999, "en": "Beijing–Shenyang opens in stages through September, as far as Jinzhou.", "zh": "9 月，京沈高速北京至锦州各段相继通车。" },
+    { "year": 2000, "en": "Jinzhou–Shenyang opens on 15 September, completing Beijing–Shenyang.", "zh": "9 月 15 日，锦州至沈阳段通车，京沈高速全线贯通。" },
+    { "year": 2001, "en": "The Harbin–Shuangcheng expressway opens on 28 September, closing the last gap to Harbin.", "zh": "9 月 28 日，哈双高速通车，通往哈尔滨的最后缺口打通。" },
+    { "year": 2005, "en": "The '7918' national expressway plan numbers the route G1.", "zh": "「7918 网」国家高速公路网规划公布，该线编为 G1。" },
+    { "year": 2021, "en": "The Heilongjiang section reopens on 30 October, widened to eight lanes.", "zh": "10 月 30 日，黑龙江段四改八工程交工通车。" },
+    { "year": 2022, "en": "The section inside Beijing's Sixth Ring Road becomes toll-free on 10 June.", "zh": "6 月 10 日起，北京六环路以内路段免费通行。" }
+  ]
+}

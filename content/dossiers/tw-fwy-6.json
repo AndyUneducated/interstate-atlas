@@ -1,0 +1,96 @@
+{
+  "id": "tw-fwy-6",
+  "route": { "sys": "tw-freeway", "num": "6" },
+  "name": { "en": "Shuishalian Freeway", "zh": "水沙连高速公路" },
+  "aka": [
+    { "en": "Central East–West Freeway", "zh": "中横高速公路" },
+    { "en": "National Freeway 6, Nantou section", "zh": "国道 6 号南投段" }
+  ],
+  "tagline": { "en": "A freeway up the Wu River valley to Puli, seven-tenths of it on bridges", "zh": "沿乌溪河谷上溯埔里，七成路段架在桥上" },
+  "completedYear": 2009,
+  "termini": {
+    "start": { "at": [120.70, 24.07], "en": "Wufeng junction with National Freeway 3, Wufeng District, Taichung", "zh": "台中市雾峰区雾峰系统交流道，接国道三号" },
+    "end": { "at": [120.97, 23.98], "en": "Puli end, Puli, Nantou, on Provincial Highway 14 towards Wushe and Qingjing", "zh": "南投县埔里镇埔里端，接台 14 线往雾社、清境" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "National Freeway 6 runs 37.6 km east from Freeway 3 at Wufeng, through Caotun and Guoxing, to Puli in the middle of Nantou county. Hemmed in by the mountains, it follows the valleys of the Wu, Nangang and Mei rivers, the same corridor as Provincial Highway 14, which most of its interchanges join and which is its alternative route.",
+        "It was meant to be the first half of a freeway across the Central Mountain Range to Hualien. Only the western half was built. The name Shuishalian was chosen in 2009 by Nantou county in a two-stage vote that ended with an online poll."
+      ],
+      "zh": [
+        "国道六号自雾峰的国道三号向东，经草屯、国姓至南投县中部的埔里，全长 37.6 公里。由于两侧皆山，它只能沿乌溪、南港溪与眉溪河谷而行，与台 14 线同一路廊；大多数交流道都接台 14 线，台 14 线也是它的替代道路。",
+        "它原本是一条横越中央山脉通往花莲的高速公路的前半段，但只建成了西段。「水沙连」之名于 2009 年由南投县政府经评审与网友票选两阶段选出。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The road is 70 per cent bridge (26.4 km), 11 per cent tunnel (4.2 km) and 19 per cent embankment (7 km). The embankment is where it crosses the Chelungpu fault: it was built on fill rather than viaduct so that it can absorb a quake and be repaired quickly. The three tunnels are Guoxing No. 1 (about 2.45 km), Guoxing No. 2 and Puli.",
+        "The Guoxing viaduct has the tallest piers in Taiwan, up to about 70 m, cast by slip-forming — the first large-scale use of the method on a Taiwanese bridge. On the Ailan interchange link, the Nangang River bridge is the country's first extradosed bridge: 300 m of deck carried by 36 stay cables from two short towers.",
+        "The engineering bureau called it a third-generation freeway and built in environmental measures: self-compacting concrete throughout the piers, slag in the mix, lightweight concrete made from reservoir silt for the Shizhuoxiang overpass, haul roads for gravel trucks to keep them off Highway 14, wildlife ponds at two interchanges and raptor stickers on the clear noise barriers. It reckons the cement savings at 240,000 tonnes and the carbon dioxide avoided at about 210,000 tonnes."
+      ],
+      "zh": [
+        "全线桥梁占 70%（26.4 公里），隧道占 11%（4.2 公里），路堤占 19%（7 公里）。路堤段正是它穿越车笼埔断层之处：此处不建高架而以填土路堤通过，以吸收地震能量、便于震后快速修复。三座隧道为国姓一号隧道（约 2.45 公里）、国姓二号隧道与埔里隧道。",
+        "国姓高架桥拥有全台最高的桥墩，最高约 70 米，以滑动模板施工，是台湾桥梁首度大规模采用此工法。爱兰交流道联络道上的南港溪脊背桥是国内第一座脊背桥，以两组矮塔、36 条斜拉钢索托起 300 米桥面。",
+        "国工局称它为「第三代高速公路」，并纳入多项环境措施：桥墩柱全面使用自充填混凝土，混凝土掺用炉石粉，石灼巷跨越桥采用以水库淤泥制成的轻质混凝土，另辟砂石车专用道以免占用台 14 线，两处交流道设生态池，透明隔音墙贴上猛禽贴纸。国工局估算共减少水泥用量 24 万公吨、二氧化碳排放约 21 万公吨。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Taiwan Provincial Highway Bureau began a feasibility study for a Central Cross-Island expressway, Puli to Hualien, in 1986, and in 1991 the transport ministry had it extended west to Caotun to meet the second freeway. In 1998 the Executive Yuan split the scheme: Wufeng–Puli should be finished early for tourism and local traffic; Puli–Hualien, with its geothermal ground, faults, rock bursts and water inflows, was left for further study.",
+        "The 1999 Jiji earthquake, which left the economies and tourist trade of Guoxing, Puli and Sun Moon Lake in ruins, changed the case for it. The Wufeng–Puli section was put into the Challenge 2008 national development plan as earthquake reconstruction, and its construction plan was approved in July 2003. Work started in 2004.",
+        "It opened in three pieces: Ailan to Puli on 27 January 2008, Wufeng to East Caotun on 27 December 2008, and the middle on 21 March 2009. Interchanges at Guoxing, Jiuzheng and Beishan followed in 2009, 2011 and 2013. The limit, first 90 km/h, was raised to 100 in September 2012.",
+        "The eastern half keeps returning as a political promise. Nantou's county head asked for an extension to Wushe and on to Hualien in 2010; Han Kuo-yu campaigned on it in 2019; the KMT caucus put an extension bill to the legislature in 2024. In the 2019 debate engineers were divided on whether a freeway under the Central Mountain Range could be built at all."
+      ],
+      "zh": [
+        "1986 年，台湾省公路局开始办理中横快速公路（埔里—花莲）可行性研究；1991 年交通部指示将计划自埔里向西延伸至草屯，以衔接第二高速公路。1998 年行政院核定分段办理：雾峰至埔里段应配合中部观光与运输需求尽速完成；埔里至花莲段因地热、断层、岩爆、涌水等不确定因素，继续评估后另案核定。",
+        "1999 年九二一大地震使国姓、埔里与日月潭等地的民生与观光产业一蹶不振，也改变了这条路的理由。雾峰至埔里段被纳入「挑战 2008：国家发展重点计划」作为灾区重建建设，2003 年 7 月建设计划获核定，2004 年动工。",
+        "全线分三段通车：2008 年 1 月 27 日爱兰至埔里端，2008 年 12 月 27 日雾峰系统至东草屯，2009 年 3 月 21 日中段贯通。国姓、旧正、北山交流道分别于 2009、2011、2013 年通车。速限原为每小时 90 公里，2012 年 9 月提高为 100 公里。",
+        "东段至今仍不时以政治承诺的形式出现：2010 年南投县长提出延伸至雾社再通往花莲；2019 年韩国瑜以此为竞选诉求；2024 年国民党立法院党团提出延伸条例草案。2019 年的讨论中，对于在中央山脉底下修高速公路是否可行，工程界意见分歧。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The road is four lanes throughout, with a limit of 100 km/h for most of it. Planners expected Wufeng to Puli to take 25 minutes instead of 45 on Highway 14. Drivers from the north going to Sun Moon Lake can also leave Freeway 3 at Zhushan or Mingjian instead."
+      ],
+      "zh": [
+        "全线双向四车道，大部分路段速限每小时 100 公里。规划时预计雾峰至埔里车程可由走台 14 线的 45 分钟缩短为 25 分钟。北上前往日月潭的车辆，则也可由国道三号竹山或名间交流道下。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "value": { "en": "About NT$35 billion as reported when the plan was approved in 2003. Not checked against an official outturn; an unofficial site gives NT$37.5 billion.", "zh": "2003 年计划核定时报道总工程经费约 350 亿元；尚未与官方决算核对，另有非官方网站称 375 亿元。" },
+      "source": "「二十分鐘的代價｜穿山越水的國道六號」, Our Island (我們的島), Public Television Service, 13 October 2003"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "The Freeway Bureau's project history says the section was put into the Challenge 2008 national plan but does not say how it was financed.", "zh": "高速公路局的工程回顾只说明本路段纳入「挑战 2008」国家发展重点计划，未说明经费来源。" }
+    },
+    {
+      "label": { "en": "Structure", "zh": "构造比例" },
+      "value": { "en": "Bridges 26.4 km (70%), tunnels 4.2 km (11%), embankment 7 km (19%) of 37.6 km", "zh": "全长 37.6 公里中，桥梁 26.4 公里（70%）、隧道 4.2 公里（11%）、路堤 7 公里（19%）" },
+      "source": "Freeway Bureau, 國道6號工程 (history pages of the National Expressway Engineering Bureau), 2018; Chinese Wikipedia, 水沙連高速公路"
+    },
+    {
+      "label": { "en": "Built by", "zh": "兴建单位" },
+      "value": { "en": "National Expressway Engineering Bureau; maintained by the Freeway Bureau", "zh": "交通部台湾区国道新建工程局兴建，交通部高速公路局养护" },
+      "source": "Freeway Bureau, 國道6號工程"
+    }
+  ],
+  "timeline": [
+    { "year": 1986, "en": "The Provincial Highway Bureau begins a feasibility study for a Puli–Hualien expressway.", "zh": "台湾省公路局开始办理埔里至花莲中横快速公路可行性研究。" },
+    { "year": 1991, "en": "The transport ministry has the plan extended west to Caotun to meet Freeway 3.", "zh": "交通部指示计划向西延伸至草屯，衔接国道三号。" },
+    { "year": 1998, "en": "The Executive Yuan splits the scheme; Wufeng–Puli goes first.", "zh": "行政院核定分段办理，雾峰至埔里段优先。" },
+    { "year": 2003, "en": "The Nantou section's construction plan is approved in July, as earthquake reconstruction.", "zh": "7 月，国道 6 号南投段建设计划作为震灾重建建设获核定。" },
+    { "year": 2004, "en": "Construction begins.", "zh": "动工兴建。" },
+    { "year": 2008, "en": "Ailan to Puli opens on 27 January; Wufeng to East Caotun on 27 December.", "zh": "1 月 27 日爱兰至埔里端通车；12 月 27 日雾峰系统至东草屯通车。" },
+    { "year": 2009, "en": "The whole road opens on 21 March and is named the Shuishalian Freeway.", "zh": "3 月 21 日全线通车，同年定名水沙连高速公路。" },
+    { "year": 2012, "en": "The limit is raised from 90 to 100 km/h on 1 September.", "zh": "9 月 1 日，速限由每小时 90 公里提高为 100 公里。" }
+  ]
+}

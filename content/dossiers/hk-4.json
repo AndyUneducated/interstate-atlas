@@ -1,0 +1,110 @@
+{
+  "id": "hk-4",
+  "route": { "sys": "hk-route", "num": "4" },
+  "name": { "en": "Route 4", "zh": "4号干线" },
+  "tagline": { "en": "Hong Kong Island's north-shore expressway, on stilts over the sea in the east and in tunnel under Central", "zh": "港岛北岸的快速公路，东段架在海面之上，中环一段则藏于地下" },
+  "completedYear": 2019,
+  "termini": {
+    "start": { "at": [114.237, 22.265], "en": "The Chai Wan Road roundabout at Chai Wan", "zh": "柴湾柴湾道回旋处" },
+    "end": { "en": "Shing Sai Road at Kennedy Town", "zh": "坚尼地城城西道" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Route 4 runs the length of Hong Kong Island's north shore, from Chai Wan in the east to Kennedy Town in the west. From east to west it is the Island Eastern Corridor, an elevated expressway largely built over the edge of the harbour; the Central–Wan Chai Bypass, mostly in tunnel beneath the new reclamation in Wan Chai and Central; the Connaught Road West flyover; and Shing Sai Road at Kennedy Town.",
+        "It was formed in 2004 by joining two shorter routes of the old numbering, 7 and 8. The busiest section is the Island Eastern Corridor at North Point, between Hing Fat Street and Tong Shui Road, which carries traffic from the Eastern Harbour Crossing and Route 2 as well as the island's own east–west flow."
+      ],
+      "zh": [
+        "4号干线贯穿港岛北岸，东起柴湾，西至坚尼地城。由东至西依次为东区走廊——大部分建于海边水面之上的高架快速公路；中环湾仔绕道——大部分位于湾仔及中环新填海区地下的隧道；干诺道西天桥；以及坚尼地城的城西道。",
+        "它于 2004 年由旧编号的 7号和 8号两条较短的干线合并而成。最繁忙的路段是北角兴发街至糖水道一段东区走廊，除港岛本身的东西向车流外，还承载来自东区海底隧道及 2号干线的车辆。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Much of the Island Eastern Corridor is viaduct laid along the shoreline of the eastern districts, so that for decades the coast of North Point and Quarry Bay lay beneath a motorway rather than beside the harbour.",
+        "The Central–Wan Chai Bypass is 4.5 km long, of which 3.7 km is in tunnel. The tunnel was built partly through land reclaimed for it, and rock lying deeper than expected was a main cause of its cost overrun. Its ventilation includes an air-purification system described as the largest of its kind."
+      ],
+      "zh": [
+        "东区走廊大部分为沿东区海岸线兴建的高架桥，因此数十年来，北角和鲗鱼涌的海岸都压在快速公路之下，而非面向海港。",
+        "中环湾仔绕道全长 4.5 公里，其中 3.7 公里为隧道。隧道部分穿过为其填出的土地；岩层比预期更深，是造价超支的主要原因。其通风设施包括一套号称同类中规模最大的空气净化系统。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "An expressway along the island's north shore was proposed in the 1968 Long Term Road Study by Freeman Fox and Wilbur Smith. Detailed design of the Island Eastern Corridor began in 1976 and the first contract, worth HK$485 million, was let in December 1980. It opened in three stages: Causeway Bay to Taikoo Shing in June 1984, opened by Governor Edward Youde; Taikoo Shing to Shau Kei Wan on 26 July 1985; and Shau Kei Wan to Chai Wan on 12 October 1989. Further west, the Rumsey Street flyover opened in January 1990 and the Connaught Road West flyover in March 1997.",
+        "That left a gap through Wan Chai and Central, where through traffic had to use the surface roads. A bypass was costed at about HK$8 billion in the 1990s, but it depended on reclaiming part of the harbour, and the reclamation was challenged in the courts until the Court of Final Appeal settled the matter in 2005. The Executive Council approved the scheme on 20 May 2009, work began on 29 January 2010, and the bypass opened in two steps, on 20 January and 24 February 2019, joining the two halves of the route.",
+        "A western extension from Kennedy Town to Aberdeen, about 8 km, was studied from the late 1990s but shelved in 2010."
+      ],
+      "zh": [
+        "沿港岛北岸兴建快速公路的构想，出自 1968 年由费文斯与威尔伯·史密斯完成的《长远道路研究》。东区走廊于 1976 年开始详细设计，首份合约价值 4.85 亿港元，于 1980 年 12 月批出。它分三期通车：铜锣湾至太古城于 1984 年 6 月由港督尤德主持通车；太古城至筲箕湾于 1985 年 7 月 26 日通车；筲箕湾至柴湾于 1989 年 10 月 12 日通车。更西面，林士街天桥于 1990 年 1 月通车，干诺道西天桥于 1997 年 3 月通车。",
+        "这样一来，湾仔和中环之间仍有缺口，过境车辆只能使用地面道路。1990 年代绕道估算约 80 亿港元，但它有赖于在维港填海，而有关填海在法院受到挑战，直至 2005 年终审法院作出裁决才告一段落。行政会议于 2009 年 5 月 20 日批准计划，工程于 2010 年 1 月 29 日动工，绕道于 2019 年 1 月 20 日及 2 月 24 日分两步通车，干线东西两半由此接通。",
+        "由坚尼地城向西延伸至香港仔、长约 8 公里的计划，自 1990 年代后期开始研究，但于 2010 年搁置。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Route 4 is entirely government-funded and toll-free. The Island Eastern Corridor's first contract was HK$485 million in 1980, and a further HK$946.1 million of improvement works, approved in 2000, were completed in 2003. The Central–Wan Chai Bypass was the expensive part: its approved estimate of HK$28.1 billion was raised to more than HK$36 billion in January 2014."
+      ],
+      "zh": [
+        "4号干线全部由政府出资，不收费。东区走廊首份合约于 1980 年为 4.85 亿港元；另一笔 9.461 亿港元的改善工程于 2000 年获批，2003 年完成。中环湾仔绕道是最昂贵的部分：核准预算由 281 亿港元于 2014 年 1 月上调至超过 360 亿港元。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "Criticism that the Island Eastern Corridor had cut North Point and Quarry Bay off from the harbour led eventually to the East Coast Boardwalk, a promenade built beneath the viaduct at a cost of HK$1.68 billion, which opened in 2025."
+      ],
+      "zh": [
+        "东区走廊被批评把北角和鲗鱼涌与海港隔开，最终促成了在高架桥下兴建的东岸板道。板道耗资 16.8 亿港元，于 2025 年启用。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total is published for the route, which was assembled from separate projects over 35 years. The main project costs are listed below.", "zh": "整条路线没有公布总造价，它由 35 年间多个独立工程拼合而成。主要工程造价分列如下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Government; the whole route is toll-free", "zh": "政府出资；全线免费" },
+      "source": "English Wikipedia, Island Eastern Corridor; Chinese Wikipedia, 东区走廊 and 中环及湾仔绕道"
+    },
+    {
+      "label": { "en": "Island Eastern Corridor, first contract", "zh": "东区走廊首份合约" },
+      "value": { "en": "HK$485 million, December 1980", "zh": "4.85 亿港元，1980 年 12 月" },
+      "source": "华侨日报, 17 December 1980, as cited in Chinese Wikipedia, 东区走廊"
+    },
+    {
+      "label": { "en": "Island Eastern Corridor improvement works", "zh": "东区走廊改善工程" },
+      "value": { "en": "HK$946.1 million, approved 2000, completed July 2003", "zh": "9.461 亿港元，2000 年获批，2003 年 7 月完成" },
+      "source": "Chinese Wikipedia, 东区走廊"
+    },
+    {
+      "label": { "en": "Central–Wan Chai Bypass", "zh": "中环湾仔绕道" },
+      "value": { "en": "Approved estimate raised from HK$28.1 billion to over HK$36 billion in January 2014", "zh": "核准预算于 2014 年 1 月由 281 亿港元上调至超过 360 亿港元" },
+      "source": "Chinese Wikipedia, 中环及湾仔绕道"
+    },
+    {
+      "label": { "en": "East Coast Boardwalk", "zh": "东岸板道" },
+      "value": { "en": "HK$1.68 billion, opened 2025", "zh": "16.8 亿港元，2025 年启用" },
+      "source": "Chinese Wikipedia, 东区走廊"
+    }
+  ],
+  "timeline": [
+    { "year": 1968, "en": "The Long Term Road Study proposes an expressway along the north shore of Hong Kong Island.", "zh": "《长远道路研究》提出沿港岛北岸兴建快速公路。" },
+    { "year": 1980, "en": "The first Island Eastern Corridor contract, HK$485 million, is let in December.", "zh": "12 月，批出东区走廊首份合约，价值 4.85 亿港元。" },
+    { "year": 1984, "en": "The Island Eastern Corridor opens from Causeway Bay to Taikoo Shing in June.", "zh": "6 月，东区走廊铜锣湾至太古城段通车。" },
+    { "year": 1985, "en": "The corridor reaches Shau Kei Wan on 26 July.", "zh": "7 月 26 日，走廊延至筲箕湾。" },
+    { "year": 1989, "en": "The corridor reaches Chai Wan on 12 October.", "zh": "10 月 12 日，走廊延至柴湾。" },
+    { "year": 1997, "en": "The Connaught Road West flyover opens in March.", "zh": "3 月，干诺道西天桥通车。" },
+    { "year": 2004, "en": "Old routes 7 and 8 are combined as Route 4.", "zh": "旧 7号及 8号干线合并为 4号干线。" },
+    { "year": 2005, "en": "The Court of Final Appeal's ruling on harbour reclamation clears the way for the bypass.", "zh": "终审法院就维港填海作出裁决，为绕道扫除障碍。" },
+    { "year": 2010, "en": "Work on the Central–Wan Chai Bypass begins on 29 January; the Kennedy Town–Aberdeen extension is shelved.", "zh": "1 月 29 日，中环湾仔绕道动工；坚尼地城至香港仔延线计划搁置。" },
+    { "year": 2019, "en": "The Central–Wan Chai Bypass opens on 20 January and 24 February, completing the route.", "zh": "1 月 20 日及 2 月 24 日，中环湾仔绕道分步通车，全线贯通。" },
+    { "year": 2025, "en": "The East Coast Boardwalk opens beneath the Island Eastern Corridor.", "zh": "东区走廊下的东岸板道启用。" }
+  ]
+}

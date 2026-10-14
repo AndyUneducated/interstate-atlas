@@ -45,9 +45,9 @@ function pick(obj) {
  * the number's parity, so it is also right for the state, provincial and
  * Canadian routes that follow no parity rule.
  */
-function terminusRow(kind, place, coord, dossierText, axis) {
+function terminusRow(kind, place, coord, dossierText, side) {
   const isFrom = kind === 'from';
-  const label = t(`dt.${isFrom ? 'from' : 'to'}${axis || ''}`);
+  const label = t(side ? `dt.end${side}` : `dt.${isFrom ? 'from' : 'to'}`);
   const written = pick(dossierText);
   let body;
   if (written) {
@@ -817,16 +817,19 @@ export async function renderDetail(id) {
   const startCoord = main[0]?.[0];
   const endCoord = main[main.length - 1]?.at(-1);
 
-  // Which way the road runs, from its own endpoints. Only used to pick the
-  // wording for the two terminus labels; an ambiguous route keeps the
-  // both-ways phrasing rather than being forced into one.
-  const axis = (() => {
-    if (!startCoord || !endCoord) return '';
-    const dLon = Math.abs(endCoord[0] - startCoord[0]) * Math.cos((startCoord[1] * Math.PI) / 180);
-    const dLat = Math.abs(endCoord[1] - startCoord[1]);
-    if (dLon > dLat * 1.6) return 'EW';
-    if (dLat > dLon * 1.6) return 'NS';
-    return '';
+  // Which end is which, from where the two ends lie and not from the order
+  // the line is drawn in: American geometry runs south to north or west to
+  // east, East Asian geometry runs either way. A diagonal road's ends are
+  // named on both axes, and a ring's two ends are just its two ends.
+  const sides = (() => {
+    if (!startCoord || !endCoord || p.spanMi * 20 < p.mi) return ['', ''];
+    const dx = (endCoord[0] - startCoord[0]) * Math.cos((startCoord[1] * Math.PI) / 180);
+    const dy = endCoord[1] - startCoord[1];
+    const ns = dy > 0 ? ['S', 'N'] : ['N', 'S'];
+    const ew = dx > 0 ? ['W', 'E'] : ['E', 'W'];
+    if (Math.abs(dx) > Math.abs(dy) * 1.6) return ew;
+    if (Math.abs(dy) > Math.abs(dx) * 1.6) return ns;
+    return [ns[0] + ew[0], ns[1] + ew[1]];
   })();
 
   const dossier = await loadDossier(id);
@@ -900,9 +903,9 @@ export async function renderDetail(id) {
 
     <div class="dt-bd">
       <div class="termini">
-        ${terminusRow('from', start, startCoord, dossier?.termini?.start, axis)}
-        ${terminusRow('to', end, endCoord, dossier?.termini?.end, axis)}
-        ${dossier?.termini ? '' : listedEnds(p, names)}
+        ${terminusRow('from', start, startCoord, dossier?.termini?.start, sides[0])}
+        ${terminusRow('to', end, endCoord, dossier?.termini?.end, sides[1])}
+        ${listedEnds(p, names)}
       </div>
 
       ${heroLength(p, officialMi, ca, dossier?.officialCovers?.length ?? (planKm ? plan.pieces : 0), heroKind)}
@@ -1035,7 +1038,7 @@ export async function renderDetail(id) {
   const roads = p.cc === 'mx' || ca ? '' : roadsBlock(p, [title, names?.main, names?.other, names?.full, ...aka].filter(Boolean), hk);
   for (const key of SECTION_ORDER) {
     const s = written.get(key);
-    if (!s && !(key === 'money' && costFigure) && !(key === 'character' && roads)
+    if (!s && !(key === 'money' && (costFigure || dossier?.figures?.length)) && !(key === 'character' && roads)
       && !(key === 'engineering' && structFigure)) continue;
     let body = s ? prose(s[getLang()] || s.en) : '';
     if (key === 'character') body += roads;

@@ -1,0 +1,87 @@
+{
+  "id": "hk-5",
+  "route": { "sys": "hk-route", "num": "5" },
+  "name": { "en": "Route 5", "zh": "5号干线" },
+  "tagline": { "en": "Kowloon's east–west corridor of flyovers, from Kwun Tong across the old airport to Tsuen Wan", "zh": "九龙东西向的天桥走廊，由观塘经旧机场通往荃湾" },
+  "termini": {
+    "start": { "at": [114.218, 22.316], "en": "Kwun Tong Road (Route 7) at Ngau Tau Kok", "zh": "牛头角观塘道（7号干线）" },
+    "end": { "en": "Tuen Mun Road (Route 9) at Chai Wan Kok, Tsuen Wan", "zh": "荃湾柴湾角屯门公路（9号干线）" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Route 5 is about 17.9 km long and crosses Kowloon from east to west. From Ngau Tau Kok it follows Kai Fuk Road past Kowloon Bay, dives under the site of the old Kai Tak runway in the Kai Tak Tunnel, rises onto the East Kowloon Corridor through Hung Hom, follows Chatham Road North, and then runs on the West Kowloon Corridor's flyovers through Yau Ma Tei and Sham Shui Po before joining Kwai Chung Road and Tsuen Wan Road to the edge of Tsuen Wan.",
+        "It is not a single expressway but a string of older urban roads and flyovers built between the late 1960s and the late 1990s, and it was part of the old Route 2 before the 2004 renumbering. Its one traffic light is westbound on Chatham Road North at Wuhu Street. The busiest point is Tsuen Wan Road where it crosses Container Port Road, beside the Kwai Chung container terminals."
+      ],
+      "zh": [
+        "5号干线全长约 17.9 公里，东西横贯九龙。它由牛头角沿启福道经九龙湾，以启德隧道穿过旧启德机场跑道地底，再登上东九龙走廊经红磡，接漆咸道北，然后沿西九龙走廊的天桥经油麻地和深水埗，接葵涌道和荃湾路直至荃湾边缘。",
+        "它并非一条完整的快速公路，而是由 1960 年代末至 1990 年代末陆续建成的旧市区道路和天桥串连而成；2004 年改编号前属旧 2号干线的一部分。全线唯一一组交通灯位于漆咸道北西行近芜湖街。最繁忙的地点是荃湾路跨越货柜码头路一带，紧邻葵涌货柜码头。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Kai Tak Tunnel, about 1.26 km long, was built by cut-and-cover beneath the airport's runway while the airport stayed in operation — the only tunnel in Hong Kong built entirely that way. It was also Hong Kong's first toll-free road tunnel.",
+        "The West Kowloon Corridor was threaded through an already built-up district. Its first phase, the Gascoigne Road flyover, passed through a multi-storey car park building in Yau Ma Tei, since demolished, and its second phase splits into separate flyovers over Tai Kok Tsui Road and Tong Mi Road. Further west, the Lai Chi Kok Bridge, opened in 1968, was 2,600 ft long on 29 spans and was then the longest bridge in Hong Kong; the bay it crossed has since been reclaimed."
+      ],
+      "zh": [
+        "启德隧道长约 1.26 公里，在机场照常运作期间以明挖回填法在跑道下兴建，是香港唯一完全以此方法建成的隧道，亦是香港第一条免费行车隧道。",
+        "西九龙走廊须在已建成的市区中穿插而过。第一期加士居道天桥穿过油麻地一座多层停车场大厦（该大厦现已拆卸）；第二期在大角咀道和塘尾道上方分拆为两条独立天桥。更西面的荔枝角大桥于 1968 年通车，长 2,600 英尺、共 29 跨，是当时香港最长的桥梁；桥下的海湾其后已被填平。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The western end came first. The Lai Chi Kok Bridge, designed by Scott Wilson Kirkpatrick with the Public Works Department and built by Paul Y, was begun in 1966 and opened on 29 October 1968. The 4.1 km Tsuen Wan Road was built between June 1981 and November 1985.",
+        "Across the old airport, the Kai Tak Tunnel was begun in the mid-1970s — 1973 according to Chinese sources, by 1975 according to English ones. Its first tube opened on 29 June 1982 and the second that October; newspapers of the time reported that it had run over budget and that contractors were suing. It was known as the Airport Tunnel until it was renamed on 4 May 2006, after the airport had moved. The East Kowloon Corridor beyond it opened in 1981 according to English Wikipedia, or with the tunnel in June 1982 according to Chinese Wikipedia.",
+        "The West Kowloon Corridor was built in four phases: the Gascoigne Road flyover on 22 November 1977, the Tai Kok Tsui section on 1 November 1982, the third phase on 28 November 1987 and the Ferry Street flyover in 1997. The route took its present number in the 2004 renumbering; its eastern end at Kai Fuk Road now also connects to the Central Kowloon Route (Route 6)."
+      ],
+      "zh": [
+        "西端最先建成。荔枝角大桥由施伟拔顾问公司与工务局合作设计，保华承建，1966 年动工，1968 年 10 月 29 日通车。全长 4.1 公里的荃湾路于 1981 年 6 月至 1985 年 11 月间建成。",
+        "在旧机场一带，启德隧道于 1970 年代中期动工——中文资料称 1973 年，英文资料称最迟 1975 年。第一条管道于 1982 年 6 月 29 日通车，第二条于同年 10 月通车；当时报章报道工程超支，并有承建商提出诉讼。它原名机场隧道，机场迁走后于 2006 年 5 月 4 日改名。其后的东九龙走廊，英文维基百科称于 1981 年通车，中文维基百科则称于 1982 年 6 月与隧道同时通车。",
+        "西九龙走廊分四期兴建：加士居道天桥于 1977 年 11 月 22 日通车，大角咀一段于 1982 年 11 月 1 日通车，第三期于 1987 年 11 月 28 日通车，渡船街天桥于 1997 年通车。2004 年改编号时获现有编号；其东端启福道现时亦接驳中九龙干线（6号干线）。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Route 5 was built entirely with government money and carries no tolls. Few costs for its parts have been found: the Lai Chi Kok Bridge cost HK$13.5 million in the 1960s, and no figures were found for the corridors or the Kai Tak Tunnel beyond reports that the tunnel ran over budget."
+      ],
+      "zh": [
+        "5号干线全部由政府出资兴建，不设收费。各段造价资料甚少：荔枝角大桥于 1960 年代耗资 1,350 万港元；各条走廊和启德隧道则未找到造价数字，只有隧道超支的报道。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total is published, and costs were found for only one component, listed below. The route is a collection of separate works built over about 30 years.", "zh": "没有公布总造价，只找到一个组成部分的造价（见下）。整条路线由约 30 年间的多项独立工程组成。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Government throughout; toll-free", "zh": "全线由政府出资；不收费" },
+      "source": "English Wikipedia, Kai Tak Tunnel and West Kowloon Corridor; Chinese Wikipedia, 西九龙走廊 and 启德隧道"
+    },
+    {
+      "label": { "en": "Lai Chi Kok Bridge", "zh": "荔枝角大桥" },
+      "value": { "en": "HK$13.5 million, 1966–68", "zh": "1,350 万港元，1966—1968 年" },
+      "source": "English Wikipedia, Lai Chi Kok Bridge"
+    },
+    {
+      "label": { "en": "Kai Tak Tunnel", "zh": "启德隧道" },
+      "why": { "en": "No cost was found; 1982 newspapers reported only that it had gone over budget.", "zh": "未找到造价；1982 年报章只报道工程超支。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1968, "en": "The Lai Chi Kok Bridge opens on 29 October, then the longest bridge in Hong Kong.", "zh": "10 月 29 日，荔枝角大桥通车，为当时香港最长的桥梁。" },
+    { "year": 1977, "en": "The first phase of the West Kowloon Corridor, the Gascoigne Road flyover, opens on 22 November.", "zh": "11 月 22 日，西九龙走廊第一期加士居道天桥通车。" },
+    { "year": 1981, "en": "Work on Tsuen Wan Road begins in June.", "zh": "6 月，荃湾路动工。" },
+    { "year": 1982, "en": "The first tube of the Kai Tak (Airport) Tunnel opens on 29 June and the second in October; the West Kowloon Corridor's second phase opens on 1 November.", "zh": "6 月 29 日机场隧道首条管道通车，10 月第二条通车；11 月 1 日西九龙走廊第二期通车。" },
+    { "year": 1985, "en": "Tsuen Wan Road is completed in November.", "zh": "11 月，荃湾路建成。" },
+    { "year": 1987, "en": "The West Kowloon Corridor's third phase opens on 28 November.", "zh": "11 月 28 日，西九龙走廊第三期通车。" },
+    { "year": 1997, "en": "The Ferry Street flyover, the corridor's fourth phase, opens.", "zh": "西九龙走廊第四期渡船街天桥通车。" },
+    { "year": 2004, "en": "The route is numbered 5 under the third numbering system.", "zh": "第三代编号系统实施，编为 5号干线。" },
+    { "year": 2006, "en": "The Airport Tunnel is renamed the Kai Tak Tunnel on 4 May.", "zh": "5 月 4 日，机场隧道改名启德隧道。" }
+  ]
+}

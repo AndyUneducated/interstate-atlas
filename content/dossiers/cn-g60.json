@@ -1,0 +1,143 @@
+{
+  "id": "cn-g60",
+  "route": { "sys": "cn-expressway", "num": "G60" },
+  "name": { "en": "Shanghai–Kunming Expressway", "zh": "沪昆高速公路" },
+  "aka": [
+    { "en": "Shanghai–Ruili trunk highway (Hurui), Shanghai–Kunming part", "zh": "沪瑞国道主干线上海至昆明段" },
+    { "en": "A8 (Shanghai section)", "zh": "A8 公路（上海段）" }
+  ],
+  "tagline": { "en": "Shanghai to Kunming across five provinces, finished on the gorges of western Guizhou in 2009", "zh": "自上海横贯五省至昆明，2009 年在黔西峡谷上最后贯通" },
+  "completedYear": 2009,
+  "termini": {
+    "start": { "en": "The Xinzhuang interchange, Minhang District, Shanghai, with the Outer Ring and the Humin Elevated Road", "zh": "上海市闵行区莘庄立交，衔接外环线与沪闵高架路", "at": [121.38, 31.11] },
+    "end": { "en": "The Xiaozhuang interchange on Kunming's Second Ring Road, Panlong District", "zh": "昆明市盘龙区小庄立交，接二环快速路", "at": [102.73, 25.07] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G60 runs 2,407 km from Shanghai to Kunming, south-west through Zhejiang, Jiangxi, Hunan, Guizhou and Yunnan: Jiaxing, Hangzhou, Zhuji, Jinhua, Quzhou, Shangrao, Yingtan, Nanchang, Xinyu, Yichun, Pingxiang, Zhuzhou, Xiangtan, Shaoyang, Huaihua, Kaili, Guiyang, Anshun, Panzhou and Qujing. The whole road is part of Asian Highway 3.",
+        "It changes character as it goes. Zhejiang's 393 km, mostly the old Shanghai–Hangzhou and Hangzhou–Jinhua–Quzhou roads, are flat, busy and now eight lanes; the Hunan section, 534.7 km, crosses the Xuefeng mountains; and the 623 km across Guizhou, by the exit list's mileposts, is a plateau road that drops into and leaps over river gorges before Yunnan's last 260 km down to Kunming.",
+        "It shares the carriageway with G75 between Majiang and Guiyang, with the Guiyang ring and G76 around Guiyang, and with G56 from Malong into Kunming, where both end at Xiaozhuang."
+      ],
+      "zh": [
+        "G60 自上海至昆明，全长 2,407 公里，向西南经浙江、江西、湖南、贵州、云南，途经嘉兴、杭州、诸暨、金华、衢州、上饶、鹰潭、南昌、新余、宜春、萍乡、株洲、湘潭、邵阳、怀化、凯里、贵阳、安顺、盘州、曲靖。全线属于亚洲公路 3 号线。",
+        "沿途面貌变化很大。浙江段 393 公里，主要由原沪杭高速与杭金衢高速组成，地势平坦、车流繁忙，如今已全线八车道；湖南段 534.7 公里，翻越雪峰山；按出口里程桩号，贵州段约 623 公里，是一条高原公路，屡屡下切、飞跨河谷，之后是云南境内通往昆明的最后约 260 公里。",
+        "沿途有多段共线：麻江至贵阳与 G75 兰海高速共线，贵阳一带与贵阳绕城高速及 G76 厦蓉高速共线，自马龙至昆明与 G56 杭瑞高速共线，两路同在小庄立交终止。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Its first piece is one of the oldest expressways on the mainland. The Xinzhuang–Songjiang expressway, 20.59 km, opened on 22 December 1990. In 2008–09 it was rebuilt: from 1 January 2010 the stretch from Xinzhuang to the new Xinqiao toll plaza became a six-lane urban viaduct over a surface road, and west of Xinqiao eight lanes.",
+        "In Hunan the Xuefeng Mountain tunnel between Dongkou and Hongjiang, 7,023 m and 7,039 m, opened on 10 November 2007 and cut the crossing of the range from 100 minutes to seven.",
+        "Western Guizhou has the two great bridges. The Beipan River bridge between Guanling and Qinglong, opened in November 2008, is a single-span steel-truss suspension bridge of 636 m, 964 m long, its deck 320 m above the water. The Baling River bridge near Huangguoshu, opened on 23 December 2009, is a steel-truss suspension bridge with a 1,088 m main span, 2,237 m long, towers of 186 m and 201 m, and its deck 370 m above the river. Guizhou's director of transport, Cheng Mengren, called it the first steel-truss suspension bridge in China to span more than a kilometre. Most of the Zhenning–Shengjingguan road around them was built for 80 km/h on a 24.5 m formation."
+      ],
+      "zh": [
+        "它最早的一段是大陆最早的高速公路之一。莘松高速公路（莘庄至松江）全长 20.59 公里，1990 年 12 月 22 日通车。2008—2009 年改建后，自 2010 年 1 月 1 日起，莘庄立交至新桥收费口改为双向六车道高架城市快速路，下设地面道路；新桥以西为双向八车道。",
+        "湖南境内，洞口与洪江之间的雪峰山隧道左线 7,023 米、右线 7,039 米，2007 年 11 月 10 日通车，翻越雪峰山的时间由 100 分钟缩短为 7 分钟。",
+        "两座大桥都在黔西。关岭与晴隆之间的北盘江大桥 2008 年 11 月通车，为单跨 636 米的钢桁梁悬索桥，全长 964 米，桥面距水面 320 米。黄果树附近的坝陵河大桥 2009 年 12 月 23 日通车，为钢桁加劲梁悬索桥，主跨 1,088 米，全长 2,237 米，东、西塔高约 186 米和 201 米，桥面距河面 370 米；贵州省交通厅厅长程孟仁称其为中国第一座跨径过千米的钢桁加劲梁悬索桥。两桥所在的镇宁至胜境关高速，大部分路段按时速 80 公里、路基宽 24.5 米设计。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "G60 is the Shanghai–Kunming part of an older line. The 1992 national trunk highway plan included G065, Shanghai to Ruili on the Burmese border; the 2005 national expressway plan numbered the Shanghai–Kunming stretch G60.",
+        "The east was built in the 1990s. After the Xinzhuang–Songjiang road came the Shanghai–Hangzhou expressway: the Shanghai section was begun in January 1996, and the whole 151 km, with the Zhejiang part to Pengbu, opened on 29 December 1998. The 290 km Hangzhou–Jinhua–Quzhou road opened its first 236.5 km on 28 December 2002 and the rest on 22 September 2003.",
+        "In Hunan, Xiangtan–Shaoyang, begun on 1 July 2000, opened on 26 December 2002; Liling–Xiangtan opened on 19 October 2007, and Shaoyang–Huaihua and Huaihua–Xinhuang, with the Xuefeng tunnel, on 10 November 2007. Guizhou's Zhenning–Shengjingguan road was largely finished by the start of 2008, apart from the Baling River bridge. When that bridge opened on 23 December 2009 the vice-minister of transport, Feng Zhenglin, said the Shanghai–Ruili trunk highway was complete."
+      ],
+      "zh": [
+        "G60 是一条更早线路的上海至昆明段。1992 年国道主干线规划中有 G065 沪瑞线，自上海通往中缅边境的瑞丽；2005 年国家高速公路网规划将其中上海至昆明段编为 G60。",
+        "东段建于 1990 年代。继莘松高速之后是沪杭高速公路：上海段 1996 年 1 月开工，全长 151 公里（含浙江境内至彭埠段）于 1998 年 12 月 29 日全线通车。全长 290 公里的杭金衢高速，一期 236.5 公里于 2002 年 12 月 28 日通车，全线于 2003 年 9 月 22 日通车。",
+        "湖南境内，潭邵段 2000 年 7 月 1 日开工，2002 年 12 月 26 日通车；醴潭段 2007 年 10 月 19 日通车，邵怀段（含雪峰山隧道）与怀新段 2007 年 11 月 10 日通车。贵州镇宁至胜境关高速到 2008 年初除坝陵河大桥外主体已完工。2009 年 12 月 23 日大桥通车，交通运输部副部长冯正霖称沪瑞高速公路由此全线建成。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "There is no published cost for the whole road; each province financed its own sections. In the east, foreign loans did much of the work. Shanghai's part of the Shanghai–Hangzhou road cost 2.14 billion yuan. Jiaxing's 88 km cost 3.237 billion, of which 1.447 billion was a World Bank loan, 767 million provincial and ministry loans, and 1.023 billion raised locally — Jiaxing, with under 300 million yuan of disposable revenue, set up a company and sold shares to enterprises and the public. The Hangzhou–Jinhua–Quzhou road was estimated at about 8.6 billion yuan, with a 30 billion yen loan from Japan's Overseas Economic Cooperation Fund.",
+        "Further west the sums are provincial. Hunan's four sections came to 21 billion yuan, of which Xiangtan–Shaoyang was nearly 6.1 billion and Huaihua–Xinhuang about 4.27 billion. Guizhou's 186 km Zhenning–Shengjingguan road was estimated at 12.657 billion yuan, including 1.45 billion for the Baling River bridge, the province's most expensive single bridge, and 430 million for the Beipan River bridge. Widening is being paid for the same way: Zhejiang Communications Investment Group put about 14.12 billion yuan into eight-laning the 136.8 km from Jinhua to the Jiangxi border."
+      ],
+      "zh": [
+        "全线没有公布过总造价，各省分别为境内路段筹资。东段大量依靠外资贷款。沪杭高速上海段总投资 21.4 亿元。嘉兴段 88 公里投资 32.37 亿元，其中世界银行贷款 14.47 亿元、省部贷款 7.67 亿元、嘉兴自筹 10.23 亿元——当时嘉兴可用财力不足 3 亿元，于是组建股份公司，向企业和社会募集资金。杭金衢高速概算总投资约 86 亿元，利用日本海外经济协力基金贷款 300 亿日元。",
+        "往西则是各省自己的账。湖南段四段合计投资 210 亿元，其中潭邵段近 61 亿元，怀新段约 42.69 亿元。贵州镇宁至胜境关高速 186 公里概算 126.57 亿元，其中坝陵河大桥 14.5 亿元，为贵州独立大桥投资之最，北盘江大桥 4.3 亿元。扩容也是同样的做法：金华至浙赣界 136.8 公里的八车道改扩建，由浙江交通集团投资约 141.2 亿元。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The eastern half is being rebuilt to eight lanes province by province. Zhejiang's Hangzhou–Jinhua–Quzhou road was eight lanes from Hangzhou to Jinhua by September 2018 and to the Jiangxi border from 9 September 2022, making G60 the first eight-lane expressway across the whole province. In Jiangxi the 201 km from Liyuan to Dongxiang opened to eight-lane traffic on 31 January 2026, and the 179.5 km Nanchang–Jinyushi widening was reported in November 2025 as due to be largely finished by the end of that year."
+      ],
+      "zh": [
+        "东半段正逐省改扩建为八车道。浙江杭金衢高速杭州至金华段 2018 年 9 月完成八车道改扩建，2022 年 9 月 9 日金华至浙赣界段通车，G60 成为浙江首条贯穿全省的八车道高速。江西境内，梨园至东乡约 201 公里于 2026 年 1 月 31 日开放八车道通行；南昌至金鱼石 179.5 公里改扩建工程，2025 年 11 月报道称预计当年底基本建成。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The Baling River bridge took the crossing of its gorge from an hour to four minutes and, Xinhua reported, cut an hour off the drive from Guiyang to Kunming, to about five; the Beipan River bridge had already saved more than 30 km and nearly two hours of winding, often foggy mountain road. From Huangguoshu to the Yunnan border much of the road is limited by its 80 km/h design."
+      ],
+      "zh": [
+        "坝陵河大桥使两岸通行由 1 小时缩短为 4 分钟；据新华社报道，贵阳至昆明的车程也因此缩短 1 小时，约需 5 小时。此前通车的北盘江大桥，已省去了 30 多公里、近两个小时湿滑多雾的盘山路。自黄果树至滇黔界，大部分路段按时速 80 公里设计。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No total has been published. The road was financed section by section by six provincial-level governments and their companies between 1990 and 2009, with widening still under way; sourced section costs are given separately below.", "zh": "全线总造价未见公布。1990 至 2009 年间由沿线六个省级政府及其公司分段筹资建设，改扩建仍在进行；已查到出处的路段造价另列如下。" }
+    },
+    {
+      "label": { "en": "Shanghai–Hangzhou, Shanghai section", "zh": "沪杭高速上海段" },
+      "value": { "en": "2.14 billion yuan (built 1996–1998)", "zh": "总投资 21.4 亿元（1996—1998 年）" },
+      "source": "Shanghai Local Chronicles Office (上海市地方志办公室), entry 沪杭高速公路上海段通车, archived 18 December 2021"
+    },
+    {
+      "label": { "en": "Shanghai–Hangzhou, Jiaxing section", "zh": "沪杭高速嘉兴段" },
+      "value": { "en": "3.237 billion yuan: 1.447 billion World Bank loan, 767 million provincial and ministry loans, 1.023 billion raised by Jiaxing. Regional history article; not checked against Zhejiang's project accounts.", "zh": "32.37 亿元：世界银行贷款 14.47 亿元、省部贷款 7.67 亿元、嘉兴自筹 10.23 亿元。出自地方史话文章，尚未与浙江项目决算核对。" },
+      "source": "“沪杭高速：一条跨世纪的黄金通道”, 长江经济带丝路信息网 (yangtze.silkroadinfo.org.cn)"
+    },
+    {
+      "label": { "en": "Hangzhou–Jinhua–Quzhou", "zh": "杭金衢高速" },
+      "value": { "en": "Estimated at about 8.6 billion yuan for 290 km, with a 30 billion yen loan from Japan's Overseas Economic Cooperation Fund", "zh": "290 公里，概算总投资约 86 亿元，利用日本海外经济协力基金贷款 300 亿日元" },
+      "source": "“杭金衢高速公路建设侧记”, Zhejiang Online (浙江在线), 26 December 2002"
+    },
+    {
+      "label": { "en": "Hunan section", "zh": "湖南段" },
+      "value": { "en": "21 billion yuan for 534.7 km in four sections", "zh": "四段合计 534.7 公里，投资 210 亿元" },
+      "source": "Hunan Provincial Department of Transportation (hnjt.gov.cn), 沪昆高速公路湖南段全线贯通, as cited in Chinese Wikipedia, 沪昆高速公路"
+    },
+    {
+      "label": { "en": "Zhenning–Shengjingguan (Guizhou)", "zh": "镇宁至胜境关高速（贵州）" },
+      "value": { "en": "Estimated at 12.657 billion yuan for 186.173 km", "zh": "全长 186.173 公里，概算总投资 126.57 亿元" },
+      "source": "Guizhou Provincial Department of Transport, “我省与全国同步实现国道主干线基本贯通”, 10 January 2008"
+    },
+    {
+      "label": { "en": "Baling River bridge", "zh": "坝陵河大桥" },
+      "value": { "en": "Estimated at 1.45 billion yuan (Chinese Wikipedia gives 1.48 billion)", "zh": "概算总投资 14.5 亿元（维基百科作 14.8 亿元）" },
+      "source": "Xinhua, 23 December 2009, as carried by Sina Finance (“坝陵河大桥23日正式通车 沪瑞高速公路全线贯通”); Chinese Wikipedia, 坝陵河大桥"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Provincial governments and their expressway companies, with foreign loans in the east: the World Bank for the Shanghai–Hangzhou road, Japan's Overseas Economic Cooperation Fund for Hangzhou–Jinhua–Quzhou. Jiaxing also sold shares to local enterprises and the public. Zhejiang's eight-lane widening is financed by Zhejiang Communications Investment Group.", "zh": "沿线省级政府及其高速公路公司出资；东段利用外资贷款：沪杭高速用世界银行贷款，杭金衢高速用日本海外经济协力基金贷款。嘉兴还向本地企业和社会募股。浙江段八车道改扩建由浙江交通集团投资。" },
+      "source": "“沪杭高速：一条跨世纪的黄金通道”, 长江经济带丝路信息网; Zhejiang Online, 26 December 2002; Xinhua Zhejiang, 9 September 2022"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "2,407 km", "zh": "2,407 公里" },
+      "source": "Ministry of Transport, national expressway network layout, as cited in Chinese Wikipedia, 沪昆高速公路"
+    }
+  ],
+  "timeline": [
+    { "year": 1990, "en": "The Xinzhuang–Songjiang expressway, G60's first piece, opens on 22 December.", "zh": "12 月 22 日，莘松高速公路通车，是 G60 最早建成的路段。" },
+    { "year": 1998, "en": "The Shanghai–Hangzhou expressway opens throughout on 29 December.", "zh": "12 月 29 日，沪杭高速公路全线通车。" },
+    { "year": 2002, "en": "Xiangtan–Shaoyang in Hunan opens on 26 December, and the first 236.5 km of Hangzhou–Jinhua–Quzhou on 28 December.", "zh": "12 月 26 日湖南潭邵段通车；12 月 28 日杭金衢高速一期 236.5 公里通车。" },
+    { "year": 2003, "en": "The Hangzhou–Jinhua–Quzhou road opens throughout on 22 September.", "zh": "9 月 22 日，杭金衢高速全线通车。" },
+    { "year": 2007, "en": "Shaoyang–Huaihua, with the Xuefeng Mountain tunnel, and Huaihua–Xinhuang open on 10 November.", "zh": "11 月 10 日，邵怀段（含雪峰山隧道）与怀新段通车。" },
+    { "year": 2008, "en": "The Beipan River bridge in Guizhou opens on 27 November.", "zh": "11 月 27 日，贵州北盘江大桥通车。" },
+    { "year": 2009, "en": "The Baling River bridge opens on 23 December, completing the Shanghai–Ruili trunk highway.", "zh": "12 月 23 日，坝陵河大桥通车，沪瑞国道主干线全线建成。" },
+    { "year": 2010, "en": "The rebuilt Xinzhuang–Songjiang section reopens on 1 January, with an urban viaduct into Xinzhuang.", "zh": "1 月 1 日，改建后的莘松段通车，莘庄端改为高架快速路。" },
+    { "year": 2022, "en": "Eight lanes reach the Zhejiang–Jiangxi border on 9 September.", "zh": "9 月 9 日，浙江段八车道贯通至浙赣界。" },
+    { "year": 2026, "en": "The Liyuan–Dongxiang section in Jiangxi opens to eight-lane traffic on 31 January.", "zh": "1 月 31 日，江西梨园至东乡段开放八车道通行。" }
+  ]
+}
