@@ -223,7 +223,7 @@ async function rows() {
     const count = async (f) => new Set((await read(`data/geo/${f}.json`)).features.map((x) => x.properties.num)).size;
     const tw = ea.tw;
     if (tw) {
-      row('tw', 'tw-freeway', { en: 'National Freeway', zh: '國道' },
+      row('tw', 'tw-freeway', { en: 'National Freeway', zh: '国道' },
         { en: 'no published register (TW-1 numbers what it draws)', zh: '没有公开的路线登记（TW-1 按其图层编号）' },
         null, await count('tw/freeway'), []);
       const unmapped = tw.unmapped ?? [];
@@ -233,7 +233,7 @@ async function rows() {
     }
     if (ea.hk) {
       const n = await count('hk/routes');
-      row('hk', 'hk-route', { en: 'Strategic Route', zh: '主要幹線' },
+      row('hk', 'hk-route', { en: 'Strategic Route', zh: '主要干线' },
         { en: 'Transport Department, Routes 1 to 10 (HK-1)', zh: '运输署 1 至 10 号干线（HK-1）' },
         10, n, n < 10 ? [{ key: 'notInCsdi', n: 10 - n }] : []);
     }

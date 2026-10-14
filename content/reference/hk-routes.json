@@ -8,7 +8,9 @@
     "Connaught Rd": "干諾道",
     "Shing Mun Tunnel": "城門隧道",
     "Cheung Tsing Tunnel": "長青隧道",
-    "Cheung Tsing Bridge": "長青橋"
+    "Cheung Tsing Bridge": "長青橋",
+    "Cross Harbour Tunnel N Approach": "紅磡海底隧道北面引道",
+    "Fanling Highway FO over Fan Kam Rd INT": "粉嶺公路天橋（跨粉錦公路交匯處）"
   },
   "routes": {
     "hk-1": {
