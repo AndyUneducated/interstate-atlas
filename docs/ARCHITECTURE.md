@@ -160,10 +160,12 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `fetch-bridges.mjs` | ✅ | bridge inventories that carry a year built | `content/reference/bridges.json` |
 | `fetch-border-crossings.mjs` | ✅ | CBSA's office directory, INDAABIN's border ports, the NRCan geocoder | `content/reference/border-crossings.json` |
 | `fetch-mx-concessions.mjs` | ✅ | SICT's register of concession titles | `content/reference/mx-concessions.json` |
+| `fetch-osm-speed.mjs` | ✅ | Geofabrik's China, Taiwan and Mexico extracts, read in three passes for the `maxspeed` of ways carrying a route number | `tools/src/osm/<cc>-speed.ndjson` and `.json` (edition) |
 | `build-data.mjs` | ⚠️ TIGER, Natural Earth | `tools/src/`, `content/reference/` | `data/geo/`, `data/index.json`, `data/stats.json`, `data/served.json` |
 | `build-crossings.mjs` | ❌ | `content/reference/border-crossings.json`, `data/geo/` | `data/crossings.json` |
 | `build-bridges.mjs` | ❌ | `content/reference/bridges.json` | `data/bridges.json` |
 | `build-tolls.mjs` | ❌ | `content/reference/tolls-ca.json`, `mx-concessions.json`, `mx-concession-matches.json`, `tools/src/mx/plaza_cobro`, `data/geo/` | `data/tolls.json` |
+| `build-speed.mjs` | ❌ | `data/geo/` (HPMS and NRN limits already joined), `tools/src/osm/*-speed.ndjson` | `data/speed.json`: one limit per route with its source tier, and the per-country and per-system mileage by limit |
 | `build-content.mjs` | ❌ | `content/dossiers/`, `content/reference/milestones.json` and `interstate-mileage.json`, `data/index.json`, `data/geo/` | `data/dossiers/`, `data/timeline.json` |
 | `build-elevation.mjs` | ✅ tiles | `data/dossiers/index.json` for the route list, `data/geo/`, terrain tiles cached in `tools/cache/` | `data/elevation/` |
 | `build-insights.mjs` | ❌ | `data/geo/`, `data/dossiers/index.json`, the three `*-crosscheck.json` | `data/insights.json`: field coverage, worst gaps, length against the Route Log, crosscheck verdicts for the Data & sources views |
@@ -482,7 +484,7 @@ flowchart TD
   I18N["<b>i18n.js</b><br/>string tables en/zh · jurisdiction names<br/>units · number formatting"]
   DET["<b>detail.js</b><br/>the route panel"]
   SH["<b>sheets.js</b><br/>numbering · statistics<br/>jurisdiction pickers · about"]
-  TL["<b>timelapse.js</b><br/>docked buildout scrubber"]
+  SP["<b>speed.js</b><br/>speed-limit colouring · its key"]
   FLY["<b>fly.js</b><br/>route flythrough"]
   XG["<b>crossings.js</b><br/>border crossing layer"]
   TO["<b>tolls.js</b><br/>toll layer · plazas · panel section"]
@@ -494,17 +496,19 @@ flowchart TD
 
   APP --> DET
   APP --> SH
-  APP --> TL
+  APP --> SP
   APP --> FLY
   APP --> XG
   APP --> TO
   APP --> BR
   DET --> FLY
   DET --> TO
+  DET --> SP
+  SH --> SP
 
   DET -.->|"app state"| APP
   SH -.->|"app state"| APP
-  TL -.->|"app state"| APP
+  SP -.->|"app state"| APP
   FLY -.->|"app state"| APP
   XG -.->|"app state"| APP
   TO -.->|"app state"| APP
@@ -515,7 +519,7 @@ flowchart TD
   I18N --> APP
   I18N --> DET
   I18N --> SH
-  I18N --> TL
+  I18N --> SP
   I18N --> FLY
   I18N --> XG
   I18N --> TO
@@ -523,7 +527,7 @@ flowchart TD
 ```
 
 Solid arrows are the feature direction — `app.js` opens the panel, the sheet, the
-scrubber, the flythrough, the three overlay layers. Dotted arrows back to `app.js` are the
+flythrough, the three overlay layers and the speed colouring. Dotted arrows back to `app.js` are the
 shared state: every feature module imports the `app` object and a handful of functions
 (`select`, `loadState`, `enableSystem`, `toast`, `fitTo`) from it. Those are genuine import
 cycles, and they are fine here because ES modules resolve them and nothing runs at import
@@ -543,7 +547,7 @@ scripts, which is why it holds plain data and touches neither the DOM nor Node.
 | `i18n.js` | both string tables, jurisdiction names, unit and number formatting, the current language | the DOM |
 | `detail.js` | the right-hand route panel: termini, measured metrics, composition bars, per-jurisdiction mileage, HPMS and provincial figures, dossier prose, elevation profile | the map |
 | `sheets.js` | the modal overlay and everything in it: numbering explainer, statistics dashboard, state and province pickers, about | the map, except to select and zoom through `app.js` |
-| `timelapse.js` | the docked scrubber, the mileage curve, the year filter on the Interstate layers, the ghost layer and the flash animation | anything outside the Interstate system |
+| `speed.js` | `speed.json`, the feature-state that recolours every route layer by its limit and restores it, the key that replaces the system key meanwhile, and the formatting the panel and dashboard share | which limit a route has, which the build decides |
 | `fly.js` | the flythrough camera, the trail and head layers | selection, which stays with `app.js` |
 | `crossings.js` | the border crossing layer and its popup, with the routes near each crossing | route geometry |
 | `tolls.js` | the toll facility layer and Mexico's toll plazas, their popups with dated fares, and the toll section of the route panel | route geometry |
@@ -601,7 +605,8 @@ fetched here.
 | `dossiers/index.json` | once, in the background | the manifest that badges search results |
 | `dossiers/<id>.json` | when a route is opened | gated on the manifest, so a route without one costs no request |
 | `elevation/<id>.json` | when a route is opened | same; every route with a dossier has one |
-| `served.json`, `timeline.json` | on demand | the towns an Interstate serves; the buildout scrubber |
+| `served.json`, `timeline.json` | on demand | the towns an Interstate serves; a route's dates and the dashboard's buildout curve |
+| `speed.json` | when a route panel or the dashboard opens, or the speed layer is switched on | one limit per route, about 270 kB |
 | `crossings.json`, `tolls.json`, `bridges.json` | when the layer is switched on, or a route panel lists its tolls | the three overlay layers |
 
 Search covers the whole network from `index.json` whether or not a system is drawn, so
@@ -625,7 +630,8 @@ Everything the client reads is in `data/`, and the shapes are fixed.
 | `tolls.json` | GeoJSON `FeatureCollection`, plus `facilities`, `titles`, `byRoute` | the drawn Canadian facilities; Mexico's toll plazas as points of `kind: "plaza"` carrying their own properties; Mexican concession titles keyed by route for the panel |
 | `bridges.json` | `{ sets, missing, roads, fields, rows }`, positional rows as `index.json` | one structure per row; `set` indexes the inventory, `road` indexes `roads`; the browser builds the GeoJSON |
 | `served.json` | `{ [routeId]: ["City, ST", …] }` | split out of the geometry because it is only read when a panel opens |
-| `timeline.json` | `{ range, coverage, mileage, routes, events }` | the buildout scrubber's whole payload |
+| `timeline.json` | `{ range, coverage, mileage, routes, events }` | dated events per route, Quebec's tronçon openings (`kind: "qc"`) and FHWA's mileage series |
+| `speed.json` | `{ generated, fields, law, osm, summary, systems, routes }` | `routes[id]` is `[kph, source, coverage %, OSM km by limit]`, source `p` posted, `o` OpenStreetMap, `l` law; `summary` and `systems` keep measured miles (`bands`) apart from statutory defaults (`law`) |
 | `dossiers/index.json`, `elevation/index.json` | `{ ids: [] }` | manifests, so absence costs no request |
 
 Two conventions in the feature properties are worth knowing before reading `detail.js`:

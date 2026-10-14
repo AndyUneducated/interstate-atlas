@@ -8,10 +8,10 @@ import {
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen } from './sheets.js';
 import { startFly, stopFly, isFlying } from './fly.js';
-import { openTimelapse } from './timelapse.js';
 import { toggleCrossings, crossingAt, raiseCrossings, closeCrossing } from './crossings.js';
 import { toggleTolls, tollAt, raiseTolls, closeTollPopup } from './tolls.js';
 import { toggleBridges, bridgeAt, raiseBridges, closeBridge } from './bridges.js';
+import { toggleSpeed, trackSource, speedOn, speedLegend } from './speed.js';
 import {
   SYSTEMS, COUNTRIES, TIER_BY_CODE, geoPath, isPerJuris, systemsOf, systemOfCode, countryOf,
   REGIONS as WORLD_REGIONS, regionOf,
@@ -85,6 +85,7 @@ function applyStaticStrings() {
   for (const el of document.querySelectorAll('#themeSeg [data-theme]')) {
     el.classList.toggle('on', el.dataset.theme === document.documentElement.dataset.theme);
   }
+  syncBaseCards();
   document.getElementById('bootTitle').textContent = t('boot.title');
   document.getElementById('bootSub').textContent = t('boot.sub');
   document.title = getLang() === 'zh'
@@ -227,6 +228,7 @@ function addSystemLayers(sys, data) {
   const srcId = `rt-${sys}`;
   if (map.getSource(srcId)) {
     map.getSource(srcId).setData(data);
+    trackSource(srcId, data);
     return;
   }
   map.addSource(srcId, { type: 'geojson', data, promoteId: 'id' });
@@ -299,6 +301,7 @@ function addSystemLayers(sys, data) {
   raiseBridges();
   raiseTolls();
   raiseCrossings();
+  trackSource(srcId, data);
 }
 
 const loading = new Map();
@@ -407,6 +410,7 @@ function addStateLayers(st, data, sys = 'us-state') {
   raiseBridges();
   raiseTolls();
   raiseCrossings();
+  trackSource(srcId, data);
 }
 
 function setStateVisible(st, on) {
@@ -761,7 +765,8 @@ export function setBasemap(mode) {
   for (const b of document.querySelectorAll('#basemap [data-base]')) {
     b.classList.toggle('on', b.dataset.base === mode);
   }
-  toast(t(`toast.base.${mode}`));
+  const light = document.documentElement.dataset.theme === 'light';
+  toast(t(`toast.base.${mode === 'dark' && light ? 'light' : mode}`));
 }
 
 export function toggleTerrain(force) {
@@ -927,6 +932,23 @@ function setTheme(theme) {
   for (const el of document.querySelectorAll('#themeSeg [data-theme]')) {
     el.classList.toggle('on', el.dataset.theme === theme);
   }
+  syncBaseCards();
+}
+
+// The plain ground is the theme's own, so its card is named and pictured as
+// the theme has it; relief is shaded to match too. Imagery is the same in both.
+function syncBaseCards() {
+  const light = document.documentElement.dataset.theme === 'light';
+  for (const b of document.querySelectorAll('#basemap [data-base]')) {
+    const mode = b.dataset.base;
+    const themed = mode !== 'satellite' && light;
+    b.querySelector('img').src = `assets/base-${mode}${themed ? '-light' : ''}.jpg`;
+    if (mode === 'dark') {
+      const span = b.querySelector('span');
+      span.dataset.i18n = light ? 'base.lightShort' : 'base.darkShort';
+      span.textContent = t(span.dataset.i18n);
+    }
+  }
 }
 
 /* ── region jumps ─────────────────────────────────────────────────────── */
@@ -1069,11 +1091,7 @@ async function jumpTo(r) {
 function renderJumps() {
   const host = document.getElementById('jumps');
   host.innerHTML = '';
-  jumpRows(host, app.region, jumpTo);
-}
-
-function jumpRows(host, region, onPick, attr = 'jump') {
-  for (const group of JUMP_GROUPS[region] || JUMP_GROUPS.na) {
+  for (const group of JUMP_GROUPS[app.region] || JUMP_GROUPS.na) {
     const row = document.createElement('div');
     row.className = 'jump-row';
     if (group !== 'na' && group !== 'ea') {
@@ -1089,9 +1107,9 @@ function jumpRows(host, region, onPick, attr = 'jump') {
       b.className = 'jump';
       // Addressed by key rather than by position: the row these sit in has
       // grown twice now, and anything counting from the left breaks each time.
-      b.dataset[attr] = r.key;
+      b.dataset.jump = r.key;
       b.textContent = t(r.i18n);
-      b.addEventListener('click', () => onPick(r));
+      b.addEventListener('click', () => jumpTo(r));
       row.appendChild(b);
     }
     host.appendChild(row);
@@ -1100,6 +1118,8 @@ function jumpRows(host, region, onPick, attr = 'jump') {
 
 /* ── systems panel ────────────────────────────────────────────────────── */
 
+let sysOpen = new Set();
+let sysOpenFor = null;
 function renderSystems() {
   const host = document.getElementById('sysList');
   const counts = {};
@@ -1107,33 +1127,59 @@ function renderSystems() {
   const milesBy = app.stats?.bySystem || {};
 
   host.innerHTML = '';
-  // Grouped by country, because the two sets of tiers are not equivalents of
-  // one another and listing all six flat invited reading them as one ladder.
-  // The region on screen comes first, so its switches are the ones in reach.
+  // Grouped by country, because the tiers of one are not equivalents of
+  // another's and a flat list invited reading them as one ladder. The region
+  // on screen comes first and open; the rest fold to a line each until asked.
+  if (sysOpenFor !== app.region) {
+    sysOpenFor = app.region;
+    sysOpen = new Set(COUNTRIES.filter((cc) => regionOf(cc) === app.region));
+  }
   const order = [...COUNTRIES].sort((a, b) => (regionOf(b) === app.region) - (regionOf(a) === app.region));
   for (const cc of order) {
     const systems = systemsOf(cc);
     if (!systems.length) continue;
-    const head = document.createElement('p');
-    head.className = 'sys-country';
-    head.innerHTML = `<i class="flagdot flag-${cc}"></i>${t(`sys.country.${cc}`)}`;
-    host.appendChild(head);
+    const lit = systems.filter((s) => app.systems.get(s.id).on);
+    const open = sysOpen.has(cc);
+    const group = document.createElement('div');
+    group.className = `sg${open ? ' open' : ''}`;
+    group.dataset.cc = cc;
+    group.innerHTML = `
+      <button class="sg-hd" type="button" aria-expanded="${open}">
+        <i class="flagdot flag-${cc}"></i>
+        <b>${t(`sys.country.${cc}`)}</b>
+        <span class="sg-pips">${systems.map((s) => `<i style="--sys-col:${s.colour}"${app.systems.get(s.id).on ? ' class="on"' : ''}></i>`).join('')}</span>
+        <span class="sg-n">${lit.length}/${systems.length}</span>
+        <svg class="sg-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <div class="sg-bd"><div class="sg-in"></div></div>`;
+    group.querySelector('.sg-hd').addEventListener('click', () => {
+      const now = !sysOpen.has(cc);
+      if (now) sysOpen.add(cc); else sysOpen.delete(cc);
+      group.classList.toggle('open', now);
+      group.querySelector('.sg-hd').setAttribute('aria-expanded', String(now));
+    });
+    host.appendChild(group);
+    const inner = group.querySelector('.sg-in');
 
     for (const s of systems) {
       const live = app.systems.get(s.id);
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = `sys${live.on ? ' on' : ''}`;
+      btn.className = `sys menu-tg${live.on ? ' on' : ''}`;
       btn.dataset.sys = s.id;
+      if (!s.perJuris) btn.setAttribute('aria-pressed', String(live.on));
       btn.style.setProperty('--sys-col', s.colour);
       const mi = milesBy[s.id]?.mi;
+      // The tiers drawn a state at a time are chosen on their own page, so
+      // their row leads there rather than pretending to be a switch.
       btn.innerHTML = `
-        <span class="sys-dot"></span>
+        <i class="sys-line"></i>
         <span class="sys-txt">
           <span class="sys-name">${t(`sys.${s.id}`)}</span>
-          <span class="sys-meta">${t(`sys.${s.id}.meta`)}${mi ? ` · ${dist(mi)}` : ''}</span>
+          <span class="sys-meta">${t('sys.routes', { n: (counts[s.id] || 0).toLocaleString() })}${mi ? ` · ${dist(mi)}` : ''}</span>
         </span>
-        <span class="sys-count">${t('sys.routes', { n: (counts[s.id] || 0).toLocaleString() })}</span>`;
+        ${s.perJuris ? '<svg class="sys-go" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>' : '<i class="sw"></i>'}`;
+      btn.title = t(`sys.${s.id}.meta`);
       btn.addEventListener('click', () => {
         if (s.perJuris) {
           // The sheet is where these are switched, so the menu that led to
@@ -1147,7 +1193,7 @@ function renderSystems() {
         if (app.systems.get(s.id).on) disableSystem(s.id);
         else enableSystem(s.id);
       });
-      host.appendChild(btn);
+      inner.appendChild(btn);
     }
   }
   renderLegend();
@@ -1164,9 +1210,12 @@ function renderSystems() {
  * is a key to what is in front of the reader rather than a second copy of the
  * switches: Taiwan's freeways mean nothing over Ohio.
  */
-function renderLegend() {
+export function renderLegend() {
   const host = document.getElementById('legend');
   if (!host) return;
+  // Coloured by limit, the lines no longer say which system they are, so this
+  // key replaces that one, whether or not that one is switched on.
+  if (speedOn()) { host.hidden = false; host.innerHTML = speedLegend(); return; }
   const on = SYSTEMS.filter((s) => app.systems.get(s.id).on && regionOf(s.cc) === app.region);
   if (!on.length || !app.legend) { host.innerHTML = ''; host.hidden = true; return; }
   host.hidden = false;
@@ -1319,22 +1368,36 @@ function renderResults() {
   const host = document.getElementById('results');
   const q = query.trim();
   const lq = q.toLowerCase();
-  document.getElementById('resTitle').textContent = t(q ? 'search.results' : 'search.go');
+  document.getElementById('resTitle').textContent = t(q ? 'search.results' : 'search.recent');
   host.innerHTML = '';
   findCursor = -1;
+  const frag = document.createDocumentFragment();
 
+  // An empty box is the reader's own trail, newest first, and nothing at all
+  // until there is one: the places to go are under the region switch.
   if (!q) {
     document.getElementById('resCount').textContent = '';
-    const regions = app.region === 'ea' ? ['ea', 'na'] : ['na', 'ea'];
-    for (const region of regions) {
-      const box = document.createElement('div');
-      box.className = 'jumps res-jumps';
-      jumpRows(box, region, (r) => { setFind(false); jumpTo(r); }, 'go');
-      host.appendChild(box);
+    const past = recent();
+    document.getElementById('shell').classList.toggle('no-recent', !past.length);
+    for (const h of past) {
+      const row = historyRow(h, frag);
+      if (!row) continue;
+      const x = document.createElement('span');
+      x.className = 'res-x';
+      x.setAttribute('role', 'button');
+      x.title = t('search.forget');
+      x.textContent = '×';
+      x.addEventListener('click', (e) => {
+        e.stopPropagation();
+        forget(h);
+        renderResults();
+      });
+      row.appendChild(x);
     }
-    host.insertAdjacentHTML('beforeend', `<p class="res-empty res-hint">${t('search.hint')}</p>`);
+    host.appendChild(frag);
     return;
   }
+  document.getElementById('shell').classList.remove('no-recent');
 
   const places = REGIONS.filter((r) => t(r.i18n).toLowerCase().includes(lq));
   const states = Object.keys(app.stats?.byState || {})
@@ -1352,41 +1415,76 @@ function renderResults() {
     return;
   }
 
-  const frag = document.createDocumentFragment();
   const section = (key) => {
     const p = document.createElement('p');
     p.className = 'res-sec';
     p.textContent = t(key);
     frag.appendChild(p);
   };
-  const goRow = (icon, name, sub, onPick) => {
+
+  if (places.length || states.length) {
+    section('search.places');
+    for (const r of places) historyRow({ k: 'place', key: r.key }, frag);
+    for (const st of states) historyRow({ k: 'state', st }, frag);
+  }
+  if (views.length) {
+    section('search.views');
+    for (const v of views) historyRow({ k: 'view', key: v.key }, frag);
+  }
+  if (rows.length) section('search.routes');
+  for (const r of rows) historyRow({ k: 'route', id: r.id }, frag);
+  host.innerHTML = '';
+  host.appendChild(frag);
+  findCursor = -1;
+  revealSelected(host);
+}
+
+/* What was chosen from the list, kept on this device so an empty box offers
+   it back. A pick is remembered rather than the text typed, so going back is
+   one click and never a second search. */
+const HISTORY_KEY = 'ia.recent';
+const HISTORY_MAX = 8;
+const sameHistory = (a, b) => a.k === b.k && (a.id ?? a.key ?? a.st) === (b.id ?? b.key ?? b.st);
+function recent() {
+  try {
+    const list = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    return Array.isArray(list) ? list : [];
+  } catch { return []; }
+}
+function saveRecent(list) {
+  try { localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, HISTORY_MAX))); } catch { /* private mode */ }
+}
+function remember(h) { saveRecent([h, ...recent().filter((x) => !sameHistory(x, h))]); }
+function forget(h) { saveRecent(recent().filter((x) => !sameHistory(x, h))); }
+
+/** One row of the list - a place, a state, a view or a route - appended to `frag`. */
+function historyRow(h, frag) {
+  const pick = (b, go) => b.addEventListener('click', () => { remember(h); setFind(false); go(); });
+  const goRow = (icon, name, sub, go) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'res res-go';
     b.innerHTML = `<span class="res-ico">${icon}</span>
       <span class="res-txt"><span class="res-name">${name}</span>${sub ? `<span class="res-sub">${sub}</span>` : ''}</span>`;
-    b.addEventListener('click', () => { setFind(false); onPick(); });
+    pick(b, go);
     frag.appendChild(b);
+    return b;
   };
-
-  if (places.length || states.length) {
-    section('search.places');
-    for (const r of places) {
-      goRow(PIN, t(r.i18n), COUNTRIES.includes(r.group) ? t(`sys.country.${r.group}`) : '', () => jumpTo(r));
-    }
-    for (const st of states) {
-      goRow(PIN, stateName(st), dist(app.stats.byState[st].mi), () => loadState(st).then(() => zoomToState(st)));
-    }
+  if (h.k === 'place') {
+    const r = REGIONS.find((x) => x.key === h.key);
+    return r && goRow(PIN, t(r.i18n), COUNTRIES.includes(r.group) ? t(`sys.country.${r.group}`) : '', () => jumpTo(r));
   }
-  if (views.length) {
-    section('search.views');
-    for (const v of views) {
-      goRow(`<svg viewBox="0 0 24 24"><path d="${v.icon}"/></svg>`, t(v.i18n), '',
-        () => (v.key === 'timeline' ? openTimelapse() : openSheet(v.key)));
-    }
+  if (h.k === 'state') {
+    const s = app.stats?.byState?.[h.st];
+    return s && goRow(PIN, stateName(h.st), dist(s.mi), () => loadState(h.st).then(() => zoomToState(h.st)));
   }
-  if (rows.length) section('search.routes');
-  for (const r of rows) {
+  if (h.k === 'view') {
+    const v = VIEWS.find((x) => x.key === h.key);
+    return v && goRow(`<svg viewBox="0 0 24 24"><path d="${v.icon}"/></svg>`, t(v.i18n), '', () => openSheet(v.key));
+  }
+  const r = h.k === 'route' && app.byId?.get(h.id);
+  if (!r) return null;
+  {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = `res${app.selected === r.id ? ' sel' : ''}`;
@@ -1416,13 +1514,10 @@ function renderResults() {
         <span class="res-name">${r.label}${written}</span>
         <span class="res-sub">${sub}</span>
       </span>`;
-    b.addEventListener('click', () => { setFind(false); select(r.id); });
+    pick(b, () => select(r.id));
     frag.appendChild(b);
+    return b;
   }
-  host.innerHTML = '';
-  host.appendChild(frag);
-  findCursor = -1;
-  revealSelected(host);
 }
 
 /**
@@ -1435,13 +1530,15 @@ function renderResults() {
 function setFind(open) {
   const shell = document.getElementById('shell');
   if (shell.classList.contains('open') === open) return;
+  // The trail may have grown since the list was last drawn.
+  if (open && !query.trim()) renderResults();
   shell.classList.toggle('open', open);
   document.getElementById('q').setAttribute('aria-expanded', String(open));
   if (open) revealSelected(document.getElementById('results'));
 }
 
 let findCursor = -1;
-const FIND_ROWS = '#results .res, #results .jump';
+const FIND_ROWS = '#results .res';
 function moveFindCursor(step) {
   const rows = [...document.querySelectorAll(FIND_ROWS)];
   if (!rows.length) return;
@@ -1490,7 +1587,6 @@ export function toast(msg) {
 const VIEWS = [
   { key: 'numbering', i18n: 'nav.numbering', icon: 'M4 9h16M4 15h16M10 3v18M16 3v18' },
   { key: 'dashboard', i18n: 'nav.dashboard', icon: 'M4 20V10M10 20V4M16 20v-7M22 20H2' },
-  { key: 'timeline', i18n: 'nav.timeline', icon: 'M12 7v5l3.5 2' },
   { key: 'docs', i18n: 'nav.docs', icon: 'M6 3h9l4 4v14H6zM9 12h7M9 16h7' },
   { key: 'about', i18n: 'nav.about', icon: 'M12 11v5M12 7.6v.1' },
 ];
@@ -1591,6 +1687,7 @@ function wire() {
   document.getElementById('btnCrossings').addEventListener('click', () => toggleCrossings());
   document.getElementById('btnTolls').addEventListener('click', () => toggleTolls());
   document.getElementById('btnBridges').addEventListener('click', () => toggleBridges());
+  document.getElementById('btnSpeed').addEventListener('click', () => toggleSpeed());
   document.getElementById('btnZen').addEventListener('click', () => toggleZen());
   document.getElementById('zenOut').addEventListener('click', () => toggleZen(false));
   // A menu closes on a second press, on Escape and on any press outside it.
@@ -1631,12 +1728,6 @@ function wire() {
     ['btnDocs', 'docs'], ['btnAbout', 'about']]) {
     document.getElementById(btn).addEventListener('click', () => openSheet(key));
   }
-  // The buildout view docks over the map instead of opening a sheet, because
-  // a modal that covers the map cannot show the map changing.
-  // openTimelapse toggles, and it owns the button's lit state so that closing
-  // from the scrubber's own dismiss button leaves the two in step.
-  document.getElementById('btnTimeline').addEventListener('click', openTimelapse);
-
   document.addEventListener('keydown', (e) => {
     const typing = /^(INPUT|TEXTAREA)$/.test(e.target.tagName);
     if ((e.key === '/' || (e.key === 'k' && (e.metaKey || e.ctrlKey))) && !typing && !isZen()) {

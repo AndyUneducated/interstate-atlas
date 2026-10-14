@@ -1,5 +1,5 @@
-/* Overlay views: numbering explainer, statistics, buildout timeline,
-   jurisdiction picker and the about page. */
+/* Overlay views: numbering explainer, statistics, jurisdiction picker and
+   the about page. */
 
 import {
   t, getLang, stateName, dist, num, lenOf, lenUnit, isProvince, ownerLabel,
@@ -7,6 +7,7 @@ import {
 } from './i18n.js';
 import { app, select, loadState, zoomToState, shieldHtml } from './app.js';
 import { SYSTEMS, CLASS_COLOUR, countryOf } from './schema.js';
+import { loadSpeed, speedColour, bandLabel, speedUnit, BANDS, UNKNOWN } from './speed.js';
 
 let current = null;
 
@@ -1238,6 +1239,9 @@ function dashBody(cc) {
       </div>` : ''}
     </div>
 
+    <div class="dash-card dash-wide" id="dashSpeed" hidden></div>
+    ${all || cc === 'us' ? '<div class="dash-card dash-wide" id="dashBuild" hidden></div>' : ''}
+
     <div class="dash-card dash-wide" style="margin-top:20px">
       <h3>${t('dash.longest')}</h3>
       <div class="in">
@@ -1248,6 +1252,101 @@ function dashBody(cc) {
             <span class="hbar-v">${lenNum(r.mi)}</span>
           </div>`).join('')}</div>
       </div>
+    </div>`;
+}
+
+/* How the Interstates were built, from FHWA's year-end mileage open to traffic.
+   It is the one complete account of any system's growth in the atlas - no
+   other country publishes a year-by-year series per system - so it is shown
+   for the whole atlas and for the United States, and named as what it is. */
+let buildPromise = null;
+function buildout() {
+  buildPromise ||= fetch('data/timeline.json').then((r) => (r.ok ? r.json() : null))
+    .then((h) => (h?.mileage?.open?.length ? h : null)).catch(() => null);
+  return buildPromise;
+}
+
+function buildoutCard(h) {
+  const open = h.mileage.open.map(([year, mi, designated]) => ({ year, mi, designated }));
+  const first = open[0];
+  const last = open.at(-1);
+  const top = Math.max(...open.map((o) => Math.max(o.mi, o.designated)));
+  const W = 600;
+  const H = 120;
+  const x = (y) => ((y - first.year) / (last.year - first.year)) * W;
+  const y = (mi) => H - (mi / top) * (H - 8);
+  const line = open.map((o, i) => `${i ? 'L' : 'M'}${x(o.year).toFixed(1)} ${y(o.mi).toFixed(1)}`).join(' ');
+  const goal = open.map((o, i) => `${i ? 'L' : 'M'}${x(o.year).toFixed(1)} ${y(o.designated).toFixed(1)}`).join(' ');
+  // By decade, from the difference between year-ends; what was open by 1960
+  // is its own bar, because the table does not say when before then it opened.
+  const at = (yr) => open.find((o) => o.year === yr)?.mi ?? last.mi;
+  const decades = [
+    { k: t('build.before', { y: first.year }), v: first.mi },
+    ...[1960, 1970, 1980, 1990].map((d) => ({
+      k: d === 1990 ? `1990–${last.year}` : t('build.decade', { d }),
+      v: at(Math.min(d + 9, last.year)) - (d === 1960 ? first.mi : at(d - 1)),
+    })),
+  ];
+  const vmax = Math.max(...decades.map((d) => d.v));
+  const events = (h.events || []).filter((e) => e.system && !e.kind && e.year >= first.year && e.year <= last.year);
+  return `
+    <h3>${t('build.title')}</h3>
+    <div class="in build">
+      <svg class="build-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">
+        <path class="build-area" d="${line} L${W} ${H} L0 ${H} Z"/>
+        <path class="build-goal" d="${goal}"/>
+        <path class="build-line" d="${line}"/>
+      </svg>
+      <div class="build-ev">${events.map((e) => `<i style="left:${((x(e.year) / W) * 100).toFixed(1)}%" title="${e.year} · ${esc(e[getLang()] || e.en)}"></i>`).join('')}</div>
+      <div class="build-ax"><span>${first.year}</span><span>${last.year}</span></div>
+      <div class="build-dec">${decades.map((d) => `
+        <div><span class="build-b"><i style="height:${((d.v / vmax) * 100).toFixed(1)}%"></i></span>
+          <b>${num(lenOf(d.v))}</b><small>${d.k}</small></div>`).join('')}</div>
+      <p class="hbar-note">${t('build.note', { a: num(lenOf(first.mi)), b: num(lenOf(last.mi)), u: lenUnit(), y0: first.year, y1: last.year })}</p>
+    </div>`;
+}
+
+/* How much of each network is signed at what, by length. A bar per country
+   for the whole atlas and per system inside one. What was read off a sign
+   is solid; what the law sets by default is hatched, so the two never pass
+   for each other; grey is road no source covers. */
+function speedCard(d, cc) {
+  const all = cc === 'all';
+  const rows = all
+    ? DASH_CC.filter((c) => d.summary[c]).map((c) => ({ key: c, name: t(`sys.country.${c}`), flag: c, s: d.summary[c] }))
+    : SYSTEMS.filter((x) => x.cc === cc && d.systems[x.id]).map((x) => ({ key: x.id, name: t(`sys.${x.id}`), colour: x.colour, s: d.systems[x.id] }));
+  if (!rows.length) return '';
+  const typical = (s) => {
+    const by = BANDS.map((k) => [k, (s.bands[k] || 0) + (s.law[k] || 0)]);
+    const half = by.reduce((a, [, v]) => a + v, 0) / 2;
+    let acc = 0;
+    for (const [k, v] of by) { acc += v; if (half && acc >= half) return k; }
+    return null;
+  };
+  const pct = (v, w) => (w ? (v / w) * 100 : 0);
+  const body = rows.map(({ name, flag, colour, s }) => {
+    const known = (s.bySrc.p || 0) + (s.bySrc.o || 0);
+    const unknown = Math.max(0, s.mi - known - (s.bySrc.l || 0));
+    const typ = typical(s);
+    const segs = [
+      ...BANDS.filter((k) => s.bands[k]).map((k) => `<i style="flex:${s.bands[k]};background:${speedColour(k)}" title="${bandLabel(k)} ${speedUnit()} · ${num(lenOf(s.bands[k]))} ${lenUnit()}"></i>`),
+      ...BANDS.filter((k) => s.law[k]).map((k) => `<i class="spd-law" style="flex:${s.law[k]};--c:${speedColour(k)}" title="${esc(t('spd.src.l'))} ${bandLabel(k)} ${speedUnit()} · ${num(lenOf(s.law[k]))} ${lenUnit()}"></i>`),
+      unknown > 0 ? `<i style="flex:${unknown};background:${UNKNOWN};opacity:.35" title="${esc(t('spd.none'))} · ${num(lenOf(unknown))} ${lenUnit()}"></i>` : '',
+    ].join('');
+    return `<div class="spd-row">
+      <div class="cc-hd">${flag ? `<span class="flagdot flag-${flag}"></span>` : `<i class="lg-dot" style="--sys-col:${colour}"></i>`}<b>${name}</b>
+        <span>${typ ? t('dash.speed.typical', { v: `${bandLabel(typ)} ${speedUnit()}` }) + ' · ' : ''}${t('dash.speed.measured', { pct: num(pct(known, s.mi)) })}</span></div>
+      <div class="stack">${segs}</div>
+    </div>`;
+  }).join('');
+  const key = BANDS.map((k) => `<li><i style="background:${speedColour(k)}"></i>${bandLabel(k)}${k === 120 ? '+' : ''}</li>`).join('')
+    + `<li><i class="spd-law" style="--c:${speedColour(80)}"></i>${t('spd.src.l')}</li>`
+    + `<li><i style="background:${UNKNOWN};opacity:.35"></i>${t('spd.none')}</li>`;
+  return `<h3>${t('dash.speed')} · ${speedUnit()}</h3>
+    <div class="in">
+      <div class="cc-rows">${body}</div>
+      <ul class="stack-key spd-key">${key}</ul>
+      <p class="hbar-note">${t('dash.speed.note')}</p>
     </div>`;
 }
 
@@ -1283,6 +1382,19 @@ function wireDashBody(host) {
   void host.offsetWidth;
   host.classList.add('anim');
   countTiles(host);
+  const cc = dashCc;
+  loadSpeed().then((d) => {
+    const slot = host.querySelector('#dashSpeed');
+    if (!d || !slot || cc !== dashCc) return;
+    slot.innerHTML = speedCard(d, cc);
+    slot.hidden = false;
+  });
+  buildout().then((h) => {
+    const slot = host.querySelector('#dashBuild');
+    if (!h || !slot) return;
+    slot.innerHTML = buildoutCard(h);
+    slot.hidden = false;
+  });
 }
 
 function wireDashboard() {

@@ -14,7 +14,8 @@ import {
 import { app, shieldHtml, clearSelection, fitTo, loadDossier } from './app.js';
 import { startFly } from './fly.js';
 import { tollSection } from './tolls.js';
-import { CLASS_COLOUR, SECTION_ORDER } from './schema.js';
+import { loadSpeed, speedColour, speedNum, speedUnit, bandLabel } from './speed.js';
+import { CLASS_COLOUR, SECTION_ORDER, countryOf } from './schema.js';
 
 function esc(s) {
   return String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -573,6 +574,80 @@ function figuresBlock(figures) {
   return `<div class="figs">${rows}</div>`;
 }
 
+/* ── dates ────────────────────────────────────────────────────────────── */
+
+// Québec's directory dates each tronçon's opening; the Year Book dates the
+// Trans-Canada's Act, agreements and openings; the Interstate system has its
+// Acts and milestones. All of them sit in the network-wide history file rather
+// than in a dossier, so they are fetched only for those routes and only once.
+// A system's event belongs to the whole system, so every route in it carries it.
+const SYSTEM_HISTORY = { 'ca-tch': (e) => e.kind === 'tch', 'us-interstate': (e) => e.system === true && !e.kind };
+let historyPromise = null;
+function historyEvents(id, sys) {
+  historyPromise ||= fetch('data/timeline.json').then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+  return historyPromise.then((h) => (h.events || []).filter((e) =>
+    (e.kind === 'qc' && e.id === id) || SYSTEM_HISTORY[sys]?.(e)));
+}
+
+/** The years a route was designated and finished, and what happened between. */
+function chronoBlock(dossier, events) {
+  const years = [
+    dossier?.designatedYear != null && ['chron.designated', dossier.designatedYear],
+    dossier?.completedYear != null && ['chron.completed', dossier.completedYear],
+  ].filter(Boolean);
+  if (!years.length && !events.length) return '';
+  const head = years.length ? `<div class="mgrid">${years.map(([k, y]) => metric(k, String(y), '')).join('')}</div>` : '';
+  const list = events.length ? `<ol class="chron">${events.map((e) => `<li>
+      <b>${e.year}</b><span>${esc(pick(e))}${e.source ? `<small class="src">${esc(e.source)}</small>` : ''}</span>
+    </li>`).join('')}</ol>` : '';
+  return head + list;
+}
+
+/* ── speed limit ──────────────────────────────────────────────────────── */
+
+/**
+ * The route's limit as a sign, with where it came from beside it.
+ *
+ * A sign is drawn the way the country draws one - the American white
+ * rectangle, everyone else's red ring - because that is how a limit is
+ * recognised at a glance. A default the law sets is drawn dashed, being a rule
+ * and not a sign anyone put up, and a route with no source gets a blank sign
+ * and the reason there is none.
+ */
+function speedBlock(d, id, p) {
+  const r = d.routes[id];
+  const kph = r?.[0];
+  const src = r?.[1] ?? 'u';
+  const cov = r?.[2];
+  const bins = r?.[3];
+  const cc = p.cc ?? countryOf(p.sys);
+  const v = kph ? speedNum(kph) : '—';
+  const sign = cc === 'us'
+    ? `<span class="spd-sign spd-us spd-${src}"><small>SPEED<br>LIMIT</small><b>${v}</b></span>`
+    : `<span class="spd-sign spd-ring spd-${src}"><b>${v}</b></span>`;
+  const badge = src === 'u' ? '' : `<span class="spd-badge spd-b-${src}">${t(`spd.src.${src}`)}</span>`;
+  let why;
+  if (src === 'p') why = t(`spd.why.p.${cc}`) + (cov != null && cov < 98 ? ` ${t('ca.coverage', { pct: num(cov) })}` : '');
+  else if (src === 'o') why = t('spd.why.o', { pct: num(cov) });
+  else if (src === 'l') {
+    why = t('spd.why.l', { basis: esc(d.law[p.sys]?.basis ?? '') })
+      + (cov ? ` ${t('spd.why.lPart', { pct: num(cov) })}` : '');
+  } else why = t(['us', 'ca', 'mx'].includes(cc) ? `spd.none.${cc}` : 'spd.none.osm');
+  const total = bins?.reduce((a, [, km]) => a + km, 0) || 0;
+  const mixHtml = bins?.length > 1 ? `<p class="spd-mix-h">${t('spd.mix')}</p>
+    <div class="spd-bar">${bins.slice().sort((a, b) => a[0] - b[0]).map(([k, km]) =>
+      `<i style="flex:${km};background:${speedColour(k)}" title="${bandLabel(k)} ${speedUnit()} · ${distKm(km)}"></i>`).join('')}</div>
+    <ul class="stack-key">${bins.slice(0, 5).map(([k, km]) => `<li><i style="background:${speedColour(k)}"></i>${speedNum(k)} ${speedUnit()}
+      <b>${distKm(km)}</b><small>${num((km / total) * 100)}%</small></li>`).join('')}</ul>` : '';
+  return `<div class="spd">
+    ${sign}
+    <div class="spd-t">
+      <p class="spd-v">${kph ? `<b>${v}</b> ${speedUnit()}` : t('spd.none')} ${badge}</p>
+      <p class="spd-why">${why}</p>
+    </div>
+  </div>${mixHtml}`;
+}
+
 /* ── cities served ────────────────────────────────────────────────────── */
 
 // The Route Log names every urban area of 5,000+ that each Interstate serves.
@@ -875,6 +950,9 @@ export async function renderDetail(id) {
     parts.push(section(key, body, first));
     first = false;
   }
+  const hasHistory = meta.st === 'QC' || p.sys in SYSTEM_HISTORY;
+  parts.push(section('chrono', hasHistory ? '<div id="dtChron"></div>' : chronoBlock(dossier, dossier?.timeline || [])));
+  parts.push(section('speed', '<div id="dtSpeed"></div>'));
 
   if (!dossier) {
     parts.push(`<div style="padding:14px 16px 0">
@@ -940,6 +1018,27 @@ export async function renderDetail(id) {
   document.getElementById('dtClose').addEventListener('click', clearSelection);
   document.getElementById('dtFly').addEventListener('click', () => startFly(id));
   document.getElementById('dtZoom').addEventListener('click', () => f && fitTo(f));
+
+  loadSpeed().then((d) => {
+    const slot = document.getElementById('dtSpeed');
+    if (!slot || app.selected !== id) return;
+    if (!d) { slot.closest('.sect')?.remove(); return; }
+    slot.innerHTML = speedBlock(d, id, p);
+  });
+
+  if (hasHistory) {
+    historyEvents(id, p.sys).then((opened) => {
+      const slot = document.getElementById('dtChron');
+      if (!slot || app.selected !== id) return;
+      const seen = new Set();
+      const events = [...(dossier?.timeline || []), ...opened]
+        .filter((e) => !seen.has(`${e.year}|${e.en}`) && seen.add(`${e.year}|${e.en}`))
+        .sort((a, b) => a.year - b.year);
+      const html = chronoBlock(dossier, events);
+      if (!html) { slot.closest('.sect')?.remove(); return; }
+      slot.innerHTML = html;
+    });
+  }
 
   elevationFor(id).then((profile) => {
     const slot = document.getElementById('dtElev');

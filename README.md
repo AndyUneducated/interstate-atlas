@@ -70,13 +70,14 @@ Kong's strategic routes.
 | --- | --- |
 | **Map** | MapLibre GL over a dark vector basemap, with satellite and terrain alternatives and every route in the network selectable. |
 | **Route detail** | Termini, length, per-jurisdiction mileage, roadway classification and grade separation measured off the geometry; alongside them, what the states, provinces and SICT measured — traffic, heavy-truck volume, pavement condition, lanes, posted speeds — each stating the share of the road it covers. For curated routes, a written account of how the road came to be, what it cost, what it carries and what condition it is in. |
-| **Buildout scrubber** | A docked timeline over the live map. The scrub track *is* FHWA's mileage curve, 1960–1997; the playhead runs from 1956 to the latest documented completion, and routes light up as their documented year arrives. Quebec's autoroutes and the Trans-Canada's dated events are on it too. |
+| **Speed limits** | Every route coloured by its limit, in three named tiers: posted limits from HPMS and the NRN for the United States and Canada, OpenStreetMap's `maxspeed` for Mexico, China, Taiwan and Hong Kong, and the statutory default for the class of road where neither covers it, drawn fainter. A route's panel shows the limit as a sign, its source and coverage, and the mix of limits along it; the statistics page charts each network by limit. |
+| **Dates** | A route's panel lists its designation and completion years and the dated events between, from its dossier or, for Quebec's autoroutes, the tronçon openings. |
 | **Border crossings** | 167 land crossings on the Canada–US, Mexico–US, Mexico–Guatemala and Mexico–Belize borders, each saying how it was placed and listing the atlas routes within 2 km of it. |
 | **Toll facilities** | Seven Canadian toll roads and bridges on the map, each with its operator, length, opening date and dated fares, every fact linked to its source, and Mexico's 1,376 toll plazas with their operator and toll system. A route's panel lists the tolls on it, and for Mexico the federal concession titles that name it. |
 | **Bridges** | 14,856 structures from the two inventories that record a year built, Mexico's federal free network and Ontario's provincial highways, coloured by that year. The year dates the structure, never the road. |
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
-| **Statistics dashboard** | Network totals by system and by jurisdiction, every country and region. |
+| **Statistics dashboard** | Network totals by system and by jurisdiction, every country and region; length by speed limit; and, for the Interstates, FHWA's mileage open to traffic, 1960–1997, by decade. |
 | **Elevation profiles** | Sampled from open terrain data for curated routes. |
 | **Units** | Miles or kilometres everywhere, switched in one place. |
 | **Command palette** | <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to reach any route, jurisdiction or view. |
@@ -189,11 +190,12 @@ not yet built. Each is explained in full in [docs/ACCURACY.md](docs/ACCURACY.md#
 | 🇲🇽 | Toll and free twins | source | the road file rarely writes the D suffix, so MEX-15 and MEX-15D share a number |
 | 🇲🇽 | Which state a federal road is in | source | located against Natural Earth's 1:10m boundaries |
 | 🇲🇽 | Route ends | source | given as the SICT section, not a town |
-| 🇲🇽 | Unnumbered roads, speed limits, traffic off numbered roads | source | background only; `VELOCIDAD` is not a posted limit; stations not placed |
+| 🇲🇽 | Unnumbered roads, traffic off numbered roads | source | background only; stations not placed |
+| 🇲🇽 | Official speed limits | source | `VELOCIDAD` is not a posted limit; OpenStreetMap's are shown, over 78% of federal and 31% of state road length |
 | 🇲🇽 | State route numbers differ between agencies | source | INEGI and SICT number independently; detail in `mx-crosscheck.json` |
 | 🇲🇽 | How many crossings the northern border has | source | INDAABIN, IMT and NADB counts disagree; INDAABIN's 45 are drawn |
 | 🇲🇽 | Which road a concession is on | source | 41 of 75 titles linked: 6 by number, 35 by accepted name matches |
-| 🇲🇽 | Spanish interface; Mexico in the numbering explainer and timeline | pending | not built |
+| 🇲🇽 | Spanish interface; Mexico in the numbering explainer | pending | not built |
 | 🇲🇽 | CAPUFE toll-road traffic and tariffs | pending | published separately, not yet read |
 | 🇨🇦 | Traffic in BC, SK, MB, NL, YT, NU | source | not published in machine-readable form |
 | 🇨🇦 | Opening years outside Quebec | source | only Saskatchewan's Trans-Canada completion is dated |
@@ -203,6 +205,8 @@ not yet built. Each is explained in full in [docs/ACCURACY.md](docs/ACCURACY.md#
 | 🇨🇦 🇲🇽 | Which road a crossing is on | source | neither register says; routes within 2 km are listed |
 | CN | An authoritative geometry | source | Tianditu refuses foreign requests; the mainland is drawn from OpenStreetMap, which no authority stands behind |
 | CN | Official lengths, traffic, toll share | source | not published per route; the OSM toll tag is too sparse to measure |
+| CN | Speed limits | source | OpenStreetMap tags a limit on 18% of expressway and under 10% of other length; the rest shows the statutory default, marked as such |
+| 🇺🇸 🇨🇦 | Speed limits off the reported network | source | 41–69% of US and 44–51% of Canadian length has a posted limit; defaults differ by state and province, so the rest is left blank |
 
 ## Data sources
 
@@ -270,6 +274,7 @@ The data under `data/geo/cn/` is derived from it and is available under the same
 
 | Source | Used for | Licence |
 | --- | --- | --- |
+| [OpenStreetMap](https://www.openstreetmap.org/copyright), through Geofabrik's China, Taiwan and Mexico extracts | `maxspeed` on the roads carrying an atlas route number, for the speed-limit layer in Mexico, China, Taiwan and Hong Kong (`data/speed.json`) | [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/), © OpenStreetMap contributors |
 | [Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) (AWS Open Data) | elevation profiles | open data |
 | [OpenFreeMap](https://openfreemap.org/) | vector basemap | open |
 | [Esri World Imagery](https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9) | satellite basemap | Esri terms |

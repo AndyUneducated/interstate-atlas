@@ -97,18 +97,16 @@
       <button class="btn btn-ico" id="btnLayers" type="button" aria-haspopup="true" aria-expanded="false" data-i18n-tip="nav.layers" data-key="L">
         <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>
       </button>
-      <!-- What is drawn on the left, what it is drawn on to the right. The
-           systems are listed for both regions, so switching one on never
-           depends on where the map happens to be. -->
+      <!-- One column: what is drawn, then what it is drawn on. The systems
+           are listed for both regions, so switching one on never depends on
+           where the map happens to be. -->
       <div class="menu-pop menu-pop-r menu-lay" role="group">
-       <div class="lay-sys">
         <p class="menu-hd" id="sysTitle" data-i18n="sys.title">Route systems</p>
         <div class="sys-list" id="sysList"></div>
-       </div>
-       <div class="lay-base">
         <p class="menu-hd" data-i18n="nav.basemap">Base map</p>
         <!-- Each ground is shown rather than named, so the choice is made by
-             looking. The previews are the map itself, shot by shoot-bases.mjs. -->
+             looking. The previews are the map itself, shot by shoot-bases.mjs
+             in each theme; the plain ground is dark or light with the theme. -->
         <div class="bcards" id="basemap" role="group" aria-label="Base map">
           <button class="bcard on" data-base="dark" type="button">
             <img src="assets/base-dark.jpg" alt="" width="96" height="60" loading="lazy">
@@ -137,13 +135,16 @@
             <svg viewBox="0 0 24 24"><path d="M2 9h20M2 16h20"/><path d="M4 16c0-4 3.6-7 8-7s8 3 8 7"/><path d="M7 11.2V16M12 9v7M17 11.2V16"/></svg>
             <b data-i18n="base.bridges">Bridges</b><small data-count="bridges"></small>
           </button>
+          <button class="otile menu-tg" id="btnSpeed" type="button" aria-pressed="false" style="--c: #f97316" data-i18n-title="base.speed">
+            <svg viewBox="0 0 24 24"><path d="M4.2 17.5a9 9 0 1 1 15.6 0"/><path d="M12 14l4.2-5"/><circle cx="12" cy="14" r="1.4"/></svg>
+            <b data-i18n="base.speedShort">Speed</b><small data-count="speed"></small>
+          </button>
         </div>
         <div class="menu-sep"></div>
         <button class="menu-it menu-tg" id="btnTerrain" type="button" aria-pressed="false">
           <svg viewBox="0 0 24 24"><path d="M3 16l9-5 9 5-9 5z"/><path d="M12 11V4"/><path d="M9 6.5L12 4l3 2.5"/></svg>
           <span class="menu-txt"><b data-i18n="base.tilt">3D tilt</b><small data-i18n="base.tiltSub">terrain, seen from an angle</small></span><kbd>T</kbd><i class="sw"></i>
         </button>
-       </div>
       </div>
     </div>
 
@@ -204,10 +205,6 @@
           <svg viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3v18M16 3v18"/></svg>
           <b data-i18n="nav.numbering">Numbering</b><small data-i18n="nav.numberingSub">why the numbers fall where they do</small>
         </button>
-        <button class="menu-it gcard" id="btnTimeline" type="button" role="menuitem" style="--c: #9be15d">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-          <b data-i18n="nav.timeline">Timeline</b><small data-i18n="nav.timelineSub">watch the network being built</small>
-        </button>
         <button class="menu-it gcard" id="btnDocs" type="button" role="menuitem" style="--c: #ff9f68">
           <svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>
           <b data-i18n="nav.docs">Data &amp; sources</b><small data-i18n="nav.docsSub">sources, coverage, decisions, known gaps</small>
@@ -237,11 +234,6 @@
 
 <!-- ── flythrough ───────────────────────────────────────────────────────── -->
 <div id="fly"></div>
-
-<!-- ── buildout timelapse ───────────────────────────────────────────────────
-     Docked rather than modal. The point of this control is to watch the map
-     change, so it cannot be allowed to cover the map. -->
-<div id="tlapse"></div>
 
 <!-- ── overlay sheet ────────────────────────────────────────────────────── -->
 <div id="sheet" class="hidden" role="dialog" aria-modal="true"><div class="sh" id="sheetInner"></div></div>

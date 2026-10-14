@@ -99,6 +99,7 @@ async function main() {
     crossings: (await read('data/crossings.json')).features.length,
     tolls: (await read('data/tolls.json')).features.length,
     bridges: (await read('data/bridges.json')).rows.length,
+    speed: Object.keys((await read('data/speed.json')).routes).length,
   };
 
   const out = {

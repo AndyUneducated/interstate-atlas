@@ -119,6 +119,11 @@ const jsClick = (sel) => page.$eval(sel, (el) => el.click());
 // region switch, so a step reaches them the way a reader would.
 const sysClick = async (id) => {
   if (!await page.locator('#menuLayers.open').count()) await page.click('#btnLayers');
+  const group = page.locator(`.sg:has(.sys[data-sys="${id}"])`);
+  if (!await group.evaluate((g) => g.classList.contains('open'))) {
+    await group.locator('.sg-hd').click();
+    await page.waitForTimeout(350);
+  }
   await page.click(`.sys[data-sys="${id}"]`);
 };
 const jumpTo = async (key) => {
@@ -140,12 +145,14 @@ await step('interstates rendered', async () => {
   await waitForSource('rt-us-interstate');
 });
 
-await step('the empty search offers both regions\' places and no ranking', async () => {
-  await page.waitForSelector('#results [data-go]', { state: 'attached', timeout: 15000 });
-  const go = await page.$$eval('#results [data-go]', (els) => els.map((e) => e.dataset.go));
-  for (const key of ['l48', 'ak', 'cn', 'tw', 'hk']) if (!go.includes(key)) throw new Error(`no ${key} among ${go}`);
-  if (await page.locator('#results .res').count()) throw new Error('routes listed before anything was typed');
-  if (await page.locator('#resColMi, #resSort, .res-mi').count()) throw new Error('length column still drawn');
+await step('the empty search is empty until something has been chosen', async () => {
+  await page.evaluate(() => localStorage.removeItem('ia.recent'));
+  await page.click('#q');
+  await page.waitForTimeout(200);
+  if (await page.locator('#results > *').count()) throw new Error('rows listed before anything was typed or chosen');
+  if (await page.locator('#findDrop').isVisible()) throw new Error('an empty list was opened');
+  if (await page.locator('#resColMi, #resSort, .res-mi, [data-go]').count()) throw new Error('length column or jumps still drawn');
+  await page.keyboard.press('Escape');
 });
 
 await step('search is global: Taiwan from North America, and places and views too', async () => {
@@ -164,6 +171,27 @@ await step('search is global: Taiwan from North America, and places and views to
   await page.waitForTimeout(300);
   if (!await page.locator('#results .res-go').filter({ hasText: 'Statistics' }).count()) throw new Error('no view row for Statistics');
   await page.fill('#q', '');
+  await page.keyboard.press('Escape');
+});
+
+await step('a pick is offered back in the empty box, and can be removed', async () => {
+  await page.fill('#q', 'Statistics');
+  await page.waitForTimeout(300);
+  await page.locator('#results .res-go').filter({ hasText: 'Statistics' }).first().click();
+  await page.waitForSelector('#sheet.open, .sh.open', { timeout: 8000 }).catch(() => {});
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(300);
+  await page.fill('#q', '');
+  await page.click('#q');
+  await page.waitForTimeout(200);
+  const rows = await page.locator('#results .res').count();
+  const title = await page.textContent('#resTitle');
+  if (rows !== 1 || !/Recent/.test(title)) throw new Error(`empty box showed ${rows} rows under "${title}"`);
+  await page.locator('#results .res-x').first().evaluate((x) => x.click());
+  await page.waitForTimeout(200);
+  if (await page.locator('#results .res').count()) throw new Error('removing the pick left it listed');
+  // Leave one behind, so the next step has a list to fold.
+  await page.evaluate(() => localStorage.setItem('ia.recent', JSON.stringify([{ k: 'view', key: 'dashboard' }])));
   await page.keyboard.press('Escape');
 });
 
@@ -187,12 +215,12 @@ await step('nothing is parked half on the screen', async () => {
   // The flythrough panel hid itself by sliding down 140% of its own height,
   // which is only enough once it has content in it. Empty, on a fresh load, it
   // was 28px tall and the slide left a 7px strip of blank frame across the
-  // bottom of the map - above the timeline, and eating drags, because it also
+  // bottom of the map - eating drags, because it also
   // had no pointer-events guard. Anything held off-screen is checked here
   // rather than only the one that broke.
   const bad = await page.evaluate(() => {
     const out = [];
-    for (const id of ['fly', 'toast', 'zenOut', 'detail', 'tlapse']) {
+    for (const id of ['fly', 'toast', 'zenOut', 'detail']) {
       const el = document.getElementById(id);
       if (!el) continue;
       const cs = getComputedStyle(el);
@@ -376,7 +404,7 @@ await step('the More menu opens and closes', async () => {
   await page.click('#shClose');
   await page.click('#btnMore');
   await page.waitForSelector('#menuMore.open', { timeout: 4000 });
-  for (const id of ['btnDash', 'btnNumbering', 'btnTimeline', 'btnDocs', 'btnAbout']) {
+  for (const id of ['btnDash', 'btnNumbering', 'btnDocs', 'btnAbout']) {
     if (!await page.locator(`#menuMore #${id}`).isVisible()) throw new Error(`#${id} not in the open menu`);
   }
   if (await page.locator('#btnPalette').count()) throw new Error('Jump to is still in the More menu');
@@ -451,7 +479,7 @@ await step('the Layers menu holds the base maps, the overlays and the tilt', asy
   await page.click('#shClose');
   await page.keyboard.press('l');
   await page.waitForSelector('#menuLayers.open', { timeout: 4000 });
-  for (const sel of ['#basemap', '#btnCrossings', '#btnTolls', '#btnBridges', '#btnTerrain']) {
+  for (const sel of ['#basemap', '#btnCrossings', '#btnTolls', '#btnBridges', '#btnSpeed', '#btnTerrain']) {
     if (!await page.locator(`#menuLayers ${sel}`).isVisible()) throw new Error(`${sel} not in the open Layers menu`);
   }
   if (await page.locator('#basemap img').count() !== 3) throw new Error('the base maps are not three previews');
@@ -491,6 +519,15 @@ await step('the settings menu holds units, language, panels, the colour key and 
   const lit = await ground();
   if (lit.bg !== 'rgb(242,243,240)' || lit.water === dark.water) throw new Error(`the basemap stayed dark: ${JSON.stringify(lit)}`);
   if (JSON.stringify(lit.road) !== JSON.stringify(dark.road)) throw new Error('the road colours changed with the theme');
+  const card = await page.evaluate(() => {
+    const b = document.querySelector('#basemap [data-base="dark"]');
+    return { name: b.querySelector('span').textContent, src: b.querySelector('img').getAttribute('src') };
+  });
+  if (card.name !== 'Light' || !card.src.endsWith('base-dark-light.jpg')) throw new Error(`the plain base card did not follow the theme: ${JSON.stringify(card)}`);
+  await page.keyboard.press('Escape');
+  await page.click('#btnLayers');
+  await page.waitForTimeout(600);
+  await shot('03d-layers-light.png');
   await page.keyboard.press('Escape');
   await page.waitForTimeout(1500);
   await shot('03c-light.png');
@@ -509,46 +546,81 @@ const dismissSheet = async () => {
   if (await close.count()) await close.click().catch(() => {});
 };
 
-await step('buildout scrubber opens and scrubs', async () => {
+await step('a route panel carries its dates, from its dossier or from Quebec', async () => {
   await dismissSheet();
-  await jsClick('#btnTimeline');
-  await page.waitForSelector('#tlapse .tlx-year', { timeout: 8000 });
-  await page.waitForTimeout(500);
-
-  // Scrubbing has to move the year and the mileage with it, not just the
-  // slider: the curve, the headline figure and the map filter are all driven
-  // off the same value and a break between them would be invisible otherwise.
-  const before = await page.locator('#tlapse .tlx-year').textContent();
-  await page.locator('#tlxRange').fill('1975');
-  await page.waitForTimeout(700);
-  const after = await page.locator('#tlapse .tlx-year').textContent();
-  if (after !== '1975') throw new Error(`year reads ${after} after scrubbing to 1975`);
-  if (before === after) throw new Error('year did not move');
-  const open = await page.locator('#tlapse .tlx-v').first().textContent();
-  if (!/\d/.test(open)) throw new Error(`no mileage figure at 1975: ${open}`);
-
-  // The early years light up almost nothing - 1961 has one documented route -
-  // so the present-day network is drawn faintly underneath to place them. If
-  // that layer stops being added, the view still works and silently becomes a
-  // black rectangle in every year before about 1970.
-  const ghost = await page.evaluate(() => {
-    const m = window.__map;
-    return m.getLayer('tl-ghost') ? (m.getLayoutProperty('tl-ghost', 'visibility') ?? 'visible') : null;
-  });
-  if (ghost === 'none') throw new Error('ghost network hidden while the scrubber is open');
-  if (ghost === null) throw new Error('ghost network layer missing');
+  for (const [id, min] of [['i-70', 3], ['qc-40', 10]]) {
+    await page.evaluate((x) => window.__select(x), id);
+    await page.waitForTimeout(2500);
+    const sect = page.locator('#detail .sect').filter({ has: page.locator('h3', { hasText: 'Dates' }) });
+    await sect.waitFor({ state: 'attached', timeout: 15000 });
+    await sect.locator('.chron li').nth(min - 1).waitFor({ state: 'attached', timeout: 15000 });
+    const years = await sect.locator('.chron li b').allTextContents();
+    const sorted = years.map(Number);
+    if (sorted.some((y, i) => i && y < sorted[i - 1])) throw new Error(`${id} dates out of order: ${years}`);
+  }
+  await page.keyboard.press('Escape');
 });
-await shot('05-timeline.png');
 
-await step('buildout scrubber closes', async () => {
-  await page.click('#tlxClose');
-  await page.waitForTimeout(400);
-  if (await page.locator('#tlapse .tlx-year').count()) throw new Error('scrubber still up');
-  // Leaving the ghost behind would dim the whole Interstate layer for the rest
-  // of the session, which reads as a rendering fault rather than as a leftover.
-  const ghost = await page.evaluate(() => (window.__map.getLayer('tl-ghost')
-    ? window.__map.getLayoutProperty('tl-ghost', 'visibility') : 'none'));
-  if (ghost !== 'none') throw new Error('ghost network still drawn after closing');
+await step('the timeline is gone, and its curve is on the statistics page', async () => {
+  if (await page.locator('#btnTimeline, #tlapse').count()) throw new Error('timeline controls still in the page');
+  await jsClick('#btnDash');
+  await page.waitForSelector('#dashBuild:not([hidden]) .build-dec > div', { timeout: 10000 });
+  if (await page.locator('#dashBuild .build-dec > div').count() !== 5) throw new Error('the buildout is not five decade bars');
+  await page.click('.dash-cc[data-cc="cn"]');
+  await page.waitForTimeout(300);
+  if (await page.locator('#dashBuild').count()) throw new Error('the Interstate buildout shown for China');
+  await page.click('.dash-cc[data-cc="all"]');
+  await page.click('#shClose');
+});
+
+await step('the statistics page charts speed limits, defaults apart from readings', async () => {
+  await dismissSheet();
+  await jsClick('#btnDash');
+  await page.waitForSelector('#dashSpeed:not([hidden]) .spd-row', { timeout: 10000 });
+  if (await page.locator('#dashSpeed .spd-row').count() !== 6) throw new Error('speed chart is not a row per country');
+  await page.click('.dash-cc[data-cc="cn"]');
+  await page.waitForSelector('#dashSpeed:not([hidden]) .stack .spd-law', { timeout: 10000 });
+  if (await page.locator('#dashSpeed .spd-row').count() !== 3) throw new Error('China speed chart is not a row per system');
+  await page.locator('#dashSpeed').scrollIntoViewIfNeeded();
+  await shot('04d-dashboard-speed-cn.png');
+  await page.click('.dash-cc[data-cc="all"]');
+  await page.click('#shClose');
+});
+
+await step('speed limits colour the routes, key them, and come off again', async () => {
+  await dismissSheet();
+  await page.evaluate(() => window.__map.jumpTo({ center: [-77, 39], zoom: 5.2 }));
+  const need = (sel, what) => page.waitForSelector(sel, { state: 'attached', timeout: 15000 })
+    .catch(() => { throw new Error(what); });
+  await jsClick('#btnSpeed');
+  // Switched off whatever happens, or every colour-key check after this one
+  // would be reading the speed key.
+  try {
+    await need('#legend .lg-ramp', 'no speed key');
+    const on = await page.evaluate(() => ({
+      state: window.__map.getFeatureState({ source: 'rt-us-interstate', id: 'i-95' }),
+      paint: window.__map.getPaintProperty('rt-us-interstate', 'line-color'),
+    }));
+    if (!(on.state.kph > 90 && on.state.src === 'p')) throw new Error(`I-95 not stamped: ${JSON.stringify(on.state)}`);
+    if (!Array.isArray(on.paint)) throw new Error('route colour is not driven by the limit');
+    await page.waitForTimeout(800);
+    await shot('05s-speed.png');
+    await page.evaluate(() => window.__select('i-95'));
+    await need('#dtSpeed .spd-sign.spd-us', 'I-95 panel has no American limit sign');
+    if (!await page.locator('#dtSpeed .spd-b-p').count()) throw new Error('I-95 limit not marked official');
+    await page.evaluate(() => window.__select('cn-g30'));
+    await need('#dtSpeed .spd-sign.spd-ring', 'G30 panel has no limit sign');
+    if (!await page.locator('#dtSpeed .spd-b-o').count()) throw new Error('G30 limit not marked as OpenStreetMap');
+    if (!await page.locator('#dtSpeed .spd-bar i').count()) throw new Error('G30 has no distribution along the route');
+    await page.keyboard.press('Escape');
+  } finally {
+    await jsClick('#btnSpeed');
+    await page.waitForTimeout(300);
+  }
+  const off = await page.evaluate(() => window.__map.getPaintProperty('rt-us-interstate', 'line-color'));
+  if (Array.isArray(off)) throw new Error('route colour not restored');
+  if (await page.locator('#legend .lg-ramp').count()) throw new Error('speed key left behind');
+  await page.evaluate(() => window.__map.jumpTo({ center: [-96, 38.5], zoom: 3.6 }));
 });
 
 await step('/ goes to the search box', async () => {
@@ -1004,39 +1076,6 @@ await step('escape brings the interface back', async () => {
     hud: Number(getComputedStyle(document.getElementById('hud')).opacity),
   }));
   if (back.zen || back.hud < 0.9) throw new Error('escape did not restore the interface');
-});
-
-await step('the buildout run stops at the end rather than looping', async () => {
-  // It used to wrap straight back to an empty 1956 map, so a reader glancing
-  // away could not tell the start of a run from the end of one.
-  await jsClick('#btnTimeline');
-  await page.waitForSelector('#tlxRange', { timeout: 15000 });
-  const max = Number(await page.getAttribute('#tlxRange', 'max'));
-  await page.evaluate((y) => {
-    const r = document.getElementById('tlxRange');
-    r.value = String(y);
-    r.dispatchEvent(new Event('input', { bubbles: true }));
-  }, max - 2);
-  await page.waitForTimeout(400);
-  await page.click('#tlxPlay');
-  await page.waitForTimeout(9000);
-
-  const end = await page.evaluate(() => ({
-    year: Number(document.querySelector('.tlx-year')?.textContent),
-    playing: document.getElementById('tlapse').classList.contains('playing'),
-    ended: document.getElementById('tlapse').classList.contains('ended'),
-  }));
-  if (end.year !== max) throw new Error(`run settled on ${end.year}, expected ${max}`);
-  if (end.playing) throw new Error('still playing past the end');
-  if (!end.ended) throw new Error('finished run does not offer to rewind');
-
-  // And the rewind has to actually rewind, or the control does nothing.
-  await page.click('#tlxPlay');
-  await page.waitForTimeout(700);
-  const year = await page.evaluate(() => Number(document.querySelector('.tlx-year')?.textContent));
-  if (year > 1962) throw new Error(`play on a finished run did not rewind, at ${year}`);
-  await page.click('#tlxClose');
-  await page.waitForTimeout(500);
 });
 
 await step('border crossings draw, and a nearby route can be chosen from one', async () => {
