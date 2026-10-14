@@ -1316,6 +1316,7 @@ await step('Hong Kong Route 9 gives the census traffic and its roads in Chinese'
   if (!/Tolo Highway/.test(text) || !/157,910/.test(text)) throw new Error('Route 9 does not name Tolo Highway as its busiest station');
   if (!/vehicles a day/.test(text)) throw new Error('Route 9 traffic has no unit');
   if (!/Remember the Numbers/.test(text)) throw new Error('Route 9 does not carry the route system history');
+  if (!/Direct span\s*Ring/.test(text)) throw new Error('Route 9, a ring, still gives a direct span');
   await page.click('#btnSettings');
   await page.click('#langSeg [data-lang="zh"]');
   await page.keyboard.press('Escape');
@@ -1326,6 +1327,7 @@ await step('Hong Kong Route 9 gives the census traffic and its roads in Chinese'
   await page.keyboard.press('Escape');
   await page.waitForTimeout(1500);
   if (!/吐露港公路/.test(zh) || /Tuen Mun Road/.test(zh)) throw new Error('Route 9 does not list its roads in Chinese');
+  if (/Tolo Highway/.test(zh)) throw new Error('Route 9 census stations are still named in English in Chinese');
 });
 
 await step('the Sun Yat-sen Freeway dossier gives cost, funding and its ends the right way round', async () => {

@@ -407,12 +407,15 @@ function hongKongTraffic(hk, census) {
   const tr = hk?.traffic;
   if (!tr || !census) return '';
   const day = (n) => t('hp.trafficVal', { n: num(n) });
-  const at = ([road, from, to]) => `<span class="fig-s"> · ${esc(road)}, ${esc(from)} – ${esc(to)}</span>`;
+  // The census is English only. A Chinese reader gets the road in Chinese and
+  // not the streets at the station's ends, which are English descriptions.
+  const at = ([road, from, to, roadZh]) => `<span class="fig-s"> · ${getLang() === 'zh'
+    ? esc(roadZh || road) : `${esc(road)}, ${esc(from)} – ${esc(to)}`}</span>`;
   const rows = [[t('hk.tr.median'), day(tr.median)]];
   if (tr.stations > 1) {
     rows.push([t('tw.tr.busiestStation'), `${day(tr.max)}${at(tr.maxAt)}`]);
     const low = tr.list.reduce((a, b) => (b[5] < a[5] ? b : a));
-    rows.push([t('hk.tr.quietest'), `${day(low[5])}${at([low[2], low[3], low[4]])}`]);
+    rows.push([t('hk.tr.quietest'), `${day(low[5])}${at([low[2], low[3], low[4], low[7]])}`]);
   }
   rows.push(['', `<span class="src"><a href="${esc(census.url)}" target="_blank" rel="noopener">`
     + `${esc(census.source)}</a></span>`]);
@@ -911,7 +914,10 @@ export async function renderDetail(id) {
     ? metric('hk.tr.tile', hk?.traffic ? `${num(hk.traffic.median)}<small>${t('unit.vpd')}</small>` : null, '',
       hk?.traffic ? t('hk.tr.tileTip', { year: hk.traffic.year, n: num(hk.traffic.stations) }) : null)
     : metric(ca || p.cc === 'cn' ? 'dt.provinces' : p.cc === 'tw' ? 'ea.counties' : 'dt.states', num(states.length))}
-        ${metric('dt.straight', `${num(lenOf(p.spanMi))}<small>${lenUnit()}</small>`)}
+        ${p.spanMi * 20 < p.mi
+    // A route that comes back to where it began has no span worth a number.
+    ? metric('dt.straight', esc(t('dt.ring')), '', t('dt.ringTip', { d: dist(p.spanMi) }))
+    : metric('dt.straight', `${num(lenOf(p.spanMi))}<small>${lenUnit()}</small>`)}
         ${ea
           // Taiwan's centrelines are classed freeway, expressway or ordinary
           // road, so the freeway share is measured. Hong Kong's say nothing

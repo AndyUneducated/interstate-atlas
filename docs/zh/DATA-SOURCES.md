@@ -82,6 +82,7 @@
 | TW-5 | 高速公路局、公路局路线名称（國道路線名稱；省道及快速公路路線名稱），对照中文维基百科“中華民國國道”与“臺灣省道列表” | 各国道、具名省道与快速公路的公告名称（中山高速公路、北部橫貫公路、西部濱海快速公路），以及只属于某一路段的名称（台9 线上的蘇花公路） | 2026-10-14 | 政府出版物；维基百科文字 CC BY-SA 4.0 | 手工 → `tw-names.json` | 是 |
 | HK-1 | [运输署《道路網絡》](https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844)，CENTERLINE 图层，空间数据共享平台 | 1 至 10 号干线的几何、每段的干线编号与出口编号、中英文街道名 | 2026-10-12 · 2026-10-13 | 香港政府资料一线通使用条款 | `fetch-hongkong.mjs` → `tools/src/hk/routes.json`（36,525 段中带编号的 1,522 段） | 否 |
 | HK-2 | [运输署《周年交通普查》](https://www.td.gov.hk/tc/publications_and_press_releases/publications/free_publications/atci2/index.html)附录 B | 1,694 个点算站各自的年平均日交通量，按道路及测站起止街道列出 | 2024 · 2026-10-14 | 政府出版物，未注明许可；注明出处引用数字（ACCURACY 第 6 节） | `fetch-hk-census.mjs` → `hk-census.json` | 否，读取最新一期 |
+| HK-4 | [OpenStreetMap](https://www.openstreetmap.org/)（经 Overpass），motorway 至 tertiary 道路的 `name:en` 与 `name:zh` | 普查（HK-2）只有英文版，测站按道路命名；这些道路的中文名取自此处。测站起止街道不译；两条无来源可译的普查道路保留英文 | 2026-10-14 | ODbL 1.0 | `fetch-hk-names.mjs` → `hk-osm-names.json`，另加 `hk-routes.json` 的 `zhExtra` | 否，读取实时数据库 |
 | HK-3 | 运输署干线编号系统，以及中英文维基百科各干线（香港1號幹線至香港10號幹線）的路口表 | 各干线由哪些道路组成（中英文）；哪些 HK-2 测站位于各干线主线上，人工判定 | 2026-10-14 | 政府出版物；维基百科文字 CC BY-SA 4.0 | 手工 → `hk-routes.json` | 是 |
 
 ### 中国大陆

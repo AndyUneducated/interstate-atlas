@@ -2,7 +2,14 @@
   "source": "Transport Department, Hong Kong Strategic Route, Exit Number and Chainage Marker System; the roads of each route as listed in the route's junction table on Chinese and English Wikipedia",
   "checkedAgainst": "Transport Department, The Annual Traffic Census 2024, Appendix B (station road names and limits)",
   "retrieved": "2026-10-14",
-  "note": "roads: the roads each route is made of, in the order the route's exits run, as [English, Chinese]. census: the Annual Traffic Census stations on the route's own carriageway, chosen by the streets each station's limits name. Stations on slip roads, ramps, ground-level roads beside a flyover, and on a named road's stretches the route does not use are left out. A station on a road two routes share is listed under both.",
+  "note": "roads: the roads each route is made of, in the order the route's exits run, as [English, Chinese]. census: the Annual Traffic Census stations on the route's own carriageway, chosen by the streets each station's limits name. Stations on slip roads, ramps, ground-level roads beside a flyover, and on a named road's stretches the route does not use are left out. A station on a road two routes share is listed under both. zhExtra: Chinese names for census roads that neither the roads lists nor OSM's bilingual names cover.",
+  "zhExtra": {
+    "Canal Rd": "堅拿道",
+    "Connaught Rd": "干諾道",
+    "Shing Mun Tunnel": "城門隧道",
+    "Cheung Tsing Tunnel": "長青隧道",
+    "Cheung Tsing Bridge": "長青橋"
+  },
   "routes": {
     "hk-1": {
       "roads": [["Wong Chuk Hang Road", "黃竹坑道"], ["Aberdeen Tunnel", "香港仔隧道"], ["Wong Nai Chung Gap Flyover", "黃泥涌峽天橋"], ["Canal Road Flyover", "堅拿道天橋"], ["Cross-Harbour Tunnel", "海底隧道"], ["Hong Chong Road", "康莊道"], ["Princess Margaret Road", "公主道"], ["Waterloo Road", "窩打老道"], ["Lion Rock Tunnel Road", "獅子山隧道公路"], ["Lion Rock Tunnel", "獅子山隧道"], ["Sha Tin Road", "沙田路"]],

@@ -157,6 +157,7 @@ not a separate stage. Natural Earth's admin-1 boundaries, which `mx-states.mjs` 
 | `fetch-taiwan.mjs` | ✅ | NLSC's freeway and provincial centrelines, the Highway Bureau's register CSV | `tools/src/tw/` |
 | `fetch-hongkong.mjs` | ✅ | the Transport Department's road network GeoJSON, streamed and filtered to Routes 1 to 10 | `tools/src/hk/routes.json` |
 | `fetch-hk-census.mjs` | ✅ | the newest Annual Traffic Census PDF, Appendix B read by column position | `content/reference/hk-census.json`: one row per counting station |
+| `fetch-hk-names.mjs` | ✅ | OSM `name:en` and `name:zh` on Hong Kong's main roads, through whichever Overpass server answers | `content/reference/hk-osm-names.json`, which `build-hk-traffic.mjs` uses to give census roads in Chinese |
 | `fetch-china.mjs` | ✅ | Geofabrik's OpenStreetMap extract for China, read in three passes (relations, numbered ways, their nodes); needs `--max-old-space-size` | `tools/src/cn/` |
 | `fetch-bridges.mjs` | ✅ | bridge inventories that carry a year built | `content/reference/bridges.json` |
 | `fetch-border-crossings.mjs` | ✅ | CBSA's office directory, INDAABIN's border ports, the NRCan geocoder | `content/reference/border-crossings.json` |
