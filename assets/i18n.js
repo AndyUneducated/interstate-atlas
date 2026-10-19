@@ -134,6 +134,8 @@ export const STRINGS = {
 
     'sys.title': 'Route systems',
     'legend.title': 'On the map',
+    'lg.bridges': 'Bridges · year built',
+    'lg.tollLine': 'Tolled road or bridge',
     'nav.zen': 'Hide the interface',
     'nav.zenOut': 'Show the interface',
     'toast.zen': 'Interface hidden — press Z or Escape to bring it back',
@@ -806,6 +808,8 @@ export const STRINGS = {
 
     'sys.title': '路网系统',
     'legend.title': '当前图层',
+    'lg.bridges': '桥梁 · 建成年份',
+    'lg.tollLine': '收费公路或桥梁',
     'nav.zen': '隐藏界面',
     'nav.zenOut': '显示界面',
     'toast.zen': '界面已隐藏 — 按 Z 或 Esc 键恢复',

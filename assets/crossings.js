@@ -9,11 +9,14 @@
    with one are simply the atlas routes nearest it, and are labelled that way. */
 
 import { t, stateName, distKm, routeLabel, ownerLabel, getUnits } from './i18n.js';
-import { app, toast, select } from './app.js';
+import { app, toast, select, renderLegend } from './app.js';
+import { regionOf } from './schema.js';
 
 const SRC = 'xing';
 const HIT = `${SRC}-hit`;
-const COLOUR = { 'ca-us': '#ff4d6d', 'mx-us': '#9be15d', 'mx-gt': '#4cc9f0', 'mx-bz': '#f9c74f' };
+// Kept off the bridges' year ramp (orange to yellow to green to cyan) and the
+// tolls' yellow, since all three can be on over Mexico at once.
+const COLOUR = { 'ca-us': '#ff4d6d', 'mx-us': '#b06cff', 'mx-gt': '#3a56ff', 'mx-bz': '#ff4fd8' };
 
 let on = false;
 let data = null;
@@ -81,7 +84,17 @@ export async function toggleCrossings(force) {
   }
   if (!on) closeCrossing();
   document.getElementById('btnCrossings').classList.toggle('on', on);
+  renderLegend();
   toast(on ? t('toast.xingOn', { n: data.features.length }) : t('toast.xingOff'));
+}
+
+/** This layer's part of the colour key: the borders that touch the region on screen. */
+export function crossingsLegend() {
+  const borders = Object.entries(COLOUR).filter(([b]) => b.split('-').some((cc) => regionOf(cc) === app.region));
+  if (!on || !borders.length) return '';
+  return `<div class="lg-b"><p class="lg-h">${t('base.crossings')}</p>`
+    + borders.map(([b, c]) => `<p class="lg-r"><i class="lg-ring" style="--sys-col:${c}"></i><span>${t(`xing.border.${b}`)}</span></p>`).join('')
+    + '</div>';
 }
 
 export function closeCrossing() {

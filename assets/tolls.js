@@ -14,13 +14,15 @@
    earliest the road could have opened, and it is worded that way. */
 
 import { t, getLang, num, distKm, routeLabel } from './i18n.js';
-import { app, toast, select, whereOf } from './app.js';
+import { app, toast, select, whereOf, renderLegend } from './app.js';
+import { regionOf } from './schema.js';
 
 const SRC = 'toll';
 const LINE_HIT = `${SRC}-line-hit`;
 const PT_HIT = `${SRC}-pt-hit`;
 const LAYERS = [`${SRC}-line-casing`, SRC, `${SRC}-plaza`, `${SRC}-pt`, LINE_HIT, PT_HIT];
 const COLOUR = '#ffd166';
+const COUNTRIES = ['ca', 'mx'];
 
 let on = false;
 let dataPromise = null;
@@ -119,8 +121,17 @@ export async function toggleTolls(force) {
   }
   if (!on) closeTollPopup();
   document.getElementById('btnTolls').classList.toggle('on', on);
+  renderLegend();
   const plazas = data.features.filter((f) => f.properties.kind === 'plaza').length;
   toast(on ? t('toast.tollOn', { n: Object.keys(data.facilities).length, p: num(plazas) }) : t('toast.tollOff'));
+}
+
+/** This layer's part of the colour key: one colour, so the key is the three shapes it draws. */
+export function tollsLegend() {
+  if (!on || !COUNTRIES.some((cc) => regionOf(cc) === app.region)) return '';
+  const row = (cls, key) => `<p class="lg-r"><i class="${cls}" style="--sys-col:${COLOUR}"></i><span>${t(key)}</span></p>`;
+  return `<div class="lg-b"><p class="lg-h">${t('base.tolls')}</p>`
+    + row('lg-dash', 'lg.tollLine') + row('lg-ring', 'toll.kind.bridge') + row('lg-pt', 'toll.kind.plaza') + '</div>';
 }
 
 export function closeTollPopup() {

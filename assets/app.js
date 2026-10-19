@@ -8,9 +8,9 @@ import {
 import { renderDetail } from './detail.js';
 import { openSheet, closeSheet, isSheetOpen } from './sheets.js';
 import { startFly, stopFly, isFlying } from './fly.js';
-import { toggleCrossings, crossingAt, raiseCrossings, closeCrossing } from './crossings.js';
-import { toggleTolls, tollAt, raiseTolls, closeTollPopup } from './tolls.js';
-import { toggleBridges, bridgeAt, raiseBridges, closeBridge } from './bridges.js';
+import { toggleCrossings, crossingAt, raiseCrossings, closeCrossing, crossingsLegend } from './crossings.js';
+import { toggleTolls, tollAt, raiseTolls, closeTollPopup, tollsLegend } from './tolls.js';
+import { toggleBridges, bridgeAt, raiseBridges, closeBridge, bridgesLegend } from './bridges.js';
 import { toggleSpeed, trackSource, speedOn, speedLegend } from './speed.js';
 import { Globe } from './globe.js';
 import {
@@ -1269,21 +1269,25 @@ function renderSystems() {
  *
  * Only the systems actually drawn in the region on screen are listed, so this
  * is a key to what is in front of the reader rather than a second copy of the
- * switches: Taiwan's freeways mean nothing over Ohio.
+ * switches: Taiwan's freeways mean nothing over Ohio. Each overlay that is
+ * switched on and has something in the region adds its own block below.
  */
 export function renderLegend() {
   const host = document.getElementById('legend');
   if (!host) return;
-  // Coloured by limit, the lines no longer say which system they are, so this
-  // key replaces that one, whether or not that one is switched on.
-  if (speedOn()) { host.hidden = false; host.innerHTML = speedLegend(); return; }
   const on = SYSTEMS.filter((s) => app.systems.get(s.id).on && regionOf(s.cc) === app.region);
-  if (!on.length || !app.legend) { host.innerHTML = ''; host.hidden = true; return; }
+  // Coloured by limit, the lines no longer say which system they are, so that
+  // key replaces this one.
+  const roads = !on.length ? '' : speedOn() ? speedLegend()
+    : `<p class="lg-h">${t('legend.title')}</p>`
+      + on.map((s) => `<p class="lg-r">`
+        + `<i class="lg-dot" style="--sys-col:${s.colour}"></i>`
+        + `<span>${t(`sys.${s.id}`)}</span></p>`).join('');
+  const blocks = [roads && `<div class="lg-b lg-roads">${roads}</div>`, crossingsLegend(), tollsLegend(), bridgesLegend()]
+    .filter(Boolean);
+  if (!blocks.length || !app.legend) { host.innerHTML = ''; host.hidden = true; return; }
   host.hidden = false;
-  host.innerHTML = `<p class="lg-h">${t('legend.title')}</p>`
-    + on.map((s) => `<p class="lg-r">`
-      + `<i class="lg-dot" style="--sys-col:${s.colour}"></i>`
-      + `<span>${t(`sys.${s.id}`)}</span></p>`).join('');
+  host.innerHTML = blocks.join('');
 }
 
 /* ── search + results ─────────────────────────────────────────────────── */

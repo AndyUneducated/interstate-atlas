@@ -600,6 +600,17 @@ body.is-booting #legend, body.zen #legend { opacity: 0 !important; }
   display: flex; justify-content: space-between; width: 168px; margin-bottom: 4px;
   font-family: var(--mono); font-size: 9px; color: var(--ink-faint);
 }
+/* Ticks placed where their value falls on the ramp, for a scale that is not even. */
+.lg-ticks.lg-at { display: block; position: relative; height: 13px; }
+.lg-at span { position: absolute; top: 0; transform: translateX(-50%); }
+.lg-at span:first-child { transform: none; }
+.lg-at span:last-child { transform: translateX(-100%); }
+.lg-b + .lg-b { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+/* The overlays' marks, drawn as the map draws them: a dot, a ring, a dashed line. */
+.lg-pt, .lg-ring { width: 8px; height: 8px; border-radius: 50%; flex: none; margin: 0 3px; box-sizing: border-box; }
+.lg-pt { background: var(--sys-col); border: 1px solid #05070c; }
+.lg-ring { background: #05070c; border: 2px solid var(--sys-col); }
+.lg-dash { width: 14px; height: 0; flex: none; border-top: 3px dashed var(--sys-col); }
 
 /* ── the interface, out of the way ────────────────────────────────────────
    Everything this site draws sits on top of a map, and the map is the thing.

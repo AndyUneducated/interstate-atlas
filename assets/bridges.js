@@ -8,12 +8,15 @@
    never offers it as the road's age. */
 
 import { t, num, getUnits } from './i18n.js';
-import { app, toast } from './app.js';
+import { app, toast, renderLegend } from './app.js';
+import { regionOf } from './schema.js';
 
 const SRC = 'bridge';
 const HIT = `${SRC}-hit`;
 const LAYERS = [SRC, HIT];
 const UNDATED = '#8a8f98';
+const STOPS = [[1930, '#ff7b54'], [1965, '#ffd166'], [1995, '#9be15d'], [2025, '#4cc9f0']];
+const COUNTRIES = ['mx', 'ca'];
 
 let on = false;
 let dataPromise = null;
@@ -67,7 +70,7 @@ async function ensureLayers() {
     paint: {
       'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 1.1, 7, 2.4, 12, 5],
       'circle-color': ['case', ['<', built, 0], UNDATED,
-        ['interpolate', ['linear'], built, 1930, '#ff7b54', 1965, '#ffd166', 1995, '#9be15d', 2025, '#4cc9f0']],
+        ['interpolate', ['linear'], built, ...STOPS.flat()]],
       'circle-stroke-color': '#05070c',
       'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 6, 0, 9, 0.8],
     },
@@ -91,7 +94,22 @@ export async function toggleBridges(force) {
   }
   if (!on) closeBridge();
   document.getElementById('btnBridges').classList.toggle('on', on);
+  renderLegend();
   toast(on ? t('toast.bridgeOn', { n: num(data.rows.length) }) : t('toast.bridgeOff'));
+}
+
+/** This layer's part of the colour key: empty while it is off, or over a region it has no bridges in. */
+export function bridgesLegend() {
+  if (!on || !COUNTRIES.some((cc) => regionOf(cc) === app.region)) return '';
+  const [y0] = STOPS[0];
+  const [y1] = STOPS.at(-1);
+  const at = (y) => (((y - y0) / (y1 - y0)) * 100).toFixed(1);
+  const ramp = STOPS.map(([y, c]) => `${c} ${at(y)}%`).join(', ');
+  // Older structures take the first colour, so the first tick reads as "or earlier".
+  return `<div class="lg-b"><p class="lg-h">${t('lg.bridges')}</p>
+    <div class="lg-ramp" style="background:linear-gradient(90deg, ${ramp})"></div>
+    <div class="lg-ticks lg-at">${STOPS.map(([y], i) => `<span style="left:${at(y)}%">${i ? y : `≤${y}`}</span>`).join('')}</div>
+    <p class="lg-r"><i class="lg-pt" style="--sys-col:${UNDATED}"></i><span>${t('bridge.undated')}</span></p></div>`;
 }
 
 export function closeBridge() {

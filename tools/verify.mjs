@@ -605,6 +605,12 @@ await step('speed limits colour the routes, key them, and come off again', async
     if (!Array.isArray(on.paint)) throw new Error('route colour is not driven by the limit');
     await page.waitForTimeout(800);
     await shot('05s-speed.png');
+    await jsClick('#btnLegend');
+    const hidden = await page.evaluate(() => document.getElementById('legend').hidden);
+    await jsClick('#btnLegend');
+    const back = await page.evaluate(() => !document.getElementById('legend').hidden
+      && !!document.querySelector('#legend .lg-ramp'));
+    if (!hidden || !back) throw new Error(`speed key ignores the colour-key switch: off=${hidden} back=${back}`);
     await page.evaluate(() => window.__select('i-95'));
     await need('#dtSpeed .spd-sign.spd-us', 'I-95 panel has no American limit sign');
     if (!await page.locator('#dtSpeed .spd-b-p').count()) throw new Error('I-95 limit not marked official');
@@ -1009,9 +1015,9 @@ const readLegend = () => page.evaluate(() => {
   const inRegion = (id) => (/^(cn|tw|hk)-/.test(id) ? 'ea' : 'na') === region;
   return {
     shown: !el.hidden && Number(getComputedStyle(el).opacity) > 0.5,
-    rows: el.querySelectorAll('.lg-r').length,
+    rows: el.querySelectorAll('.lg-roads .lg-r').length,
     on: [...document.querySelectorAll('#sysList .sys.on')].filter((s) => inRegion(s.dataset.sys)).length,
-    colours: [...el.querySelectorAll('.lg-dot')].map((d) => getComputedStyle(d).backgroundColor),
+    colours: [...el.querySelectorAll('.lg-roads .lg-dot')].map((d) => getComputedStyle(d).backgroundColor),
   };
 });
 
@@ -1082,6 +1088,7 @@ await step('border crossings draw, and a nearby route can be chosen from one', a
   await page.keyboard.press('Escape');
   await jsClick('#btnCrossings');
   await waitForSource('xing');
+  if (await page.locator('#legend .lg-ring').count() !== 4) throw new Error('the key does not list the four borders');
   // A Canadian crossing with routes beside it, clicked where it is drawn.
   const pt = await page.evaluate(async () => {
     const d = await (await fetch('data/crossings.json')).json();
@@ -1104,12 +1111,14 @@ await step('border crossings draw, and a nearby route can be chosen from one', a
   if (!title.includes(label.trim())) throw new Error(`chose ${label} from the crossing, detail shows something else`);
   await jsClick('#btnCrossings');
   if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
+  if (await page.locator('#legend .lg-ring').count()) throw new Error('crossings key outlived its layer');
 });
 
 await step('toll facilities draw, show dated fares, and appear in the route panel', async () => {
   await page.keyboard.press('Escape');
   await jsClick('#btnTolls');
   await waitForSource('toll');
+  if (!await page.locator('#legend .lg-dash').count()) throw new Error('no toll key');
   // The Confederation Bridge, clicked at the middle of its drawn line.
   const pt = await page.evaluate(async () => {
     const d = await (await fetch('data/tolls.json')).json();
@@ -1163,6 +1172,8 @@ await step('bridges draw, colour by year, and say the year is not the road\'s', 
   await page.keyboard.press('Escape');
   await jsClick('#btnBridges');
   await waitForSource('bridge');
+  const ticks = await page.locator('#legend .lg-at span').allTextContents();
+  if (ticks.join(' ') !== '≤1930 1965 1995 2025') throw new Error(`bridge key ticks: ${ticks.join(' ')}`);
   const pt = await page.evaluate(async () => {
     const d = await (await fetch('data/bridges.json')).json();
     const F = Object.fromEntries(d.fields.map((f, i) => [f, i]));
@@ -1183,6 +1194,7 @@ await step('bridges draw, colour by year, and say the year is not the road\'s', 
   await shot('13-bridges.png');
   await jsClick('#btnBridges');
   if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
+  if (await page.locator('#legend .lg-at').count()) throw new Error('bridge key outlived its layer');
 });
 
 await step('the region switch flies to East Asia and follows the view', async () => {
@@ -1212,7 +1224,7 @@ await step('in East Asia the key and the places are East Asian', async () => {
   if (!legend.rows || legend.rows !== legend.on) {
     throw new Error(`legend lists ${legend.rows} systems with ${legend.on} drawn here`);
   }
-  const names = await page.locator('#legend .lg-r').allTextContents();
+  const names = await page.locator('#legend .lg-roads .lg-r').allTextContents();
   if (names.some((n) => /Interstate|Trans-Canada|federal/i.test(n))) {
     throw new Error(`North American systems in the East Asian key: ${names.join(', ')}`);
   }
