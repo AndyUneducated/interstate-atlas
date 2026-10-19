@@ -1,0 +1,116 @@
+{
+  "id": "mex-200",
+  "route": { "sys": "mx-federal", "num": "200" },
+  "name": { "en": "Federal Highway 200 (Pacific Coast Highway)", "zh": "200 号联邦公路（太平洋沿岸公路）" },
+  "aka": [
+    { "en": "La Costera (the coast road)", "zh": "「海岸路」（La Costera）" },
+    { "en": "Carretera Pacífico; Costera del Pacífico, trunk axis 15 in the federal road programme", "zh": "太平洋公路；联邦公路计划中的第 15 号干线轴线「太平洋沿岸」" },
+    { "en": "Tepic–Talismán, the name used in federal addresses", "zh": "特皮克—塔利斯曼公路（联邦机构地址中的名称）" }
+  ],
+  "tagline": { "en": "Two thousand kilometres of mostly two-lane road along the Pacific, opened coast by coast between the 1960s and 1987, and now being widened", "zh": "沿太平洋延伸两千公里、大多为双车道的公路：1960 年代至 1987 年间逐段打通，如今正在拓宽" },
+  "termini": {
+    "start": { "at": [-105.43, 20.88], "en": "Near Sayulita on the Bahía de Banderas coast of Nayarit, where the atlas's drawing of the road begins. The highway itself starts inland at Tepic, on Federal Highway 15, and reaches the coast through Compostela and Las Varas.", "zh": "纳亚里特州班德拉斯湾沿岸的萨尤利塔附近，即本图集所绘路线的起点。公路本身始于内陆的特皮克，与 15 号联邦公路相接，经孔波斯特拉和拉斯巴拉斯到达海岸。" },
+    "end": { "at": [-92.1473, 14.6765], "en": "Ciudad Hidalgo, Chiapas, at the Rodolfo Robles international bridge over the Suchiate river to Tecún Umán, Guatemala. The road's official name runs to the other Guatemalan crossing, at Talismán.", "zh": "恰帕斯州伊达尔戈城，经横跨苏奇亚特河的鲁道夫·罗夫莱斯国际桥通往危地马拉的特昆乌曼。公路的正式名称则通往另一处危地马拉口岸——塔利斯曼。" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Federal Highway 200 follows Mexico's Pacific coast through seven states. From Tepic it descends to Bahía de Banderas and Puerto Vallarta, runs down the Jalisco coast past Chamela and Barra de Navidad to Manzanillo and Tecomán in Colima, crosses the whole Michoacán coast to Lázaro Cárdenas, and continues through Zihuatanejo and Acapulco in Guerrero, Pinotepa Nacional, Puerto Escondido, Huatulco, Salina Cruz and Juchitán in Oaxaca, and Tapachula in Chiapas to the Guatemalan border, where it continues as Central American Highway 2.",
+        "English Wikipedia, citing the transport ministry's 2017 road data, puts it at 2,085 km; Spanish Wikipedia says about 2,000. It is the backbone of a coast with few other through roads: the federal programme for 2025–2030 calls it trunk axis 15, the Costera del Pacífico, linking the south with the west and calling it key to the region's tourism and its port connections.",
+        "It has two ends in Chiapas. Federal addresses call it the Tepic–Talismán road, after the Talismán crossing, but the customs post and the Rodolfo Robles bridge at Ciudad Hidalgo are also addressed on Federal Highway 200, at kilometre 24.4 of the Tapachula–Ciudad Hidalgo section."
+      ],
+      "zh": [
+        "200 号联邦公路沿墨西哥太平洋海岸穿越七个州。它从特皮克下行至班德拉斯湾和巴亚尔塔港，沿哈利斯科海岸南下，经查梅拉、纳维达德湾到达科利马州的曼萨尼约和特科曼，横贯整个米却肯海岸抵达拉萨罗卡德纳斯，再经格雷罗州的锡瓦塔内霍和阿卡普尔科，瓦哈卡州的皮诺特帕纳西奥纳尔、埃斯孔迪多港、瓦图尔科、萨利纳克鲁斯和胡奇坦，以及恰帕斯州的塔帕丘拉，抵达危地马拉边境，在那里接中美洲 2 号公路。",
+        "英语维基百科引用交通部 2017 年道路数据，称其长 2,085 公里；西班牙语维基百科则称约 2,000 公里。这段海岸几乎没有其他贯通道路，它便是主干：2025—2030 年联邦计划称之为第 15 号干线轴线「太平洋沿岸」，连接南部与西部，并称其对该地区的旅游业和港口联通至关重要。",
+        "它在恰帕斯有两个终点。联邦机构的地址把它称为特皮克—塔利斯曼公路，以塔利斯曼口岸命名；但伊达尔戈城的海关和鲁道夫·罗夫莱斯桥的地址同样写作 200 号联邦公路——塔帕丘拉—伊达尔戈城段第 24.4 公里处。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Until the 1960s most of this coast had no road at all. On 18 October 1960 the World Bank lent Mexico US$25 million for a programme of thirteen roads, four of them on the line of today's Highway 200: Acapulco–Pinotepa Nacional, Pinotepa–Puerto Escondido, Compostela–Puerto Vallarta and Arriaga–Tapachula. The Bank described the coastal roads as giving access to areas 'now largely isolated from the rest of the country', and scheduled them for completion by the end of 1964. The sociologist Ovidio González Gómez dates to the 1960s the first road along the southern Pacific coast, linking Acapulco with Puerto Escondido.",
+        "In Jalisco the coast was opened from the 1950s. Governor Agustín Yáñez set up a coastal planning commission in 1953, and a Colima contractor, Felipe Guzmán, cut the first track from La Manzanilla to Chamela by bulldozer, steering by compass. The paved road from Barra de Navidad to Puerto Vallarta, and on to Compostela, was built under Governor Francisco Medina Ascencio (1965–1971); a Jalisco government document of 1970 describes a 215 km 'panoramic road' whose paving had begun.",
+        "The last gap was the Michoacán coast between Playa Azul and the Colima border. Accounts differ on when it closed. A 2024 history in El Noticiero de Manzanillo says President Miguel de la Madrid Hurtado opened the 243 km from Playa Azul to Coahuayana on 7 June 1987, completing the Pacific highway; Michoacán reports in 2025 and 2026 say he inaugurated the Michoacán coastal road at Lázaro Cárdenas on 13 July 1984, after more than seven years of construction by the contractor ICA."
+      ],
+      "zh": [
+        "直到 1960 年代，这段海岸的大部分地方还根本没有公路。1960 年 10 月 18 日，世界银行向墨西哥贷款 2,500 万美元，用于一项包括十三条道路的计划，其中四条位于今天 200 号公路一线：阿卡普尔科—皮诺特帕纳西奥纳尔、皮诺特帕—埃斯孔迪多港、孔波斯特拉—巴亚尔塔港和阿里亚加—塔帕丘拉。世界银行称这些沿海道路将通往「目前基本与全国隔绝」的地区，并计划于 1964 年底前完工。社会学家奥维迪奥·冈萨雷斯·戈麦斯认为，南太平洋沿岸第一条连通阿卡普尔科与埃斯孔迪多港的公路建于 1960 年代。",
+        "哈利斯科海岸自 1950 年代开始开发。州长阿古斯丁·亚涅斯于 1953 年设立海岸规划委员会；科利马的承包商费利佩·古斯曼亲自驾驶推土机、凭指南针定向，从拉曼萨尼亚到查梅拉开出了第一条便道。从纳维达德湾到巴亚尔塔港、再到孔波斯特拉的铺装公路，修建于弗朗西斯科·梅迪纳·阿森西奥州长任内（1965—1971）；哈利斯科州政府 1970 年的一份文件称这条长 215 公里的「观景公路」已开始铺装。",
+        "最后的缺口是普拉亚阿苏尔至科利马州界之间的米却肯海岸。关于它何时贯通，说法不一。《曼萨尼约新闻报》2024 年的一篇历史文章称，米格尔·德拉马德里·乌尔塔多总统于 1987 年 6 月 7 日为普拉亚阿苏尔至科阿瓦亚纳的 243 公里路段剪彩，太平洋公路由此全线建成；米却肯 2025 和 2026 年的报道则称，他于 1984 年 7 月 13 日在拉萨罗卡德纳斯为米却肯海岸公路举行通车仪式，该路由承包商 ICA 历时七年多建成。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "It was built narrow. The Playa Azul–Coahuayana section opened at 7 metres wide, with 77 bridges in 243 km, and in Aquila, the most mountainous stretch of the Michoacán coast at more than 150 km, the municipal president said in 2025 that much of the pavement was still the surface ICA had laid four decades earlier.",
+        "The current programme widens the road rather than adding lanes: on Salina Cruz–Zihuatanejo the carriageway is going from 7 to 12 metres, still two lanes, with new drainage, asphalt base and surfacing. In 2025 SICT widened 27 km, 26 of them in Oaxaca, and finished eight bridges in Guerrero."
+      ],
+      "zh": [
+        "这条路修得很窄。普拉亚阿苏尔—科阿瓦亚纳段通车时路面宽 7 米，243 公里内有 77 座桥梁。阿基拉是米却肯海岸山势最险的一段，长逾 150 公里；该市市长 2025 年表示，那里许多路段的路面仍是 ICA 四十年前铺设的。",
+        "当前的计划是拓宽而非增加车道：萨利纳克鲁斯—锡瓦塔内霍段的路面宽度由 7 米增至 12 米，仍为双车道，并新建排水、沥青基层和面层。2025 年，基础设施、通信和交通部（SICT）拓宽了 27 公里，其中 26 公里在瓦哈卡，并在格雷罗建成八座桥梁。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total cost has been published. The early sections were financed jointly: the 1960 World Bank loan covered the foreign-exchange cost of thirteen roads estimated at the equivalent of US$68.6 million in all, with the Mexican government paying the local-currency costs. Jalisco's 1970 document put the whole Puerto Vallarta–Barra de Navidad road at 230 million pesos.",
+        "The widening between Salina Cruz and Zihuatanejo is publicly funded and let by international tender. SICT gave its cost as 24,772 million pesos for 423 km in March 2026, with completion due in December 2029; the 2025–2030 programme had listed it at 28,274 million pesos for 478 km, and an August 2026 report quoting SICT gave 31,205 million pesos for 446 km."
+      ],
+      "zh": [
+        "全线没有公开的总造价。早期路段由多方共同出资：1960 年的世界银行贷款承担十三条道路的外汇成本，这些道路的总造价估计折合 6,860 万美元，本币部分由墨西哥政府支付。哈利斯科州 1970 年的文件称，整条巴亚尔塔港—纳维达德湾公路造价为 2.3 亿比索。",
+        "萨利纳克鲁斯至锡瓦塔内霍段的拓宽由财政出资，通过国际招标发包。SICT 于 2026 年 3 月称，423 公里的投资为 247.72 亿比索，预计 2029 年 12 月完工；2025—2030 年计划曾列为 478 公里、282.74 亿比索；2026 年 8 月一篇援引 SICT 的报道则作 446 公里、312.05 亿比索。"
+      ]
+    },
+    {
+      "key": "condition",
+      "en": [
+        "The road is exposed to Pacific storms. After Hurricane Erick in June 2025, SICT closed the Papagayo bridge at kilometre 1.8 and the Cayaco bridge at kilometre 50.2 of the Acapulco–Zihuatanejo section, and Oaxaca's state government reported landslides on Highway 200 between Huatulco and Pochutla and the Pinotepa–Corralero stretch closed.",
+        "Maintenance is piecemeal. In July 2026 SICT began periodic conservation of 19.7 km of the Playa Azul–Manzanillo road, kilometres 198 to 217.7, at the Michoacán–Colima border; the local press noted that it had published no budget, contractor or schedule for the work."
+      ],
+      "zh": [
+        "这条路易受太平洋风暴侵袭。2025 年 6 月飓风「埃里克」过后，SICT 封闭了阿卡普尔科—锡瓦塔内霍段第 1.8 公里处的帕帕加约桥和第 50.2 公里处的卡亚科桥；瓦哈卡州政府报告，200 号公路瓦图尔科至波丘特拉段发生山体滑坡，皮诺特帕—科拉莱罗段封闭。",
+        "养护是零敲碎打式的。2026 年 7 月，SICT 开始对米却肯与科利马交界处普拉亚阿苏尔—曼萨尼约公路第 198 至 217.7 公里、共 19.7 公里进行定期养护；当地媒体指出，当局未公布这项工程的预算、承包商或工期。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "2,085 km, from the transport ministry's 2017 road data, as cited in English Wikipedia; Spanish Wikipedia gives about 2,000 km", "zh": "2,085 公里，出自交通部 2017 年道路数据，据英语维基百科引述；西班牙语维基百科作约 2,000 公里" },
+      "source": "SCT, Datos Viales 2017, as cited in English Wikipedia, Mexican Federal Highway 200; Spanish Wikipedia, Carretera Federal 200"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No public total. The road was built in sections by the federal government and the states from the 1960s to the 1980s; the only sourced section figure is given below.", "zh": "无公开总额。这条路自 1960 年代至 1980 年代由联邦政府和各州分段修建；下面列出唯一有来源的分段数字。" }
+    },
+    {
+      "label": { "en": "Puerto Vallarta–Barra de Navidad", "zh": "巴亚尔塔港—纳维达德湾段" },
+      "value": { "en": "230 million pesos (1970) for 215 km, as stated in a Jalisco government document of 1970 quoted by Carlos Tello Díaz; not checked against the original", "zh": "215 公里，2.3 亿比索（1970 年），出自卡洛斯·特略·迪亚斯引述的哈利斯科州政府 1970 年文件；未核对原件" },
+      "source": "Carlos Tello Díaz, Héroes anónimos, Milenio, quoting La costa de Jalisco: una región abierta al esfuerzo de Jalisco y de México (Government of Jalisco, 1970)"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Federal and state governments, with a World Bank loan of US$25 million (18 October 1960) for thirteen roads including four on the line of Highway 200; the loan covered foreign-exchange costs of a programme estimated at US$68.6 million, and Mexico paid the local-currency costs. The current widening is paid from the federal budget.", "zh": "联邦与州政府出资，另有世界银行 1960 年 10 月 18 日提供的 2,500 万美元贷款，用于十三条道路，其中四条位于 200 号公路一线；贷款承担这项估计总额 6,860 万美元计划的外汇成本，本币部分由墨西哥支付。当前的拓宽工程由联邦预算出资。" },
+      "source": "World Bank, Announcement of Twenty-Five Million US Dollars Loan for Mexican Highways, 18 October 1960; Proyectos México, 0974 Carretera Salina Cruz–Zihuatanejo"
+    },
+    {
+      "label": { "en": "Michoacán coast section", "zh": "米却肯海岸段" },
+      "value": { "en": "Playa Azul–Coahuayana: 243 km, 7 m wide, 77 bridges, opened 7 June 1987 by one account; Michoacán reports give 13 July 1984 for the inauguration of the coastal road, built by ICA over more than seven years", "zh": "普拉亚阿苏尔—科阿瓦亚纳段：243 公里，宽 7 米，77 座桥，据一种说法于 1987 年 6 月 7 日通车；米却肯的报道则称海岸公路于 1984 年 7 月 13 日举行通车仪式，由 ICA 历时七年多建成" },
+      "source": "Víctor Manuel Martínez, El Noticiero de Manzanillo, 30 April 2024; Quadratín Michoacán, 26 July 2026; Entérese, 13 May 2025"
+    },
+    {
+      "label": { "en": "Salina Cruz–Zihuatanejo widening", "zh": "萨利纳克鲁斯—锡瓦塔内霍段拓宽" },
+      "value": { "en": "24,772 million pesos for 423 km, March 2025 to December 2029 (SICT, March 2026). The 2025–2030 programme listed 28,274 million pesos for 478 km; an August 2026 report quoting SICT gave 31,205 million pesos for 446 km. The scope behind each figure is not stated.", "zh": "423 公里，247.72 亿比索，工期 2025 年 3 月至 2029 年 12 月（SICT，2026 年 3 月）。2025—2030 年计划列为 478 公里、282.74 亿比索；2026 年 8 月一篇援引 SICT 的报道作 446 公里、312.05 亿比索。各数字对应的范围未予说明。" },
+      "source": "SICT press release, 23 March 2026; Proyectos México, 0974; SICT, Programa Nacional de Infraestructura Carretera 2025–2030, 26 February 2025; Heraldo de México Oaxaca, 4 August 2026"
+    }
+  ],
+  "timeline": [
+    { "year": 1953, "en": "Jalisco's governor, Agustín Yáñez, creates a planning commission for the state's coast, which builds its first tracks and roads.", "zh": "哈利斯科州州长阿古斯丁·亚涅斯设立该州海岸规划委员会，开始修建海岸最早的便道和道路。" },
+    { "year": 1960, "en": "On 18 October the World Bank lends US$25 million for thirteen Mexican roads, including Acapulco–Pinotepa Nacional, Pinotepa–Puerto Escondido, Compostela–Puerto Vallarta and Arriaga–Tapachula.", "zh": "10 月 18 日，世界银行向墨西哥提供 2,500 万美元贷款修建十三条道路，其中包括阿卡普尔科—皮诺特帕纳西奥纳尔、皮诺特帕—埃斯孔迪多港、孔波斯特拉—巴亚尔塔港和阿里亚加—塔帕丘拉。" },
+    { "year": 1970, "en": "A Jalisco government document reports paving begun on the 215 km Puerto Vallarta–Barra de Navidad road.", "zh": "哈利斯科州政府文件称，长 215 公里的巴亚尔塔港—纳维达德湾公路已开始铺装。" },
+    { "year": 1984, "en": "Miguel de la Madrid inaugurates the Michoacán coastal road at Lázaro Cárdenas on 13 July, by Michoacán accounts.", "zh": "据米却肯方面的说法，7 月 13 日米格尔·德拉马德里在拉萨罗卡德纳斯为米却肯海岸公路举行通车仪式。" },
+    { "year": 1987, "en": "De la Madrid opens the 243 km Playa Azul–Coahuayana section on 7 June, by a Manzanillo account completing the Pacific highway.", "zh": "据曼萨尼约方面的说法，6 月 7 日德拉马德里为 243 公里的普拉亚阿苏尔—科阿瓦亚纳段剪彩，太平洋公路由此全线建成。" },
+    { "year": 2025, "en": "Widening of Salina Cruz–Zihuatanejo from 7 to 12 metres begins in the spring; Hurricane Erick closes the Papagayo and Cayaco bridges in June.", "zh": "春季，萨利纳克鲁斯—锡瓦塔内霍段由 7 米拓宽至 12 米的工程开工；6 月，飓风「埃里克」致使帕帕加约桥和卡亚科桥封闭。" },
+    { "year": 2026, "en": "SICT reports 27 km widened in 2025 and plans 37 km more in Oaxaca; in July it begins conservation work at the Michoacán–Colima border.", "zh": "SICT 报告 2025 年已拓宽 27 公里，计划在瓦哈卡再拓宽 37 公里；7 月，米却肯与科利马交界处的养护工程开工。" }
+  ]
+}

@@ -15,7 +15,7 @@ D-60 onward); this file only tracks the work.
 | M3 | 41 dossiers: 19 mainland, 8 Taiwan, all 10 Hong Kong. Termini oriented by coordinate and end labels from geography (D-77). |
 | M4 | 28 more dossiers: all 36 national expressway main lines, Taiwan freeways 1–6 and 10, nine provincial highways. Simplified system names in the zh UI. |
 
-Dossiers now: mainland 39, Taiwan 16, Hong Kong 10 (237 in all).
+Dossiers now: mainland 48, Taiwan 22, Hong Kong 10, Mexico 5 (257 in all).
 
 ## Data that exists and is not yet built (planned 2026-10-19)
 
@@ -32,7 +32,7 @@ Smallest first.
 | P5 | Mainland and Hong Kong land border crossings | National Office of Port Administration list of 84 highway ports, placed at OpenStreetMap's border-control points | **done** 2026-10-19 (CN-3, CN-4, D-82): 69 of 84 placed, labelled as placed by OpenStreetMap; 14 unmapped ports listed |
 | P6 | Quebec bridges with year built | MTMD Structure (Données Québec), WFS | **done** 2026-10-19 (CA-18, D-83): 5,181 structures on the numbered routes |
 | P7 | US bridges with year built | FHWA National Bridge Inventory | **done** 2026-10-19 (US-11, D-84): 196,860 bridges that carry an atlas route, loaded a state at a time |
-| P8 | More dossiers: the longest mainland national highways (G331, G228, G312, G207, G213, G215…), regional expressways (G0612, G3012, G1523…), and Mexico's federal routes | [DOSSIER-BRIEF.md](DOSSIER-BRIEF.md) | Taiwan's 台17, 台19, 台21, 台26, 國3甲 and 國8 **done** 2026-10-19 |
+| P8 | More dossiers: the longest mainland national highways, regional expressways, Taiwan provincial highways and freeways, and Mexico's federal routes | [DOSSIER-BRIEF.md](DOSSIER-BRIEF.md) | **done** 2026-10-19 (257 in all): 台17, 台19, 台21, 台26, 國3甲, 國8; G331, G228, G312, G207, G213, G215; G0612, G3012, G1523; Mexico's first five, MEX-15, 45, 57, 85 and 200. More can follow the brief, route by route |
 | P9 | Mainland per-route opening years from the dossiers' timelines into the buildout chart | dossiers | **done** 2026-10-19 (D-85): 22 of the 36 main lines dated, the rest listed undated |
 
 ## Still to check whether the data exists

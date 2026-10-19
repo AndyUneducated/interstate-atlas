@@ -1,0 +1,134 @@
+{
+  "id": "cn-g312-gsu-1",
+  "route": { "sys": "cn-national", "num": "G312", "anchor": [93.5649, 42.8625] },
+  "name": { "en": "Shanghai–Khorgas Highway", "zh": "上海—霍尔果斯公路" },
+  "aka": [
+    { "en": "Huhuo line", "zh": "沪霍线" },
+    { "en": "Cao'an Road (the Shanghai section)", "zh": "曹安公路（上海段）" },
+    { "en": "Xi'an–Lanzhou Highway (the Xi'an–Lanzhou section)", "zh": "西兰公路（西安至兰州段）" },
+    { "en": "Gansu–Xinjiang Highway (west of Lanzhou)", "zh": "甘新公路（兰州以西）" }
+  ],
+  "tagline": { "en": "People's Square in Shanghai to the Kazakh border at Khorgas, 4,967 km, west of Xi'an on the roads that carried Soviet aid in the war against Japan", "zh": "自上海人民广场至中哈边境霍尔果斯，全程 4967 公里；西安以西沿着抗战时期运送苏联援华物资的公路" },
+  "termini": {
+    "start": { "en": "Khorgas port, Ili, Xinjiang, on the Kazakh border, where the road meets Kazakhstan's A2", "zh": "新疆伊犁霍尔果斯口岸，中哈边境，接哈萨克斯坦 A2 公路", "at": [80.4007, 44.2129] },
+    "end": { "en": "Cao'an Road at Zhenbei Road, Putuo District, Shanghai, where the drawn line ends. The route's kilometre zero is People's Square in Huangpu District", "zh": "上海市普陀区曹安路真北路口，所绘线段止于此。路线零公里在黄浦区人民广场", "at": [121.3842, 31.2485] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G312 runs 4,967 km from People's Square in Shanghai to Khorgas port on the Kazakh border, where it continues as Kazakhstan's A2. It passes through nine provincial-level regions: Shanghai, Jiangsu, Anhui, Henan, Hubei, Shaanxi, Gansu, Ningxia and Xinjiang. The 2013 national highway plan lists its control points as Shanghai, Kunshan, Suzhou, Wuxi, Changzhou, Danyang, Nanjing, Hefei, Lu'an, Xinyang, Nanyang, Shangluo, Xi'an, Xianyang, Pingliang, Longde, Dingxi, Lanzhou, Wuwei, Zhangye, Jiuquan, Jiayuguan, Hami, Turpan, Ürümqi, Shihezi, Kuytun, Wusu and Jinghe, among others, ending at Khorgas.",
+        "East of Xi'an it is a trunk road across Jiangsu, Anhui and southern Henan. West of Xi'an it follows the line of the old Silk Road, over the Liupan mountains and up the Hexi Corridor into Xinjiang, running roughly alongside the G30 expressway; in Gansu alone it is 1,557.95 km, more than a third of its length. The atlas draws almost all of it as one piece, from Khorgas to Cao'an Road on the western side of central Shanghai; a few short fragments are drawn separately."
+      ],
+      "zh": [
+        "G312 自上海人民广场至中哈边境霍尔果斯口岸，全程 4967 公里，出境后接哈萨克斯坦 A2 公路。途经上海、江苏、安徽、河南、湖北、陕西、甘肃、宁夏、新疆九个省级行政区。2013 年《国家公路网规划》所列主要控制点包括上海、昆山、苏州、无锡、常州、丹阳、南京、合肥、六安、信阳、南阳、商洛、西安、咸阳、平凉、隆德、定西、兰州、武威、张掖、酒泉、嘉峪关、哈密、吐鲁番、乌鲁木齐、石河子、奎屯、乌苏、精河，止于霍尔果斯。",
+        "西安以东，它是一条横贯江苏、安徽和豫南的干线。西安以西，它大致沿古丝绸之路走向，翻越六盘山、沿河西走廊进入新疆，与 G30 连霍高速大体并行；仅甘肃境内就长 1557.95 公里，占全线三分之一强。本图集把它几乎全部绘为一段，自霍尔果斯至上海市区西侧的曹安路；另有几段很短的碎片单独绘出。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "In Gansu the last gravel stretch of G312 was Liuyuan to Xingxingxia, at the Xinjiang boundary. It was rebuilt to class-II standard over 89.62 km: the first phase, from March 1991 to October 1993, laid a 7 m asphalt surface on a 12 m formation; the second, from April 1994 to October 1995, widened the surface to 9 m and thickened the asphalt from 2.5 cm to 7.5 cm. By the end of the period covered by the provincial gazetteer, 1,161 km of the Gansu section was class II, with 52.6 km of class I, 107 km of class III and 237.35 km of class IV. In the Hexi Corridor much of the old road was absorbed into the G30 expressway, and G312 there runs on expressway service roads of class-III to class-IV standard.",
+        "A new G312 line through Lanzhou was finished on 24 November 2025, when the Kushui–Jiepaicun section opened: 79.735 km, of which 59.316 km is rebuilt old road and 20.419 km new, built to class-II standard for 60 km/h. With it the 192 km corridor from Qingshuiyi in Yuzhong county to the Yongdeng–Tianzhu boundary was complete. The builders recycled all 51,900 cubic metres of old asphalt planed off the road by cold in-place recycling.",
+        "The Shanghai section is Cao'an Road. Between 1984 and 1992 it was rebuilt with a 15 m concrete pavement on a 22 m formation, four motor lanes and two slow lanes, and 3 m cycle tracks on each side, to class-II standard. By 2003 it was carrying nearly 40,000 vehicles a day, beyond its design capacity."
+      ],
+      "zh": [
+        "甘肃境内 G312 最后一段沙砾路面是柳园至新甘交界的星星峡。改建工程长 89.62 公里，按二级公路标准实施：一期 1991 年 3 月开工、1993 年 10 月完工，在 12 米宽路基上铺筑 7 米宽沥青路面；二期 1994 年 4 月开工、1995 年 10 月完工，将路面由 7 米加宽至 9 米，沥青层由 2.5 厘米加厚至 7.5 厘米。至省志记述期末，甘肃段二级公路 1161 公里，另有一级公路 52.6 公里、三级公路 107 公里、四级公路 237.35 公里。河西走廊一带，旧路大段被并入 G30 连霍高速，G312 在那里以三到四级公路标准的高速公路辅道代之。",
+        "2025 年 11 月 24 日，苦水至界牌村段通车，兰州境内的 G312 新通道全部建成。该段全长 79.735 公里，其中旧路改建 59.316 公里、新建 20.419 公里，按设计时速 60 公里的二级公路标准建设。至此，东起榆中县清水驿、西至永登天祝交界的 192 公里新通道贯通。施工中采用全深式就地冷再生技术，5.19 万立方米旧沥青铣刨料全部回收利用。",
+        "上海段即曹安公路。1984 年至 1992 年间，全线改建为 15 米宽水泥混凝土路面，路基拓宽至 22 米，四快二慢，两侧各设 3 米宽非机动车道，技术等级提升至二级公路。到 2003 年，日均交通量已近 4 万辆次，超出设计通行能力。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The oldest long piece is the Xi'an–Lanzhou Highway, 719 km. On 22 June 1934 the National Economic Council decided to rebuild the existing road to its class-C national road standard; ground was broken in Xi'an the next day, with soldiers sent by the Shaanxi governor Yang Hucheng among the workforce, and the earth road was open from Xi'an to Lanzhou on 1 May 1935. Gravel surfacing began in September 1937. In the 1980s the Xi'an–Lanzhou road became part of G312.",
+        "West of Lanzhou, the road was built as a supply line. In Xinjiang the Dihua (Ürümqi)–Yining and Dihua–Hami roads were built from 1935 to 1937, with Soviet help, and were then carried on to the border at Khorgas and east to Xingxingxia, where they met the road from Gansu. In Gansu, a quarter of the earthworks was done by the end of 1936; full-scale work began in 1937 and, in one account, the road was finished at the end of 1938 by some 100,000 labourers, with 81 bridges. A historian at the Chinese Academy of Social Sciences dates the opening of the whole north-western road, from Sary-Ozek in the Soviet Union to Lanzhou, to the summer of 1939.",
+        "Soviet lorries loaded with military aid set out from Alma-Ata and entered China at Khorgas, running by Ürümqi, Hami, Jiuquan and Wuwei to Lanzhou. Between October 1937 and mid-February 1939, by one count, 5,260 vehicles carried aid on the Chinese side of the line.",
+        "At the eastern end, Cao'an Road began as the Suzhou–Shanghai road, built in 1935 between Nanxiang and Suzhou. In 1958 Shanghai chose Anting as a new industrial base; the old road was widened and straightened, extended west from Wuning Road and Caoyang Road and joined to the Jiangsu road at Kunshan, and it reopened in 1960 as Cao'an Road. The national trunk network of 30 November 1981 had 30 east–west routes, which in the national numbering carry numbers in the 300s; the 2013 plan and its 2022 successor both list G312 as Shanghai–Khorgas.",
+        "Two accidents stand out in the road's recent record. On 20 March 2010 an avalanche hit the Hongtupo stretch in the Guozigou valley in Ili, stranding nearly 900 vehicles; no one was hurt, because the stretch was already closed to traffic. On 10 October 2019 the deck of the Xigang Road overpass on G312 in Wuxi turned over, crushing cars beneath it and killing three people; initial findings blamed overloaded lorries."
+      ],
+      "zh": [
+        "最早成形的长路段是西兰公路，全长 719 公里。1934 年 6 月 22 日，全国经济委员会决定按丙等国道标准改建西兰公路；次日在西安举行开工典礼，陕西省政府主席杨虎城派出兵工筑路；1935 年 5 月 1 日，西安至兰州土路通车。1937 年 9 月开始铺设泥结碎石路面。20 世纪 80 年代，西兰公路并入 312 国道。",
+        "兰州以西，这条路是作为补给线修起来的。新疆境内，迪化（乌鲁木齐）至伊宁、迪化至哈密两条公路于 1935 年至 1937 年间在苏联援助下修建，此后迪伊公路延伸至中苏边境霍尔果斯，迪哈公路东延至星星峡，与甘肃方向的公路衔接。甘肃境内，至 1936 年底路基工程完成 24%；1937 年起大规模修筑，据一种记述，至 1938 年底全路完成，用工 10 万人，建桥 81 座。中国社会科学院一位研究员则把自苏联萨雷-奥泽克至兰州的整条西北公路通车时间定在 1939 年夏天。",
+        "满载援华军事物资的苏联汽车从阿拉木图出发，自霍尔果斯入境，经乌鲁木齐、哈密、肃州、凉州运抵兰州。据统计，1937 年 10 月至 1939 年 2 月中旬，在中国境内运送援华物资的汽车达 5260 辆。",
+        "东端的曹安公路，前身是 1935 年建成的苏沪公路，起讫点为南翔和苏州。1958 年上海决定在安亭新辟工业基地，苏沪公路拓宽路基、截弯取直，自武宁路、曹杨路口向西延伸，与江苏昆山的苏沪公路接通，1960 年改建通车，更名曹安路。1981 年 11 月 30 日发布的国家干线公路网有东西横线 30 条，国道编号中横线为 3 字头；2013 年规划及 2022 年新版规划均列 G312 为上海—霍尔果斯。",
+        "近年有两起事故格外引人注意。2010 年 3 月 20 日，伊犁果子沟红土坡路段发生雪崩，近 900 辆车滞留；因该路段当时已实行交通管制，未造成人员伤亡。2019 年 10 月 10 日，无锡 312 国道锡港路上跨桥桥面侧翻，压住桥下车辆，造成 3 人死亡；经初步分析，侧翻系运输车辆超载所致。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost has been published for the whole road; it has been built and rebuilt section by section, by each province, for ninety years. The early figures are in the currency of the 1930s: the National Economic Council put two grants totalling 800,000 yuan into the Xi'an–Lanzhou road, followed by 1.74 million for the remaining works, and one study gives the cost of the Gansu–Xinjiang road as more than 5 million yuan; another says 1.8 million yuan was allocated for it.",
+        "Later section figures include 64.2852 million yuan for the Liuyuan–Xingxingxia rebuild of 1991–1995 and 840 million for the 104.615 km desert road from G312 at Shaquanzi south to Dongyanhu, east of Hami, which opened on 1 October 2022, was built by China Construction Seventh Engineering Division under a public–private partnership and is tolled for a provisional 28 years. In Gansu in the 1990s, trunk roads were rebuilt on loans repaid from tolls, topped up by national and provincial subsidies, local governments, road units and the workers themselves."
+      ],
+      "zh": [
+        "全线没有公布过总造价；九十年来，这条路一直由沿线各省分段修建、改建。早期数字以 20 世纪 30 年代的货币计：全国经济委员会为西兰公路两次拨款共 80 万元，后又拨款 174 万元续做尾留工程；一项研究称甘新公路共耗费 500 余万元，另一项研究则称为其拨款 180 万元。",
+        "此后的分段数字包括：1991—1995 年柳园至星星峡段改建总投资 6428.52 万元；哈密以东自 G312 沙泉子向南至东盐湖的 104.615 公里沙漠公路总投资 8.4 亿元，2022 年 10 月 1 日通车，由中建七局以 PPP 模式投资建设，收费期限暂定 28 年。20 世纪 90 年代，甘肃以“贷款修路、收费还贷”为主改建干线公路，并辅以国家和省上补助、地方政府支持、各单位筹措以及职工自力更生。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Because it is toll-free, lorries still favour the national road over the expressways, according to a source quoted by Jiefang Daily in 2024. In the Hexi Corridor the through road often runs as a low-standard service road beside G30. In Ili the road runs through the Guozigou valley, where avalanches have closed it."
+      ],
+      "zh": [
+        "据《解放日报》2024 年引述的说法，因为不收费，货运卡车至今仍偏爱国道，而不走高速公路。河西走廊一带，过境道路常常是 G30 旁边标准不高的辅道。伊犁境内，公路穿越果子沟，曾因雪崩中断。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure exists. G312 has been built and rebuilt by each province section by section since the 1930s; the section costs that have been published are listed below.", "zh": "全线没有总造价。G312 自 20 世纪 30 年代起由沿线各省分段修建、改建；已公布的分段造价分列于下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "No route-wide statement. In Gansu in the 1990s, loans repaid from tolls plus national and provincial subsidies and local contributions; the Shaquanzi–Dongyanhu road (2022) by public–private partnership, with a project company in Hami collecting the tolls.", "zh": "未见全线出资说明。20 世纪 90 年代甘肃段以“贷款修路、收费还贷”为主，辅以国家、省上补助和地方筹措；沙泉子至东盐湖公路（2022 年）采用 PPP 模式，收费主体为哈密中建建设投资有限公司。" },
+      "source": "甘肃省志·公路交通志（1991—2010）, Gansu Provincial Gazetteer Office; Xinjiang Uygur Autonomous Region Department of Transport, 关于G312（沙泉子）至东盐湖段二级公路正式收取车辆通行费的批复, October 2023"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "4,967 km", "zh": "4967 公里" },
+      "source": "Chinese Wikipedia, 312国道; Jiefang Daily, 国道变形记，也是一部中国经济发展史, October 2024"
+    },
+    {
+      "label": { "en": "Gansu section", "zh": "甘肃段" },
+      "value": { "en": "1,557.95 km, from Fengxianglukou on the Shaanxi boundary to Xingxingxia", "zh": "1557.95 公里，自陕甘交界的凤翔路口至星星峡" },
+      "source": "甘肃省志·公路交通志（1991—2010）, Gansu Provincial Gazetteer Office"
+    },
+    {
+      "label": { "en": "Liuyuan–Xingxingxia rebuild (89.62 km, 1991–1995)", "zh": "柳园至星星峡段改建（89.62 公里，1991—1995 年）" },
+      "value": { "en": "64.2852 million yuan total investment", "zh": "总投资 6428.52 万元" },
+      "source": "甘肃省志·公路交通志（1991—2010）, Gansu Provincial Gazetteer Office"
+    },
+    {
+      "label": { "en": "Shaquanzi–Dongyanhu road (104.615 km, opened 2022)", "zh": "沙泉子至东盐湖公路（104.615 公里，2022 年通车）" },
+      "value": { "en": "840 million yuan total investment", "zh": "总投资 8.4 亿元" },
+      "source": "CNR (cnr.cn), 新疆哈密G312（沙泉子）至东盐湖公路通车, 3 October 2022"
+    },
+    {
+      "label": { "en": "Jiepaicun–Anmen section (45.125 km)", "zh": "界牌村至安门段（45.125 公里）" },
+      "value": { "en": "741.19 million yuan budgeted; work began 1 November 2021. Taken from Baidu Baike; not checked against the Gansu transport department.", "zh": "预算总投资 7.4119 亿元，2021 年 11 月 1 日开工。出自百度百科，未与甘肃省交通运输厅核对。" },
+      "source": "Baidu Baike, 上海—霍尔果斯公路"
+    },
+    {
+      "label": { "en": "Xi'an–Lanzhou Highway, 1934–1935", "zh": "西兰公路（1934—1935 年）" },
+      "value": { "en": "719 km; ground broken 23 June 1934; earth road open 1 May 1935", "zh": "全长 719 公里；1934 年 6 月 23 日开工，1935 年 5 月 1 日土路通车" },
+      "source": "陕西公路史·近代公路 (1988) and 中国公路 2017 no. 14, as cited in Chinese Wikipedia, 312国道"
+    }
+  ],
+  "timeline": [
+    { "year": 1934, "en": "Work on the Xi'an–Lanzhou Highway begins in Xi'an on 23 June.", "zh": "6 月 23 日，西兰公路在西安开工。" },
+    { "year": 1935, "en": "The Xi'an–Lanzhou earth road opens on 1 May; the Suzhou–Shanghai road, later Cao'an Road, is completed.", "zh": "5 月 1 日，西兰公路土路通车；苏沪公路（后来的曹安公路）建成。" },
+    { "year": 1937, "en": "The Dihua–Yining road in Xinjiang is finished; from the winter, Soviet aid moves in by road through Khorgas.", "zh": "新疆迪伊公路建成；当年冬天起，苏联援华物资经霍尔果斯由公路内运。" },
+    { "year": 1938, "en": "The Gansu–Xinjiang road is completed at the end of the year, in one account.", "zh": "据一种记述，甘新公路于年底全路完成。" },
+    { "year": 1960, "en": "The rebuilt Suzhou–Shanghai road reopens as Cao'an Road.", "zh": "苏沪公路改建通车，更名曹安路。" },
+    { "year": 1981, "en": "The national trunk network, with 30 east–west routes, is issued on 30 November.", "zh": "11 月 30 日，含东西横线 30 条的国家干线公路网发布。" },
+    { "year": 1991, "en": "Rebuilding of the gravel Liuyuan–Xingxingxia section begins in March.", "zh": "3 月，柳园至星星峡沙砾路段改建开工。" },
+    { "year": 1995, "en": "The Liuyuan–Xingxingxia rebuild is finished in October.", "zh": "10 月，柳园至星星峡段改建完工。" },
+    { "year": 2010, "en": "An avalanche in the Guozigou valley on 20 March strands nearly 900 vehicles.", "zh": "3 月 20 日，果子沟发生雪崩，近 900 辆车滞留。" },
+    { "year": 2019, "en": "An overpass deck on G312 in Wuxi overturns on 10 October, killing three people.", "zh": "10 月 10 日，无锡 312 国道上跨桥桥面侧翻，3 人死亡。" },
+    { "year": 2022, "en": "The Shaquanzi–Dongyanhu desert road opens on 1 October.", "zh": "10 月 1 日，沙泉子至东盐湖沙漠公路通车。" },
+    { "year": 2025, "en": "The Kushui–Jiepaicun section opens on 24 November, completing the new 192 km G312 corridor through Lanzhou.", "zh": "11 月 24 日，苦水至界牌村段通车，兰州境内 192 公里的 G312 新通道全部建成。" }
+  ]
+}

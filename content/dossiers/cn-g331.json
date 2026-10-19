@@ -1,0 +1,140 @@
+{
+  "id": "cn-g331",
+  "route": { "sys": "cn-national", "num": "G331", "anchor": [111.52, 43.33] },
+  "name": { "en": "Dandong–Altay Highway", "zh": "丹东—阿勒泰公路" },
+  "aka": [
+    { "en": "Dan'a line", "zh": "丹阿线" },
+    { "en": "King of China's northern border roads (a self-drive nickname)", "zh": "中国北境公路之王（自驾游圈内的称呼）" },
+    { "en": "Heilongjiang 331 Border Road (the Heilongjiang section)", "zh": "醉美龙江 331 边防路（黑龙江段）" },
+    { "en": "G331 Border Opening Tourism Corridor (the Jilin section)", "zh": "G331 沿边开放旅游大通道（吉林段）" }
+  ],
+  "tagline": { "en": "More than 9,000 km along the borders with North Korea, Russia and Mongolia, from the Yalu to the Altai", "zh": "沿中朝、中俄、中蒙边境走行九千多公里，从鸭绿江到阿尔泰山" },
+  "termini": {
+    "start": { "en": "Ejin Banner, Alxa League, Inner Mongolia, west of the banner seat, where the drawn line begins. The route continues west through Gansu and Hami into Altay; the atlas draws the Xinjiang section separately", "zh": "内蒙古阿拉善盟额济纳旗，旗府以西，所绘线段由此开始。路线继续向西经甘肃、哈密进入阿勒泰；新疆段在图集中另行绘出", "at": [100.25, 41.77] },
+    "end": { "en": "Fuyuan, Heilongjiang, south of the city, where the drawn line ends. The route's eastern terminus is Dandong, Liaoning, on the Yalu; the section from Fuyuan south along the Ussuri and through Jilin is not part of this piece", "zh": "黑龙江抚远，城区以南，所绘线段止于此。路线东端在辽宁丹东鸭绿江畔；自抚远沿乌苏里江南下、经吉林至丹东的路段不属于本段", "at": [134.29, 48.19] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G331 is the northern border road. In the national highway plan issued in June 2013 it runs from Dandong to Altay, and the plan's control points trace the frontier: Ji'an, Linjiang, Changbai, Tumen and Hunchun along the Yalu and Tumen; Dongning, Suifenhe, Mishan, Hulin and Raohe down to the Ussuri; Fuyuan, Tongjiang, Luobei, Jiayin, Xunke, Heihe, Huma and Mohe along the Amur; then Ergun, Manzhouli, Arxan, East Ujimqin, Abag, Sonid Left Banner and Erenhot across the Inner Mongolian grasslands, Ejin Banner in the desert, and Takeshiken, Qinghe, Fuyun, Altay, Burqin and Habahe in northern Xinjiang. The far side of the border is North Korea, Russia and Mongolia. Chinese Wikipedia puts the western end at the Akhtubek port in Habahe county, on the Kazakh border.",
+        "The 2013 plan added border and coastal routes to the national network; with G219 down the western border and G228 along the coast, G331 closes a ring round the country, with Dandong, Dongxing and Altay as its corners. Published lengths differ: Chinese Wikipedia gives 9,301 km, a 2024 China News Service report 9,333 km, and a 2026 Ministry of Transport briefing about 9,200 km.",
+        "The atlas draws G331 in several pieces. This profile is attached to the longest, which runs from Ejin Banner in western Inner Mongolia across the grasslands and Hulunbuir, then down the Amur in Heilongjiang to Fuyuan. Two shorter pieces in Xinjiang and two very short ones in Inner Mongolia are drawn separately; the eastern section through Jilin and Liaoning is not part of this piece."
+      ],
+      "zh": [
+        "G331 是沿北部边境的国道。按 2013 年 6 月印发的《国家公路网规划》，它自丹东至阿勒泰，主要控制点就是一条边境线：沿鸭绿江、图们江的集安、临江、长白、图们、珲春；南下乌苏里江的东宁、绥芬河、密山、虎林、饶河；沿黑龙江的抚远、同江、萝北、嘉荫、逊克、黑河、呼玛、漠河；再横越内蒙古草原的额尔古纳、满洲里、阿尔山、东乌珠穆沁旗、阿巴嘎旗、苏尼特左旗、二连浩特，穿过沙漠中的额济纳旗，到新疆北部的塔克什肯、青河、富蕴、阿勒泰、布尔津、哈巴河。边境另一侧依次是朝鲜、俄罗斯和蒙古国。据中文维基百科，路线西端在哈巴河县中哈边境的阿黑土别克口岸。",
+        "2013 年的规划在国道网中增设了沿边沿海路线；G331 与沿西部边境的 G219、沿海岸线的 G228 一起，以丹东、东兴、阿勒泰为衔接点，构成环绕国土的一圈。公布的里程不一：中文维基百科为 9301 公里，2024 年中新网报道为 9333 公里，2026 年交通运输部介绍为约 9200 公里。",
+        "本图集把 G331 分成若干段绘制。本条目挂在最长的一段上：自内蒙古西部额济纳旗起，横穿草原和呼伦贝尔，再沿黑龙江而下至抚远。新疆境内两段较短、内蒙古境内两段很短，均另行绘出；经吉林、辽宁的东段不属于本段。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The sections rebuilt so far are mostly class-II and class-III roads, and they are built in short seasons. On the Jilin section the province counted an effective working period of only seven months in a fourteen-month programme; in the Altai mountains the contractor on the Qinghe–Fuyun–Altay road had about five months a year. The Jilin rebuild of 2024–2025 widened 83 km round Changbai Mountain to a class-I road with a 19 m formation, built or rebuilt 178 km of class-II road, resurfaced 674 km, treated 560 rockfall, landslide and debris-flow sites, and added 95 service areas, lay-bys and viewpoints.",
+        "In Inner Mongolia the Arnuo'erbudun–Wuliyasitai section in East Ujimqin Banner, 245.3 km, was built as a class-II road with a 12 m formation for 80 km/h. In Hulunbuir the last stretch below third class, about 15 km of old fourth-class concrete road between Luoguhe and Enhehada at the Heilongjiang boundary, lies in the northern Greater Khingan forest, where frost damage to the road was widespread; its rebuilding began in May 2024.",
+        "The western end crosses empty country. The Hongling–Naomaohu section in Hami, 169.161 km of new class-II road for 80 km/h, runs across the Gobi and in places through uninhabited land without full mobile coverage; Hami's government says it shortens the route by 300 km. In Altay, the third contract of the Qinghe–Fuyun–Altay road, about 142 km built, crosses the Altai with a 1,883 m tunnel and 29 bridges and cuts more than 60 km from the road between Fuyun and Altay."
+      ],
+      "zh": [
+        "已改建的路段多为二、三级公路，都是在短暂的施工季里修成的。吉林段日历工期 14 个月，有效工期仅 7 个月；阿尔泰山区的青富阿公路，施工单位年均有效施工期只有 5 个月。2024—2025 年吉林段改造中，环长白山 83 公里改扩建为路基宽 19 米的一级公路，新改建二级公路 178 公里，路面改造 674 公里，综合治理崩塌、滑坡、泥石流等地质灾害 560 处，并建设服务区、停车区、观景台等服务设施 95 处。",
+        "内蒙古境内，东乌珠穆沁旗的阿尔诺尔布敦至乌里雅斯太段全长 245.3 公里，按二级公路标准建设，路基宽 12 米，设计时速 80 公里。呼伦贝尔境内最后一段三级以下公路，是与黑龙江交界处洛古河至恩和哈达约 15 公里的早期四级水泥路，地处大兴安岭北部原始林区，冻土病害十分普遍；其改造于 2024 年 5 月开工。",
+        "西端穿过的是空旷之地。哈密境内的红岭至淖毛湖段为新建二级公路，全长 169.161 公里，设计时速 80 公里，地处戈壁，多段途经无人区，通讯信号未完全覆盖；哈密市政府称其缩短里程 300 公里。阿勒泰境内，青富阿公路三标段实际建设约 142 公里，穿越阿尔泰山系，含 1883 米隧道 1 座、桥梁 29 座，使富蕴至阿勒泰路程缩短 60 多公里。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "G331 did not exist as a single route before the national highway plan of June 2013, which kept most of the old national network and added roads along the borders and the coast. What it numbered was a chain of existing roads. In Heilongjiang only about 20 per cent of the main line was asphalted before the rebuild; in Jilin the transport department described the old road as weak, in bad condition and often washed out. The provinces have since rebuilt it piece by piece, as a border-defence road and a tourist road.",
+        "Heilongjiang moved first. In August 2019 the provincial government, at the suggestion of the provincial military district, decided to build a border road along the Amur and Ussuri on the line of G331, and approved a plan for about 2,600 km from the Jilin boundary to the Inner Mongolia boundary. Work began in 2020 on the first phase, 1,700 km from Fuyuan to Mohe; by April 2024 the Ministry of National Defence reported more than 1,700 km built. In August 2024 the six provinces on the route formed a G331 border tourism alliance at Suifenhe.",
+        "The western gaps were closed in the 2020s. In Inner Mongolia the Arnuo'erbudun–Wuliyasitai section was finished in 2023, bringing 3,180 km of the region's G331 to third class or better. Between Gansu and Xinjiang, the 123 km Gansu section and the 169 km Hongling–Naomaohu section were completed in 2023 but opened as a through road only on 10 May 2025. Jilin rebuilt its whole 1,240 km section from July 2024 and opened it on 28 September 2025.",
+        "The road is not finished. In 2026 Heilongjiang had 472 km under construction, due at the end of 2027, and the Ministry of Transport said G331 would be completed through, broadly to third-class standard or better, in the 15th Five-Year Plan (2026–2030). On 5 July 2026 a lorry carrying ammonium nitrate collided with another lorry on G331 in Manduhbaolag, East Ujimqin Banner, and exploded, killing two people and injuring four."
+      ],
+      "zh": [
+        "2013 年 6 月《国家公路网规划》以前，并没有一条完整的 G331。这份规划保留了原国道网的主体，同时增设了沿边沿海路线；G331 编入的是一串原有道路。黑龙江段改造前主线沥青路面占比仅约 20％；吉林省交通部门称原有道路基础薄弱、路况恶劣、水毁频发。此后各省区分段改建，既作边防公路，也作旅游公路。",
+        "黑龙江最先动手。2019 年 8 月，省政府召开专题会议，采纳省军区代表的提议，依托 G331 沿黑龙江、乌苏里江建设一条边防公路，规划自黑吉界至黑蒙界，总里程约 2600 公里。2020 年，抚远至漠河段 1700 公里的一期工程启动；据国防部网站，截至 2024 年 4 月已建成 1700 余公里。2024 年 8 月，沿线六省区在绥芬河成立 G331 边境旅游联盟。",
+        "西段的缺口在 2020 年代补上。内蒙古阿尔诺尔布敦至乌里雅斯太段于 2023 年建成，全区 G331 三级及以上公路达到 3180 公里。甘肃与新疆之间，甘肃境内 123 公里路段和新疆红岭至淖毛湖 169 公里路段均于 2023 年建成，但直到 2025 年 5 月 10 日才作为省际通道正式通车。吉林自 2024 年 7 月起对境内 1240 公里全线改造，2025 年 9 月 28 日开通。",
+        "这条路还没有修完。2026 年，黑龙江境内在建里程 472 公里，预计 2027 年底通车；交通运输部表示，“十五五”（2026—2030 年）期间 G331 将全面贯通，基本达到三级及以上标准。2026 年 7 月 5 日，东乌珠穆沁旗满都宝力格镇境内 G331 线上，一辆拉运硝酸铵的运输车与另一辆运输车相撞后发生爆炸，致 2 死 4 伤。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost exists for G331 as a whole; each province prices its own projects. The largest are programmes rather than single roads: Heilongjiang's first phase, Fuyuan to Mohe, was put at 21.5 billion yuan in 2020, and Jilin's 1,240 km rebuild at an estimated 9.36 billion. Single sections are cheaper: 1.884 billion yuan for 245.3 km of new road in East Ujimqin, 793 million for 98.2 km in Qinghe county, and 233 million for resurfacing 143.26 km between Heishantou and Zhalainur.",
+        "The Ministry of Transport put the cost of finishing and upgrading the whole ring of G219, G331 and G228 — about 7,400 km of building and rebuilding in 2026–2030 — at about 370 billion yuan."
+      ],
+      "zh": [
+        "G331 没有全线总造价，各省区分别为本省项目计价。规模最大的是成片工程而非单个路段：黑龙江一期抚远至漠河段 2020 年公布总投资 215 亿元，吉林 1240 公里改造估算总投资 93.6 亿元。单个路段要少得多：东乌珠穆沁旗新建 245.3 公里总投资 18.84 亿元，青河县境内 98.2 公里总投资 7.93 亿元，黑山头至扎赉诺尔 143.26 公里改造总投资 2.33 亿元。",
+        "交通运输部估计，“十五五”期间贯通并提升 G219、G331、G228 整个环线，建设改造里程约 7400 公里，总投资约 3700 亿元。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "According to a 2024 trade-press report, the road became a mass self-drive destination from 2023, and most drivers do only a section of it. During the National Day and Mid-Autumn holiday of 2025, the first after Jilin's rebuilt section opened, the province counted 307,000 vehicle trips on it, up 410.8 per cent on the year before."
+      ],
+      "zh": [
+        "据 2024 年一篇行业媒体报道，这条路从 2023 年起成为大众自驾游热门线路，多数人只走其中一段。2025 年国庆、中秋假期是吉林段改造开通后的第一个长假，全省统计假日期间该路段交通量达 30.7 万辆次，较上年同期增长 410.8％。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Services are far apart in the west: between Gansu and Hami the road crosses Gobi and uninhabited country without full mobile coverage. In the north-east the building season is short, so long stretches may be under roadworks in summer; a 2024 trade-press survey of drivers also complained of the many speed-restricted stretches in Jilin before the rebuild.",
+        "The road follows the frontier closely; in Jilin, drivers can see the far banks of the Yalu and Tumen in North Korea and Russia."
+      ],
+      "zh": [
+        "西段服务设施相距很远：甘肃至哈密之间穿越戈壁和无人区，通讯信号未完全覆盖。东北地区施工季短，夏季可能有长段施工；2024 年一篇行业媒体报道还提到，改造前吉林段限速路段太多，影响自驾体验。",
+        "公路紧贴边境；在吉林段，隔着鸭绿江、图们江就能望见朝鲜和俄罗斯一侧。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide cost exists. G331 was assembled in 2013 from existing roads and is being rebuilt province by province; sourced project and programme figures are listed below.", "zh": "不存在全线总造价。G331 于 2013 年由原有道路编组而成，正由各省区分段改建；已查到来源的项目和工程包数字分列于下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "No route-wide funding statement. The Luoguhe–Enhehada section in Hulunbuir is supported by central vehicle-purchase-tax funds; the Jilin rebuild was described as strongly supported by the Ministry of Transport, without a breakdown. Other sections' funding is not published.", "zh": "未见全线出资说明。呼伦贝尔洛古河至恩和哈达段纳入交通运输部中央车购税重点支持范畴；吉林段改造称得到交通运输部大力支持，未见出资构成。其余路段出资未见公布。" },
+      "source": "内蒙古新闻网, 呼伦贝尔打通沿边国道“最后一公里”, 13 August 2024; Ministry of Transport online interview, 优质高效建成G331沿边开放旅游大通道, 26 December 2025"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "9,301 km (Chinese Wikipedia); 9,333 km (China News Service, 2024); about 9,200 km (Ministry of Transport, 2026). The sources do not agree.", "zh": "9301 公里（中文维基百科）；9333 公里（中新网，2024 年）；约 9200 公里（交通运输部，2026 年）。各来源不一致。" },
+      "source": "Chinese Wikipedia, 331国道; 中新网, 中国G331国道沿线省份协同发展边境旅游, 10 August 2024; 央视财经 via 华商网, 我国“黄金大外环”要来了, 24 August 2026"
+    },
+    {
+      "label": { "en": "Jilin section rebuild (1,240 km)", "zh": "吉林段改造（1240 公里）" },
+      "value": { "en": "9.36 billion yuan estimated total investment; built July 2024 – September 2025, opened 28 September 2025", "zh": "估算总投资 93.6 亿元；2024 年 7 月开工，2025 年 9 月 28 日开通" },
+      "source": "Jilin Provincial Department of Transport, online interview, 23 October 2025; Ministry of Transport online interview, 26 December 2025"
+    },
+    {
+      "label": { "en": "Heilongjiang phase 1, Fuyuan–Mohe (1,700 km)", "zh": "黑龙江一期抚远至漠河段（1700 公里）" },
+      "value": { "en": "21.5 billion yuan total investment, as announced in 2020; a programme of widening, resurfacing, links to scenic areas and service facilities, not 1,700 km of new road", "zh": "总投资 215 亿元（2020 年公布）；包括主线加宽罩面、景区连接线和服务设施，并非新建 1700 公里公路" },
+      "source": "Heilongjiang Transport Investment Group, reported by 黑龙江网 and 澎湃新闻, 2020"
+    },
+    {
+      "label": { "en": "Arnuo'erbudun–Wuliyasitai, East Ujimqin (245.3 km)", "zh": "阿尔诺尔布敦至乌里雅斯太段（245.3 公里）" },
+      "value": { "en": "1.884 billion yuan total investment; class-II road, main works complete August 2023", "zh": "总投资 18.84 亿元；二级公路，2023 年 8 月主体工程贯通" },
+      "source": "Xilingol League Transport Bureau, 17 August 2023"
+    },
+    {
+      "label": { "en": "Qinghe–Fuyun–Altay road, Xinjiang", "zh": "新疆青河至富蕴至阿勒泰段" },
+      "value": { "en": "Estimated at about 5.61 billion yuan for 429.491 km built, in the 2020 tender. From a tender-results notice on a trade website; not checked against the Xinjiang transport department.", "zh": "2020 年招标时估算总投资约 56.1 亿元，实际建设里程 429.491 公里。出自行业网站转载的中标结果公告，未与新疆交通运输厅核对。" },
+      "source": "news.lqsbcl.net, G331线青河至富蕴至阿勒泰段公路中标结果, 19 June 2020"
+    },
+    {
+      "label": { "en": "Mingshashan–Ulastai–Takeshiken, Qinghe county (98.2 km)", "zh": "鸣沙山至乌拉斯台至塔克什肯段（98.2 公里）" },
+      "value": { "en": "793 million yuan total investment; class-II road", "zh": "总投资 7.93 亿元；二级公路" },
+      "source": "中国网, G331线鸣沙山至乌拉斯台至塔克什肯公路(阿勒泰段)建设项目已完成78%, 11 May 2022"
+    }
+  ],
+  "timeline": [
+    { "year": 2013, "en": "The national highway plan of June creates G331, Dandong to Altay, as a new border route.", "zh": "6 月，《国家公路网规划》增设沿边路线 G331 丹东至阿勒泰。" },
+    { "year": 2019, "en": "Heilongjiang decides in August to build a 2,600 km border road on the line of G331.", "zh": "8 月，黑龙江决定依托 G331 建设约 2600 公里的边防公路。" },
+    { "year": 2020, "en": "Work starts on Heilongjiang's first phase, 1,700 km from Fuyuan to Mohe.", "zh": "黑龙江抚远至漠河段 1700 公里一期工程启动。" },
+    { "year": 2023, "en": "The Arnuo'erbudun–Wuliyasitai section in Inner Mongolia and the Hongling–Naomaohu section in Hami are completed.", "zh": "内蒙古阿尔诺尔布敦至乌里雅斯太段、哈密红岭至淖毛湖段建成。" },
+    { "year": 2024, "en": "Jilin starts rebuilding its 1,240 km section in July; the six provinces form a G331 border tourism alliance in August.", "zh": "7 月，吉林段 1240 公里改造开工；8 月，沿线六省区成立 G331 边境旅游联盟。" },
+    { "year": 2025, "en": "The Gansu–Xinjiang section opens on 10 May; the rebuilt Jilin section opens on 28 September.", "zh": "5 月 10 日，甘新省际通道正式通车；9 月 28 日，吉林段改造后开通。" },
+    { "year": 2026, "en": "An ammonium-nitrate lorry explodes after a collision in East Ujimqin on 5 July, killing two; in August the Ministry of Transport says G331 will be completed through by 2030.", "zh": "7 月 5 日，东乌珠穆沁旗一辆硝酸铵运输车碰撞后爆炸，2 人死亡；8 月，交通运输部表示“十五五”期间 G331 将全面贯通。" }
+  ]
+}
