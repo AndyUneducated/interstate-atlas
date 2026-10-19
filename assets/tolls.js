@@ -11,7 +11,16 @@
    in the route panel and not on the map,
    because nothing published says where on the ground a concession begins and
    ends. A grant date is not an opening date: for a title to build, it is the
-   earliest the road could have opened, and it is worded that way. */
+   earliest the road could have opened, and it is worded that way.
+
+   Taiwan's freeways are tolled by distance at ETC gantries, which the Freeway
+   Bureau lists with their positions and posted prices; a gantry is one point
+   for both directions. The prices are the posted ones, before the Bureau's
+   discounts, which the list does not give.
+
+   Hong Kong's tolled tunnels are the Transport Department's two toll tables,
+   flat and time-varying, placed at the toll points they name; the fare is
+   the private car's. */
 
 import { t, getLang, num, distKm, routeLabel } from './i18n.js';
 import { app, toast, select, whereOf, renderLegend } from './app.js';
@@ -22,7 +31,7 @@ const LINE_HIT = `${SRC}-line-hit`;
 const PT_HIT = `${SRC}-pt-hit`;
 const LAYERS = [`${SRC}-line-casing`, SRC, `${SRC}-plaza`, `${SRC}-pt`, LINE_HIT, PT_HIT];
 const COLOUR = '#ffd166';
-const COUNTRIES = ['ca', 'mx'];
+const COUNTRIES = ['ca', 'mx', 'tw', 'hk'];
 
 let on = false;
 let dataPromise = null;
@@ -58,7 +67,7 @@ async function ensureLayers() {
   await load();
   map.addSource(SRC, { type: 'geojson', data, promoteId: 'id' });
   const line = ['==', ['geometry-type'], 'LineString'];
-  const plaza = ['==', ['get', 'kind'], 'plaza'];
+  const plaza = ['in', ['get', 'kind'], ['literal', ['plaza', 'gantry']]];
   const point = ['all', ['==', ['geometry-type'], 'Point'], ['!', plaza]];
   map.addLayer({
     id: `${SRC}-line-casing`, type: 'line', source: SRC, filter: line,
@@ -106,6 +115,8 @@ async function ensureLayers() {
       const f = e.features?.[0];
       if (!f) return;
       if (f.properties.kind === 'plaza') openPlazaPopup(f.properties, e.lngLat);
+      else if (f.properties.kind === 'gantry') openGantryPopup(f.properties.id, e.lngLat);
+      else if (data.hk?.[f.properties.id]) openHkPopup(f.properties.id, e.lngLat);
       else openTollPopup(f.properties.id, e.lngLat);
     });
   }
@@ -122,16 +133,18 @@ export async function toggleTolls(force) {
   if (!on) closeTollPopup();
   document.getElementById('btnTolls').classList.toggle('on', on);
   renderLegend();
-  const plazas = data.features.filter((f) => f.properties.kind === 'plaza').length;
-  toast(on ? t('toast.tollOn', { n: Object.keys(data.facilities).length, p: num(plazas) }) : t('toast.tollOff'));
+  const count = (kind) => num(data.features.filter((f) => f.properties.kind === kind).length);
+  toast(!on ? t('toast.tollOff') : app.region === 'ea' ? t('toast.tollOnEa', { g: count('gantry'), h: count('tunnel') })
+    : t('toast.tollOn', { n: Object.keys(data.facilities).length, p: count('plaza') }));
 }
 
-/** This layer's part of the colour key: one colour, so the key is the three shapes it draws. */
+/** This layer's part of the colour key: one colour, so the key is the shapes it draws in this region. */
 export function tollsLegend() {
   if (!on || !COUNTRIES.some((cc) => regionOf(cc) === app.region)) return '';
   const row = (cls, key) => `<p class="lg-r"><i class="${cls}" style="--sys-col:${COLOUR}"></i><span>${t(key)}</span></p>`;
-  return `<div class="lg-b"><p class="lg-h">${t('base.tolls')}</p>`
-    + row('lg-dash', 'lg.tollLine') + row('lg-ring', 'toll.kind.bridge') + row('lg-pt', 'toll.kind.plaza') + '</div>';
+  const rows = app.region === 'ea' ? row('lg-pt', 'toll.kind.gantry') + row('lg-ring', 'toll.kind.tunnel')
+    : row('lg-dash', 'lg.tollLine') + row('lg-ring', 'toll.kind.bridge') + row('lg-pt', 'toll.kind.plaza');
+  return `<div class="lg-b"><p class="lg-h">${t('base.tolls')}</p>${rows}</div>`;
 }
 
 export function closeTollPopup() {
@@ -253,6 +266,88 @@ function openPlazaPopup(p, lngLat) {
   popup = pop;
 }
 
+/** 3A in English; 1號 and 3甲 as the freeway is written in Chinese. */
+const fwyNumber = (n) => (getLang() !== 'zh' ? n : /A$/.test(n) ? n.replace(/A$/, '甲') : `${n}号`);
+
+/** A Taiwanese gantry: the section it charges in each direction, and the posted prices. */
+function openGantryPopup(id, lngLat) {
+  const g = data.gantries?.[id];
+  if (!g) return;
+  closeTollPopup();
+  const s = data.sources.twGantries;
+  const rows = g.dirs.map((d) => `<div class="tl-meta"><b>${esc(t(`toll.tw.dir.${d.dir}`))}</b>
+      <span lang="zh">${esc(d.from)} → ${esc(d.to)}</span>${d.km ? ` · ${esc(distKm(d.km, 1))}` : ''}</div>
+    <div class="tl-meta">${esc(t('toll.tw.fares', Object.fromEntries(['a', 'b', 'c'].map((k, i) => [k, d.fares[i] == null ? '–' : money(d.fares[i], 'TWD')]))))}</div>`);
+  const pop = new maplibregl.Popup({ className: 'xg-pop tl-pop', maxWidth: '320px', offset: 8 })
+    .setLngLat(lngLat)
+    .setHTML(`<div class="xg">
+      <div class="xg-k" style="--c:${COLOUR}">${esc(t('toll.kind.gantry'))}</div>
+      <div class="xg-n">${esc(t(g.viaduct ? 'toll.tw.nameViaduct' : 'toll.tw.name', { n: fwyNumber(g.number), km: num(g.at, 1) }))}</div>
+      ${rows.join('')}
+      <div class="tl-f">${esc(t('toll.tw.posted'))}</div>
+      <div class="tl-f">${src(s.title, s.url)} · ${esc(t('toll.plaza.updated', { date: dateText(s.updated) }))}</div>
+    </div>`)
+    .addTo(app.map);
+  pop.on('close', () => { if (popup === pop) popup = null; });
+  popup = pop;
+}
+
+/** A Hong Kong tunnel's private-car toll, flat or by time of day, and where it was placed. */
+function hkBody(id) {
+  const f = data.hk[id];
+  const s = data.sources.hkTolls;
+  const hkd = (v) => num(v, Number.isInteger(v) ? 0 : 1);
+  const span = ([lo, hi]) => t('toll.money', { amount: lo === hi ? hkd(lo) : `${hkd(lo)}–${hkd(hi)}`, currency: t('toll.cur.HKD') });
+  const rows = [];
+  if (f.flat) {
+    rows.push(`<div class="tl-meta">${esc(t('toll.hk.flat', { p: span([f.flat.toll, f.flat.toll]) }))}${f.flat.concession != null
+      ? ` · ${esc(t('toll.hk.concession', { p: span([f.flat.concession, f.flat.concession]) }))}` : ''}
+      <span>${esc(t('toll.fare.from', { date: dateText(f.flat.from) }))}</span></div>`);
+  }
+  if (f.varying) {
+    rows.push(`<div class="tl-meta">${esc(t('toll.hk.varying', { a: span(f.varying.A), b: span(f.varying.B) }))}
+      <span>${esc(t('toll.fare.from', { date: dateText(f.varying.from) }))}</span></div>`);
+  }
+  rows.push(`<div class="tl-f">${esc(t(f.placed === 'name' ? 'toll.hk.byName' : 'toll.hk.byPoint'))}</div>`);
+  rows.push(`<div class="tl-f">${src(s.title, s.url)} · ${esc(t('toll.plaza.updated', { date: dateText(s.updated) }))}</div>`);
+  return rows.join('');
+}
+
+function openHkPopup(id, lngLat) {
+  closeTollPopup();
+  const pop = new maplibregl.Popup({ className: 'xg-pop tl-pop', maxWidth: '320px', offset: 10 })
+    .setLngLat(lngLat)
+    .setHTML(`<div class="xg">
+      <div class="xg-k" style="--c:${COLOUR}">${esc(t('toll.kind.tunnel'))}</div>
+      <div class="xg-n">${esc(pick(data.hk[id].name))}</div>
+      ${hkBody(id)}
+    </div>`)
+    .addTo(app.map);
+  pop.on('close', () => { if (popup === pop) popup = null; });
+  popup = pop;
+}
+
+/** A Taiwanese freeway's tolling: its gantries now, the stations they replaced. */
+function twBody(id) {
+  const r = data.twRoutes?.[id];
+  if (!r) return '';
+  const gs = data.sources.twGantries, ss = data.sources.twStations;
+  const rows = [];
+  rows.push(r.gantries
+    ? `<div class="tl-meta">${esc(t('toll.tw.charged', { n: r.gantries, d: distKm(r.tolledKm, 1) }))}${r.viaduct
+      ? ` ${esc(t('toll.tw.viaduct', { n: r.viaduct }))}` : ''}</div>`
+    : `<div class="tl-meta">${esc(t('toll.tw.none'))}</div>`);
+  rows.push(`<div class="tl-f">${src(gs.title, gs.url)} · ${esc(t('toll.plaza.updated', { date: dateText(gs.updated) }))}</div>`);
+  if (r.stations.length) {
+    rows.push(`<div class="tl-h">${esc(t('toll.tw.stations', { n: r.stations.length }))}</div><ul class="tl-list">${r.stations.map((s) => `<li>
+      <b lang="zh">${esc(s.name)}</b> <span>${esc(s.at)}</span>
+      <span>${esc(t('toll.tw.charging', { from: dateText(s.from), to: dateText(s.to) }))}</span>
+      ${s.note ? `<em lang="zh">${esc(s.note)}</em>` : ''}</li>`).join('')}</ul>`);
+    rows.push(`<div class="tl-f">${src(ss.title, ss.url)}</div>`);
+  }
+  return `<div class="tl-item">${rows.join('')}</div>`;
+}
+
 /* ── the route panel ───────────────────────────────────────────────────── */
 
 function titleBody(n, sictNames) {
@@ -279,6 +374,13 @@ export async function tollSection(routeId) {
   if (!entries?.length) return '';
   const parts = [];
   for (const e of entries) {
+    if (e.tw) parts.push(twBody(routeId));
+    if (e.hk) {
+      parts.push(`<div class="tl-item">
+        <div class="tl-name"><b>${esc(pick(d.hk[e.hk].name))}</b><span>${esc(t('toll.rel.on'))}</span></div>
+        ${hkBody(e.hk)}
+      </div>`);
+    }
     if (e.facility) {
       const f = d.facilities[e.facility];
       parts.push(`<div class="tl-item">

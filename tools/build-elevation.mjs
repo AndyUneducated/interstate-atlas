@@ -4,6 +4,8 @@
 //   node tools/build-elevation.mjs i-70 i-80  # named routes, by route id
 //   node tools/build-elevation.mjs --all      # every primary Interstate and US route
 //   node tools/build-elevation.mjs --east-asia  # every mainland national route, Taiwan, Hong Kong
+//   node tools/build-elevation.mjs --north-america  # every Interstate, US route, Trans-Canada,
+//                                                   # NHS route and Mexican federal route
 //
 // Run it after `npm run build`: the dossier list is read from data/dossiers/,
 // where each profile is already filed under the route id the site looks up.
@@ -174,12 +176,16 @@ async function main() {
   // the mainland's national network, and everything in Taiwan and Hong Kong.
   const eastAsia = args.includes('--east-asia');
   const EA_SYSTEMS = new Set(['cn-expressway', 'cn-national', 'tw-freeway', 'tw-provincial', 'hk-route']);
+  // North America's national tiers; the state and provincial ones stay
+  // without, being tens of thousands of routes a reader opens one at a time.
+  const northAmerica = args.includes('--north-america');
+  const NA_SYSTEMS = new Set(['us-interstate', 'us-numbered', 'ca-tch', 'ca-nhs', 'mx-federal']);
   const named = args.filter((a) => !a.startsWith('--'));
 
   // A dossier's filename is not its route id - the content build resolves it
   // by number and place - so the list comes from what that build published.
   let wanted = new Set(named);
-  if (!named.length && !eastAsia) {
+  if (!named.length && !eastAsia && !northAmerica) {
     const manifest = join(ROOT, 'data', 'dossiers', 'index.json');
     if (!existsSync(manifest)) throw new Error('data/dossiers/index.json is missing: run npm run build first');
     wanted = new Set(JSON.parse(await readFile(manifest, 'utf8')).ids);
@@ -195,7 +201,7 @@ async function main() {
       for (const f of fc.features) {
         const p = f.properties;
         const inAll = all && (s.id === 'us-numbered' || (s.id === 'us-interstate' && p.tier === 'primary'));
-        if (inAll || (eastAsia && EA_SYSTEMS.has(s.id)) || wanted.has(p.id)) features.push(f);
+        if (inAll || (eastAsia && EA_SYSTEMS.has(s.id)) || (northAmerica && NA_SYSTEMS.has(s.id)) || wanted.has(p.id)) features.push(f);
       }
     }
   }

@@ -3,7 +3,7 @@
 Work to bring the East Asian routes (mainland China, Taiwan, Hong Kong) to the depth and breadth of
 the North American ones. Paused on 2026-10-14; this file is where to pick it up. What each figure
 is and where it comes from stays in [DATA-SOURCES.md](DATA-SOURCES.md) (§4 coverage table,
-D-60 to D-77); this file only tracks the work.
+D-60 onward); this file only tracks the work.
 
 ## Done
 
@@ -25,10 +25,10 @@ Smallest first.
 
 | # | Work | Source | Decided |
 | --- | --- | --- | --- |
-| P1 | Taiwan freeway official lengths | Freeway Bureau 路段基本資訊 v2.0 (data.gov.tw 37652) | the end chainage is shown as the official length, source named |
-| P2 | Taiwan freeway tolls: toll share per freeway, gantries on the toll layer | 國道計費門架座標及里程牌價表 (data.gov.tw 21165); toll-station dates (118759) | |
-| P3 | Hong Kong tunnel and bridge tolls on the toll layer and route panel | Transport Department, Road Network (2nd generation), toll tables | |
-| P4 | Elevation profiles for every Interstate, US route, Trans-Canada, NHS route and Mexican federal route | AWS Terrain Tiles (X-2), as now | main routes only; state and provincial routes stay without |
+| P1 | Taiwan freeway official lengths | Freeway Bureau 路段基本資訊 v2.0 (data.gov.tw 37652) | **done** 2026-10-19 (TW-6, D-78): the end chainage is shown as the official length, source named |
+| P2 | Taiwan freeway tolls: toll share per freeway, gantries on the toll layer | 國道計費門架座標及里程牌價表 (data.gov.tw 21165); toll-station dates (118759) | **done** 2026-10-19 (TW-7, TW-8, D-79) |
+| P3 | Hong Kong tunnel and bridge tolls on the toll layer and route panel | Transport Department, Road Network (2nd generation), toll tables | **done** 2026-10-19 (HK-5, D-80): nine tunnels, private-car toll |
+| P4 | Elevation profiles for every Interstate, US route, Trans-Canada, NHS route and Mexican federal route | AWS Terrain Tiles (X-2), as now | **done** 2026-10-19 (D-81): main routes only; state and provincial routes stay without |
 | P5 | Mainland and Hong Kong land border crossings | National Office of Port Administration list of 84 highway ports, placed at OpenStreetMap's border-control points | labelled as placed by OpenStreetMap |
 | P6 | Quebec bridges with year built | MTMD Structure (Données Québec), WFS | |
 | P7 | US bridges with year built | FHWA National Bridge Inventory | only bridges that carry an atlas route |

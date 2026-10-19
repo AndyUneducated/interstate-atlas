@@ -35,7 +35,7 @@ import { loadChina, chinaLabel, placeFinder, PROVINCE_CODE } from './china.mjs';
 import { writeOut } from './write.mjs';
 import { addNamedFreeways } from './named-freeways.mjs';
 import { loadTchList, tchFlags } from './tch.mjs';
-import { loadTaiwan, loadRegister, taiwanLabel } from './taiwan.mjs';
+import { loadTaiwan, loadRegister, loadFreewayLengths, taiwanLabel } from './taiwan.mjs';
 import { loadHongKong, hongKongLabel } from './hongkong.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
@@ -1521,8 +1521,9 @@ async function buildEastAsia() {
 
   const tw = await loadTaiwan();
   const register = await loadRegister();
+  const chainage = await loadFreewayLengths();
   if (tw) {
-    sources.tw = { edition: tw.edition, provisional: tw.provisional, register: register?.size ?? 0 };
+    sources.tw = { edition: tw.edition, provisional: tw.provisional, register: register?.size ?? 0, freeways: chainage?.size ?? 0 };
     for (const grp of tw.groups.values()) {
       const freeway = grp.system === 'tw-freeway';
       const first = stitchRoute(grp.parts, { snapDeg: US_SNAP, bridgeKm: freeway ? 30 : 20, minComponentKm: 0.8, dedupe: true, bridgeFromExtremities: true });
@@ -1542,18 +1543,20 @@ async function buildEastAsia() {
         label: taiwanLabel(grp.system, grp.number),
         named: [...grp.names].slice(0, 4),
       });
-      const reg = freeway ? null : register?.get(grp.number);
+      // A freeway's official length is the chainage at its far end (D-78).
+      const reg = (freeway ? chainage : register)?.get(grp.number);
       const longest = routes.slice(before).sort((a, b) => b.mi - a.mi)[0];
-      if (reg && longest) {
+      if (reg?.km && longest) {
         longest.offMi = reg.km / KM_PER_MI;
-        longest.offSrc = 'thb';
+        longest.offSrc = freeway ? 'nfb' : 'thb';
         longest.register = { from: reg.from, to: reg.to, places: reg.places, km: reg.km, updated: reg.updated };
       }
     }
     const missing = register ? [...register.keys()].filter((n) => !tw.groups.has(`tw-provincial|${n}`)) : [];
     sources.tw.unmapped = missing;
     console.log(`  ${routes.length} Taiwanese routes from ${tw.read} centrelines`
-      + ` (${tw.provisional} provisional 臨 segments left out); register ${register?.size ?? 0} routes,`
+      + ` (${tw.provisional} provisional 臨 segments left out); chainage for ${chainage?.size ?? 0} freeways;`
+      + ` register ${register?.size ?? 0} routes,`
       + ` ${missing.length} without geometry${missing.length ? `: ${missing.join(' ')}` : ''}`);
   }
 

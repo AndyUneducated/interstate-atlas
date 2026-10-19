@@ -1130,7 +1130,7 @@ await step('toll facilities draw, show dated fares, and appear in the route pane
     await new Promise((res) => map.once('idle', res));
     const p = map.project(c);
     const r = map.getCanvas().getBoundingClientRect();
-    return { x: r.left + p.x, y: r.top + p.y, n: d.features.filter((x) => x.properties.kind !== 'plaza').length };
+    return { x: r.left + p.x, y: r.top + p.y, n: Object.keys(d.facilities).filter((id) => d.facilities[id].drawn).length };
   });
   if (!pt) throw new Error('the Confederation Bridge is not drawn');
   if (pt.n !== 7) throw new Error(`expected seven toll facilities, found ${pt.n}`);
@@ -1353,6 +1353,60 @@ await step('the Sun Yat-sen Freeway dossier gives cost, funding and its ends the
   const south = await page.textContent('#detail .termini .term.from');
   if (!/Southern/i.test(south) || !/Xinsheng Road/.test(south)) throw new Error(`the southern end reads ${south}`);
   if (/服務區|轉接道/.test(text)) throw new Error('service areas listed as roads it follows');
+});
+
+await step('Taiwanese freeways give the Freeway Bureau length and their ETC gantries', async () => {
+  await page.click('#dtClose');
+  await page.evaluate(() => window.__select('tw-fwy-8'));
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1500);
+  let text = await page.textContent('#detail');
+  if (!/Freeway Bureau section chainage/.test(text)) throw new Error('no Freeway Bureau length on Fwy 8');
+  if (!/Freeway Bureau ends/.test(await page.textContent('.termini'))) throw new Error('no Freeway Bureau ends on Fwy 8');
+  if (!/lists no charging gantry/.test(text)) throw new Error('Fwy 8 does not say it has no gantry');
+  await page.click('#dtClose');
+  await page.evaluate(() => window.__select('tw-fwy-3'));
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(1500);
+  text = await page.textContent('#detail');
+  if (!/78 ETC gantries each way charge by distance over [\d.,]+ (km|mi)/.test(text)) throw new Error('Fwy 3 gives no tolled distance');
+  if (!/樹林收費站/.test(text)) throw new Error('Fwy 3 lists no former toll station');
+  await page.click('#dtClose');
+  await jsClick('#btnTolls');
+  await waitForSource('toll');
+  if (!await page.locator('#legend .lg-pt').count() || await page.locator('#legend .lg-dash').count()) {
+    throw new Error('East Asian toll key is not the gantry alone');
+  }
+  const pt = await page.evaluate(async () => {
+    const d = await (await fetch('data/tolls.json')).json();
+    const gs = d.features.filter((x) => x.properties.kind === 'gantry');
+    const f = gs.find((x) => d.gantries[x.properties.id]?.number === '1' && !d.gantries[x.properties.id].viaduct && d.gantries[x.properties.id].at > 150);
+    const map = window.__map;
+    map.jumpTo({ center: f.geometry.coordinates, zoom: 13, pitch: 0, bearing: 0 });
+    await new Promise((res) => map.once('idle', res));
+    const p = map.project(f.geometry.coordinates);
+    const r = map.getCanvas().getBoundingClientRect();
+    return { x: r.left + p.x, y: r.top + p.y, n: gs.length };
+  });
+  if (pt.n < 150) throw new Error(`expected over 150 gantries, found ${pt.n}`);
+  await page.mouse.click(pt.x, pt.y);
+  await page.waitForSelector('.tl-pop .tl-meta', { timeout: 8000 });
+  const pop = await page.textContent('.tl-pop');
+  if (!/Southbound/.test(pop) || !/TWD/.test(pop)) throw new Error(`gantry popup lacks direction or price: ${pop.slice(0, 160)}`);
+  await shot('20b-taiwan-gantry.png');
+  if (!await page.locator('#legend .lg-ring').count()) throw new Error('no Hong Kong toll tunnel in the East Asian toll key');
+  await jsClick('#btnTolls');
+  if (await page.locator('.tl-pop').count()) throw new Error('gantry popup outlived its layer');
+});
+
+await step('Hong Kong Route 3 gives its tunnels\' time-varying tolls', async () => {
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => window.__select('hk-3'));
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForSelector('#dtTolls .tl-item', { timeout: 15000, state: 'attached' });
+  const text = await page.textContent('#dtTolls');
+  if (!/Western Harbour Crossing/.test(text) || !/Tai Lam Tunnel/.test(text)) throw new Error(`Route 3 tolls: ${text.slice(0, 160)}`);
+  if (!/by time of day: 20–60 HKD/.test(text)) throw new Error('Route 3 does not give the crossing\'s time-varying range');
 });
 
 await step('a Chinese province loads its provincial roads', async () => {

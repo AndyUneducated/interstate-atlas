@@ -20,12 +20,18 @@
 //
 // Mexico's toll plazas are drawn as points from the RNC's plaza_cobro layer in
 // tools/src/mx/, which fetch-mexico.mjs downloads with the road network.
+//
+// Taiwan's ETC charging gantries are drawn as points from the Freeway Bureau's
+// list in tools/src/tw/, one point for both directions of a gantry, and each
+// freeway's route panel gets its tolled distance and the toll stations the
+// gantries replaced (D-79).
 
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import * as shapefile from 'shapefile';
 import { geoPath, systemOfCode, IX } from '../assets/schema.js';
 import { writeOut } from './write.mjs';
+import { loadFreewayTolls } from './taiwan.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUT = join(ROOT, 'data', 'tolls.json');
@@ -34,6 +40,9 @@ const LENGTH_TOLERANCE = 0.1;
 // A bridge is placed at its Canadian plaza, and a route that runs onto it from
 // the far bank reaches it a bridge's length away.
 const NEAR_KM = 2;
+// A Hong Kong toll point stands on its tunnel's approach, and the route drawn
+// through it can be a carriageway's width or two away.
+const HK_NEAR_KM = 0.3;
 
 const read = async (p) => JSON.parse(await readFile(join(ROOT, p), 'utf8'));
 const linesOf = (g) => (g.type === 'LineString' ? [g.coordinates] : g.type === 'MultiLineString' ? g.coordinates : []);
@@ -255,6 +264,113 @@ async function main() {
     plazaCount++;
   }
 
+  // Taiwan's freeways, from the Freeway Bureau's own lists. A gantry is where
+  // the charge for one section is levied, so a freeway's tolled distance is
+  // the sum of its gantries' sections in the direction that has more. Every
+  // freeway gets an entry, so one with no gantry says so.
+  const twTolls = await loadFreewayTolls();
+  const gantries = {};
+  const twRoutes = {};
+  const twSources = {};
+  let gantryCount = 0;
+  if (twTolls) {
+    const tw = await read('tools/src/tw/editions.json');
+    for (const r of index.routes.filter((x) => systemOfCode(x[IX.sys])?.id === 'tw-freeway')) {
+      twRoutes[r[IX.id]] = { number: String(r[IX.num]), gantries: 0, viaduct: 0, tolledKm: 0, stations: [] };
+    }
+    const routeOf = (number) => `tw-fwy-${number.toLowerCase()}`;
+    const sums = {};
+    for (const g of twTolls.gantries) {
+      const route = twRoutes[routeOf(g.number)];
+      if (!route) { report.push(`  gantry ${g.id}: no atlas freeway ${g.number}`); continue; }
+      const id = `tw-gantry-${g.id}`;
+      gantries[id] = { number: g.number, viaduct: g.elevated, at: g.at, dirs: g.dirs };
+      features.push({ type: 'Feature', id, properties: { id, kind: 'gantry' }, geometry: { type: 'Point', coordinates: round(g.coord) } });
+      gantryCount++;
+      for (const d of g.dirs) {
+        const k = `${g.number}|${g.elevated ? 'v' : 'm'}|${d.dir}`;
+        sums[k] ??= { n: 0, km: 0 };
+        sums[k].n++;
+        sums[k].km += d.km ?? 0;
+      }
+    }
+    // Counted per direction: the two directions' gantries do not always
+    // stand at the same chainage, so a point is not a pair.
+    for (const [k, v] of Object.entries(sums)) {
+      const [number, line] = k.split('|');
+      const route = twRoutes[routeOf(number)];
+      if (line === 'v') { route.viaduct = Math.max(route.viaduct, v.n); continue; }
+      route.gantries = Math.max(route.gantries, v.n);
+      route.tolledKm = Math.max(route.tolledKm, Math.round(v.km * 10) / 10);
+    }
+    for (const s of twTolls.stations) {
+      const route = twRoutes[routeOf(s.number)];
+      if (!route) { report.push(`  toll station ${s.name}: no atlas freeway ${s.number}`); continue; }
+      route.stations.push({ name: s.name, at: s.at, built: s.built, from: s.from, to: s.to, note: s.note });
+    }
+    for (const [id, route] of Object.entries(twRoutes)) {
+      attach(id, { tw: true });
+      report.push(`  ${id}: ${route.gantries} gantries${route.viaduct ? ` + ${route.viaduct} on the viaduct` : ''}, ${route.tolledKm} km tolled, ${route.stations.length} former stations`);
+    }
+    twSources.twGantries = { title: tw.gantries.source, url: tw.gantries.url, updated: tw.gantries.edition };
+    twSources.twStations = { title: tw.stations.source, url: tw.stations.url, updated: tw.stations.edition };
+  }
+
+  // Hong Kong's tolled tunnels, from the Transport Department's two toll
+  // tables. Each names the toll points it is paid at, and a facility is drawn
+  // at their middle; one whose points are not among the traffic features is
+  // drawn at the middle of the strategic-route centrelines that carry its
+  // name. A backup toll point shares its tunnel's rates and is not a second
+  // facility. The fare shown is the private car's (D-80).
+  const hkTolls = await read('tools/src/hk/tolls.json').catch(() => null);
+  const hk = {};
+  if (hkTolls) {
+    const hkGeo = (await read(`data/geo/${geoPath('hk-route')}`)).features.map((x) => ({ id: x.properties.id, lines: linesOf(x.geometry) }));
+    const centrelines = (await read('tools/src/hk/routes.json')).features;
+    const points = new Map(hkTolls.points.map((p) => [p.id, p.at]));
+    const slug = (s) => `hk-${s.toLowerCase().replace(/'/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+    const rows = [...hkTolls.flat.map((r) => ({ ...r, kind: 'flat' })), ...hkTolls.varying.map((r) => ({ ...r, kind: 'varying' }))]
+      .filter((r) => !/Backup Toll Point/i.test(r.name));
+    for (const r of rows) {
+      const id = slug(r.name);
+      const f = hk[id] ??= { name: { en: r.name, zh: r.nameZh }, points: new Set(), flat: null, varying: null, updated: null };
+      r.points.forEach((p) => f.points.add(p));
+      if (r.updated && (!f.updated || r.updated > f.updated)) f.updated = r.updated;
+      if (r.vehicle !== 'PC') continue;
+      if (r.kind === 'flat') f.flat = { toll: r.toll, concession: r.concession !== r.toll ? r.concession : null, from: r.from };
+      else {
+        f.varying ??= { from: r.from, A: [Infinity, 0], B: [Infinity, 0] };
+        const band = f.varying[r.days];
+        if (band) { band[0] = Math.min(band[0], r.toll); band[1] = Math.max(band[1], r.toll); }
+      }
+    }
+    for (const [id, f] of Object.entries(hk)) {
+      const found = [...f.points].map((p) => points.get(p)).filter(Boolean);
+      let at = null;
+      if (found.length) {
+        at = [0, 1].map((k) => found.reduce((s, p) => s + p[k], 0) / found.length);
+        f.placed = 'point';
+      } else {
+        const named = centrelines.filter((c) => c.properties.STREET_ENAME === f.name.en.toUpperCase());
+        const vs = named.flatMap((c) => linesOf(c.geometry).flat());
+        if (vs.length) {
+          at = [0, 1].map((k) => vs.reduce((s, p) => s + p[k], 0) / vs.length);
+          f.placed = 'name';
+        }
+      }
+      delete f.points;
+      if (!at) { report.push(`  ${id}: NOT DRAWN, no toll point and no centreline by its name`); f.placed = null; continue; }
+      features.push({ type: 'Feature', id, properties: { id, kind: 'tunnel' }, geometry: { type: 'Point', coordinates: round(at) } });
+      // Each tunnel carries one strategic route; the next nearest is a road
+      // that meets it at the portal.
+      const near = hkGeo.map((r) => ({ id: r.id, km: Math.min(...r.lines.map((l) => snap(at, l).km)) }))
+        .sort((a, b) => a.km - b.km).slice(0, 1).filter((r) => r.km <= HK_NEAR_KM);
+      for (const r of near) attach(r.id, { hk: id });
+      report.push(`  ${id}: by ${f.placed}; routes ${near.map((r) => `${r.id} ${(r.km * 1000).toFixed(0)} m`).join(', ') || 'none'}; car ${f.flat ? `HK$${f.flat.toll}` : `HK$${f.varying.A[0]}-${f.varying.A[1]}`}`);
+    }
+    twSources.hkTolls = { title: hkTolls.source, url: hkTolls.url, updated: hkTolls.updated, retrieved: hkTolls.retrieved };
+  }
+
   const out = {
     generated: new Date().toISOString().slice(0, 10),
     nearKm: NEAR_KM,
@@ -262,18 +378,23 @@ async function main() {
       mx: mx.source,
       mxNames: { title: 'Datos Viales 2025', agency: designations.agency, url: designations.url },
       mxPlazas: { title: rnc.source, url: rnc.programme, updated: rnc.updated, retrieved: rnc.retrieved },
+      ...twSources,
     },
     mxRetrieved: mx.retrieved,
     caRetrieved: ca.retrieved,
     facilities,
     titles,
+    gantries,
+    twRoutes,
+    hk,
     byRoute,
     type: 'FeatureCollection',
     features,
   };
   await writeOut(OUT, `${JSON.stringify(out)}\n`);
-  console.log(`tolls: ${features.length - plazaCount} of ${ca.facilities.length} Canadian facilities drawn;`
-    + ` ${plazaCount} Mexican toll plazas;`
+  const hkDrawn = Object.values(hk).filter((f) => f.placed).length;
+  console.log(`tolls: ${features.length - plazaCount - gantryCount - hkDrawn} of ${ca.facilities.length} Canadian facilities drawn;`
+    + ` ${plazaCount} Mexican toll plazas; ${gantryCount} Taiwanese gantries; ${hkDrawn} of ${Object.keys(hk).length} Hong Kong tunnels;`
     + ` ${linked} of ${mx.titles.length} Mexican titles linked to ${Object.keys(byRoute).filter((k) => byRoute[k].some((e) => e.title)).length} routes`);
   for (const line of report) console.log(line);
 }

@@ -1969,7 +1969,7 @@ function renderAbout() {
       ['ca', `几何取自加拿大统计局《${L('https://www.statcan.gc.ca/en/lode/databases/odr', '国家道路网')}》，NHS 名录取自交通部，车流量取自公开批量数据的七个省与地区。`],
       ['mx', `几何取自 INEGI《${L('https://www.inegi.org.mx/programas/rnc/', '国家道路网')}》2025 版，车流量取自 SICT《${L('https://www.datos.gob.mx/dataset/datos_viales', 'Datos Viales')}》。`],
       ['cn', `几何取自 ${L('https://www.openstreetmap.org/copyright', 'OpenStreetMap')} 贡献者（Geofabrik 提取，ODbL 许可）——官方的天地图对境外访问不开放，这是本站唯一一处非官方几何来源，没有官方里程与车流。`],
-      ['tw', `几何取自国土测绘中心《${L('https://data.gov.tw/dataset/73232', '道路中心線')}》，省道官方里程取自交通部公路局《${L('https://data.gov.tw/dataset/105020', '省道公路路線表')}》。`],
+      ['tw', `几何取自国土测绘中心《${L('https://data.gov.tw/dataset/73232', '道路中心線')}》，省道官方里程取自交通部公路局《${L('https://data.gov.tw/dataset/105020', '省道公路路線表')}》，国道里程取自高速公路局《${L('https://data.gov.tw/dataset/37652', '路段基本資訊')}》。`],
       ['hk', `几何取自运输署《${L('https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844', '道路網絡')}》（空间数据共享平台）。`],
     ], '底图 OpenFreeMap（OpenStreetMap），卫星影像 Esri，地形 Mapzen。'],
     read: ['怎么读', [
@@ -1986,7 +1986,7 @@ function renderAbout() {
       ['ca', `Geometry from Statistics Canada's ${L('https://www.statcan.gc.ca/en/lode/databases/odr', 'National Road Network')}, the NHS from Transport Canada, traffic from the seven jurisdictions that publish counts in bulk.`],
       ['mx', `Geometry from INEGI's ${L('https://www.inegi.org.mx/programas/rnc/', 'Red Nacional de Caminos')} 2025, traffic from SICT's ${L('https://www.datos.gob.mx/dataset/datos_viales', 'Datos Viales')}.`],
       ['cn', `Geometry from ${L('https://www.openstreetmap.org/copyright', 'OpenStreetMap')} contributors (Geofabrik extract, ODbL) - the official Tianditu service is closed to access from abroad, so this is the one place the atlas draws on a source that is not an authority, and there are no official lengths or traffic.`],
-      ['tw', `Geometry from the NLSC's ${L('https://data.gov.tw/dataset/73232', 'road centrelines')}, provincial official lengths from the Highway Bureau's ${L('https://data.gov.tw/dataset/105020', 'provincial highway register')}.`],
+      ['tw', `Geometry from the NLSC's ${L('https://data.gov.tw/dataset/73232', 'road centrelines')}, provincial official lengths from the Highway Bureau's ${L('https://data.gov.tw/dataset/105020', 'provincial highway register')}, freeway lengths from the Freeway Bureau's ${L('https://data.gov.tw/dataset/37652', 'section chainages')}.`],
       ['hk', `Geometry from the Transport Department's ${L('https://portal.csdi.gov.hk/csdi-webpage/dataset/td_rcd_1638949160594_2844', 'Road Network')}, on the CSDI portal.`],
     ], 'Base map OpenFreeMap (OpenStreetMap), imagery Esri, terrain Mapzen.'],
     read: ['How to read it', [

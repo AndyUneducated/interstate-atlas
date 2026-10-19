@@ -432,7 +432,8 @@ function loadHkRoutes() {
  * The ends an authority lists for the route, under the two drawn ones.
  *
  * A mainland route's are the plan's, as its OSM relation is tagged; a
- * Taiwanese provincial highway's are the Highway Bureau's register. Both are
+ * Taiwanese provincial highway's are the Highway Bureau's register, a freeway's
+ * the Freeway Bureau's places at 0K and at its far end. All are
  * quoted, not matched to the geometry, so they do not say which drawn end is
  * which, and they are in the script the authority wrote them in.
  */
@@ -444,7 +445,7 @@ function listedEnds(p, names) {
   if (!from && !to && !full) return '';
   const ends = [from, to].filter(Boolean).join(' — ');
   const body = [full, ends].filter(Boolean).map((s) => esc(s)).join(getLang() === 'zh' ? '：' : ' · ');
-  return `<div class="term-list"><span class="term-k">${t(cn ? 'dt.plannedEnds' : 'dt.registerEnds')}</span>
+  return `<div class="term-list"><span class="term-k">${t(cn ? 'dt.plannedEnds' : p.offSrc === 'nfb' ? 'dt.chainageEnds' : 'dt.registerEnds')}</span>
     <span class="term-v" lang="zh">${body}</span></div>`;
 }
 
@@ -864,7 +865,7 @@ export async function renderDetail(id) {
   const officialSrc = dossier?.mileageSource || (planKm && dossier?.officialMi == null
     ? t(plan.km ? 'cn.listedSrc' : 'cn.builtSrc')
     : p.offMi == null ? null
-      : p.offSrc === 'thb' ? t('src.thb', { date: p.reg?.updated ?? '' }) : t('src.routelog'));
+      : p.offSrc === 'thb' || p.offSrc === 'nfb' ? t(`src.${p.offSrc}`, { date: p.reg?.updated ?? '' }) : t('src.routelog'));
   const heroKind = planKm && dossier?.officialMi == null ? (plan.km ? 'Planned' : 'Built') : 'Official';
   const ea = p.cc === 'tw' || p.cc === 'hk' || p.cc === 'cn';
   const osm = ea ? (await loadOsmAttrs())?.routes?.[id] ?? null : null;
@@ -1094,7 +1095,7 @@ export async function renderDetail(id) {
       <span class="fig-k">${t('len.delta')}</span>
       <span class="fig-v">${delta > 0 ? '+' : ''}<b>${num(lenOf(delta))}</b> ${lenUnit()}
       <span class="src">${t(heroKind !== 'Official' ? 'cn.deltaWhy'
-    : p.offSrc === 'thb' && !dossier?.officialMi ? 'tw.deltaWhy' : 'len.deltaWhy')}</span></span></div>` : ''}
+    : dossier?.officialMi ? 'len.deltaWhy' : p.offSrc === 'thb' ? 'tw.deltaWhy' : p.offSrc === 'nfb' ? 'tw.fwyDeltaWhy' : 'len.deltaWhy')}</span></span></div>` : ''}
   </div>` : '';
 
   // Every page says where its numbers came from, and for a Canadian route

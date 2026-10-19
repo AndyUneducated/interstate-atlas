@@ -60,7 +60,7 @@ Kong's strategic routes.
 
 > [!NOTE]
 > **Counts move; method does not.** Every route total, mileage and percentage on this page
-> is written from the published build dated **<!-- auto:date -->2026-10-13<!-- /auto:date -->** by
+> is written from the published build dated **<!-- auto:date -->2026-10-19<!-- /auto:date -->** by
 > `tools/readme-figures.mjs`, which `npm test` runs, and changes whenever the pipeline is
 > re-run. The rules those numbers obey are in [On accuracy](#on-accuracy) and do not change.
 
@@ -78,7 +78,7 @@ Kong's strategic routes.
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
 | **Statistics dashboard** | Network totals by system and by jurisdiction, every country and region; length by speed limit; and, for the Interstates, FHWA's mileage open to traffic, 1960–1997, by decade. |
-| **Elevation profiles** | Sampled from open terrain data for curated routes. |
+| **Elevation profiles** | Sampled from open terrain data for every national route and every route with a dossier. |
 | **Units** | Miles or kilometres everywhere, switched in one place. |
 | **Command palette** | <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> to reach any route, jurisdiction or view. |
 | **Map on its own** | <kbd>Z</kbd> fades every panel off the map and back again. |
@@ -124,7 +124,7 @@ flowchart LR
 
 ## Coverage
 
-<!-- auto:summary -->28,290 routes across 147 states, provinces, territories and counties in 6 countries and regions, measuring 1,208,808 miles of road, in the build dated 2026-10-13.<!-- /auto:summary -->
+<!-- auto:summary -->28,290 routes across 147 states, provinces, territories and counties in 6 countries and regions, measuring 1,208,808 miles of road, in the build dated 2026-10-19.<!-- /auto:summary -->
 
 <!-- auto:coverage -->
 | Country | System | Routes | Miles | Notes |
