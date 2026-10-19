@@ -1,0 +1,116 @@
+{
+  "id": "tw-21",
+  "route": { "sys": "tw-provincial", "num": "21" },
+  "name": { "en": "Provincial Highway 21", "zh": "台 21 线" },
+  "aka": [
+    { "en": "Fengpu Highway (Tianleng–Puli section)", "zh": "丰埔公路（天冷—埔里段）" },
+    { "en": "Zhongtan Highway (Puli–Sun Moon Lake section)", "zh": "中潭公路（埔里—日月潭段）" },
+    { "en": "New Central Cross-Island Highway, Shuili–Yushan line", "zh": "新中横公路水里玉山线" },
+    { "en": "Yushan Scenic Highway", "zh": "玉山景观公路" }
+  ],
+  "tagline": { "en": "Down the western flank of the mountains from Dongshi past Puli and Sun Moon Lake to Tataka at 2,610 m, where a planned crossing to Yuli was given up", "zh": "沿山脉西侧自东势南下，经埔里、日月潭直上海拔 2,610 米的塔塔加——原计划由此越岭通往玉里，后被放弃" },
+  "termini": {
+    "start": { "at": [120.86, 24.16], "en": "Tianleng, Dongshi District, Taichung, where it leaves Provincial Highway 8", "zh": "台中市东势区天冷，自台 8 线分出" },
+    "end": { "at": [120.89, 23.49], "en": "Tataka, Xinyi, Nantou, on the saddle below Dongpu Mountain at the edge of Yushan National Park, where it meets Provincial Highway 18 from Alishan and Chiayi", "zh": "南投县信义乡塔塔加，东埔山垭口，玉山国家公园边缘，与来自阿里山、嘉义的台 18 线相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Provincial Highway 21 runs north to south along the western side of Taiwan's central mountains, about 144 km from Tianleng in Dongshi, Taichung, to Tataka in Xinyi, Nantou. It passes through Xinshe, Guoxing, Puli, Yuchi and Shuili, sharing its carriageway with Highway 14 through Puli, with County Road 131 at Yuchi and with Highway 16 at Shuili. Chinese Wikipedia describes it as the north–south road closest to the Yushan range in western Taiwan.",
+        "It is three older roads under one number. Tianleng to Puli is the Fengpu Highway; Puli to Sun Moon Lake is part of the Zhongtan Highway from Taichung, and the road then follows the lake's west shore, with the east shore as Highway 21A. From Shuili it becomes the Shuili–Yushan line of the New Central Cross-Island Highway, up the Chenyoulan River valley and then by hairpins to Tataka, 2,610 m, the highest point of that scheme. The stretch from the Yushan National Park boundary at 119.5 km to Tataka is managed by the park as a scenic road."
+      ],
+      "zh": [
+        "台 21 线沿台湾中央山地西侧南北而行，自台中市东势区天冷至南投县信义乡塔塔加，全长约 144 公里。沿途经新社、国姓、埔里、鱼池、水里，在埔里与台 14 线共线，在鱼池与县道 131 号共线，在水里与台 16 线共线。中文维基百科称其为台湾西部最靠近玉山山脉的纵贯公路。",
+        "它由三段旧路合编而成。天冷至埔里为丰埔公路；埔里至日月潭为台中至日月潭的中潭公路之一段，其后沿日月潭西岸而行，东岸则是台 21 甲线。自水里起，它是新中横公路的水里玉山线，沿陈有兰溪谷上溯，再以连串回头弯攀上塔塔加——海拔 2,610 米，新中横公路的最高点。自 119.5 公里处的玉山国家公园界碑至塔塔加一段，由国家公园规划为景观公路。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "On the Shuili–Yushan line, the 34.3 km from Dingkan to Shenmu village were an existing road improved, and the 36.7 km from Shenmu to the Dongpu saddle were cut new. North of Heshe the road follows the Chenyoulan, which runs in a valley made by a fault; south of it, the new road climbs the Dongpu massif in a series of switchbacks that the geographer Wang Xin called the 'great hairpins'. Its rock, mostly interbedded sandstone and shale cut open by blasting, with faults and an anticline running through it, is where most of the slips happen.",
+        "The Chenyoulan valley sends debris flows down onto the road. Typhoon Herb swept away the Xinxing bridge; Typhoon Toraji carried away the Chenyoulan River, Songquan, Aiyu and Shenhe bridges; Typhoon Sinlaku buried the south portal of the Fengqiu rock shed; Typhoon Morakot destroyed the bridge over the Wuqian creek and scoured the roadbed 52 m deep, and the highways bureau reopened it within 20 days by stacking more than 50 shipping containers filled with spoil as a temporary embankment.",
+        "The rebuilding has lifted the road above the torrents. Six bridges between 95 and 114 km, from Shibachongxi to Aiyu, were rebuilt from 2003 with long-span steel box girders and reopened on 26 October 2006. The Fengqiu rock shed at 91–92 km was replaced by a 1,030 m bridge, finished on 27 March 2009 and named Shalidong bridge."
+      ],
+      "zh": [
+        "水里玉山线中，顶崁至神木村 34.3 公里是利用既有道路改善而成，神木村至东埔山垭口 36.7 公里为新辟。和社以北，公路沿陈有兰溪而行，这是一条由断层通过而形成的纵谷；和社以南，新路以连续回头弯攀上东埔山块，地理学家王鑫称之为「大回头弯」。这一带以砂页岩互层的南庄层为主，开路时以炸药爆破，又有断层与背斜通过，是全线崩塌最集中之处。",
+        "陈有兰溪谷的土石流一再冲上公路。贺伯台风冲走新兴桥；桃芝台风冲走陈有兰溪桥、松泉桥、爱玉桥、神和桥；辛乐克台风以土石掩埋丰丘明隧道南口；莫拉克台风冲毁乌干溪上的桥梁，路基被掏空达 52 米深，公路总局叠砌 50 余个内填土石的货柜作为临时路基，在 20 天内抢通。",
+        "灾后重建让公路架到溪流之上。95K 至 114K 间十八重溪桥至爱玉桥六座桥梁自 2003 年起以长跨径箱型钢梁改建，2006 年 10 月 26 日全线通车。91K 至 92K 的丰丘明隧道改建为全长 1,030 米的桥梁，2009 年 3 月 27 日完工，定名沙里冻桥。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The oldest part is Puli to Shuili: in the Kangxi era, Han settlers came up the Zhuoshui from Douliu by Jiji and Shuili to Sun Moon Lake, and the Puli–Jiji road that grew from this was the first road into the Puli basin. The Shuili–Tongfu stretch descends from the central route from Linqipu (Zhushan) to Pushige (Yuli) that the Qing opened across the mountains in 1874.",
+        "When roads were first numbered in 1962 there was no Highway 21; its pieces were County Roads 131 and 179 and part of Highway 16. The number was created in 1978 for a road from Tianleng to the west end of the Gaoping bridge at Daliao in Kaohsiung, a third inland trunk road along the mountains. Tianleng to Yecuo in Guoxing was new and was finished in 1985. In 1993 the southern end was carried on to Linyuan.",
+        "The mountain section came from the New Central Cross-Island Highway, one of the Twelve Construction Projects announced in 1977. In May 1978 the Executive Yuan approved three lines meeting near Yushan — Chiayi–Yushan, Shuili–Yushan and Yuli–Yushan. The Shuili–Yushan line was begun in 1980 (one account in Chinese Wikipedia gives July 1979) and its junction moved that year to the Dongpu saddle. Dingkan to Shenmu opened in January 1983, but a landslip at 47–53 km held the rest back until December 1990. It opened on 1 January 1991, together with the Chiayi–Yushan line, now Highway 18.",
+        "The road east never came. The Yuli–Yushan line would have crossed what became Yushan National Park; after Taiwan's first environmental impact assessment the Executive Yuan stopped it in 1986, with 14.6 km built from Yuli, and gave it up in 1991. Highway 21's own southern continuation, Tataka to Dakanuwa, was never built either. On 16 July 2014 it was deleted to protect the national park, the number was cut back to Tianleng–Tataka, and Dakanuwa–Linyuan became Highway 29."
+      ],
+      "zh": [
+        "最早开发的是埔里至水里一段：清康熙年间，汉人自斗六溯浊水溪而上，经集集、水里至日月潭一带开垦，形成埔里社集集道路，也是史上第一条进入埔里地区的道路。水里至同富一段，则由 1874 年清廷开辟、自林圮埔（竹山）至璞石阁（玉里）越岭的「中路」发展而来。",
+        "1962 年公路首次编号时并无台 21 线，其各段分属县道 131 号、县道 179 号与台 16 线。1978 年公布台 21 线，起自天冷，迄于高雄县大寮乡砖仔窑（高屏大桥西端），作为沿山脉而行的第三条内陆纵贯公路。其中天冷至国姓叶厝段为新辟，1985 年完成。1993 年，终点再延伸至林园。",
+        "山区路段来自新中横公路——1977 年宣布的十二项建设之一。1978 年 5 月，行政院核定在玉山附近交会的三线：嘉义玉山线、水里玉山线、玉里玉山线。水里玉山线于 1980 年动工（中文维基百科所引另一文献记为 1979 年 7 月），同年三线交会点改设于东埔山垭口。顶崁至神木村段 1983 年 1 月通车，但 47K 至 53K 的地层滑动使其余路段拖到 1990 年 12 月才完工。1991 年 1 月 1 日，水里玉山线与今台 18 线的嘉义玉山线一同开放通车。",
+        "向东的公路始终没有修成。玉里玉山线须穿越后来设立的玉山国家公园，经台湾首次环境影响评估后，行政院于 1986 年决定依现状停办——当时自玉里已建成 14.6 公里——1991 年正式放弃。台 21 线本身向南的塔塔加至达卡努瓦段也从未开辟。2014 年 7 月 16 日，为保护国家公园生态，该段解编，台 21 线缩为天冷至塔塔加，达卡努瓦至林园段改编为台 29 线。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost has been published for Highway 21 as such. The 1978 approval for the New Central Cross-Island Highway covered all three lines, 265.6 km, at NT$3.62 billion, to be built in six years; the Shuili–Yushan line, begun in 1980, was not finished until the end of 1990. The roadwork on the mountain lines was done by the Retired Servicemen Engineering Agency."
+      ],
+      "zh": [
+        "台 21 线本身没有公布过造价。1978 年核定的新中横公路计划涵盖三线共 265.6 公里，工程费合计新台币 36.2 亿元，预计六年完成；水里玉山线 1980 年动工，直到 1990 年底才完工。山区路线工程由荣民工程处承办。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Between Caopingtou, 110.5 km, and Tataka, 144.3 km, the road is closed every night from 17:30 to 07:00; coaches may use it by day. The hairpins at Guanshan, 133 to 135 km, are limited to 20 km/h. From 20 January to 30 October 2026, while a new rock shed is built at 132 km, traffic there is let through for ten minutes on the hour between 8:00 and 17:00, except at midday and on long holidays.",
+        "The last petrol before Tataka is at 97.5 km. Summer afternoons bring showers and fog, and in winter the surface can ice; the park asks drivers not to stop under cliffs or slips and to watch for wildlife. In 2021 the International Federation of Landscape Architects gave the New Central Cross-Island Highway an award for nature conservation, citing among other things the nightly closure at Tataka that gives the road back to the animals."
+      ],
+      "zh": [
+        "草坪头（110.5K）至塔塔加（144.3K）之间每日 17 时 30 分至次日 7 时封闭；白天开放甲类大客车双向通行。观山路段 133 至 135 公里为陡坡回头弯，限速每小时 20 公里。2026 年 1 月 20 日至 10 月 30 日，132K 新建明隧道施工期间，每日 8 时至 17 时每整点放行一次、每次 10 分钟，仅连续假期及中午 12 时至 13 时不管制。",
+        "前往塔塔加的最后一座加油站在 97.5K。夏季午后多阵雨浓雾，冬季路面易结冰；玉山国家公园提醒驾驶人勿在断崖、崩塌地停留，并留意野生动物穿越。2021 年，新中横公路获国际景观建筑师联合会颁发自然保育类卓越奖，理由之一即塔塔加路段常态夜间封闭、「还路于万物」。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "value": { "en": "No figure for Highway 21 alone. NT$3.62 billion was approved in May 1978 for all three New Central Cross-Island lines (265.6 km), of which the Shuili–Yushan line is one; no final outturn was found.", "zh": "未见台 21 线单独造价。1978 年 5 月核定新中横公路三线（共 265.6 公里）工程费合计新台币 36.2 亿元，水里玉山线为其中一线；未找到决算数。" },
+      "source": "葉昭雄, 〈新中橫之開闢及玉里玉山線之放棄闢建歷程〉, 《臺灣公路工程》 28(4), October 2001, as cited in Chinese Wikipedia, 新中橫公路"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No breakdown of who paid has been found. The New Central Cross-Island Highway was a government programme, one of the Twelve Construction Projects, built for the Taiwan Provincial Highway Bureau with the Retired Servicemen Engineering Agency doing the roadwork; the older sections were upgraded under the ordinary provincial road budget, for which no figures were found.", "zh": "未查到出资构成。新中横公路是政府主导的十二项建设之一，由台湾省公路局主办、荣民工程处承建；其余旧路段系在一般省道经费下改善，未见相关数字。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "145.035 km as set when the route was cut back in July 2014 (310.317 km before); 143.93 km in the current Chinese Wikipedia route box. The Tataka visitor centre is signed at 144.3 km.", "zh": "2014 年 7 月调整路线时定为 145.035 公里（此前为 310.317 公里）；中文维基百科现行信息框为 143.93 公里。塔塔加游客中心位于 144.3K。" },
+      "source": "Executive Yuan announcement of 2014, as cited in Chinese Wikipedia, 台21線; Yushan National Park Headquarters, 西北園區行宿資訊"
+    },
+    {
+      "label": { "en": "Shuili–Yushan line", "zh": "水里玉山线长度" },
+      "value": { "en": "Sources differ: 71 km (34.3 km improved, 36.7 km new); 63.2 km in the planning file (35 km improved, 28.2 km new); 62.5 km for the Retired Servicemen Engineering Agency's contract", "zh": "各来源不一：71 公里（改善 34.3 公里、新辟 36.7 公里）；规划档案为 63.2 公里（改善 35 公里、新辟 28.2 公里）；荣工处承建部分为 62.5 公里" },
+      "source": "蔡棟、賴炳坤, 《交通建設》 32(4), 1983, as cited in Chinese Wikipedia, 新中橫公路; National Archives Administration, 〈玉山國家公園與生態保育〉, 檔案樂活情報 no. 214, April 2025; Veterans Affairs Council, 榮民文化網, 參與經建"
+    },
+    {
+      "label": { "en": "Highest point", "zh": "最高点" },
+      "value": { "en": "2,610 m at Tataka (the Dongpu saddle)", "zh": "塔塔加（东埔山垭口），海拔 2,610 米" },
+      "source": "Chinese Wikipedia, 新中橫公路"
+    }
+  ],
+  "timeline": [
+    { "year": 1978, "en": "Highway 21 is numbered, Tianleng to Daliao; in May the Executive Yuan approves the three New Central Cross-Island lines.", "zh": "公布台 21 线，起天冷迄大寮；5 月，行政院核定新中横公路三线计划。" },
+    { "year": 1980, "en": "Work starts on the Shuili–Yushan line; the three lines' meeting point is moved to the Dongpu saddle.", "zh": "水里玉山线动工；三线交会点改设东埔山垭口。" },
+    { "year": 1983, "en": "Dingkan to Shenmu village opens in January.", "zh": "1 月，顶崁至神木村段通车。" },
+    { "year": 1985, "en": "The new Tianleng–Yecuo section is completed.", "zh": "新辟的天冷至叶厝段完成。" },
+    { "year": 1986, "en": "On 3 April the Executive Yuan halts the Yuli–Yushan line where it stands.", "zh": "4 月 3 日，行政院决议玉里玉山线依现状停止办理。" },
+    { "year": 1991, "en": "The Shuili–Yushan line opens to Tataka on 1 January; the Yuli line is abandoned later that year.", "zh": "1 月 1 日，水里玉山线通车至塔塔加；同年玉里玉山线正式放弃兴建。" },
+    { "year": 1993, "en": "The southern end is extended from Daliao to Linyuan.", "zh": "南端终点自大寮延伸至林园。" },
+    { "year": 2006, "en": "Six rebuilt bridges between Shibachongxi and Aiyu reopen on 26 October.", "zh": "10 月 26 日，十八重溪桥至爱玉桥六座改建桥梁全线通车。" },
+    { "year": 2009, "en": "The Shalidong bridge replaces the Fengqiu rock shed in March; Typhoon Morakot breaks the road at the Wuqian creek in August.", "zh": "3 月，沙里冻桥取代丰丘明隧道；8 月，莫拉克台风冲断乌干溪路段。" },
+    { "year": 2014, "en": "On 16 July the unbuilt Tataka–Dakanuwa section is deleted and the route ends at Tataka; the southern part becomes Highway 29.", "zh": "7 月 16 日，未开辟的塔塔加至达卡努瓦段解编，路线止于塔塔加，南段改编为台 29 线。" },
+    { "year": 2021, "en": "The New Central Cross-Island Highway receives an IFLA award for nature conservation.", "zh": "新中横公路获国际景观建筑师联合会自然保育类卓越奖。" }
+  ]
+}

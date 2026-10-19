@@ -1,0 +1,124 @@
+{
+  "id": "tw-fwy-8",
+  "route": { "sys": "tw-freeway", "num": "8" },
+  "name": { "en": "Tainan Branch Freeway", "zh": "台南支线" },
+  "aka": [
+    { "en": "Tainan Ring", "zh": "台南环线" },
+    { "en": "Guo Ba", "zh": "国八" }
+  ],
+  "tagline": { "en": "A 15.5 km cross-link north of central Tainan, from Annan over Freeways 1 and 3 to Xinhua, with traffic lights on its western end", "zh": "台南市中心北侧的 15.5 公里横向国道，自安南跨越国道一号、三号至新化，西段至今仍有红绿灯" },
+  "completedYear": 1999,
+  "termini": {
+    "start": { "at": [120.195, 23.080], "en": "Tainan end, at the Annan–Anding district boundary, Tainan, where Provincial Highway 17A (Anji Road) carries on into the city", "zh": "台南市安南区与安定区交界处的台南端，续接台 17 甲线（安吉路）进入市区" },
+    "end": { "at": [120.32, 23.04], "en": "Xinhua end, Xinhua District, Tainan, on Provincial Highway 20 towards Shanshang and Zuozhen", "zh": "台南市新化区新化端，接台 20 线，可往山上、左镇" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "National Freeway 8 lies wholly within Tainan. It runs 15.5 km east from the boundary of Annan and Anding districts, through Anding and Xinshi, to Xinhua, meeting Freeway 1 at the Tainan junction and Freeway 3 at the Xinhua junction. It is the main road out of Annan, and the Xinshi interchange serves the Southern Taiwan Science Park.",
+        "At its western end it carries on as Provincial Highway 17A into the city, and from there Highway 17B, the Taijiang Boulevard opened on 18 December 2007, leads to the coastal Highway 17. With Freeways 1 and 3 and the Highway 86 expressway it forms a ring round central Tainan, described in Chinese Wikipedia as the first such ring of freeways and expressways inside a single city or county in Taiwan."
+      ],
+      "zh": [
+        "国道八号全线位于台南市，自安南区与安定区交界处向东，经安定、新市至新化，全长 15.5 公里，在台南系统交流道与国道一号交会，在新化系统交流道与国道三号交会。它是安南区对外的交通要道，新市交流道则服务台南科学园区。",
+        "西端续接台 17 甲线进入市区，再经 2007 年 12 月 18 日通车的台 17 乙线（台江大道）接至滨海的台 17 线。它与国道一号、国道三号及台 86 线快速公路组成环绕台南市中心的路网，中文维基百科称之为台湾第一个在单一县市内由高速公路与快速公路组成的环状道路。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Only the part east of the Nan 133 road at km 4.2 is a full freeway. From the Tainan end to km 4.2 the road is classed as a national expressway, with at-grade junctions: one at Xinji, km 0.7, where traffic can leave for Highway 19, and a signal-controlled crossing with Nan 133 — the only junction with traffic lights on the main line. Heavy motorcycles are banned from this stretch; the Freeway Bureau reasoned that riders entering it would have to leave again almost at once at Nan 133.",
+        "Along this western part, from the Tainan end to just west of the Tainan junction, runs a 6 km side road at ground level, with a corridor 40 to 56 m wide. It feeds the main line through acceleration and turning lanes and is itself a through route crossing several roads on the level.",
+        "The interchanges are the Tainan end, Xinji (a half diamond, westbound off and eastbound on only) at km 2.4, the Tainan junction at 6.5, Xinshi at 9.7, the Xinhua junction at 14.6 and the Xinhua end at 15.5. A link road built later from the western side of the Xinshi interchange south over the Yanshui River to Provincial Highway 1 relieves the science-park entrance road, which had backed traffic up onto Highway 1."
+      ],
+      "zh": [
+        "只有 4.2 公里处南 133 线以东才是完整的高速公路。台南端至 4.2 公里属国道快速公路，设有平交路口：0.7 公里的新吉平交路口可驶出往台 19 线，以及与南 133 线相交、设有红绿灯的路口——国八主线唯一设置红绿灯的平交路口。这一段禁止大型重型机车行驶；高速公路局的理由是，机车驶入后到了南 133 线就得立即驶出，开放意义不大。",
+        "这一西段自台南端至台南系统交流道西侧，另设有长 6 公里的平面侧车道，路廊宽 40 至 56 米。它通过多处加减速车道与左右转车道与主线衔接，本身也是与多条公路平面交会的直行干道。",
+        "沿线交流道依次为台南端、2.4 公里的新吉（半套钻石型，仅西出东入）、6.5 公里的台南系统、9.7 公里的新市、14.6 公里的新化系统与 15.5 公里的新化端。其后自新市交流道西侧出入口向南兴建联络道，跨越盐水溪与台 1 线立体交叉衔接，以纾解原先经常造成台 1 线拥堵的南科入口道路新港社大道。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The branch was part of the Second Freeway follow-on programme, together with Freeway 3 from Hsiangshan to Linbian and the Taichung, Nantou and Kaohsiung cross-links; the feasibility study began in August 1987 and engineering planning in July 1989. It was built by the National Expressway Engineering Bureau.",
+        "The whole road opened on 16 August 1999. Its eastern junction became a working link only on 30 December 1999, when Freeway 3 from Xinhua to Guanmiao opened.",
+        "The Nan 133 crossing was left at grade when the road was built, in response to local opinion, and became a known accident spot: the Freeway Bureau counts an average of 15 injury accidents a year there, and queues from its lights back up into the Tainan junction. Tainan's public works bureau completed a feasibility study in June 2020 and submitted a report in November 2020; the Executive Yuan approved the construction plan in October 2023.",
+        "Work began on 18 October 2025, with a ground-breaking ceremony on 24 October attended by the premier. A four-lane viaduct of about 650 m, one 125 m unit of it in steel box girder and the rest prestressed concrete box girder, will carry the main line over Nan 133, and a new Gangkou interchange will add westbound-off and eastbound-on ramps. Completion is due on 25 March 2030. Chinese Wikipedia also lists a Xinshi junction as being planned, for a freeway linking the east side of Kaohsiung harbour."
+      ],
+      "zh": [
+        "台南支线属于第二高速公路后续计划，与国道三号香山至林边段及台中、南投、高雄等横向国道同属一案；该计划于 1987 年 8 月开始可行性研究，1989 年 7 月展开工程规划。全线由国道新建工程局兴建。",
+        "全线于 1999 年 8 月 16 日通车。东端的新化系统交流道则要到 1999 年 12 月 30 日国道三号新化关庙段通车，才真正接通。",
+        "南 133 线路口是兴建时考量当地民意而留设的平交路口，此后车祸频传：据高速公路局统计，该路口平均每年发生 15 件 A2 交通事故，红绿灯造成的停等车流还会回堵至台南系统交流道。台南市政府工务局于 2020 年 6 月完成可行性评估，同年 11 月提出评估报告；行政院于 2023 年 10 月核定建设计划。",
+        "工程于 2025 年 10 月 18 日开工，10 月 24 日举行动土祈福典礼，行政院长卓荣泰出席。一座约 650 米的主线四车道高架桥将跨越南 133 线，其中一个 125 米的单元为钢箱型梁，其余为预力箱型梁；新设的港口交流道另增西出、东入匝道。预定 2030 年 3 月 25 日竣工。中文维基百科另列有规划中的新市系统交流道，衔接高雄港东侧联外高速公路。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost for the original road on its own has been found. It was built within the Second Freeway follow-on programme, budgeted by the Executive Yuan at NT$525.1 billion for the main line and all its branches.",
+        "Later works are costed separately. The Nan 133 grade separation was approved in 2023 at NT$2.976 billion, NT$2.91 billion of it from the national freeway fund; the Executive Yuan put Tainan city's share at NT$66 million, but the Freeway Bureau's 2025 release gives NT$660 million for the city's ramp and side-road works. The main contract was let at NT$2.838 billion. The Xinshi link road to Highway 1 was budgeted at NT$540 million.",
+        "The road is not tolled. Distance-based tolling applies only to Freeways 1, 3 and 5 and the 3A spur; the Freeway Bureau said in 2026 that the cross-island freeways were left free at first because some run through rural areas with poor public transport, and that it was not considering tolling them."
+      ],
+      "zh": [
+        "目前查不到台南支线原工程单独的造价。它包含在第二高速公路后续计划之中，该计划经行政院核定的预算为 5,251 亿元，涵盖主线及全部环支线。",
+        "后来的工程则另行计价。南 133 路口立体化工程于 2023 年核定，总经费 29.76 亿元，其中国道基金 29.1 亿元；行政院所载台南市政府负担 0.66 亿元，高速公路局 2025 年新闻稿则称台南市政府配合负担 6.6 亿元办理匝道改善及侧车道外移。主体工程契约金额 28.3788 亿元。新市交流道南科联络道延伸台 1 线道路工程预算为 5.4 亿元。",
+        "本线不收费。计程收费只适用于国道一号、三号、五号及三甲；高速公路局 2026 年表示，横向国道最初不收费是因部分位于偏乡、公共运输不便，目前并未研议对横向国道收费。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Limits run from 40 to 100 km/h, falling towards the western end. On the Nan 133 stretch traffic is held to 40 km/h and has to stop at the lights; the Freeway Bureau expects the viaduct to allow 100 km/h there and to cut the time for the whole road from 10 minutes to 4."
+      ],
+      "zh": [
+        "全线速限每小时 40 至 100 公里，越近西端越低。南 133 线路段目前速限 40 公里且须停等红绿灯；高速公路局预计高架桥完工后该路段可维持时速 100 公里，行驶国八全线的时间可由 10 分钟缩短为 4 分钟。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No separate figure has been found for the 1999 road. It was financed within the Second Freeway follow-on programme, whose NT$525.1 billion budget covered Freeway 3 from Hsiangshan to Linbian and Freeways 4, 6, 8 and 10 together.", "zh": "未查到 1999 年原工程单独的造价。台南支线经费包含在第二高速公路后续计划之内，该计划 5,251 亿元的预算合并涵盖国道三号香山至林边段及国道四、六、八、十号。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Central government, through the Executive Yuan's Second Freeway follow-on programme budget. The 2025–2030 Nan 133 grade separation is about 97.8 per cent paid from the national freeway fund, with a share from Tainan city.", "zh": "中央政府出资，列入行政院核定的第二高速公路后续计划预算。2025—2030 年的南 133 路口立体化工程约 97.8% 由国道基金支应，台南市政府分担其余部分。" },
+      "source": "鄭文隆, 「國道三號高速公路全線完工十周年回顧」, 現代營建 no. 421 (arch.net.tw); Executive Yuan, 「視察國道8號及南133路口立體化工程」, 15 December 2023"
+    },
+    {
+      "label": { "en": "Nan 133 grade separation", "zh": "南 133 路口立体化工程" },
+      "value": { "en": "NT$2.976 billion approved in October 2023: NT$2.91 billion from the national freeway fund and NT$66 million from Tainan city. The Freeway Bureau's 2025 release gives the city's share as NT$660 million; the two have not been reconciled here.", "zh": "2023 年 10 月核定总经费 29.76 亿元：国道基金 29.1 亿元，台南市政府 0.66 亿元。高速公路局 2025 年新闻稿则称台南市政府负担 6.6 亿元，两者此处未能核对一致。" },
+      "source": "Executive Yuan, 「視察國道8號及南133路口立體化工程」, 15 December 2023; Freeway Bureau, 「國道8號台南系統交流道改善及跨南133路口立體化工程」動土祈福 預計119年完工通車, 24 October 2025"
+    },
+    {
+      "label": { "en": "Nan 133 main contract", "zh": "南 133 立体化工程契约" },
+      "value": { "en": "NT$2,837.88 million, contract I810R, 1,620 calendar days from 18 October 2025", "zh": "28 亿 3,788 万元（第 I810R 标），工期 1,620 日历天，2025 年 10 月 18 日开工" },
+      "source": "Freeway Bureau, 國道8號台南系統交流道改善及跨南133線路口立體化工程 (在建工程 and 第二新建工程分局 project pages)"
+    },
+    {
+      "label": { "en": "Xinshi link road to Highway 1", "zh": "南科联络道延伸台 1 线" },
+      "value": { "en": "NT$540 million budget, NT$442.8 million central and NT$97.2 million local; contract awarded 2 March 2012", "zh": "工程预算 5.4 亿元，其中中央款 4.428 亿元、地方款 0.972 亿元；2012 年 3 月 2 日决标" },
+      "source": "Tainan City Government public works bureau, 墊付款案 (國道8號南科聯絡道延伸省道台1線道路工程), Tainan City Council record"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "15.5 km, of which km 0 to 4.2 is classed as a national expressway", "zh": "15.5 公里，其中 0 至 4.2 公里为国道快速公路" },
+      "source": "Freeway Bureau, 國道8號台南系統交流道改善及跨南133線路口立體化工程; Chinese Wikipedia, 國道八號 (中華民國)"
+    },
+    {
+      "label": { "en": "Built by", "zh": "兴建单位" },
+      "value": { "en": "National Expressway Engineering Bureau; maintained by the Freeway Bureau", "zh": "交通部台湾区国道新建工程局兴建，交通部高速公路局养护" },
+      "source": "Freeway Bureau, 國道3號及國道2號、4號、8號、10號工程; Chinese Wikipedia, 國道八號 (中華民國)"
+    }
+  ],
+  "timeline": [
+    { "year": 1987, "en": "The feasibility study for the Second Freeway follow-on programme, including the Tainan branch, begins in August.", "zh": "8 月，包含台南支线在内的第二高速公路后续计划开始可行性研究。" },
+    { "year": 1989, "en": "Engineering planning for the follow-on programme begins in July.", "zh": "7 月，后续计划展开工程规划。" },
+    { "year": 1999, "en": "The whole road opens on 16 August; the Xinhua junction joins Freeway 3 on 30 December.", "zh": "8 月 16 日全线通车；12 月 30 日新化系统交流道接通国道三号。" },
+    { "year": 2007, "en": "The Taijiang Boulevard, Highway 17B, opens on 18 December, linking the Tainan end to the coast road.", "zh": "12 月 18 日，台 17 乙线台江大道通车，台南端由此接通滨海公路。" },
+    { "year": 2012, "en": "The contract for the Xinshi link road to Highway 1 is awarded on 2 March.", "zh": "3 月 2 日，南科联络道延伸台 1 线道路工程决标。" },
+    { "year": 2020, "en": "Tainan completes a feasibility study on grade-separating Freeway 8's level junctions west of Freeway 1 in June, and in November submits its feasibility report on the Nan 133 crossing.", "zh": "6 月台南市政府完成国道 8 号（国 1 以西路段）平面路口立体化可行性评估，11 月提出南 133 线路口改善交流道可行性评估报告。" },
+    { "year": 2023, "en": "The Executive Yuan approves the NT$2.976 billion grade-separation plan in October.", "zh": "10 月，行政院核定总经费 29.76 亿元的立体化建设计划。" },
+    { "year": 2025, "en": "Work on the Nan 133 viaduct and the Gangkou interchange begins on 18 October.", "zh": "10 月 18 日，南 133 路口立体化高架桥与港口交流道工程开工。" }
+  ]
+}

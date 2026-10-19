@@ -1,0 +1,122 @@
+{
+  "id": "tw-fwy-3a",
+  "route": { "sys": "tw-freeway", "num": "3A" },
+  "name": { "en": "Taipei Connecting Line", "zh": "台北联络线" },
+  "aka": [
+    { "en": "National Freeway 3A", "zh": "国道三号甲线" },
+    { "en": "Guo San Jia", "zh": "国三甲" }
+  ],
+  "tagline": { "en": "A 5.6 km spur from Xinhai Road in Taipei, through two tunnels, to Freeway 3 at Muzha and on to Shenkeng", "zh": "自台北辛亥路穿过两座隧道，于木柵接国道三号再至深坑的 5.6 公里支线" },
+  "completedYear": 1996,
+  "termini": {
+    "start": { "at": [121.549, 25.017], "en": "Taipei end, on Xinhai Road beside the Xinhai tunnel, Da'an District, Taipei", "zh": "台北市大安区台北端，辛亥路辛亥隧道旁" },
+    "end": { "at": [121.603, 25.000], "en": "Shenkeng end, at Wenshan Road and Xinguang Road, Shenkeng District, New Taipei, on City Road 106B", "zh": "新北市深坑区深坑端，接文山路与新光路（市道 106 乙线）" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "National Freeway 3A is a spur of Freeway 3 that links it with the south-east of Taipei. It runs 5.6 km from Xinhai Road in Da'an District, through two tunnels, past the Wanfang interchange with the Xinyi Expressway, meets Freeway 3 at the Muzha interchange, and ends on Wenshan Road and Xinguang Road in Shenkeng, New Taipei. As one of the main ways in and out of the Taipei area from Freeway 3, it is often congested at peak hours.",
+        "It was opened as a freeway but is now classed as a national expressway. When the traffic rules were rewritten in 2006 to define freeways and expressways separately, a freeway had to be fully access-controlled and grade-separated except at its ends; Freeway 3A has at-grade crossings and its junction with Freeway 3 is not fully grade-separated, so the Freeway Bureau says it had to be reclassified."
+      ],
+      "zh": [
+        "国道三号甲线是国道三号的一条支线，连接国道三号与台北市东南部。它自大安区辛亥路起，穿过两座隧道，经与信义快速道路相接的万芳交流道，在木柵交流道与国道三号交会，最后接至新北市深坑区的文山路与新光路，全长 5.6 公里。它是台北都会区进出国道三号的要道之一，尖峰时段时常塞车。",
+        "它通车时是高速公路，如今归为国道快速公路。2006 年交通管制规则修正，分别定义高速公路与快速公路：高速公路须出入口完全控制，除起迄点外与其他道路立体相交。国道三甲有与其他道路平面相交之处，与国道三号相交处也未完全立体化，高速公路局表示因此须改归快速公路。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The road has two lanes each way throughout. Its two tunnels, Taipei No. 2 (211 m) and Taipei No. 1 (790 m), were known as Taipei I and Taipei II until they were renamed in June 2023; the Freeway Bureau counts them among the tunnels of the Freeway 3 programme.",
+        "There are four junctions: the Taipei end at km 0, Wanfang at 3.6, Muzha at 5.1 and the Shenkeng end, signed as exit 6. Muzha is a diamond and works as a system interchange with no surface road of its own; the eastbound exit at Wanfang leads only to the southbound Xinyi Expressway. U-turns are banned at the road junction by the Muzha interchange."
+      ],
+      "zh": [
+        "全线双向各两车道。两座隧道为台北 2 号隧道（211 米）与台北 1 号隧道（790 米），2023 年 6 月更名前称「台北Ⅱ隧道」与「台北Ⅰ隧道」；高速公路局将它们计入国道三号计划的隧道之列。",
+        "全线有四处交流道：0 公里的台北端、3.6 公里的万芳、5.1 公里的木柵，以及标示为 6 号出口的深坑端。木柵交流道为钻石型，功能上属系统交流道，并无直接连接的平面道路；万芳交流道的东行出口只能接信义快速道路南下。木柵交流道路口处禁止回转。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The connecting line was part of the North Second Freeway plan, which also covered Freeway 3 from Xizhi to Hsiangshan and the Taoyuan inner ring, now Freeway 2. The feasibility study for that plan began in June 1984 and engineering planning in December 1985; the National Expressway Engineering Bureau, set up on 5 January 1990, took over the work.",
+        "Tunnelling south of the Taipei basin was the hardest part of the North Second Freeway: the bureau's history records repeated collapses in the long tunnels at Xindian, Muzha, Bitan and Zhonghe. The Xizhi–Muzha section and the connecting line opened together on 21 March 1996, after six years and eleven months of work, with the premier opening them at a ceremony in the Fude tunnel.",
+        "The Muzha interchange opened in part in 1996 and in full on 24 August 1997, the day the whole North Second Freeway opened. The Wanfang interchange followed on 14 May 2005 with the Xinyi Expressway. A plan to carry the road on from its Taipei end on a viaduct along the median of Xinhai Road, to meet the Shuiyuan and Jianguo expressways, was not built; traffic continues along Xinhai Road at ground level and through an underpass beneath Keelung Road to the Jianguo viaduct."
+      ],
+      "zh": [
+        "台北联络线属于北二高工程计划，该计划另包括国道三号汐止至香山段与桃园内环线（今国道二号）。北二高于 1984 年 6 月开始可行性研究，1985 年 12 月展开工程规划；1990 年 1 月 5 日成立的国道新建工程局随后接手推动。",
+        "台北盆地南侧的隧道是北二高最艰难的部分：国工局的回顾记载，新店、木柵、碧潭、中和等长隧道地质恶劣、灾变频传。汐止木柵段与台北联络线历时六年十一个月，于 1996 年 3 月 21 日一同通车，行政院长连战在福德隧道主持通车典礼。",
+        "木柵交流道于 1996 年先部分启用，1997 年 8 月 24 日北二高全线通车当天全部启用。万芳交流道则于 2005 年 5 月 14 日随信义快速道路开通而通车。本线曾计划自台北端沿辛亥路二、三段分隔岛继续高架延伸，衔接水源快速道路与建国快速道路，但并未兴建；目前以辛亥路平面道路及穿越基隆路的车行地下道接建国高架道路。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost for the connecting line on its own has been found. It was built within the North Second Freeway plan, budgeted by the Executive Yuan at NT$170.81 billion, according to the engineering bureau's former director.",
+        "It is tolled. Since 30 December 2013 it has been part of distance-based electronic tolling, with gantries at km 1.5, between the Taipei end and Wanfang, and at km 4.1, between Wanfang and Muzha. It is one of only four national freeways that charge, with Freeways 1, 3 and 5."
+      ],
+      "zh": [
+        "目前查不到台北联络线单独的造价。据前国工局长所述，它包含在行政院核定预算 1,708.1 亿元的北二高计划之中。",
+        "本线收费。2013 年 12 月 30 日起纳入电子计程收费，收费门架设于台北端至万芳间的 1.5 公里处及万芳至木柵间的 4.1 公里处。目前收费的国道只有国道一号、三号、五号与三甲。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The limit is 60 to 80 km/h. Because it is an expressway, heavy motorcycles are allowed: those over 550 cc from 1 November 2007, and those over 250 cc from 1 July 2012. Motorcycles ride toll-free and must keep their headlights on along the whole road.",
+        "Wanfang is the exit for the Taipei Zoo and Muzha; in 2026 the westbound Wanfang exit towards Muzha was closed at night on several dates for slope strengthening."
+      ],
+      "zh": [
+        "全线速限每小时 60 至 80 公里。由于属快速公路，可行驶大型重型机车：2007 年 11 月 1 日起开放 550 cc 以上，2012 年 7 月 1 日起开放 250 cc 以上；大型重型机车不收费，行驶全线须全天开启头灯。",
+        "万芳交流道是前往台北市立动物园与木柵的出口；2026 年因万芳交流道边坡补强工程，西行往木柵方向出口匝道曾于多个日期夜间封闭。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No separate figure has been found. The line was financed within the North Second Freeway plan, whose NT$170.81 billion budget covered Freeway 3 from Xizhi to Hsiangshan, this connecting line and the Taoyuan inner ring together.", "zh": "未查到单独的造价。本线经费包含在北二高计划之内，该计划 1,708.1 亿元的预算合并涵盖国道三号汐止至香山段、台北联络线及桃园内环线。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Central government, through the Executive Yuan's North Second Freeway budget", "zh": "中央政府出资，列入行政院核定的北二高计划预算" },
+      "source": "鄭文隆, 「國道三號高速公路全線完工十周年回顧」, 現代營建 no. 421 (arch.net.tw)"
+    },
+    {
+      "label": { "en": "North Second Freeway budget", "zh": "北二高计划预算" },
+      "value": { "en": "NT$170.81 billion as approved by the Executive Yuan, for the whole plan, not this line alone", "zh": "行政院核准 1,708.1 亿元，为整个计划的预算，并非本线单独金额" },
+      "source": "鄭文隆, 「國道三號高速公路全線完工十周年回顧」, 現代營建 no. 421 (arch.net.tw)"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "5.6 km (km 0 to 5.6); the Shenkeng end is signed as exit 6", "zh": "5.6 公里（0K 至 5K+600）；深坑端出口编号为 6" },
+      "source": "Freeway Bureau, 北區養護工程分局簡介; Chinese Wikipedia, 國道三號甲線"
+    },
+    {
+      "label": { "en": "Tunnels", "zh": "隧道" },
+      "value": { "en": "Taipei No. 1, 790 m, and Taipei No. 2, 211 m; renamed from Taipei I and II in June 2023", "zh": "台北 1 号隧道 790 米、台北 2 号隧道 211 米；2023 年 6 月由台北Ⅰ、Ⅱ隧道更名" },
+      "source": "Chinese Wikipedia, 國道三號甲線"
+    },
+    {
+      "label": { "en": "Toll gantries", "zh": "收费门架" },
+      "value": { "en": "Two, at km 1.5 (Taipei end–Wanfang) and km 4.1 (Wanfang–Muzha)", "zh": "两座，分别位于 1.5 公里（台北端—万芳）与 4.1 公里（万芳—木柵）" },
+      "source": "交通部臺灣區國道高速公路局公告, 國道高速公路通行費徵收計畫 附表 4, 行政院公報 vol. 21 no. 148, 11 August 2015"
+    },
+    {
+      "label": { "en": "Built by", "zh": "兴建单位" },
+      "value": { "en": "National Expressway Engineering Bureau; maintained by the Freeway Bureau's Muzha maintenance section", "zh": "交通部台湾区国道新建工程局兴建，交通部高速公路局北区养护工程分局木柵工务段养护" },
+      "source": "Chinese Wikipedia, 國道三號甲線; Freeway Bureau, 北區養護工程分局簡介"
+    }
+  ],
+  "timeline": [
+    { "year": 1984, "en": "The feasibility study for the North Second Freeway, including the Taipei connecting line, begins in June.", "zh": "6 月，包含台北联络线在内的北二高开始可行性研究。" },
+    { "year": 1985, "en": "Engineering planning for the North Second Freeway begins in December.", "zh": "12 月，北二高展开工程规划。" },
+    { "year": 1990, "en": "The National Expressway Engineering Bureau is set up on 5 January to take over the work.", "zh": "1 月 5 日，国道新建工程局成立，接手推动工程。" },
+    { "year": 1996, "en": "The connecting line opens on 21 March with the Xizhi–Muzha section of Freeway 3.", "zh": "3 月 21 日，台北联络线与国道三号汐止木柵段一同通车。" },
+    { "year": 1997, "en": "The Muzha interchange opens in full on 24 August, as the whole North Second Freeway opens.", "zh": "8 月 24 日北二高全线通车，木柵交流道同时全部启用。" },
+    { "year": 2005, "en": "The Wanfang interchange opens on 14 May with the Xinyi Expressway.", "zh": "5 月 14 日，万芳交流道随信义快速道路开通而通车。" },
+    { "year": 2007, "en": "On 1 November the road is reclassified as a national expressway and opened to motorcycles over 550 cc.", "zh": "11 月 1 日，本线改归国道快速公路，并开放 550 cc 以上大型重型机车行驶。" },
+    { "year": 2012, "en": "Motorcycles over 250 cc are allowed from 1 July.", "zh": "7 月 1 日起开放 250 cc 以上大型重型机车行驶。" },
+    { "year": 2013, "en": "Distance-based electronic tolling begins on 30 December.", "zh": "12 月 30 日开始实施电子计程收费。" },
+    { "year": 2023, "en": "The two tunnels are renamed Taipei No. 1 and No. 2 in June.", "zh": "6 月，两座隧道更名为台北 1 号、2 号隧道。" }
+  ]
+}

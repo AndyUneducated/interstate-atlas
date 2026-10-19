@@ -1,0 +1,125 @@
+{
+  "id": "tw-17",
+  "route": { "sys": "tw-provincial", "num": "17" },
+  "name": { "en": "Provincial Highway 17", "zh": "台 17 线" },
+  "aka": [
+    { "en": "Western Coastal Highway (central and southern section)", "zh": "西部滨海公路（中南段）" }
+  ],
+  "tagline": { "en": "The old coast road of south-western Taiwan, 273 km from Qingshui to Shuidiliao, now shadowed for much of its length by the expressway built beside it", "zh": "台湾西南部的老滨海公路，自清水至水底寮 273 公里，如今大半路程都有一旁新建的快速公路相伴" },
+  "termini": {
+    "start": { "at": [120.59, 24.30], "en": "Jianan, Qingshui District, Taichung, where it branches off Provincial Highway 1", "zh": "台中市清水区甲南，自台 1 线岔出" },
+    "end": { "at": [120.59, 22.39], "en": "Shuidiliao, Fangliao Township, Pingtung, where it rejoins Provincial Highway 1", "zh": "屏东县枋寮乡水底寮，接回台 1 线" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Provincial Highway 17 runs down the coast of central and southern Taiwan for 273.474 km, from Qingshui in Taichung to Shuidiliao in Pingtung, leaving Highway 1 at one end and rejoining it at the other. On the way it passes Taichung Port, the Changhua coast by Lukang and Wanggong, the Yunlin fishing and industrial towns of Mailiao, Taixi and Kouhu, the salt pans at Budai in Chiayi, Beimen and the Nankunshen temple in Tainan, Anping and the Taijiang National Park, and then Qieding, Mituo and Ziguan on the Kaohsiung coast. It goes straight through central Kaohsiung, past the southern end of Freeway 1 and the airport, crosses the Gaoping River on the Shuangyuan Bridge, and finishes along the Pingtung coast by Donggang, Linbian and Jiadong.",
+        "It is the central and southern half of the Western Coastal Highway; Highway 15 is the northern half. When the two were planned together in the 1980s they did not meet, and parts of Highway 17 were still single-lane. Since the Western Coast Expressway, Highway 61, was built alongside, Highway 17 shares its carriageway with it through parts of Changhua, Yunlin and Chiayi and otherwise mostly carries local traffic. It has two short spurs in Tainan, 17A (26.418 km) and 17B (5.917 km)."
+      ],
+      "zh": [
+        "台 17 线沿台湾中南部海岸南下，自台中市清水区至屏东县枋寮乡水底寮，全长 273.474 公里，两端都与台 1 线相接。沿途经过台中港，彰化鹿港、王功一带海岸，云林麦寮、台西、口湖等渔业与工业乡镇，嘉义布袋盐田，台南北门与南鲲鯓代天府、安平与台江国家公园，再经高雄沿海的茄萣、弥陀、梓官。它直穿高雄市区，经过国道一号高雄端和高雄国际机场，以双园大桥跨越高屏溪，最后沿屏东海岸经东港、林边、佳冬到达终点。",
+        "它是西部滨海公路的中南段，北段为台 15 线。两条路在 1980 年代一并规划时彼此并未衔接，台 17 线还有部分路段只是单车道。西滨快速公路（台 61 线）在一旁建成后，台 17 线在彰化、云林、嘉义有几段与它共线，其余路段多半只承担地方交通。台南境内另有两条短支线：台 17 甲线（26.418 公里）与台 17 乙线（5.917 公里）。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "In the route list the provincial government announced on 6 October 1977, Highway 17 ran through the middle of Tainan city: from the Guosheng Bridge in Annan by Haidian Road, Wenxian Road, Ximen Road and Jinhua Road, then through the villages of Xishu and Wanli to the Nanding Bridge into Kaohsiung county. As the city and the Anping industrial zone grew, it was moved onto new roads around 1982, and later onto Mingxing Road east of Xishu and Wanli.",
+        "In 1986 the Western Coastal Highway improvement plan, one of the government's Fourteen Major Construction Projects, set out in two phases to widen Highways 2, 15 and 17 to four lanes and join them into another north–south trunk road linking the west coast's ports. In 1991 and 1992 the coastal route was raised again, to expressway standard; that became Highway 61, built beside Highway 17 over the next three decades.",
+        "The numbering has followed the new roads. Highway 17A was created in 1994 for 7.749 km between the Nanding and Hunei bridges; in 2002 it was extended north to the Guosheng Bridge, taking over the old line through central Tainan, while the main line kept to the coast by Anping. In September 2008 the Freeway 8 link road in Annan became Highway 17B, and Highway 17 in Yunlin was moved onto the Mailiao bypass and, between Lunziding and Wutiaogang, onto Highway 61's frontage road.",
+        "On 9 August 2009, at 00:40, floods from Typhoon Morakot brought down about 500 m of the Shuangyuan Bridge over the Gaoping River, cutting the road between Linyuan and Xinyuan. The bridge had been built from May 1973 to December 1976. Cars on it fell into the river: the Control Yuan put the toll at six vehicles and ten people missing, while a Pingtung legislator, gathering reports from families, counted at least eight vehicles and twelve people. In April 2010 the Control Yuan censured the transport ministry, finding the highways bureau's bridge-closure procedures unrealistic and rigidly applied. A steel temporary bridge for cars and motorcycles opened on 25 April 2010.",
+        "In Kaohsiung, where the road narrows through the old settlements of Nanzi and Zuoying after crossing the Houjin River, the city has been building a straighter new Highway 17 on the seaward side, about 7 km from Dianchang Road in Qiaotou to the South Gate roundabout in Zuoying. It was first planned under an acting mayor some sixteen years before its first part opened. The northern 2.1 km, begun in October 2017, opened on 27 June 2022. The southern section runs past naval land; the navy agreed to let it pass its museum and monument at ground level rather than move them, and its three phases were begun between October 2023 and October 2025."
+      ],
+      "zh": [
+        "依 1977 年 10 月 6 日台湾省政府公告的路线系统表，台 17 线穿过台南市中心：自安南区国圣桥经海佃路、文贤路、西门路、金华路，再穿过喜树、湾里聚落，经南萣桥进入高雄县。随着都市发展与安平工业区开发，约 1982 年改走新辟道路，此后又改走喜树、湾里东侧新辟的明兴路，不再进入聚落。",
+        "1986 年起，列为政府十四项重大建设之一的「西部滨海纵贯公路改善计划」分两期办理，将台 2 线、台 15 线、台 17 线三条滨海公路拓宽为四车道并予贯通，成为连接西部主要港口的另一条南北干道。1991、1992 年，滨海路廊再被提升为快速公路标准，即日后在台 17 线旁边用了近三十年逐段建成的台 61 线。",
+        "路线编号也随新路调整。1994 年设立台 17 甲线，自南萣桥至湖内桥，长 7.749 公里；2002 年甲线起点北延至国圣桥，接管穿越台南市区的旧线，主线则沿安平一带海岸行驶。2008 年 9 月，安南区的国道八号衔接道路纳编为台 17 乙线；同月，云林麦寮路段改行麦寮外环道，仑子顶至五条港路段改行台 61 线侧车道。",
+        "2009 年 8 月 9 日 0 时 40 分，莫拉克台风带来的洪水冲断高屏溪上的双园大桥，断桥约 500 米，林园与新园之间交通中断。这座桥 1973 年 5 月动工，1976 年 12 月完工。当时桥上车辆坠入溪中：监察院认定为 6 车 10 人落桥失踪；屏东立委潘孟安汇整家属陈情后，则称至少 8 车 12 人。2010 年 4 月，监察院纠正交通部，认为公路总局的封桥标准作业程序不切实际、执行僵化。2010 年 4 月 25 日，供汽车与机车通行的钢便桥通车。",
+        "在高雄，台 17 线跨过后劲溪后进入楠梓、左营旧聚落，路幅受限。市政府于是在原路西侧靠海处另辟一条截弯取直的新台 17 线，北起桥头区典昌路，南至左营区南门圆环，全长约 7 公里，从代理市长叶菊兰时期开始规划，到第一段通车历时 16 年。北段 2.1 公里于 2017 年 10 月动工，2022 年 6 月 27 日通车。南段经过海军营区，军方同意保留海军故事馆与海军精神堡垒，道路以平面方式从旁经过；南段三期工程于 2023 年 10 月至 2025 年 10 月间陆续开工。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The new Shuangyuan Bridge, begun on 26 December 2009, was built in two years rather than the three planned. It is about 2,900 m long with its approaches; the steel main bridge stands on 19 piers in the river where the old one had 67, with main spans of 96 to 120 m and piles 68 m deep, and the deck is 26 m wide instead of 19, with a cycle lane. The Control Yuan found the old bridge had not been on the list of ageing bridges, had passed its inspections and had been given scour protection in 2003, but the Morakot flood, measured at 29,500 m³/s at the Gaoping weir upstream, exceeded the 200-year design flood. The Donggang Bridge further south was rebuilt at the same time for flood works on the Donggang River, its piers cut from 19 to 5.",
+        "Kaohsiung's new northern section is 50 m wide, with two traffic lanes and a slow lane each way, a footway with a cycle path, and the Yuanzhonggang Bridge over the Houjin River, 130 m in span."
+      ],
+      "zh": [
+        "新双园大桥于 2009 年 12 月 26 日动工，原定 3 年的工期缩短为 2 年完成。连同引道全长约 2,900 米；主桥为钢构，河道中的桥墩由旧桥的 67 座减为 19 座，主跨径 96 至 120 米，基桩深达 68 米，桥面由 19 米拓宽为 26 米，并增设自行车道。监察院调查指出，旧桥不属省道老旧桥梁，历年检测并无安全疑虑，2003 年也做过保护工程，但莫拉克洪水在上游高屏溪拦河堰测得尖峰流量每秒 29,500 立方米，已超过 200 年重现期洪水。更南边的东港大桥同期配合东港溪治理工程改建，桥墩由 19 座减为 5 座。",
+        "高雄新台 17 线北段路宽 50 米，单向配置 2 快车道、1 慢车道，另有人行道（含自行车道），并以跨距 130 米的援中港桥跨越后劲溪。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost has been published for the road as a whole, which was assembled from local roads and widened piecemeal. The Shuangyuan Bridge rebuild cost NT$3.836 billion, the most of any single bridge in the reconstruction after Typhoon Morakot. Kaohsiung's new northern 2.1 km cost about NT$1.275 billion; for the first southern phase, from Deming Road to Zhonghai Road, budgeted at NT$893.84 million, the city put up NT$251.1 million and the central Construction and Planning Agency subsidised the rest."
+      ],
+      "zh": [
+        "这条路由各段地方道路拼接、分段拓宽而成，从未公布过全线造价。双园大桥重建总经费 38.36 亿元，是莫拉克风灾后复建工程中造价最高的单一桥梁。高雄新台 17 线北段 2.1 公里总经费约 12.75 亿元；南段第一期德民路至中海路工程经费 8 亿 9,384 万元，其中市政府自筹 2 亿 5,110 万元，其余由营建署补助。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "While the Shuangyuan Bridge was down, traffic between Linyuan and Xinyuan had to go round by Highway 88 and the Wanda Bridge, about 28 km further; buses were diverted the same way, adding 30 to 50 minutes between Kaohsiung and Fangliao. In Kaohsiung the city's transport bureau expects the finished new Highway 17 to cut the distance from Qiaotou to Zuoying by 26 per cent and the time by 30 per cent, and to take 30 to 50 per cent of the traffic off the old road."
+      ],
+      "zh": [
+        "双园大桥断桥期间，林园与新园之间须绕行台 88 线经万大大桥，多走约 28 公里；客运路线也随之绕行，高雄至枋寮车程多出 30 至 50 分钟不等。在高雄，交通局评估新台 17 线全段完成后，可缩短桥头至左营 26% 的车行距离、减少 30% 的行车时间，并分流原台 17 线 30% 至 50% 的车流。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Limits are 40 to 70 km/h. In Changhua, Yunlin and Chiayi the road weaves in and out of Highway 61, sharing its carriageway or frontage roads in places, and most junctions with it are interchanges. In Kaohsiung it becomes a city street — Cuihua Road past Lotus Pond, then Zhonghua Road and Zhongshan Road through the centre — before the coastal run out past the Linyuan industrial zone to the Shuangyuan Bridge."
+      ],
+      "zh": [
+        "速限为每小时 40 至 70 公里。在彰化、云林、嘉义，这条路与台 61 线时分时合，部分路段共用主线或侧车道，两路交会处多为交流道。进入高雄后它成了市区街道——经莲池潭旁的翠华路，再走中华路、中山路穿过市中心——然后沿海经过林园工业区，过双园大桥。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No cost for the route as a whole has been published. Highway 17 was assembled from existing local roads and widened section by section from the 1970s onwards; the published costs are for individual projects, listed below.", "zh": "未公布全线造价。台 17 线由既有地方道路连成，自 1970 年代起分段拓宽，公开的只有个别工程的经费，列于下方。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "No breakdown for the whole road has been found. The Shuangyuan Bridge was rebuilt by the Directorate General of Highways as emergency works under the Executive Yuan's Morakot reconstruction council. Kaohsiung's new Highway 17, southern phase one: NT$251.1 million from the city, the rest of NT$893.84 million subsidised by the Construction and Planning Agency.", "zh": "未查到全线的出资构成。双园大桥重建由行政院莫拉克台风灾后重建推动委员会督导、公路总局以紧急工程办理。高雄新台 17 线南段第一期：总经费 8 亿 9,384 万元中，市政府自筹 2 亿 5,110 万元，其余由营建署补助。" },
+      "source": "Morakot Post-Disaster Reconstruction Council release, 20 December 2011 (via yam.com); 葛祐豪, Liberty Times, 27 June 2022"
+    },
+    {
+      "label": { "en": "Shuangyuan Bridge rebuild (2009–2011)", "zh": "双园大桥重建（2009—2011 年）" },
+      "value": { "en": "NT$3.836 billion — the most expensive single bridge rebuilt after Typhoon Morakot", "zh": "总工程经费 38.36 亿元——莫拉克风灾后复建工程中造价最高的单一桥梁" },
+      "source": "Morakot Post-Disaster Reconstruction Council release, 20 December 2011; Central News Agency, 9 and 23 December 2011"
+    },
+    {
+      "label": { "en": "Kaohsiung new Highway 17, northern section (2.1 km, opened 2022)", "zh": "高雄新台 17 线北段（2.1 公里，2022 年通车）" },
+      "value": { "en": "About NT$1.275 billion", "zh": "总经费约 12.75 亿元" },
+      "source": "蔡孟妤, Central News Agency, 27 June 2022"
+    },
+    {
+      "label": { "en": "Shuangyuan Bridge collapse, 9 August 2009", "zh": "双园大桥断桥（2009 年 8 月 9 日）" },
+      "value": { "en": "Six vehicles and ten people lost, according to the Control Yuan's investigation; at least eight vehicles and twelve people, according to the office of a Pingtung legislator", "zh": "监察院调查认定 6 车 10 人落桥失踪；屏东立委潘孟安服务处称至少 8 车 12 人" },
+      "source": "Control Yuan, censure of the Ministry of Transportation and Communications and the Water Resources Agency, 14 April 2010; Legislative Yuan, releases of legislator 潘孟安's office, 28 August 2009 and 2010"
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "273.474 km, per the Directorate General of Highways route list; a 2017 Tainan City Council motion gives 274.129 km", "zh": "依公路总局省道里程为 273.474 公里；2017 年台南市议会一项提案则作 274.129 公里" },
+      "source": "Directorate General of Highways, 省道公路里程, as cited in Chinese Wikipedia, 台17線; Tainan City Council motion by 莊玉珠 and 蔡淑惠 (台南議會資料站)"
+    }
+  ],
+  "timeline": [
+    { "year": 1976, "en": "The first Shuangyuan Bridge over the Gaoping River is completed in December, after work began in May 1973.", "zh": "12 月，高屏溪上的第一代双园大桥完工，该桥 1973 年 5 月动工。" },
+    { "year": 1977, "en": "The provincial route list announced on 6 October runs Highway 17 through central Tainan.", "zh": "10 月 6 日公告的省道路线系统表中，台 17 线穿越台南市中心。" },
+    { "year": 1986, "en": "The Western Coastal Highway improvement plan begins, to widen Highways 2, 15 and 17 to four lanes and join them up.", "zh": "「西部滨海纵贯公路改善计划」开始办理，将台 2、台 15、台 17 线拓宽为四车道并予贯通。" },
+    { "year": 1994, "en": "Highway 17A is created between the Nanding and Hunei bridges.", "zh": "设立台 17 甲线，自南萣桥至湖内桥。" },
+    { "year": 2002, "en": "The old line through central Tainan becomes part of Highway 17A.", "zh": "穿越台南市区的旧线并入台 17 甲线。" },
+    { "year": 2008, "en": "Highway 17B is created in Annan; in Yunlin the road moves to the Mailiao bypass and Highway 61's frontage road.", "zh": "安南区设立台 17 乙线；云林麦寮路段改行外环道及台 61 线侧车道。" },
+    { "year": 2009, "en": "Typhoon Morakot's floods bring down the Shuangyuan Bridge on 9 August; work on its replacement starts on 26 December.", "zh": "8 月 9 日，莫拉克台风洪水冲断双园大桥；12 月 26 日新桥动工。" },
+    { "year": 2010, "en": "The Control Yuan censures the transport ministry over the collapse in April; a temporary bridge opens on 25 April.", "zh": "4 月，监察院就断桥事件纠正交通部；4 月 25 日钢便桥通车。" },
+    { "year": 2011, "en": "The new Shuangyuan Bridge opens northbound on 4 September and in full on 23 December.", "zh": "新双园大桥 9 月 4 日北上线通车，12 月 23 日全线通车。" },
+    { "year": 2017, "en": "Work starts in October on the northern section of Kaohsiung's new Highway 17.", "zh": "10 月，高雄新台 17 线北段动工。" },
+    { "year": 2022, "en": "The northern 2.1 km of the new Highway 17 opens on 27 June.", "zh": "6 月 27 日，新台 17 线北段 2.1 公里通车。" }
+  ]
+}
