@@ -569,6 +569,28 @@ await step('the timeline is gone, and its curve is on the statistics page', asyn
   await page.click('.dash-cc[data-cc="cn"]');
   await page.waitForTimeout(300);
   if (await page.locator('#dashBuild').count()) throw new Error('the Interstate buildout shown for China');
+  await page.waitForSelector('#dashBuildCn:not([hidden]) .build-svg', { timeout: 10000 });
+  const cn = await page.evaluate(async () => {
+    const h = await (await fetch('data/timeline.json')).json();
+    return { lines: h.mainland.length, dated: h.mainland.filter((l) => l.year).length };
+  });
+  if (cn.lines !== 36) throw new Error(`mainland buildout has ${cn.lines} main lines, not 36`);
+  const chips = await page.locator('#dashBuildCn .dash-go').count();
+  if (chips !== cn.lines) throw new Error(`mainland buildout lists ${chips} of ${cn.lines} lines`);
+  if (await page.locator('#dashBuildCn .build-ev i').count() !== cn.dated) throw new Error('mainland buildout ticks do not match the dated lines');
+  await page.locator('#dashBuildCn').scrollIntoViewIfNeeded();
+  await shot('04e-dashboard-build-cn.png');
+  await page.click('.dash-cc[data-cc="us"]');
+  await page.waitForTimeout(300);
+  if (await page.locator('#dashBuildCn').count()) throw new Error('the mainland buildout shown for the United States');
+  await page.click('.dash-cc[data-cc="cn"]');
+  await page.waitForSelector('#dashBuildCn:not([hidden]) .dash-go[data-id="cn-g1"]', { timeout: 10000 });
+  await page.click('#dashBuildCn .dash-go[data-id="cn-g1"]');
+  await page.waitForTimeout(1200);
+  if (!(await page.locator('#detail').textContent()).includes('G1')) throw new Error('a mainland buildout chip did not open its route');
+  await page.keyboard.press('Escape');
+  await jsClick('#btnDash');
+  await page.waitForTimeout(600);
   await page.click('.dash-cc[data-cc="all"]');
   await page.click('#shClose');
 });

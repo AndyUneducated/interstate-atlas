@@ -8,6 +8,7 @@
     { "en": "Longling–Ruili Expressway (the western end)", "zh": "龙瑞高速公路（西端）" }
   ],
   "tagline": { "en": "From West Lake to the Burmese border, across Dongting Lake on a 1,480 m span and the Nizhu gorge 565 m up", "zh": "从西湖畔到中缅边境，以 1,480 米主跨越洞庭湖，在 565 米高处跨过尼珠河峡谷" },
+  "completedYear": 2018,
   "termini": {
     "start": { "at": [120.05, 30.25], "en": "Liuxia interchange on the Hangzhou ring expressway, Xihu District, Hangzhou — kilometre 0", "zh": "杭州市西湖区留下枢纽，接杭州绕城高速——零公里处" },
     "end": { "at": [97.83, 24.02], "en": "Ruili West toll station, Ruili, Dehong, Yunnan, near the border with Myanmar — kilometre 2,953", "zh": "云南省德宏州瑞丽市瑞丽西收费站，邻近中缅边境——2,953 公里处" }

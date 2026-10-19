@@ -7,6 +7,7 @@
     { "en": "Lianyungang–Khorgas national trunk route (G045)", "zh": "连云港至霍尔果斯国道主干线（G045）" }
   ],
   "tagline": { "en": "From the Yellow Sea to the Kazakh border, 4,242 km along the old Silk Road", "zh": "自黄海之滨至哈萨克斯坦边境，沿古丝绸之路横贯 4,242 公里" },
+  "completedYear": 2014,
   "termini": {
     "start": { "at": [119.4, 34.74], "en": "The Dagang West Road interchange in Lianyun District, Lianyungang, by the port", "zh": "江苏省连云港市连云区大港西路立交，紧邻连云港港" },
     "end": { "en": "The Khorgas border crossing in Xinjiang, where the road continues into Kazakhstan as the A2", "zh": "新疆霍尔果斯口岸，对侧接哈萨克斯坦 A2 公路" }

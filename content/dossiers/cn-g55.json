@@ -7,6 +7,7 @@
     { "en": "Xiangyang–Jingzhou Expressway (part of the Hubei section)", "zh": "襄荆高速公路（湖北段的一部分）" }
   ],
   "tagline": { "en": "From the Mongolian border at Erenhot to the Guangzhou ring road, west of and parallel to G4; the last stretch, a rebuilt section of National Road 208 on the steppe, opened in 2022", "zh": "自二连浩特国门至广州环城高速，在京港澳高速以西与之并行；最后一段——草原上改建的 208 国道——于 2022 年通车" },
+  "completedYear": 2022,
   "termini": {
     "start": { "at": [111.97, 43.65], "en": "The Erenhot border crossing, Xilingol League, Inner Mongolia, at the national gate facing Zamyn-Üüd in Mongolia — kilometre 0", "zh": "内蒙古锡林郭勒盟二连浩特口岸国门，对面是蒙古国扎门乌德——零公里处" },
     "end": { "at": [113.22, 23.17], "en": "Shabei interchange on the Guangzhou Ring Expressway, Baiyun District, Guangzhou — kilometre 2,746", "zh": "广州市白云区沙贝互通，接广州环城高速——2,746 公里处" }

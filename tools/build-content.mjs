@@ -220,6 +220,10 @@ async function main() {
 
   const timelineRoutes = [];
   const timelineEvents = [];
+  // The mainland's main lines (G1-G99) and the year each dossier says it was
+  // complete end to end. A line still open in pieces, or whose dossier does
+  // not say, carries no year rather than the year of its latest section.
+  const mainland = [];
   const publishedIds = [];
   let published = 0;
   const bySystem = {};
@@ -340,6 +344,9 @@ async function main() {
         id, label: hit.row[IX.label], year: d.completedYear, mi: hit.row[IX.mi],
       });
     }
+    if (systemOfCode(hit.row[IX.sys])?.id === 'cn-expressway' && /^G\d{1,2}$/.test(hit.row[IX.label])) {
+      mainland.push({ id, label: hit.row[IX.label], year: d.completedYear ?? null });
+    }
     for (const ev of d.timeline || []) {
       if (typeof ev.year !== 'number') { fail(file, 'timeline entry without a year'); continue; }
       checkLocalised(file, `timeline ${ev.year}`, { en: ev.en, zh: ev.zh });
@@ -443,6 +450,7 @@ async function main() {
     // report its own coverage instead of implying it is complete.
     coverage: { interstates, documented: timelineRoutes.length, quebec },
     mileage,
+    mainland: mainland.sort((a, b) => (a.year ?? 1e4) - (b.year ?? 1e4) || Number(a.label.slice(1)) - Number(b.label.slice(1))),
     routes: timelineRoutes,
     events: timelineEvents,
   }));

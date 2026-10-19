@@ -1241,6 +1241,7 @@ function dashBody(cc) {
 
     <div class="dash-card dash-wide" id="dashSpeed" hidden></div>
     ${all || cc === 'us' ? '<div class="dash-card dash-wide" id="dashBuild" hidden></div>' : ''}
+    ${all || cc === 'cn' ? '<div class="dash-card dash-wide" id="dashBuildCn" hidden></div>' : ''}
 
     <div class="dash-card dash-wide" style="margin-top:20px">
       <h3>${t('dash.longest')}</h3>
@@ -1303,6 +1304,46 @@ function buildoutCard(h) {
         <div><span class="build-b"><i style="height:${((d.v / vmax) * 100).toFixed(1)}%"></i></span>
           <b>${num(lenOf(d.v))}</b><small>${d.k}</small></div>`).join('')}</div>
       <p class="hbar-note">${t('build.note', { a: num(lenOf(first.mi)), b: num(lenOf(last.mi)), u: lenUnit(), y0: first.year, y1: last.year })}</p>
+    </div>`;
+}
+
+/* The mainland publishes no year-by-year mileage per system, so its account is
+   the year each main line's dossier says it was finished end to end - a count
+   of lines, not of kilometres, with the lines no dossier dates listed as such. */
+function mainlandCard(lines) {
+  const dated = lines.filter((l) => l.year);
+  const rest = lines.filter((l) => !l.year);
+  if (!dated.length) return '';
+  const y0 = Math.min(2000, dated[0].year);
+  const y1 = Math.max(new Date().getFullYear(), dated.at(-1).year);
+  const W = 600;
+  const H = 120;
+  const x = (yr) => ((yr - y0) / (y1 - y0)) * W;
+  const y = (n) => H - (n / lines.length) * (H - 8);
+  let n = 0;
+  let line = `M0 ${H}`;
+  for (const l of dated) {
+    line += ` L${x(l.year).toFixed(1)} ${y(n).toFixed(1)}`;
+    n += 1;
+    line += ` L${x(l.year).toFixed(1)} ${y(n).toFixed(1)}`;
+  }
+  line += ` L${W} ${y(n).toFixed(1)}`;
+  const chip = (l) => `<a class="dash-go" data-id="${l.id}">${esc(l.label)}</a>${l.year ? ` <small>${l.year}</small>` : ''}`;
+  return `
+    <h3>${t('build.cn.title')}</h3>
+    <div class="in build">
+      <svg class="build-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">
+        <path class="build-goal" d="M0 ${y(lines.length).toFixed(1)} L${W} ${y(lines.length).toFixed(1)}"/>
+        <path class="build-area" d="${line} L${W} ${H} L0 ${H} Z"/>
+        <path class="build-line" d="${line}"/>
+      </svg>
+      <div class="build-ev">${dated.map((l) => `<i style="left:${((x(l.year) / W) * 100).toFixed(1)}%" title="${l.year} · ${esc(l.label)}"></i>`).join('')}</div>
+      <div class="build-ax"><span>${y0}</span><span>${y1}</span></div>
+      <p class="dash-sub">${t('build.cn.dated', { n: dated.length, of: lines.length })}</p>
+      <p class="build-chips">${dated.map(chip).join(' · ')}</p>
+      ${rest.length ? `<p class="dash-sub">${t('build.cn.open', { n: rest.length })}</p>
+      <p class="build-chips">${rest.map(chip).join(' · ')}</p>` : ''}
+      <p class="hbar-note">${t('build.cn.note', { n: lines.length })}</p>
     </div>`;
 }
 
@@ -1394,6 +1435,15 @@ function wireDashBody(host) {
     if (!h || !slot) return;
     slot.innerHTML = buildoutCard(h);
     slot.hidden = false;
+  });
+  buildout().then((h) => {
+    const slot = host.querySelector('#dashBuildCn');
+    if (!h?.mainland?.length || !slot) return;
+    slot.innerHTML = mainlandCard(h.mainland);
+    slot.hidden = false;
+    for (const a of slot.querySelectorAll('.dash-go[data-id]')) {
+      a.addEventListener('click', () => { closeSheet(); select(a.dataset.id); });
+    }
   });
 }
 

@@ -33,7 +33,7 @@ Smallest first.
 | P6 | Quebec bridges with year built | MTMD Structure (Données Québec), WFS | **done** 2026-10-19 (CA-18, D-83): 5,181 structures on the numbered routes |
 | P7 | US bridges with year built | FHWA National Bridge Inventory | **done** 2026-10-19 (US-11, D-84): 196,860 bridges that carry an atlas route, loaded a state at a time |
 | P8 | More dossiers: the longest mainland national highways (G331, G228, G312, G207, G213, G215…), regional expressways (G0612, G3012, G1523…), Taiwan's 台17, 台19, 台21, 台26, 國3甲, 國8, and Mexico's federal routes | [DOSSIER-BRIEF.md](DOSSIER-BRIEF.md) | |
-| P9 | Mainland per-route opening years from the dossiers' timelines into the buildout chart | dossiers | |
+| P9 | Mainland per-route opening years from the dossiers' timelines into the buildout chart | dossiers | **done** 2026-10-19 (D-85): 22 of the 36 main lines dated, the rest listed undated |
 
 ## Still to check whether the data exists
 
