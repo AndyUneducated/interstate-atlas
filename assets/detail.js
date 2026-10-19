@@ -403,6 +403,23 @@ function taiwanTraffic(p) {
   return figBox(t(tr.kind === 'freeway' ? 'tw.tr.titleFwy' : 'tw.tr.titlePv'), sub, rows);
 }
 
+/**
+ * The Highway Bureau's average roughness for a provincial highway. One figure
+ * for the whole road, so it is set against the network's average rather than
+ * graded by FHWA's thresholds, which are read on a segment at a time.
+ */
+function taiwanPavement(p) {
+  const meta = app.stats?.twIri;
+  if (p.twIri == null || !meta) return '';
+  const metric = getUnits() === 'metric';
+  const val = (v) => (metric ? t('hp.iriValM', { n: num(v, 2) }) : t('hp.iriVal', { n: num(v * 63.36) }));
+  const rows = [[t('hp.pavement'), `<b>${val(p.twIri)}</b>`]];
+  if (meta.network != null) rows.push([t('tw.iri.network'), val(meta.network)]);
+  rows.push(['', `<span class="src"><a href="${esc(meta.url)}" target="_blank" rel="noopener">`
+    + `${esc(getLang() === 'zh' ? meta.agency : meta.agencyEn)}</a> · ${esc(meta.licence)}</span>`]);
+  return figBox(t('tw.iri.title'), t('tw.iri.sub', { date: meta.modified ?? '' }), rows);
+}
+
 function hongKongTraffic(hk, census) {
   const tr = hk?.traffic;
   if (!tr || !census) return '';
@@ -1064,7 +1081,7 @@ export async function renderDetail(id) {
   // is long enough to push everything else off the panel, so it waits behind
   // its heading.
   parts.push(section('measured', [
-    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), taiwanTraffic(p), hongKongTraffic(hk, hkData?.census),
+    hpmsFacts(p), provincialTraffic(p), mexicanTraffic(p), taiwanTraffic(p), taiwanPavement(p), hongKongTraffic(hk, hkData?.census),
     caFacts(p), mxFacts(p), caInventory(p),
   ].join('').trim()));
   parts.push(section('composition', compositionBlock(types), !dossier));

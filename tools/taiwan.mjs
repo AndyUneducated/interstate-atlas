@@ -38,7 +38,7 @@ const county = (name) => COUNTY_CODE[name?.replace(/台/g, '臺')] ?? null;
 
 // The suffix that makes a spur: 台1甲 is the first branch of 台1. The letters are
 // the ones the Directorate General of Highways uses in English.
-const SUFFIX = { 甲: 'A', 乙: 'B', 丙: 'C', 丁: 'D', 戊: 'E', 己: 'F', 庚: 'G' };
+export const SUFFIX = { 甲: 'A', 乙: 'B', 丙: 'C', 丁: 'D', 戊: 'E', 己: 'F', 庚: 'G' };
 export const SUFFIX_ZH = Object.fromEntries(Object.entries(SUFFIX).map(([zh, en]) => [en, zh]));
 
 /**

@@ -428,12 +428,13 @@ async function loadOfficial() {
       return null;
     }
   };
-  const [mileage, cost, hpms, caTraffic, mxTraffic, twTraffic, fixes] = await Promise.all([
+  const [mileage, cost, hpms, caTraffic, mxTraffic, twTraffic, twIri, fixes] = await Promise.all([
     read('fhwa-mileage.json'), read('fhwa-cost.json'), read('hpms.json'),
-    read('ca-traffic.json'), read('mx-traffic.json'), read('tw-traffic.json'), read('fhwa-corrections.json'),
+    read('ca-traffic.json'), read('mx-traffic.json'), read('tw-traffic.json'), read('tw-iri.json'),
+    read('fhwa-corrections.json'),
   ]);
   if (mileage && fixes) correctMileage(mileage, fixes);
-  return mileage ? { mileage, cost, hpms, caTraffic, mxTraffic, twTraffic } : null;
+  return mileage ? { mileage, cost, hpms, caTraffic, mxTraffic, twTraffic, twIri } : null;
 }
 
 /**
@@ -527,6 +528,7 @@ function attachOfficial(routes, ref) {
   attachCanadianTraffic(routes, ref.caTraffic);
   attachMexicanTraffic(routes, ref.mxTraffic);
   attachTaiwanTraffic(routes, ref.twTraffic);
+  attachTaiwanIri(routes, ref.twIri);
 
   for (const r of routes) {
     if (r.system !== 'us-interstate') continue;
@@ -1263,6 +1265,31 @@ const medianOf = (xs) => {
  * the route each one stands for, so they are placed like Mexico's: on the
  * nearest piece of their number, within 5 km.
  */
+/**
+ * The Highway Bureau's one average roughness per provincial highway. It is a
+ * figure for the whole route, so it goes on the piece that carries the
+ * register's length and on no other piece of the same number.
+ */
+function attachTaiwanIri(routes, iri) {
+  if (!iri?.routes) return;
+  const longest = new Map();
+  for (const r of routes) {
+    if (r.country !== 'tw' || r.system !== 'tw-provincial') continue;
+    const cur = longest.get(r.number);
+    if (!cur || r.mi > cur.mi) longest.set(r.number, r);
+  }
+  let n = 0;
+  for (const [number, v] of Object.entries(iri.routes)) {
+    const r = longest.get(number);
+    if (!r) continue;
+    r.twIri = v;
+    n++;
+  }
+  const missing = Object.keys(iri.routes).filter((k) => !longest.has(k));
+  console.log(`  Highway Bureau roughness: ${n} of ${Object.keys(iri.routes).length} provincial highways`
+    + (missing.length ? `; not in the geometry: ${missing.join(' ')}` : ''));
+}
+
 function attachTaiwanTraffic(routes, tw) {
   if (!tw) return;
   const byKey = new Map();
@@ -1911,6 +1938,7 @@ async function main() {
         // Taiwan only: the Freeway Bureau's reference volumes on a freeway, the
         // Highway Bureau's survey on a provincial highway.
         twTraffic: r.twTraffic ?? null,
+        ...(r.twIri != null ? { twIri: r.twIri } : {}),
         // Where the official length comes from when it is not the Route Log,
         // and Taiwan's register row: its termini, districts and revision date.
         offSrc: r.offSrc ?? null,
@@ -2046,6 +2074,7 @@ async function main() {
         return [k, { source: t.source, agency: t.agency, url: t.url, licence: t.licence, year: t.year }];
       }))
       : null,
+    twIri: official?.twIri ? { ...official.twIri.source, network: official.twIri.network } : null,
     // The year the states' measurements describe, so a page can date them
     // rather than let a traffic count read as current.
     hpmsYear: HPMS_YEAR,

@@ -35,12 +35,18 @@ Smallest first.
 | P8 | More dossiers: the longest mainland national highways, regional expressways, Taiwan provincial highways and freeways, and Mexico's federal routes | [DOSSIER-BRIEF.md](DOSSIER-BRIEF.md) | **done** 2026-10-19 (257 in all): 台17, 台19, 台21, 台26, 國3甲, 國8; G331, G228, G312, G207, G213, G215; G0612, G3012, G1523; Mexico's first five, MEX-15, 45, 57, 85 and 200. More can follow the brief, route by route |
 | P9 | Mainland per-route opening years from the dossiers' timelines into the buildout chart | dossiers | **done** 2026-10-19 (D-85): 22 of the 36 main lines dated, the rest listed undated |
 
-## Still to check whether the data exists
+## Checked 2026-10-19 and planned
 
-- Bridges in Canadian provinces other than Ontario and Quebec.
-- Per-route official lengths in Canada (provincial registers) and Mexico (SICT's Datos Viales
-  gives each tramo's length, which may add up to a route's).
-- Pavement condition outside the United States.
+The checks the previous list left open. What exists is planned below; what does not is a *source*
+row in [ACCURACY.md §6](ACCURACY.md#6-known-gaps).
+
+| # | Work | Source | Decided |
+| --- | --- | --- | --- |
+| P10 | Mexican federal official lengths | SICT *Red Federal Pavimentada* 2024, datos.gob.mx (CC BY 4.0); free network only, so labelled as such | **needs a decision** (probed 2026-10-19): the file sums each route's free federal tramos *and* its branches (ramales, 5,000 of 40,563 km) and leaves out its D toll roads, so it agrees with the measured length within 10% on only 40 of 119 routes. Shown as the headline it would read as a register like FHWA's; shown in the provenance section, as "SICT free federal network: N km, of which branches M", it would not |
+| P11 | Alberta bridges with year built | Alberta Transportation `Structure-Export.csv` (licence to confirm) | |
+| P12 | Taiwan provincial average roughness, one IRI per route | data.gov.tw 98064 | **done** 2026-10-19 (TW-9, D-86) |
+| P13 | Pavement roughness in Alberta (50 m, with coordinates) and Ontario (by chainage, needs the 2015 LHRS to place) | open.alberta.ca; data.ontario.ca | |
+| P14 | Canadian official lengths per route: BC Landmark Kilometre Inventory, Saskatchewan HIGHWAY_OFFICIAL, New Brunswick DTI network, Manitoba 2018 inventory, Ontario and Alberta section lengths | provincial open-data portals | |
 
 ## Missing against North America because no source exists
 

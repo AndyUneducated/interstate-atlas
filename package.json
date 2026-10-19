@@ -12,7 +12,7 @@
     "fetch:qc": "node tools/fetch-quebec-autoroutes.mjs",
     "fetch:mx": "node tools/fetch-mexico.mjs && node tools/fetch-mexico-traffic.mjs && node tools/fetch-mexico-designations.mjs",
     "fetch:mx:check": "node tools/fetch-mexico.mjs --check && node tools/fetch-mexico-designations.mjs --check",
-    "fetch:tw": "node tools/fetch-taiwan.mjs && node tools/fetch-taiwan-traffic.mjs",
+    "fetch:tw": "node tools/fetch-taiwan.mjs && node tools/fetch-taiwan-traffic.mjs && node tools/fetch-tw-iri.mjs",
     "fetch:hk": "node tools/fetch-hongkong.mjs && node tools/fetch-hk-census.mjs && node tools/fetch-hk-names.mjs && node tools/fetch-hk-tolls.mjs",
     "fetch:cn": "node --max-old-space-size=24000 tools/fetch-china.mjs",
     "fetch:bridges": "node tools/fetch-bridges.mjs && node tools/fetch-nbi.mjs",

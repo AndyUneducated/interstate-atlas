@@ -1328,6 +1328,7 @@ await step('a provincial highway gives the Highway Bureau length and termini', a
   if (!/Register ends/.test(await page.textContent('.termini'))) throw new Error('no register ends beside the termini on PH 9');
   if (!/蘇花公路/.test(await page.textContent('.dt-aka'))) throw new Error('PH 9 does not list the names of its stretches');
   if (!/What the Highway Bureau counts/.test(text)) throw new Error('no survey traffic on PH 9');
+  if (!/What the Highway Bureau measures of the surface[\s\S]*All provincial highways/.test(text)) throw new Error('no average roughness on PH 9');
   if (/工程處/.test(text)) throw new Error('PH 9 names a works office as its busiest station');
   if (!(await page.locator('.dt-hd .shield-twp').count())) throw new Error('PH 9 has no 省道 shield');
 });
@@ -1432,6 +1433,7 @@ await step('Taiwanese freeways give the Freeway Bureau length and their ETC gant
   text = await page.textContent('#detail');
   if (!/78 ETC gantries each way charge by distance over [\d.,]+ (km|mi)/.test(text)) throw new Error('Fwy 3 gives no tolled distance');
   if (!/樹林收費站/.test(text)) throw new Error('Fwy 3 lists no former toll station');
+  if (/measures of the surface/.test(text)) throw new Error('a freeway shows the provincial roughness');
   await page.click('#dtClose');
   await jsClick('#btnTolls');
   await waitForSource('toll');
