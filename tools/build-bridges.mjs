@@ -2,10 +2,10 @@
 //
 //   node tools/build-bridges.mjs
 //
-// Two inventories and nothing more: Mexico's federal free network, from SICT,
-// and Ontario's provincial structures, from its Ministry of Transportation.
-// Neither covers the tolled Mexican network, the rest of Canada or the United
-// States, and the layer's sources say so.
+// Three inventories and nothing more: Mexico's federal free network, from SICT,
+// and the provincial structures of Ontario and Quebec, from their transport
+// ministries. None covers the tolled Mexican network, the rest of Canada or the
+// United States, and the layer's sources say so.
 //
 // A structure is drawn where its owner placed it, with the year its owner
 // records. That year is the structure's, not the road's: a new bridge on an old
@@ -26,7 +26,7 @@ const round = (v) => Number(v.toFixed(5));
 // would be most of the file. Mexico names the road each structure is on, and
 // the same few hundred names repeat thousands of times, so they are listed
 // once and referred to by position.
-const FIELDS = ['lon', 'lat', 'set', 'name', 'route', 'built', 'rebuilt', 'lengthM', 'kind', 'road', 'at'];
+const FIELDS = ['lon', 'lat', 'set', 'name', 'route', 'built', 'rebuilt', 'lengthM', 'kind', 'road', 'at', 'over'];
 
 async function main() {
   const ref = JSON.parse(await readFile(SRC, 'utf8'));
@@ -53,6 +53,7 @@ async function main() {
         r[F.built] ?? null, r[F.rebuilt] != null && r[F.rebuilt] !== r[F.built] ? r[F.rebuilt] : null,
         r[F.lengthM] ?? null, F.kind != null && r[F.kind] ? r[F.kind].toLowerCase() : null,
         road ? roadIx.get(road) : null, F.at != null ? r[F.at] ?? null : null,
+        F.over != null ? r[F.over] ?? null : null,
       ]);
     }
   }

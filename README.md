@@ -72,9 +72,9 @@ Kong's strategic routes.
 | **Route detail** | Termini, length, per-jurisdiction mileage, roadway classification and grade separation measured off the geometry; alongside them, what the states, provinces and SICT measured — traffic, heavy-truck volume, pavement condition, lanes, posted speeds — each stating the share of the road it covers. For curated routes, a written account of how the road came to be, what it cost, what it carries and what condition it is in. |
 | **Speed limits** | Every route coloured by its limit, in three named tiers: posted limits from HPMS and the NRN for the United States and Canada, OpenStreetMap's `maxspeed` for Mexico, China, Taiwan and Hong Kong, and the statutory default for the class of road where neither covers it, drawn fainter. A route's panel shows the limit as a sign, its source and coverage, and the mix of limits along it; the statistics page charts each network by limit. |
 | **Dates** | A route's panel lists its designation and completion years and the dated events between, from its dossier or, for Quebec's autoroutes, the tronçon openings. |
-| **Border crossings** | 167 land crossings on the Canada–US, Mexico–US, Mexico–Guatemala and Mexico–Belize borders, each saying how it was placed and listing the atlas routes within 2 km of it. |
+| **Border crossings** | 167 land crossings on the Canada–US, Mexico–US, Mexico–Guatemala and Mexico–Belize borders, and 69 of the mainland's 84 highway ports, Hong Kong's and Macao's among them, each saying how it was placed and listing the atlas routes within 2 km of it. |
 | **Toll facilities** | Seven Canadian toll roads and bridges on the map, each with its operator, length, opening date and dated fares, every fact linked to its source, and Mexico's 1,376 toll plazas with their operator and toll system. A route's panel lists the tolls on it, and for Mexico the federal concession titles that name it. |
-| **Bridges** | 14,856 structures from the two inventories that record a year built, Mexico's federal free network and Ontario's provincial highways, coloured by that year. The year dates the structure, never the road. |
+| **Bridges** | 20,037 structures from Mexico's federal free network and the provincial highways of Ontario and Quebec, and from closer in the 196,860 US bridges in the National Bridge Inventory that carry an atlas route, coloured by the year each was built. The year dates the structure, never the road. |
 | **Flythrough** | Follows a route's mainline end to end with the camera down on the pavement. |
 | **Numbering explainer** | Why I-5 is on the west coast and I-95 on the east, and why the US routes run the other way — drawn rather than described. |
 | **Statistics dashboard** | Network totals by system and by jurisdiction, every country and region; length by speed limit; and, for the Interstates, FHWA's mileage open to traffic, 1960–1997, by decade. |
@@ -202,7 +202,8 @@ not yet built. Each is explained in full in [docs/ACCURACY.md](docs/ACCURACY.md#
 | 🇨🇦 | Nova Scotia counts on unnumbered roads | source | 8 of 111 counted highways have no route in the national file |
 | 🇨🇦 | Where the Canadian crossings are | source | CBSA gives addresses, not coordinates; 2 of 116 not placed |
 | 🇨🇦 | A register of toll facilities; undated fares | source | none exists; the seven shown are assembled by hand |
-| 🇨🇦 🇲🇽 | Which road a crossing is on | source | neither register says; routes within 2 km are listed |
+| 🇨🇦 🇲🇽 CN | Which road a crossing is on | source | no register says; routes within 2 km are listed |
+| CN HK | Where the mainland's ports are | source | listed by name only; placed from OpenStreetMap, 15 of 84 not placed |
 | CN | An authoritative geometry | source | Tianditu refuses foreign requests; the mainland is drawn from OpenStreetMap, which no authority stands behind |
 | CN | Official lengths, traffic, toll share | source | not published per route; the OSM toll tag is too sparse to measure |
 | CN | Speed limits | source | OpenStreetMap tags a limit on 18% of expressway and under 10% of other length; the rest shows the statutory default, marked as such |
@@ -224,6 +225,7 @@ correct one, every decision about how it is used, and the data issues still open
 | [FHWA Route Log and Finder List](https://www.fhwa.dot.gov/planning/national_highway_system/interstate_highway_system/routefinder/) | official Interstate mileage, urban areas served | US government work |
 | FHWA *Interstate System Mileage Open to Traffic*, 1960–1997 | the buildout curve | US government work |
 | [BTS *Border Crossing Entry Data*](https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2) | checking where the Canadian crossings were placed, against the US port opposite | public domain |
+| [FHWA *National Bridge Inventory*](https://www.fhwa.dot.gov/bridge/nbi.cfm) 2025 | the bridges that carry an atlas route, with year built, for the bridge layer | public domain |
 
 ### Canada
 
@@ -242,6 +244,7 @@ correct one, every decision about how it is used, and the data issues still open
 | [CBSA *Directory of CBSA Offices*](https://open.canada.ca/data/en/dataset/1018c301-d359-4077-8d9b-4e9fbe6a223f) | the Canada–US crossings, as the offices offering highway border service | Open Government Licence – Canada |
 | [NRCan Geolocation Service](https://geogratis.gc.ca/services/geolocation/en/locate) | placing those offices from their addresses, and the ends of the toll stretches | Open Government Licence – Canada |
 | [Ontario *Bridge conditions*](https://data.ontario.ca/dataset/bridge-conditions) | 5,053 provincial structures with year built, for the bridge layer | Open Government Licence – Ontario |
+| [Québec *Structure*](https://www.donneesquebec.ca/recherche/dataset/structure) | 5,181 structures on the numbered routes with year built, for the bridge layer | CC-BY 4.0 |
 | [407 ETR](https://407etr.com/en/travel-with-us) and [IPC Ontario Order PO-1976](https://www.ipc.on.ca/sites/default/files/legacy/2016/08/PO-1976.pdf) | 407 ETR's length, concession term and tolling | operator's terms; IPC order public |
 | Transport Canada [briefing binder (2025)](https://tc.canada.ca/en/binder/26-confederation-bridge-tolls) and [2023 briefing](https://tc.canada.ca/en/corporate-services/transparency/briefing-documents-transport-canada/2023/current-topics/confederation-bridge); [Parliamentary Budget Officer](https://www.pbo-dpb.ca/en/publications/LEG-2526-004-S--reducing-tolls-confederation-bridge-fares-wood-islands-caribou-ferry--reduction-droits-peage-pont-confederation-tarifs-traversier-wood-islands-caribou) (December 2025) | Confederation Bridge operator, agreements and dated tolls | Government of Canada terms |
 | [Highway 104 Western Alignment Regulations](https://novascotia.ca/just/regulations/regs/HW104reg.htm), the corporation's [2023–24 annual report](http://www.highway104.ns.ca/ar-2024.pdf), [cobequidpass.com](https://cobequidpass.com/tollfees) | Cobequid Pass length, opening, exemptions and toll | Nova Scotia terms; operator's terms |
@@ -269,6 +272,7 @@ The data under `data/geo/cn/` is derived from it and is available under the same
 | --- | --- | --- |
 | [OpenStreetMap](https://www.openstreetmap.org/copyright), through [Geofabrik's China extract](https://download.geofabrik.de/asia/china.html) | geometry, G and S numbers, road class, route names and planned ends, the towns that name route ends | [Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/), © OpenStreetMap contributors |
 | 国家发展改革委、交通运输部《国家公路网规划》(2022), as [Chinese Wikipedia](https://zh.wikipedia.org/wiki/中华人民共和国国道) lists it | the main routes counted in the coverage table; each main route's planned name and listed length | government publication; Wikipedia text [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| 国家口岸管理办公室《全国口岸开放一览表》(as of 2024-09-30), placed through OpenStreetMap's Overpass and Nominatim | the 84 highway ports on the crossings layer | government publication; placements © OpenStreetMap contributors, ODbL |
 
 ### All three
 
@@ -318,8 +322,8 @@ sit in the repository. The scripts below rebuild the *data*.
 | `npm run fetch:mx:check` | preflight only: what is reachable, how big, whether it can resume | — |
 | `npm run fetch:tw` | NLSC freeway and provincial centrelines, the Highway Bureau's provincial register | `tools/src/tw/` |
 | `npm run fetch:hk` | the Transport Department's road network, keeping the numbered routes | `tools/src/hk/` |
-| `npm run fetch:bridges` | bridge inventories with a year built | `content/reference/bridges.json` |
-| `npm run fetch:borders` | CBSA and INDAABIN crossing lists; geocodes the Canadian offices | `content/reference/border-crossings.json` |
+| `npm run fetch:bridges` | bridge inventories with a year built; the National Bridge Inventory | `content/reference/bridges.json`, `tools/src/us/` |
+| `npm run fetch:borders` | CBSA and INDAABIN crossing lists; geocodes the Canadian offices; places the mainland's ports from OpenStreetMap | `content/reference/border-crossings.json`, `cn-crossings.json` |
 | `npm run fetch:tolls` | SICT's concession register (Canadian facilities are kept by hand in `tolls-ca.json`) | `content/reference/mx-concessions.json` |
 | `npm run fetch:all` | every fetch above, in order | all of the above |
 | `npm run build` | `build-data`, `build-crossings`, `build-bridges`, `build-tolls`, `build-content` | `data/` |

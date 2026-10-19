@@ -17,7 +17,7 @@
 // them. The gap in the construction timeline stays a gap, and is documented
 // as one.
 //
-// Two inventories, from opposite ends of the continent, and they turn out to
+// Three inventories, from opposite ends of the continent, and they turn out to
 // be the same shape: a route number, a position, a year built, and the
 // structure's dimensions.
 //
@@ -29,13 +29,16 @@
 //   Ontario   The province's Bridge Conditions release. 5,100 structures with
 //             year built, the last major and minor rehabilitation, and a
 //             condition index going back two decades.
+//   Quebec    The transport ministry's Structure layer. Some 6,000 bridges,
+//             culverts and tunnels on the numbered routes, with year built and
+//             dimensions, and no rehabilitation year.
 //
 // What is not here is as much of the continent as is here. Mexico's toll
 // network is run by CAPUFE and FONADIN and is not in SICT's free-network
 // inventory, so its bridges - which include most of the long ones - are
-// absent. Ontario is one province of thirteen. The United States has the
-// National Bridge Inventory, which is a far larger and better source than
-// either and is not read here yet.
+// absent. Ontario and Quebec are two provinces of thirteen. The United States'
+// National Bridge Inventory, far larger than these, is read by fetch-nbi.mjs
+// and build-us-bridges.mjs, which keep it out of this file.
 
 import { writeFile, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -183,8 +186,68 @@ async function ontario() {
     licence: 'Open Government Licence – Ontario',
     edition: 2020,
     covers: 'Provincial structures in Ontario, bridges and culverts together, '
-      + 'with the category on each record. One province of thirteen: no other '
-      + 'Canadian jurisdiction was found publishing a comparable inventory.',
+      + 'with the category on each record. One province of thirteen; Quebec is '
+      + 'the only other found publishing a comparable inventory.',
+    bridges,
+  };
+}
+
+// --------------------------------------------------------------- Quebec
+
+const QC_URL = 'https://ws.mapserver.transports.gouv.qc.ca/swtq?service=wfs&version=2.0.0'
+  + '&request=getfeature&typename=ms:gsq_v_desc_strct_tri&outfile=Structure&outputformat=csv';
+const QC_COLS = ['val_annee_', 'nom_route', 'nom_obstc', 'nom_strct', 'num_route', 'cod_type00',
+  'code_des_t', 'geo_lattd', 'geo_longt', 'val_longr', 'val_largr_', 'nom_muncp'];
+
+// The ministry's structure types, by code: 11-21 culverts, 31-85 bridges
+// (rigid frames among them), 94 tunnels. Walls (97) and pumping stations (98)
+// are structures it manages and are not on a bridge layer.
+function qcKind(code) {
+  if (code >= 11 && code <= 21) return 'culvert';
+  if (code >= 31 && code <= 85) return 'bridge';
+  if (code === 94) return 'tunnel';
+  return null;
+}
+
+// The file is every structure the ministry manages, and it manages the bridges
+// on many municipal roads too. Those carry a five-digit road number; the
+// provincial routes and autoroutes are numbered under 1000, and only they are
+// kept, as Ontario's file is the province's own highways.
+async function quebec() {
+  const { rows } = await fetchCsv(QC_URL);
+  needs(rows, QC_COLS, 'Quebec structures');
+
+  const bridges = [];
+  for (const r of rows) {
+    const kind = qcKind(Number(r.cod_type00));
+    const routeNo = Number(r.num_route);
+    if (!kind || !(routeNo > 0 && routeNo < 1000)) continue;
+    const mm = (v) => { const n = number(v); return n == null || n <= 0 ? null : n / 1000; };
+    bridges.push({
+      name: text(r.nom_strct),
+      over: text(r.nom_obstc),
+      route: /^autoroute/i.test(r.nom_route) ? `A-${routeNo}` : String(routeNo),
+      kind,
+      built: year(r.val_annee_),
+      lat: coord(r.geo_lattd, 90),
+      lon: coord(r.geo_longt, 180),
+      lengthM: round(mm(r.val_longr)),
+      widthM: round(mm(r.val_largr_)),
+      town: text(r.nom_muncp),
+    });
+  }
+
+  return {
+    country: 'ca',
+    region: 'QC',
+    name: { en: 'Quebec', fr: 'Québec' },
+    source: 'Ministère des Transports et de la Mobilité durable, Structure',
+    url: 'https://www.donneesquebec.ca/recherche/dataset/structure',
+    licence: 'CC BY 4.0',
+    edition: new Date().getFullYear(),
+    covers: 'Bridges, culverts over 4.5 m and tunnels the ministry manages on '
+      + 'Quebec\'s numbered routes and autoroutes. Its structures on municipal '
+      + 'roads, and its walls, are left out. The file records no rehabilitation year.',
     bridges,
   };
 }
@@ -226,7 +289,7 @@ function summarise(bridges) {
 
 async function main() {
   const sets = [];
-  for (const load of [mexico, ontario]) {
+  for (const load of [mexico, ontario, quebec]) {
     try {
       const set = await load();
       const s = summarise(set.bridges);
@@ -252,9 +315,8 @@ async function main() {
       + 'carries: a new bridge on an old highway dates a replacement, and roads '
       + 'open before their permanent structures are finished. The construction '
       + 'timeline\'s gaps outside the United States and Quebec remain gaps.',
-    missing: 'Mexico\'s tolled network, the other twelve Canadian jurisdictions, '
-      + 'and the United States, whose National Bridge Inventory is a better source '
-      + 'than either of these and is not read yet.',
+    missing: 'Mexico\'s tolled network and the other eleven Canadian jurisdictions. '
+      + 'The United States is in data/bridges/us/, from the National Bridge Inventory.',
     sets,
   }, null, 1)}\n`);
 

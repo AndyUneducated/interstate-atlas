@@ -1,0 +1,1627 @@
+{
+ "retrieved": "2026-10-19",
+ "purpose": "The mainland's highway ports, placed from OpenStreetMap. Written by fetch-cn-ports.mjs; do not edit by hand.",
+ "source": {
+  "title": "全国口岸开放一览表（截至2024年9月30日）",
+  "agency": "国家口岸管理办公室 (National Office of Port Administration)",
+  "asOf": "2024-09-30",
+  "url": "http://www.gykawl.com/news/show/1178.html",
+  "names": "https://www.caop.org.cn/kaifangkouan/yunshufangshi/gonglukouan/",
+  "namesAgency": "中国口岸协会 (China Association of Port-of-Entry)",
+  "highway": 84,
+  "placed": {
+   "by": "OpenStreetMap contributors",
+   "licence": "Open Database Licence (ODbL)",
+   "url": "https://www.openstreetmap.org/copyright",
+   "rule": "a barrier=border_control feature named for the port, else a feature Nominatim finds named for it and for a port facility; within 60 km of the neighbouring country (Natural Earth 1:10m)"
+  },
+  "byPrecision": {
+   "named": 21,
+   "border_control": 48
+  },
+  "unplaced": [
+   "南坪: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "东宁: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "虎林: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "黑瞎子岛: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "黑河(索道): a cableway over the Amur, not a road",
+   "天保: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "金水河: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "腾冲: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "田蓬: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "勐满: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "吉隆: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "乌拉斯台: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "木扎尔特: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "阿黑土别克: OpenStreetMap maps no port facility under this name within 60 km of the line",
+   "别迭里: OpenStreetMap maps no port facility under this name within 60 km of the line"
+  ]
+ },
+ "crossings": [
+  {
+   "id": "cn-nmg-01",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Zhuengadabuqi",
+   "nameZh": "珠恩嘎达布其",
+   "juris": "NMG",
+   "at": [
+    116.24404,
+    45.74928
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/616069933",
+    "match": "珠恩嘎达布其口岸",
+    "kind": "building=yes",
+    "borderKm": 2.2
+   }
+  },
+  {
+   "id": "cn-nmg-02",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Manzhouli",
+   "nameZh": "满洲里",
+   "juris": "NMG",
+   "at": [
+    117.37514,
+    49.6257
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1569144020",
+    "match": "满洲里公路口岸",
+    "kind": "border_control",
+    "borderKm": 0.9
+   }
+  },
+  {
+   "id": "cn-nmg-03",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Erenhot",
+   "nameZh": "二连浩特",
+   "juris": "NMG",
+   "at": [
+    111.94434,
+    43.68329
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/10548356011",
+    "match": "二连公路口岸",
+    "kind": "border_control",
+    "borderKm": 1.7
+   }
+  },
+  {
+   "id": "cn-nmg-04",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Arxan",
+   "nameZh": "阿尔山",
+   "juris": "NMG",
+   "at": [
+    119.52675,
+    47.32572
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1265623442",
+    "match": "阿尔山口岸",
+    "kind": "border_control",
+    "borderKm": 4.1
+   }
+  },
+  {
+   "id": "cn-nmg-05",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Arihashate",
+   "nameZh": "阿日哈沙特",
+   "juris": "NMG",
+   "at": [
+    115.86507,
+    48.5979
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/799114333",
+    "match": "阿日哈沙特公路口岸",
+    "kind": "border_control",
+    "borderKm": 0
+   }
+  },
+  {
+   "id": "cn-nmg-06",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Ebuduge",
+   "nameZh": "额布都格",
+   "juris": "NMG",
+   "at": [
+    118.19457,
+    48.05368
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/941749264",
+    "match": "额布都格口岸",
+    "kind": "landuse=commercial",
+    "borderKm": 3
+   }
+  },
+  {
+   "id": "cn-nmg-07",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Ganqimaodu",
+   "nameZh": "甘其毛都",
+   "juris": "NMG",
+   "at": [
+    107.57312,
+    42.40888
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/780485779",
+    "match": "甘其毛都口岸",
+    "kind": "border_control",
+    "borderKm": 2.9
+   }
+  },
+  {
+   "id": "cn-nmg-08",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Mandula",
+   "nameZh": "满都拉",
+   "juris": "NMG",
+   "at": [
+    109.98019,
+    42.63081
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/940067501",
+    "match": "满都拉口岸",
+    "kind": "border_control",
+    "borderKm": 0.5
+   }
+  },
+  {
+   "id": "cn-nmg-09",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Ceke",
+   "nameZh": "策克",
+   "juris": "NMG",
+   "at": [
+    101.27821,
+    42.58162
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "node/9868748507",
+    "match": "策克口岸",
+    "kind": "place=village",
+    "borderKm": 5.2
+   }
+  },
+  {
+   "id": "cn-nmg-10",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Heishantou",
+   "nameZh": "黑山头",
+   "juris": "NMG",
+   "at": [
+    119.37714,
+    50.20739
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/762789268",
+    "match": "黑山头公路口岸",
+    "kind": "border_control",
+    "borderKm": 2.4
+   }
+  },
+  {
+   "id": "cn-nmg-11",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Shiwei",
+   "nameZh": "室韦",
+   "juris": "NMG",
+   "at": [
+    119.88811,
+    51.33296
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1569144019",
+    "match": "室韦公路口岸",
+    "kind": "border_control",
+    "borderKm": 1.1
+   }
+  },
+  {
+   "id": "cn-nmg-12",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Uliji",
+   "nameZh": "乌力吉",
+   "juris": "NMG",
+   "at": [
+    103.97343,
+    41.80021
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "node/11711313935",
+    "match": "乌力吉口岸",
+    "kind": "office=security",
+    "borderKm": 0.8
+   }
+  },
+  {
+   "id": "cn-lia-13",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Dandong",
+   "nameZh": "丹东",
+   "juris": "LIA",
+   "at": [
+    124.30843,
+    39.9677
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/6015274789",
+    "match": "丹东公路口岸",
+    "kind": "border_control",
+    "borderKm": 5.1
+   }
+  },
+  {
+   "id": "cn-jil-14",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Hunchun",
+   "nameZh": "珲春",
+   "juris": "JIL",
+   "at": [
+    130.45837,
+    42.77135
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/793313900",
+    "match": "珲春口岸",
+    "kind": "border_control",
+    "borderKm": 0.7
+   }
+  },
+  {
+   "id": "cn-jil-15",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Ji'an",
+   "nameZh": "集安",
+   "juris": "JIL",
+   "at": [
+    126.28183,
+    41.16381
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/900500114",
+    "match": "集安公路口岸",
+    "kind": "border_control",
+    "borderKm": 0.2
+   }
+  },
+  {
+   "id": "cn-jil-16",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Quanhe",
+   "nameZh": "圈河",
+   "juris": "JIL",
+   "at": [
+    130.52875,
+    42.57018
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/199340978",
+    "match": "圈河口岸",
+    "kind": "building=yes",
+    "borderKm": 0.5
+   }
+  },
+  {
+   "id": "cn-jil-17",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Linjiang",
+   "nameZh": "临江",
+   "juris": "JIL",
+   "at": [
+    126.89474,
+    41.79543
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1072284510",
+    "match": "临江海关",
+    "kind": "border_control",
+    "borderKm": 0.6
+   }
+  },
+  {
+   "id": "cn-jil-18",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Kaishantun",
+   "nameZh": "开山屯",
+   "juris": "JIL",
+   "at": [
+    129.76891,
+    42.69273
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/299045844",
+    "match": "开山屯口岸",
+    "kind": "office=government",
+    "borderKm": 0.3
+   }
+  },
+  {
+   "id": "cn-jil-19",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Sanhe",
+   "nameZh": "三合",
+   "juris": "JIL",
+   "at": [
+    129.73741,
+    42.46666
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "relation/16245330",
+    "match": "三合口岸",
+    "kind": "amenity=police",
+    "borderKm": 1.1
+   }
+  },
+  {
+   "id": "cn-jil-20",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Nanping",
+   "nameZh": "南坪",
+   "juris": "JIL",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-jil-21",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Changbai",
+   "nameZh": "长白",
+   "juris": "JIL",
+   "at": [
+    128.17398,
+    41.40824
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1092139442",
+    "match": "中华人民共和国长白口岸",
+    "kind": "border_control",
+    "borderKm": 1
+   }
+  },
+  {
+   "id": "cn-jil-22",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Guchengli",
+   "nameZh": "古城里",
+   "juris": "JIL",
+   "at": [
+    129.00126,
+    42.09044
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1414850691",
+    "match": "古城里口岸 고성리통상구",
+    "kind": "border_control",
+    "borderKm": 0.4
+   }
+  },
+  {
+   "id": "cn-jil-23",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Shatuozi",
+   "nameZh": "沙坨子",
+   "juris": "JIL",
+   "at": [
+    130.24896,
+    42.79813
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "node/8273055300",
+    "match": "沙坨子公路口岸",
+    "kind": "amenity=vehicle_inspection",
+    "borderKm": 0.3
+   }
+  },
+  {
+   "id": "cn-jil-24",
+   "country": "cn",
+   "border": "cn-kp",
+   "name": "Shuangmufeng",
+   "nameZh": "双目峰",
+   "juris": "JIL",
+   "at": [
+    128.26942,
+    42.03084
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/8879241992",
+    "match": "双目峰口岸",
+    "kind": "border_control",
+    "borderKm": 0.2
+   }
+  },
+  {
+   "id": "cn-hlj-25",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Suifenhe",
+   "nameZh": "绥芬河",
+   "juris": "HLJ",
+   "at": [
+    131.18522,
+    44.40897
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/1036409925",
+    "match": "绥芬河口岸",
+    "kind": "amenity=police",
+    "borderKm": 2.6
+   }
+  },
+  {
+   "id": "cn-hlj-26",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Dongning",
+   "nameZh": "东宁",
+   "juris": "HLJ",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-hlj-27",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Mishan",
+   "nameZh": "密山",
+   "juris": "HLJ",
+   "at": [
+    131.98623,
+    45.2681
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/945160254",
+    "match": "密山口岸",
+    "kind": "border_control",
+    "borderKm": 4
+   }
+  },
+  {
+   "id": "cn-hlj-28",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Hulin",
+   "nameZh": "虎林",
+   "juris": "HLJ",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-hlj-29",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Heihe",
+   "nameZh": "黑河",
+   "juris": "HLJ",
+   "at": [
+    127.53345,
+    50.24812
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/6245915601",
+    "match": "黑河口岸",
+    "kind": "border_control",
+    "borderKm": 1.3
+   }
+  },
+  {
+   "id": "cn-hlj-30",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Heixiazi Island",
+   "nameZh": "黑瞎子岛",
+   "juris": "HLJ",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-hlj-31",
+   "country": "cn",
+   "border": "cn-ru",
+   "name": "Heihe cableway",
+   "nameZh": "黑河(索道)",
+   "juris": "HLJ",
+   "located": {
+    "by": "none",
+    "reason": "a cableway over the Amur, not a road"
+   }
+  },
+  {
+   "id": "cn-gdg-32",
+   "country": "cn",
+   "border": "cn-hk",
+   "name": "Wenjindu",
+   "nameZh": "文锦渡",
+   "juris": "GDG",
+   "counterpart": "Man Kam To",
+   "counterpartZh": "文锦渡管制站",
+   "at": [
+    114.12859,
+    22.54151
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/895319537",
+    "match": "文锦渡",
+    "kind": "border_control",
+    "borderKm": 0.4
+   }
+  },
+  {
+   "id": "cn-gdg-33",
+   "country": "cn",
+   "border": "cn-mo",
+   "name": "Gongbei",
+   "nameZh": "拱北",
+   "juris": "GDG",
+   "counterpart": "Portas do Cerco",
+   "counterpartZh": "关闸",
+   "at": [
+    113.54892,
+    22.2186
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/138665720",
+    "match": "拱北口岸",
+    "kind": "border_control",
+    "borderKm": 0.4
+   }
+  },
+  {
+   "id": "cn-gdg-34",
+   "country": "cn",
+   "border": "cn-hk",
+   "name": "Shatoujiao",
+   "nameZh": "沙头角",
+   "juris": "GDG",
+   "counterpart": "Sha Tau Kok",
+   "counterpartZh": "沙头角管制站",
+   "at": [
+    114.22294,
+    22.5521
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/138665729",
+    "match": "沙头角口岸",
+    "kind": "border_control",
+    "borderKm": 0.4
+   }
+  },
+  {
+   "id": "cn-gdg-35",
+   "country": "cn",
+   "border": "cn-hk",
+   "name": "Huanggang",
+   "nameZh": "皇岗",
+   "juris": "GDG",
+   "counterpart": "Lok Ma Chau",
+   "counterpartZh": "落马洲管制站",
+   "at": [
+    114.06798,
+    22.52306
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/14289104426",
+    "match": "皇岗口岸 皇崗口岸 Huanggang Port",
+    "kind": "border_control",
+    "borderKm": 0.7
+   }
+  },
+  {
+   "id": "cn-gdg-36",
+   "country": "cn",
+   "border": "cn-hk",
+   "name": "Luohu",
+   "nameZh": "罗湖",
+   "juris": "GDG",
+   "counterpart": "Lo Wu",
+   "counterpartZh": "罗湖管制站",
+   "at": [
+    114.11331,
+    22.53092
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/189787553",
+    "match": "罗湖口岸",
+    "kind": "border_control",
+    "borderKm": 0.1
+   }
+  },
+  {
+   "id": "cn-gdg-37",
+   "country": "cn",
+   "border": "cn-mo",
+   "name": "Hengqin",
+   "nameZh": "横琴",
+   "juris": "GDG",
+   "counterpart": "the Macao port area at Hengqin",
+   "counterpartZh": "横琴口岸澳门口岸区",
+   "at": [
+    113.54296,
+    22.14052
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/741158507",
+    "match": "横琴口岸",
+    "kind": "border_control",
+    "borderKm": 0.1
+   }
+  },
+  {
+   "id": "cn-gdg-38",
+   "country": "cn",
+   "border": "cn-hk",
+   "name": "Shenzhen Bay",
+   "nameZh": "深圳湾",
+   "juris": "GDG",
+   "counterpart": "the Hong Kong port area at Shenzhen Bay",
+   "counterpartZh": "深圳湾口岸港方口岸区",
+   "at": [
+    113.94456,
+    22.49443
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/1839131152",
+    "match": "深圳灣 Shenzhen Bay",
+    "kind": "border_control",
+    "borderKm": 5
+   }
+  },
+  {
+   "id": "cn-gdg-39",
+   "country": "cn",
+   "border": "cn-mo",
+   "name": "Zhuhai–Macao Cross-border Industrial Zone",
+   "nameZh": "珠澳工业区",
+   "juris": "GDG",
+   "counterpart": "the Macao park of the industrial zone",
+   "counterpartZh": "珠澳跨境工业区澳门园区",
+   "at": [
+    113.53269,
+    22.21114
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/138846475",
+    "match": "珠澳跨境工业区专用口岸",
+    "kind": "border_control",
+    "borderKm": 0
+   }
+  },
+  {
+   "id": "cn-gdg-40",
+   "country": "cn",
+   "border": "cn-hk",
+   "name": "Futian",
+   "nameZh": "福田",
+   "juris": "GDG",
+   "counterpart": "Lok Ma Chau Spur Line",
+   "counterpartZh": "落马洲支线管制站",
+   "at": [
+    114.06478,
+    22.51832
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/130965710",
+    "match": "福田口岸",
+    "kind": "border_control",
+    "borderKm": 0.3
+   }
+  },
+  {
+   "id": "cn-gdg-41",
+   "country": "cn",
+   "border": "cn-hk",
+   "name": "Hong Kong–Zhuhai–Macao Bridge, Zhuhai",
+   "nameZh": "港珠澳",
+   "juris": "GDG",
+   "counterpart": "the bridge's Hong Kong and Macao ports",
+   "counterpartZh": "港珠澳大桥香港口岸、澳门口岸",
+   "at": [
+    113.57564,
+    22.2074
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "relation/7793948",
+    "match": "港珠澳大桥珠海公路口岸",
+    "kind": "border_control",
+    "borderKm": 27.1
+   }
+  },
+  {
+   "id": "cn-gdg-42",
+   "country": "cn",
+   "border": "cn-hk",
+   "name": "Liantang",
+   "nameZh": "莲塘",
+   "juris": "GDG",
+   "counterpart": "Heung Yuen Wai",
+   "counterpartZh": "香园围管制站",
+   "at": [
+    114.15399,
+    22.55503
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/11425640199",
+    "match": "莲塘口岸",
+    "kind": "border_control",
+    "borderKm": 0.2
+   }
+  },
+  {
+   "id": "cn-gdg-43",
+   "country": "cn",
+   "border": "cn-mo",
+   "name": "Qingmao",
+   "nameZh": "青茂",
+   "juris": "GDG",
+   "counterpart": "the Macao port area at Qingmao",
+   "counterpartZh": "青茂口岸澳门口岸区",
+   "at": [
+    113.5431,
+    22.21535
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/836658032",
+    "match": "青茂口岸北联检大楼 青茂口岸北聯檢大樓 Edifício do Posto Fronteiriço Qingmao Norte",
+    "kind": "border_control",
+    "borderKm": 0.2
+   }
+  },
+  {
+   "id": "cn-gxi-44",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Youyiguan",
+   "nameZh": "友谊关",
+   "juris": "GXI",
+   "at": [
+    106.71131,
+    21.97477
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/1696458396",
+    "match": "友谊关口岸",
+    "kind": "border_control",
+    "borderKm": 1.5
+   }
+  },
+  {
+   "id": "cn-gxi-45",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Dongxing",
+   "nameZh": "东兴",
+   "juris": "GXI",
+   "at": [
+    107.96815,
+    21.53789
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/1192964114",
+    "match": "东兴口岸",
+    "kind": "border_control",
+    "borderKm": 2.3
+   }
+  },
+  {
+   "id": "cn-gxi-46",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Shuikou",
+   "nameZh": "水口",
+   "juris": "GXI",
+   "at": [
+    106.58026,
+    22.47306
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/4964032696",
+    "match": "水口口岸",
+    "kind": "border_control",
+    "borderKm": 3.4
+   }
+  },
+  {
+   "id": "cn-gxi-47",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Longbang",
+   "nameZh": "龙邦",
+   "juris": "GXI",
+   "at": [
+    106.32187,
+    22.87601
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "node/11812797125",
+    "match": "龙邦口岸",
+    "kind": "highway=motorway_junction",
+    "borderKm": 2.2
+   }
+  },
+  {
+   "id": "cn-gxi-48",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Pingmeng",
+   "nameZh": "平孟",
+   "juris": "GXI",
+   "at": [
+    105.99463,
+    22.94325
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/519847236",
+    "match": "平孟口岸",
+    "kind": "building=yes",
+    "borderKm": 1.7
+   }
+  },
+  {
+   "id": "cn-gxi-49",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Aidian",
+   "nameZh": "爱店",
+   "juris": "GXI",
+   "at": [
+    107.02693,
+    21.82061
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1418265375",
+    "match": "爱店口岸",
+    "kind": "border_control",
+    "borderKm": 1.8
+   }
+  },
+  {
+   "id": "cn-gxi-50",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Dongzhong",
+   "nameZh": "峒中",
+   "juris": "GXI",
+   "at": [
+    107.49159,
+    21.59857
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/3144273672",
+    "match": "峒中口岸",
+    "kind": "border_control",
+    "borderKm": 1.5
+   }
+  },
+  {
+   "id": "cn-gxi-51",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Shuolong",
+   "nameZh": "硕龙",
+   "juris": "GXI",
+   "at": [
+    106.82243,
+    22.81661
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1446876903",
+    "match": "硕龙口岸",
+    "kind": "border_control",
+    "borderKm": 4
+   }
+  },
+  {
+   "id": "cn-ynn-52",
+   "country": "cn",
+   "border": "cn-mm",
+   "name": "Ruili",
+   "nameZh": "瑞丽",
+   "juris": "YNN",
+   "at": [
+    97.87224,
+    23.98649
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1431949439",
+    "match": "瑞丽口岸联检中心",
+    "kind": "border_control",
+    "borderKm": 1.7
+   }
+  },
+  {
+   "id": "cn-ynn-53",
+   "country": "cn",
+   "border": "cn-la",
+   "name": "Mohan",
+   "nameZh": "磨憨",
+   "juris": "YNN",
+   "at": [
+    101.68234,
+    21.18511
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/3826599868",
+    "match": "磨憨口岸",
+    "kind": "border_control",
+    "borderKm": 1.5
+   }
+  },
+  {
+   "id": "cn-ynn-54",
+   "country": "cn",
+   "border": "cn-mm",
+   "name": "Daluo",
+   "nameZh": "打洛",
+   "juris": "YNN",
+   "at": [
+    100.03192,
+    21.68143
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/1232172739",
+    "match": "打洛口岸",
+    "kind": "building=yes",
+    "borderKm": 0.4
+   }
+  },
+  {
+   "id": "cn-ynn-55",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Hekou",
+   "nameZh": "河口",
+   "juris": "YNN",
+   "at": [
+    103.96314,
+    22.50779
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/1448549930",
+    "match": "中国河口公路口岸南溪河联检大楼",
+    "kind": "border_control",
+    "borderKm": 0.1
+   }
+  },
+  {
+   "id": "cn-ynn-56",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Tianbao",
+   "nameZh": "天保",
+   "juris": "YNN",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-ynn-57",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Dulong",
+   "nameZh": "都龙",
+   "juris": "YNN",
+   "at": [
+    104.51252,
+    22.78997
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/7981065475",
+    "match": "都龙口岸",
+    "kind": "border_control",
+    "borderKm": 0.7
+   }
+  },
+  {
+   "id": "cn-ynn-58",
+   "country": "cn",
+   "border": "cn-la",
+   "name": "Mengkang",
+   "nameZh": "勐康",
+   "juris": "YNN",
+   "at": [
+    101.71274,
+    22.48325
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/255268483",
+    "match": "勐康口岸",
+    "kind": "border_control",
+    "borderKm": 0.8
+   }
+  },
+  {
+   "id": "cn-ynn-59",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Jinshuihe",
+   "nameZh": "金水河",
+   "juris": "YNN",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-ynn-60",
+   "country": "cn",
+   "border": "cn-mm",
+   "name": "Wanding",
+   "nameZh": "畹町",
+   "juris": "YNN",
+   "at": [
+    98.07275,
+    24.08058
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/706386357",
+    "match": "畹町口岸",
+    "kind": "border_control",
+    "borderKm": 0.9
+   }
+  },
+  {
+   "id": "cn-ynn-61",
+   "country": "cn",
+   "border": "cn-mm",
+   "name": "Tengchong Houqiao",
+   "nameZh": "腾冲",
+   "juris": "YNN",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-ynn-62",
+   "country": "cn",
+   "border": "cn-mm",
+   "name": "Mengding Qingshuihe",
+   "nameZh": "孟定",
+   "juris": "YNN",
+   "at": [
+    98.82896,
+    23.48433
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/806992480",
+    "match": "中国孟定清水河口岸",
+    "kind": "border_control",
+    "borderKm": 0.5
+   }
+  },
+  {
+   "id": "cn-ynn-63",
+   "country": "cn",
+   "border": "cn-vn",
+   "name": "Tianpeng",
+   "nameZh": "田蓬",
+   "juris": "YNN",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-ynn-64",
+   "country": "cn",
+   "border": "cn-la",
+   "name": "Mengman",
+   "nameZh": "勐满",
+   "juris": "YNN",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-xiz-65",
+   "country": "cn",
+   "border": "cn-np",
+   "name": "Gyirong",
+   "nameZh": "吉隆",
+   "juris": "XIZ",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-xiz-66",
+   "country": "cn",
+   "border": "cn-np",
+   "name": "Burang",
+   "nameZh": "普兰",
+   "juris": "XIZ",
+   "at": [
+    81.32808,
+    30.1558
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/714422584",
+    "match": "普兰边检站执勤点",
+    "kind": "office=government",
+    "borderKm": 1.6
+   }
+  },
+  {
+   "id": "cn-xiz-67",
+   "country": "cn",
+   "border": "cn-np",
+   "name": "Zhangmu",
+   "nameZh": "樟木",
+   "juris": "XIZ",
+   "at": [
+    85.96438,
+    27.97307
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/344728926",
+    "match": "樟木口岸联检中心",
+    "kind": "building=yes",
+    "borderKm": 0.8
+   }
+  },
+  {
+   "id": "cn-xiz-68",
+   "country": "cn",
+   "border": "cn-np",
+   "name": "Lizi",
+   "nameZh": "里孜",
+   "juris": "XIZ",
+   "at": [
+    83.98748,
+    29.32352
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/760919630",
+    "match": "里孜口岸",
+    "kind": "building=yes",
+    "borderKm": 4.7
+   }
+  },
+  {
+   "id": "cn-gsu-69",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Mazongshan",
+   "nameZh": "马鬃山",
+   "juris": "GSU",
+   "at": [
+    96.97816,
+    42.7541
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/952189545",
+    "match": "马鬃山口岸",
+    "kind": "border_control",
+    "borderKm": 1.8
+   }
+  },
+  {
+   "id": "cn-xjg-70",
+   "country": "cn",
+   "border": "cn-pk",
+   "name": "Khunjerab",
+   "nameZh": "红其拉甫",
+   "juris": "XJG",
+   "at": [
+    75.22709,
+    37.76379
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/977746845",
+    "match": "红其拉甫口岸",
+    "kind": "office=government",
+    "borderKm": 85.8,
+    "far": "the port's inspection is at Tashkurgan, some 100 km short of the pass"
+   }
+  },
+  {
+   "id": "cn-xjg-71",
+   "country": "cn",
+   "border": "cn-kz",
+   "name": "Khorgos",
+   "nameZh": "霍尔果斯",
+   "juris": "XJG",
+   "at": [
+    80.403,
+    44.21186
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "relation/7027696",
+    "match": "霍尔果斯口岸",
+    "kind": "boundary=administrative",
+    "borderKm": 2.8
+   }
+  },
+  {
+   "id": "cn-xjg-72",
+   "country": "cn",
+   "border": "cn-kz",
+   "name": "Baketu",
+   "nameZh": "巴克图",
+   "juris": "XJG",
+   "at": [
+    82.78724,
+    46.68111
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/445376399",
+    "match": "巴克图口岸",
+    "kind": "border_control",
+    "borderKm": 2.4
+   }
+  },
+  {
+   "id": "cn-xjg-73",
+   "country": "cn",
+   "border": "cn-kg",
+   "name": "Irkeshtam",
+   "nameZh": "伊尔克什坦",
+   "juris": "XJG",
+   "at": [
+    73.92542,
+    39.69565
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/273356521",
+    "match": "伊尔克什坦口岸",
+    "kind": "border_control",
+    "borderKm": 2.3
+   }
+  },
+  {
+   "id": "cn-xjg-74",
+   "country": "cn",
+   "border": "cn-kz",
+   "name": "Jeminay",
+   "nameZh": "吉木乃",
+   "juris": "XJG",
+   "at": [
+    85.61365,
+    47.5024
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/2582336637",
+    "match": "吉木乃口岸",
+    "kind": "border_control",
+    "borderKm": 2.3
+   }
+  },
+  {
+   "id": "cn-xjg-75",
+   "country": "cn",
+   "border": "cn-tj",
+   "name": "Karasu",
+   "nameZh": "卡拉苏",
+   "juris": "XJG",
+   "at": [
+    74.92459,
+    38.19412
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "way/337349073",
+    "match": "卡拉苏口岸",
+    "kind": "border_control",
+    "borderKm": 13.3
+   }
+  },
+  {
+   "id": "cn-xjg-76",
+   "country": "cn",
+   "border": "cn-kz",
+   "name": "Dulata",
+   "nameZh": "都拉塔",
+   "juris": "XJG",
+   "at": [
+    80.63253,
+    43.68259
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "relation/9388133",
+    "match": "都拉塔口岸",
+    "kind": "boundary=administrative",
+    "borderKm": 2.8
+   }
+  },
+  {
+   "id": "cn-xjg-77",
+   "country": "cn",
+   "border": "cn-kg",
+   "name": "Torugart",
+   "nameZh": "吐尔尕特",
+   "juris": "XJG",
+   "at": [
+    75.39033,
+    40.5128
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "border_control",
+    "osm": "node/5446195668",
+    "match": "吐尔尕特口岸",
+    "kind": "border_control",
+    "borderKm": 3.9
+   }
+  },
+  {
+   "id": "cn-xjg-78",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Takeshiken",
+   "nameZh": "塔克什肯",
+   "juris": "XJG",
+   "at": [
+    90.98453,
+    46.14509
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "way/184146822",
+    "match": "塔克什肯口岸",
+    "kind": "landuse=industrial",
+    "borderKm": 0.9
+   }
+  },
+  {
+   "id": "cn-xjg-79",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Laoyemiao",
+   "nameZh": "老爷庙",
+   "juris": "XJG",
+   "at": [
+    94.09884,
+    44.7087
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "node/9813890654",
+    "match": "老爷庙口岸",
+    "kind": "office=government",
+    "borderKm": 5.9
+   }
+  },
+  {
+   "id": "cn-xjg-80",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Hongshanzui",
+   "nameZh": "红山嘴",
+   "juris": "XJG",
+   "at": [
+    88.93257,
+    48.08828
+   ],
+   "located": {
+    "by": "osm",
+    "precision": "named",
+    "osm": "node/1946770865",
+    "match": "红山嘴口岸",
+    "kind": "place=hamlet",
+    "borderKm": 0.6
+   }
+  },
+  {
+   "id": "cn-xjg-81",
+   "country": "cn",
+   "border": "cn-mn",
+   "name": "Ulastai",
+   "nameZh": "乌拉斯台",
+   "juris": "XJG",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-xjg-82",
+   "country": "cn",
+   "border": "cn-kz",
+   "name": "Muzart",
+   "nameZh": "木扎尔特",
+   "juris": "XJG",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-xjg-83",
+   "country": "cn",
+   "border": "cn-kz",
+   "name": "Ahetubieke",
+   "nameZh": "阿黑土别克",
+   "juris": "XJG",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  },
+  {
+   "id": "cn-xjg-84",
+   "country": "cn",
+   "border": "cn-kg",
+   "name": "Bedel",
+   "nameZh": "别迭里",
+   "juris": "XJG",
+   "located": {
+    "by": "none",
+    "reason": "OpenStreetMap maps no port facility under this name within 60 km of the line"
+   }
+  }
+ ]
+}

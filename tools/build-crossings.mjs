@@ -1,6 +1,7 @@
 // Builds data/crossings.json, the border-crossing layer, from
-// content/reference/border-crossings.json and the route geometry already built
-// into data/geo/.
+// content/reference/border-crossings.json (Canada and Mexico),
+// content/reference/cn-crossings.json (the mainland's highway ports) and the
+// route geometry already built into data/geo/.
 //
 //   node tools/build-crossings.mjs
 //
@@ -92,7 +93,8 @@ async function main() {
     c._routes = ids;
   }
 
-  const crossings = ref.crossings.map((c) => ({ ...c }));
+  const cn = await read(join(ROOT, 'content', 'reference', 'cn-crossings.json'));
+  const crossings = [...ref.crossings, ...cn.crossings].map((c) => ({ ...c }));
   const placedBefore = crossings.filter((c) => c.at);
   const routes = [];
   for (const file of await geoFiles()) {
@@ -155,9 +157,12 @@ async function main() {
       ca: { title: ref.sources.ca.title, agency: ref.sources.ca.agency, url: ref.sources.ca.url, licence: ref.sources.ca.licence },
       mx: { title: ref.sources.mx.title, agency: ref.sources.mx.agency, url: ref.sources.mx.url, licence: ref.sources.mx.licence },
       geocoder: { agency: ref.sources.ca.geocoder.agency, service: ref.sources.ca.geocoder.service },
+      cn: { title: cn.source.title, agency: cn.source.agency, url: cn.source.url, asOf: cn.source.asOf, placedBy: cn.source.placed.by, licence: cn.source.placed.licence },
     },
     counts: ref.counts,
-    unplaced: crossings.filter((c) => !c.at).map((c) => ({ name: c.name, juris: c.juris, reason: c.located.reason ?? 'address names no highway' })),
+    unplaced: crossings.filter((c) => !c.at).map((c) => ({
+      name: c.name, ...(c.nameZh ? { nameZh: c.nameZh } : {}), juris: c.juris, reason: c.located.reason ?? 'address names no highway',
+    })),
     type: 'FeatureCollection',
     features: shown.map((c) => ({
       type: 'Feature',
@@ -165,12 +170,15 @@ async function main() {
       properties: {
         id: c.id,
         name: c.name,
+        ...(c.nameZh ? { nameZh: c.nameZh } : {}),
         country: c.country,
         border: c.border,
         counterpart: c.counterpart,
+        ...(c.counterpartZh ? { counterpartZh: c.counterpartZh } : {}),
         juris: c.juris,
         by: c.located.by,
         precision: c.located.precision ?? null,
+        ...(c.located.far ? { far: c.located.far, borderKm: c.located.borderKm } : {}),
         near: c.near,
       },
       geometry: { type: 'Point', coordinates: c.at },

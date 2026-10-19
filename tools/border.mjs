@@ -32,6 +32,24 @@ export async function usOutline() {
   return segs;
 }
 
+/** Segments of the outlines of the countries named, by Natural Earth's three-letter code. */
+export async function countryOutline(a3s) {
+  const want = new Set(a3s);
+  const src = await shapefile.open(`${NE}.shp`, `${NE}.dbf`);
+  const segs = [];
+  while (true) {
+    const r = await src.read();
+    if (r.done) break;
+    if (!want.has(r.value.properties.adm0_a3)) continue;
+    const g = r.value.geometry;
+    const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+    for (const poly of polys) for (const ring of poly) {
+      for (let i = 1; i < ring.length; i++) segs.push([ring[i - 1], ring[i]]);
+    }
+  }
+  return segs;
+}
+
 /** Kilometres from a point to the nearest of a set of segments, on a local flat projection. */
 export function kmTo(pt, segs) {
   const kx = 111.32 * Math.cos(pt[1] * R);

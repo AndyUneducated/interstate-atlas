@@ -14,8 +14,8 @@
 //   - a route under half a mile beside a longer piece of the same number,
 //     which build-data drops as a remnant;
 //   - a route filed in no state, province or territory;
-//   - an id in dossiers, elevation, timeline, tolls, crossings or the served
-//     places that is not in the index.
+//   - an id in dossiers, elevation, timeline, tolls, crossings, the served
+//     places or the US bridges that is not in the index.
 
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -86,6 +86,9 @@ refs('timeline.json events', timeline.events.map((e) => e.id).filter(Boolean));
 refs('tolls.json', Object.keys((await read('tolls.json')).byRoute));
 refs('crossings.json', (await read('crossings.json')).features.flatMap((f) => (f.properties.near ?? []).map((n) => n.id)));
 refs('served.json', Object.keys(await read('served.json')));
+for (const st of Object.keys((await read('bridges/us/index.json')).states)) {
+  refs(`bridges/us/${st}.json`, (await read(`bridges/us/${st}.json`)).routes);
+}
 
 if (errors.length) {
   for (const e of errors) console.error(`  ${e}`);

@@ -1098,9 +1098,10 @@ await step('border crossings draw, and a nearby route can be chosen from one', a
     await new Promise((res) => map.once('idle', res));
     const p = map.project(f.geometry.coordinates);
     const r = map.getCanvas().getBoundingClientRect();
-    return { x: r.left + p.x, y: r.top + p.y, borders: new Set(d.features.map((x) => x.properties.border)).size };
+    const na = d.features.filter((x) => x.properties.country !== 'cn');
+    return { x: r.left + p.x, y: r.top + p.y, borders: new Set(na.map((x) => x.properties.border)).size };
   });
-  if (pt.borders !== 4) throw new Error(`expected crossings on four borders, found ${pt.borders}`);
+  if (pt.borders !== 4) throw new Error(`expected North American crossings on four borders, found ${pt.borders}`);
   await page.mouse.click(pt.x, pt.y);
   await page.waitForSelector('.xg-pop .xg-r', { timeout: 8000 });
   const label = await page.textContent('.xg-pop .xg-r b');
@@ -1185,13 +1186,51 @@ await step('bridges draw, colour by year, and say the year is not the road\'s', 
     const b = map.getCanvas().getBoundingClientRect();
     return { x: b.left + p.x, y: b.top + p.y, n: d.rows.length, sets: d.sets.map((s) => s.id).join(','), year: r[F.built] };
   });
-  if (pt.n < 14000) throw new Error(`expected about 14,800 structures, found ${pt.n}`);
-  if (pt.sets !== 'mx,on') throw new Error(`expected the Mexican and Ontario inventories, found ${pt.sets}`);
+  if (pt.n < 19000) throw new Error(`expected about 20,000 structures, found ${pt.n}`);
+  if (pt.sets !== 'mx,on,qc') throw new Error(`expected the Mexican, Ontario and Quebec inventories, found ${pt.sets}`);
   await page.mouse.click(pt.x, pt.y);
   await page.waitForSelector('.xg-pop .xg-n', { timeout: 8000 });
   const text = await page.textContent('.xg-pop');
   if (!text.includes(String(pt.year))) throw new Error(`popup does not give the year built ${pt.year}`);
   await shot('13-bridges.png');
+  const qc = await page.evaluate(async () => {
+    const d = await (await fetch('data/bridges.json')).json();
+    const F = Object.fromEntries(d.fields.map((f, i) => [f, i]));
+    const r = d.rows.find((x) => d.sets[x[F.set]].id === 'qc' && x[F.kind] === 'bridge' && x[F.over] && x[F.lengthM] > 200);
+    const map = window.__map;
+    map.jumpTo({ center: [r[F.lon], r[F.lat]], zoom: 14, pitch: 0, bearing: 0 });
+    await new Promise((res) => map.once('idle', res));
+    const p = map.project([r[F.lon], r[F.lat]]);
+    const b = map.getCanvas().getBoundingClientRect();
+    return { x: b.left + p.x, y: b.top + p.y, year: r[F.built], over: r[F.over] };
+  });
+  await page.mouse.click(qc.x, qc.y);
+  await page.waitForFunction((o) => document.querySelector('.xg-pop')?.textContent.includes(o), qc.over, { timeout: 8000 });
+  const qtext = await page.textContent('.xg-pop');
+  if (!qtext.includes(String(qc.year)) || !/Ministère des Transports/.test(qtext)) throw new Error(`Quebec bridge popup: ${qtext.slice(0, 160)}`);
+  if (!/Zoom in for the US bridges/.test(await page.textContent('#legend'))) {
+    await page.evaluate(() => window.__map.jumpTo({ center: [-98, 39], zoom: 4 }));
+    await page.waitForFunction(() => /Zoom in for the US bridges/.test(document.getElementById('legend').textContent), null, { timeout: 8000 });
+  }
+  const usb = await page.evaluate(async () => {
+    const f = await (await fetch('data/bridges/us/DE.json')).json();
+    const G = Object.fromEntries(f.fields.map((k, i) => [k, i]));
+    const r = f.rows.find((x) => /^i-/.test(f.routes[x[G.route]]) && x[G.built] && x[G.lengthM] > 150);
+    const map = window.__map;
+    map.jumpTo({ center: [r[G.lon], r[G.lat]], zoom: 15, pitch: 0, bearing: 0 });
+    await new Promise((res) => map.once('idle', res));
+    for (let i = 0; i < 40 && !map.queryRenderedFeatures(map.project([r[G.lon], r[G.lat]]), { layers: ['bridge-hit'] }).length; i++) {
+      await new Promise((res) => setTimeout(res, 250));
+    }
+    const p = map.project([r[G.lon], r[G.lat]]);
+    const b = map.getCanvas().getBoundingClientRect();
+    return { x: b.left + p.x, y: b.top + p.y, year: r[G.built] };
+  });
+  await page.mouse.click(usb.x, usb.y);
+  await page.waitForFunction(() => /National Bridge Inventory/.test(document.querySelector('.xg-pop')?.textContent ?? ''), null, { timeout: 8000 });
+  const utext = await page.textContent('.xg-pop');
+  if (!utext.includes(String(usb.year)) || !/Route I-/.test(utext)) throw new Error(`US bridge popup: ${utext.slice(0, 160)}`);
+  await shot('13b-us-bridge.png');
   await jsClick('#btnBridges');
   if (await page.locator('.xg-pop').count()) throw new Error('popup outlived its layer');
   if (await page.locator('#legend .lg-at').count()) throw new Error('bridge key outlived its layer');
@@ -1397,6 +1436,33 @@ await step('Taiwanese freeways give the Freeway Bureau length and their ETC gant
   if (!await page.locator('#legend .lg-ring').count()) throw new Error('no Hong Kong toll tunnel in the East Asian toll key');
   await jsClick('#btnTolls');
   if (await page.locator('.tl-pop').count()) throw new Error('gantry popup outlived its layer');
+});
+
+await step('mainland highway ports draw, placed by OpenStreetMap', async () => {
+  await page.keyboard.press('Escape');
+  await jsClick('#btnCrossings');
+  await waitForSource('xing');
+  if (await page.locator('#legend .lg-ring').count() !== 3) throw new Error('the East Asian key is not land borders, Hong Kong and Macao');
+  const pt = await page.evaluate(async () => {
+    const d = await (await fetch('data/crossings.json')).json();
+    const cn = d.features.filter((x) => x.properties.country === 'cn');
+    const f = cn.find((x) => x.properties.nameZh === '满洲里');
+    const map = window.__map;
+    map.jumpTo({ center: f.geometry.coordinates, zoom: 12, pitch: 0, bearing: 0 });
+    await new Promise((res) => map.once('idle', res));
+    const p = map.project(f.geometry.coordinates);
+    const r = map.getCanvas().getBoundingClientRect();
+    return { x: r.left + p.x, y: r.top + p.y, n: cn.length };
+  });
+  if (pt.n < 60) throw new Error(`expected over 60 mainland ports, found ${pt.n}`);
+  await page.mouse.click(pt.x, pt.y);
+  await page.waitForSelector('.xg-pop .xg-n', { timeout: 8000 });
+  const pop = await page.textContent('.xg-pop');
+  if (!/Manzhouli/.test(pop) || !/China–Russia/.test(pop) || !/Placed by OpenStreetMap/.test(pop)) throw new Error(`port popup: ${pop.slice(0, 160)}`);
+  if (!/G10|G301/.test(pop)) throw new Error('Manzhouli lists no nearby route');
+  await shot('20c-cn-port.png');
+  await jsClick('#btnCrossings');
+  if (await page.locator('.xg-pop').count()) throw new Error('port popup outlived its layer');
 });
 
 await step('Hong Kong Route 3 gives its tunnels\' time-varying tolls', async () => {

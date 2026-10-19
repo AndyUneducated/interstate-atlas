@@ -1,8 +1,10 @@
 /* Bridges, as a layer that can be switched on over the routes.
 
-   Two inventories, and they are not the continent: Mexico's federal free
-   network from SICT, and Ontario's provincial structures, culverts among them,
-   from its Ministry of Transportation. Each structure is coloured by the year
+   Four inventories, and they are not the continent: Mexico's federal free
+   network from SICT, the provincial structures of Ontario and Quebec, culverts
+   among them, from their transport ministries, and FHWA's National Bridge
+   Inventory, kept to the bridges that carry an atlas route and loaded a state
+   at a time once the map is close enough to draw them. Each structure is coloured by the year
    its owner says it was built. That year belongs to the structure; a bridge
    built in 1998 on a road opened in 1952 dates a replacement, so the popup
    never offers it as the road's age. */
@@ -16,12 +18,17 @@ const HIT = `${SRC}-hit`;
 const LAYERS = [SRC, HIT];
 const UNDATED = '#8a8f98';
 const STOPS = [[1930, '#ff7b54'], [1965, '#ffd166'], [1995, '#9be15d'], [2025, '#4cc9f0']];
-const COUNTRIES = ['mx', 'ca'];
+const COUNTRIES = ['mx', 'ca', 'us'];
+// The American inventory is a file per state, too many structures to draw at
+// continental zoom; the states in view load from here in.
+const US_MIN_ZOOM = 7;
 
 let on = false;
 let dataPromise = null;
 let data = null;
 let popup = null;
+let us = null;
+const usLoaded = new Set();
 
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -42,9 +49,48 @@ function load() {
       };
       d.F = F;
       data = d;
-      return d;
+      return fetch('data/bridges/us/index.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    })
+    .then((u) => {
+      if (u && data) {
+        us = { ...u, set: data.sets.length };
+        data.sets.push(u.set);
+      }
+      return data;
     });
   return dataPromise;
+}
+
+/** Adds the American states in view to the layer, once each. */
+async function loadUsInView() {
+  const map = app.map;
+  if (!on || !us || app.region !== 'na' || map.getZoom() < US_MIN_ZOOM) return;
+  const b = map.getBounds();
+  const want = Object.entries(us.states).filter(([st, s]) => !usLoaded.has(st)
+    && s.bbox[0] <= b.getEast() && s.bbox[2] >= b.getWest() && s.bbox[1] <= b.getNorth() && s.bbox[3] >= b.getSouth());
+  if (!want.length) return;
+  for (const [st] of want) usLoaded.add(st);
+  const files = await Promise.all(want.map(([st]) => fetch(`data/bridges/us/${st}.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null)));
+  const F = data.F;
+  for (const file of files) {
+    if (!file) continue;
+    const G = Object.fromEntries(file.fields.map((f, i) => [f, i]));
+    for (const r of file.rows) {
+      const row = new Array(data.fields.length).fill(null);
+      row[F.lon] = r[G.lon]; row[F.lat] = r[G.lat]; row[F.set] = us.set;
+      row[F.route] = app.byId.get(file.routes[r[G.route]])?.label ?? null;
+      row[F.built] = r[G.built]; row[F.rebuilt] = r[G.rebuilt]; row[F.lengthM] = r[G.lengthM];
+      row[F.kind] = r[G.kind]; row[F.over] = r[G.over];
+      const i = data.rows.length;
+      data.rows.push(row);
+      data.geojson.features.push({
+        type: 'Feature', id: i,
+        properties: { i, built: row[F.built] ?? -1 },
+        geometry: { type: 'Point', coordinates: [row[F.lon], row[F.lat]] },
+      });
+    }
+  }
+  map.getSource(SRC)?.setData(data.geojson);
 }
 
 /** True when a bridge is under the pointer, so a route beneath it leaves the click alone. */
@@ -82,6 +128,13 @@ async function ensureLayers() {
     const f = e.features?.[0];
     if (f) openBridge(f.properties.i, e.lngLat);
   });
+  let wasNear = map.getZoom() >= US_MIN_ZOOM;
+  map.on('moveend', () => {
+    if (!on) return;
+    loadUsInView();
+    const near = map.getZoom() >= US_MIN_ZOOM;
+    if (near !== wasNear) { wasNear = near; renderLegend(); }
+  });
 }
 
 export async function toggleBridges(force) {
@@ -95,7 +148,10 @@ export async function toggleBridges(force) {
   if (!on) closeBridge();
   document.getElementById('btnBridges').classList.toggle('on', on);
   renderLegend();
-  toast(on ? t('toast.bridgeOn', { n: num(data.rows.length) }) : t('toast.bridgeOff'));
+  const usTotal = us ? Object.values(us.states).reduce((a, s) => a + s.n, 0) : 0;
+  const shown = data.rows.filter((r) => r[data.F.set] !== us?.set).length;
+  toast(on ? t('toast.bridgeOn', { n: num(shown), us: num(usTotal) }) : t('toast.bridgeOff'));
+  if (on) loadUsInView();
 }
 
 /** This layer's part of the colour key: empty while it is off, or over a region it has no bridges in. */
@@ -109,7 +165,8 @@ export function bridgesLegend() {
   return `<div class="lg-b"><p class="lg-h">${t('lg.bridges')}</p>
     <div class="lg-ramp" style="background:linear-gradient(90deg, ${ramp})"></div>
     <div class="lg-ticks lg-at">${STOPS.map(([y], i) => `<span style="left:${at(y)}%">${i ? y : `≤${y}`}</span>`).join('')}</div>
-    <p class="lg-r"><i class="lg-pt" style="--sys-col:${UNDATED}"></i><span>${t('bridge.undated')}</span></p></div>`;
+    <p class="lg-r"><i class="lg-pt" style="--sys-col:${UNDATED}"></i><span>${t('bridge.undated')}</span></p>
+    ${app.region === 'na' && us && app.map.getZoom() < US_MIN_ZOOM ? `<p class="lg-r"><span>${t('bridge.usZoom')}</span></p>` : ''}</div>`;
 }
 
 export function closeBridge() {
@@ -125,7 +182,7 @@ function html(r) {
     ? `${num(len, len < 100 ? 1 : 0)} ${t('unit.m')}`
     : `${num(len * 3.28084)} ${t('unit.ft')}`;
   const where = [
-    r[F.route] ? t('bridge.route', { r: esc(r[F.route]) }) : null,
+    r[F.route] && r[F.name] ? t('bridge.route', { r: esc(r[F.route]) }) : null,
     r[F.road] != null ? `<span lang="es">${esc(data.roads[r[F.road]])}</span>` : null,
     r[F.at] ? t('bridge.at', { km: esc(r[F.at]) }) : null,
   ].filter(Boolean).join(' · ');
@@ -136,11 +193,12 @@ function html(r) {
   } else {
     rows.push(t('bridge.undated'));
   }
+  if (F.over != null && r[F.over]) rows.push(t('bridge.over', { o: r[F.over] }));
   if (len != null) rows.push(t('bridge.length', { d: metres }));
   const kind = r[F.kind] ? t(`bridge.kind.${r[F.kind]}`) : t('bridge.kind.bridge');
   return `<div class="xg">
     <div class="xg-k" style="--c:#ffd166">${esc(kind)}</div>
-    <div class="xg-n">${esc(r[F.name] ?? '')}</div>
+    <div class="xg-n">${esc(r[F.name] ?? (r[F.route] ? t('bridge.route', { r: r[F.route] }) : ''))}</div>
     ${where ? `<div class="xg-w">${where}</div>` : ''}
     ${rows.map((x) => `<div class="xg-s">${esc(x)}</div>`).join('')}
     <div class="xg-f">${esc(t('bridge.note'))}</div>
