@@ -17,23 +17,38 @@ D-60 to D-77); this file only tracks the work.
 
 Dossiers now: mainland 39, Taiwan 16, Hong Kong 10 (237 in all).
 
-## Next, in the order proposed
+## Data that exists and is not yet built (planned 2026-10-19)
 
-1. **Taiwan freeway official lengths and toll sections.** The Freeway Bureau publishes route
-   lengths and the ETC charging sections; neither is read yet (§4: "none for the 國道", toll "none").
-2. **Taiwan bridges with year built.** Highway Bureau and Freeway Bureau bridge registers on
-   data.gov.tw; would match Ontario's and Mexico's rows.
-3. **More dossiers.** Mainland: the longest ordinary national highways (G331, G228, G312, G207,
-   G213, G215…) and the busiest regional expressways (G0612, G3012, G1523…). Taiwan: 台17, 台19,
-   台21, 台26, 國3甲, 國8. Use [DOSSIER-BRIEF.md](DOSSIER-BRIEF.md).
-4. **Mainland per-route opening years** from the dossiers' timelines into the buildout chart.
+Each is a *pending* row in [ACCURACY.md §6](ACCURACY.md#6-known-gaps) and the coverage table
+([DATA-SOURCES.md §4](DATA-SOURCES.md#4-coverage-by-country)); remove the row when it is done.
+Smallest first.
 
-## Still missing against North America, with no fix in sight
+| # | Work | Source | Decided |
+| --- | --- | --- | --- |
+| P1 | Taiwan freeway official lengths | Freeway Bureau 路段基本資訊 v2.0 (data.gov.tw 37652) | the end chainage is shown as the official length, source named |
+| P2 | Taiwan freeway tolls: toll share per freeway, gantries on the toll layer | 國道計費門架座標及里程牌價表 (data.gov.tw 21165); toll-station dates (118759) | |
+| P3 | Hong Kong tunnel and bridge tolls on the toll layer and route panel | Transport Department, Road Network (2nd generation), toll tables | |
+| P4 | Elevation profiles for every Interstate, US route, Trans-Canada, NHS route and Mexican federal route | AWS Terrain Tiles (X-2), as now | main routes only; state and provincial routes stay without |
+| P5 | Mainland and Hong Kong land border crossings | National Office of Port Administration list of 84 highway ports, placed at OpenStreetMap's border-control points | labelled as placed by OpenStreetMap |
+| P6 | Quebec bridges with year built | MTMD Structure (Données Québec), WFS | |
+| P7 | US bridges with year built | FHWA National Bridge Inventory | only bridges that carry an atlas route |
+| P8 | More dossiers: the longest mainland national highways (G331, G228, G312, G207, G213, G215…), regional expressways (G0612, G3012, G1523…), Taiwan's 台17, 台19, 台21, 台26, 國3甲, 國8, and Mexico's federal routes | [DOSSIER-BRIEF.md](DOSSIER-BRIEF.md) | |
+| P9 | Mainland per-route opening years from the dossiers' timelines into the buildout chart | dossiers | |
 
-- Mainland traffic: no open per-route source (provincial yearbooks are not open data).
-- Mainland and Hong Kong toll share: the OSM toll tag is too sparse (D-69).
-- Construction cost outside the dossiers: no register publishes it for any East Asian route.
-- Mexico has no dossiers, and so no elevation profiles.
+## Still to check whether the data exists
+
+- Bridges in Canadian provinces other than Ontario and Quebec.
+- Per-route official lengths in Canada (provincial registers) and Mexico (SICT's Datos Viales
+  gives each tramo's length, which may add up to a route's).
+- Pavement condition outside the United States.
+
+## Missing against North America because no source exists
+
+These are *source* rows in [ACCURACY.md §6](ACCURACY.md#6-known-gaps).
+
+- Mainland traffic, official lengths and toll share; mainland bridges.
+- Taiwan bridges (released only on application) and Hong Kong bridge years.
+- Construction cost outside the dossiers, everywhere but the Interstates.
 
 ## Open minor points
 
