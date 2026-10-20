@@ -515,6 +515,35 @@ function mxFacts(p) {
     `<div class="fig"><span class="fig-k">${k}</span><span class="fig-v">${v}</span></div>`).join('')}</div>`;
 }
 
+let mxLengthsPromise = null;
+function loadMxLengths() {
+  mxLengthsPromise ||= fetch('data/mx-lengths.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  return mxLengthsPromise;
+}
+
+/**
+ * SICT's free federal network under this route's number, beside what the
+ * atlas draws under it. SICT's sum is the whole route in every state with its
+ * branches and without its toll roads, so it is a different quantity from any
+ * one piece's length, and it is never the headline (ROADMAP P10).
+ */
+function mxLengthRows(meta, sict) {
+  const n = /^\d+$/.test(meta.num ?? '') ? String(Number(meta.num)) : null;
+  const row = n ? sict?.routes?.[n] : null;
+  if (!row) return '';
+  const [km, branchKm, states] = row;
+  const pieces = app.index.filter((r) => r.sys === meta.sys && r.num === meta.num);
+  const drawnMi = pieces.reduce((s, r) => s + r.mi, 0);
+  return `<div class="figs" style="margin-top:11px">
+    <div class="fig"><span class="fig-k">${t('mx.sict.k')}</span>
+      <span class="fig-v"><b>${num(lenOfKm(km))}</b> ${lenUnit()}
+      <span class="src">${esc(t('mx.sict.src', { ed: sict.edition, n: states, br: num(lenOfKm(branchKm)), u: lenUnit() }))}</span></span></div>
+    <div class="fig"><span class="fig-k">${t('mx.sict.drawn')}</span>
+      <span class="fig-v"><b>${num(lenOf(drawnMi))}</b> ${lenUnit()}
+      <span class="src">${esc(t('mx.sict.drawnSrc', { n: pieces.length }))}</span></span></div>
+  </div>`;
+}
+
 function figBox(title, sub, rows) {
   return `<div class="figs fig-box">
     <div class="figs-h">${title}</div>
@@ -896,6 +925,7 @@ export async function renderDetail(id) {
   const osm = ea ? (await loadOsmAttrs())?.routes?.[id] ?? null : null;
   const hkData = p.cc === 'hk' ? await loadHkRoutes() : null;
   const hk = hkData?.routes?.[id] ?? null;
+  const sict = mx ? await loadMxLengths() : null;
   if (app.selected !== id) return;
   const gapNote = p.breaks > 0
     ? `<div class="note gap"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17v.1"/><circle cx="12" cy="12" r="9"/></svg>
@@ -1136,7 +1166,7 @@ export async function renderDetail(id) {
     + (ca ? info('ca.tolls') : '')
     // The measured figures come from somewhere else entirely, so they get
     // their own provenance rather than sheltering under the map's.
-    + (p.hpms ? info('hp.note') : '') + lengthRows));
+    + (p.hpms ? info('hp.note') : '') + lengthRows + (mx ? mxLengthRows(meta, sict) : '')));
 
   sections.innerHTML = parts.join('');
 

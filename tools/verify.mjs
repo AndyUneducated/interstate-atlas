@@ -945,6 +945,25 @@ await step('a route in a publishing province carries traffic', async () => {
 });
 await shot('16-ontario-401-traffic.png');
 
+await step('a Mexican route gives SICT\'s free-network length in its provenance, not its headline', async () => {
+  // SICT's sum is the whole route with its branches and without its toll
+  // roads (P10), so it must sit beside the drawn total and never read as the
+  // official length.
+  await page.keyboard.press('Escape');
+  await page.fill('#q', 'MEX-015');
+  await page.waitForTimeout(700);
+  await page.locator('#results .res').first().click();
+  await page.waitForSelector('#detail:not(.hidden)', { timeout: 10000 });
+  await page.waitForTimeout(2200);
+  const all = await page.textContent('#detail');
+  if (!/SICT free federal network[\s\S]*Red Federal Pavimentada 2024[\s\S]*Drawn under this number/.test(all)) {
+    throw new Error('no SICT free-network length on MEX 15');
+  }
+  if (await page.locator('#detail .mhero-off').count()) {
+    throw new Error('MEX 15 shows an official length in its headline');
+  }
+});
+
 await step('the length is the headline, not one tile of six', async () => {
   // The panel's six equal tiles were levelled so that how long the road is sat
   // in the same box as its tolled share. If the hero disappears the page has

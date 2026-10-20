@@ -1,0 +1,1001 @@
+{
+ "retrieved": "2026-10-20",
+ "purpose": "SICT's free federal network summed per route number. Written by fetch-mexico-lengths.mjs; do not edit by hand.",
+ "source": "SICT, Red Federal Pavimentada",
+ "agency": "Secretaría de Infraestructura, Comunicaciones y Transportes",
+ "url": "https://www.datos.gob.mx/dataset/red_federal_pavimentada",
+ "file": "https://repodatos.atdt.gob.mx/api_update/secretaria_comunicaciones/red_federal_pavimentada/red_federal_pavimentada_2024.csv",
+ "licence": "CC BY 4.0",
+ "edition": "Enero-Diciembre 2024",
+ "totalKm": 40562.6,
+ "unnumberedKm": 149.7,
+ "routes": {
+  "1": {
+   "km": 1848,
+   "branchKm": 277.6,
+   "states": [
+    "Baja California",
+    "Baja California Sur"
+   ]
+  },
+  "2": {
+   "km": 1763.7,
+   "branchKm": 133.7,
+   "states": [
+    "Baja California",
+    "Chihuahua",
+    "Coahuila",
+    "Nuevo León",
+    "Sonora",
+    "Tamaulipas"
+   ]
+  },
+  "3": {
+   "km": 298.4,
+   "branchKm": 5.5,
+   "states": [
+    "Baja California"
+   ]
+  },
+  "5": {
+   "km": 392.7,
+   "branchKm": 2.1,
+   "states": [
+    "Baja California"
+   ]
+  },
+  "8": {
+   "km": 96.8,
+   "branchKm": 3.4,
+   "states": [
+    "Sonora"
+   ]
+  },
+  "9": {
+   "km": 39.3,
+   "branchKm": 7.9,
+   "states": [
+    "Nuevo León"
+   ]
+  },
+  "10": {
+   "km": 243,
+   "branchKm": 0,
+   "states": [
+    "Chihuahua"
+   ]
+  },
+  "12": {
+   "km": 69.6,
+   "branchKm": 3,
+   "states": [
+    "Baja California"
+   ]
+  },
+  "14": {
+   "km": 272.8,
+   "branchKm": 1.8,
+   "states": [
+    "Michoacán",
+    "Sonora"
+   ]
+  },
+  "15": {
+   "km": 1788.1,
+   "branchKm": 276.7,
+   "states": [
+    "Jalisco",
+    "Michoacán",
+    "México",
+    "Nayarit",
+    "Sinaloa",
+    "Sonora"
+   ]
+  },
+  "16": {
+   "km": 812.8,
+   "branchKm": 6.2,
+   "states": [
+    "Chihuahua",
+    "Sonora"
+   ]
+  },
+  "17": {
+   "km": 194.6,
+   "branchKm": 0.9,
+   "states": [
+    "Sonora"
+   ]
+  },
+  "19": {
+   "km": 134.3,
+   "branchKm": 10.1,
+   "states": [
+    "Baja California Sur"
+   ]
+  },
+  "22": {
+   "km": 36.7,
+   "branchKm": 0,
+   "states": [
+    "Aguascalientes"
+   ]
+  },
+  "23": {
+   "km": 687.2,
+   "branchKm": 68.3,
+   "states": [
+    "Durango",
+    "Jalisco",
+    "Zacatecas"
+   ]
+  },
+  "24": {
+   "km": 460.9,
+   "branchKm": 30.4,
+   "states": [
+    "Chihuahua",
+    "Durango",
+    "Sinaloa"
+   ]
+  },
+  "25": {
+   "km": 50.4,
+   "branchKm": 0,
+   "states": [
+    "Aguascalientes",
+    "Zacatecas"
+   ]
+  },
+  "29": {
+   "km": 97.4,
+   "branchKm": 0,
+   "states": [
+    "Coahuila"
+   ]
+  },
+  "30": {
+   "km": 483.3,
+   "branchKm": 59.5,
+   "states": [
+    "Coahuila",
+    "Durango",
+    "Nuevo León"
+   ]
+  },
+  "34": {
+   "km": 98.6,
+   "branchKm": 0,
+   "states": [
+    "Durango"
+   ]
+  },
+  "35": {
+   "km": 214.1,
+   "branchKm": 1.8,
+   "states": [
+    "Jalisco",
+    "Michoacán",
+    "Nuevo León"
+   ]
+  },
+  "36": {
+   "km": 80,
+   "branchKm": 0,
+   "states": [
+    "Durango"
+   ]
+  },
+  "37": {
+   "km": 545.4,
+   "branchKm": 14.4,
+   "states": [
+    "Guanajuato",
+    "Jalisco",
+    "Michoacán",
+    "San Luis Potosí"
+   ]
+  },
+  "38": {
+   "km": 34.5,
+   "branchKm": 34.5,
+   "states": [
+    "Nuevo León"
+   ]
+  },
+  "40": {
+   "km": 1121.9,
+   "branchKm": 48.1,
+   "states": [
+    "Coahuila",
+    "Durango",
+    "Nuevo León",
+    "Sinaloa",
+    "Tamaulipas"
+   ]
+  },
+  "41": {
+   "km": 39.9,
+   "branchKm": 0,
+   "states": [
+    "Michoacán"
+   ]
+  },
+  "43": {
+   "km": 108.1,
+   "branchKm": 7.8,
+   "states": [
+    "Guanajuato",
+    "Michoacán"
+   ]
+  },
+  "44": {
+   "km": 97.3,
+   "branchKm": 14.1,
+   "states": [
+    "Nayarit",
+    "Zacatecas"
+   ]
+  },
+  "45": {
+   "km": 1635.1,
+   "branchKm": 192,
+   "states": [
+    "Aguascalientes",
+    "Chihuahua",
+    "Durango",
+    "Guanajuato",
+    "Hidalgo",
+    "Jalisco",
+    "Querétaro",
+    "Zacatecas"
+   ]
+  },
+  "49": {
+   "km": 617.8,
+   "branchKm": 48.8,
+   "states": [
+    "Chihuahua",
+    "Durango",
+    "San Luis Potosí",
+    "Zacatecas"
+   ]
+  },
+  "51": {
+   "km": 628.7,
+   "branchKm": 14.4,
+   "states": [
+    "Guanajuato",
+    "Guerrero",
+    "Jalisco",
+    "Michoacán"
+   ]
+  },
+  "52": {
+   "km": 23.9,
+   "branchKm": 0,
+   "states": [
+    "Guanajuato"
+   ]
+  },
+  "53": {
+   "km": 152.5,
+   "branchKm": 0,
+   "states": [
+    "Coahuila",
+    "Nuevo León"
+   ]
+  },
+  "54": {
+   "km": 903,
+   "branchKm": 63.5,
+   "states": [
+    "Coahuila",
+    "Colima",
+    "Jalisco",
+    "Nuevo León",
+    "Tamaulipas",
+    "Zacatecas"
+   ]
+  },
+  "55": {
+   "km": 174.7,
+   "branchKm": 15.1,
+   "states": [
+    "Guerrero",
+    "México",
+    "Querétaro"
+   ]
+  },
+  "57": {
+   "km": 1205.5,
+   "branchKm": 156.5,
+   "states": [
+    "Coahuila",
+    "Guanajuato",
+    "Hidalgo",
+    "México",
+    "Nuevo León",
+    "Querétaro",
+    "San Luis Potosí"
+   ]
+  },
+  "58": {
+   "km": 95.5,
+   "branchKm": 0,
+   "states": [
+    "Nuevo León"
+   ]
+  },
+  "61": {
+   "km": 39.9,
+   "branchKm": 5.6,
+   "states": [
+    "Guanajuato",
+    "Michoacán"
+   ]
+  },
+  "62": {
+   "km": 121,
+   "branchKm": 8.5,
+   "states": [
+    "San Luis Potosí",
+    "Zacatecas"
+   ]
+  },
+  "63": {
+   "km": 183.5,
+   "branchKm": 16.6,
+   "states": [
+    "San Luis Potosí"
+   ]
+  },
+  "68": {
+   "km": 35.3,
+   "branchKm": 35.3,
+   "states": [
+    "Nayarit"
+   ]
+  },
+  "69": {
+   "km": 97.9,
+   "branchKm": 0,
+   "states": [
+    "Querétaro",
+    "San Luis Potosí"
+   ]
+  },
+  "70": {
+   "km": 859.9,
+   "branchKm": 91.1,
+   "states": [
+    "Aguascalientes",
+    "Jalisco",
+    "San Luis Potosí",
+    "Tamaulipas",
+    "Veracruz",
+    "Zacatecas"
+   ]
+  },
+  "71": {
+   "km": 110.3,
+   "branchKm": 0,
+   "states": [
+    "Aguascalientes",
+    "Jalisco",
+    "Zacatecas"
+   ]
+  },
+  "72": {
+   "km": 42.1,
+   "branchKm": 42.1,
+   "states": [
+    "Nayarit"
+   ]
+  },
+  "74": {
+   "km": 36,
+   "branchKm": 36,
+   "states": [
+    "Nayarit"
+   ]
+  },
+  "76": {
+   "km": 74.5,
+   "branchKm": 74.5,
+   "states": [
+    "Nayarit"
+   ]
+  },
+  "78": {
+   "km": 24.1,
+   "branchKm": 24.1,
+   "states": [
+    "Nayarit"
+   ]
+  },
+  "80": {
+   "km": 967,
+   "branchKm": 123.7,
+   "states": [
+    "Jalisco",
+    "San Luis Potosí",
+    "Tamaulipas",
+    "Zacatecas"
+   ]
+  },
+  "81": {
+   "km": 88.6,
+   "branchKm": 0,
+   "states": [
+    "Tamaulipas"
+   ]
+  },
+  "82": {
+   "km": 32.2,
+   "branchKm": 32.2,
+   "states": [
+    "Tamaulipas"
+   ]
+  },
+  "83": {
+   "km": 92.7,
+   "branchKm": 29.4,
+   "states": [
+    "Tamaulipas"
+   ]
+  },
+  "84": {
+   "km": 71.3,
+   "branchKm": 8.6,
+   "states": [
+    "Guanajuato"
+   ]
+  },
+  "85": {
+   "km": 1046,
+   "branchKm": 59.7,
+   "states": [
+    "Hidalgo",
+    "México",
+    "Nuevo León",
+    "San Luis Potosí",
+    "Tamaulipas"
+   ]
+  },
+  "88": {
+   "km": 51.2,
+   "branchKm": 0,
+   "states": [
+    "Hidalgo"
+   ]
+  },
+  "90": {
+   "km": 121.6,
+   "branchKm": 10.5,
+   "states": [
+    "Guanajuato",
+    "Jalisco",
+    "Michoacán"
+   ]
+  },
+  "93": {
+   "km": 264,
+   "branchKm": 1,
+   "states": [
+    "Guerrero",
+    "Puebla"
+   ]
+  },
+  "95": {
+   "km": 413.9,
+   "branchKm": 65.8,
+   "states": [
+    "Guerrero",
+    "Morelos"
+   ]
+  },
+  "97": {
+   "km": 110,
+   "branchKm": 0,
+   "states": [
+    "Tamaulipas"
+   ]
+  },
+  "98": {
+   "km": 52.2,
+   "branchKm": 4.2,
+   "states": [
+    "Colima"
+   ]
+  },
+  "101": {
+   "km": 552.8,
+   "branchKm": 80,
+   "states": [
+    "San Luis Potosí",
+    "Tamaulipas"
+   ]
+  },
+  "102": {
+   "km": 115.6,
+   "branchKm": 16,
+   "states": [
+    "Hidalgo",
+    "San Luis Potosí",
+    "Veracruz"
+   ]
+  },
+  "105": {
+   "km": 255.1,
+   "branchKm": 8.7,
+   "states": [
+    "Hidalgo",
+    "Veracruz"
+   ]
+  },
+  "106": {
+   "km": 14.5,
+   "branchKm": 14.5,
+   "states": [
+    "Morelos"
+   ]
+  },
+  "107": {
+   "km": 20.5,
+   "branchKm": 20.5,
+   "states": [
+    "Tamaulipas"
+   ]
+  },
+  "110": {
+   "km": 434.8,
+   "branchKm": 58.1,
+   "states": [
+    "Colima",
+    "Guanajuato",
+    "Jalisco",
+    "Michoacán"
+   ]
+  },
+  "111": {
+   "km": 7.9,
+   "branchKm": 0,
+   "states": [
+    "Querétaro"
+   ]
+  },
+  "113": {
+   "km": 54.2,
+   "branchKm": 25.1,
+   "states": [
+    "Morelos",
+    "México"
+   ]
+  },
+  "114": {
+   "km": 17.5,
+   "branchKm": 0,
+   "states": [
+    "Zacatecas"
+   ]
+  },
+  "115": {
+   "km": 111.1,
+   "branchKm": 51.8,
+   "states": [
+    "Morelos",
+    "México"
+   ]
+  },
+  "117": {
+   "km": 56.9,
+   "branchKm": 28.5,
+   "states": [
+    "Tlaxcala"
+   ]
+  },
+  "119": {
+   "km": 247.3,
+   "branchKm": 110,
+   "states": [
+    "Hidalgo",
+    "Puebla",
+    "Tlaxcala"
+   ]
+  },
+  "120": {
+   "km": 712.9,
+   "branchKm": 36,
+   "states": [
+    "Guanajuato",
+    "Michoacán",
+    "Querétaro",
+    "San Luis Potosí"
+   ]
+  },
+  "121": {
+   "km": 51.8,
+   "branchKm": 20.2,
+   "states": [
+    "Puebla",
+    "Tlaxcala"
+   ]
+  },
+  "125": {
+   "km": 554.3,
+   "branchKm": 72.3,
+   "states": [
+    "Oaxaca",
+    "Puebla",
+    "Veracruz"
+   ]
+  },
+  "126": {
+   "km": 139.5,
+   "branchKm": 1.2,
+   "states": [
+    "Michoacán"
+   ]
+  },
+  "127": {
+   "km": 205.4,
+   "branchKm": 0,
+   "states": [
+    "Veracruz"
+   ]
+  },
+  "129": {
+   "km": 258.1,
+   "branchKm": 25.3,
+   "states": [
+    "Puebla",
+    "Tlaxcala",
+    "Veracruz"
+   ]
+  },
+  "130": {
+   "km": 256,
+   "branchKm": 49.1,
+   "states": [
+    "Hidalgo",
+    "Puebla",
+    "Veracruz"
+   ]
+  },
+  "131": {
+   "km": 294,
+   "branchKm": 176.1,
+   "states": [
+    "Oaxaca",
+    "Puebla",
+    "Veracruz"
+   ]
+  },
+  "132": {
+   "km": 105.5,
+   "branchKm": 27.6,
+   "states": [
+    "Hidalgo",
+    "México"
+   ]
+  },
+  "134": {
+   "km": 445,
+   "branchKm": 15.7,
+   "states": [
+    "Guerrero",
+    "Michoacán",
+    "México"
+   ]
+  },
+  "136": {
+   "km": 330.8,
+   "branchKm": 138,
+   "states": [
+    "México",
+    "Puebla",
+    "Tlaxcala"
+   ]
+  },
+  "140": {
+   "km": 284.6,
+   "branchKm": 27.5,
+   "states": [
+    "Puebla",
+    "Veracruz"
+   ]
+  },
+  "142": {
+   "km": 44.4,
+   "branchKm": 15.2,
+   "states": [
+    "México"
+   ]
+  },
+  "144": {
+   "km": 71.6,
+   "branchKm": 0,
+   "states": [
+    "Puebla"
+   ]
+  },
+  "145": {
+   "km": 236.8,
+   "branchKm": 22.2,
+   "states": [
+    "Oaxaca",
+    "Veracruz"
+   ]
+  },
+  "147": {
+   "km": 181.3,
+   "branchKm": 6.3,
+   "states": [
+    "Oaxaca",
+    "Veracruz"
+   ]
+  },
+  "150": {
+   "km": 281.8,
+   "branchKm": 44.8,
+   "states": [
+    "Puebla",
+    "Veracruz"
+   ]
+  },
+  "152": {
+   "km": 23.4,
+   "branchKm": 0,
+   "states": [
+    "Tlaxcala"
+   ]
+  },
+  "160": {
+   "km": 81.2,
+   "branchKm": 0,
+   "states": [
+    "Morelos",
+    "Puebla"
+   ]
+  },
+  "166": {
+   "km": 66.2,
+   "branchKm": 16.9,
+   "states": [
+    "Guerrero",
+    "Morelos"
+   ]
+  },
+  "172": {
+   "km": 23,
+   "branchKm": 0,
+   "states": [
+    "Veracruz"
+   ]
+  },
+  "175": {
+   "km": 588.7,
+   "branchKm": 36.4,
+   "states": [
+    "Oaxaca",
+    "Veracruz"
+   ]
+  },
+  "176": {
+   "km": 302.6,
+   "branchKm": 140.3,
+   "states": [
+    "Yucatán"
+   ]
+  },
+  "179": {
+   "km": 160.9,
+   "branchKm": 76,
+   "states": [
+    "Oaxaca"
+   ]
+  },
+  "180": {
+   "km": 2027.2,
+   "branchKm": 246.8,
+   "states": [
+    "Campeche",
+    "Quintana Roo",
+    "Tabasco",
+    "Tamaulipas",
+    "Veracruz",
+    "Yucatán"
+   ]
+  },
+  "182": {
+   "km": 155.6,
+   "branchKm": 0,
+   "states": [
+    "Oaxaca"
+   ]
+  },
+  "184": {
+   "km": 242.2,
+   "branchKm": 0,
+   "states": [
+    "Quintana Roo",
+    "Yucatán"
+   ]
+  },
+  "185": {
+   "km": 405.6,
+   "branchKm": 112.3,
+   "states": [
+    "Oaxaca",
+    "Veracruz"
+   ]
+  },
+  "186": {
+   "km": 552.3,
+   "branchKm": 5.1,
+   "states": [
+    "Campeche",
+    "Chiapas",
+    "Quintana Roo",
+    "Tabasco"
+   ]
+  },
+  "187": {
+   "km": 207.6,
+   "branchKm": 34.4,
+   "states": [
+    "Chiapas",
+    "Tabasco"
+   ]
+  },
+  "188": {
+   "km": 116.1,
+   "branchKm": 14,
+   "states": [
+    "Campeche"
+   ]
+  },
+  "190": {
+   "km": 1451.5,
+   "branchKm": 271.2,
+   "states": [
+    "Chiapas",
+    "México",
+    "Oaxaca",
+    "Puebla"
+   ]
+  },
+  "195": {
+   "km": 253.4,
+   "branchKm": 8.6,
+   "states": [
+    "Chiapas",
+    "Tabasco"
+   ]
+  },
+  "196": {
+   "km": 104.4,
+   "branchKm": 12,
+   "states": [
+    "Guerrero"
+   ]
+  },
+  "198": {
+   "km": 114.9,
+   "branchKm": 0,
+   "states": [
+    "Guerrero"
+   ]
+  },
+  "199": {
+   "km": 233.1,
+   "branchKm": 13.3,
+   "states": [
+    "Chiapas"
+   ]
+  },
+  "200": {
+   "km": 2240,
+   "branchKm": 367,
+   "states": [
+    "Chiapas",
+    "Colima",
+    "Guerrero",
+    "Jalisco",
+    "Michoacán",
+    "Nayarit",
+    "Oaxaca"
+   ]
+  },
+  "201": {
+   "km": 110.9,
+   "branchKm": 0,
+   "states": [
+    "Campeche",
+    "Nayarit"
+   ]
+  },
+  "203": {
+   "km": 126.3,
+   "branchKm": 5.5,
+   "states": [
+    "Chiapas",
+    "Tabasco"
+   ]
+  },
+  "211": {
+   "km": 123.1,
+   "branchKm": 0,
+   "states": [
+    "Chiapas"
+   ]
+  },
+  "217": {
+   "km": 71.1,
+   "branchKm": 71.1,
+   "states": [
+    "Campeche"
+   ]
+  },
+  "221": {
+   "km": 103.1,
+   "branchKm": 22.7,
+   "states": [
+    "Campeche"
+   ]
+  },
+  "225": {
+   "km": 75.7,
+   "branchKm": 53.3,
+   "states": [
+    "Chiapas"
+   ]
+  },
+  "259": {
+   "km": 56.4,
+   "branchKm": 0,
+   "states": [
+    "Campeche"
+   ]
+  },
+  "261": {
+   "km": 273,
+   "branchKm": 28.6,
+   "states": [
+    "Campeche",
+    "Yucatán"
+   ]
+  },
+  "281": {
+   "km": 125.4,
+   "branchKm": 46.9,
+   "states": [
+    "Yucatán"
+   ]
+  },
+  "293": {
+   "km": 100.1,
+   "branchKm": 0,
+   "states": [
+    "Quintana Roo"
+   ]
+  },
+  "295": {
+   "km": 266.3,
+   "branchKm": 18,
+   "states": [
+    "Quintana Roo",
+    "Yucatán"
+   ]
+  },
+  "307": {
+   "km": 808,
+   "branchKm": 39.4,
+   "states": [
+    "Chiapas",
+    "Quintana Roo"
+   ]
+  }
+ }
+}
