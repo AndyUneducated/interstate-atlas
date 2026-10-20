@@ -58,19 +58,19 @@
         "Its construction was let in lots to the big state contractors. China Railway's lot through Alxa — 352 km of main line and 62 km of link roads — was worth ¥8.691 billion, and was let on an 'equity investment plus general contracting' basis: the company took a stake in the project as well as the contract, the first such arrangement between China Railway and the Inner Mongolia transport department. China Communications Construction built the 358 km lot through the Badain Jaran."
       ],
       "zh": [
-        "第一财经 2017 年报道，京新高速的总投资「目前还无法测算」，此后也未见公布。当年 7 月通车的三段分别核算：临河至白疙瘩段总投资 370 亿元，白疙瘩至明水段约 61.3 亿元，明水至哈密段约 52 亿元。临白段在当时被报道为我国一次性建设里程最长、投资规模最大的单体高速公路工程。",
-        "临白段分标段由大型央企承建。中国中铁承建的阿拉善境内二标段，主线 352 公里、连接线 62 公里，合同总价值 86.91 亿元，采用「股权投资＋施工总承包」模式——中铁既入股项目也承包施工，这是中国中铁与内蒙古自治区交通厅以此模式合作的首期工程。中国交建承建了穿越巴丹吉林沙漠的三标段，共 358 公里。"
+        "第一财经 2017 年报道，京新高速的总投资“目前还无法测算”，此后也未见公布。当年 7 月通车的三段分别核算：临河至白疙瘩段总投资 370 亿元，白疙瘩至明水段约 61.3 亿元，明水至哈密段约 52 亿元。临白段在当时被报道为我国一次性建设里程最长、投资规模最大的单体高速公路工程。",
+        "临白段分标段由大型央企承建。中国中铁承建的阿拉善境内二标段，主线 352 公里、连接线 62 公里，合同总价值 86.91 亿元，采用“股权投资＋施工总承包”模式——中铁既入股项目也承包施工，这是中国中铁与内蒙古自治区交通厅以此模式合作的首期工程。中国交建承建了穿越巴丹吉林沙漠的三标段，共 358 公里。"
       ]
     }
   ],
   "figures": [
     {
       "label": { "en": "Construction cost", "zh": "造价" },
-      "why": { "en": "No route-wide total is published; Yicai reported in 2017 that one could not yet be calculated. Costs are given per section, as below.", "zh": "未公布全线总造价；第一财经 2017 年报道称「目前还无法测算」。造价按路段公布，见下。" }
+      "why": { "en": "No route-wide total is published; Yicai reported in 2017 that one could not yet be calculated. Costs are given per section, as below.", "zh": "未公布全线总造价；第一财经 2017 年报道称“目前还无法测算”。造价按路段公布，见下。" }
     },
     {
       "label": { "en": "Funding", "zh": "出资方" },
-      "value": { "en": "Not published as a whole. On China Railway's Alxa lot of the desert section, the contractor took an equity stake in the project as well as the construction contract, under an 'equity investment plus general contracting' arrangement with the Inner Mongolia transport department, which was the owner.", "zh": "未公布全线出资构成。沙漠段阿拉善境内中国中铁标段采用「股权投资＋施工总承包」模式，中铁入股项目并承包施工；建设单位为内蒙古自治区交通运输厅。" },
+      "value": { "en": "Not published as a whole. On China Railway's Alxa lot of the desert section, the contractor took an equity stake in the project as well as the construction contract, under an 'equity investment plus general contracting' arrangement with the Inner Mongolia transport department, which was the owner.", "zh": "未公布全线出资构成。沙漠段阿拉善境内中国中铁标段采用“股权投资＋施工总承包”模式，中铁入股项目并承包施工；建设单位为内蒙古自治区交通运输厅。" },
       "source": "Workers' Daily Online (中工网), July 2016, via China News Service; 中工网, project summary of China Railway's LBAMSG-2 lot, March 2017"
     },
     {

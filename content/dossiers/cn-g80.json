@@ -7,7 +7,7 @@
     { "en": "Hengyang–Kunming national trunk line, GZ75 (the Yunnan sections)", "zh": "衡阳至昆明国道主干线 GZ75（云南段）" },
     { "en": "Guangzhou–Wuzhou Expressway (Zhaoqing to Wuzhou)", "zh": "广梧高速公路（肇庆至梧州段）" }
   ],
-  "tagline": { "en": "Pearl River Delta to the Yunnan plateau by way of Wuzhou, Nanning and Baise — including the long descent at Zhesang that drivers called the road of death", "zh": "自珠三角经梧州、南宁、百色登上云南高原——其中有被司机称为「死亡之路」的者桑长下坡" },
+  "tagline": { "en": "Pearl River Delta to the Yunnan plateau by way of Wuzhou, Nanning and Baise — including the long descent at Zhesang that drivers called the road of death", "zh": "自珠三角经梧州、南宁、百色登上云南高原——其中有被司机称为“死亡之路”的者桑长下坡" },
   "completedYear": 2012,
   "termini": {
     "start": { "at": [112.89, 23.1], "en": "Hengjiang interchange on the Guangzhou ring expressway, Danzao, Nanhai District, Foshan, Guangdong — the working kilometre 0; the link into Guangzhou itself is still only planned", "zh": "广东省佛山市南海区丹灶镇横江互通，接广州绕城高速——现行零公里点；广州至佛山段仍在规划中" },
@@ -68,7 +68,7 @@
         "On the Zhesang slope, after the 2009 changes, lorries are limited to 40 km/h on the downhill stretches, with rumble strips and forced speed-control signs; Chinese Wikipedia notes that a limit this low goes against the national rules for expressways. Escape ramps are lit at their entrances."
       ],
       "zh": [
-        "者桑坡经 2009 年整改后，下坡路段货车限速每小时 40 公里，并设减速带和「前方强制控速」标牌；中文维基百科指出，这样低的限速与国家关于高速公路的规定相抵触。避险车道入口设有导向照明。"
+        "者桑坡经 2009 年整改后，下坡路段货车限速每小时 40 公里，并设减速带和“前方强制控速”标牌；中文维基百科指出，这样低的限速与国家关于高速公路的规定相抵触。避险车道入口设有导向照明。"
       ]
     }
   ],

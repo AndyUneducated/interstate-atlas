@@ -1,0 +1,96 @@
+{
+  "id": "cn-g5001",
+  "route": { "sys": "cn-expressway", "num": "G5001" },
+  "name": { "en": "Chongqing Ring Expressway", "zh": "重庆绕城高速公路" },
+  "aka": [
+    { "en": "Outer Ring (Waihuan)", "zh": "重庆主城外环高速、外环" }
+  ],
+  "tagline": { "en": "A six-lane ring round central Chongqing that crosses the Yangtze twice and the Jialing once, opened on the last day of 2009 as the city moved its toll line out to it", "zh": "环绕重庆主城的六车道环线，两跨长江、一跨嘉陵江；2009 年最后一天通车，城区收费线随之外移至此" },
+  "completedYear": 2009,
+  "termini": {
+    "start": { "at": [106.43, 29.8], "en": "Beibei South interchange with the Chongqing–Wusheng expressway, Beibei district — kilometre 0 of the ring", "zh": "北碚区北碚南互通，接渝武高速——环线零公里点" },
+    "end": { "at": [106.43, 29.8], "en": "Back at Beibei, about 188 km round. G5001 is a closed ring; the two ends the page shows are the same point", "zh": "绕行约 188 公里后回到北碚。G5001 是闭合环线，页面所示的起终点是同一处" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G5001 encircles the main urban area of Chongqing, well outside the older Inner Ring expressway, through Beibei, Shapingba, Jiulongpo, Jiangjin, Banan, Nan'an, Jiangbei and Yubei — eight districts, covering about 2,500 square kilometres and nearly 6.5 million people, by the Chongqing Daily's count. It was one of the two rings in Chongqing's 'two rings and eight radials' expressway plan, and by the junction list in Chinese Wikipedia it meets the radial expressways out of the city to Chengdu, Suining, Hechuan, Guang'an, Linshui, Yichang, Hunan, Guizhou and Luzhou.",
+        "Being a ring, it has no termini. The chainage in Chinese Wikipedia starts at the Beibei South interchange and runs east past the airport in Yubei, across the Yangtze at Yuzui, south through Banan, back across the Yangtze at Jiangjin and north through Jiulongpo and Shapingba to Beibei. On the west side it shares carriageway with G93, the Chengdu–Chongqing ring expressway, and G85, the Yinchuan–Kunming expressway."
+      ],
+      "zh": [
+        "G5001 环绕重庆主城区，位于原内环高速以外，途经北碚、沙坪坝、九龙坡、江津、巴南、南岸、江北、渝北 8 个区；据《重庆日报》，覆盖区域面积 2500 平方公里，直接或间接影响人口近 650 万。它是重庆“二环八射”高速公路规划中的一环；按中文维基百科的互通列表，它与以下出城放射线高速公路相接：成渝、渝遂、渝合（渝武）、渝广、渝邻、渝宜、渝湘、渝黔、渝泸。",
+        "作为环线，它没有起终点。中文维基百科所列里程自北碚南互通起算，向东经渝北机场一带，在鱼嘴跨越长江，向南经巴南，在江津再次跨越长江，再向北经九龙坡、沙坪坝回到北碚。西段与 G93 成渝环线高速、G85 银昆高速共线。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The whole ring was built to one standard, six lanes for 100 to 120 km/h on a 34.5-metre roadbed, by Chinese Wikipedia's account; when the work began in 2005 the city's development commission called it the widest expressway Chongqing had built. At its opening the Chongqing Daily counted 11 tunnels and 96 bridges.",
+        "It crosses the Yangtze twice and the Jialing once. The largest crossing is the Yuzui Yangtze bridge in the north-east, a single-span suspension bridge 1,438 metres long with a 616-metre main span, built from April 2006 to 2009 and described then as the longest-span bridge of its type in south-west China. The others are the Jiangjin outer-ring Yangtze bridge in the south-west and the Shuitu Jialing bridge in the north. When the work began, the planners said the road's gradients had been designed to control speed by themselves."
+      ],
+      "zh": [
+        "据中文维基百科，全线按同一标准建设：双向六车道，设计时速 100—120 公里，路基宽 34.5 米；2005 年开工时，重庆市发展改革委称其为当时重庆最宽的高速公路。据《重庆日报》，通车时全线共有隧道 11 座、桥梁 96 座。",
+        "它两跨长江、一跨嘉陵江。最大的是东北的鱼嘴长江大桥：单跨悬索桥，全长 1438 米，主跨 616 米，2006 年 4 月开工、2009 年建成，当时称西南地区跨度最大的单跨双铰简支悬索桥。另两座是西南的外环江津长江大桥和北面的水土嘉陵江大桥。开工时，建设方称这条路采用运行速度设计方案，可通过道路坡度变化控制车速。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Work on the west and south sides began on 10 May 2005. The ring was built as four projects — east, south, west and north — managed by two construction branches of the Chongqing Expressway Group. The first stretch to open was the 58 km from the Outer Ring North interchange at Beibei to Xipeng, in December 2008. The rest opened at noon on 31 December 2009, and the Ministry of Transport counted it among its first four 'science and technology demonstration roads'.",
+        "Its opening moved Chongqing's toll line outwards. From midnight on 1 January 2010 the toll stations on the Inner Ring were removed and the seven radial expressways inside the new ring were brought into the city's road-and-bridge annual fee, a flat yearly charge paid by vehicles registered in the main urban area since 2002. Xinhua reported the acting mayor, Huang Qifan, as saying the city was entering its 'outer-ring era'. The annual fee itself was abolished from 1 January 2018; since then the ring and the six radials inside it are tolled like other expressways."
+      ],
+      "zh": [
+        "绕城高速西段、南段于 2005 年 5 月 10 日开工。全线分东、南、西、北四段建设，由重庆高速公路集团旗下的北方建设分公司和垫利建设分公司承担建设管理。最先通车的是北碚外环北立交至西彭段 58 公里，于 2008 年 12 月通车；其余路段于 2009 年 12 月 31 日 12 时通车。它被交通运输部列为首批四条科技示范路之一。",
+        "它的通车使重庆的收费线外移。2010 年 1 月 1 日零时内环收费站拆除，绕城高速以内的七条射线高速公路纳入主城区路桥通行年费范围——这是 2002 年起主城区登记车辆按年缴纳的统一费用。新华社报道，时任代市长黄奇帆表示，重庆由此迈入“外环时代”。路桥通行年费本身自 2018 年 1 月 1 日起取消；此后，绕城高速及其以内六条射线高速按高速公路标准收费。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Unusually for a mainland expressway, a figure for the whole ring was published: the preliminary design estimate was 13.183 billion yuan for 187.96 km, about 70 million yuan a kilometre. It appears in the municipal price bureau's approval of trial tolls for the Chongqing Expressway Development Co., dated 28 December 2009. When work began in 2005, the 102 km south-west half was budgeted at 5.923 billion yuan."
+      ],
+      "zh": [
+        "与多数内地高速公路不同，这条环线公布了全线数字：初步设计概算 131.83 亿元，全长 187.96 公里，每公里约 7000 万元。这一数字见于重庆市物价局 2009 年 12 月 28 日同意重庆高速公路发展有限公司试行收取通行费的批复。2005 年开工时，西南段 102 公里计划投资 59.23 亿元。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "The ring had 18 toll stations at its opening. Since 2018, vehicles with Chongqing's ETC can buy a yearly 'ring package' that covers the ring and the six radials inside it, priced at 2,300 yuan for cars and small lorries, the same as the old annual fee; other drivers pay per trip."
+      ],
+      "zh": [
+        "通车时全线设 18 个收费站。2018 年起，办理重庆高速 ETC 的车辆可按年购买“绕城套餐”，覆盖绕城高速及其以内六条射线高速，19 座及以下客车和 2 吨及以下货车每年 2300 元，与原路桥年费标准相同；其他车辆按次缴费。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "value": { "en": "13.183 billion yuan preliminary design estimate for 187.96 km (2009)", "zh": "初步设计概算 131.83 亿元，全长 187.96 公里（2009）" },
+      "source": "Chongqing Municipal Price Bureau, 渝价〔2009〕480号, 28 December 2009; Xinhua, 31 December 2009, via Sohu"
+    },
+    {
+      "label": { "en": "South-west half (102 km), budget at the start of work", "zh": "西南段（102 公里）开工时计划投资" },
+      "value": { "en": "5.923 billion yuan (2005)", "zh": "59.23 亿元（2005）" },
+      "source": "Chongqing Municipal Development and Reform Commission, 12 May 2005"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No breakdown has been found. The ring was built by the municipal Chongqing Expressway Group, and tolls were approved in 2009 for its operating company, the Chongqing Expressway Development Co.", "zh": "未查到出资构成。绕城高速由市属重庆高速公路集团建设，2009 年获批收费的经营主体为重庆高速公路发展有限公司。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "187.96 km at opening; Chinese Wikipedia gives 184.97 km", "zh": "通车时为 187.96 公里；中文维基百科作 184.97 公里" },
+      "source": "Chongqing Municipal Price Bureau, 28 December 2009; Chinese Wikipedia, 重庆绕城高速公路"
+    }
+  ],
+  "timeline": [
+    { "year": 2005, "en": "Work on the west and south sides begins on 10 May.", "zh": "5 月 10 日，绕城高速西段、南段开工。" },
+    { "year": 2006, "en": "Work on the Yuzui Yangtze bridge begins on 30 April.", "zh": "4 月 30 日，鱼嘴长江大桥开工。" },
+    { "year": 2008, "en": "The Yuzui bridge's main span is joined on 24 August; Beibei–Xipeng, 58 km, opens in December.", "zh": "8 月 24 日，鱼嘴长江大桥主桥合龙；12 月，北碚至西彭段 58 公里通车。" },
+    { "year": 2009, "en": "Trial tolls are approved on 28 December and the whole ring opens on 31 December.", "zh": "12 月 28 日获批试行收费；12 月 31 日，绕城高速全线通车。" },
+    { "year": 2010, "en": "On 1 January the Inner Ring toll stations are removed and the radials inside the ring join the annual fee.", "zh": "1 月 1 日，内环收费站拆除，绕城以内的射线高速纳入路桥年费范围。" },
+    { "year": 2018, "en": "The road-and-bridge annual fee is abolished on 1 January; the ring and its inner radials are tolled per trip or by yearly package.", "zh": "1 月 1 日，主城区路桥通行年费取消；绕城高速及以内射线高速按次或按年度套餐收费。" }
+  ]
+}

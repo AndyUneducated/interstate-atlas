@@ -1,7 +1,7 @@
 {
   "id": "i-93",
   "name": { "en": "Interstate 93", "zh": "93 号州际公路" },
-  "tagline": { "en": "Boston to the White Mountains, by way of the Big Dig", "zh": "从波士顿到白山，途经「大开挖」" },
+  "tagline": { "en": "Boston to the White Mountains, by way of the Big Dig", "zh": "从波士顿到白山，途经“大开挖”" },
   "officialMi": 188.91,
   "mileageSource": "FHWA Route Log and Finder List, Table 1, January 2026",
   "termini": {
@@ -43,7 +43,7 @@
         "Neither figure includes maintenance of the tunnels, which is funded largely from tolls on the Massachusetts Turnpike, the harbour tunnels and the Tobin Bridge, nor related projects left unfinished when the accounting was done."
       ],
       "zh": [
-        "中央干道／隧道工程——即「大开挖」——是美国有史以来造价最高的公路工程。1982 年以编制环境文件的方式启动规划；1987 年 4 月国会批准联邦拨款与工程基本范围；1991 年 9 月开工；2006 年 1 月 13 日宣布实质性完工。",
+        "中央干道／隧道工程——即“大开挖”——是美国有史以来造价最高的公路工程。1982 年以编制环境文件的方式启动规划；1987 年 4 月国会批准联邦拨款与工程基本范围；1991 年 9 月开工；2006 年 1 月 13 日宣布实质性完工。",
         "坊间流传两个数字，而两个都是真的，只是衡量的东西不同。联邦公路管理局的项目档案给出的是建设成本，由联邦补助与州债券分担，后者预定于 2038 年还清。2012 年，该州交通部门的首席财务官向州议会监督委员会报出了一个更大的数字，其中计入了这笔借款的利息，并表示该工程的还本付息正在压缩马萨诸塞州在其他方面的支出能力。",
         "两个数字都不含隧道的养护费用（主要由马萨诸塞收费高速、海港隧道与托宾大桥的通行费支付），也不含核算当时尚未完工的相关配套工程。"
       ]

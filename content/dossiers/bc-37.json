@@ -1,0 +1,71 @@
+{
+  "id": "bc-37",
+  "route": { "anchor": [-130.0, 58.43] },
+  "name": { "en": "Highway 37 (Stewart–Cassiar Highway)", "zh": "37 号公路（斯图尔特—卡西亚公路）" },
+  "aka": [
+    { "en": "Stewart–Watson Lake Highway", "zh": "斯图尔特—沃森湖公路" },
+    { "en": "Cassiar Highway", "zh": "卡西亚公路" }
+  ],
+  "tagline": { "en": "The other road to the Yukon: from the Skeena north through the Coast Mountains and the Stikine country to the Alaska Highway", "zh": "通往育空的另一条路：自斯基纳河北上，穿过海岸山脉与斯蒂金河地区，抵达阿拉斯加公路" },
+  "termini": {
+    "start": { "en": "Kitimat, on Douglas Channel; the highway runs north through Terrace to Kitwanga, where the Stewart–Cassiar proper begins", "zh": "道格拉斯海峡畔的基蒂马特；公路北上经特勒斯到基特万加，斯图尔特—卡西亚公路本段由此开始", "at": [-128.62, 54.05] },
+    "end": { "en": "The Yukon boundary; the highway's actual end is at the Alaska Highway 3.4 km inside Yukon, west of Watson Lake", "zh": "育空边界；公路的实际终点在育空境内 3.4 公里处的阿拉斯加公路，位于沃森湖以西" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Highway 37 is one of only two roads from the rest of British Columbia to the Yukon and Alaska, the other being the Alaska Highway. From Kitwanga on the Yellowhead Highway to the Yukon boundary it runs 725 km through some of the emptiest country in the province: the Nass valley, the Bell-Irving, the Stikine plateau at Dease Lake and the old asbestos-mining country of Cassiar.",
+        "It is a two-lane road throughout, paved for nearly all of its length, with a side road, Highway 37A, branching west to Stewart on the Alaska border. Settlements are small and far apart.",
+        "Its southern stretch, from Kitimat through Terrace to Kitwanga, is a different road: an industrial route along the Skeena serving the port and aluminium smelter at Kitimat."
+      ],
+      "zh": [
+        "37 号公路是从不列颠哥伦比亚其他地区通往育空与阿拉斯加的仅有两条道路之一，另一条是阿拉斯加公路。从黄头公路上的基特万加到育空边界，它绵延 725 公里，穿过全省最荒凉的一些地带：纳斯河谷、贝尔-欧文河、迪斯湖的斯蒂金高原，以及卡西亚昔日的石棉矿区。",
+        "全线为双车道，几乎全部铺装；支线 37A 号公路向西通往阿拉斯加边境上的斯图尔特。沿途聚落小而分散。",
+        "其南段——自基蒂马特经特勒斯至基特万加——是另一番面貌：一条沿斯基纳河的工业道路，服务于基蒂马特的港口与炼铝厂。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road was put together in pieces in the 1960s and early 1970s. By 1968 asbestos from the Cassiar mine was being trucked south to Stewart for shipping. The 638 km link-up of what was then called the Stewart–Watson Lake Highway was completed in 1972, the year the Nass River Bridge, built by the BC Forest Service's engineering division, was finished.",
+        "It became Highway 37 in 1975, and a bridge across the Skeena at Kitwanga opened in mid-November that year, joining it to the Yellowhead Highway. The section south from the Yellowhead through Terrace to Kitimat was added later; English Wikipedia dates this to 1986 on the evidence of a 1985 road map.",
+        "For years much of it was gravel. In the 1990s more than 500 km were upgraded and more than 100 km built new, and paving has continued since, leaving about 1 km unpaved. Further work is now under way through the Northwest Corridor Improvements Program, funded by Ottawa and the province for 2025 to 2030."
+      ],
+      "zh": [
+        "这条路在 20 世纪 60 年代至 70 年代初分段拼合而成。到 1968 年，卡西亚矿的石棉已用卡车南运至斯图尔特装船。当时称为“斯图尔特—沃森湖公路”的 638 公里贯通工程于 1972 年完成；同年，由不列颠哥伦比亚林务局工程处修建的纳斯河大桥竣工。",
+        "1975 年它被编为 37 号公路；同年 11 月中旬，基特万加跨越斯基纳河的大桥通车，把它与黄头公路相连。自黄头公路经特勒斯南至基蒂马特的路段是后来增加的；英文维基百科根据一份 1985 年的道路地图将其定在 1986 年。",
+        "多年来，这条路大部分是砾石路面。20 世纪 90 年代，逾 500 公里得到改善，另新建逾 100 公里；此后铺装持续推进，如今仅约 1 公里未铺装。目前的后续工程通过“西北走廊改善计划”进行，由联邦与省政府出资，为期 2025 至 2030 年。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "868.8 km summed from the ministry's 2026 section inventory, Kitimat to the Yukon boundary; English Wikipedia gives 874.76 km to the Alaska Highway. The ministry gives 725 km for Kitwanga to the Yukon border.", "zh": "据该厅 2026 年分段清单累加为 868.8 公里（基蒂马特至育空边界）；英文维基百科作 874.76 公里（至阿拉斯加公路）。该厅给出基特万加至育空边界为 725 公里。" },
+      "source": "British Columbia Ministry of Transportation and Transit, Landmark Kilometre Inventory, edition 202607 (computed), and Stewart–Cassiar Highway page; English Wikipedia, British Columbia Highway 37"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No figure published for the original road, which was built in pieces from the 1960s. Recent work is costed contract by contract, for example $7.9 million to resurface 27 km in 2019 and $3.2 million for 53 km in 2018.", "zh": "这条路自 20 世纪 60 年代起分段修建，原始造价从未公布。近年工程按合同逐项计价，例如 2019 年以 790 万加元重铺 27 公里，2018 年以 320 万加元处理 53 公里。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The province, with the Nass River Bridge built by the BC Forest Service. The Northwest Corridor Improvements Program, 2025–2030, is $195 million jointly from Canada, through Natural Resources Canada's First and Last Mile Fund, and British Columbia.", "zh": "省政府；纳斯河大桥由不列颠哥伦比亚林务局修建。2025—2030 年的“西北走廊改善计划”共 1.95 亿加元，由联邦（经加拿大自然资源部“首末一英里基金”）与不列颠哥伦比亚省共同出资。" },
+      "source": "BC Government news release on the Northwest Corridor Improvements Program, 2025; stewartbc.com, Nass River Bridge"
+    },
+    {
+      "label": { "en": "Extension to Kitimat", "zh": "延伸至基蒂马特" },
+      "value": { "en": "Reported as 1986, from a 1985 road map; not checked against a provincial order.", "zh": "据报道为 1986 年，依据是一份 1985 年的道路地图；未经省政府命令核实。" },
+      "source": "As cited in English Wikipedia, British Columbia Highway 37"
+    }
+  ],
+  "timeline": [
+    { "year": 1968, "en": "Asbestos from Cassiar is being trucked to Stewart for shipping.", "zh": "卡西亚的石棉已用卡车运往斯图尔特装船。" },
+    { "year": 1972, "en": "The 638 km Stewart–Watson Lake Highway is linked up; the Nass River Bridge is completed.", "zh": "638 公里的斯图尔特—沃森湖公路贯通；纳斯河大桥竣工。" },
+    { "year": 1975, "en": "The road is numbered Highway 37; the Skeena bridge at Kitwanga opens in mid-November.", "zh": "该路编为 37 号公路；11 月中旬，基特万加的斯基纳河大桥通车。" },
+    { "year": 1986, "en": "The highway is extended south through Terrace to Kitimat (date from a road map; weak).", "zh": "公路向南经特勒斯延伸至基蒂马特（年份依据道路地图，证据较弱）。" },
+    { "year": 2019, "en": "A $7.9 million contract resurfaces 27 km.", "zh": "一份 790 万加元的合同重铺了 27 公里。" },
+    { "year": 2025, "en": "The $195 million Northwest Corridor Improvements Program begins, jointly funded by Canada and British Columbia.", "zh": "由联邦与不列颠哥伦比亚省共同出资、总额 1.95 亿加元的“西北走廊改善计划”启动。" }
+  ]
+}

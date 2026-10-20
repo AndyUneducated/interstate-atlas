@@ -1,0 +1,89 @@
+{
+  "id": "us-14",
+  "name": { "en": "U.S. Route 14", "zh": "14 号美国国道" },
+  "aka": [
+    { "en": "Black and Yellow Trail", "zh": "黑黄小道" },
+    { "en": "Northwest Highway (Chicago suburbs)", "zh": "西北公路（芝加哥郊区）" },
+    { "en": "Laura Ingalls Wilder Historic Highway (De Smet to Rochester)", "zh": "劳拉·英格斯·怀德历史公路（德斯梅特至罗切斯特）" }
+  ],
+  "tagline": { "en": "The old Black and Yellow Trail from Yellowstone to Chicago, slowly being rebuilt as a four-lane road across southern Minnesota", "zh": "从黄石通往芝加哥的旧“黑黄小道”，正在明尼苏达南部逐段改建为四车道公路" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "East entrance of Yellowstone National Park, Wyoming, with US 16 and US 20", "zh": "怀俄明州黄石国家公园东入口，与 US 16 及 US 20 相接", "at": [-110.00, 44.49] },
+    "end": { "en": "US 41 at Broadway and Foster Avenue, Chicago", "zh": "芝加哥百老汇街与福斯特大道路口，与 US 41 相接", "at": [-87.66, 41.98] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 14 runs roughly parallel to I-90 for most of its length. From Yellowstone's east entrance it runs through the Shoshone National Forest to Cody, crosses the dry Bighorn Basin and climbs over the Bighorn Mountains, where US 14A takes a separate northern line between Cody and Burgess Junction, and descends to Sheridan. Through north-east Wyoming and the Black Hills it mostly shares I-90, passing Spearfish, Sturgis and Rapid City, then leaves the Interstate at Wall to cross central South Dakota by Philip, Pierre, Huron, De Smet and Brookings. Pierre, which it serves with US 83, is one of only four state capitals not on the Interstate system.",
+        "In Minnesota it runs through the farm towns of the south-west to New Ulm and Mankato, then east by Owatonna and Rochester to Winona, joining US 61 to cross the Mississippi into La Crosse. Across southern Wisconsin it follows the Madison Beltline and bypasses Janesville, and in Illinois it becomes Northwest Highway, a busy suburban road beside the old Chicago and North Western railway into Chicago."
+      ],
+      "zh": [
+        "US 14 大部分路段大致与 I-90 平行。它自黄石东入口穿过肖肖尼国家森林到科迪，横越干旱的比格霍恩盆地，翻越比格霍恩山——US 14A 在科迪与伯吉斯交会处之间另走北线——再下到谢里登。在怀俄明东北部与黑山一带，它大多与 I-90 共线，经过斯皮尔菲什、斯特吉斯与拉皮德城，然后在沃尔离开州际公路，经菲利普、皮尔、休伦、德斯梅特与布鲁金斯横穿南达科他中部。它与 US 83 一同服务的皮尔，是仅有的四个不通州际公路的州府之一。",
+        "在明尼苏达，它穿过西南部的农业小镇到新乌尔姆与曼凯托，再向东经奥瓦通纳与罗切斯特到威诺纳，与 US 61 会合跨越密西西比河进入拉克罗斯。它沿麦迪逊环城公路横穿威斯康星南部，绕过简斯维尔；进入伊利诺伊后成为西北公路，一条沿旧芝加哥与西北铁路而行、车流繁忙的郊区道路，直入芝加哥。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "US 14 took over the Black and Yellow Trail, named for linking Minnesota with the Black Hills and Yellowstone, and the Northwest Highway from Chicago to New Ulm. In 1926 the road from Ucross west to Sheridan was numbered US 116, which was extended to Cody in 1933, absorbing US 420 from Deaver to Cody, and became part of US 14 in 1934. Part of that extension, including all of the former US 420, is now US 14A."
+      ],
+      "zh": [
+        "US 14 接替了“黑黄小道”——因连接明尼苏达与黑山及黄石而得名——以及芝加哥至新乌尔姆的西北公路。1926 年，尤克罗斯西至谢里登一段编为 US 116，1933 年西延至科迪，并吸收了迪弗至科迪的 US 420，1934 年并入 US 14。这段延伸的一部分，包括原 US 420 全线，如今属于 US 14A。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Most of the recent spending has gone into four-laning the route across southern Minnesota, a job spread over four decades. The 7.6-mile Mankato bypass was finished in 1979 for $25 million. The freeway from west of Janesville to I-35 at Owatonna opened on 31 August 2012, giving a continuous four-lane road from North Mankato to Owatonna; the four-lane road was extended to Nicollet in 2016 and on to New Ulm in November 2023.",
+        "East of Owatonna, the 12.5 miles to Dodge Center were rebuilt as a four-lane road under a $107,997,119 contract with Shafer Contracting and opened on 9 November 2021, completing four lanes from I-35 to Rochester. The money came from Corridors of Commerce, a state programme for trunk-highway expansion; the project had been awarded $138 million and came in below that."
+      ],
+      "zh": [
+        "近年的大部分投资用于把这条路线在明尼苏达南部拓宽为四车道，这项工作前后持续了四十年。7.6 英里的曼凯托绕城段于 1979 年完工，耗资 2,500 万美元。自简斯维尔以西至奥瓦通纳 I-35 的高速公路于 2012 年 8 月 31 日通车，使北曼凯托至奥瓦通纳形成连续的四车道；四车道又于 2016 年延伸至尼科莱特，2023 年 11 月延伸至新乌尔姆。",
+        "奥瓦通纳以东至道奇森特的 12.5 英里，以一份与 Shafer Contracting 签订的 107,997,119 美元合同改建为四车道，于 2021 年 11 月 9 日通车，使 I-35 至罗切斯特全线成为四车道。资金来自“商业走廊”计划——一项用于干线公路扩建的州计划；该项目获拨 1.38 亿美元，实际支出低于此数。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure exists. US 14 was numbered over existing trails and state roads in 1926 and has been rebuilt piecemeal by five states; only individual projects carry their own costs.", "zh": "没有全线造价。US 14 于 1926 年沿既有小道与州道编号，此后由五个州分段改建；只有单项工程留有各自的造价。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "There is no single funder. Each state pays for its sections with state and federal-aid money; Minnesota's recent four-laning has drawn on its Corridors of Commerce programme.", "zh": "没有单一出资方。各州以州资金与联邦补助负担各自路段；明尼苏达近年的四车道改建动用了其“商业走廊”计划。" }
+    },
+    {
+      "label": { "en": "Mankato bypass", "zh": "曼凯托绕城段" },
+      "value": { "en": "$25 million for 7.6 miles, completed 1979", "zh": "7.6 英里，2,500 万美元，1979 年完工" },
+      "source": "MnDOT, US 14 project history"
+    },
+    {
+      "label": { "en": "Owatonna to Dodge Center", "zh": "奥瓦通纳至道奇森特" },
+      "value": { "en": "$107,997,119 contract for 12.5 miles, opened 9 November 2021; Corridors of Commerce award of $138 million", "zh": "12.5 英里，合同金额 107,997,119 美元，2021 年 11 月 9 日通车；“商业走廊”计划拨款 1.38 亿美元" },
+      "source": "Office of the Governor of Minnesota, news release, November 2021; MnDOT Corridors of Commerce report to the Legislature, 2022"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "Reported at 1,445.32 miles as the sum of five state figures; only Minnesota's (MnDOT logpoint listing) and Illinois's (state GIS data) are sourced to official data, Wisconsin's comes from a self-published site and Wyoming's and South Dakota's are uncited", "zh": "据报为 1,445.32 英里，系五个州数字之和；其中只有明尼苏达（明尼苏达州交通部里程点清单）与伊利诺伊（州 GIS 数据）出自官方数据，威斯康星来自自行发布的网站，怀俄明与南达科他未注出处" },
+      "source": "as cited in English Wikipedia, U.S. Route 14"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Five state agencies count their own sections and publish no combined figure for US 14.", "zh": "五个州的机构各自统计本州路段，并无 US 14 的全线合并数字发布。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 14 is numbered over the Black and Yellow Trail and the Northwest Highway; the Ucross–Sheridan road becomes US 116.", "zh": "US 14 沿黑黄小道与西北公路编定；尤克罗斯至谢里登一段编为 US 116。" },
+    { "year": 1933, "en": "US 116 is extended west to Cody, absorbing US 420.", "zh": "US 116 西延至科迪，吸收 US 420。" },
+    { "year": 1934, "en": "US 116 becomes an extension of US 14.", "zh": "US 116 成为 US 14 的延伸段。" },
+    { "year": 1979, "en": "The Mankato bypass is completed.", "zh": "曼凯托绕城段完工。" },
+    { "year": 2012, "en": "The freeway from Janesville to Owatonna opens on 31 August.", "zh": "8 月 31 日，简斯维尔至奥瓦通纳高速公路通车。" },
+    { "year": 2016, "en": "The four-lane road is extended to Nicollet, with a bypass of the town.", "zh": "四车道公路延伸至尼科莱特，并修建了绕城段。" },
+    { "year": 2021, "en": "The four-lane Owatonna–Dodge Center section opens on 9 November.", "zh": "11 月 9 日，奥瓦通纳至道奇森特四车道段通车。" },
+    { "year": 2023, "en": "The four-lane section from Nicollet to New Ulm is completed in November.", "zh": "11 月，尼科莱特至新乌尔姆四车道段完工。" }
+  ]
+}

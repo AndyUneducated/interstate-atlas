@@ -60,7 +60,7 @@ Kong's strategic routes.
 
 > [!NOTE]
 > **Counts move; method does not.** Every route total, mileage and percentage on this page
-> is written from the published build dated **<!-- auto:date -->2026-10-19<!-- /auto:date -->** by
+> is written from the published build dated **<!-- auto:date -->2026-10-20<!-- /auto:date -->** by
 > `tools/readme-figures.mjs`, which `npm test` runs, and changes whenever the pipeline is
 > re-run. The rules those numbers obey are in [On accuracy](#on-accuracy) and do not change.
 
@@ -124,7 +124,7 @@ flowchart LR
 
 ## Coverage
 
-<!-- auto:summary -->28,290 routes across 147 states, provinces, territories and counties in 6 countries and regions, measuring 1,208,808 miles of road, in the build dated 2026-10-19.<!-- /auto:summary -->
+<!-- auto:summary -->28,290 routes across 147 states, provinces, territories and counties in 6 countries and regions, measuring 1,208,817 miles of road, in the build dated 2026-10-20.<!-- /auto:summary -->
 
 <!-- auto:coverage -->
 | Country | System | Routes | Miles | Notes |
@@ -141,7 +141,7 @@ flowchart LR
 | CN | National Highways (普通国道) | 331 | 175,727 | from OpenStreetMap (D-66); G with three digits |
 | CN | Provincial Roads (省道) | 5,283 | 215,835 | from OpenStreetMap (D-66), numbered roads in 31 provinces, loaded per province |
 | TW | National Freeways (國道) | 10 | 622 | the numbered freeways and their lettered spurs |
-| TW | Provincial Highways (省道) | 95 | 3,173 | including the 快速公路 expressways, 台61 and up; provisional 臨 alignments left out |
+| TW | Provincial Highways (省道) | 95 | 3,182 | including the 快速公路 expressways, 台61 and up; provisional 臨 alignments left out |
 | HK | Strategic Routes | 10 | 149 | Routes 1 to 10 |
 <!-- /auto:coverage -->
 

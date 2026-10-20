@@ -1,0 +1,89 @@
+{
+  "id": "us-87",
+  "name": { "en": "U.S. Route 87", "zh": "87 号美国国道" },
+  "tagline": { "en": "Lavaca Bay to the Milk River, and the corridor Texas wants to make I-27", "zh": "从拉瓦卡湾到米尔克河，也是得克萨斯想改建为 I-27 的走廊" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "SH 238 at Commerce Street, Port Lavaca, Texas, on Lavaca Bay", "zh": "得克萨斯州拉瓦卡港，拉瓦卡湾畔，与 SH 238（商业街）相接", "at": [-96.62, 28.61] },
+    "end": { "en": "US 2 a few miles west of Havre, Montana", "zh": "蒙大拿州哈佛以西数英里，与 US 2 相接", "at": [-109.75, 48.55] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 87 is one of the longest north–south U.S. Routes, about 2,000 miles from the Texas Gulf Coast to the Hi-Line of northern Montana, and the longest without a 1 in its number. It is two roads. In Texas it is very much its own highway: inland from Port Lavaca through Victoria to San Antonio, across the Hill Country by Fredericksburg, Mason and Brady to San Angelo, then north across the Llano Estacado through Big Spring, Lamesa, Lubbock and Plainview to Amarillo, Dumas and Dalhart.",
+        "From New Mexico northwards it is mostly a number on an Interstate. After a stretch across the north-eastern New Mexico plains from Clayton to Raton — where it is signed east–west — it joins I-25 over Raton Pass and stays with it, unsigned, through the whole of Colorado and into Wyoming, then follows I-25 and I-90 to Billings. Only north of Billings does it become a separate road again, through Roundup, Lewistown and Great Falls, down the Missouri to Fort Benton and up to Havre."
+      ],
+      "zh": [
+        "US 87 是最长的南北向美国国道之一，自得克萨斯墨西哥湾沿岸至蒙大拿北部的高线地区约 2,000 英里，也是编号中不含“1”的最长一条。它其实是两条路。在得克萨斯，它完全是一条独立的公路：自拉瓦卡港向内陆经维多利亚至圣安东尼奥，穿过希尔县的弗雷德里克斯堡、梅森与布雷迪到圣安杰洛，再向北横越埃斯塔卡多平原，经大斯普林、拉梅萨、拉伯克与普莱恩维尤，到阿马里洛、杜马斯与达尔哈特。",
+        "自新墨西哥往北，它大多只是州际公路上的一个号码。穿过新墨西哥东北部自克莱顿至拉顿的平原后——这一段标为东西向——它在拉顿山口汇入 I-25，此后整个科罗拉多境内都与之共线且不设标志，进入怀俄明后再沿 I-25 与 I-90 到达比灵斯。只有在比灵斯以北，它才重新成为一条独立的道路，经朗德阿普、刘易斯敦与大瀑布城，沿密苏里河下到本顿堡，再北上至哈佛。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The US 87 of 1926 was a much shorter road, from the Canadian border at Piegan, Montana, south to Rawlins, Wyoming. In the mid-1930s it was turned into a Gulf-to-Montana route: it was redirected through Cheyenne and down the Front Range on the same roads as US 85, took over the whole of US 385 in New Mexico and Texas, and was extended from San Antonio to Port Lavaca. Texas's highway designation file already describes US 87 from Texline to Port Lavaca in March 1935. The Rawlins branch became part of US 287.",
+        "The northern end moved twice. In the mid-1930s US 89 took over the road from Great Falls to the border, and US 87 ended in Great Falls until it was extended north-east to Havre in the 1940s. Sources differ on these dates: US Ends gives 1934 for the southern extension, 1935 for the Great Falls change and 1947 for Havre; English Wikipedia gives 1936, 1934 and about 1945."
+      ],
+      "zh": [
+        "1926 年的 US 87 要短得多，自蒙大拿州皮根的加拿大边境南下，止于怀俄明州罗林斯。1930 年代中期，它被改造为一条从墨西哥湾通往蒙大拿的路线：改经夏延，沿落基山前缘与 US 85 共线南下，接收了新墨西哥与得克萨斯境内的整条 US 385，并自圣安东尼奥延伸至拉瓦卡港。得克萨斯的公路编号档案在 1935 年 3 月就已记载 US 87 自特克斯莱恩至拉瓦卡港。通往罗林斯的那一支后来并入 US 287。",
+        "北端移动过两次。1930 年代中期，US 89 接管了大瀑布城至边境的道路，US 87 止于大瀑布城，直到 1940 年代才向东北延伸至哈佛。各来源对这些年份说法不一：US Ends 记为南延 1934 年、大瀑布城变更 1935 年、哈佛延伸 1947 年；英文维基百科则记为 1936 年、1934 年与约 1945 年。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The next chapter is an Interstate. In March 2022 federal law added an extension of I-27 to the Interstate System, from Raton in New Mexico to Laredo, largely along the US 87 corridor, and bills in 2023 proposed the names of its branches. Texas's own Ports-to-Plains feasibility study, completed in October 2020, put the cost of an interstate-standard corridor at $23.5 billion in 2020 dollars, of which $4.8 billion for the Panhandle segment. In 2023 TxDOT's I-27 advisory committee was shown a far larger planning range, $45.8 billion to $55.0 billion, to upgrade about 800 miles to Interstate standards. Both figures cover a network of highways, not US 87 alone.",
+        "Work so far is incremental. TxDOT's study of the US 87/US 287 section from Amarillo to Dumas, completed in 2025, concluded that the I-27 connection would be cheaper and safer on Loop 335 than through central Amarillo."
+      ],
+      "zh": [
+        "下一章是州际公路。2022 年 3 月，联邦法律把 I-27 的延伸段纳入州际公路系统，北起新墨西哥州拉顿、南至拉雷多，大部分沿 US 87 走廊而行；2023 年又有法案提出其各分支的编号。得克萨斯自己的“港口至平原”可行性研究于 2020 年 10 月完成，估计把这条走廊提升至州际标准需 235 亿美元（2020 年币值），其中潘汉德尔段 48 亿美元。2023 年，得克萨斯交通部向 I-27 咨询委员会展示了一个大得多的规划区间：把约 800 英里提升至州际标准需 458 亿至 550 亿美元。这两个数字涵盖的都是一组公路，而不只是 US 87。",
+        "目前的工作是逐步推进的。得克萨斯交通部对阿马里洛至杜马斯之间 US 87／US 287 路段的研究于 2025 年完成，结论是 I-27 的衔接改在 335 号环线上，比穿过阿马里洛市中心更省钱也更安全。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No figure exists. US 87 was numbered over roads already built and has been rebuilt piecemeal by five states; north of Texas much of it now runs on Interstate pavement costed as I-25 and I-90.", "zh": "没有这样的数据。US 87 沿既有道路编号，由五个州分段陆续改建；得克萨斯以北，它的大部分路段如今走在作为 I-25 与 I-90 核算造价的州际公路路面上。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "There is no single funder. Each state maintains its section with its own and federal-aid money; no programme pays for US 87 as a route.", "zh": "没有单一出资方。各州以本州资金和联邦补助养护各自路段，没有任何计划以整条 US 87 为对象出资。" }
+    },
+    {
+      "label": { "en": "Ports-to-Plains interstate upgrade, Texas", "zh": "“港口至平原”走廊州际化改造（得克萨斯）" },
+      "value": { "en": "$23.5 billion corridor-wide in 2020 dollars, including $4.8 billion for Segment 1 in the Panhandle; the corridor includes US 87 and parts of I-27, US 83, US 277, US 287, SH 158 and SH 349", "zh": "全走廊 235 亿美元（2020 年币值），其中潘汉德尔第 1 段 48 亿美元；该走廊包括 US 87 及 I-27、US 83、US 277、US 287、SH 158 与 SH 349 的部分路段" },
+      "source": "TxDOT, Ports-to-Plains Corridor Interstate Feasibility Study (HB 1079), Segment 1 executive summary, 2020"
+    },
+    {
+      "label": { "en": "I-27 system planning estimate", "zh": "I-27 系统规划估算" },
+      "value": { "en": "$45.8 billion to $55.0 billion in 2023 planning costs to bring about 500 miles of two-lane and 300 miles of four-lane highway to Interstate standards", "zh": "按 2023 年规划造价，把约 500 英里双车道与 300 英里四车道公路提升至州际标准，需 458 亿至 550 亿美元" },
+      "source": "TxDOT, I-27 Advisory Committee (S.B. 1474), meeting 7 presentation"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "Reported at 1,998 miles in AASHTO's 1989 route log and measured at 2,006.1 miles in 2020, both as given by US Ends; not checked against the 1989 log itself", "zh": "据报 AASHTO 1989 年路线里程表记为 1,998 英里，2020 年实测 2,006.1 英里，两数均出自 US Ends；未与 1989 年里程表原件核对" },
+      "source": "US Ends (usends.com), US 87"
+    },
+    {
+      "label": { "en": "Texas mileage", "zh": "得克萨斯境内里程" },
+      "value": { "en": "660.115 miles certified as open to traffic (2010 figure)", "zh": "认证通车里程 660.115 英里（2010 年数据）" },
+      "source": "TxDOT Transportation Planning and Programming Division, highway designation file, US 87"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Five states count their own sections, and from Raton to Billings US 87 shares pavement with I-25 and I-90, whose counts cannot be attributed to it. No combined figure is published.", "zh": "五个州各自统计本州路段，而自拉顿至比灵斯，US 87 与 I-25、I-90 共用路面，其车流无法单独归于本路线。并无合并数字发布。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 87 is numbered from the Canadian border at Piegan, Montana, to Rawlins, Wyoming.", "zh": "US 87 编定，自蒙大拿州皮根的加拿大边境至怀俄明州罗林斯。" },
+    { "year": 1935, "en": "Texas's designation file describes US 87 from Texline to Port Lavaca, after the route's realignment through Cheyenne and extension to the Gulf.", "zh": "本路线改经夏延并延伸至墨西哥湾之后，得克萨斯的编号档案记载 US 87 自特克斯莱恩至拉瓦卡港。" },
+    { "year": 1947, "en": "US 87 is extended from Great Falls to Havre, according to US Ends; English Wikipedia gives about 1945.", "zh": "据 US Ends，US 87 自大瀑布城延伸至哈佛；英文维基百科记为约 1945 年。" },
+    { "year": 2020, "en": "TxDOT completes the Ports-to-Plains Corridor Interstate Feasibility Study on 15 October.", "zh": "10 月 15 日，得克萨斯交通部完成“港口至平原”走廊州际化可行性研究。" },
+    { "year": 2022, "en": "Federal law signed on 15 March adds the Raton–Laredo extension of I-27, along the US 87 corridor, to the Interstate System.", "zh": "3 月 15 日签署的联邦法律把沿 US 87 走廊的 I-27 拉顿—拉雷多延伸段纳入州际公路系统。" },
+    { "year": 2025, "en": "TxDOT's Amarillo–Dumas feasibility study is completed and favours connecting I-27 via Loop 335.", "zh": "得克萨斯交通部阿马里洛至杜马斯可行性研究完成，倾向于经 335 号环线衔接 I-27。" }
+  ]
+}

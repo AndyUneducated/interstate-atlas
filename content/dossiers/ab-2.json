@@ -1,0 +1,90 @@
+{
+  "id": "ab-2",
+  "route": { "anchor": [-113.85, 52.27] },
+  "name": { "en": "Highway 2", "zh": "2 号公路" },
+  "aka": [
+    { "en": "Queen Elizabeth II Highway (Calgary–Edmonton)", "zh": "伊丽莎白二世女王公路（卡尔加里至埃德蒙顿）" },
+    { "en": "Deerfoot Trail (Calgary)", "zh": "鹿足大道（卡尔加里）" }
+  ],
+  "tagline": { "en": "Alberta's spine: from the Montana border through Calgary and Edmonton, then round Lesser Slave Lake to the Peace Country", "zh": "阿尔伯塔的脊梁：自蒙大拿边境经卡尔加里与埃德蒙顿，再绕小奴湖抵达和平河地区" },
+  "termini": {
+    "start": { "en": "The Carway border crossing, where US Route 89 from Montana becomes Highway 2", "zh": "卡韦口岸，来自蒙大拿的美国 89 号公路在此变为 2 号公路", "at": [-113.38, 49.0] },
+    "end": { "en": "The Grande Prairie city limits, where it becomes 100 Street; it reaches the city from the north by way of Fairview, Rycroft and Sexsmith", "zh": "大草原市市界，在此变为 100 街；它经费尔维尤、赖克罗夫特与塞克斯史密斯从北面进入该市" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Highway 2 is the longest and busiest highway in Alberta. From the Montana border it is a quiet two-lane road along the foothills to Fort Macleod, then a four-lane divided highway north to Calgary, where it becomes Deerfoot Trail, the busiest road in western Canada. Between Calgary and Edmonton it is the Queen Elizabeth II Highway, a largely grade-separated expressway across the parkland that bypasses the old towns on the parallel Highway 2A.",
+        "Beyond St. Albert it narrows to two lanes and becomes a different road altogether: east to Athabasca, along the south shore of Lesser Slave Lake to High Prairie, north to Peace River, west to Fairview and finally south through Rycroft and Sexsmith to Grande Prairie. On that northern loop traffic is a small fraction of what it is in the cities.",
+        "More than half of Alberta's people live along the Calgary–Edmonton corridor it serves, and the section from Fort Macleod to Edmonton is part of the CANAMEX trade corridor between Mexico and Alaska."
+      ],
+      "zh": [
+        "2 号公路是阿尔伯塔最长、也最繁忙的公路。自蒙大拿边境起，它是一条沿山麓延伸的安静双车道公路，到麦克劳德堡后变为四车道分隔公路北上卡尔加里，在市内即“鹿足大道”，为加拿大西部最繁忙的道路。卡尔加里至埃德蒙顿之间是“伊丽莎白二世女王公路”，一条大体立交化的快速路，穿过白杨林草原地带，绕开了平行的 2A 号公路沿线的老城镇。",
+        "过了圣艾伯特，它收窄为双车道，面貌也完全不同：东至阿萨巴斯卡，沿小奴湖南岸到高草原镇，北上和平河镇，西至费尔维尤，最后经赖克罗夫特与塞克斯史密斯南下大草原市。在这段北部环线上，车流量只有城市段的很小一部分。",
+        "阿尔伯塔半数以上的人口住在它所串联的卡尔加里—埃德蒙顿走廊上；麦克劳德堡至埃德蒙顿段属于连接墨西哥与阿拉斯加的 CANAMEX 贸易走廊。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road follows the Calgary and Edmonton Trail, which carried mail between the two towns from 1883. By 1930 the whole of the present route, then called the Sunshine Trail, was in place: gravel from Carway to Clyde, dirt road beyond to Athabasca, Peace River and Grande Prairie. When Alberta first numbered its highways this was Highway 1; it became Highway 2 when the east–west route through Calgary was given the number 1, which old official maps show had happened before 1941.",
+        "The expressway between the two cities was built from the late 1950s. The Red Deer bypass, a $7 million divided highway west of the city, was announced in September 1960 and opened on 21 November 1962; the old road through the towns became Highway 2A. In the north, the Hondo–Slave Lake section opened on 18 October 1966 and the Peace River bridge was finished in 1968.",
+        "In Calgary, Deerfoot Trail opened in phases from 1971 to 2003 and was named in 1974 after Api-kai-ees, a Siksika runner of the 1880s who raced as Deerfoot; the province took it over from the city in 2001. In 1998 a renumbering in the Peace Region gave the road west of Grande Prairie to Highway 43, shortening Highway 2 by nearly 90 km. On 23 May 2005, during the province's centennial visit, Queen Elizabeth II unveiled the first sign naming the Calgary–Edmonton section after her."
+      ],
+      "zh": [
+        "这条路沿用卡尔加里—埃德蒙顿小道，1883 年起该小道即在两地之间传递邮件。到 1930 年，今日全线已成形，当时称“阳光小道”：卡韦至克莱德为砾石路，以北经阿萨巴斯卡、和平河镇至大草原市为土路。阿尔伯塔首次为公路编号时，这条路是 1 号公路；穿过卡尔加里的东西向路线获得 1 号后，它改为 2 号，旧官方地图显示这一变更发生在 1941 年之前。",
+        "两市之间的快速路自 20 世纪 50 年代末起修建。红鹿城绕行线是一条位于城西、造价 700 万加元的分隔公路，1960 年 9 月宣布，1962 年 11 月 21 日通车；穿过各城镇的旧路改为 2A 号公路。在北部，翁多至奴湖镇段于 1966 年 10 月 18 日通车，和平河大桥于 1968 年完工。",
+        "在卡尔加里，鹿足大道于 1971 至 2003 年间分期开通，1974 年以 19 世纪 80 年代的锡克西卡族跑者阿皮-凯-伊斯命名，他以“鹿足”之名参赛；2001 年该省从市政府手中接管此路。1998 年和平河地区重新编号，将大草原市以西的路段划归 43 号公路，使 2 号公路缩短近 90 公里。2005 年 5 月 23 日，伊丽莎白二世女王在该省建省百年之际到访，亲手揭开以其名字命名卡尔加里—埃德蒙顿段的第一块路牌。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total cost for the road has been published. The figure most often repeated, more than $2 billion invested since the divided expressway was begun in the 1960s, comes from a provincial web page and is undated. Recent spending is project by project: $32 million on the Queen Elizabeth II Highway in 2005 alone, and a rebuild of about 11 km through Red Deer, where the interchanges and bridges date from the 1960s, divided into three sections, of which only the first is funded and under way."
+      ],
+      "zh": [
+        "这条路从未公布总造价。最常被引用的数字——自 20 世纪 60 年代开建分隔快速路以来投入逾 20 亿加元——出自一份未注明日期的省政府网页。近年的开支按项目计：仅 2005 年一年，伊丽莎白二世女王公路即投入 3,200 万加元；穿过红鹿城的约 11 公里路段正在改建，那里的立交与桥梁建于 20 世纪 60 年代，工程分为三段，目前只有第一段获得拨款并已开工。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "1,227.6 km summed from the province's 2025 traffic-volume links; English Wikipedia gives about 1,273 km. The Queen Elizabeth II Highway name covers about 260 km, from Edmonton's southern limit to Calgary's northern limit.", "zh": "据该省 2025 年交通量路段数据累加为 1,227.6 公里；英文维基百科作约 1,273 公里。“伊丽莎白二世女王公路”之名覆盖约 260 公里，自埃德蒙顿南界至卡尔加里北界。" },
+      "source": "Alberta Transportation and Economic Corridors, Traffic volumes on links in the highway network, 2025 (computed); Government of Alberta news release, 23 May 2005"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "value": { "en": "No total published. Red Deer bypass $7 million (announced 1960), as cited in English Wikipedia, Alberta Highway 2, from the Red Deer Advocate. Reported at more than $2 billion invested since the 1960s; not checked against any provincial budget document.", "zh": "未公布总额。红鹿城绕行线 700 万加元（1960 年公布），据英文维基百科“阿尔伯塔 2 号公路”条目所引《红鹿城倡导报》。另有报道称自 20 世纪 60 年代以来投入逾 20 亿加元；未经省级预算文件核实。" },
+      "source": "English Wikipedia, Alberta Highway 2 (citing the Red Deer Advocate and a Government of Alberta web page)"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The province. Alberta Transportation took over Deerfoot Trail from the City of Calgary in 2001; no federal share is recorded for the projects found.", "zh": "省政府。阿尔伯塔交通厅于 2001 年从卡尔加里市接管鹿足大道；所查项目均未见联邦出资记录。" },
+      "source": "English Wikipedia, Alberta Highway 2; Government of Alberta news release, 29 June 2005"
+    },
+    {
+      "label": { "en": "Traffic", "zh": "交通量" },
+      "value": { "en": "20,000 to 54,000 vehicles a day on the Queen Elizabeth II Highway (2005); 173,500 a day on Deerfoot Trail at Memorial Drive (2019), as cited in English Wikipedia, Alberta Highway 2.", "zh": "伊丽莎白二世女王公路日均 2 万至 5.4 万辆（2005 年）；鹿足大道纪念大道处日均 173,500 辆（2019 年），据英文维基百科“阿尔伯塔 2 号公路”条目。" },
+      "source": "Government of Alberta news release, 23 May 2005; English Wikipedia, Alberta Highway 2 (citing Alberta Transportation traffic counts)"
+    },
+    {
+      "label": { "en": "The name", "zh": "命名" },
+      "value": { "en": "The only Canadian highway named after Queen Elizabeth II; Ontario's Queen Elizabeth Way honours her mother.", "zh": "加拿大唯一以伊丽莎白二世女王命名的公路；安大略的伊丽莎白女王大道纪念的是她的母亲。" },
+      "source": "Government of Alberta news release, 23 May 2005"
+    }
+  ],
+  "timeline": [
+    { "year": 1883, "en": "Mail service begins on the Calgary and Edmonton Trail.", "zh": "卡尔加里—埃德蒙顿小道开始通邮。" },
+    { "year": 1930, "en": "The whole present route exists as the Sunshine Trail, gravelled as far as Clyde.", "zh": "今日全线已以“阳光小道”之名存在，砾石路面通至克莱德。" },
+    { "year": 1962, "en": "The $7 million Red Deer bypass opens on 21 November; the old road becomes Highway 2A.", "zh": "11 月 21 日，造价 700 万加元的红鹿城绕行线通车；旧路改为 2A 号公路。" },
+    { "year": 1966, "en": "The Hondo–Slave Lake section opens on 18 October.", "zh": "10 月 18 日，翁多至奴湖镇段通车。" },
+    { "year": 1971, "en": "The first section of Deerfoot Trail opens in north Calgary.", "zh": "鹿足大道第一段在卡尔加里北部开通。" },
+    { "year": 1998, "en": "Renumbering in the Peace Region ends Highway 2 at Grande Prairie, shortening it by nearly 90 km.", "zh": "和平河地区重新编号，2 号公路止于大草原市，缩短近 90 公里。" },
+    { "year": 2001, "en": "The province takes over Deerfoot Trail from the City of Calgary.", "zh": "该省从卡尔加里市接管鹿足大道。" },
+    { "year": 2003, "en": "The last extension of Deerfoot Trail, across the Bow River towards De Winton, is completed.", "zh": "鹿足大道最后一段延伸工程完工，跨过弓河通往德温顿。" },
+    { "year": 2005, "en": "Queen Elizabeth II unveils the first Queen Elizabeth II Highway sign on 23 May.", "zh": "5 月 23 日，伊丽莎白二世女王揭开第一块“伊丽莎白二世女王公路”路牌。" },
+    { "year": 2025, "en": "Work begins on the first section of the Highway 2 rebuild through Red Deer, due to finish in autumn 2027.", "zh": "穿过红鹿城的 2 号公路改建工程第一段开工，计划 2027 年秋完工。" }
+  ]
+}

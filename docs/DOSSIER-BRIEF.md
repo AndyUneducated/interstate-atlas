@@ -36,7 +36,8 @@ serves, cost, who paid, driving notes and a dated timeline.
 
 ## Language
 
-- zh is Simplified Chinese, for Taiwan and Hong Kong roads too, with mainland punctuation.
+- zh is Simplified Chinese, for Taiwan and Hong Kong roads too, with mainland punctuation:
+  quotation marks are “” and, inside them, ‘’, never 「」 or 『』, even quoting a Taiwanese name.
 - en is plain and precise, British spelling. No hype words.
 - Money in the source's currency (元, NT$, HK$), with the year.
 - People's names in en only in a spelling a source gives; otherwise describe the person's role.

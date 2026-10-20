@@ -1,0 +1,87 @@
+{
+  "id": "mex-054",
+  "route": { "sys": "mx-federal", "num": "054" },
+  "name": { "en": "Federal Highway 54 (Carretera Federal 54)", "zh": "54 号联邦公路（Carretera Federal 54）" },
+  "aka": [
+    { "en": "Carretera Guadalajara–Zacatecas–Saltillo", "zh": "瓜达拉哈拉—萨卡特卡斯—萨尔蒂约公路" },
+    { "en": "Autopista Guadalajara–Colima (the tolled 54D)", "zh": "瓜达拉哈拉—科利马高速（收费路 54D）" }
+  ],
+  "tagline": { "en": "From Colima on the Pacific slope to the Rio Grande at Ciudad Mier, by Guadalajara, the Juchipila canyon, Zacatecas, Saltillo and Monterrey", "zh": "从太平洋坡地上的科利马到格兰德河畔的米尔城，途经瓜达拉哈拉、胡奇皮拉峡谷、萨卡特卡斯、萨尔蒂约和蒙特雷" },
+  "termini": {
+    "start": { "at": [-103.73, 19.22], "en": "Colima, capital of the state of Colima", "zh": "科利马州首府科利马" },
+    "end": { "at": [-99.16, 26.43], "en": "Ciudad Mier, Tamaulipas, on the Rio Grande opposite Roma, Texas", "zh": "塔毛利帕斯州米尔城，格兰德河畔，与得克萨斯州罗马隔河相对" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Federal Highway 54 runs north-east across Mexico from Colima. It climbs to Ciudad Guzmán and Guadalajara, leaves Guadalajara north through the Juchipila canyon by Moyahua, Juchipila, Apozol and Jalpa, rises to Zacatecas, crosses the high desert of northern Zacatecas and southern Coahuila to Saltillo, and then, as a separate piece, runs from Monterrey by Cerralvo to Ciudad Mier on the Rio Grande.",
+        "Sources disagree on its length. English Wikipedia, from the ministry's traffic tables, gives 984.64 km. Spanish Wikipedia gives 900 km in three discontinuous sections: 89 km from Colima to Ciudad Guzmán, 663 km from Guadalajara to Saltillo and 148 km from Monterrey to Ciudad Mier. English Wikipedia notes that between Acatlán de Juárez and Colima the route is carried by the tolled 54D, 148 km long."
+      ],
+      "zh": [
+        "54 号联邦公路从科利马出发，斜向东北穿越墨西哥。它爬升到古斯曼城和瓜达拉哈拉，出瓜达拉哈拉向北穿过胡奇皮拉峡谷，经莫亚瓦、胡奇皮拉、阿波索尔和哈尔帕，上到萨卡特卡斯，再穿过萨卡特卡斯州北部和科阿韦拉州南部的高原沙漠到萨尔蒂约；另有独立的一段从蒙特雷经塞拉尔沃通往格兰德河畔的米尔城。",
+        "各方给出的长度不一。英文维基百科依据交通部交通数据表，作 984.64 公里。西班牙文维基百科作 900 公里，分为三段互不相连的路：科利马至古斯曼城 89 公里，瓜达拉哈拉至萨尔蒂约 663 公里，蒙特雷至米尔城 148 公里。英文维基百科指出，阿卡特兰德华雷斯至科利马之间，这条线路由长 148 公里的收费路 54D 承担。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Juchipila canyon was the line of the first attempt at a royal road from Guadalajara to the silver mines of Zacatecas, according to a study in an academic journal of regional history. The modern road came late: the Spanish engineering firm Ineco dates the free federal road to the late 1950s, and a column in the Saltillo paper Zócalo says the Saltillo–Zacatecas–Guadalajara road was put into service in 1965. The same column records that the narrow-gauge Coahuila–Zacatecas railway, which had served the desert towns between Saltillo and Concepción del Oro, made its last run on 22 June 1977.",
+        "The road to the coast was rebuilt as a toll motorway. The Guadalajara–Colima concession was granted on 20 October 1987, and the road was in operation by January 1989. Between 2004 and 2012 the 343 km between Zacatecas and Saltillo were modernised, and President Felipe Calderón inaugurated the work on 20 March 2012."
+      ],
+      "zh": [
+        "据一份地区史学术期刊上的研究，胡奇皮拉峡谷是瓜达拉哈拉通往萨卡特卡斯银矿的王家大道最初尝试的线路。现代公路来得较晚：西班牙工程公司 Ineco 将这条免费联邦公路的建成定在 1950 年代后期，萨尔蒂约报纸《Zócalo》的一篇专栏则称萨尔蒂约—萨卡特卡斯—瓜达拉哈拉公路于 1965 年投入使用。同一专栏记载，曾服务萨尔蒂约至孔塞普西翁德尔奥罗之间沙漠城镇的科阿韦拉—萨卡特卡斯窄轨铁路，于 1977 年 6 月 22 日开出最后一班车。",
+        "通往海岸的路段被改建为收费高速。瓜达拉哈拉—科利马特许于 1987 年 10 月 20 日授予，到 1989 年 1 月已投入运营。2004 至 2012 年间，萨卡特卡斯至萨尔蒂约的 343 公里进行了改造，费利佩·卡尔德龙总统于 2012 年 3 月 20 日为工程剪彩。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The Zacatecas–Saltillo modernisation cost 3,124.6 million pesos by 2012: 2,600 million in Zacatecas and 524.6 million in Coahuila, for a road carrying about 3,700 vehicles a day. The Guadalajara–Colima toll road is run through Banobras trust 358. In June 2024 La Jornada Zacatecas reported a rehabilitation of 89.1 km through the canyon, between Apozol, Juchipila and Moyahua, for 155 million pesos."
+      ],
+      "zh": [
+        "萨卡特卡斯—萨尔蒂约段改造到 2012 年耗资 31.246 亿比索：萨卡特卡斯州境内 26 亿，科阿韦拉州境内 5.246 亿；这段路每天通行约 3,700 辆车。瓜达拉哈拉—科利马收费路通过 Banobras 第 358 号信托运营。2024 年 6 月，《La Jornada Zacatecas》报道，峡谷中阿波索尔、胡奇皮拉和莫亚瓦之间 89.1 公里的修复工程投入 1.55 亿比索。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "Sources differ: 984.64 km (English Wikipedia) or 900 km in three sections (Spanish Wikipedia)", "zh": "各方不一：984.64 公里（英文维基百科）或分三段共 900 公里（西班牙文维基百科）" },
+      "source": "English Wikipedia, Mexican Federal Highway 54; Spanish Wikipedia, Carretera Federal 54"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No source found gives a cost for the original free road; the figures found are for the later modernisation and rehabilitation, given below.", "zh": "所查资料均未给出原有免费路的造价；所见数字只涉及后来的改造和修复，见下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Federal for the free road; the Guadalajara–Colima toll road is run through a trust of the federal development bank Banobras (trust 358)", "zh": "免费路由联邦出资；瓜达拉哈拉—科利马收费路通过联邦开发银行 Banobras 的信托（第 358 号）运营" },
+      "source": "English Wikipedia, Mexican Federal Highway 54; Autopista Guadalajara–Colima operator's website"
+    },
+    {
+      "label": { "en": "Zacatecas–Saltillo modernisation", "zh": "萨卡特卡斯—萨尔蒂约段改造" },
+      "value": { "en": "343 km, 2004–2012; 3,124.6 million pesos (2,600 million in Zacatecas, 524.6 million in Coahuila); about 3,700 vehicles a day", "zh": "343 公里，2004—2012 年；31.246 亿比索（萨卡特卡斯 26 亿，科阿韦拉 5.246 亿）；日均约 3,700 辆" },
+      "source": "Periódico Mirador, on the inauguration of the Zacatecas–Saltillo modernisation, 2012"
+    },
+    {
+      "label": { "en": "Guadalajara–Colima toll road (54D)", "zh": "瓜达拉哈拉—科利马收费路（54D）" },
+      "value": { "en": "148 km; concession of 20 October 1987; in operation January 1989", "zh": "148 公里；1987 年 10 月 20 日授予特许；1989 年 1 月投入运营" },
+      "source": "Proyectos México, Autopista Guadalajara–Colima; Autopista Guadalajara–Colima operator's website"
+    },
+    {
+      "label": { "en": "Opening of the Saltillo–Zacatecas–Guadalajara road", "zh": "萨尔蒂约—萨卡特卡斯—瓜达拉哈拉公路通车" },
+      "value": { "en": "Reported in service in 1965 by a newspaper column, and dated to the late 1950s by Ineco; not checked against SCT records", "zh": "一篇报纸专栏称 1965 年投入使用，Ineco 则定在 1950 年代后期；未与交通部记录核对" },
+      "source": "Zócalo Saltillo, history column; Ineco, project page on Federal Highway 54"
+    }
+  ],
+  "timeline": [
+    { "year": 1965, "en": "The Saltillo–Zacatecas–Guadalajara road is reported in service.", "zh": "据报道，萨尔蒂约—萨卡特卡斯—瓜达拉哈拉公路投入使用。" },
+    { "year": 1977, "en": "The Coahuila–Zacatecas narrow-gauge railway makes its last run on 22 June.", "zh": "6 月 22 日，科阿韦拉—萨卡特卡斯窄轨铁路开出最后一班车。" },
+    { "year": 1987, "en": "The Guadalajara–Colima toll road is conceded on 20 October.", "zh": "10 月 20 日，瓜达拉哈拉—科利马收费路授予特许。" },
+    { "year": 1989, "en": "The Guadalajara–Colima toll road is in operation by January.", "zh": "1 月，瓜达拉哈拉—科利马收费路投入运营。" },
+    { "year": 2004, "en": "Modernisation of the 343 km between Zacatecas and Saltillo begins.", "zh": "萨卡特卡斯至萨尔蒂约 343 公里改造工程开工。" },
+    { "year": 2012, "en": "President Calderón inaugurates the modernised Zacatecas–Saltillo road on 20 March.", "zh": "3 月 20 日，卡尔德龙总统为改造后的萨卡特卡斯—萨尔蒂约公路剪彩。" },
+    { "year": 2024, "en": "A 155 million peso rehabilitation of 89.1 km through the Juchipila canyon is reported in June.", "zh": "6 月报道，胡奇皮拉峡谷 89.1 公里路段修复投入 1.55 亿比索。" }
+  ]
+}

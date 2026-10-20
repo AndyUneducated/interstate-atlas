@@ -1,0 +1,84 @@
+{
+  "id": "mex-120",
+  "route": { "sys": "mx-federal", "num": "120" },
+  "name": { "en": "Federal Highway 120 (Carretera Federal 120)", "zh": "120 号联邦公路（Carretera Federal 120）" },
+  "aka": [
+    { "en": "Carretera San Juan del Río–Xilitla (the Sierra Gorda road)", "zh": "圣胡安德尔里奥—希利特拉公路（谢拉戈尔达山区公路）" }
+  ],
+  "tagline": { "en": "Two pieces of road: from the hot lands of Michoacán up to Lake Pátzcuaro, and from the Bajío over the Sierra Gorda of Querétaro down to the Huasteca", "zh": "由两段路组成：一段从米却肯州的热土地爬上帕茨夸罗湖畔，一段从巴希奥平原翻越克雷塔罗州的谢拉戈尔达山下到瓦斯特卡地区" },
+  "termini": {
+    "start": { "at": [-102.84, 19.2], "en": "Tepalcatepec, Michoacán, in the Tierra Caliente near the Jalisco line", "zh": "米却肯州特帕尔卡特佩克，热土地地区，靠近哈利斯科州界" },
+    "end": { "at": [-98.93, 21.45], "en": "The junction with Federal Highway 85 at Santa Fe Texacal, Axtla de Terrazas, San Luis Potosí, east of Xilitla", "zh": "圣路易斯波托西州阿克斯特拉德特拉萨斯的圣菲特克萨卡尔，与 85 号联邦公路交会，位于希利特拉以东" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Federal Highway 120 is two separate roads under one number. The western piece runs from Tepalcatepec in the Tierra Caliente of Michoacán by Apatzingán and Nueva Italia, then climbs by Ario de Rosales and Santa Clara del Cobre to Pátzcuaro and on to Quiroga on Lake Pátzcuaro. The eastern piece leaves the Morelia area by Zinapécuaro and Acámbaro, crosses into Querétaro by Jerécuaro, Coroneo and Amealco to San Juan del Río, then turns north by Ezequiel Montes and Cadereyta into the Sierra Gorda, over the mountains by Pinal de Amoles to Jalpan de Serra and Landa, and down into the Huasteca by Xilitla to Highway 85.",
+        "English Wikipedia gives 718.31 km: 450.41 km for the eastern segment and 267.9 km for the western segment from Quiroga to Tepalcatepec. The text of Spanish Wikipedia gives 925 km. The Querétaro section, signed as MEX-120 San Juan del Río–Xilitla, passes through the Sierra Gorda Biosphere Reserve, so even widening it needs a federal environmental permit."
+      ],
+      "zh": [
+        "120 号联邦公路是同一编号下的两段独立道路。西段从米却肯州热土地地区的特帕尔卡特佩克出发，经阿帕钦甘和新意大利，再经阿里奥德罗萨莱斯和圣克拉拉德尔科夫雷爬上帕茨夸罗，延伸到帕茨夸罗湖畔的基罗加。东段从莫雷利亚一带经西纳佩夸罗和阿坎巴罗，经赫雷夸罗、科罗内奥和阿梅亚尔科进入克雷塔罗州到圣胡安德尔里奥，然后经埃塞基耶尔蒙特斯和卡德雷塔向北进入谢拉戈尔达山区，经皮纳尔德阿莫莱斯翻山到哈尔潘德塞拉和兰达，再经希利特拉下到瓦斯特卡地区，与 85 号公路相接。",
+        "英文维基百科给出 718.31 公里：东段 450.41 公里，基罗加至特帕尔卡特佩克的西段 267.9 公里。西班牙文维基百科正文作 925 公里。克雷塔罗段的标示为 MEX-120 圣胡安德尔里奥—希利特拉公路，穿过谢拉戈尔达生物圈保护区，因此即便只是拓宽，也须取得联邦环境许可。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Sierra Gorda was long hard to reach. Its best-known monuments are the five Franciscan missions where friars under Junípero Serra worked from 1750, among them Jalpan and Landa; they were inscribed by UNESCO as a World Heritage Site in 2003. A tourist guide to Jalpan says a dirt road joined the town to the capital in 1880. The travel magazine Travesías writes that the first motor vehicles reached the sierra in the 1940s and that the paved road from San Juan del Río to Xilitla was inaugurated in 1967.",
+        "Since then the work has been widening and repair. In January 2021 the federal environment ministry approved, with conditions, the widening of kilometres 180 to 195 in Jalpan to a two-lane road 13 m wide. In July 2026 the federal infrastructure ministry reported that the resurfacing of kilometres 138 to 163 near Pinal de Amoles was 91 per cent complete."
+      ],
+      "zh": [
+        "谢拉戈尔达山区长期交通不便。这里最著名的古迹是五座方济各会传教站，胡尼佩罗·塞拉带领的修士自 1750 年起在此工作，其中包括哈尔潘和兰达；它们于 2003 年被联合国教科文组织列为世界遗产。一份哈尔潘旅游指南称，1880 年有一条土路把该镇与首府连接起来。旅行杂志《Travesías》写道，最早的汽车于 1940 年代开进山区，圣胡安德尔里奥至希利特拉的铺装公路于 1967 年落成。",
+        "此后的工作主要是拓宽和维修。2021 年 1 月，联邦环境部有条件批准将哈尔潘境内 180 至 195 公里处拓宽为宽 13 米的双车道公路。2026 年 7 月，联邦基础设施部报告，皮纳尔德阿莫莱斯附近 138 至 163 公里处的路面翻修已完成 91%。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The sums on record are for recent work. The Jalpan widening was estimated at 98.6 million pesos in 2021, and the Pinal de Amoles resurfacing at 47.7 million pesos in 2026. Carlos García Villaseñor, described by the Voz de la Sierra as head of the federal infrastructure ministry, told the paper that 500 million pesos had been assigned to work on Highway 120."
+      ],
+      "zh": [
+        "有据可查的金额都属于近年的工程。哈尔潘拓宽工程 2021 年的估算为 9,860 万比索，皮纳尔德阿莫莱斯路面翻修 2026 年的投入为 4,770 万比索。被《Voz de la Sierra》称为联邦基础设施部负责人的卡洛斯·加西亚·比利亚塞尼奥尔对该报表示，已为 120 号公路的工程拨款 5 亿比索。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "Sources differ: 718.31 km in two segments, 450.41 km and 267.9 km (English Wikipedia), or 925 km (Spanish Wikipedia)", "zh": "各方不一：两段共 718.31 公里，分别为 450.41 公里和 267.9 公里（英文维基百科），或 925 公里（西班牙文维基百科）" },
+      "source": "English Wikipedia, Mexican Federal Highway 120; Spanish Wikipedia, Carretera Federal 120"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No source found gives a cost for the original road in either Michoacán or Querétaro; the only sums found are for recent widening and resurfacing in the Sierra Gorda.", "zh": "所查资料均未给出米却肯州或克雷塔罗州原有道路的造价；所见金额只涉及谢拉戈尔达山区近年的拓宽和翻修。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No source found says who paid for the original road. Recent work in Querétaro is federal: the resurfacing near Pinal de Amoles is a federal infrastructure ministry project.", "zh": "所查资料均未说明原有道路由谁出资。克雷塔罗州近年的工程属联邦项目：皮纳尔德阿莫莱斯附近的路面翻修由联邦基础设施部实施。" }
+    },
+    {
+      "label": { "en": "Paved road San Juan del Río–Xilitla", "zh": "圣胡安德尔里奥—希利特拉铺装公路" },
+      "value": { "en": "Reported inaugurated in 1967 by Travesías; not checked against SCT records", "zh": "据《Travesías》于 1967 年落成；未与交通部记录核对" },
+      "source": "Travesías, on the Sierra Gorda of Querétaro"
+    },
+    {
+      "label": { "en": "Jalpan widening, km 180–195", "zh": "哈尔潘拓宽工程（180—195 公里）" },
+      "value": { "en": "15 km to a 13 m two-lane road; estimated at 98.6 million pesos (2021)", "zh": "15 公里，拓宽为 13 米宽的双车道；估算 9,860 万比索（2021 年）" },
+      "source": "Al Diálogo, 28 January 2021, on the Semarnat approval"
+    },
+    {
+      "label": { "en": "Pinal de Amoles resurfacing, km 138–163", "zh": "皮纳尔德阿莫莱斯路面翻修（138—163 公里）" },
+      "value": { "en": "47.7 million pesos; 91 per cent complete in July 2026", "zh": "4,770 万比索；2026 年 7 月完成 91%" },
+      "source": "SICT Querétaro, as reported by Código Qro, 23 July 2026"
+    }
+  ],
+  "timeline": [
+    { "year": 1750, "en": "Franciscans under Junípero Serra begin their work at the Sierra Gorda missions.", "zh": "方济各会士在胡尼佩罗·塞拉带领下开始在谢拉戈尔达山区的传教站工作。" },
+    { "year": 1880, "en": "A dirt road is reported to link Jalpan with the capital.", "zh": "据记载，一条土路将哈尔潘与首府相连。" },
+    { "year": 1967, "en": "The paved road from San Juan del Río to Xilitla is reported inaugurated.", "zh": "据报道，圣胡安德尔里奥至希利特拉的铺装公路落成。" },
+    { "year": 2003, "en": "UNESCO inscribes the Franciscan missions of the Sierra Gorda as a World Heritage Site.", "zh": "联合国教科文组织将谢拉戈尔达方济各会传教站列为世界遗产。" },
+    { "year": 2021, "en": "The widening of km 180–195 in Jalpan receives environmental approval in January.", "zh": "1 月，哈尔潘境内 180—195 公里拓宽工程获得环境许可。" },
+    { "year": 2026, "en": "Resurfacing near Pinal de Amoles is reported 91 per cent complete in July.", "zh": "7 月报道，皮纳尔德阿莫莱斯附近的路面翻修完成 91%。" }
+  ]
+}

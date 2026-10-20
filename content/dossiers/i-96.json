@@ -32,7 +32,7 @@
       ],
       "zh": [
         "沿大河走廊修建高速公路的规划始于 1940 年代，早于州际公路系统的出现；该走廊在 1950 年代中期被纳入系统。布赖顿—法明顿快速路于 1956 年动工，其中四英里于 1957 年 8 月 1 日通车，是密歇根州第一段获联邦资金的州际公路通车路段。布赖顿以东全部 23 英里于同年 12 月完工。",
-        "到 1959 年初，I-96 与 I-196 的标志已挂在仍标注为 US 16 的路上，「底特律—马斯基根高速公路」约有 59 英里通车。全州贯通发生在 1962 年 12 月 12 日：自大莱吉附近向东经兰辛与豪厄尔的最后 54.5 英里通车，一上午举行了五场剪彩。斯温森州长宣布当日为「96 号州际公路日」，US 16 在使用 36 年后被撤销。",
+        "到 1959 年初，I-96 与 I-196 的标志已挂在仍标注为 US 16 的路上，“底特律—马斯基根高速公路”约有 59 英里通车。全州贯通发生在 1962 年 12 月 12 日：自大莱吉附近向东经兰辛与豪厄尔的最后 54.5 英里通车，一上午举行了五场剪彩。斯温森州长宣布当日为“96 号州际公路日”，US 16 在使用 36 年后被撤销。",
         "底特律又花了十五年。穿城线位在 1960 年代被改动，并于 1970 年代以杰弗里斯快速路之名建成；最后一处缺口于 1977 年 11 月 21 日合拢。"
       ]
     },
@@ -44,9 +44,9 @@
         "In Oakland County a different approach was taken: the section from Kent Lake Road east to the I-275/I-696/M-5 interchange was converted in 2025 to a Flex Route, using the shoulder as a managed travel lane at peak times rather than adding permanent width."
       ],
       "zh": [
-        "这条路如今已老到需要以常设计划、而非单个项目来重建。在该州以债券融资的公路计划「重建密歇根」之下，密歇根州交通部一直在按长路段重建 I-96：艾奥尼亚县布利斯路至森菲尔德路之间九英里以上，以及利沃尼亚与普利茅斯镇境内 I-96 与 M-14、I-275 交汇、互通密集的一段。",
+        "这条路如今已老到需要以常设计划、而非单个项目来重建。在该州以债券融资的公路计划“重建密歇根”之下，密歇根州交通部一直在按长路段重建 I-96：艾奥尼亚县布利斯路至森菲尔德路之间九英里以上，以及利沃尼亚与普利茅斯镇境内 I-96 与 M-14、I-275 交汇、互通密集的一段。",
         "艾奥尼亚县的工程为全深度重建——路基路面、排水、涵洞、护栏、路缘与边沟——施工采用可移动隔离墙，把车流全部导入一侧车行道，另一侧则进行重建。利沃尼亚的工程内容包括路段与匝道重建，以及十七座桥梁的修复。",
-        "在奥克兰县则采用了另一种思路：自肯特湖路向东至 I-275/I-696/M-5 互通的路段于 2025 年改造为「弹性车道」，在高峰时段把路肩作为受控行车道使用，而非永久拓宽。"
+        "在奥克兰县则采用了另一种思路：自肯特湖路向东至 I-275/I-696/M-5 互通的路段于 2025 年改造为“弹性车道”，在高峰时段把路肩作为受控行车道使用，而非永久拓宽。"
       ]
     }
   ],
@@ -82,6 +82,6 @@
     { "year": 1957, "en": "A four-mile piece of the Brighton–Farmington Expressway opens on 1 August, the first funded Interstate section to open in Michigan.", "zh": "8 月 1 日，布赖顿—法明顿快速路的四英里路段通车，为密歇根州第一段获联邦资金的州际公路通车路段。" },
     { "year": 1962, "en": "The route opens across the state on 12 December; US 16 is decommissioned in Michigan.", "zh": "12 月 12 日，本路线在全州范围通车；US 16 在密歇根州被撤销。" },
     { "year": 1977, "en": "The Jeffries Freeway in Detroit opens on 21 November, closing the last gap.", "zh": "11 月 21 日，底特律的杰弗里斯快速路通车，合拢最后一处缺口。" },
-    { "year": 2025, "en": "The Oakland County section is converted to a Flex Route using the shoulder as a peak-hour lane.", "zh": "奥克兰县路段改造为「弹性车道」，高峰时段将路肩用作行车道。" }
+    { "year": 2025, "en": "The Oakland County section is converted to a Flex Route using the shoulder as a peak-hour lane.", "zh": "奥克兰县路段改造为“弹性车道”，高峰时段将路肩用作行车道。" }
   ]
 }

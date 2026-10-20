@@ -1,0 +1,109 @@
+{
+  "id": "cn-g108",
+  "route": { "sys": "cn-national", "num": "G108" },
+  "name": { "en": "Beijing–Kunming Highway", "zh": "北京—昆明公路" },
+  "aka": [
+    { "en": "Jingkun line", "zh": "京昆线" },
+    { "en": "Sichuan–Shaanxi road (Hanzhong–Chengdu)", "zh": "川陕公路（汉中至成都）" }
+  ],
+  "tagline": { "en": "Beijing to Kunming by the old way to Sichuan: over the Qinling and through Jianmen pass, on a road first driven in 1936", "zh": "沿入川古道从北京到昆明：翻越秦岭、穿过剑门关，这条公路 1936 年首次通车" },
+  "termini": {
+    "start": { "en": "Western Beijing; the starting point is given as Fuxingmen or as Tianningsi", "zh": "北京西城；起点有复兴门、天宁寺两说", "at": [116.35, 39.91] },
+    "end": { "en": "Kunming, Yunnan", "zh": "云南昆明市", "at": [102.67, 25.08] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G108 runs from Beijing to Kunming through Hebei, Shanxi, Shaanxi, Sichuan and Yunnan. Chinese Wikipedia gives 3,340.148 km; the Sichuan highway gazetteer gives 3,356 km, of which 1,291 km are in Sichuan. Only 21.7 km lie in Beijing, and whether the road starts at Fuxingmen or at Tianningsi is disputed.",
+        "From Beijing the road goes south-west through Hebei into Shanxi, runs down the length of the province to the Yellow River, crosses into the Guanzhong plain near Xi'an, and then climbs over the Qinling to Hanzhong. From Hanzhong to Chengdu it is the old Sichuan–Shaanxi road through Ningqiang, Guangyuan, Jianmen pass and Mianyang; south of Chengdu it passes Ya'an and Xichang to Kunming."
+      ],
+      "zh": [
+        "G108 自北京至昆明，途经河北、山西、陕西、四川、云南。中文维基百科记全长 3340.148 公里；《四川省志·公路志》记 3356 公里，其中四川境内 1291 公里。北京境内仅 21.7 公里，起点是复兴门还是天宁寺，说法不一。",
+        "道路自北京向西南经河北入山西，纵贯山西南下至黄河，在西安附近进入关中平原，再翻越秦岭到汉中。汉中至成都是经宁强、广元、剑门关、绵阳的旧川陕公路；成都以南经雅安、西昌到昆明。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "Over the Qinling G108 follows the road built in 1969–1971 as the '0702' defence road from Zhouzhi to Chenggu, through Foping. An account by a writer published by the China Writers Association, not an official source, says it moved 10 million cubic metres of earth and rock, 72 per cent of it rock. The road has been cut by floods repeatedly: on 2 July 1980 a flood destroyed 27 km of it (same account), and on 8 June 2002 a flood at Foping cut more than 80 km (Xinhua).",
+        "On the old Sichuan–Shaanxi road the climb over Qipan pass on the Shaanxi–Sichuan border was bypassed in the 1990s by the Qipanguan tunnel. Modern rebuilding includes the 66.7 km Mianxian–Ningqiang section in southern Shaanxi with the 4,240 m Wudingguan tunnel, and a six-lane 77.2 km section between Sanyuan and Liquan north of Xi'an."
+      ],
+      "zh": [
+        "秦岭段 G108 沿用 1969—1971 年作为“0702”国防公路修建的周至至城固公路，经佛坪。据中国作家网刊载的一篇作者文章（非官方来源），工程土石方 1000 万立方米，其中石方占 72％。这段路屡遭水毁：1980 年 7 月 2 日洪水冲毁 27 公里（同一文章），2002 年 6 月 8 日佛坪洪灾冲断 80 多公里（新华社）。",
+        "旧川陕公路上，川陕交界翻越七盘关的山路在 20 世纪 90 年代被七盘关隧道取代。现代改建包括陕南勉县至宁强段 66.7 公里（含 4240 米长的五丁关隧道），以及关中三原至礼泉段 77.2 公里六车道。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Sichuan–Shaanxi road was ordered in October 1934, with a chief engineer who had worked under the railway engineer Zhan Tianyou. The 278 km Sichuan section from Qipanguan to Mianyang was surveyed from 12 June 1935 and begun on 15 September 1935 by some 170,000 labourers; People's Daily dates its opening to 15 June 1936 and the Sichuan gazetteer office to 25 June 1936. The Sichuan gazetteer office says the whole road was opened to traffic in February 1937. G108 was designated in 1984 according to the Sichuan highway gazetteer.",
+        "The Qinling road was planned in 1966 as a defence road, the '0702' road from Zhouzhi to Chenggu. By the China Writers Association account cited above, work began in November 1969 with more than 70,000 labourers and the army's unit 851, and was basically finished in June 1971; 68 people from Zhouzhi died and 95 were injured, and the army unit lost 15. Asphalting began in 1974, about 70 per cent of the road was realigned in 1974–1975, and in 1981 it became part of G108."
+      ],
+      "zh": [
+        "川陕公路于 1934 年 10 月奉令修建，总工程师曾在铁路工程师詹天佑手下工作。四川段七盘关至绵阳 278 公里，1935 年 6 月 12 日开始勘测，9 月 15 日开工，动员民工约 17 万人；人民网记 1936 年 6 月 15 日通车，四川省地方志办公室记 1936 年 6 月 25 日。四川省地方志办公室称 1937 年 2 月全线通车。据《四川省志·公路志》，108 国道于 1984 年确定。",
+        "秦岭段于 1966 年作为国防公路规划，即周至至城固的“0702”公路。据上引中国作家网文章，1969 年 11 月开工，动员民工 7 万余人和解放军 851 部队，1971 年 6 月基本建成；周至县民工牺牲 68 人、受伤 95 人，部队牺牲 15 人。1974 年开始铺沥青，1974—1975 年约七成路段改线，1981 年并入 108 国道。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost exists for the whole route; each section is priced separately. The China Writers Association account gives 70 million yuan for the 1974–1975 realignment of the Qinling road, a figure not checked against an official source. Among recent works, the Sanyuan–Liquan section, 77.2 km, was estimated at 1.1 billion yuan in 2015 and budgeted at 1.148 billion in 2016, paid by a state subsidy and Xianyang city; the Mianxian–Ningqiang section, 66.7 km, at 580 million yuan; and the Pujiang–Mingshan section in Sichuan, 12.1 km, at 1.137 billion yuan, funded by the county."
+      ],
+      "zh": [
+        "全线没有总造价，各段分别计价。中国作家网文章记 1974—1975 年秦岭段改线耗资 7000 万元，该数字未与官方资料核对。近年工程中，三原至礼泉段 77.2 公里，2015 年估算 11 亿元、2016 年概算 11.48 亿元，由国家补助和咸阳市出资；勉县至宁强段 66.7 公里，投资 5.8 亿元；四川蒲江至名山段 12.1 公里，投资 11.37 亿元，由县级出资。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No cost exists for the whole route, which joins roads built from the 1930s onwards and is rebuilt section by section, each priced separately. See the section figures below.", "zh": "全线没有总造价：路线连接了 20 世纪 30 年代以来修建的各段道路，并分段改建、分段计价。见下方各段数字。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No route-wide funding statement exists. Sections are funded locally with national subsidies: Sanyuan–Liquan by a state subsidy and Xianyang city, Pujiang–Mingshan by the county.", "zh": "未见全线出资说明。各段由地方出资并获国家补助：三原至礼泉段由国家补助和咸阳市出资，蒲江至名山段由县级出资。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "3,340.148 km (Chinese Wikipedia); 3,356 km, of which 1,291 km in Sichuan (Sichuan highway gazetteer)", "zh": "3340.148 公里（中文维基百科）；3356 公里，其中四川 1291 公里（《四川省志·公路志》）" },
+      "source": "Chinese Wikipedia, 108国道; 四川省情网 (scsqw.cn), 四川省志·公路志"
+    },
+    {
+      "label": { "en": "Sichuan–Shaanxi road, Qipanguan–Mianyang (278 km)", "zh": "川陕公路七盘关至绵阳段（278 公里）" },
+      "value": { "en": "Begun 15 September 1935 by about 170,000 labourers; opened June 1936 (15 June by People's Daily, 25 June by the Sichuan gazetteer office)", "zh": "1935 年 9 月 15 日开工，民工约 17 万人；1936 年 6 月通车（人民网记 15 日，四川省地方志办公室记 25 日）" },
+      "source": "People's Daily (people.cn); Sichuan Provincial Local Chronicles Office (scdfz.org.cn)"
+    },
+    {
+      "label": { "en": "Qinling '0702' road realignment, 1974–1975", "zh": "秦岭“0702”公路改线（1974—1975 年）" },
+      "value": { "en": "Reported at 70 million yuan; not checked against an official source.", "zh": "据报道 7000 万元；未与官方资料核对。" },
+      "source": "中国作家网 (chinawriter.com.cn), author's article (weak)"
+    },
+    {
+      "label": { "en": "Sanyuan–Liquan section (77.2 km)", "zh": "三原至礼泉段（77.2 公里）" },
+      "value": { "en": "1.148 billion yuan budget (2016); 1.1 billion estimate (2015); six lanes", "zh": "概算 11.48 亿元（2016 年）；估算 11 亿元（2015 年）；六车道" },
+      "source": "Shaanxi Development and Reform Commission, 2015 and 2016"
+    },
+    {
+      "label": { "en": "Mianxian–Ningqiang section (66.7 km)", "zh": "勉县至宁强段（66.7 公里）" },
+      "value": { "en": "580 million yuan; includes the 4,240 m Wudingguan tunnel", "zh": "5.8 亿元；含 4240 米五丁关隧道" },
+      "source": "Shaanxi Development and Reform Commission, 2013"
+    },
+    {
+      "label": { "en": "Pujiang–Mingshan section, Sichuan (12.1 km)", "zh": "四川蒲江至名山段（12.1 公里）" },
+      "value": { "en": "1.137 billion yuan, county-funded", "zh": "11.37 亿元，县级出资" },
+      "source": "Sichuan Development and Reform Commission, 2022"
+    }
+  ],
+  "timeline": [
+    { "year": 1934, "en": "The Sichuan–Shaanxi road is ordered in October.", "zh": "10 月，川陕公路奉令修建。" },
+    { "year": 1935, "en": "Work on the Qipanguan–Mianyang section begins on 15 September.", "zh": "9 月 15 日，七盘关至绵阳段开工。" },
+    { "year": 1936, "en": "The Sichuan section opens in June.", "zh": "6 月，四川段通车。" },
+    { "year": 1937, "en": "The whole Sichuan–Shaanxi road opens to traffic in February.", "zh": "2 月，川陕公路全线通车。" },
+    { "year": 1969, "en": "Work begins on the '0702' defence road over the Qinling in November.", "zh": "11 月，秦岭“0702”国防公路开工。" },
+    { "year": 1971, "en": "The Qinling road is basically finished in June.", "zh": "6 月，秦岭公路基本建成。" },
+    { "year": 1980, "en": "A flood on 2 July destroys 27 km of the Qinling road.", "zh": "7 月 2 日，洪水冲毁秦岭公路 27 公里。" },
+    { "year": 1984, "en": "G108 is designated, by the Sichuan highway gazetteer.", "zh": "据《四川省志·公路志》，108 国道确定。" },
+    { "year": 2002, "en": "A flood at Foping on 8 June cuts more than 80 km of the road.", "zh": "6 月 8 日，佛坪洪灾冲断公路 80 多公里。" }
+  ]
+}

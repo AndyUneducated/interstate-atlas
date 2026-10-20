@@ -1,0 +1,122 @@
+{
+  "id": "cn-g317-xiz-1",
+  "route": { "sys": "cn-national", "num": "G317", "anchor": [92.04, 31.65] },
+  "name": { "en": "Chengdu–Gar Highway", "zh": "成都—噶尔公路" },
+  "aka": [
+    { "en": "Chengga line", "zh": "成噶线" },
+    { "en": "Sichuan–Tibet Highway, northern line", "zh": "川藏公路北线" },
+    { "en": "Ngari northern line (west of Nagqu)", "zh": "阿里北线（那曲以西）" }
+  ],
+  "tagline": { "en": "The northern road into Tibet, 3,322 km from Chengdu over the Chola mountains and across the Changtang to Ngari", "zh": "进藏北线，自成都翻越雀儿山、横穿羌塘到阿里，全长 3322 公里" },
+  "termini": {
+    "start": { "en": "Chengdu, Sichuan", "zh": "四川成都市", "at": [103.99, 30.78] },
+    "end": { "en": "Gar county (Shiquanhe), Ngari, Tibet", "zh": "西藏阿里地区噶尔县（狮泉河镇）", "at": [80.09, 32.50] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G317 runs 3,322 km from Chengdu to Gar in Ngari, the far west of Tibet, through Sichuan and Tibet only. It climbs from the Sichuan basin through Wenchuan, Lixian and Barkam, crosses the grasslands of Zamtang and Luhuo to Garzê and Dêgê, crosses the Jinsha river into Tibet, and runs through Jomda and Chamdo to Nagqu. Until 2013 the road ended at Nagqu; the 2013 plan extended it west across the northern Changtang, through Baqên, Xainza, Gaize and Gegyai, to Gar.",
+        "It is the northern line of the Sichuan–Tibet Highway, and west of Nagqu it is the Ngari northern line. The atlas draws it in two pieces; this profile is attached to the longer one, which runs from Chengdu to Gar."
+      ],
+      "zh": [
+        "G317 自成都至西藏最西部阿里地区的噶尔县，全长 3322 公里，只经过四川、西藏两省区。道路从四川盆地经汶川、理县、马尔康爬升，穿过壤塘、炉霍的草原到甘孜、德格，跨金沙江进入西藏，经江达、昌都到那曲。2013 年以前路线止于那曲；2013 年规划把它向西延伸，横穿羌塘北部，经巴青、申扎、改则、革吉到噶尔。",
+        "它是川藏公路北线，那曲以西又称阿里北线。本图集将其绘为两段；本条目挂在自成都至噶尔的较长一段上。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The great obstacle was Chola mountain between Garzê and Dêgê, where the old road crossed a pass at about 5,050 m. The Chola tunnel, 7,079 m long with its portals at 4,378 m and 4,232 m under a peak of 6,168 m, was begun in June 2012, holed through on 10 November 2016 and opened on 26 September 2017; it shortened the road by about 20 km and turned a crossing of more than two hours into ten minutes. In Chamdo prefecture the Zhujiaolashan tunnel, 4.605 km, and the Xielashan tunnel, 4,092 m, both begun in 2015, opened on 26 and 30 September 2019; the first saves 19.6 km and nearly an hour, and with them the northern line from Chamdo to Lhasa was asphalted throughout.",
+        "West of Nagqu the road was built up only in this century: the 125.3 km from Xiaqu to Nagqu from August 2009, the 256 km from Nagqu to Baqên between September 2009 and September 2012, and a 366.28 km third-class road from Gaize to Gegyai approved in 2014. The Tibet government says that with the Dongco–Gaize section, built together with a stretch of G216, every county seat in Ngari was linked by asphalt."
+      ],
+      "zh": [
+        "最大的障碍是甘孜与德格之间的雀儿山，老路要翻越海拔约 5050 米的垭口。雀儿山隧道长 7079 米，进出口海拔分别为 4378 米和 4232 米，山峰海拔 6168 米；2012 年 6 月开工，2016 年 11 月 10 日贯通，2017 年 9 月 26 日通车，路程缩短约 20 公里，翻山时间由两个多小时缩短为 10 分钟。西藏境内，4.605 公里的珠角拉山隧道和 4092 米的斜拉山隧道均于 2015 年开工，2019 年 9 月 26 日和 30 日先后通车，前者缩短里程 19.6 公里、节省近一小时；两隧道通车后，昌都至拉萨北线全线实现黑色化。",
+        "那曲以西的路段到本世纪才修起来：夏曲至那曲 125.3 公里 2009 年 8 月开工；那曲至巴青 256 公里 2009 年 9 月至 2012 年 9 月建设；改则至革吉 366.28 公里三级公路 2014 年获批。据西藏自治区政府，东措至改则段与 G216 一段同时建成后，阿里各县县城全部通了沥青路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road began as the Kham–Tibet Highway built by the army after 1950: Ya'an–Kangding opened on 25 June 1950, Kangding–Manigango on 1 December 1950, and work on Manigango–Lhasa began on 28 May 1951; the road reached Chamdo on 21 November 1952 and Lhasa on 25 December 1954. The line later rerouted south, and the Bamei–Chamdo stretch of the first road became the northern line. Chamdo–Nagqu, 764 km, was opened as a rough road along the old post route: the Tibetan studies centre dates it to 1958, the Tibet culture and tourism department to 1960.",
+        "In 1981 the northern line was numbered G317. In 1995 the route near Chengdu was moved to Wenchuan, Lixian, Barkam, Zamtang and Luhuo to keep traffic out of the Wolong panda reserve. The 2013 plan extended the road to Gar. On 11 November 2025 the Hongqi bridge at Barkam collapsed; it had been closed the day before and no one was hurt (Sing Tao and HK01, as cited in Chinese Wikipedia)."
+      ],
+      "zh": [
+        "道路起源于 1950 年后解放军修建的康藏公路：雅安至康定段 1950 年 6 月 25 日通车，康定至马尼干戈段 1950 年 12 月 1 日通车，马尼干戈至拉萨段 1951 年 5 月 28 日开工；1952 年 11 月 21 日修到昌都，1954 年 12 月 25 日通到拉萨。后来干线南移，原路的巴美至昌都段成为北线。昌都至那曲 764 公里沿旧驿道修成简易公路：中国藏学研究中心记为 1958 年，西藏自治区文化和旅游厅记为 1960 年。",
+        "1981 年北线定为 317 国道。1995 年，成都附近的路线改走汶川、理县、马尔康、壤塘、炉霍，以避开卧龙大熊猫保护区。2013 年规划把路线延伸到噶尔。2025 年 11 月 11 日，马尔康红旗大桥垮塌；该桥前一天已封闭，无人伤亡（据星岛日报和香港01，转引自中文维基百科，317国道）。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost exists for the whole route; each section is priced separately. In Tibet the Xiaqu–Nagqu section, 125.3 km, cost about 430 million yuan and Nagqu–Baqên, 256 km, more than 960 million, both fully state-funded. The Chola tunnel is priced at 1.283 billion yuan by Xinhua, quoting the Garzê transport bureau, and at 1.15 billion by the Sichuan government in 2016. The Dingqing–Xielashan rebuild, 112.886 km including the Xielashan tunnel, cost 1.79 billion yuan, and the Zhujiaolashan tunnel with its approaches, 8.97 km, was approved at 829 million. The Gaize–Gegyai section, 366.28 km, was approved at 1.87 billion yuan, and the Dongco–Gaize section together with the G216 Dongco–Coqên stretch, more than 250 km, at 1.43 billion."
+      ],
+      "zh": [
+        "全线没有总造价，各段分别计价。西藏境内，夏曲至那曲段 125.3 公里投资约 4.3 亿元，那曲至巴青段 256 公里投资 9.6 亿余元，均为国家全额投资。雀儿山隧道，新华社引甘孜州交通运输局数字为 12.83 亿元，四川省政府 2016 年数字为 11.5 亿元。据西藏自治区交通运输厅，丁青至斜拉山段改建 112.886 公里（含斜拉山隧道）总投资 17.9 亿元，珠角拉山隧道及接线 8.97 公里批复资金 8.29 亿元。改则至革吉段 366.28 公里批复投资 18.7 亿元；东措至改则段连同 G216 东措至措勤段共 250 余公里，投资 14.3 亿元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No cost exists for the whole route: it joins the Kham–Tibet road of the 1950s to sections built since 2009 and tunnels opened in 2017 and 2019, each priced separately. See the section figures below.", "zh": "全线没有总造价：路线把 20 世纪 50 年代的康藏公路与 2009 年以来修建的路段以及 2017、2019 年通车的隧道连在一起，各自单独计价。见下方各段数字。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Xiaqu–Nagqu and Nagqu–Baqên in Tibet were fully state-funded. No route-wide statement exists.", "zh": "西藏境内夏曲至那曲、那曲至巴青两段由国家全额投资。未见全线出资说明。" },
+      "source": "Tibet Autonomous Region People's Government (Xiaqu–Nagqu); reprinted Tibet transport report on Nagqu–Baqên (weak)"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "3,322 km", "zh": "3322 公里" },
+      "source": "Chinese Wikipedia, 317国道"
+    },
+    {
+      "label": { "en": "Chola tunnel (7,079 m)", "zh": "雀儿山隧道（7079 米）" },
+      "value": { "en": "1.283 billion yuan (Xinhua quoting the Garzê transport bureau); 1.15 billion (Sichuan government, 2016). Opened 26 September 2017.", "zh": "12.83 亿元（新华社引甘孜州交通运输局）；11.5 亿元（四川省政府，2016 年）。2017 年 9 月 26 日通车。" },
+      "source": "Xinhua; Sichuan Provincial People's Government via China Radio International, 2016"
+    },
+    {
+      "label": { "en": "Dingqing–Xielashan rebuild, with Xielashan tunnel (112.886 km)", "zh": "丁青至斜拉山段改建，含斜拉山隧道（112.886 公里）" },
+      "value": { "en": "1.79 billion yuan; third-class road; opened 30 September 2019", "zh": "17.9 亿元；三级公路；2019 年 9 月 30 日通车" },
+      "source": "Tibet Autonomous Region Department of Transport, 30 September 2019"
+    },
+    {
+      "label": { "en": "Zhujiaolashan tunnel and approaches (8.97 km)", "zh": "珠角拉山隧道及接线（8.97 公里）" },
+      "value": { "en": "829 million yuan approved; tunnel 4.605 km; opened 26 September 2019", "zh": "批复资金 8.29 亿元；隧道长 4.605 公里；2019 年 9 月 26 日通车" },
+      "source": "The Paper (澎湃新闻), October 2019; China Daily, 27 September 2019"
+    },
+    {
+      "label": { "en": "Xiaqu–Nagqu section (125.3 km)", "zh": "夏曲至那曲段（125.3 公里）" },
+      "value": { "en": "About 430 million yuan, fully state-funded; begun 2 August 2009", "zh": "约 4.3 亿元，国家全额投资；2009 年 8 月 2 日开工" },
+      "source": "Tibet Autonomous Region People's Government"
+    },
+    {
+      "label": { "en": "Nagqu–Baqên section (256 km)", "zh": "那曲至巴青段（256 公里）" },
+      "value": { "en": "Reported at more than 960 million yuan, fully state-funded, built September 2009 – 15 September 2012; not checked against an official source.", "zh": "据报道 9.6 亿余元，国家全额投资，2009 年 9 月至 2012 年 9 月 15 日建设；未与官方资料核对。" },
+      "source": "Reprinted Tibet transport report (weak)"
+    },
+    {
+      "label": { "en": "Gaize–Gegyai section (366.28 km)", "zh": "改则至革吉段（366.28 公里）" },
+      "value": { "en": "1.87 billion yuan; third-class road; approved 21 February 2014", "zh": "18.7 亿元；三级公路；2014 年 2 月 21 日获批" },
+      "source": "中国西藏新闻网 via China Economic Net (ce.cn), 2014"
+    },
+    {
+      "label": { "en": "Dongco–Gaize with G216 Dongco–Coqên (250+ km)", "zh": "东措至改则段及 G216 东措至措勤段（250 余公里）" },
+      "value": { "en": "1.43 billion yuan", "zh": "14.3 亿元" },
+      "source": "Tibet Autonomous Region People's Government"
+    }
+  ],
+  "timeline": [
+    { "year": 1950, "en": "The Kham–Tibet road opens from Ya'an to Kangding on 25 June and to Manigango on 1 December.", "zh": "6 月 25 日康藏公路雅安至康定段通车，12 月 1 日通到马尼干戈。" },
+    { "year": 1952, "en": "The road reaches Chamdo on 21 November.", "zh": "11 月 21 日，公路修到昌都。" },
+    { "year": 1954, "en": "The Kham–Tibet Highway reaches Lhasa on 25 December.", "zh": "12 月 25 日，康藏公路通到拉萨。" },
+    { "year": 1981, "en": "The northern line is numbered G317.", "zh": "北线定为 317 国道。" },
+    { "year": 1995, "en": "The route is moved through Barkam to avoid the Wolong reserve.", "zh": "路线改经马尔康，以避开卧龙保护区。" },
+    { "year": 2009, "en": "Work begins on Xiaqu–Nagqu and Nagqu–Baqên.", "zh": "夏曲至那曲段、那曲至巴青段开工。" },
+    { "year": 2013, "en": "The national road plan extends the route from Nagqu to Gar.", "zh": "国道网规划把路线由那曲延伸到噶尔。" },
+    { "year": 2017, "en": "The Chola tunnel opens on 26 September.", "zh": "9 月 26 日，雀儿山隧道通车。" },
+    { "year": 2019, "en": "The Zhujiaolashan and Xielashan tunnels open; the northern line is asphalted from Chamdo to Lhasa.", "zh": "珠角拉山、斜拉山隧道通车，昌都至拉萨北线全线黑色化。" },
+    { "year": 2025, "en": "The Hongqi bridge at Barkam collapses on 11 November, a day after closing.", "zh": "11 月 11 日，马尔康红旗大桥在封闭一天后垮塌。" }
+  ]
+}

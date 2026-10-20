@@ -1,0 +1,113 @@
+{
+  "id": "cn-g109-qhi",
+  "route": { "sys": "cn-national", "num": "G109", "anchor": [103.55, 36.11] },
+  "name": { "en": "Beijing–Lhasa Highway", "zh": "北京—拉萨公路" },
+  "aka": [
+    { "en": "Jingla line", "zh": "京拉线" },
+    { "en": "Qinghai–Tibet Highway (Xining–Lhasa)", "zh": "青藏公路（西宁至拉萨）" },
+    { "en": "Asian Highway AH42 (Lanzhou–Lhasa)", "zh": "亚洲公路 42 号线（兰州至拉萨）" }
+  ],
+  "tagline": { "en": "Beijing to Lhasa, 3,922 km, over the road a road-building general pushed across the Tibetan plateau in seven months in 1954", "zh": "从北京到拉萨 3922 公里，西段是 1954 年用七个月零四天修上青藏高原的青藏公路" },
+  "termini": {
+    "start": { "en": "Fuchengmen Bridge on the West Second Ring Road, Beijing", "zh": "北京市西二环阜成门桥", "at": [116.35, 39.92] },
+    "end": { "en": "Yangbajain, Damxung county, Tibet, where the drawn line ends. The route ends in Lhasa, some 87 km further on by Chinese Wikipedia's mileage table for the Qinghai–Tibet Highway", "zh": "西藏当雄县羊八井，所绘线段止于此。路线终点在拉萨；按中文维基百科青藏公路里程表，羊八井距拉萨约 87 公里", "at": [90.54, 30.09] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G109 runs 3,922 km from Fuchengmen in central Beijing to Lhasa, through eight provinces: Beijing, Hebei, Shanxi, Inner Mongolia, Ningxia, Gansu, Qinghai and Tibet. The plan's control points are Mentougou, Zhuolu and Yangyuan in the hills west of Beijing; Datong, Zuoyun and Youyu in northern Shanxi; Qingshuihe, Jungar, Ordos and Hanggin across the Ordos plateau; Pingluo, Yinchuan, Qingtongxia and Zhongning in the Yellow River plain of Ningxia; Baiyin and Lanzhou; then Minhe, Ledu, Ping'an, Xining and Huangyuan, Dulan and Golmud in Qinghai, and Amdo, Nagqu and Damxung in Tibet.",
+        "The western half is the Qinghai–Tibet Highway, Xining to Lhasa, and from Lanzhou to Lhasa the road is also Asian Highway AH42. The atlas draws G109 essentially as one piece, from Beijing to Yangbajain short of Lhasa; a one-mile fragment in Yinchuan is drawn separately, and this profile is attached to the main piece."
+      ],
+      "zh": [
+        "G109 自北京阜成门至拉萨，全长 3922 公里，途经北京、河北、山西、内蒙古、宁夏、甘肃、青海、西藏八个省级行政区。规划的主要控制点依次是京西山区的门头沟、涿鹿、阳原；晋北的大同、左云、右玉；鄂尔多斯高原上的清水河、准格尔旗、鄂尔多斯、杭锦旗；宁夏黄河平原的平罗、银川、青铜峡、中宁；白银、兰州；然后是青海的民和、乐都、平安、西宁、湟源、都兰、格尔木，西藏的安多、那曲、当雄。",
+        "西半段就是青藏公路（西宁至拉萨）；兰州至拉萨段同时是亚洲公路 42 号线。本图集基本把 G109 绘为一段，自北京至拉萨以北的羊八井；银川市内一段一英里长的碎片另行绘出，本条目挂在主段上。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Golmud–Lhasa road averages more than 4,000 m above sea level and crosses the Kunlun, Wudaoliang and the Tanggula pass at about 5,200 m. Its great problem is permafrost: according to China Daily, more than 550 km of the road between Xidatan and Amdo lie on permanently frozen ground, which heaves in winter and thaws and settles in summer, breaking the road into ruts and potholes. From 1973 researchers based at Wudaoliang studied how to lay asphalt on it; the road now uses special embankments, among them thermosyphons — the flagpole-like rods along the verges that keep the ground frozen in summer — insulating layers, and crushed-rock embankments with ventilation pipes.",
+        "At the Beijing end the road is a mountain road through Mentougou. The Dongfanghong tunnel on what was then G109 was begun on 1 July 1965 and opened in August 1966. Since 1 July 2024 a new G109 expressway has carried traffic between the Sixth Ring Road and Lingshan."
+      ],
+      "zh": [
+        "格尔木至拉萨段平均海拔 4000 米以上，翻越昆仑山、五道梁和海拔约 5200 米的唐古拉山口。最大的难题是多年冻土：据中国日报网，西大滩至安多之间有 550 多公里路段处于多年冻土区，冬季冻胀、夏季融沉，路面随之破损。1973 年起，科研人员以五道梁为基地研究在冻土上铺筑沥青路；如今这条路用上了多种特殊路基——路边旗杆一样的热棒在夏季保持冻土不融，还有隔热层路基、片块石加通风管路基等。",
+        "北京一端是穿行门头沟山区的山路。原属 109 国道的东方红隧道 1965 年 7 月 1 日开工、1966 年 8 月通车。2024 年 7 月 1 日起，国道 109 新线高速公路西六环至灵山段通车。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The Qinghai–Tibet Highway was proposed at the end of January 1954 by Mu Shengzhong, the political commissar of the Tibet transport corps, who is remembered as its father. On 11 May 1954 Mu led 19 cadres and more than 1,200 workers from the camp that became the city of Golmud. They reached Kekexili on 30 July, some 300 km in about 80 days; Peng Dehuai then gave them 2 million yuan from military funds. They crossed the Tanggula in October, reached Nagqu on 11 November and Lhasa on 15 December. The road opened on 25 December 1954, the same day as the Kham–Tibet Highway; Golmud to Lhasa had taken seven months and four days.",
+        "The road carried most of Tibet's freight for half a century — People's Daily put it at 85 per cent of goods into Tibet and 90 per cent out — and the oil pipeline, power line, telecommunications cable and, in 2006, the Qinghai–Tibet Railway were all built along it. Its name moved with the network: in 1966 the Ministry of Communications applied 'Qinghai–Tibet Highway' to the whole road from Lanzhou through Xining and Golmud to Lhasa, and in 1981 it became part of the Beijing–Lhasa trunk road.",
+        "The first road was a rough track. In 1956 the formation was widened from 6 m to 10 m and gravelled. From 1974 to 1985 more than 20,000 soldiers and civilians rebuilt the 1,155 km from Golmud to Lhasa and paved it. East of Xining the road is now being rebuilt in its turn: in Gansu, a 70.955 km four-lane class-I section between Shuiquan and Fanjiayao in Baiyin is due in August 2027."
+      ],
+      "zh": [
+        "青藏公路由西藏运输总队政委慕生忠于 1954 年 1 月底提出，他被称为“青藏公路之父”。1954 年 5 月 11 日，慕生忠带领 19 名干部、1200 多名民工从后来成为格尔木市的营地出发。7 月 30 日修到可可西里，约 80 天修通约 300 公里；彭德怀随即从军费中拨给他们 200 万元。10 月翻越唐古拉山，11 月 11 日抵达那曲（黑河），12 月 15 日到达拉萨。1954 年 12 月 25 日，青藏公路与康藏公路同日通车；格尔木至拉萨段历时七个月零四天。",
+        "半个世纪里，这条路承担了西藏大部分物资运输——据人民网所载，进藏物资的 85％、出藏物资的 90％——输油管线、藏北电网、通讯电缆以及 2006 年的青藏铁路都依托它建成。它的名称随路网而变：1966 年交通部将兰州经西宁、格尔木至拉萨的公路定名为青藏公路；1981 年，它被列为北京至拉萨干线公路的一段。",
+        "最初的公路只是简易便道。1956 年路基由 6 米拓宽到 10 米，铺上简易砂石路面。1974 年至 1985 年，两万余名军民改建格尔木至拉萨段 1155 公里并铺筑沥青。西宁以东的路段如今也在改造：甘肃白银境内水泉至范家窑段 70.955 公里按双向四车道一级公路建设，预计 2027 年 8 月建成。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost exists for the 3,922 km route. The 1954 road is the cheapest of the roads into Tibet on record: People's Weekly gives 300,000 yuan of start-up money and 2.2 million yuan in all for the 1,283 km from Golmud to Lhasa, much of it the 2 million Peng Dehuai granted from military funds. The 1974–1985 rebuilding of the same stretch cost more than 800 million yuan. Present-day sections are priced one at a time; the Shuiquan–Fanjiayao section in Gansu, 70.955 km, has an approved budget of 5.279 billion yuan."
+      ],
+      "zh": [
+        "全长 3922 公里的全线没有总造价。1954 年的青藏公路是有记载的进藏公路中耗资最少的一条：据《人民周刊》，格尔木至拉萨 1283 公里，前期修路经费 30 万元，共耗资 220 万元，其中大部分是彭德怀从军费中拨付的 200 万元。1974—1985 年改建同一路段耗资 8 亿多元。如今各段分别计价；甘肃水泉至范家窑段 70.955 公里，概算总投资 52.79 亿元。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Between Golmud and Lhasa the road stays above 4,000 m for most of its length, with the long climb to the Tanggula pass; altitude sickness is common, and snow can fall on the Qinghai stretches in any month. Permafrost keeps deforming the surface, so long sections are often under repair. The railway runs alongside for much of the way."
+      ],
+      "zh": [
+        "格尔木至拉萨间大部分路段海拔在 4000 米以上，要长距离爬升到唐古拉山口，高原反应常见；青海境内一年中任何月份都可能降雪。冻土不断使路面变形，常有长段在维修。青藏铁路大部分路段与公路并行。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "value": { "en": "2.2 million yuan for the 1,283 km Golmud–Lhasa road of 1954; more than 800 million yuan for its 1974–1985 rebuilding (1,155 km). No cost exists for the whole 3,922 km route, which was assembled from roads of many periods.", "zh": "1954 年格尔木至拉萨 1283 公里公路耗资 220 万元；1974—1985 年改建该段（1155 公里）耗资 8 亿多元。全长 3922 公里的全线由不同时期的道路组成，没有总造价。" },
+      "source": "People's Weekly (人民周刊), 2019 No. 18, 18 September 2019; China Daily (cnews.chinadaily.com.cn), 行进在青藏公路上, 10 October 2014"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The 1954 road was built by the Tibet transport corps with civilian workers and army engineers, largely on 2 million yuan granted by Peng Dehuai from military funds. No route-wide funding statement exists for the later rebuilding or for the sections east of Qinghai.", "zh": "1954 年的公路由西藏运输总队会同民工和工兵修建，经费主要来自彭德怀从军费中拨付的 200 万元。此后的改建以及青海以东各段未见全线出资说明。" },
+      "source": "People's Daily (cpc.people.com.cn), “青藏公路之父”慕生忠将军的艰难“筑路”路, from 党史博采; People's Weekly, 18 September 2019"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "3,922 km", "zh": "3922 公里" },
+      "source": "Chinese Wikipedia, 109国道"
+    },
+    {
+      "label": { "en": "Golmud–Lhasa road as built, 1954", "zh": "1954 年建成的格尔木至拉萨公路" },
+      "value": { "en": "1,283 km, built 11 May – 15 December 1954, opened 25 December 1954. Xining–Lhasa was then about 2,100 km; later rebuilding shortened it to 1,948 km.", "zh": "1283 公里，1954 年 5 月 11 日动工，12 月 15 日修到拉萨，12 月 25 日通车。当时西宁至拉萨全长约 2100 公里，后经改建为 1948 公里。" },
+      "source": "People's Weekly, 18 September 2019; 西藏档案网 (Tibet Party Committee archives), 中国共产党西藏历史大事记（1954年）"
+    },
+    {
+      "label": { "en": "Permafrost on the Golmud–Lhasa road", "zh": "格尔木至拉萨段多年冻土" },
+      "value": { "en": "More than 550 km, between Xidatan and Amdo", "zh": "550 多公里，位于西大滩与安多之间" },
+      "source": "China Daily (cnews.chinadaily.com.cn), 行进在青藏公路上, 10 October 2014"
+    },
+    {
+      "label": { "en": "Shuiquan–Fanjiayao section, Gansu (70.955 km)", "zh": "甘肃水泉至范家窑段（70.955 公里）" },
+      "value": { "en": "5.279 billion yuan approved budget; four-lane class-I road, due August 2027", "zh": "概算总投资 52.79 亿元；双向四车道一级公路，预计 2027 年 8 月建成" },
+      "source": "澎湃新闻, 甘肃G109线，有最新进展！, 11 January 2024, as cited in Chinese Wikipedia, 109国道"
+    }
+  ],
+  "timeline": [
+    { "year": 1954, "en": "Work starts near Golmud on 11 May; the Qinghai–Tibet Highway opens on 25 December.", "zh": "5 月 11 日，青藏公路在格尔木附近动工；12 月 25 日通车。" },
+    { "year": 1956, "en": "The road is widened to 10 m and gravelled.", "zh": "路基拓宽至 10 米，铺简易砂石路面。" },
+    { "year": 1966, "en": "The Dongfanghong tunnel in Mentougou opens in August; the name Qinghai–Tibet Highway is applied to the road from Lanzhou to Lhasa.", "zh": "8 月，门头沟东方红隧道通车；交通部将兰州经西宁、格尔木至拉萨的公路定名为青藏公路。" },
+    { "year": 1973, "en": "Permafrost research for an asphalt road begins at Wudaoliang in May.", "zh": "5 月，在五道梁开始为铺筑沥青路开展冻土科研。" },
+    { "year": 1974, "en": "Rebuilding of the Golmud–Lhasa section begins.", "zh": "格尔木至拉萨段开始改建。" },
+    { "year": 1981, "en": "The road becomes part of the Beijing–Lhasa trunk road.", "zh": "列为北京至拉萨干线公路的一段。" },
+    { "year": 1985, "en": "The Golmud–Lhasa road is asphalted throughout.", "zh": "格尔木至拉萨段全线铺成沥青路面。" },
+    { "year": 2006, "en": "The Qinghai–Tibet Railway opens alongside the road on 1 July.", "zh": "7 月 1 日，沿公路修建的青藏铁路建成通车。" },
+    { "year": 2024, "en": "A new G109 expressway opens between Beijing's Sixth Ring Road and Lingshan on 1 July.", "zh": "7 月 1 日，国道 109 新线高速公路西六环至灵山段通车。" }
+  ]
+}

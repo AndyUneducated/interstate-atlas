@@ -1,0 +1,92 @@
+{
+  "id": "cn-g227",
+  "route": { "sys": "cn-national", "num": "G227" },
+  "name": { "en": "Zhangye–Menglian Highway", "zh": "张掖—孟连公路" },
+  "aka": [
+    { "en": "Zhangmeng line", "zh": "张孟线" },
+    { "en": "formerly the Xining–Zhangye Highway", "zh": "原西宁—张掖公路" }
+  ],
+  "tagline": { "en": "From the Hexi Corridor over the Qilian mountains, down the eastern edge of the Tibetan plateau through western Sichuan, to the Burmese border in Yunnan", "zh": "从河西走廊翻越祁连山，沿青藏高原东缘穿过川西，直到云南的中缅边境" },
+  "termini": {
+    "start": { "en": "Zhangye, Gansu", "zh": "甘肃张掖市", "at": [100.49, 38.91] },
+    "end": { "en": "Menglian county, Pu'er, Yunnan, near the Burmese border", "zh": "云南普洱市孟连县（近中缅边境）", "at": [99.58, 22.10] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G227 runs 3,745.058 km from Zhangye in the Hexi Corridor to Menglian on the Burmese border: 93 km in Gansu, 1,110 km in Qinghai, 1,468 km in Sichuan and 1,072 km in Yunnan. Until 2013 it was a short road from Xining to Zhangye across the Qilian mountains; the 2013 plan extended it south down the eastern rim of the Tibetan plateau to Menglian.",
+        "From Zhangye the road climbs over the Qilian range through Minle and Biandukou into Qinghai, crosses the Daban mountains to Xining and continues south across the plateau into western Sichuan, then descends through Muli and Daocheng to Shangri-La country in Yunnan and runs south to the border. Between Chuxiong and Mojiang it uses the old G226. The atlas draws it as one piece."
+      ],
+      "zh": [
+        "G227 自河西走廊的张掖至中缅边境的孟连，全长 3745.058 公里：甘肃 93 公里，青海 1110 公里，四川 1468 公里，云南 1072 公里。2013 年以前它只是从西宁翻越祁连山到张掖的一条短线；2013 年规划把它沿青藏高原东缘向南延伸到孟连。",
+        "道路从张掖出发，经民乐、扁都口翻越祁连山进入青海，翻过达坂山到西宁，再向南穿越高原进入川西，经木里、稻城下到云南香格里拉一带，南下抵达边境。楚雄至墨江段利用原 G226。本图集将其绘为一段。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The road's high point in Qinghai is the Daban Shan tunnel north of Xining: 1,530 m long, with its entrance at 3,792.75 m, on the boundary of permafrost in a district where winter lasts 218 days. Built from 1995 to 1999, it was then the highest road tunnel in Asia and the second highest in the world (People's Daily, 2013). A tourism site, not an official source, says it was begun on 18 August 1995 and holed through on 28 November 1998, and that it shortens the road by 5.2 km.",
+        "In Sichuan the hardest work was the Maiba section from Muli to Daocheng, 47.8 km of third-class road on cliffs where the piles had to be dug by hand. Built between 8 May 2021 and 28 June 2024, it was the last section in the upgrade of the whole route, and it shortened the journey from Muli to Shangri-La town by about 100 km and two and a half hours (Sichuan transport department)."
+      ],
+      "zh": [
+        "青海境内的制高点是西宁以北的达坂山隧道：长 1530 米，进口海拔 3792.75 米，位于多年冻土边界，当地冬季长达 218 天。隧道 1995 年至 1999 年修建，当时是亚洲海拔最高、世界第二高的公路隧道（人民网，2013 年）。一家旅游网站（非官方来源）称隧道 1995 年 8 月 18 日开工，1998 年 11 月 28 日贯通，缩短里程 5.2 公里。",
+        "四川境内最难的是木里至稻城的麦巴段：47.8 公里三级公路修在悬崖上，桩基只能人工开挖。该段 2021 年 5 月 8 日开工，2024 年 6 月 28 日建成，是全线改造的最后一段，木里到香格里拉镇的路程缩短约 100 公里、2.5 小时（四川省交通运输厅）。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The original G227 was the road from Xining to Zhangye through the Biandukou pass, one of the old routes from the Hexi Corridor to the Huangshui valley. Its worst obstacle, the Daban mountain, was tunnelled in the late 1990s, and the Daban Shan tunnel was the highest in Asia when it opened.",
+        "The 2013 plan turned the road into a 3,700 km route down the plateau's eastern edge. Since then the provinces have been building the missing links: the G0611 expressway between Biandukou and Menyuan was begun in July 2019 and partly opened on 30 June 2022, and the Maiba section in Sichuan closed the last gap in June 2024. The high Qinghai stretches still see early snow; on 10 October 2025 rain and snow affected the road between Biandukou and the Daban mountain."
+      ],
+      "zh": [
+        "最初的 G227 是西宁经扁都口至张掖的公路，是河西走廊通往湟水谷地的古道之一。最大的障碍达坂山在 20 世纪 90 年代后期被隧道穿过，达坂山隧道通车时是亚洲海拔最高的公路隧道。",
+        "2013 年规划把它变成沿高原东缘长 3700 多公里的路线。此后各省陆续修建缺失路段：扁都口至门源的 G0611 高速公路 2019 年 7 月开工，2022 年 6 月 30 日部分通车；四川麦巴段 2024 年 6 月补上了最后一个缺口。青海高海拔路段仍常早雪；2025 年 10 月 10 日，扁都口至达坂山路段出现雨雪天气。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost exists for the whole route; each section is priced separately. The Daban Shan tunnel cost 156 million yuan, 70 per cent from the Ministry of Transport and 30 per cent from Qinghai, by a tourism site that has not been checked against an official source. The Maiba section, 47.8 km, had a budget of 1.03 billion yuan and a contract price of 708 million."
+      ],
+      "zh": [
+        "全线没有总造价，各段分别计价。达坂山隧道据一家旅游网站投资 1.56 亿元，交通部出资 70％、青海省出资 30％，该数字未与官方资料核对。麦巴段 47.8 公里，概算 10.3 亿元，合同价 7.08 亿元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No cost exists for the whole route: it was extended from a short Xining–Zhangye road in 2013 and assembled from roads of many periods, each section priced separately. See the section figures below.", "zh": "全线没有总造价：路线 2013 年由西宁至张掖的短线延伸而成，由不同时期的道路组成，各段单独计价。见下方各段数字。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No route-wide funding statement exists. The only split found is for the Daban Shan tunnel: Ministry of Transport 70 per cent, Qinghai 30 per cent, from a weak source.", "zh": "未见全线出资说明。仅见达坂山隧道的出资比例：交通部 70％、青海省 30％，来源较弱。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "3,745.058 km: Gansu 93, Qinghai 1,110, Sichuan 1,468, Yunnan 1,072", "zh": "3745.058 公里：甘肃 93，青海 1110，四川 1468，云南 1072" },
+      "source": "Chinese Wikipedia, 227国道"
+    },
+    {
+      "label": { "en": "Daban Shan tunnel (1,530 m)", "zh": "达坂山隧道（1530 米）" },
+      "value": { "en": "Reported at 156 million yuan (Ministry of Transport 70%, Qinghai 30%); not checked against an official source. Entrance at 3,792.75 m.", "zh": "据报道 1.56 亿元（交通部 70％、青海 30％）；未与官方资料核对。进口海拔 3792.75 米。" },
+      "source": "Tourism site cnair (weak); journal abstract on cqvip.com for the elevation"
+    },
+    {
+      "label": { "en": "Maiba section, Muli–Daocheng (47.8 km)", "zh": "木里至稻城麦巴段（47.8 公里）" },
+      "value": { "en": "1.03 billion yuan budget; 708 million contract; built 8 May 2021 – 28 June 2024", "zh": "概算 10.3 亿元；合同价 7.08 亿元；2021 年 5 月 8 日至 2024 年 6 月 28 日" },
+      "source": "Sichuan Provincial Department of Transport, 19 June 2024; 四川在线"
+    }
+  ],
+  "timeline": [
+    { "year": 1995, "en": "Work begins on the Daban Shan tunnel.", "zh": "达坂山隧道开工。" },
+    { "year": 1999, "en": "The Daban Shan tunnel opens, then the highest road tunnel in Asia.", "zh": "达坂山隧道通车，当时为亚洲海拔最高的公路隧道。" },
+    { "year": 2013, "en": "The national road plan extends G227 from Xining south to Menglian.", "zh": "国道网规划把 G227 由西宁向南延伸到孟连。" },
+    { "year": 2019, "en": "Work begins on the Biandukou–Menyuan expressway in July.", "zh": "7 月，扁都口至门源高速公路开工。" },
+    { "year": 2021, "en": "Work begins on the Maiba section in Sichuan on 8 May.", "zh": "5 月 8 日，四川麦巴段开工。" },
+    { "year": 2022, "en": "Part of the Biandukou–Menyuan expressway opens on 30 June.", "zh": "6 月 30 日，扁都口至门源高速公路部分路段通车。" },
+    { "year": 2024, "en": "The Maiba section is completed on 28 June, the last of the route's upgrades.", "zh": "6 月 28 日，麦巴段建成，为全线改造的最后一段。" }
+  ]
+}

@@ -17,7 +17,7 @@
       ],
       "zh": [
         "20 号高速公路沿圣劳伦斯河南岸自安大略省界通往下游河段，是蒙特利尔本地路网之外魁北克最繁忙的道路。它穿过 67 个市镇，大部分路段承载横加公路的指定，并与北岸的 40 号高速公路一道，承担了蒙特利尔与魁北克城之间几乎全部的公路交通。",
-        "它同时拥有三个官方名称，均由 Commission de toponymie（地名委员会）颁定。主体路段名为 Autoroute Jean-Lesage（让·勒萨日高速公路），纪念魁北克第十九任省长、「宁静革命」的缔造者。自 Rivière-Beaudette 至蒙特利尔 Turcot 立交的一段名为 Autoroute du Souvenir（纪念高速公路），命名于第二次世界大战结束六十周年之际，纪念阵亡者。在尚普兰桥以北，它又与 Autoroute René-Lévesque（勒内·勒维克高速公路）重合。",
+        "它同时拥有三个官方名称，均由 Commission de toponymie（地名委员会）颁定。主体路段名为 Autoroute Jean-Lesage（让·勒萨日高速公路），纪念魁北克第十九任省长、“宁静革命”的缔造者。自 Rivière-Beaudette 至蒙特利尔 Turcot 立交的一段名为 Autoroute du Souvenir（纪念高速公路），命名于第二次世界大战结束六十周年之际，纪念阵亡者。在尚普兰桥以北，它又与 Autoroute René-Lévesque（勒内·勒维克高速公路）重合。",
         "地名委员会的记录明确写道，这条高速公路由两段彼此分开的路身构成。主段止于 Notre-Dame-des-Neiges；第二段在约一百公里之外的 Rimouski 与 Mont-Joli 之间重新开始。中间的缺口从未按高速公路标准建成，其交通由 132 号公路承担。"
       ]
     },
@@ -38,7 +38,7 @@
   "figures": [
     {
       "label": { "en": "Official length", "zh": "官方里程" },
-      "value": { "en": "A little over 450 km from Longueuil to Notre-Dame-des-Neiges, plus about 45 km from Rimouski to Mont-Joli, as the Commission de toponymie describes the two sections. Quebec's transport ministry publishes no consolidated route total.", "zh": "按地名委员会对两段路身的描述：自 Longueuil 至 Notre-Dame-des-Neiges「四百五十余公里」，另有 Rimouski 至 Mont-Joli「约 45 公里」。魁北克交通部未公布全线合计里程。" },
+      "value": { "en": "A little over 450 km from Longueuil to Notre-Dame-des-Neiges, plus about 45 km from Rimouski to Mont-Joli, as the Commission de toponymie describes the two sections. Quebec's transport ministry publishes no consolidated route total.", "zh": "按地名委员会对两段路身的描述：自 Longueuil 至 Notre-Dame-des-Neiges“四百五十余公里”，另有 Rimouski 至 Mont-Joli“约 45 公里”。魁北克交通部未公布全线合计里程。" },
       "source": "Commission de toponymie du Québec, fiche “Autoroute Jean-Lesage”, updated 7 October 2020"
     },
     {

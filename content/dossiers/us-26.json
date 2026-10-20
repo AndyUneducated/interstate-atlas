@@ -1,0 +1,91 @@
+{
+  "id": "us-26",
+  "name": { "en": "U.S. Route 26", "zh": "26 号美国国道" },
+  "aka": [
+    { "en": "Sunset Highway (Oregon coast to Portland)", "zh": "日落公路（俄勒冈海岸至波特兰）" },
+    { "en": "Mount Hood Highway", "zh": "胡德山公路" }
+  ],
+  "tagline": { "en": "A Nebraska road that grew west along the Oregon Trail country to the Pacific, and whose cancelled Portland freeway paid for light rail", "zh": "一条起于内布拉斯加的公路，沿俄勒冈小道一带向西延伸到太平洋；它在波特兰被取消的高速公路，资金转而建了轻轨" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "US 101 at Cannon Beach Junction, south of Seaside, Oregon", "zh": "俄勒冈州锡赛德以南的坎农海滩交会处，与 US 101 相接", "at": [-123.93, 45.90] },
+    "end": { "en": "I-80 at Ogallala, Nebraska", "zh": "内布拉斯加州奥加拉拉，与 I-80 相接", "at": [-101.72, 41.12] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 26 crosses four states from the Oregon coast to the Nebraska plains. In Oregon it is the Sunset Highway through the Coast Range to Portland, entering the city through the Vista Ridge Tunnels, then a city street on Powell Boulevard and the Mount Hood Highway past Government Camp on the mountain's south slope. East of the Cascades it runs through Warm Springs, Madras and Prineville and across the Blue Mountains by Picture Gorge and John Day to Vale.",
+        "In Idaho it shares I-84 and US 20 past Boise, then crosses the Snake River Plain by Craters of the Moon, Arco and Blackfoot to Idaho Falls. In Wyoming it enters at Alpine, runs through Jackson and Grand Teton National Park to Moran, crosses Togwotee Pass to Dubois and Riverton, and follows the North Platte valley from Casper by Guernsey, Fort Laramie and Torrington into Nebraska. The last stretch passes Scottsbluff and Chimney Rock, landmarks of the Oregon Trail, before ending at Ogallala."
+      ],
+      "zh": [
+        "US 26 自俄勒冈海岸至内布拉斯加平原，穿越四个州。在俄勒冈，它以日落公路之名穿过海岸山脉到达波特兰，经维斯塔岭隧道入城，随后成为鲍威尔大道这条城市街道，再以胡德山公路之名经过山南坡的政府营。喀斯喀特山脉以东，它经沃姆斯普林斯、马德拉斯与普赖恩维尔，经图画峡与约翰戴翻越蓝山，抵达韦尔。",
+        "在爱达荷，它在博伊西一带与 I-84 及 US 20 共线，然后经月球环形山、阿科与布莱克富特横穿斯内克河平原，到达爱达荷福尔斯。在怀俄明，它自阿尔派恩入境，经杰克逊与大提顿国家公园到莫兰，翻越托戈蒂山口至杜波依斯与里弗顿，再自卡斯珀沿北普拉特河谷经格恩西、拉勒米堡与托灵顿进入内布拉斯加。最后一段经过俄勒冈小道上的地标斯科茨布拉夫与烟囱岩，在奥加拉拉结束。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The US 26 of 1926 was short: from Ogallala, Nebraska, to Dwyer Junction near Guernsey, Wyoming. In 1949 it was extended west across Wyoming to Alpine, more than 400 miles of new designation of which only 58 miles were not already on other US routes, then in 1950 to Idaho Falls, and in 1951 to Astoria, Oregon, by way of Portland and the Sunset Highway.",
+        "The western end has since been shortened. US 26 used to follow US 101 north from Cannon Beach Junction to Astoria; the dates of the cut-back differ between sources, with English Wikipedia giving both 1952 and 2003 or 2004 in different places and US Ends giving 2003."
+      ],
+      "zh": [
+        "1926 年的 US 26 很短：自内布拉斯加州奥加拉拉至怀俄明州格恩西附近的德怀尔交会处。1949 年它向西横贯怀俄明延伸至阿尔派恩，新编号的路段超过 400 英里，其中只有 58 英里原先不在其他美国国道上；1950 年延伸至爱达荷福尔斯，1951 年经波特兰与日落公路延伸至俄勒冈州阿斯托里亚。",
+        "西端此后被缩短。US 26 原先自坎农海滩交会处沿 US 101 北上至阿斯托里亚；截短的年份各方说法不一，英文维基百科在不同处分别给出 1952 年和 2003 或 2004 年，US Ends 则记为 2003 年。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "US 26's most consequential money story is a road that was not built. The Mount Hood Freeway, planned from 1955, would have carried the route east from the Marquam Bridge through south-east Portland to about SE 122nd Avenue. In 1969 it was added to the Interstate system as part of I-80N, which made it eligible for 92% federal funding, at an estimated $75 million.",
+        "By the summer of 1969 the highway department expected the freeway to displace 5,520 people, and opposition grew. Federal judge James Burns ruled that the route had been selected illegally — in February 1974 according to the Oregon Encyclopedia, on 24 May 1974 according to his own later opinion — and Multnomah County and then, in July 1974, Portland withdrew their support. Under the 1973 Federal-Aid Highway Act, about $180 million was exchanged in 1976 for transit and other projects, among them the Banfield light rail line, which opened in September 1986 as the first MAX line."
+      ],
+      "zh": [
+        "US 26 最有影响的一笔钱，属于一条没有建成的路。胡德山高速公路自 1955 年开始规划，原计划把这条路线自马夸姆大桥向东穿过波特兰东南部，通到东南第 122 大道附近。1969 年，它作为 I-80N 的一部分纳入州际公路系统，从而可获得 92% 的联邦资金，估价 7,500 万美元。",
+        "到 1969 年夏，公路部门预计这条高速公路将迫使 5,520 人搬迁，反对声日益高涨。联邦法官詹姆斯·伯恩斯裁定线位选定程序违法——据《俄勒冈百科》是在 1974 年 2 月，据他本人后来的判决书则是 1974 年 5 月 24 日；摩特诺玛县以及随后在 1974 年 7 月的波特兰市先后撤回支持。依据 1973 年《联邦补助公路法》，1976 年约 1.8 亿美元被转用于公共交通及其他项目，其中包括班菲尔德轻轨线——它于 1986 年 9 月通车，成为第一条 MAX 线路。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure exists. US 26 was assembled from existing state highways between 1926 and 1951 and has been improved section by section by four states.", "zh": "没有全线造价。US 26 于 1926 至 1951 年间由既有州道拼接而成，此后由四个州分段改善。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "There is no single funder. Each state pays for its sections with state and federal-aid money; the cancelled Mount Hood Freeway would have been 92% federally funded as an Interstate.", "zh": "没有单一出资方。各州以州资金与联邦补助负担各自路段；被取消的胡德山高速公路若作为州际公路建成，可获得 92% 的联邦资金。" }
+    },
+    {
+      "label": { "en": "Mount Hood Freeway (cancelled)", "zh": "胡德山高速公路（已取消）" },
+      "value": { "en": "Estimated at $75 million in 1969, with 92% federal funding; about $180 million exchanged for transit and other projects in 1976", "zh": "1969 年估价 7,500 万美元，联邦资金占 92%；1976 年约 1.8 亿美元转用于公共交通及其他项目" },
+      "source": "Oregon Encyclopedia, Mount Hood Freeway; displacement estimate from Val C. Ballestrem, “In the Shadow of a Concrete Forest”, Portland State University thesis, 2009; ruling date from Southeast Legal Defense Group v. Adams (D. Or. 1977)"
+    },
+    {
+      "label": { "en": "Portland highway projects dropped", "zh": "波特兰放弃的公路项目" },
+      "value": { "en": "54 highway projects worth $2 billion in 1969 dollars rejected in the 1975 Interim Transportation Plan", "zh": "1975 年《过渡交通规划》否决了 54 个公路项目，总值 20 亿美元（按 1969 年币值）" },
+      "source": "TriMet, history of the Eastside MAX Blue Line"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "Reported at 1,526 miles from the state subtotals in AASHTO's 1989 route log, and measured at 1,498.3 miles by US Ends; both as given by US Ends and not checked against the 1989 log itself", "zh": "据报按 AASHTO 1989 年路线里程表各州分项合计为 1,526 英里，US Ends 实测为 1,498.3 英里；两数均出自 US Ends，未与 1989 年里程表原件核对" },
+      "source": "US Ends (usends.com), US 26"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Four state agencies count their own sections and publish no combined figure for US 26.", "zh": "四个州的机构各自统计本州路段，并无 US 26 的全线合并数字发布。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 26 is numbered from Ogallala, Nebraska, to Dwyer Junction near Guernsey, Wyoming.", "zh": "US 26 编定，自内布拉斯加州奥加拉拉至怀俄明州格恩西附近的德怀尔交会处。" },
+    { "year": 1949, "en": "The route is extended west across Wyoming to Alpine.", "zh": "路线向西横贯怀俄明延伸至阿尔派恩。" },
+    { "year": 1950, "en": "It is extended to Idaho Falls.", "zh": "延伸至爱达荷福尔斯。" },
+    { "year": 1951, "en": "It is extended through Portland to Astoria, Oregon.", "zh": "经波特兰延伸至俄勒冈州阿斯托里亚。" },
+    { "year": 1969, "en": "The planned Mount Hood Freeway in Portland is made part of I-80N.", "zh": "波特兰规划中的胡德山高速公路被划为 I-80N 的一部分。" },
+    { "year": 1974, "en": "A court rules the freeway's route selection illegal, and Portland withdraws its support in July.", "zh": "法院裁定高速公路线位选定违法；7 月，波特兰撤回支持。" },
+    { "year": 1976, "en": "About $180 million of Interstate money is exchanged for transit and other projects.", "zh": "约 1.8 亿美元州际公路资金被转用于公共交通及其他项目。" },
+    { "year": 1986, "en": "The first MAX light rail line, from Portland to Gresham, opens in September.", "zh": "9 月，第一条 MAX 轻轨线（波特兰至格雷舍姆）通车。" },
+    { "year": 2003, "en": "US Ends dates the cut-back of the western end from Astoria to Cannon Beach Junction to this year.", "zh": "据 US Ends，西端于这一年自阿斯托里亚缩回坎农海滩交会处。" }
+  ]
+}

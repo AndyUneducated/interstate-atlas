@@ -1,0 +1,89 @@
+{
+  "id": "cn-g2502",
+  "route": { "sys": "cn-expressway", "num": "G2502" },
+  "name": { "en": "Tianjin Ring Expressway", "zh": "天津绕城高速公路" },
+  "aka": [
+    { "en": "G2501 (number until 2017)", "zh": "G2501（2017 年以前的编号）" },
+    { "en": "Binbao Expressway (the part signed G2502)", "zh": "滨保高速公路（实际挂 G2502 编号的部分）" }
+  ],
+  "tagline": { "en": "A ring of about 254 km round Tianjin, pieced together from four expressways, of which only the Binbao line in the north actually carries the number", "zh": "环绕天津约 254 公里的环线，由四条高速公路拼成，其中只有北面的滨保高速真正挂着这个编号" },
+  "termini": {
+    "start": { "at": [116.93, 39.27], "en": "On the Beijing–Shanghai expressway in Wuqing district, where the page's drawing begins; the ring itself is reckoned to meet G2 at Shigezhuang, further north", "zh": "武清区京沪高速上，即页面线形的起点；按环线组成，它与 G2 相接于更北的石各庄" },
+    "end": { "en": "Hangu North, Binhai New Area, where the Binbao and Changshen (former Tangjin) expressways meet; the page's line ends on a short piece in Hebei", "zh": "滨海新区汉沽北，滨保高速与长深高速（原唐津高速）在此相接；页面线形止于河北境内的一小段" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G2502 is Tianjin's outer ring, a loop of about 254 km round the city and the Binhai New Area. Almost none of it was built as a ring. It is made up of the Binbao (Binhai–Baoding) expressway from Hangu North west to Shigezhuang, 82 km; the Beijing–Shanghai expressway, G2, south from Shigezhuang to Huxinzhuang, 57 km; the Jinshi expressway east from Huxinzhuang to Tuanbo South, 27 km; and the Changshen expressway, formerly the Tangjin, north-east from Tuanbo South back to Hangu North, 88 km.",
+        "Only the Binbao part is signed G2502. The rest keeps the numbers of the lines it borrows, so drivers see G2, G25 and others along most of the loop. The page's line follows a different reading of the route, from G2 in Wuqing south to Jinghai and east towards the coast, with a piece in Hebei; treat the drawing as approximate."
+      ],
+      "zh": [
+        "G2502 是天津的外环，环绕市区和滨海新区约 254 公里。它几乎没有一段是作为环线修建的，而是由以下几段组成：滨保高速（滨海—保定）汉沽北至石各庄段，82 公里；京沪高速 G2 石各庄至胡辛庄段，57 公里；津石高速胡辛庄至团泊南段，27 公里；以及长深高速（原唐津高速）团泊南至汉沽北段，88 公里。",
+        "实际挂 G2502 编号的只有滨保高速部分。其余路段沿用所借线路的编号，所以沿环线大部分地段，驾驶者看到的是 G2、G25 等编号。页面线形依据的是另一种走向：自武清京沪高速向南至静海，再向东往海边，另有河北境内的一段；线形仅供参考。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The Binbao crosses the north of Tianjin from east to west on flat coastal plain, through Hangu, Ninghe, Beichen and Wuqing. It was built to two widths: six lanes on a 34.5-metre roadbed for the 51 km from the Tangjin expressway to the Beijing–Tianjin expressway, and eight lanes on 42 metres for the 30.6 km on to G2. It is fully controlled-access, for 120 km/h. The last piece, Hangu North–Dashentang, runs across the Hangu salt works."
+      ],
+      "zh": [
+        "滨保高速自东向西横贯天津北部的滨海平原，穿越汉沽、宁河、北辰、武清。它采用两种断面：唐津高速至京津高速段 51 公里为双向六车道，路基宽 34.5 米；京津高速至京沪高速段 30.6 公里为双向八车道，路基宽 42 米。全线全封闭、全立交，设计时速 120 公里。最后建成的汉沽北至大神堂段位于汉沽盐场范围内。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Most of the ring was there before it had a number. The Binbao expressway, the one piece that is G2502 in its own right, was built in stages: 81.6 km of its Tianjin section opened at the end of 2010; the 5.9 km from Shigezhuang west to the Hebei border followed in 2014; and the 11.9 km from Hangu North to Dashentang opened on 1 January 2017. By 2012 the city government reported that the Tianjin ring expressway had been formed, at 254 km.",
+        "Work on the Binbao, then called the eastern Tianjin section of the G112 expressway, began in 2007. In November 2009, by an encyclopedia account, Tianjin's expressway names and numbers were approved: the ring became G2501 and the G112 expressway was renamed the Binbao, with the new signs up by July 2010. The 2017 revision of the national standard for route numbering, GB/T 917-2017, renumbered it G2502."
+      ],
+      "zh": [
+        "这条环线的大部分在有编号之前就已存在。滨保高速是唯一真正属于 G2502 的部分，分期建成：天津段 81.6 公里于 2010 年底通车；石各庄向西至津冀界的 5.9 公里于 2014 年通车；汉沽北至大神堂的 11.9 公里于 2017 年 1 月 1 日通车。到 2012 年，官方报道称天津绕城高速公路已经形成，全长 254 公里。",
+        "滨保高速当时称国道 112 线高速公路天津东段，2007 年开工。据百科资料，2009 年 11 月天津高速公路命名编号获批：绕城高速编为 G2501，国道 112 线高速公路更名为滨保高速公路，路牌更换延至次年 7 月完成。2017 年修订的公路路线标识规则国家标准 GB/T 917-2017 将其改编为 G2502。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "There is no published cost for the ring as a whole, because it was never built as one project: three of its four parts are sections of other national expressways, each costed separately, and a reliable published cost for the Binbao expressway has not been found."
+      ],
+      "zh": [
+        "这条环线没有公开的总造价，因为它从未作为一个项目修建：四段中有三段属于其他国家高速公路，各自核算；滨保高速可靠的公开造价也未查到。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure is published. The ring is made up of sections of four expressways — the Binbao, G2 Beijing–Shanghai, the Jinshi and G25 Changshen (former Tangjin) — each costed on its own, and no reliable published figure for the Binbao section was found.", "zh": "未公布全线总造价。环线由滨保高速、G2 京沪高速、津石高速和 G25 长深高速（原唐津高速）四段组成，各自核算；滨保高速段未找到可靠的公开造价。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "Each of the four borrowed expressways was financed as its own project; no source was found on who paid for the Binbao expressway, the part signed G2502.", "zh": "四段所借高速公路各自作为独立项目融资；实际挂 G2502 编号的滨保高速由谁出资，未查到来源。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "254 km (Binbao 82 km, G2 57 km, Jinshi 27 km, former Tangjin 88 km)", "zh": "254 公里（滨保 82 公里、京沪 57 公里、津石 27 公里、原唐津 88 公里）" },
+      "source": "China Economic Net, 28 November 2012 (total); Enorth, reply to readers, 2011 (composition)"
+    },
+    {
+      "label": { "en": "Binbao expressway, Tianjin section", "zh": "滨保高速天津段" },
+      "value": { "en": "81.6 km opened at the end of 2010; 5.9 km Shigezhuang–Hebei border in 2014; 11.9 km Hangu North–Dashentang on 1 January 2017", "zh": "81.6 公里于 2010 年底通车；石各庄至津冀界 5.9 公里于 2014 年通车；汉沽北至大神堂 11.9 公里于 2017 年 1 月 1 日通车" },
+      "source": "China Economic Net, 30 January 2011; China National Radio, 1 January 2017"
+    },
+    {
+      "label": { "en": "Toll at the Binbao's opening (2011)", "zh": "滨保高速通车时收费（2011）" },
+      "value": { "en": "0.55 yuan per km for a class I passenger car; lorries charged by weight", "zh": "Ⅰ型小客车每公里 0.55 元；货车计重收费" },
+      "source": "China Economic Net, 30 January 2011"
+    }
+  ],
+  "timeline": [
+    { "year": 2007, "en": "Work begins on the eastern Tianjin section of the G112 expressway, later named the Binbao.", "zh": "国道 112 线高速公路天津东段（后称滨保高速）开工。" },
+    { "year": 2009, "en": "Tianjin's expressway naming is approved and the ring is numbered G2501; the G112 expressway is renamed the Binbao.", "zh": "天津高速公路命名编号获批，绕城高速编为 G2501；国道 112 线高速公路更名为滨保高速公路。" },
+    { "year": 2010, "en": "81.6 km of the Binbao expressway in Tianjin opens at the end of the year.", "zh": "年底，滨保高速天津段 81.6 公里通车。" },
+    { "year": 2012, "en": "The Tianjin ring expressway is reported as formed, at 254 km.", "zh": "官方报道称天津绕城高速公路已经形成，全长 254 公里。" },
+    { "year": 2014, "en": "The Binbao expressway's 5.9 km from Shigezhuang to the Hebei border opens.", "zh": "滨保高速石各庄至津冀界 5.9 公里通车。" },
+    { "year": 2017, "en": "Hangu North–Dashentang opens on 1 January; GB/T 917-2017 renumbers the ring from G2501 to G2502.", "zh": "1 月 1 日，汉沽北至大神堂段通车；GB/T 917-2017 将环线编号由 G2501 改为 G2502。" }
+  ]
+}

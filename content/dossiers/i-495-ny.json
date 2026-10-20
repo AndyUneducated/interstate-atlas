@@ -18,7 +18,7 @@
       ],
       "zh": [
         "长岛快速路的起点是皇后区—中城隧道的曼哈顿一侧洞口，穿过东河后一路向东，贯穿整个长岛：横过皇后区，穿越拿骚县，再经萨福克县抵达里弗黑德，在那里接上一条县道便结束。它的编号用的是偶数百位，按惯例应当表示一条离开母线后再回到 I-95 的环线。但它不是。它一去不返，是全系统中编号惯例只剩下名义的最清楚的例子之一。",
-        "它在大部分路段都是服务长岛中脊的唯一一条全封闭道路，问题正出在这里。没有平行的高速可以分流，西端的过河通道又是开车离开长岛的唯一出口，交通量数据说明了一切：2023 年 33 号与 34 号出口之间的日均交通量为 184,984 辆。至迟从 1963 年起，司机们就把它叫作「世界上最长的停车场」。"
+        "它在大部分路段都是服务长岛中脊的唯一一条全封闭道路，问题正出在这里。没有平行的高速可以分流，西端的过河通道又是开车离开长岛的唯一出口，交通量数据说明了一切：2023 年 33 号与 34 号出口之间的日均交通量为 184,984 辆。至迟从 1963 年起，司机们就把它叫作“世界上最长的停车场”。"
       ]
     },
     {
@@ -39,8 +39,8 @@
         "The modern counts are steadier than the reputation suggests. Between exits 33 and 34, the busiest point measured on Long Island, the daily average was 184,984 vehicles in 2023, up 2.6 per cent on 2022 and almost exactly back to the 185,670 recorded in 2019 before the pandemic. The road is full, in other words, in the specific sense that it has been at about the same very high number for years: demand is limited by the capacity of the pavement rather than the other way round."
       ],
       "zh": [
-        "这条快速路在建成之前就已经堵了。1963 年 8 月，《纽约时报》写道，这条不到十年前还被当作战后交通问题「药方」的公路，如今已经「成了病症本身的一部分」——而当时拿骚县以东还有将近一半没有修。那个绰号也出自同一时期，此后再没摘掉。",
-        "今天的交通量数据比它的名声要平稳。33 号与 34 号出口之间是长岛上实测最繁忙的点位，2023 年日均 184,984 辆，比 2022 年上升 2.6%，几乎正好回到疫情前 2019 年的 185,670 辆。换句话说，这条路的「满」有一层具体含义：多年来它一直停在差不多同一个很高的数字上，是路面通行能力限制了需求，而不是反过来。"
+        "这条快速路在建成之前就已经堵了。1963 年 8 月，《纽约时报》写道，这条不到十年前还被当作战后交通问题“药方”的公路，如今已经“成了病症本身的一部分”——而当时拿骚县以东还有将近一半没有修。那个绰号也出自同一时期，此后再没摘掉。",
+        "今天的交通量数据比它的名声要平稳。33 号与 34 号出口之间是长岛上实测最繁忙的点位，2023 年日均 184,984 辆，比 2022 年上升 2.6%，几乎正好回到疫情前 2019 年的 185,670 辆。换句话说，这条路的“满”有一层具体含义：多年来它一直停在差不多同一个很高的数字上，是路面通行能力限制了需求，而不是反过来。"
       ]
     }
   ],
@@ -70,7 +70,7 @@
   "timeline": [
     { "year": 1940, "en": "The Queens–Midtown Tunnel opens, the first piece of what becomes I-495.", "zh": "皇后区—中城隧道通车，成为日后 I-495 的第一段。" },
     { "year": 1958, "en": "The first section on Long Island proper opens in Nassau County.", "zh": "长岛本岛上的第一段在拿骚县通车。" },
-    { "year": 1963, "en": "With the eastern half still unbuilt, the press is already calling the expressway the world's longest parking lot.", "zh": "东半段尚未修建，媒体已称这条快速路为「世界上最长的停车场」。" },
+    { "year": 1963, "en": "With the eastern half still unbuilt, the press is already calling the expressway the world's longest parking lot.", "zh": "东半段尚未修建，媒体已称这条快速路为“世界上最长的停车场”。" },
     { "year": 1972, "en": "The final 2.1 miles to Riverhead open, ending thirty-two years of construction.", "zh": "通往里弗黑德的最后 2.1 英里通车，三十二年的工程结束。" }
   ]
 }

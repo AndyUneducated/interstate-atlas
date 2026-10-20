@@ -1,0 +1,96 @@
+{
+  "id": "us-24",
+  "name": { "en": "U.S. Route 24", "zh": "24 号美国国道" },
+  "aka": [
+    { "en": "Telegraph Road (Toledo to Pontiac)", "zh": "电报路（托莱多至庞蒂亚克）" },
+    { "en": "Fort to Port (Fort Wayne to Toledo)", "zh": "“要塞到港口”（韦恩堡至托莱多）" },
+    { "en": "Hoosier Heartland Industrial Corridor (Indiana, in part)", "zh": "胡西尔腹地工业走廊（印第安纳，部分）" }
+  ],
+  "tagline": { "en": "A Midwestern road from the Colorado Rockies to the Detroit suburbs, whose newest freeway links Fort Wayne with the port of Toledo", "zh": "一条从科罗拉多落基山通往底特律郊区的中西部公路，最新建成的高速段把韦恩堡与托莱多港连在一起" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "I-70 exit 171 near Minturn, Colorado", "zh": "科罗拉多州明特恩附近，I-70 第 171 号出口", "at": [-106.43, 39.60] },
+    "end": { "en": "I-75 in Independence Township, north of Pontiac, Michigan", "zh": "密歇根州庞蒂亚克以北的独立镇区，与 I-75 相接", "at": [-83.45, 42.74] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 24 begins in the mountains: from I-70 near Minturn it climbs to the Continental Divide at Tennessee Pass, runs south to Johnson Village, crosses Trout Creek Pass with US 285 and continues east past Pikes Peak to Colorado Springs. From there it heads north-east across the plains to Limon and follows I-70 into Kansas, then crosses the north of the state through Colby, Hill City, Manhattan, Topeka and Lawrence to Kansas City.",
+        "East of Kansas City it runs across northern Missouri through Lexington, Carrollton and Moberly, crosses the Mississippi into Illinois at Quincy, and bypasses Peoria. In Indiana it serves Logansport and Huntington, and from Fort Wayne it is a four-lane highway, mostly to Interstate standards, along the Maumee by Defiance and Napoleon to Toledo. In Michigan it is Telegraph Road, a wide suburban arterial through Monroe and the western edge of Detroit to Pontiac."
+      ],
+      "zh": [
+        "US 24 起于山区：自明特恩附近的 I-70 出发，爬升至田纳西山口的大陆分水岭，南下至约翰逊村，与 US 285 一同越过特劳特溪山口，再向东经派克斯峰抵达科罗拉多斯普林斯。随后它向东北横穿平原至莱蒙，随 I-70 进入堪萨斯，再经科尔比、希尔城、曼哈顿、托皮卡与劳伦斯横贯该州北部，到达堪萨斯城。",
+        "堪萨斯城以东，它经列克星敦、卡罗尔顿与莫伯利横穿密苏里北部，在昆西跨越密西西比河进入伊利诺伊，并绕过皮奥里亚。在印第安纳，它服务洛根斯波特与亨廷顿；自韦恩堡起，它是一条大部分按州际公路标准修建的四车道公路，沿莫米河经迪法恩斯与拿破仑通往托莱多。在密歇根，它就是电报路，一条宽阔的郊区干道，经门罗与底特律西缘通往庞蒂亚克。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The US 24 of 1926 ran from Kansas City to Pontiac. In 1936 it was extended west over the former US 40N and US 40S into Colorado, where US 40S had begun at Grand Junction; the stretch from Grand Junction to Minturn, along today's I-70 corridor, was dropped in 1975.",
+        "Telegraph Road, which carries it from Toledo to Pontiac, was widened to six and eight lanes between 1960 and 1963, and English Wikipedia records it among the early roads to use the Michigan left, in which left turns are made by U-turning through the median. In Kansas City, Kansas, the route was moved on 1 December 2008, and Missouri moved it off Independence Avenue in 2021."
+      ],
+      "zh": [
+        "1926 年的 US 24 自堪萨斯城通到庞蒂亚克。1936 年，它沿原 US 40N 与 US 40S 向西延伸进入科罗拉多，而 US 40S 原本起于大章克申；大章克申至明特恩一段沿今日 I-70 走廊而行，于 1975 年撤销。",
+        "托莱多至庞蒂亚克间的电报路于 1960 至 1963 年间拓宽为六至八车道；据英文维基百科记载，它是较早采用“密歇根左转”的道路之一，即左转车辆经中央分隔带掉头完成转向。在堪萨斯州堪萨斯城，路线于 2008 年 12 月 1 日改线；密苏里则于 2021 年把它移出独立大道。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The biggest project on US 24 this century is Fort to Port, which replaced the two-lane road between Fort Wayne and Toledo with a four-lane divided highway. Ohio began building in 2006 near Defiance, where the first contract, worth $37.0 million, went to E.S. Wagner. The last Ohio section, between Napoleon and the Maumee and Waterville area, opened on 29 August 2012, and Indiana's 11.2 miles to the state line opened on 14 November 2012.",
+        "Ohio's part cost about $400 million and Indiana's $93 million; Indiana's came from Major Moves, the state programme funded by leasing the Indiana Toll Road. The final 6.5 miles of the Ohio work, from Napoleon eastward, cost $64 million."
+      ],
+      "zh": [
+        "本世纪 US 24 上最大的工程是“要塞到港口”项目，它把韦恩堡至托莱多间的双车道公路改建为四车道分隔式公路。俄亥俄于 2006 年在迪法恩斯附近开工，首份合同价值 3,700 万美元，由 E.S. Wagner 公司承建。俄亥俄最后一段——拿破仑至莫米与沃特维尔一带——于 2012 年 8 月 29 日通车；印第安纳通往州界的 11.2 英里于 2012 年 11 月 14 日通车。",
+        "俄亥俄部分耗资约 4 亿美元，印第安纳部分 9,300 万美元；后者来自“大举措”计划，即以出租印第安纳收费公路所得资金支持的州计划。俄亥俄工程中自拿破仑向东的最后 6.5 英里耗资 6,400 万美元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure exists. US 24 was numbered over existing roads in 1926 and 1936 and has been rebuilt piecemeal by seven states; only projects such as Fort to Port carry their own costs.", "zh": "没有全线造价。US 24 于 1926 年与 1936 年沿既有道路编号，此后由七个州分段改建；只有“要塞到港口”之类的项目留有各自的造价。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "There is no single funder. Each state pays for its sections; on Fort to Port, Indiana's share came from Major Moves.", "zh": "没有单一出资方。各州负担各自路段；在“要塞到港口”项目中，印第安纳的份额来自“大举措”计划。" }
+    },
+    {
+      "label": { "en": "Fort to Port, Ohio", "zh": "“要塞到港口”俄亥俄段" },
+      "value": { "en": "About $400 million, 2006 to 2012", "zh": "约 4 亿美元，2006 至 2012 年" },
+      "source": "The Crescent-News (Defiance), 2012; Sentinel-Tribune (Bowling Green), 2012"
+    },
+    {
+      "label": { "en": "Fort to Port, Indiana", "zh": "“要塞到港口”印第安纳段" },
+      "value": { "en": "$93 million for 11.2 miles, funded by Major Moves, opened 14 November 2012", "zh": "11.2 英里，9,300 万美元，由“大举措”计划出资，2012 年 11 月 14 日通车" },
+      "source": "INDOT newsletter, November 2012"
+    },
+    {
+      "label": { "en": "Fort to Port, final Ohio section", "zh": "“要塞到港口”俄亥俄最后一段" },
+      "value": { "en": "$64 million for 6.5 miles east of Napoleon", "zh": "拿破仑以东 6.5 英里，6,400 万美元" },
+      "source": "Mosser Construction, US 24 project page"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "1,563.82 miles, the sum of the seven state route logs", "zh": "1,563.82 英里，为七个州路线里程表之和" },
+      "source": "as cited in English Wikipedia, U.S. Route 24 (CDOT, KDOT, MoDOT, IDOT, INDOT, ODOT and MDOT logs)"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Seven state agencies count their own sections and publish no combined figure for US 24.", "zh": "七个州的机构各自统计本州路段，并无 US 24 的全线合并数字发布。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 24 is numbered from Kansas City to Pontiac, Michigan.", "zh": "US 24 编定，自堪萨斯城至密歇根州庞蒂亚克。" },
+    { "year": 1936, "en": "The route is extended west into Colorado over the former US 40N and US 40S.", "zh": "路线沿原 US 40N 与 US 40S 向西延伸进入科罗拉多。" },
+    { "year": 1960, "en": "Widening of Telegraph Road in Michigan to six and eight lanes begins; it is finished in 1963.", "zh": "密歇根电报路开始拓宽为六至八车道，1963 年完工。" },
+    { "year": 1975, "en": "The section from Grand Junction to Minturn is dropped, leaving the western end at I-70 near Minturn.", "zh": "大章克申至明特恩段撤销，西端留在明特恩附近的 I-70。" },
+    { "year": 2006, "en": "Ohio begins building the Fort to Port four-lane highway near Defiance.", "zh": "俄亥俄在迪法恩斯附近开工修建“要塞到港口”四车道公路。" },
+    { "year": 2008, "en": "US 24 is rerouted in Kansas City, Kansas, on 1 December.", "zh": "12 月 1 日，US 24 在堪萨斯州堪萨斯城改线。" },
+    { "year": 2012, "en": "The last Ohio section of Fort to Port opens on 29 August and the Indiana section on 14 November.", "zh": "8 月 29 日“要塞到港口”俄亥俄最后一段通车，11 月 14 日印第安纳段通车。" },
+    { "year": 2021, "en": "Missouri moves US 24 off Independence Avenue in Kansas City.", "zh": "密苏里把 US 24 移出堪萨斯城的独立大道。" }
+  ]
+}

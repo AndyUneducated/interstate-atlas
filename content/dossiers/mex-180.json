@@ -1,0 +1,95 @@
+{
+  "id": "mex-180",
+  "route": { "sys": "mx-federal", "num": "180" },
+  "name": { "en": "Federal Highway 180 (Carretera Federal 180)", "zh": "180 号联邦公路（Carretera Federal 180）" },
+  "aka": [
+    { "en": "Carretera del Golfo; Carretera Costera del Golfo (the Gulf coast road)", "zh": "海湾公路；墨西哥湾沿海公路（Carretera Costera del Golfo）" },
+    { "en": "Matamoros–Puerto Juárez", "zh": "马塔莫罗斯—华雷斯港公路" }
+  ],
+  "tagline": { "en": "The Gulf of Mexico coast from the Rio Grande to Cancún, its river mouths and lagoons crossed one by one by bridges that replaced ferries", "zh": "从格兰德河到坎昆的墨西哥湾沿岸公路，一道道河口和潟湖靠一座座取代渡轮的大桥逐个跨越" },
+  "termini": {
+    "start": { "at": [-98.34, 24.46], "en": "The junction with Federal Highway 101 south of San Fernando, Tamaulipas, where the atlas starts the road; officially it begins at Matamoros, on the border with Brownsville, Texas, and shares the road with Highway 101 for about the first 180 km", "zh": "塔毛利帕斯州圣费尔南多以南与 101 号联邦公路的交会处，本图集由此起画；官方起点是与得克萨斯州布朗斯维尔隔河相望的马塔莫罗斯，最初约 180 公里与 101 号公路共线" },
+    "end": { "at": [-86.86, 21.02], "en": "Cancún, Quintana Roo, at the junction with Federal Highway 307; Spanish Wikipedia puts the end at Puerto Juárez, the ferry landing for Isla Mujeres", "zh": "金塔纳罗奥州坎昆，与 307 号联邦公路交会；西班牙文维基百科将终点定在通往女人岛的渡口华雷斯港" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Federal Highway 180 follows the curve of the Gulf of Mexico through six states. From Matamoros it runs south through Tamaulipas by Soto la Marina and Aldama to Tampico; through Veracruz by Tuxpan, Poza Rica, Papantla, Nautla, the port of Veracruz, Alvarado, the Tuxtlas, Acayucan and Coatzacoalcos; through Tabasco by Cárdenas and Villahermosa; along the Campeche shore by Ciudad del Carmen, Champotón and Campeche; and across the Yucatán peninsula by Mérida and Valladolid to Cancún.",
+        "English Wikipedia, from the ministry's 2011 traffic tables, gives the length as 2,240.92 km. For its first stretch out of Matamoros, Spanish Wikipedia notes, the road is signed as Highway 101, and 180 takes over only at the junction south of San Fernando, where the signs read ‘Matamoros 182 km, San Fernando 47 km’; English Wikipedia also records two short breaks in Tamaulipas and northern Veracruz. Along much of its length a tolled road numbered 180D runs alongside, including the motorway from Kantunil to Cancún."
+      ],
+      "zh": [
+        "180 号联邦公路沿墨西哥湾的弧线穿越六个州。它从马塔莫罗斯南下，在塔毛利帕斯州经索托拉马里纳和阿尔达马至坦皮科；在韦拉克鲁斯州经图斯潘、波萨里卡、帕潘特拉、瑙特拉、韦拉克鲁斯港、阿尔瓦拉多、图斯特拉斯山区、阿卡尤坎和夸察夸尔科斯；在塔巴斯科州经卡德纳斯和比亚埃尔莫萨；沿坎佩切海岸经卡门城、钱波通和坎佩切；再横穿尤卡坦半岛，经梅里达和巴利亚多利德抵达坎昆。",
+        "英文维基百科依据交通部 2011 年交通数据表，给出长度为 2,240.92 公里。西班牙文维基百科指出，出马塔莫罗斯的头一段路以 101 号公路标示，到圣费尔南多以南的交会处才改称 180 号，那里的路牌写着“马塔莫罗斯 182 公里，圣费尔南多 47 公里”；英文维基百科还记载了塔毛利帕斯州和韦拉克鲁斯州北部的两处短暂中断。沿线许多路段有编号 180D 的收费路并行，其中包括坎图尼尔至坎昆的高速公路。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The coast road was assembled river by river, and its history is mostly a history of bridges. At Coatzacoalcos, where the road and the railway to the south-east had crossed the river by ferry from Nanchital, the Secretaría de Obras Públicas began a lift bridge in January 1957; President Adolfo López Mateos opened it on 18 March 1962. At 965.87 m it carried road and rail together and was called the ‘key to the south-east’.",
+        "Further east the road crossed the mouths of the Laguna de Términos by small ferries. After a ferry sank on 22 August 1980 with the loss of more than a hundred lives, the Puente de la Unidad between Isla Aguada and Puerto Real was put into service by President José López Portillo on 26 November 1982. The El Zacatal bridge at Ciudad del Carmen, 3,861 m long, followed on 24 November 1994, inaugurated by President Carlos Salinas. In the north, President Miguel de la Madrid opened the Tampico bridge over the Pánuco on 17 October 1988."
+      ],
+      "zh": [
+        "这条沿海公路是一条河一条河拼接起来的，它的历史大体就是桥的历史。在夸察夸尔科斯，公路和通往东南部的铁路原本都靠从南查利塔尔出发的渡轮过河；公共工程部于 1957 年 1 月开工修建一座升降桥，阿道弗·洛佩斯·马特奥斯总统于 1962 年 3 月 18 日为其通车剪彩。大桥长 965.87 米，公路铁路两用，被称为“东南部的钥匙”。",
+        "再往东，公路靠小渡轮横渡特尔米诺斯潟湖的各个湖口。1980 年 8 月 22 日一艘渡轮沉没，一百多人遇难；此后，伊斯拉阿瓜达至雷亚尔港之间的团结大桥（Puente de la Unidad）于 1982 年 11 月 26 日由何塞·洛佩斯·波蒂略总统宣布投入使用。卡门城长 3,861 米的萨卡塔尔大桥随后于 1994 年 11 月 24 日由卡洛斯·萨利纳斯总统落成。在北段，米格尔·德拉马德里总统于 1988 年 10 月 17 日为跨越帕努科河的坦皮科大桥剪彩。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No total cost for the road has been found. The big bridges were federal works: Coatzacoalcos I was built by the Secretaría de Obras Públicas. The Puente de la Unidad is a toll bridge operated by the state government of Campeche, whose congress named it after Eugenio Echeverría Castellot, governor when it was built, as its ‘constructor’."
+      ],
+      "zh": [
+        "目前未找到这条公路的总造价。几座大桥都是联邦工程：夸察夸尔科斯一号桥由公共工程部修建。团结大桥是一座收费桥，由坎佩切州政府运营；州议会以大桥修建时的州长欧亨尼奥·埃切韦里亚·卡斯特略特之名为其命名，称他为大桥的“建造者”。"
+      ]
+    },
+    {
+      "key": "drive",
+      "en": [
+        "Even the free road has tolls, at the large bridges over the Pánuco, the Coatzacoalcos and the Laguna de Términos. Spanish Wikipedia notes sanitary inspection posts on entering Campeche, Yucatán and Quintana Roo, and a change of time zone on entering Quintana Roo. North of the port of Veracruz the road passes the Laguna Verde nuclear power station, and between Isla Aguada and Champotón it runs close to the beach for long stretches."
+      ],
+      "zh": [
+        "即便是免费路也有收费点，分别设在跨越帕努科河、夸察夸尔科斯河和特尔米诺斯潟湖的大桥上。西班牙文维基百科提到，进入坎佩切、尤卡坦和金塔纳罗奥三州时设有卫生检查站，进入金塔纳罗奥州时要调整时区。在韦拉克鲁斯港以北，公路经过拉古纳贝尔德核电站；在伊斯拉阿瓜达至钱波通之间，公路长段紧贴海滩。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "2,240.92 km", "zh": "2,240.92 公里" },
+      "source": "SCT, Datos Viales 2011, as cited in English Wikipedia, Mexican Federal Highway 180"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "The road was built and widened piece by piece over the 20th century, and no source found gives a total cost for it or for its main bridges.", "zh": "这条路在 20 世纪分段修建、分段拓宽，所查资料均未给出全线或几座主要大桥的总造价。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Federal: the Coatzacoalcos lift bridge was built by the Secretaría de Obras Públicas; the Puente de la Unidad is operated as a toll bridge by the state government of Campeche", "zh": "联邦：夸察夸尔科斯升降桥由公共工程部修建；团结大桥由坎佩切州政府作为收费桥运营" },
+      "source": "Spanish Wikipedia, Puente Coatzacoalcos I; SCT, Información de las Vías, Puente de la Unidad; Campeche state decree naming the Puente de la Unidad, as cited in Spanish Wikipedia, Puente de la Unidad"
+    },
+    {
+      "label": { "en": "Coatzacoalcos I bridge", "zh": "夸察夸尔科斯一号桥" },
+      "value": { "en": "965.87 m lift bridge for road and rail; begun January 1957, opened 18 March 1962", "zh": "长 965.87 米的公铁两用升降桥；1957 年 1 月开工，1962 年 3 月 18 日通车" },
+      "source": "UNAM thesis on the Coatzacoalcos I bridge, 2015; Spanish Wikipedia, Puente Coatzacoalcos I"
+    },
+    {
+      "label": { "en": "Puente de la Unidad", "zh": "团结大桥" },
+      "value": { "en": "Sources differ: 3,222 m (SCT) or 3,277 m (Spanish Wikipedia); in service 26 November 1982", "zh": "各方不一：3,222 米（交通部）或 3,277 米（西班牙文维基百科）；1982 年 11 月 26 日投入使用" },
+      "source": "SCT, Información de las Vías; Spanish Wikipedia, Puente de la Unidad"
+    },
+    {
+      "label": { "en": "El Zacatal bridge", "zh": "萨卡塔尔大桥" },
+      "value": { "en": "3,861 m long and 9 m wide; finished 24 November 1994", "zh": "长 3,861 米，宽 9 米；1994 年 11 月 24 日建成" },
+      "source": "Spanish Wikipedia, Puente El Zacatal; Senado de la República, punto de acuerdo on the El Zacatal bridge, 2022"
+    }
+  ],
+  "timeline": [
+    { "year": 1957, "en": "Work on the Coatzacoalcos lift bridge begins in January.", "zh": "1 月，夸察夸尔科斯升降桥开工。" },
+    { "year": 1962, "en": "President López Mateos opens the Coatzacoalcos bridge on 18 March, ending the Nanchital ferry.", "zh": "3 月 18 日，洛佩斯·马特奥斯总统为夸察夸尔科斯大桥剪彩，南查利塔尔渡轮就此停航。" },
+    { "year": 1980, "en": "A ferry on the Laguna de Términos crossing sinks on 22 August; more than a hundred people die.", "zh": "8 月 22 日，特尔米诺斯潟湖航线上一艘渡轮沉没，一百多人遇难。" },
+    { "year": 1982, "en": "The Puente de la Unidad between Isla Aguada and Puerto Real enters service on 26 November.", "zh": "11 月 26 日，伊斯拉阿瓜达至雷亚尔港的团结大桥投入使用。" },
+    { "year": 1988, "en": "President de la Madrid opens the Tampico bridge on 17 October.", "zh": "10 月 17 日，德拉马德里总统为坦皮科大桥剪彩。" },
+    { "year": 1994, "en": "The El Zacatal bridge at Ciudad del Carmen is finished on 24 November.", "zh": "11 月 24 日，卡门城萨卡塔尔大桥建成。" }
+  ]
+}

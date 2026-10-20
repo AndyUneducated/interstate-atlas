@@ -19,7 +19,7 @@
       ],
       "zh": [
         "I-68 横穿马里兰州的狭长地带和西弗吉尼亚的一角，是少数几条主要作为经济发展项目、而非大城市之间连接线而存在的州际公路。它的两端都不是大都会：西起摩根敦郊外的 I-79，东至只有几百居民的小镇汉考克处的 I-70。",
-        "它挂着「国家快速路」的名号，大致沿着旧国家大道的走向。地形才是重点。在坎伯兰与汉考克之间，道路一道接一道地翻越阿巴拉契亚褶皱山脊，长坡连绵，设有卡车避险车道，最高点海拔超过两千五百英尺——对东部这么靠里的公路来说已相当高。",
+        "它挂着“国家快速路”的名号，大致沿着旧国家大道的走向。地形才是重点。在坎伯兰与汉考克之间，道路一道接一道地翻越阿巴拉契亚褶皱山脊，长坡连绵，设有卡车避险车道，最高点海拔超过两千五百英尺——对东部这么靠里的公路来说已相当高。",
         "在它出现之前，穿越马里兰西部的东西向交通只能走双车道的 US 40，急弯与陡坡并存。1965 年《阿巴拉契亚区域开发法》把这条走廊列为重建对象，阿巴拉契亚区域委员会参与出资。"
       ]
     },
@@ -46,7 +46,7 @@
       "zh": [
         "这条快速路自西向东建了四分之一个世纪。西弗吉尼亚段修建于 1970 年代；1976 年 8 月 13 日，马里兰州芬泽尔至凯泽斯岭之间的最后一段通车，坎伯兰至州界的路段就此贯通。",
         "坎伯兰以东，工程慢了下来。《国家环境政策法》此时已要求编制环境影响报告书，1972 年启动的选线研究经过多个比选方案和公众听证，直到 1977 年才批准赛德灵山段的线位。切口路段 1985 年 8 月通车，整个赛德灵山段则在次年完成。",
-        "剩下的是坎伯兰以东十九英里的缺口，即所谓「失落的一环」，1987 年 5 月破土，1991 年 8 月 2 日通车。马里兰借此机会取消了这条路线的 US 48 编号，改挂 68 号州际公路。"
+        "剩下的是坎伯兰以东十九英里的缺口，即所谓“失落的一环”，1987 年 5 月破土，1991 年 8 月 2 日通车。马里兰借此机会取消了这条路线的 US 48 编号，改挂 68 号州际公路。"
       ]
     }
   ],
@@ -72,7 +72,7 @@
       "source": "Maryland State Archives, The National Freeway; Maryland Geological Survey, Fact Sheet 17"
     },
     {
-      "label": { "en": "The missing link east of Cumberland", "zh": "坎伯兰以东的「失落的一环」" },
+      "label": { "en": "The missing link east of Cumberland", "zh": "坎伯兰以东的“失落的一环”" },
       "value": { "en": "19 miles for $182 million, built 1987–91 in five sections", "zh": "19 英里，1.82 亿美元，1987 至 1991 年分五段建成" },
       "source": "Maryland State Archives, The National Freeway"
     }
@@ -99,7 +99,7 @@
     { "year": 1965, "en": "The Appalachian Regional Development Act designates the corridor as Appalachian Development Highway System Corridor E.", "zh": "《阿巴拉契亚区域开发法》将该走廊列为阿巴拉契亚开发公路系统 E 号走廊。" },
     { "year": 1976, "en": "The 13-mile Finzel–Keysers Ridge segment opens on 13 August, completing the 44 miles from Cumberland to the West Virginia line.", "zh": "8 月 13 日，芬泽尔至凯泽斯岭 13 英里路段通车，坎伯兰至西弗吉尼亚州界 44 英里全线贯通。" },
     { "year": 1985, "en": "The Sideling Hill cut opens on 15 August, exposing a 340-foot cross-section of a syncline.", "zh": "8 月 15 日赛德灵山切口通车，露出深 340 英尺的向斜构造剖面。" },
-    { "year": 1987, "en": "Construction begins in May on the 19-mile missing link east of Cumberland.", "zh": "5 月，坎伯兰以东 19 英里「失落的一环」开工。" },
+    { "year": 1987, "en": "Construction begins in May on the 19-mile missing link east of Cumberland.", "zh": "5 月，坎伯兰以东 19 英里“失落的一环”开工。" },
     { "year": 1991, "en": "The last segment opens on 2 August; the route is signed as I-68, replacing US 48.", "zh": "8 月 2 日最后一段通车；本路线改挂 I-68 编号，取代 US 48。" }
   ]
 }

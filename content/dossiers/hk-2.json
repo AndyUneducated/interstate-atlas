@@ -56,7 +56,7 @@
         "The franchises have all run out. The Eastern Harbour Crossing's railway tunnel passed to the government in 2008; its road tunnel followed on 7 August 2016. The Tate's Cairn Tunnel was handed over on 11 July 2018. Before then, toll rises under the franchise terms had been politically contentious — in 2005 an Eastern Harbour Crossing increase from HK$15 to HK$25 for cars drew criticism of the franchise model for pushing traffic back to the Cross-Harbour Tunnel."
       ],
       "zh": [
-        "两条隧道都是「建造、营运、移交」项目，全部由私营公司出资，换取 30 年收费专营权。东区海底隧道据报道建费 34 亿港元；发展商另获鲗鱼涌站及蓝田站上盖物业发展权。大老山隧道由金门与西松联营兴建，隧道公司由港通控股持股 39.5%，造价据中文维基百科为 19.6 亿港元，据世界银行 1999 年报告为 21.5 亿港元，该报告称技术困难令最终造价翻了一番。观塘绕道属政府道路，但第一期由隧道公司代建。",
+        "两条隧道都是“建造、营运、移交”项目，全部由私营公司出资，换取 30 年收费专营权。东区海底隧道据报道建费 34 亿港元；发展商另获鲗鱼涌站及蓝田站上盖物业发展权。大老山隧道由金门与西松联营兴建，隧道公司由港通控股持股 39.5%，造价据中文维基百科为 19.6 亿港元，据世界银行 1999 年报告为 21.5 亿港元，该报告称技术困难令最终造价翻了一番。观塘绕道属政府道路，但第一期由隧道公司代建。",
         "各专营权均已届满。东隧铁路隧道于 2008 年交还政府，行车隧道于 2016 年 8 月 7 日交还；大老山隧道于 2018 年 7 月 11 日移交政府。此前按专营条款的加价一直具争议性——2005 年东隧私家车收费由 15 元加至 25 元，被批评专营模式把车流推回红磡海底隧道。"
       ]
     },
@@ -66,7 +66,7 @@
         "Both tunnels are limited to 70 km/h; the Kwun Tong Bypass is 80 km/h in its middle section and 70 at each end. Since 2023 both tunnels have used HKeToll, without toll booths. The Kwun Tong Bypass and most of the Tate's Cairn Highway are designated expressways; the two tunnels and Lei Yue Mun Road are not."
       ],
       "zh": [
-        "两条隧道限速均为每小时 70 公里；观塘绕道中段限速 80 公里，两端 70 公里。两条隧道自 2023 年起采用「易通行」，不设收费亭。观塘绕道和大部分大老山公路属法定快速公路；两条隧道及鲤鱼门道则不是。"
+        "两条隧道限速均为每小时 70 公里；观塘绕道中段限速 80 公里，两端 70 公里。两条隧道自 2023 年起采用“易通行”，不设收费亭。观塘绕道和大部分大老山公路属法定快速公路；两条隧道及鲤鱼门道则不是。"
       ]
     }
   ],
@@ -77,7 +77,7 @@
     },
     {
       "label": { "en": "Funding", "zh": "出资方" },
-      "value": { "en": "Private build–operate–transfer franchises for both tunnels — the New Hong Kong Tunnel Company (Eastern Harbour Crossing, 1986–2016) and the Tate's Cairn Tunnel Company (1988–2018); the Kwun Tong Bypass and Tate's Cairn Highway were government roads", "zh": "两条隧道均以私人「建造、营运、移交」专营权兴建——新香港隧道有限公司（东区海底隧道，1986—2016 年）与大老山隧道有限公司（1988—2018 年）；观塘绕道及大老山公路为政府道路" },
+      "value": { "en": "Private build–operate–transfer franchises for both tunnels — the New Hong Kong Tunnel Company (Eastern Harbour Crossing, 1986–2016) and the Tate's Cairn Tunnel Company (1988–2018); the Kwun Tong Bypass and Tate's Cairn Highway were government roads", "zh": "两条隧道均以私人“建造、营运、移交”专营权兴建——新香港隧道有限公司（东区海底隧道，1986—2016 年）与大老山隧道有限公司（1988—2018 年）；观塘绕道及大老山公路为政府道路" },
       "source": "English Wikipedia, Eastern Harbour Crossing, Tate's Cairn Tunnel, Kwun Tong Bypass; Chinese Wikipedia, 东区海底隧道, 大老山隧道"
     },
     {
@@ -106,6 +106,6 @@
     { "year": 2008, "en": "The franchise for the Eastern Harbour Crossing's railway tubes expires.", "zh": "东隧铁路隧道专营权届满。" },
     { "year": 2016, "en": "The Eastern Harbour Crossing road tunnel passes to the government on 7 August.", "zh": "8 月 7 日，东隧行车隧道交还政府。" },
     { "year": 2018, "en": "The Tate's Cairn Tunnel passes to the government on 11 July.", "zh": "7 月 11 日，大老山隧道移交政府。" },
-    { "year": 2023, "en": "HKeToll replaces the toll booths at both tunnels.", "zh": "两条隧道改用「易通行」，收费亭取消。" }
+    { "year": 2023, "en": "HKeToll replaces the toll booths at both tunnels.", "zh": "两条隧道改用“易通行”，收费亭取消。" }
   ]
 }

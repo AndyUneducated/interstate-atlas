@@ -42,7 +42,7 @@
         "Connecticut spent five years and a large sum rehabilitating it, finishing in 2023, to add about twenty-five years of life. The department's own analysis found that doing the same again in 2045 would cost roughly as much as a replacement without improving how the interchange works, so the plan is to replace it outright in the 2030s or 2040s. Two alternatives are under study, both an order of magnitude more expensive than the rehabilitation."
       ],
       "zh": [
-        "本路线上最棘手的资产是「搅拌机」（Mixmaster）：I-84 与 Route 8 在沃特伯里市中心与诺格塔克河上方交汇的多层立交。它于 1968 年通车，如今其钢结构与桥面已到了养护只能换取时间、换不来状况改善的地步。",
+        "本路线上最棘手的资产是“搅拌机”（Mixmaster）：I-84 与 Route 8 在沃特伯里市中心与诺格塔克河上方交汇的多层立交。它于 1968 年通车，如今其钢结构与桥面已到了养护只能换取时间、换不来状况改善的地步。",
         "康涅狄格州为翻修它花了五年时间与一大笔钱，于 2023 年完工，为其增加约二十五年寿命。该州交通部自己的分析认为，若在 2045 年再做一次同样的事，费用将与整体重建相当，却无法改善立交的通行功能；因此计划是在 2030 年代或 2040 年代直接拆除重建。目前有两个方案在研究，造价都比这次翻修高一个数量级。"
       ]
     }
@@ -59,12 +59,12 @@
       "source": "FHWA Highway History, Interstate Withdrawal-Substitution Program, summary table"
     },
     {
-      "label": { "en": "Waterbury Mixmaster rehabilitation", "zh": "沃特伯里「搅拌机」立交翻修" },
+      "label": { "en": "Waterbury Mixmaster rehabilitation", "zh": "沃特伯里“搅拌机”立交翻修" },
       "value": { "en": "$223.7 million, begun in 2018 and completed in 2023, extending the interchange's life by about 25 years", "zh": "2.237 亿美元，2018 年开工、2023 年完工，为该立交延寿约 25 年" },
       "source": "Connecticut Department of Transportation completion announcement, as reported by CT Insider"
     },
     {
-      "label": { "en": "Waterbury Mixmaster replacement, estimated", "zh": "沃特伯里「搅拌机」立交重建估算" },
+      "label": { "en": "Waterbury Mixmaster replacement, estimated", "zh": "沃特伯里“搅拌机”立交重建估算" },
       "value": { "en": "$3 billion to $5 billion in 2022 dollars for either of the two shortlisted alternatives; a further rehabilitation in 2045 was costed at about $1 billion in 2017 dollars and rejected as not worth it", "zh": "两个入围方案均为 30 亿至 50 亿美元（2022 年美元）；另有一次 2045 年再翻修的方案，估算约 10 亿美元（2017 年美元），因不值得而被否决" },
       "source": "Connecticut Department of Transportation, The New Mix programme alternatives analysis"
     },
@@ -81,10 +81,10 @@
     }
   ],
   "timeline": [
-    { "year": 1968, "en": "The Waterbury Mixmaster interchange opens; the FHWA approves rerouting I-84 from Hartford to Providence.", "zh": "沃特伯里「搅拌机」立交通车；联邦公路管理局批准将 I-84 改线经哈特福德通往普罗维登斯。" },
+    { "year": 1968, "en": "The Waterbury Mixmaster interchange opens; the FHWA approves rerouting I-84 from Hartford to Providence.", "zh": "沃特伯里“搅拌机”立交通车；联邦公路管理局批准将 I-84 改线经哈特福德通往普罗维登斯。" },
     { "year": 1969, "en": "The existing road from Manchester to the Massachusetts Turnpike is renumbered I-86.", "zh": "自曼彻斯特至马萨诸塞收费高速的既有道路改编号为 I-86。" },
     { "year": 1983, "en": "Rhode Island and then Connecticut withdraw the Hartford–Providence extension from the Interstate System.", "zh": "罗得岛州继而康涅狄格州将哈特福德—普罗维登斯延伸线撤出州际公路系统。" },
     { "year": 1984, "en": "The I-86 designation is deleted on 12 December and I-84 returns to the Sturbridge alignment.", "zh": "12 月 12 日，I-86 编号取消，I-84 回到通往斯特布里奇的线位。" },
-    { "year": 2023, "en": "Connecticut completes a five-year rehabilitation of the Mixmaster.", "zh": "康涅狄格州完成历时五年的「搅拌机」立交翻修。" }
+    { "year": 2023, "en": "Connecticut completes a five-year rehabilitation of the Mixmaster.", "zh": "康涅狄格州完成历时五年的“搅拌机”立交翻修。" }
   ]
 }

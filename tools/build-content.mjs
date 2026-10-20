@@ -230,12 +230,16 @@ async function main() {
 
   for (const file of files.sort()) {
     let d;
+    let raw;
     try {
-      d = JSON.parse(await readFile(join(SRC, file), 'utf8'));
+      raw = await readFile(join(SRC, file), 'utf8');
+      d = JSON.parse(raw);
     } catch (e) {
       fail(file, `invalid JSON — ${e.message}`);
       continue;
     }
+    // Mainland punctuation in every dossier, Taiwan's and Hong Kong's included.
+    if (/[「」『』]/.test(raw)) fail(file, 'uses 「」 or 『』; zh quotation marks are “” and ‘’');
 
     const slug = file.replace(/\.json$/, '');
     const hit = await resolve(selectorFrom(slug, d.route), index.routes);

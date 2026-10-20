@@ -1,0 +1,83 @@
+{
+  "id": "mex-190",
+  "route": { "sys": "mx-federal", "num": "190" },
+  "name": { "en": "Federal Highway 190 (Carretera Federal 190)", "zh": "190 号联邦公路（Carretera Federal 190）" },
+  "aka": [
+    { "en": "Carretera Panamericana (the Pan-American Highway south of Mexico City)", "zh": "泛美公路（墨西哥城以南段）" },
+    { "en": "Carretera Cristóbal Colón (in Oaxaca)", "zh": "克里斯托瓦尔·科隆公路（瓦哈卡州的叫法）" }
+  ],
+  "tagline": { "en": "The Pan-American Highway from Mexico City by Puebla, Oaxaca, the Isthmus of Tehuantepec and the Chiapas highlands to the Guatemalan border", "zh": "泛美公路的墨西哥南段：从墨西哥城经普埃布拉、瓦哈卡、特万特佩克地峡和恰帕斯高原通往危地马拉边境" },
+  "completedYear": 1950,
+  "termini": {
+    "start": { "at": [-99.0, 19.36], "en": "Iztapalapa, on the eastern edge of Mexico City, where the free road to Puebla begins near Santa Martha Acatitla; the ministry's 2011 tables count the highway from Puebla", "zh": "墨西哥城东缘的伊斯塔帕拉帕区，通往普埃布拉的免费路在圣玛尔塔阿卡蒂特拉附近起始；交通部 2011 年数据表从普埃布拉起算" },
+    "end": { "at": [-91.99, 15.65], "en": "Ciudad Cuauhtémoc, Chiapas, at the border with Guatemala, where the road continues as CA-1 from La Mesilla", "zh": "恰帕斯州夸乌特莫克城，危地马拉边境，公路由拉梅西利亚继续延伸为 CA-1 公路" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Federal Highway 190 is the southern half of Mexico's Pan-American Highway. From Mexico City it crosses the pass to Puebla, then runs south by Atlixco and Izúcar de Matamoros into the Mixteca by Huajuapan de León and Nochixtlán to the city of Oaxaca. Beyond Mitla it crosses the Sierra Madre del Sur to Tehuantepec on the Isthmus. In Chiapas it climbs from Cintalapa to Tuxtla Gutiérrez, Chiapa de Corzo and San Cristóbal de las Casas, and runs down by Comitán to the Guatemalan border at Ciudad Cuauhtémoc.",
+        "English Wikipedia, from the ministry's 2011 traffic tables, counts it in two pieces: 660.5 km from Puebla to Tehuantepec and 506.8 km from La Ventosa to Ciudad Cuauhtémoc, 1,167.3 km in all, with Highway 185 carrying the route the short distance between them. It is also a road of migrants heading north from Central America: on 9 December 2021 a lorry carrying migrants crashed between Chiapa de Corzo and Tuxtla, killing 55 people, according to Spanish Wikipedia."
+      ],
+      "zh": [
+        "190 号联邦公路是墨西哥境内泛美公路的南半段。它从墨西哥城越过山口到普埃布拉，再南下经阿特利斯科和伊苏卡尔德马塔莫罗斯，进入米斯特卡地区，经瓦华潘德莱昂和诺奇斯特兰到瓦哈卡城。过了米特拉，它翻越南马德雷山脉到达地峡上的特万特佩克。在恰帕斯州，公路自辛塔拉帕爬升到图斯特拉古铁雷斯、恰帕德科尔索和圣克里斯托瓦尔德拉斯卡萨斯，再经科米坦下到危地马拉边境的夸乌特莫克城。",
+        "英文维基百科依据交通部 2011 年交通数据表，将它分作两段计算：普埃布拉至特万特佩克 660.5 公里，拉本托萨至夸乌特莫克城 506.8 公里，合计 1,167.3 公里，两段之间的短距离由 185 号公路承担。这也是中美洲移民北上的道路：据西班牙文维基百科，2021 年 12 月 9 日，一辆载有移民的卡车在恰帕德科尔索与图斯特拉之间发生事故，55 人死亡。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "In Oaxaca the road was begun in 1943 as the Carretera Cristóbal Colón. A study of the Isthmus by Lara Millán notes that when the Pan-American road arrived, the commercial centre of the region moved from Ciudad Ixtepec to Juchitán.",
+        "The whole Pan-American road in Mexico, from Ciudad Juárez through Mexico City to Ciudad Cuauhtémoc, 3,440 km, was officially inaugurated by President Miguel Alemán on 21 May 1950 at Tehuantepec. Two weeks earlier, from 5 to 10 May, the first Carrera Panamericana road race had run its length; the ministry's magazine El Mirador notes that the last 107 miles to El Ocotal, now Ciudad Cuauhtémoc, were still unpaved."
+      ],
+      "zh": [
+        "瓦哈卡州境内的路段于 1943 年以“克里斯托瓦尔·科隆公路”之名开工。拉腊·米兰对地峡地区的研究指出，泛美公路通达后，该地区的商业中心从伊斯特佩克城移到了胡奇坦。",
+        "1950 年 5 月 21 日，米格尔·阿莱曼总统在特万特佩克为墨西哥境内整条泛美公路正式剪彩；这条路从华雷斯城经墨西哥城通往夸乌特莫克城，全长 3,440 公里。两周前的 5 月 5 日至 10 日，首届泛美公路汽车赛已跑完全程；交通部刊物《El Mirador》指出，通往埃尔奥科塔尔（今夸乌特莫克城）的最后 107 英里当时仍未铺装。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost has been found for the road built in the 1940s. Its modern counterpart across the Oaxaca sierra, the Mitla–Tehuantepec highway, was conceded on 27 May 2010 and opened in stages: 28.8 km in September 2015, 49.1 km in March 2016, and the last 57 km on 24 January 2025, when President Claudia Sheinbaum opened it and the journey fell from four and a half hours to two and a half. Its cost is reported differently: 42,752 million pesos by the Oaxaca state government at the opening, 45,752 million in the sum of the federal infrastructure fund FONADIN's figures, and 32,977 million as planned by the presidency in 2024."
+      ],
+      "zh": [
+        "未找到 1940 年代所修公路的造价。如今穿越瓦哈卡山区、与之对应的米特拉—特万特佩克公路于 2010 年 5 月 27 日授予特许，分段通车：2015 年 9 月 28.8 公里，2016 年 3 月 49.1 公里，最后 57 公里于 2025 年 1 月 24 日由克劳迪娅·辛鲍姆总统宣布通车，行程由四个半小时缩短为两个半小时。其造价说法不一：通车时瓦哈卡州政府称 427.52 亿比索，联邦基础设施基金 FONADIN 的数字合计为 457.52 亿，总统府 2024 年的计划数则为 329.77 亿。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "1,167.3 km from Puebla: 660.5 km Puebla–Tehuantepec and 506.8 km La Ventosa–Ciudad Cuauhtémoc", "zh": "自普埃布拉起 1,167.3 公里：普埃布拉—特万特佩克 660.5 公里，拉本托萨—夸乌特莫克城 506.8 公里" },
+      "source": "SCT, Datos Viales 2011, as cited in English Wikipedia, Mexican Federal Highway 190"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No source found gives a cost for the road built in the 1940s; the only cost found is for the new Mitla–Tehuantepec highway, given below.", "zh": "所查资料均未给出 1940 年代所修公路的造价；所见造价只涉及新建的米特拉—特万特佩克公路，见下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The federal government, which built and inaugurated the Pan-American road in 1950; the Mitla–Tehuantepec highway was let as a federal concession, with money from the federal infrastructure fund FONADIN", "zh": "联邦政府，1950 年修成并剪彩泛美公路；米特拉—特万特佩克公路以联邦特许方式建设，资金来自联邦基础设施基金 FONADIN" },
+      "source": "SCT, El Mirador, “La Carretera Panamericana y su célebre carrera”; FONADIN, Mitla–Tehuantepec project records"
+    },
+    {
+      "label": { "en": "Mitla–Tehuantepec highway", "zh": "米特拉—特万特佩克公路" },
+      "value": { "en": "169 km. Cost reported at 42,752 million pesos by the Oaxaca government (2025), at 45,752 million in the sum of FONADIN's figures, and at 32,977 million as planned by the presidency (2024); not checked against final federal accounts", "zh": "169 公里。造价据瓦哈卡州政府为 427.52 亿比索（2025 年），按 FONADIN 数字合计为 457.52 亿，总统府计划数为 329.77 亿（2024 年）；未与联邦最终账目核对" },
+      "source": "Gobierno de Oaxaca, 24 January 2025; FONADIN; Presidencia de la República, 2024"
+    },
+    {
+      "label": { "en": "Pan-American road in Mexico", "zh": "墨西哥境内泛美公路" },
+      "value": { "en": "3,440 km from Ciudad Juárez to Ciudad Cuauhtémoc; inaugurated 21 May 1950 at Tehuantepec", "zh": "华雷斯城至夸乌特莫克城 3,440 公里；1950 年 5 月 21 日在特万特佩克剪彩" },
+      "source": "SCT, El Mirador, “La Carretera Panamericana y su célebre carrera”; INAH photograph of the inauguration, 21 May 1950"
+    }
+  ],
+  "timeline": [
+    { "year": 1943, "en": "Work on the Cristóbal Colón road in Oaxaca begins.", "zh": "瓦哈卡州克里斯托瓦尔·科隆公路开工。" },
+    { "year": 1950, "en": "The first Carrera Panamericana runs from 5 to 10 May; on 21 May President Alemán inaugurates the road at Tehuantepec.", "zh": "5 月 5 日至 10 日举行首届泛美公路汽车赛；5 月 21 日，阿莱曼总统在特万特佩克为公路剪彩。" },
+    { "year": 2010, "en": "The Mitla–Tehuantepec highway is conceded on 27 May.", "zh": "5 月 27 日，米特拉—特万特佩克公路授予特许。" },
+    { "year": 2015, "en": "The first 28.8 km of the Mitla–Tehuantepec highway open on 22 September.", "zh": "9 月 22 日，米特拉—特万特佩克公路首段 28.8 公里通车。" },
+    { "year": 2016, "en": "A further 49.1 km open on 4 March.", "zh": "3 月 4 日，又一段 49.1 公里通车。" },
+    { "year": 2021, "en": "A lorry carrying migrants crashes near Tuxtla on 9 December; 55 people die.", "zh": "12 月 9 日，一辆载有移民的卡车在图斯特拉附近出事，55 人死亡。" },
+    { "year": 2025, "en": "The last 57 km of the Mitla–Tehuantepec highway open on 24 January.", "zh": "1 月 24 日，米特拉—特万特佩克公路最后 57 公里通车。" }
+  ]
+}

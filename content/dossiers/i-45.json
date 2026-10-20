@@ -20,7 +20,7 @@
       "zh": [
         "I-45 全程位于得克萨斯州境内，自达拉斯市中心南下，穿过得州中东部的松林地带抵达休斯敦，再经跨海堤道通往加尔维斯顿。它取代了这条线上的 US 75，是该州最大都会区与墨西哥湾之间的主要内陆通道。",
         "中段最为空旷：经科西卡纳、费尔菲尔德和亨茨维尔的一长段快速而基本笔直的路，小镇都远离公路，也少有停下来的理由。两端则截然相反。在休斯敦，这条路线是全美改建最频繁的城市走廊之一；在最南端，它经堤道跨过开阔水面，抵达一座堰洲岛。",
-        "它承载的历史也比编号显示的更多。休斯敦至加尔维斯顿一段——「海湾快速路」——是得克萨斯境内最早建成的高速公路，它确立了两侧连续设置辅路的范式，得州此后的城市高速公路一直沿用至今。"
+        "它承载的历史也比编号显示的更多。休斯敦至加尔维斯顿一段——“海湾快速路”——是得克萨斯境内最早建成的高速公路，它确立了两侧连续设置辅路的范式，得州此后的城市高速公路一直沿用至今。"
       ]
     },
     {
@@ -31,7 +31,7 @@
         "The Dallas–Houston half came together later. The last freeway link between the two cities, between Fairfield and Streetman, opened in October 1971, and the stretch from I-20 into downtown Dallas was finished in 1975. The final upgrade of the southern end to full freeway standard came in 1976."
       ],
       "zh": [
-        "海湾快速路的首批合同于 1946 年 9 月发出，第一段——自休斯敦市中心至电话路——于 1948 年 9 月 30 日傍晚通车，在卡尔霍恩路跨线桥上举行了仪式。当时这条路还没有名字；媒体沿用它所占用路权的那条电气化铁路，称它为「城际快速路」，市政府随后举办命名征集，当年 12 月定名为「海湾快速路」。",
+        "海湾快速路的首批合同于 1946 年 9 月发出，第一段——自休斯敦市中心至电话路——于 1948 年 9 月 30 日傍晚通车，在卡尔霍恩路跨线桥上举行了仪式。当时这条路还没有名字；媒体沿用它所占用路权的那条电气化铁路，称它为“城际快速路”，市政府随后举办命名征集，当年 12 月定名为“海湾快速路”。",
         "1951 年又有延伸段通车，1952 年 8 月 2 日的仪式标志着道路修到了加尔维斯顿堤道——尽管出城以后的大部分路段仍有数十处平面交叉，严格意义上算不上高速公路。把它升级过来又花了二十年。",
         "达拉斯至休斯敦的那一半成型更晚。两城之间最后一段高速公路——费尔菲尔德至斯特里特曼——于 1971 年 10 月通车，自 I-20 进入达拉斯市中心的路段 1975 年建成。南端升级至完整高速公路标准则在 1976 年完成。"
       ]
@@ -44,7 +44,7 @@
         "For the original construction there is no comparable record. The Gulf Freeway and the Dallas approaches were built by the state before the Interstate programme existed, and the rural link between the two cities was built with federal aid accounted for by year rather than by route."
       ],
       "zh": [
-        "今天 I-45 上花钱的地方不是修建，而是重建。「休斯敦北部公路改善工程」把这条州际公路改道绕行市中心环路，将相邻的 I-69 部分路段下压，增设管理型快速车道，并让「皮尔斯高架」彻底退出使用。",
+        "今天 I-45 上花钱的地方不是修建，而是重建。“休斯敦北部公路改善工程”把这条州际公路改道绕行市中心环路，将相邻的 I-69 部分路段下压，增设管理型快速车道，并让“皮尔斯高架”彻底退出使用。",
         "该工程分为三个标段，各有预算、各有工期，其造价估算自环境审批程序结束以来大幅上升。得州交通部自己的标段文件给出了当前数字；该部门把上涨归因于通货膨胀、诉讼与工期延误。",
         "最初的建设则没有可与之相比的记录。海湾快速路与达拉斯的进城路段是在州际公路计划出现之前由州里修建的，两城之间的乡村连接段所用的联邦补助资金则按年度而非按路线核算。"
       ]
@@ -53,7 +53,7 @@
   "figures": [
     {
       "label": { "en": "Total construction cost", "zh": "总建设成本" },
-      "why": { "en": "No public figure exists. The Houston and Dallas ends were built by the state as the Gulf Freeway and Central Expressway before the Interstate programme began, and the rest was built with federal aid accounted for by fiscal year rather than by route.", "zh": "无公开数据。休斯敦端与达拉斯端是在州际公路计划启动之前，由州里作为「海湾快速路」与「中央快速路」修建的；其余部分使用的联邦补助资金按财政年度而非按路线核算。" }
+      "why": { "en": "No public figure exists. The Houston and Dallas ends were built by the state as the Gulf Freeway and Central Expressway before the Interstate programme began, and the rest was built with federal aid accounted for by fiscal year rather than by route.", "zh": "无公开数据。休斯敦端与达拉斯端是在州际公路计划启动之前，由州里作为“海湾快速路”与“中央快速路”修建的；其余部分使用的联邦补助资金按财政年度而非按路线核算。" }
     },
     {
       "label": { "en": "Official length", "zh": "官方里程" },

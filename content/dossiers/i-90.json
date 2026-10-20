@@ -47,7 +47,7 @@
       "zh": [
         "I-90 于 1957 年编号；由于东半段大量路线原本已作为收费公路存在，中西部路段完工较早，到 1978 年即已建成。西部各州则慢得多。怀俄明州于 1985 年 7 月通车通往蒙大拿州界的最后一段；蒙大拿州斯普林代尔附近最后一段双车道于 1987 年 5 月拓宽为四车道。",
         "被讲得最多的一段插曲发生在爱达荷州华莱士。高速公路原计划直穿该镇，于是 1976 年当地领袖把市中心列入《国家史迹名录》，迫使方案重做。联邦政府改在镇北缘修建一段短高架绕行线，于 1991 年 9 月通车；一周后，华莱士以仪式方式送走了西雅图至波士顿之间 I-90 上最后一盏交通信号灯。爱达荷州于 1992 年 7 月宣布本州路段完工。",
-        "这条路自己的两端反倒最晚完成。最西端西雅图附近的最后一段于 1993 年 9 月通车。又过十年，波士顿「大开挖」工程把 I-90 经一条新的海港隧道东延至洛根机场与 Route 1A，于 2003 年 1 月把东端终点移至东波士顿。"
+        "这条路自己的两端反倒最晚完成。最西端西雅图附近的最后一段于 1993 年 9 月通车。又过十年，波士顿“大开挖”工程把 I-90 经一条新的海港隧道东延至洛根机场与 Route 1A，于 2003 年 1 月把东端终点移至东波士顿。"
       ]
     }
   ],
@@ -102,6 +102,6 @@
     { "year": 1990, "en": "Eight pontoons of the original floating bridge sink during renovation; the span reopens in 1993.", "zh": "原浮桥在翻修期间有八个浮箱沉没，该桥于 1993 年重新通车。" },
     { "year": 1991, "en": "The elevated bypass of Wallace, Idaho opens, retiring the last traffic signal on the route.", "zh": "爱达荷州华莱士的高架绕行线通车，本路线最后一盏交通信号灯退役。" },
     { "year": 1993, "en": "The final western section opens near Seattle.", "zh": "西雅图附近的最后一段西部路段通车。" },
-    { "year": 2003, "en": "The Big Dig extends I-90 through a new harbour tunnel to Route 1A in East Boston.", "zh": "「大开挖」工程将 I-90 经新建海港隧道延伸至东波士顿的 Route 1A。" }
+    { "year": 2003, "en": "The Big Dig extends I-90 through a new harbour tunnel to Route 1A in East Boston.", "zh": "“大开挖”工程将 I-90 经新建海港隧道延伸至东波士顿的 Route 1A。" }
   ]
 }

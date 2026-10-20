@@ -30,8 +30,8 @@
       ],
       "zh": [
         "1941 年 12 月，日本袭击珍珠港。1942 年 2 月 11 日，罗斯福批准修建一条通往阿拉斯加的陆路；3 月 18 日，美加议定施工协议，当月开工。加拿大提供路权并免征关税；美国负责修路，并承诺在战争期间维护。",
-        "约 11,000 名军人与约 16,000 名加美两国平民，在泥沼与永久冻土中开出一条一千五百余英里的先导路，架起 133 座六米以上的桥梁。1942 年 10 月 25 日，最后一处缺口在比弗克里克附近合龙；11 月 20 日，公路在克卢恩湖畔的「士兵岭」向军事运输开放——距首次勘测不足十个月。参与修筑的士兵中有许多是《1940 年选征兵役法》后应征入伍的黑人军人，他们被编入种族隔离建制的团队，投入北美最寒冷的施工环境之一。",
-        "1943 年建成全天候永久路面，当年年底道森克里克与费尔班克斯全线贯通。1946 年 4 月 1 日，加拿大接管境内路段，并向美国偿付其施工费用，以消除美方日后对这条路可能提出的任何权利主张。1948 年向公众开放，1954 年被定为国家历史事件。加拿大公园管理局自己的纪念牌并未将此描述为纯粹的好事：牌文称，这条公路「使西北地区门户洞开，任由南方开发其自然资源，改变了育空的聚落格局，也改变了原住民的生活方式」。"
+        "约 11,000 名军人与约 16,000 名加美两国平民，在泥沼与永久冻土中开出一条一千五百余英里的先导路，架起 133 座六米以上的桥梁。1942 年 10 月 25 日，最后一处缺口在比弗克里克附近合龙；11 月 20 日，公路在克卢恩湖畔的“士兵岭”向军事运输开放——距首次勘测不足十个月。参与修筑的士兵中有许多是《1940 年选征兵役法》后应征入伍的黑人军人，他们被编入种族隔离建制的团队，投入北美最寒冷的施工环境之一。",
+        "1943 年建成全天候永久路面，当年年底道森克里克与费尔班克斯全线贯通。1946 年 4 月 1 日，加拿大接管境内路段，并向美国偿付其施工费用，以消除美方日后对这条路可能提出的任何权利主张。1948 年向公众开放，1954 年被定为国家历史事件。加拿大公园管理局自己的纪念牌并未将此描述为纯粹的好事：牌文称，这条公路“使西北地区门户洞开，任由南方开发其自然资源，改变了育空的聚落格局，也改变了原住民的生活方式”。"
       ]
     },
     {
@@ -44,14 +44,14 @@
       "zh": [
         "沿途的公里桩并不是你已经驶过的距离。它们是 1942 年的桩号，而六十年的线路改造缩短了道路，桩号却未重编。联邦政府至今仍把不列颠哥伦比亚与育空的省界记作 968 公里桩，而不列颠哥伦比亚自己的实测台账显示该处距道森克里克约 954.5 公里——约十三点五公里的公路，被历史悄悄抹去了。两个数字都不算错，它们回答的是不同的问题。",
         "一条路，三个业主。1961 年，不列颠哥伦比亚接管了起始的 133 公里。此后至育空省界的 835 公里仍属联邦财产，由加拿大公共服务和采购部维护——渥太华直接运营一条公路，这种安排颇为罕见。育空则于 1992 年 4 月 1 日接管其境内的 906 公里。",
-        "路名比路年轻。在 1943 年 7 月 19 日美加互换外交换文定名「阿拉斯加公路」之前，它一直叫「阿尔坎公路」。"
+        "路名比路年轻。在 1943 年 7 月 19 日美加互换外交换文定名“阿拉斯加公路”之前，它一直叫“阿尔坎公路”。"
       ]
     }
   ],
   "figures": [
     {
       "label": { "en": "Length in Yukon", "zh": "育空境内长度" },
-      "value": { "en": "906 km, from historic kilometre 968 at the British Columbia boundary to kilometre 1,874 at the Alaska border. A widely repeated alternative is 957.15 km; the 51 km difference is consistent with posted chainage against measured distance, and the two could not be reconciled.", "zh": "906 公里，自省界处的历史桩号 968 公里至阿拉斯加州界处的 1,874 公里。另一广为流传的数字是 957.15 公里；51 公里的差距与「桩号里程对实测里程」的差异相符，两者无法对齐。" },
+      "value": { "en": "906 km, from historic kilometre 968 at the British Columbia boundary to kilometre 1,874 at the Alaska border. A widely repeated alternative is 957.15 km; the 51 km difference is consistent with posted chainage against measured distance, and the two could not be reconciled.", "zh": "906 公里，自省界处的历史桩号 968 公里至阿拉斯加州界处的 1,874 公里。另一广为流传的数字是 957.15 公里；51 公里的差距与“桩号里程对实测里程”的差异相符，两者无法对齐。" },
       "source": "Public Services and Procurement Canada, About the Alaska Highway; alternative figure per published route lists"
     },
     {
@@ -71,7 +71,7 @@
     },
     {
       "label": { "en": "Surface", "zh": "路面" },
-      "value": { "en": "Across the Yukon network, about 350 km is conventional pavement, 1,880 km bituminous surface treatment and roughly 1,500 km gravel on primary highways alone. There is no date on which the Alaska Highway was fully paved, because in the conventional sense it never was.", "zh": "在育空全境路网中，仅干线公路就有约 350 公里常规铺装、1,880 公里沥青表面处治、约 1,500 公里砾石路面。阿拉斯加公路并不存在「全线铺装完成」的日期，因为在常规意义上它从未被全线铺装。" },
+      "value": { "en": "Across the Yukon network, about 350 km is conventional pavement, 1,880 km bituminous surface treatment and roughly 1,500 km gravel on primary highways alone. There is no date on which the Alaska Highway was fully paved, because in the conventional sense it never was.", "zh": "在育空全境路网中，仅干线公路就有约 350 公里常规铺装、1,880 公里沥青表面处治、约 1,500 公里砾石路面。阿拉斯加公路并不存在“全线铺装完成”的日期，因为在常规意义上它从未被全线铺装。" },
       "source": "Government of Yukon, Highways and Public Works 2025-26 Supplementary Information"
     },
     {
@@ -87,7 +87,7 @@
   ],
   "timeline": [
     { "year": 1942, "en": "Roosevelt approves the route on 11 February and construction begins in March. The pioneer road's last gap closes near Beaver Creek on 25 October, and the highway opens to military traffic at Soldiers Summit on 20 November.", "zh": "2 月 11 日罗斯福批准该线路，3 月开工。10 月 25 日先导路最后一处缺口在比弗克里克附近合龙，11 月 20 日于士兵岭向军事运输开放。" },
-    { "year": 1943, "en": "The permanent all-weather road is built, linking Dawson Creek and Fairbanks by year's end. Canada and the United States settle on the name Alaska Highway on 19 July.", "zh": "建成全天候永久道路，年底前贯通道森克里克与费尔班克斯。7 月 19 日，美加两国定名「阿拉斯加公路」。" },
+    { "year": 1943, "en": "The permanent all-weather road is built, linking Dawson Creek and Fairbanks by year's end. Canada and the United States settle on the name Alaska Highway on 19 July.", "zh": "建成全天候永久道路，年底前贯通道森克里克与费尔班克斯。7 月 19 日，美加两国定名“阿拉斯加公路”。" },
     { "year": 1946, "en": "Canada takes over the Canadian portion on 1 April, repaying the United States its construction cost.", "zh": "4 月 1 日加拿大接管境内路段，并向美国偿付施工费用。" },
     { "year": 1948, "en": "The highway opens to the general public.", "zh": "公路向公众开放。" },
     { "year": 1954, "en": "The Alaska Highway is designated a National Historic Event on 7 June.", "zh": "6 月 7 日，阿拉斯加公路被定为国家历史事件。" },

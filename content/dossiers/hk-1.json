@@ -55,7 +55,7 @@
         "All three are still tolled. The Cross-Harbour Tunnel's car toll began at HK$5 in 1972; since late 2023 it varies by time of day as part of a scheme to spread traffic across the three harbour tunnels, collected without toll booths."
       ],
       "zh": [
-        "三条隧道的出资方式各不相同。红磡海底隧道是香港首个「建造、营运、移交」（BOT）项目：1965 年成立的香港隧道有限公司负责融资和兴建，换取 30 年的收费专营权，政府则持有约两成权益。中文维基百科记其造价为 3.2 亿港元；英文维基百科称公司在通车后三年半便已收回建造成本。专营权于 1999 年届满，隧道归还政府。",
+        "三条隧道的出资方式各不相同。红磡海底隧道是香港首个“建造、营运、移交”（BOT）项目：1965 年成立的香港隧道有限公司负责融资和兴建，换取 30 年的收费专营权，政府则持有约两成权益。中文维基百科记其造价为 3.2 亿港元；英文维基百科称公司在通车后三年半便已收回建造成本。专营权于 1999 年届满，隧道归还政府。",
         "狮子山隧道与香港仔隧道由政府出资兴建。1977 年，香港隧道有限公司曾提议以同样的专营模式兴建香港仔隧道，但政府拒绝，改由公帑支付，同年 5 月批出 2.8 亿港元的建造合约。第二狮子山隧道在 1972 年的预算为 5,300 万港元。",
         "三条隧道至今仍然收费。红隧私家车收费在 1972 年为 5 港元；2023 年底起按时段收费，以分流三条过海隧道的车流，并已取消收费亭。"
       ]
@@ -84,7 +84,7 @@
         "The tunnels are limited to 70 km/h. Since 2023 all three have used HKeToll, which reads number plates and tags, and their toll booths have been removed. Driving north from Aberdeen, Route 1 is a tunnel, a flyover, a harbour tunnel, city streets with traffic lights, another tunnel, and finally a short expressway across the Shing Mun River on the Dragon Bridge."
       ],
       "zh": [
-        "各隧道限速每小时 70 公里。三条隧道自 2023 年起均采用「易通行」不停车缴费，收费亭已经拆除。从香港仔向北驾驶，1号干线依次是隧道、天桥、海底隧道、有交通灯的市区街道、又一条隧道，最后是一小段快速公路，经锦龙桥跨过城门河。"
+        "各隧道限速每小时 70 公里。三条隧道自 2023 年起均采用“易通行”不停车缴费，收费亭已经拆除。从香港仔向北驾驶，1号干线依次是隧道、天桥、海底隧道、有交通灯的市区街道、又一条隧道，最后是一小段快速公路，经锦龙桥跨过城门河。"
       ]
     }
   ],
@@ -95,7 +95,7 @@
     },
     {
       "label": { "en": "Funding", "zh": "出资方" },
-      "value": { "en": "Mixed. The Cross-Harbour Tunnel was privately financed by the Cross-Harbour Tunnel Company under a 30-year build–operate–transfer franchise (1969–1999), with a government stake of about 20%. Lion Rock and Aberdeen tunnels and the surface roads were built by the Hong Kong government.", "zh": "多种方式并存。红磡海底隧道由香港隧道有限公司以 30 年「建造、营运、移交」专营权（1969—1999 年）私人融资兴建，政府持股约两成；狮子山隧道、香港仔隧道及地面道路由香港政府兴建。" },
+      "value": { "en": "Mixed. The Cross-Harbour Tunnel was privately financed by the Cross-Harbour Tunnel Company under a 30-year build–operate–transfer franchise (1969–1999), with a government stake of about 20%. Lion Rock and Aberdeen tunnels and the surface roads were built by the Hong Kong government.", "zh": "多种方式并存。红磡海底隧道由香港隧道有限公司以 30 年“建造、营运、移交”专营权（1969—1999 年）私人融资兴建，政府持股约两成；狮子山隧道、香港仔隧道及地面道路由香港政府兴建。" },
       "source": "English Wikipedia, Cross-Harbour Tunnel; Chinese Wikipedia, 海底隧道 (香港), 狮子山隧道, 香港仔隧道"
     },
     {
@@ -130,6 +130,6 @@
     { "year": 1984, "en": "A passage tax is added to the Cross-Harbour Tunnel toll in June; Sha Tin Road opens in November.", "zh": "6 月红隧加征隧道通行税；11 月沙田路通车。" },
     { "year": 1999, "en": "The Cross-Harbour Tunnel franchise ends and the tunnel passes to the government.", "zh": "红磡海底隧道专营权届满，隧道交还政府。" },
     { "year": 2004, "en": "The third route-numbering system makes Aberdeen to Sha Tin Route 1; the old Route 1 north of Sha Tin becomes part of Route 9.", "zh": "第三代干线编号系统实施，香港仔至沙田定为 1号干线；原 1号干线沙田以北路段划归 9 号干线。" },
-    { "year": 2023, "en": "HKeToll replaces the toll booths at the three tunnels; design funding for rebuilding Lion Rock Tunnel is approved.", "zh": "三条隧道改用「易通行」，收费亭拆除；狮子山隧道改建工程的设计拨款获批。" }
+    { "year": 2023, "en": "HKeToll replaces the toll booths at the three tunnels; design funding for rebuilding Lion Rock Tunnel is approved.", "zh": "三条隧道改用“易通行”，收费亭拆除；狮子山隧道改建工程的设计拨款获批。" }
   ]
 }

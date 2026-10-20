@@ -1,0 +1,85 @@
+{
+  "id": "mex-016",
+  "route": { "sys": "mx-federal", "num": "016" },
+  "name": { "en": "Federal Highway 16 (Carretera Federal 16)", "zh": "16 号联邦公路（Carretera Federal 16）" },
+  "aka": [
+    { "en": "The Yécora highway (Hermosillo–Yécora–La Junta)", "zh": "耶科拉公路（埃莫西约—耶科拉—拉洪塔段）" },
+    { "en": "Carretera Chihuahua–Ojinaga", "zh": "奇瓦瓦—奥希纳加公路" }
+  ],
+  "tagline": { "en": "Over the northern Sierra Madre Occidental from Hermosillo to Chihuahua, then across the desert to the Rio Grande at Ojinaga", "zh": "从埃莫西约翻越西马德雷山脉北段到奇瓦瓦，再穿越沙漠抵达格兰德河畔的奥希纳加" },
+  "termini": {
+    "start": { "at": [-110.9, 29.0], "en": "Hermosillo, capital of Sonora, at the junction with Federal Highway 15", "zh": "索诺拉州首府埃莫西约，与 15 号联邦公路交会" },
+    "end": { "at": [-104.42, 29.55], "en": "Ojinaga, Chihuahua, at the international bridge to Presidio, Texas", "zh": "奇瓦瓦州奥希纳加，通往得克萨斯州普雷西迪奥的国际桥" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Federal Highway 16 runs east from Hermosillo through the Sonoran foothills by La Colorada and Tecoripa, climbs into the pine forests of the Sierra Madre Occidental at Yécora, crosses into Chihuahua and comes down by Tomochi to La Junta and Cuauhtémoc. From Chihuahua city it runs north-east across empty desert by Aldama and Coyame to Ojinaga, at the meeting of the Conchos and the Rio Grande.",
+        "English Wikipedia, from the ministry's 2011 traffic tables, gives 878.40 km: 313.60 km in Sonora and 564.80 km in Chihuahua. Spanish Wikipedia gives 918 km. The ministry's own traffic tables list the federal road in pieces: Hermosillo–Yécora, La Junta–Yécora and Chihuahua–Ojinaga carry the MEX-016 number."
+      ],
+      "zh": [
+        "16 号联邦公路自埃莫西约向东，经拉科罗拉达和特科里帕穿过索诺拉山麓，在耶科拉爬进西马德雷山脉的松林，进入奇瓦瓦州后经托莫奇下到拉洪塔和夸乌特莫克。从奇瓦瓦城起，它向东北穿过荒凉的沙漠，经阿尔达马和科亚梅抵达孔乔斯河与格兰德河交汇处的奥希纳加。",
+        "英文维基百科依据交通部 2011 年交通数据表，给出 878.40 公里：索诺拉州 313.60 公里，奇瓦瓦州 564.80 公里。西班牙文维基百科作 918 公里。交通部自己的交通数据表把这条联邦公路分段列出：埃莫西约—耶科拉、拉洪塔—耶科拉和奇瓦瓦—奥希纳加三段使用 MEX-016 编号。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The mountain crossing is recent. According to the website Wild Sonora, until the ‘Yécora highway’ was completed in 1992, Sonora was largely isolated even from neighbouring Chihuahua. In Chihuahua, the state government itself started building the road from Cuauhtémoc to La Junta on 10 August 2002, against the federal transport ministry, which had held back the approved budget and wanted a different, older alignment, La Jornada reported. On 29 July 2005 the federal and state governments signed an agreement and began widening Cuauhtémoc–La Junta to four lanes, for a road the trade paper T21 said was used by nearly 6,000 people a day.",
+        "On the desert side, a Texas trade paper reported that after a new highway between Chihuahua and Ojinaga was finished in 2003, commercial crossings at Presidio–Ojinaga rose by more than 300 per cent."
+      ],
+      "zh": [
+        "穿山路段是近年才通的。据网站 Wild Sonora，直到 1992 年“耶科拉公路”完工之前，索诺拉州甚至与邻近的奇瓦瓦州都基本隔绝。在奇瓦瓦州，据《La Jornada》报道，州政府于 2002 年 8 月 10 日自行开工修建夸乌特莫克至拉洪塔的公路，与联邦交通部唱反调：交通部扣着已批准的预算不拨，想采用另一条更老的线位。2005 年 7 月 29 日，联邦与州政府签署协议，并开工将夸乌特莫克—拉洪塔段拓宽为四车道，据行业刊物 T21 报道，这段路当时每天有近 6,000 名使用者。",
+        "在沙漠一侧，一份得克萨斯行业刊物报道，奇瓦瓦至奥希纳加的新公路于 2003 年完工后，普雷西迪奥—奥希纳加口岸的商业过境量增长了 300% 以上。"
+      ]
+    },
+    {
+      "key": "traffic",
+      "en": [
+        "Traffic thins quickly away from the cities. In the ministry's counts for 2022, the Chihuahua–Ojinaga road carried about 20,000 vehicles a day in each direction near Chihuahua airport, but 293 a day at Coyame and 2,663 at Ojinaga. In the sierra the counts were 1,496 a day at Tomochi and 333 at Yécora. On the Sonora side, the 2009 counts were 1,383 a day at La Colorada and 551 at Tecoripa."
+      ],
+      "zh": [
+        "一离开城市，车流便迅速稀落。交通部 2022 年的观测数据显示，奇瓦瓦—奥希纳加公路在奇瓦瓦机场附近每个方向日均约 20,000 辆，到科亚梅只剩 293 辆，奥希纳加为 2,663 辆。山区段托莫奇日均 1,496 辆，耶科拉 333 辆。索诺拉一侧 2009 年的观测为拉科罗拉达日均 1,383 辆，特科里帕 551 辆。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "Sources differ: 878.40 km (313.60 km in Sonora, 564.80 km in Chihuahua) or 918 km", "zh": "各方不一：878.40 公里（索诺拉州 313.60 公里，奇瓦瓦州 564.80 公里）或 918 公里" },
+      "source": "SCT, Datos Viales 2011, as cited in English Wikipedia, Mexican Federal Highway 16; Spanish Wikipedia, Carretera Federal 16"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No source found gives a cost for the road or for its mountain section, completed in 1992.", "zh": "所查资料均未给出全线或 1992 年完工的山区段的造价。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "A toll-free federal road; the Cuauhtémoc–La Junta section was begun by the state of Chihuahua in 2002 and widened under a federal–state agreement from 2005", "zh": "免费联邦公路；夸乌特莫克—拉洪塔段 2002 年由奇瓦瓦州开工修建，2005 年起依联邦与州的协议拓宽" },
+      "source": "English Wikipedia, Mexican Federal Highway 16; La Jornada, 11 August 2002; T21, 29 July 2005"
+    },
+    {
+      "label": { "en": "Completion of the Yécora highway", "zh": "耶科拉公路完工" },
+      "value": { "en": "Reported as 1992 by Wild Sonora and the Arizona-Sonora Desert Museum; not checked against SCT records", "zh": "据 Wild Sonora 和亚利桑那—索诺拉沙漠博物馆为 1992 年；未与交通部记录核对" },
+      "source": "Wild Sonora, “A Brief History of Sonora”; Arizona-Sonora Desert Museum"
+    },
+    {
+      "label": { "en": "Traffic, Chihuahua–Ojinaga (2022)", "zh": "奇瓦瓦—奥希纳加段交通量（2022 年）" },
+      "value": { "en": "About 20,000 vehicles a day each way near Chihuahua airport; 293 at Coyame; 2,663 at Ojinaga", "zh": "奇瓦瓦机场附近每方向日均约 20,000 辆；科亚梅 293 辆；奥希纳加 2,663 辆" },
+      "source": "SCT, Datos Viales 2023, Chihuahua"
+    },
+    {
+      "label": { "en": "Effect of the 2003 Chihuahua–Ojinaga highway", "zh": "2003 年奇瓦瓦—奥希纳加公路的影响" },
+      "value": { "en": "Commercial crossings at Presidio–Ojinaga reported up by more than 300 per cent; not checked against customs or bridge statistics", "zh": "据报道普雷西迪奥—奥希纳加口岸商业过境量增长 300% 以上；未与海关或口岸统计核对" },
+      "source": "Texas Contractor, on the Presidio international bridge"
+    }
+  ],
+  "timeline": [
+    { "year": 1992, "en": "The Yécora highway across the sierra is reported completed.", "zh": "据报道，翻越山脉的耶科拉公路完工。" },
+    { "year": 2002, "en": "The state of Chihuahua begins the Cuauhtémoc–La Junta road on 10 August, without federal money.", "zh": "8 月 10 日，奇瓦瓦州在没有联邦资金的情况下开工修建夸乌特莫克—拉洪塔公路。" },
+    { "year": 2003, "en": "A new highway between Chihuahua and Ojinaga is reported finished.", "zh": "据报道，奇瓦瓦至奥希纳加的新公路完工。" },
+    { "year": 2005, "en": "Federal and state governments agree on 29 July to widen Cuauhtémoc–La Junta to four lanes.", "zh": "7 月 29 日，联邦与州政府达成协议，将夸乌特莫克—拉洪塔段拓宽为四车道。" },
+    { "year": 2022, "en": "Ministry counts show 293 vehicles a day at Coyame and 333 at Yécora.", "zh": "交通部观测显示科亚梅日均 293 辆，耶科拉 333 辆。" }
+  ]
+}

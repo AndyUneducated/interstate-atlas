@@ -1,0 +1,97 @@
+{
+  "id": "cn-g315-xjg",
+  "route": { "sys": "cn-national", "num": "G315", "anchor": [88.40, 38.99] },
+  "name": { "en": "Xining–Torugart Highway", "zh": "西宁—吐尔尕特公路" },
+  "aka": [
+    { "en": "Xitu line", "zh": "西吐线" },
+    { "en": "formerly the Xining–Kashgar Highway", "zh": "原西宁—喀什公路" }
+  ],
+  "tagline": { "en": "From Xining past Qinghai Lake and through the Qaidam basin, over the Altun mountains and along the southern rim of the Taklamakan to Kashgar and the Kyrgyz border", "zh": "从西宁经青海湖、穿柴达木盆地，翻越阿尔金山，沿塔克拉玛干沙漠南缘到喀什和中吉边境" },
+  "termini": {
+    "start": { "en": "Xining, Qinghai; the drawn line begins near Huangyuan, about 46 km to the west", "zh": "青海西宁市；所绘线段起于以西约 46 公里的湟源附近", "at": [101.27, 36.68] },
+    "end": { "en": "Torugart port on the Kyrgyz border, Artux, Xinjiang", "zh": "新疆阿图什市吐尔尕特口岸（中吉边境）", "at": [75.39, 40.52] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G315 runs west from Xining past the northern shore of Qinghai Lake to Delingha, crosses the Qaidam basin to Yitunbulak on the Qinghai–Xinjiang border, climbs over the Altun mountains to Ruoqiang, and then follows the southern edge of the Taklamakan through Qiemo, Minfeng, Hotan, Yecheng and Shache to Kashgar. Chinese Wikipedia gives 3,063 km to Kashgar; the 2013 plan added Akto and extended the road north-west to Torugart on the Kyrgyz border.",
+        "The atlas draws it as one long piece from Torugart to near Huangyuan and three short fragments in Qinghai; this profile is attached to the long piece and covers the whole route."
+      ],
+      "zh": [
+        "G315 自西宁向西，经青海湖北岸到德令哈，穿过柴达木盆地到青新交界的依吞布拉克，翻越阿尔金山到若羌，再沿塔克拉玛干沙漠南缘经且末、民丰、和田、叶城、莎车到喀什。中文维基百科记西宁至喀什 3063 公里；2013 年规划增加阿克陶为控制点，并把路线向西北延伸到中吉边境的吐尔尕特。",
+        "本图集将其绘为自吐尔尕特至湟源附近的一长段和青海境内的三段短碎片；本条目挂在长段上，介绍整条路线。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The road was not continuous until 2010, because the Altun mountains between Yitunbulak and Ruoqiang had no proper road. According to the Xinjiang transport department, the 286 km class-II road built across them over seven years opened in October 2010, made G315 continuous and saved about 1,000 km of detour. A four-lane expressway on a new alignment, 281.79 km, is now being built over the same ground.",
+        "Along the desert's southern rim, the 266.883 km from Minfeng to Lop was rebuilt as a class-I road for 100 km/h and opened on 30 June 2022 after 21 months' work. It is toll-free, and it halved the drive from Minfeng to Hotan from six hours to three."
+      ],
+      "zh": [
+        "这条路直到 2010 年才全线贯通，因为依吞布拉克与若羌之间的阿尔金山没有像样的公路。据新疆维吾尔自治区交通运输厅，历时七年修建的 286 公里二级公路于 2010 年 10 月通车，使 G315 全线贯通，免去约 1000 公里的绕行。如今一条 281.79 公里、双向四车道的新线高速公路正在同一地带修建。",
+        "沙漠南缘的民丰至洛浦段 266.883 公里按设计速度 100 公里/小时的一级公路改建，经 21 个月施工于 2022 年 6 月 30 日通车。该路段不收费，民丰到和田的行车时间由 6 小时缩短为 3 小时。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Until 2010 G315 existed in two halves, the Qinghai road through the Qaidam and the old southern Taklamakan road from Ruoqiang to Kashgar, with no proper road over the Altun between them. The Yitunbulak–Ruoqiang road closed the gap in 2010, and the 2013 plan extended the route to Torugart.",
+        "Work on a new Yitunbulak–Ruoqiang road began in August 2017, but in May 2020 the builder was fined for starting work before the environmental approval; the project was approved again in 2024 as a four-lane expressway (Xinjiang ecology department). In the Qaidam near Golmud, a dipping stretch of road known as the 'U-shaped road' has drawn crowds of photographers since 2018, and in 2020 police issued safety warnings about it (Xinhua, China News Service and Beijing Youth Daily, as cited in Chinese Wikipedia)."
+      ],
+      "zh": [
+        "2010 年以前，G315 分为两半：穿过柴达木的青海段，以及若羌至喀什的塔克拉玛干南缘老路，两者之间的阿尔金山没有像样的公路。2010 年依吞布拉克至若羌公路补上了缺口，2013 年规划把路线延伸到吐尔尕特。",
+        "依吞布拉克至若羌新线 2017 年 8 月开工，但 2020 年 5 月建设单位因未批先建被处罚；2024 年项目按双向四车道高速公路重新获批（据新疆维吾尔自治区生态环境厅）。格尔木附近柴达木盆地里一段起伏的公路被称为“U 形公路”，2018 年起吸引大批游客拍照，2020 年警方发出安全提醒（据新华社、中新社和北京青年报，转引自中文维基百科，315国道）。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost exists for the whole route; each section is priced separately. The Yitunbulak–Ruoqiang class-II road of 2010 had a budget of 1.01 billion yuan, 792 million from the central government and 218 million from bank loans. The new expressway over the same ground has grown in price: 10.797 billion yuan in the 2017 environmental assessment, 11.556 billion in the 2019 public–private partnership, and 14.409 billion in the 2024 re-approval. The Minfeng–Lop class-I section had a budget of 7.5 billion yuan and a contract price of 5.746 billion."
+      ],
+      "zh": [
+        "全线没有总造价，各段分别计价。2010 年建成的依吞布拉克至若羌二级公路概算 10.1 亿元，其中中央投资 7.92 亿元、银行贷款 2.18 亿元。同一地带的新线高速公路投资一再增加：2017 年环评为 107.97 亿元，2019 年 PPP 项目为 115.56 亿元，2024 年重新批复为 144.09 亿元。民丰至洛浦一级公路概算 75 亿元，合同价 57.46 亿元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No cost exists for the whole route: it joins the Qinghai road through the Qaidam, the Altun crossing of 2010 and the southern Taklamakan road, each built and rebuilt separately. See the section figures below.", "zh": "全线没有总造价：路线连接穿越柴达木的青海段、2010 年的阿尔金山段和塔克拉玛干南缘公路，各段分别修建、分别改建。见下方各段数字。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "Yitunbulak–Ruoqiang (2010): central government 792 million yuan, bank loans 218 million. The new expressway on the same line is a public–private partnership. No route-wide statement exists.", "zh": "依吞布拉克至若羌段（2010 年）：中央投资 7.92 亿元，银行贷款 2.18 亿元。同一线位的新线高速公路采用 PPP 模式。未见全线出资说明。" },
+      "source": "Xinjiang Uygur Autonomous Region Department of Transport, 8 November 2010 (reprinted by lgmi.com); Xinjiang Department of Ecology and Environment"
+    },
+    {
+      "label": { "en": "Length (Xining–Kashgar)", "zh": "全长（西宁至喀什）" },
+      "value": { "en": "3,063 km, before the extension to Torugart", "zh": "3063 公里（延伸至吐尔尕特之前）" },
+      "source": "Chinese Wikipedia, 315国道"
+    },
+    {
+      "label": { "en": "Yitunbulak–Ruoqiang class-II road (286 km)", "zh": "依吞布拉克至若羌二级公路（286 公里）" },
+      "value": { "en": "1.01 billion yuan budget; opened October 2010", "zh": "概算 10.1 亿元；2010 年 10 月通车" },
+      "source": "Xinjiang Uygur Autonomous Region Department of Transport, 8 November 2010 (reprinted by lgmi.com)"
+    },
+    {
+      "label": { "en": "New Yitunbulak–Ruoqiang expressway (281.79 km)", "zh": "依吞布拉克至若羌新线高速公路（281.79 公里）" },
+      "value": { "en": "14.409 billion yuan (2024 approval); earlier 10.797 billion (2017 assessment, 285.252 km) and 11.556 billion (2019)", "zh": "144.09 亿元（2024 年批复）；此前为 107.97 亿元（2017 年环评，285.252 公里）、115.56 亿元（2019 年）" },
+      "source": "Xinjiang Uygur Autonomous Region Department of Ecology and Environment"
+    },
+    {
+      "label": { "en": "Minfeng–Lop class-I section (266.883 km)", "zh": "民丰至洛浦一级公路（266.883 公里）" },
+      "value": { "en": "7.5 billion yuan budget; 5.746 billion contract (November 2020); opened 30 June 2022", "zh": "概算 75 亿元；合同价 57.46 亿元（2020 年 11 月）；2022 年 6 月 30 日通车" },
+      "source": "Xinjiang Uygur Autonomous Region Department of Transport; Hotan Prefecture"
+    }
+  ],
+  "timeline": [
+    { "year": 2010, "en": "The Yitunbulak–Ruoqiang road opens in October, making G315 continuous.", "zh": "10 月，依吞布拉克至若羌公路通车，G315 全线贯通。" },
+    { "year": 2013, "en": "The national road plan extends G315 from Kashgar to Torugart.", "zh": "国道网规划把 G315 由喀什延伸到吐尔尕特。" },
+    { "year": 2017, "en": "Work begins on a new Yitunbulak–Ruoqiang road in August.", "zh": "8 月，依吞布拉克至若羌新线开工。" },
+    { "year": 2020, "en": "The new Yitunbulak–Ruoqiang project is fined in May for building before approval.", "zh": "5 月，依吞布拉克至若羌新线因未批先建被处罚。" },
+    { "year": 2022, "en": "The Minfeng–Lop class-I section opens on 30 June.", "zh": "6 月 30 日，民丰至洛浦一级公路通车。" },
+    { "year": 2024, "en": "The new Yitunbulak–Ruoqiang road is re-approved as a 281.79 km expressway.", "zh": "依吞布拉克至若羌新线按 281.79 公里高速公路重新获批。" }
+  ]
+}

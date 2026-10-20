@@ -1,0 +1,85 @@
+{
+  "id": "mex-002-son",
+  "route": { "sys": "mx-federal", "num": "002", "anchor": [-112.86, 31.85] },
+  "name": { "en": "Federal Highway 2 (Carretera Federal 2)", "zh": "2 号联邦公路（Carretera Federal 2）" },
+  "aka": [
+    { "en": "The border highway: Tijuana–Mexicali–Sonoyta–Agua Prieta–Ciudad Juárez", "zh": "边境公路：蒂华纳—墨西卡利—索诺伊塔—阿瓜普列塔—华雷斯城" },
+    { "en": "La Rumorosa road (Tecate–Mexicali)", "zh": "拉鲁莫罗萨公路（特卡特—墨西卡利段）" }
+  ],
+  "tagline": { "en": "Mexico's road along the US border, in two pieces: Tijuana to the Rio Grande below Ciudad Juárez, and Ciudad Acuña to the Gulf", "zh": "墨西哥沿美墨边境的公路，分为两段：蒂华纳至华雷斯城下游的格兰德河，以及阿库尼亚城至墨西哥湾" },
+  "termini": {
+    "start": { "at": [-116.91, 32.54], "en": "Tijuana, Baja California, at the border with San Diego", "zh": "下加利福尼亚州蒂华纳，与圣迭戈接壤的边境" },
+    "end": { "at": [-105.85, 31.27], "en": "El Porvenir, Chihuahua, at the Fort Hancock–El Porvenir bridge over the Rio Grande, where the western section ends; the eastern section runs from Ciudad Acuña to Playa Lauro Villar on the Gulf near Matamoros", "zh": "奇瓦瓦州埃尔波韦尼尔，格兰德河上的汉考克堡—埃尔波韦尼尔大桥，西段到此为止；东段自阿库尼亚城通往马塔莫罗斯附近墨西哥湾畔的劳罗·比利亚尔海滩" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Federal Highway 2 stays close to the United States border for almost its whole length. The western section, which this entry follows, runs from Tijuana by Tecate, over the Sierra de Juárez at La Rumorosa, down to Mexicali, across the Colorado River to San Luis Río Colorado, then through the Altar desert to Sonoyta, Caborca, Santa Ana, Ímuris, Cananea and Agua Prieta, over into Chihuahua by Janos to Ciudad Juárez, and down the Rio Grande to El Porvenir. Around Big Bend there is no road, and the eastern section starts again at Ciudad Acuña and follows the river by Piedras Negras, Nuevo Laredo and Reynosa to Matamoros and the Gulf.",
+        "English Wikipedia, from the ministry's 2011 traffic tables, gives 1,987.34 km in all: 1,343.14 km for the western section (244.03 km in Baja California, 745.79 km in Sonora, 353.32 km in Chihuahua) and 644.20 km for the eastern. Spanish Wikipedia gives 1,963 km. The road reaches every port of entry on the border except Ojinaga–Presidio."
+      ],
+      "zh": [
+        "2 号联邦公路几乎全程紧贴美国边境。本条目所述的西段从蒂华纳出发，经特卡特，在拉鲁莫罗萨翻越华雷斯山脉，下到墨西卡利，跨过科罗拉多河到圣路易斯里奥科罗拉多，再穿过阿尔塔尔沙漠到索诺伊塔、卡沃尔卡、圣安娜、伊穆里斯、卡纳内阿和阿瓜普列塔，经哈诺斯进入奇瓦瓦州抵达华雷斯城，然后沿格兰德河而下到埃尔波韦尼尔。大弯一带没有公路，东段从阿库尼亚城重新开始，沿河经彼德拉斯内格拉斯、新拉雷多和雷诺萨到马塔莫罗斯和墨西哥湾。",
+        "英文维基百科依据交通部 2011 年交通数据表，给出全长 1,987.34 公里：西段 1,343.14 公里（下加利福尼亚州 244.03 公里，索诺拉州 745.79 公里，奇瓦瓦州 353.32 公里），东段 644.20 公里。西班牙文维基百科作 1,963 公里。除奥希纳加—普雷西迪奥外，这条路通达边境上的每一个口岸。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The oldest piece is the climb at La Rumorosa. Between 1915 and 1918 the government of Esteban Cantú in the Northern District of Baja California built a Camino Nacional from Mexicali by Tecate to Tijuana and Ensenada. Its hardest part was the Cuesta de Picachos, later called the Cuesta de Alducin: 11 km cut in rock, rising 806 m up the eastern face of the sierra. The first engineer, Luis Robles Linares, died in 1917; the work was finished under Enrique Alducin, opened provisionally on 1 April 1918 and inaugurated on 18 April.",
+        "East of the Colorado the desert was crossed for years without a road; from 1928, according to Noriega Rascón as quoted in the Tribuna de San Luis, cars ran as diligences across it. On 5 May 1952 President Miguel Alemán inaugurated the roads from Mexicali to San Luis Río Colorado and from Mexicali to Tijuana."
+      ],
+      "zh": [
+        "最早的一段是拉鲁莫罗萨的爬坡路。1915 至 1918 年间，下加利福尼亚北区埃斯特万·坎图政府修建了一条自墨西卡利经特卡特至蒂华纳和恩塞纳达的国道。最难的是皮卡乔斯坡，后称阿尔杜辛坡：在岩石中开凿 11 公里，沿山脉东坡爬升 806 米。首任工程师路易斯·罗夫莱斯·利纳雷斯于 1917 年去世；工程在恩里克·阿尔杜辛主持下完成，1918 年 4 月 1 日临时通车，4 月 18 日正式落成。",
+        "科罗拉多河以东的沙漠多年无路可走；据《圣路易斯论坛报》引述的诺列加·拉斯孔，自 1928 年起有汽车作为驿车往来穿越沙漠。1952 年 5 月 5 日，米格尔·阿莱曼总统为墨西卡利至圣路易斯里奥科罗拉多、墨西卡利至蒂华纳两条公路剪彩。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Over La Rumorosa a second carriageway between El Centinela and La Rumorosa was inaugurated on 21 July 1996, the year the Baja California state trust FIARUM was created to run the tolled road, 2D. Its concession was granted on 14 July 2000 and renewed on 18 August 2023 to run until 2053.",
+        "In the Sonora desert, the 192 km between Sonoyta and San Luis Río Colorado were widened from 7 to 12 metres between April 2008 and April 2014, for a road carrying more than 8,500 vehicles a day. The reported cost differs between sources: Revista Infraestructura gives 2,400 million pesos, while El Economista wrote on 20 April 2014 of ‘more than 1,400 million’."
+      ],
+      "zh": [
+        "在拉鲁莫罗萨，埃尔森蒂内拉至拉鲁莫罗萨之间的第二幅路面于 1996 年 7 月 21 日落成；同年，下加利福尼亚州设立信托基金 FIARUM，负责运营收费路 2D。其特许于 2000 年 7 月 14 日授予，并于 2023 年 8 月 18 日续期至 2053 年。",
+        "在索诺拉沙漠，索诺伊塔至圣路易斯里奥科罗拉多的 192 公里于 2008 年 4 月至 2014 年 4 月间由 7 米拓宽至 12 米，这段路每天通行逾 8,500 辆车。各方报道的造价不一：《Revista Infraestructura》作 24 亿比索，《El Economista》2014 年 4 月 20 日则称“逾 14 亿”。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "1,987.34 km in two sections: western 1,343.14 km, eastern 644.20 km; Spanish Wikipedia gives 1,963 km", "zh": "1,987.34 公里，分两段：西段 1,343.14 公里，东段 644.20 公里；西班牙文维基百科作 1,963 公里" },
+      "source": "SCT, Datos Viales 2011, as cited in English Wikipedia, Mexican Federal Highway 2; Spanish Wikipedia, Carretera Federal 2"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "The road was built in separate pieces from 1915 to the 1950s and no total cost has been found; the only section costs found are for later modernisation, given below.", "zh": "这条路从 1915 年到 1950 年代分段修建，未找到全线造价；所见的分段造价只涉及后来的改造工程，见下。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The first section, Mexicali–Tecate–Tijuana–Ensenada, was built by Esteban Cantú's government of the Northern District of Baja California (1915–1918); the tolled 2D over La Rumorosa is run by the Baja California state trust FIARUM under a federal concession", "zh": "第一段墨西卡利—特卡特—蒂华纳—恩塞纳达由下加利福尼亚北区埃斯特万·坎图政府修建（1915—1918）；拉鲁莫罗萨收费路 2D 由下加利福尼亚州信托基金 FIARUM 依联邦特许运营" },
+      "source": "Radar Tecate News, citing Matías Gómez, on the Camino Nacional of 1915–1918; English Wikipedia, Mexican Federal Highway 2D; Proyectos México, Autopista Tecate–La Rumorosa"
+    },
+    {
+      "label": { "en": "Sonoyta–San Luis Río Colorado modernisation", "zh": "索诺伊塔—圣路易斯里奥科罗拉多段改造" },
+      "value": { "en": "192 km widened from 7 to 12 m, April 2008 to April 2014. Cost reported at 2,400 million pesos by Revista Infraestructura and at more than 1,400 million pesos by El Economista (2014); not checked against SCT accounts", "zh": "192 公里，由 7 米拓宽至 12 米，2008 年 4 月至 2014 年 4 月。造价据《Revista Infraestructura》为 24 亿比索，据《El Economista》（2014 年）逾 14 亿比索；未与交通部账目核对" },
+      "source": "Revista Infraestructura; El Economista, 20 April 2014"
+    },
+    {
+      "label": { "en": "Cuesta de Alducin, La Rumorosa", "zh": "拉鲁莫罗萨阿尔杜辛坡" },
+      "value": { "en": "11 km cut in rock, climbing 806 m; inaugurated 18 April 1918", "zh": "在岩石中开凿 11 公里，爬升 806 米；1918 年 4 月 18 日落成" },
+      "source": "Radar Tecate News, citing Matías Gómez"
+    }
+  ],
+  "timeline": [
+    { "year": 1915, "en": "Esteban Cantú's government begins the Camino Nacional from Mexicali to Tijuana.", "zh": "埃斯特万·坎图政府开工修建墨西卡利至蒂华纳的国道。" },
+    { "year": 1918, "en": "The road over La Rumorosa opens provisionally on 1 April and is inaugurated on 18 April.", "zh": "翻越拉鲁莫罗萨的公路 4 月 1 日临时通车，4 月 18 日正式落成。" },
+    { "year": 1928, "en": "Cars begin running as diligences across the desert east of the Colorado.", "zh": "汽车开始作为驿车穿越科罗拉多河以东的沙漠。" },
+    { "year": 1952, "en": "President Alemán inaugurates Mexicali–San Luis Río Colorado and Mexicali–Tijuana on 5 May.", "zh": "5 月 5 日，阿莱曼总统为墨西卡利—圣路易斯里奥科罗拉多和墨西卡利—蒂华纳公路剪彩。" },
+    { "year": 1996, "en": "A second carriageway from El Centinela to La Rumorosa opens on 21 July; the state trust FIARUM is created.", "zh": "7 月 21 日，埃尔森蒂内拉至拉鲁莫罗萨的第二幅路面通车；州信托基金 FIARUM 设立。" },
+    { "year": 2008, "en": "Widening of Sonoyta–San Luis Río Colorado begins in April.", "zh": "4 月，索诺伊塔—圣路易斯里奥科罗拉多段拓宽工程开工。" },
+    { "year": 2014, "en": "The widened Sonoyta–San Luis Río Colorado road is finished on 22 April.", "zh": "4 月 22 日，拓宽后的索诺伊塔—圣路易斯里奥科罗拉多段完工。" },
+    { "year": 2023, "en": "The La Rumorosa toll road concession is renewed on 18 August, to 2053.", "zh": "8 月 18 日，拉鲁莫罗萨收费路特许续期至 2053 年。" }
+  ]
+}

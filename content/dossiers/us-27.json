@@ -1,0 +1,94 @@
+{
+  "id": "us-27",
+  "name": { "en": "U.S. Route 27", "zh": "27 号美国国道" },
+  "aka": [
+    { "en": "Eastern Dixie Highway (in part)", "zh": "迪克西公路东线（部分）" },
+    { "en": "Martha Berry Highway (Georgia)", "zh": "玛莎·贝里公路（佐治亚）" },
+    { "en": "Thomas E. Will Memorial Highway (Miami to South Bay)", "zh": "托马斯·E·威尔纪念公路（迈阿密至南湾）" }
+  ],
+  "tagline": { "en": "A north–south road through the middle of the eastern states, from Miami to Fort Wayne, that has grown and shrunk at both ends", "zh": "一条纵贯美国东部腹地的南北向公路，自迈阿密至韦恩堡，两端都曾几度伸缩" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "US 1 in Miami, Florida", "zh": "佛罗里达州迈阿密，与 US 1 相接", "at": [-80.19, 25.81] },
+    "end": { "en": "I-69, US 30 and SR 3 on the north side of Fort Wayne, Indiana", "zh": "印第安纳州韦恩堡北侧，与 I-69、US 30 及 3 号州道相接" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 27 runs inland for most of its length, keeping away from both coasts. In Florida it leaves Miami north-west beside the Everglades to the southern shore of Lake Okeechobee, then runs north up the middle of the peninsula through Sebring, Lake Wales and Clermont to Ocala, and west to Tallahassee. Nearly all of it in Florida is a divided highway. In Georgia it climbs the western side of the state through Bainbridge, Columbus, LaGrange, Cedartown and Rome; Georgia's road programme is widening it to four lanes from the Florida line to Tennessee.",
+        "Beyond Chattanooga it follows the valley between the Tennessee River and the Cumberland Plateau to Harriman, climbs onto the plateau, and crosses Kentucky through Somerset and Lexington to Cincinnati on the Taylor–Southgate Bridge. It then runs north-west through Oxford, Ohio, and up the Indiana side of the state line through Richmond and Decatur to Fort Wayne. North of Fort Wayne its former line through Michigan is now I-69 and US 127."
+      ],
+      "zh": [
+        "US 27 大部分路段都走内陆，远离两侧海岸。在佛罗里达，它出迈阿密沿大沼泽地向西北抵达奥基乔比湖南岸，然后沿半岛中部北上，经塞布林、莱克韦尔斯与克莱蒙特到奥卡拉，再西行到塔拉哈西；它在佛罗里达几乎全程为分隔式公路。在佐治亚，它沿州境西侧经班布里奇、哥伦布、拉格兰奇、锡达敦与罗马北上；佐治亚的道路改善计划正把它自佛罗里达州界至田纳西州界全线拓宽为四车道。",
+        "过了查塔努加，它沿田纳西河与坎伯兰高原之间的谷地到哈里曼，登上高原，再经萨默塞特与列克星敦横穿肯塔基，经泰勒—索斯盖特大桥进入辛辛那提。随后它向西北经俄亥俄州牛津，沿印第安纳一侧的州界经里士满与迪凯特北上到韦恩堡。韦恩堡以北，它在密歇根的旧线位如今已是 I-69 与 US 127。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "In 1926 US 27 ran from Cincinnati to Cheboygan, Michigan. It was then extended south in stages, as English Wikipedia records: to Chattanooga in 1928, to Tallahassee in 1934 and to Miami in 1949. Much of the southern route followed the Dixie Highway's eastern branch, and in Florida the road from Miami to South Bay was named the Thomas E. Will Memorial Highway in 1937, after the founder of Okeelanta who had pressed the state to build it.",
+        "In Michigan the northern end followed the growth of the road network to the Straits of Mackinac: it reached Mackinaw City in 1937 and crossed the Mackinac Bridge to St. Ignace in 1957. When I-75 and I-69 took over the long-distance traffic the route was pulled back. In 1961 it was cut back to I-75 south of Grayling; in 2001 its signs were removed along I-69 between Lansing and Fort Wayne, and in 2002 its terminus was formally moved to Fort Wayne, with US 127 taking over the road from Lansing to Grayling."
+      ],
+      "zh": [
+        "1926 年的 US 27 自辛辛那提通到密歇根州谢博伊根。据英文维基百科记载，此后它分阶段南延：1928 年至查塔努加，1934 年至塔拉哈西，1949 年至迈阿密。南段大部分沿迪克西公路东线而行；在佛罗里达，迈阿密至南湾一段于 1937 年以奥基兰塔的创建者托马斯·E·威尔命名，称为托马斯·E·威尔纪念公路——正是他促成州政府修建了这条路。",
+        "在密歇根，北端随着路网向麦基诺海峡延伸而推进：1937 年到达麦基诺城，1957 年经麦基诺大桥跨海峡到圣伊格纳斯。I-75 与 I-69 接过长途交通后，这条路线又被收缩。1961 年它被截短至格雷灵以南的 I-75；2001 年 I-69 兰辛至韦恩堡段撤下了它的标志，2002 年终点正式移至韦恩堡，兰辛至格雷灵一段改由 US 127 承担。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The largest single bill on the route in recent years was in Chattanooga, where US 27 is a freeway across the Tennessee River and through downtown, sharing its downtown stretch with the short I-124. TDOT rebuilt it in two contracts. The first, from December 2011 to February 2015, widened the 1.6 miles north of the Olgiati Bridge to three lanes each way for $105.6 million. The second, begun in 2015, rebuilt 2.29 miles from I-24 to the bridge, replacing nine bridges and widening the Olgiati Bridge, whose substructure had been built wide enough for extra lanes in 2003. Its 2006 estimate was $85 million; it was bid in 2015 at about $126 million, and its contract value reached $143.3 million.",
+        "TDOT explained the rebuilding by the traffic: the road had been designed for about 30,000 vehicles a day and was carrying about 72,000. According to TDOT, federal money paid 80%, or up to almost 90% of the roadway work, because the stretch from I-24 to the Olgiati Bridge is also I-124, an Interstate spur."
+      ],
+      "zh": [
+        "近年这条路线上最大的单笔开支在查塔努加。US 27 在那里是一条跨越田纳西河、穿过市中心的高速公路，市中心一段与短短的 I-124 共线。田纳西州交通部分两份合同重建了这段路。第一份自 2011 年 12 月至 2015 年 2 月，以 1.056 亿美元把奥尔贾蒂大桥以北的 1.6 英里拓宽为双向六车道。第二份于 2015 年开工，重建自 I-24 至大桥的 2.29 英里，更换了九座桥梁，并拓宽了奥尔贾蒂大桥——其下部结构早在 2003 年就已按加宽车道的宽度建成。这份合同 2006 年的估价为 8,500 万美元，2015 年投标价约 1.26 亿美元，合同金额最终达到 1.433 亿美元。",
+        "田纳西州交通部以交通量解释这次重建：这段路原按每日约 30,000 辆车设计，实际承载约 72,000 辆。据田纳西州交通部称，联邦资金负担 80%，路面工程部分最高可近 90%，因为 I-24 至奥尔贾蒂大桥一段同时是州际支线 I-124。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure exists. US 27 was numbered over existing roads and extended in stages from 1926 to 1949; the five states have rebuilt it section by section, and only individual projects such as the Chattanooga reconstruction carry their own cost.", "zh": "没有全线造价。US 27 沿既有道路编号，并于 1926 至 1949 年间分阶段延伸；五个州分段改建，只有查塔努加重建等单项工程留有各自的造价。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "There is no single funder. Each state pays for its sections with state and federal-aid money; in Chattanooga the federal share was almost 90% because part of the road is I-124.", "zh": "没有单一出资方。各州以州资金与联邦补助负担各自路段；在查塔努加，由于部分路段属于 I-124，联邦份额接近 90%。" }
+    },
+    {
+      "label": { "en": "Chattanooga US 27 / I-124 reconstruction", "zh": "查塔努加 US 27 / I-124 重建" },
+      "value": { "en": "Contract value $143,272,241.97 (2015 award), against a 2006 estimate of $85 million and a 2015 bid of about $126 million", "zh": "合同金额 143,272,241.97 美元（2015 年授标）；2006 年估价 8,500 万美元，2015 年投标约 1.26 亿美元" },
+      "source": "Wright Brothers Construction, US 27 project page; WDEF News 12, 17 August 2018"
+    },
+    {
+      "label": { "en": "Chattanooga widening north of the Olgiati Bridge", "zh": "查塔努加奥尔贾蒂大桥以北拓宽" },
+      "value": { "en": "$105.6 million for 1.6 miles, December 2011 to February 2015", "zh": "1.6 英里，1.056 亿美元，2011 年 12 月至 2015 年 2 月" },
+      "source": "TDOT news release, 6 March 2015"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "Reported at 1,356.7 miles as the sum of six state figures; five come from state route logs, but the Tennessee figure of 144.8 miles is uncited; not checked against TDOT", "zh": "据报为 1,356.7 英里，系六个州数字之和；其中五个出自州路线里程表，田纳西的 144.8 英里则未注出处；未与田纳西州交通部数据核对" },
+      "source": "as cited in English Wikipedia, U.S. Route 27 (FDOT, GDOT, KYTC, ODOT and INDOT logs)"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Chattanooga freeway, design and actual traffic", "zh": "查塔努加高速段设计与实际交通量" },
+      "value": { "en": "Designed for about 30,000 vehicles a day; carrying about 72,000 in 2018", "zh": "原设计每日约 30,000 辆；2018 年实际约 72,000 辆" },
+      "source": "WDEF News 12, 2018, quoting TDOT"
+    }
+  ],
+  "timeline": [
+    { "year": 1926, "en": "US 27 is numbered from Cincinnati to Cheboygan, Michigan.", "zh": "US 27 编定，自辛辛那提至密歇根州谢博伊根。" },
+    { "year": 1928, "en": "The route is extended south to Chattanooga.", "zh": "路线南延至查塔努加。" },
+    { "year": 1934, "en": "It is extended south to Tallahassee.", "zh": "南延至塔拉哈西。" },
+    { "year": 1937, "en": "The northern end moves to Mackinaw City.", "zh": "北端移至麦基诺城。" },
+    { "year": 1949, "en": "US 27 is extended to Miami.", "zh": "US 27 延伸至迈阿密。" },
+    { "year": 1957, "en": "The route crosses the new Mackinac Bridge to St. Ignace.", "zh": "路线经新建的麦基诺大桥延伸至圣伊格纳斯。" },
+    { "year": 1961, "en": "The northern end is cut back to I-75 south of Grayling.", "zh": "北端截短至格雷灵以南的 I-75。" },
+    { "year": 2002, "en": "The northern terminus is moved to Fort Wayne, Indiana; US 127 replaces it from Lansing to Grayling.", "zh": "北端终点移至印第安纳州韦恩堡；兰辛至格雷灵段改由 US 127 承担。" },
+    { "year": 2015, "en": "The widening north of the Olgiati Bridge opens in February, and work starts on the downtown section from I-24 to the bridge.", "zh": "2 月，奥尔贾蒂大桥以北的拓宽段通车；自 I-24 至大桥的市中心段随即开工。" },
+    { "year": 2018, "en": "TDOT raises the downtown project's budget to $143 million.", "zh": "田纳西州交通部把市中心段工程预算提高到 1.43 亿美元。" }
+  ]
+}

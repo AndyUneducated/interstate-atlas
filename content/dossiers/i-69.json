@@ -32,7 +32,7 @@
       "zh": [
         "I-69 并未出现在 1950 年代中期最初的州际公路规划图上。它于 1958 年被补入，且线路比今日更短；密歇根在 1960 年代陆续为它修建高速路段，1968 年获得追加的州际公路里程，才把它向北、向东推至弗林特。1973 与 1987 年的两次延伸，最终形成了今天的走向。",
         "印第安纳先完工：自印第安纳波利斯北侧经韦恩堡至密歇根州界的原有 157 英里，于 1971 年 11 月建成。密歇根则一直等到 1992 年 10 月，兰辛西南一段通车，不仅使 I-69 在该州贯通，也使密歇根全部的州际公路配额告成。",
-        "同月，七个州的代表在孟菲斯集会，成立「69 号州际公路中大陆公路联盟」，推动把这条路延伸至墨西哥边境——正是这场运动，最终催生了埃文斯维尔至印第安纳波利斯的延伸段与南方的零散路段。"
+        "同月，七个州的代表在孟菲斯集会，成立“69 号州际公路中大陆公路联盟”，推动把这条路延伸至墨西哥边境——正是这场运动，最终催生了埃文斯维尔至印第安纳波利斯的延伸段与南方的零散路段。"
       ]
     },
     {
@@ -61,7 +61,7 @@
       "source": "Indianapolis Business Journal, 6 August 2024"
     },
     {
-      "label": { "en": "Finish Line section", "zh": "「终点线」路段" },
+      "label": { "en": "Finish Line section", "zh": "“终点线”路段" },
       "value": { "en": "$2 billion to upgrade more than 26 miles of State Road 37 to Interstate standard, build ten new interchanges and more than 35 lane-miles of local access roads; begun 2019 and finished three years ahead of schedule", "zh": "20 亿美元，将 26 英里以上的 SR 37 提升至州际公路标准，新建十座立交及 35 车道英里以上的地方接线道路；2019 年开工，比原计划提前三年完工" },
       "source": "Office of the Governor of Indiana and INDOT, August 2024"
     },
@@ -95,7 +95,7 @@
     { "year": 2008, "en": "Construction of the Evansville–Indianapolis extension begins in southwestern Indiana.", "zh": "埃文斯维尔至印第安纳波利斯延伸段在印第安纳西南部开工。" },
     { "year": 2012, "en": "The first three sections of the extension open to traffic in November.", "zh": "11 月，延伸段的前三段通车。" },
     { "year": 2018, "en": "Section 5 is accepted into the Interstate inventory, and the Indiana Finance Authority amends the Indiana Toll Road concession to help fund the final section.", "zh": "第 5 段被纳入州际公路清册；印第安纳金融管理局修订印第安纳收费公路特许协议，为最后一段筹资。" },
-    { "year": 2024, "en": "The Finish Line section and the I-69/I-465 interchange open in August, giving a continuous I-69 from Evansville to the Canadian border at Port Huron.", "zh": "8 月，「终点线」路段与 I-69／I-465 立交通车，I-69 自埃文斯维尔至休伦港的加拿大边境连成一线。" },
+    { "year": 2024, "en": "The Finish Line section and the I-69/I-465 interchange open in August, giving a continuous I-69 from Evansville to the Canadian border at Port Huron.", "zh": "8 月，“终点线”路段与 I-69／I-465 立交通车，I-69 自埃文斯维尔至休伦港的加拿大边境连成一线。" },
     { "year": 2026, "en": "Approach work for the Ohio River crossing at Evansville is reported 85 per cent complete in August and due to finish within the year; the new roads and bridges will not open to traffic until the river bridge does.", "zh": "8 月，据报俄亥俄河跨越工程埃文斯维尔一侧的接线工程已完成 85%，预计年内完工；这些新建道路与桥梁要等跨河大桥通车后才会对外开放。" }
     ]
 }

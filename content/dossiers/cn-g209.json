@@ -1,0 +1,104 @@
+{
+  "id": "cn-g209",
+  "route": { "sys": "cn-national", "num": "G209" },
+  "name": { "en": "Sonid Left Banner–Beihai Highway", "zh": "苏尼特左旗—北海公路" },
+  "aka": [
+    { "en": "Subei line", "zh": "苏北线" },
+    { "en": "formerly the Hohhot–Beihai Highway", "zh": "原呼和浩特—北海公路" }
+  ],
+  "tagline": { "en": "A north–south road of about 3,500 km from the Mongolian steppe to the Gulf of Tonkin, through the Loess Plateau, Shennongjia and the Wuling mountains", "zh": "从内蒙古草原到北部湾约 3500 公里的南北向国道，穿过黄土高原、神农架和武陵山区" },
+  "termini": {
+    "start": { "en": "Sonid Left Banner (Mandalt), Xilingol, Inner Mongolia", "zh": "内蒙古锡林郭勒盟苏尼特左旗（满都拉图镇）", "at": [113.75, 43.85] },
+    "end": { "en": "Beihai, Guangxi", "zh": "广西北海市", "at": [109.09, 21.46] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G209 runs from Sonid Left Banner on the Inner Mongolian steppe south to Beihai on the Gulf of Tonkin, through Inner Mongolia, Shanxi, Henan, Hubei, Hunan and Guangxi. Chinese Wikipedia gives 3,582 km; Baidu Baike gives 3,435 km, which is a weak source and has not been checked against an official one. Until the 2013 national road plan the route began at Hohhot; the plan moved its northern end to Sonid Left Banner.",
+        "South of Hohhot the road enters Shanxi and runs down the west of the province through the Lüliang hills of the Loess Plateau, crosses the Yellow River into western Henan at Sanmenxia, passes Lushi and the Funiu mountains, enters Hubei at Shiyan and climbs through Shennongjia to Yichang on the Yangtze. South of the river it crosses the Wuling mountains of western Hunan and reaches the coast through Guangxi."
+      ],
+      "zh": [
+        "G209 从内蒙古草原上的苏尼特左旗向南到北部湾畔的北海，途经内蒙古、山西、河南、湖北、湖南、广西六省区。中文维基百科记全长 3582 公里；百度百科记 3435 公里，后者为弱来源，未与官方资料核对。2013 年国道网规划之前，路线起点在呼和浩特；规划把北端移到苏尼特左旗。",
+        "道路自呼和浩特南下进入山西，沿山西西部穿行黄土高原上的吕梁山区，在三门峡过黄河进入豫西，经卢氏和伏牛山区，在十堰进入湖北，翻越神农架到长江边的宜昌。过江后穿越湘西武陵山区，经广西抵达海边。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The hardest ground is Shennongjia, where the road climbs through the forest between Shiyan and Yichang. The Muyu–Zhaojun village section of the Shennongjia–Yichang road, 52.96 km, is part of G209; rebuilt between March 2006 and the end of September 2007, the Shennongjia–Yichang road was made a Ministry of Transport demonstration road in January 2008.",
+        "In Shanxi the old road is being replaced by new alignments: a 59.982 km class-I realignment in Lüliang, and a 29.2 km bypass at Fengshouling in Ji county. In Henan a bypass of Lushi opened on 1 September 2021, and in Hubei the Yazi–Dachuan section in Shiyan opened on 1 July 2024 (both reported by Baidu Baike, a weak source)."
+      ],
+      "zh": [
+        "最难的一段在神农架，道路在十堰与宜昌之间穿林爬山。神宜公路木鱼至昭君村段 52.96 公里是 G209 的一部分，2006 年 3 月至 2007 年 9 月底改建，2008 年 1 月神宜公路被交通部列为示范公路。",
+        "山西的老路正由新线替换：吕梁有一段 59.982 公里的一级公路改线，吉县丰收岭有一段 29.2 公里的绕城线。河南卢氏绕城段 2021 年 9 月 1 日通车，湖北十堰鸭子—大川段 2024 年 7 月 1 日通车（两者均据百度百科，为弱来源）。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road through Shennongjia was cut in the 1960s. A local news portal reports that in 1962 Hubei set up road-building commands and sent more than 7,000 workers into the forest; over more than three years they opened the road that became G209 and a second trunk road through the forest, and more than 300 of them died. A local history site dates the road through Shennongjia to 1966. Neither is an official source, and the figures have not been checked against one; the Shennongjia forest district itself was created in 1970.",
+        "In 2013 the national road plan moved the northern end from Hohhot to Sonid Left Banner. Since then provinces have been upgrading the road in sections: in Shanxi the Fangshan–Lishi section opened on 28 February 2023 (Baidu Baike, weak), and the Lüliang realignment and the Ji county bypass followed."
+      ],
+      "zh": [
+        "穿越神农架的公路修于 20 世纪 60 年代。据一家本地资讯网站，1962 年湖北成立筑路指挥部，7000 多名民工进入林区，历时三年多修通了后来的 209 国道和另一条林区干线，300 多人为此献出生命。另一家地方历史网站称神农架公路于 1966 年修通。两者都不是官方来源，数字未与官方资料核对；神农架林区本身设立于 1970 年。",
+        "2013 年国道网规划把北端由呼和浩特移到苏尼特左旗。此后各省分段改造：山西方山至离石段 2023 年 2 月 28 日通车（据百度百科，为弱来源），随后有吕梁改线和吉县绕城等工程。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "No cost exists for the whole route, which joins roads of many periods; each section is priced and funded separately. The Muyu–Zhaojun village section of the Shennongjia–Yichang road cost about 384 million yuan by one local report and 420 million by the Yichang transport bureau. The Lüliang realignment, 59.982 km, is budgeted at 7.184 billion yuan and is being built as a public–private partnership; the Fengshouling bypass in Ji county, 29.2 km, has an estimate of 2.296 billion yuan."
+      ],
+      "zh": [
+        "全线由不同时期的道路连接而成，没有总造价；各段分别计价、分别出资。神宜公路木鱼至昭君村段，据一份地方报道投资约 3.84 亿元，据宜昌市交通运输局为 4.2 亿元。吕梁改线 59.982 公里，总投资 71.84 亿元，采用 PPP 模式建设；吉县丰收岭绕城段 29.2 公里，估算投资 22.96 亿元。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No cost exists for the whole route: it was assembled from roads of many periods and is rebuilt section by section, each priced separately. See the section figures below.", "zh": "全线没有总造价：路线由不同时期的道路组成，并分段改造、分段计价。见下方各段数字。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "No route-wide funding statement exists. Sections are funded by the provinces with national subsidies; the Lüliang realignment is a public–private partnership.", "zh": "未见全线出资说明。各段由省区出资并获国家补助；吕梁改线采用 PPP 模式。" }
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "3,582 km. Baidu Baike gives 3,435 km: reported at 3,435 km; not checked against an official source.", "zh": "3582 公里。百度百科记 3435 公里；该数字未与官方资料核对。" },
+      "source": "Chinese Wikipedia, 209国道; Baidu Baike, 209国道 (weak)"
+    },
+    {
+      "label": { "en": "Muyu–Zhaojun village section, Shennongjia–Yichang road (52.96 km)", "zh": "神宜公路木鱼至昭君村段（52.96 公里）" },
+      "value": { "en": "420 million yuan; built March 2006 – September 2007. A local news portal gives about 384 million.", "zh": "4.2 亿元；2006 年 3 月至 2007 年 9 月建成。一家本地资讯网站记约 3.84 亿元。" },
+      "source": "Yichang Municipal Transport Bureau; 宜昌本地宝 (local portal, weak)"
+    },
+    {
+      "label": { "en": "Lüliang realignment, Shanxi (59.982 km)", "zh": "山西吕梁改线（59.982 公里）" },
+      "value": { "en": "7.184 billion yuan; class-I road, public–private partnership", "zh": "71.84 亿元；一级公路，PPP 模式" },
+      "source": "吕梁日报 (Lüliang Daily), 23 October 2018"
+    },
+    {
+      "label": { "en": "Fengshouling bypass, Ji county, Shanxi (29.2 km)", "zh": "山西吉县丰收岭绕城段（29.2 公里）" },
+      "value": { "en": "2.296 billion yuan estimate", "zh": "估算投资 22.96 亿元" },
+      "source": "Shanxi Provincial Department of Transport, via Tencent News, 17 September 2025"
+    },
+    {
+      "label": { "en": "Shennongjia road builders, 1962–1960s", "zh": "神农架筑路民工（1962 年起）" },
+      "value": { "en": "Reported at more than 7,000 workers and more than 300 dead; not checked against an official source.", "zh": "据报道 7000 多名民工、300 多人牺牲；未与官方资料核对。" },
+      "source": "神农架本地宝 (local portal, weak)"
+    }
+  ],
+  "timeline": [
+    { "year": 1962, "en": "Hubei sets up road-building commands for Shennongjia (local report).", "zh": "湖北成立神农架筑路指挥部（据地方报道）。" },
+    { "year": 1966, "en": "A road through Shennongjia is opened (local history site).", "zh": "穿越神农架的公路修通（据地方历史网站）。" },
+    { "year": 1970, "en": "The Shennongjia forest district is created.", "zh": "神农架林区设立。" },
+    { "year": 2006, "en": "Rebuilding of the Muyu–Zhaojun village section of the Shennongjia–Yichang road begins in March.", "zh": "3 月，神宜公路木鱼至昭君村段开始改建。" },
+    { "year": 2008, "en": "The Shennongjia–Yichang road is made a Ministry of Transport demonstration road in January.", "zh": "1 月，神宜公路被交通部列为示范公路。" },
+    { "year": 2013, "en": "The national road plan moves the northern end from Hohhot to Sonid Left Banner.", "zh": "国道网规划把北端由呼和浩特移到苏尼特左旗。" },
+    { "year": 2021, "en": "The Lushi bypass in Henan opens on 1 September (Baidu Baike).", "zh": "9 月 1 日，河南卢氏绕城段通车（据百度百科）。" },
+    { "year": 2023, "en": "The Fangshan–Lishi section in Shanxi opens on 28 February (Baidu Baike).", "zh": "2 月 28 日，山西方山至离石段通车（据百度百科）。" },
+    { "year": 2024, "en": "The Yazi–Dachuan section in Shiyan, Hubei, opens on 1 July (Baidu Baike).", "zh": "7 月 1 日，湖北十堰鸭子—大川段通车（据百度百科）。" }
+  ]
+}

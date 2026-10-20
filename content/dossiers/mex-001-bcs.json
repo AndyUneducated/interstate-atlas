@@ -1,0 +1,93 @@
+{
+  "id": "mex-001-bcs",
+  "route": { "sys": "mx-federal", "num": "001", "anchor": [-113.4, 27.72] },
+  "name": { "en": "Federal Highway 1 (Carretera Transpeninsular)", "zh": "1 号联邦公路（半岛纵贯公路，Carretera Transpeninsular）" },
+  "aka": [
+    { "en": "Carretera Transpeninsular Benito Juárez (official name)", "zh": "贝尼托·华雷斯半岛纵贯公路（正式名称）" },
+    { "en": "Mex 1; the Transpeninsular Highway", "zh": "Mex 1；半岛纵贯公路" }
+  ],
+  "tagline": { "en": "The whole length of the Baja California peninsula on two lanes, Tijuana to Cabo San Lucas, finished in 1973 at the 28th parallel", "zh": "以双车道纵贯整个下加利福尼亚半岛，从蒂华纳到卡波圣卢卡斯，1973 年在北纬 28 度线上贯通" },
+  "completedYear": 1973,
+  "termini": {
+    "start": { "at": [-109.85, 22.91], "en": "Cabo San Lucas, Baja California Sur, at the southern tip of the peninsula", "zh": "南下加利福尼亚州卡波圣卢卡斯，半岛最南端" },
+    "end": { "at": [-117.03, 32.54], "en": "Tijuana, Baja California, at the border with San Diego", "zh": "下加利福尼亚州蒂华纳，与圣迭戈接壤的边境" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "Federal Highway 1 runs the length of the peninsula: from Tijuana by Ensenada, San Quintín and El Rosario into the Desierto Central at Cataviña, across the 28th parallel into Baja California Sur at Guerrero Negro, then by San Ignacio, Santa Rosalía, Mulegé, Loreto, Ciudad Constitución and La Paz to San José del Cabo and Cabo San Lucas. Almost all of it is a two-lane road, and long stretches of the middle pass no town at all.",
+        "Spanish and English Wikipedia give 1,711 km, 713 km in Baja California and 998 km in Baja California Sur; the ministry's magazine El Mirador gives 1,708 km. The kilometre posts run from north to south in Baja California and from south to north in Baja California Sur, so they meet at the state line. Between Tijuana and Ensenada a tolled scenic road, 1D, runs along the coast beside it."
+      ],
+      "zh": [
+        "1 号联邦公路纵贯整个半岛：从蒂华纳出发，经恩塞纳达、圣金廷和埃尔罗萨里奥，在卡塔维尼亚进入中部沙漠，在格雷罗内格罗越过北纬 28 度线进入南下加利福尼亚州，再经圣伊格纳西奥、圣罗萨利亚、穆莱赫、洛雷托、宪法城和拉巴斯，抵达圣何塞德尔卡沃和卡波圣卢卡斯。全线几乎都是双车道，中段很长的路程见不到一座城镇。",
+        "西班牙文和英文维基百科给出的长度为 1,711 公里，其中下加利福尼亚州 713 公里，南下加利福尼亚州 998 公里；交通部刊物《El Mirador》作 1,708 公里。里程桩在下加利福尼亚州自北向南编号，在南下加利福尼亚州自南向北编号，两者在州界相会。蒂华纳至恩塞纳达之间，另有一条沿海岸的收费观光公路 1D 与之并行。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The road grew from both ends over half a century. A contract for a Tijuana–Ensenada road was signed on 10 December 1916, and a short stretch was built from 1920; some historians date the real start to 1933. Under President Lázaro Cárdenas the road was pushed south of Ensenada towards San Quintín, and under Manuel Ávila Camacho work began between La Paz and Bahía Magdalena.",
+        "Under Adolfo López Mateos 212 km were paved north from La Paz towards the 28th parallel. The Secretaría de Obras Públicas carried out the final push from 1959, and President Luis Echeverría inaugurated the finished road on 1 December 1973 at the 28th parallel, unveiling a 36-metre stylised eagle, its wings joining the two Californias, designed by the architects Edmundo Rodríguez Saldívar and Ángel Negrete González. El Sudcaliforniano reported that 15,000 people attended. El Mirador says the trip from Tijuana to Cabo San Lucas fell from three days to thirteen hours."
+      ],
+      "zh": [
+        "这条路用了半个世纪从两端向中间修成。1916 年 12 月 10 日签订了修建蒂华纳—恩塞纳达公路的合同，1920 年起修了一小段；有的史家把真正开工定在 1933 年。拉萨罗·卡德纳斯总统任内，公路从恩塞纳达向南推向圣金廷；曼努埃尔·阿维拉·卡马乔任内，拉巴斯至马格达莱纳湾之间开工。",
+        "阿道弗·洛佩斯·马特奥斯任内，自拉巴斯向北朝 28 度线铺装了 212 公里。公共工程部自 1959 年起完成最后的攻坚，1973 年 12 月 1 日，路易斯·埃切韦里亚总统在北纬 28 度线上为全线贯通的公路剪彩；同时揭幕的是一座 36 米高的抽象雄鹰纪念碑，双翼连起南北两个加利福尼亚，由建筑师埃德蒙多·罗德里格斯·萨尔迪瓦尔和安赫尔·内格雷特·冈萨雷斯设计。据《El Sudcaliforniano》报道，有 15,000 人出席。《El Mirador》称，从蒂华纳到卡波圣卢卡斯的行程由三天缩短为十三小时。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The road was built narrow on purpose. El Mirador records that it was designed for 50 to 500 vehicles a day, and that the minister of public works, Luis Enrique Bracamontes, answered press critics who wanted four lanes instead of two: the road, he said, was meant to be driven in easy stages, for the scenery. A 1973 public works report quoted on a Baja California history blog puts the main works, between Villa Insurgentes and San Quintín, at 1,133 km built from 1967 to 1973."
+      ],
+      "zh": [
+        "这条路是有意修窄的。《El Mirador》记载，公路按每日 50 至 500 辆车设计；公共工程部长路易斯·恩里克·布拉卡蒙特斯曾回应舆论中“应修四车道而非两车道”的批评：他说，这条路是让人分段从容驾驶、欣赏风景的。一份被下加利福尼亚历史博客引用的 1973 年公共工程部报告称，比亚因苏尔亨特斯至圣金廷之间的主体工程共 1,133 公里，1967 至 1973 年修建。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "El Mirador gives the official cost as 2,600 million pesos at the time of the 1973 opening, and sets it against the 340 million spent on Tijuana–Ensenada. The public works report quoted on the history blog gives a lower estimate, 1,190 million pesos for the main road with engineering and supervision, excluding the Tijuana–Ensenada motorway and including 50 million for hotels and roadside stops. The road was a federal project, paid for and built by the federal government."
+      ],
+      "zh": [
+        "《El Mirador》给出 1973 年通车时的官方造价为 26 亿比索，并与蒂华纳—恩塞纳达段花费的 3.4 亿比索相对照。历史博客引用的那份公共工程部报告给出的估算更低：主线连同设计与监理共 11.9 亿比索，不含蒂华纳—恩塞纳达高速，但含用于旅馆和路边服务站的 5,000 万比索。这是一项联邦工程，由联邦政府出资并修建。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Length", "zh": "长度" },
+      "value": { "en": "Sources differ: 1,711 km (713 km in Baja California, 998 km in Baja California Sur) or 1,708 km", "zh": "各方不一：1,711 公里（下加利福尼亚州 713 公里，南下加利福尼亚州 998 公里）或 1,708 公里" },
+      "source": "Spanish Wikipedia, Carretera Federal 1; English Wikipedia, Mexican Federal Highway 1; SCT, El Mirador, “Caminos nuevos, caminos viejos: Carretera Transpeninsular”"
+    },
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "value": { "en": "2,600 million pesos, the official figure in 1973. A lower estimate of 1,190 million pesos for the main road (1967–1973, excluding Tijuana–Ensenada) is reported from a 1973 public works report quoted on a history blog; not checked against the original report", "zh": "26 亿比索，1973 年的官方数字。另有主线（1967—1973，不含蒂华纳—恩塞纳达）11.9 亿比索的较低估算，出自历史博客引用的 1973 年公共工程部报告；未与报告原件核对" },
+      "source": "SCT, El Mirador, “Caminos nuevos, caminos viejos: Carretera Transpeninsular”; El Bable blog, quoting a Secretaría de Obras Públicas report of 1973"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "value": { "en": "The federal government, through the Secretaría de Obras Públicas, which carried out the final works from 1959 to 1973", "zh": "联邦政府，经由公共工程部；该部于 1959 至 1973 年完成最后的工程" },
+      "source": "SCT, El Mirador, “Caminos nuevos, caminos viejos: Carretera Transpeninsular”"
+    },
+    {
+      "label": { "en": "Design traffic", "zh": "设计交通量" },
+      "value": { "en": "50 to 500 vehicles a day, two lanes", "zh": "每日 50 至 500 辆，双车道" },
+      "source": "SCT, El Mirador, “Caminos nuevos, caminos viejos: Carretera Transpeninsular”"
+    },
+    {
+      "label": { "en": "Journey time, Tijuana–Cabo San Lucas", "zh": "蒂华纳—卡波圣卢卡斯行程" },
+      "value": { "en": "About 13 hours after 1973, against three days before", "zh": "1973 年后约 13 小时，此前需三天" },
+      "source": "SCT, El Mirador, “Caminos nuevos, caminos viejos: Carretera Transpeninsular”"
+    }
+  ],
+  "timeline": [
+    { "year": 1916, "en": "A contract for the Tijuana–Ensenada road is signed on 10 December.", "zh": "12 月 10 日，蒂华纳—恩塞纳达公路的修建合同签订。" },
+    { "year": 1920, "en": "A first short stretch south of Tijuana is built.", "zh": "蒂华纳以南修起第一小段路。" },
+    { "year": 1933, "en": "The date some historians give for the real start of construction.", "zh": "部分史家认定的真正开工年份。" },
+    { "year": 1959, "en": "The Secretaría de Obras Públicas begins the final works to join the two halves.", "zh": "公共工程部开始最后的工程，连通南北两半。" },
+    { "year": 1967, "en": "Work on the 1,133 km main section between Villa Insurgentes and San Quintín gets under way.", "zh": "比亚因苏尔亨特斯至圣金廷 1,133 公里主体路段全面施工。" },
+    { "year": 1973, "en": "President Echeverría inaugurates the road on 1 December at the 28th parallel.", "zh": "12 月 1 日，埃切韦里亚总统在北纬 28 度线为公路剪彩。" },
+    { "year": 2023, "en": "The road marks fifty years since its completion.", "zh": "公路迎来贯通五十周年。" }
+  ]
+}

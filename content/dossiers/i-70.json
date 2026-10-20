@@ -47,7 +47,7 @@
       "zh": [
         "I-70 是最早拿到钞票、最早动土的路线之一。1956 年 8 月，密苏里州授出了依据当年《联邦公路法》签订的第一份州际公路施工合同；而真正最先开工的项目，是圣查尔斯县 US 40——即今日 I-70——上的一段短距离铺装工程。",
         "这条路线最初只到丹佛。1957 年《联邦公路法》为系统追加的一千英里里程使西延成为可能，争论的焦点变成了它该在犹他何处终止。犹他与科罗拉多想要西班牙福克，那样就能把丹佛与瓦萨奇前沿连起来。联邦规划者却向陆军部展示了另一个终点为考夫堡的方案，因为它让丹佛与南加州之间的联系直接得多。考夫堡方案于 1957 年 10 月 18 日公布，事先未通知犹他州官员——公共道路局后来承认，这种沉默是故意的，为的是防止内斗。",
-        "在另一端，这条路输掉了争论。让 I-70 穿过利金公园进入巴尔的摩、再接上 I-95 的计划，在持续的社区与环保反对下崩塌；1981 年 7 月，州政府与市政府请求撤销安全大道以东的路段，联邦政府在同年 9 月同意。与之配套的那条城市高速公路已经建成一小段，在当地被称为「通往无处的高速公路」；它的州际编号被删除，改由 US 40 使用。"
+        "在另一端，这条路输掉了争论。让 I-70 穿过利金公园进入巴尔的摩、再接上 I-95 的计划，在持续的社区与环保反对下崩塌；1981 年 7 月，州政府与市政府请求撤销安全大道以东的路段，联邦政府在同年 9 月同意。与之配套的那条城市高速公路已经建成一小段，在当地被称为“通往无处的高速公路”；它的州际编号被删除，改由 US 40 使用。"
       ]
     },
     {
@@ -88,7 +88,7 @@
       "source": "Colorado Department of Transportation, I-70 Glenwood Canyon history; Los Angeles Times, 15 October 1992"
     },
     {
-      "label": { "en": "Central 70 rebuild, Denver", "zh": "丹佛「中央 70」重建工程" },
+      "label": { "en": "Central 70 rebuild, Denver", "zh": "丹佛“中央 70”重建工程" },
       "value": { "en": "$1.2 billion for 10 miles, removing a 57-year-old viaduct and lowering the road under a 4-acre park", "zh": "12 亿美元改造 10 英里，拆除一座 57 年历史的高架，并将道路下压至一座 4 英亩公园之下" },
       "source": "Colorado Department of Transportation, Central 70 Project page and completion release, 2022"
     }
@@ -104,7 +104,7 @@
       "source": "Colorado Department of Transportation, Eisenhower Tunnel traffic counts, 2024"
     },
     {
-      "label": { "en": "Denver, Central 70 corridor", "zh": "丹佛「中央 70」走廊" },
+      "label": { "en": "Denver, Central 70 corridor", "zh": "丹佛“中央 70”走廊" },
       "value": { "en": "Upwards of 200,000 vehicles per day", "zh": "每日超过 200,000 辆" },
       "source": "Colorado Department of Transportation, Central 70 Project page, 2023"
     }
@@ -129,6 +129,6 @@
     { "year": 1979, "en": "The Johnson bore opens, giving the Continental Divide crossing two lanes in each direction.", "zh": "约翰逊隧道孔通车，大分水岭穿越段实现双向各两车道。" },
     { "year": 1981, "en": "Maryland and Baltimore withdraw I-70 east of Security Boulevard; the federal government approves, and the route's eastern end becomes a park-and-ride lot.", "zh": "马里兰州与巴尔的摩市撤销安全大道以东的 I-70；联邦政府批准，本路线东端遂成为一处停车换乘场。" },
     { "year": 1992, "en": "The Glenwood Canyon section is dedicated on 14 October, completing I-70 from Utah to Maryland.", "zh": "10 月 14 日格伦伍德峡谷路段举行通车典礼，I-70 自犹他至马里兰全线贯通。" },
-    { "year": 2023, "en": "The Central 70 rebuild through Denver is completed, replacing the 1960s viaduct with a lowered roadway under a park.", "zh": "穿越丹佛的「中央 70」重建工程完工，1960 年代的高架被公园之下的下沉道路取代。" }
+    { "year": 2023, "en": "The Central 70 rebuild through Denver is completed, replacing the 1960s viaduct with a lowered roadway under a park.", "zh": "穿越丹佛的“中央 70”重建工程完工，1960 年代的高架被公园之下的下沉道路取代。" }
   ]
 }

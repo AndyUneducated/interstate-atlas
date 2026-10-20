@@ -1,0 +1,99 @@
+{
+  "id": "us-40",
+  "name": { "en": "U.S. Route 40", "zh": "40 号美国国道" },
+  "aka": [
+    { "en": "The National Road", "zh": "国家路" },
+    { "en": "Main Street of America", "zh": "美国大街" }
+  ],
+  "tagline": { "en": "The Uinta Basin to the Atlantic City shore, with the National Road of 1806 in the middle", "zh": "从尤因塔盆地到大西洋城海岸，中段是 1806 年的国家路" },
+  "designatedYear": 1926,
+  "termini": {
+    "start": { "en": "I-80 at Silver Creek Junction, Silver Summit, a few miles north of Park City, Utah", "zh": "犹他州帕克城以北数英里，银峰的银溪枢纽，与 I-80 相接" },
+    "end": { "en": "Albany Avenue at Ventnor Avenue, Atlantic City, New Jersey, two blocks from the Boardwalk", "zh": "新泽西州大西洋城，奥尔巴尼大道与文特诺大道路口，距木板道两个街区", "at": [-74.44, 39.36] }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "US 40 now starts in the mountains east of Salt Lake City, at an interchange with I-80, and runs through twelve states to the New Jersey shore. Its western third is still a road in its own right: south through Heber City, east across Utah's Uinta Basin through Duchesne, Roosevelt and Vernal, then across north-western Colorado by Craig, Steamboat Springs and Granby to Denver, where it is Colfax Avenue.",
+        "East of Denver it becomes the companion of I-70 for most of the way to Maryland, sometimes on the same pavement, sometimes a mile or a few miles away as the older road through the towns. In Illinois, Indiana and Ohio it is the line of the National Road, and in places still carries the name. In Maryland it follows I-68 and then passes through the centres of Hagerstown and Frederick into Baltimore, leaves as the Pulaski Highway beside I-95, crosses the Delaware Memorial Bridge, and finishes across the farm country of South Jersey on the Harding Highway and the Black Horse Pike."
+      ],
+      "zh": [
+        "US 40 如今起于盐湖城以东的山区、与 I-80 相交的一处立交，穿越十二个州直抵新泽西海岸。它的西段三分之一仍是一条独立的公路：南下经希伯城，东行横穿犹他州的尤因塔盆地，经杜申、罗斯福与弗纳尔，再经克雷格、斯廷博特斯普林斯与格兰比穿过科罗拉多西北部抵达丹佛，在那里它就是科尔法克斯大道。",
+        "丹佛以东，它在通往马里兰的大部分路程中成了 I-70 的伴行者：有时与之共用路面，有时作为穿镇而过的老路，相隔一英里或几英里。在伊利诺伊、印第安纳与俄亥俄，它走的是国家路的线位，有些地方至今仍沿用这个名字。在马里兰，它先随 I-68 而行，再穿过黑格斯敦与弗雷德里克的市中心进入巴尔的摩，以普瓦斯基公路之名沿 I-95 出城，跨过特拉华纪念大桥，最后经新泽西南部农区的哈丁公路与黑马收费道到达终点。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "The oldest part of US 40 is older than any other federal road. In 1806 Thomas Jefferson signed the act creating a National Road from the Potomac to the Ohio River. Construction began west of Cumberland, Maryland, in 1811; mail coaches were running to Wheeling by 1818, and the road was later pushed across Ohio and Indiana towards Vandalia, Illinois, before Congress stopped funding it in 1838 and handed it to the states. West of Kansas City most of the original US 40 followed the Victory Highway, an auto trail to San Francisco named in memory of the dead of the First World War.",
+        "As a zero-numbered route US 40 was laid out coast to coast in the 1926 system, from San Francisco to Atlantic City. Between Manhattan, Kansas, and Limon, Colorado, it was split into a northern and a southern branch, US 40N and US 40S, until the mid-1930s, when most of both became US 24. The ferries at both ends were replaced by bridges: the San Francisco–Oakland Bay Bridge in the west and, in 1951, the Delaware Memorial Bridge in the east.",
+        "I-80 then took the western half. California dropped US 40 in its 1964 renumbering, the western end was cut back to Reno and then, in 1975, to its present point in Utah. In California the old road was designated Historic Route 40 in 1998. The road keeps moving at smaller scale too: in December 2008 AASHTO approved rerouting it in Kansas City, Kansas, onto K-7 and I-70."
+      ],
+      "zh": [
+        "US 40 最古老的一段，比任何其他联邦道路都古老。1806 年，托马斯·杰斐逊签署法案，修建一条自波托马克河通往俄亥俄河的“国家路”。1811 年在马里兰州坎伯兰以西开工；到 1818 年，邮政马车已通到惠灵；此后道路继续穿过俄亥俄与印第安纳，向伊利诺伊州范达利亚推进，直到 1838 年国会停止拨款，将它移交各州。在堪萨斯城以西，最初的 US 40 大多沿“胜利公路”而行——这是一条通往旧金山的命名汽车道，为纪念第一次世界大战阵亡者而得名。",
+        "作为一条尾数为零的路线，US 40 在 1926 年的系统中被规划为横贯东西海岸，自旧金山至大西洋城。在堪萨斯州曼哈顿与科罗拉多州利蒙之间，它曾分为南北两支，即 US 40N 与 US 40S，直到 1930 年代中期，两支的大部分改编为 US 24。两端的渡轮后来都被桥梁取代：西边是旧金山—奥克兰海湾大桥，东边是 1951 年的特拉华纪念大桥。",
+        "随后 I-80 接管了西半段。加利福尼亚在 1964 年重新编号中取消了 US 40，西端先被截至里诺，1975 年又截至今日犹他州的位置。1998 年，加州把这条老路定为“历史 40 号公路”。小规模的改线也从未停止：2008 年 12 月，AASHTO 批准把堪萨斯州堪萨斯城一段改走 K-7 与 I-70。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "The National Road was the federal government's first large road project and it overran. The road to Wheeling had been estimated at $6,000 a mile and cost on average about $13,000: about $9,745 a mile from Cumberland to Uniontown and about $16,000 from Uniontown to Wheeling, where there was no cheap local stone. From 1806 to 1838 Congress appropriated about $7 million for the Cumberland Road in all.",
+        "The Delaware Memorial Bridge, which replaced the New Castle ferry in 1951, cost $44 million and charged 75 cents one way from the first car. Traffic reached nearly twice the forecast within four years, and a twin span, built for well over $60 million, opened in 1968. In 2025 the Delaware River and Bay Authority finished an $89 million system of eight dolphin cells to protect the piers from ship strikes, with a $22.25 million federal BUILD grant."
+      ],
+      "zh": [
+        "国家路是联邦政府的第一项大型道路工程，而且超支了。通往惠灵的道路原估每英里 6,000 美元，实际平均约 13,000 美元：坎伯兰至尤宁敦每英里约 9,745 美元，尤宁敦至惠灵则因缺少廉价的本地石料，升至每英里约 16,000 美元。1806 至 1838 年间，国会为坎伯兰路共拨款约 700 万美元。",
+        "1951 年取代纽卡斯尔渡轮的特拉华纪念大桥造价 4,400 万美元，从第一辆车起单程收费 75 美分。四年内车流就接近预测的两倍，于是又以远超 6,000 万美元的费用修建了孪生桥，1968 年通车。2025 年，特拉华河湾管理局完成了一套耗资 8,900 万美元、由八座防撞墩组成的桥墩防船撞系统，其中 2,225 万美元来自联邦 BUILD 补助。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No figure exists for the route. US 40 was numbered in 1926 over roads already built, the oldest of them in the 1810s, and has been rebuilt piecemeal by twelve states since; only individual works such as the National Road and the Delaware Memorial Bridge were costed on their own.", "zh": "全线并无造价数据。US 40 于 1926 年沿既有道路编号，其中最早的修于 1810 年代，此后由 12 个州分段陆续改建；只有国家路、特拉华纪念大桥这类单项工程留有独立造价。" }
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "There is no single funder. The National Road was paid for by Congress, at first from a fund of Ohio land-sale proceeds; east of Cumberland the route used turnpikes established under Maryland law; the modern route is maintained by each state, and the Delaware Memorial Bridge by a toll-funded bi-state authority.", "zh": "没有单一出资方。国家路由国会出资，最初取自俄亥俄土地出售收入的一项基金；坎伯兰以东则借用依马里兰州法律设立的收费道；今日的路线由各州养护，特拉华纪念大桥则由靠通行费运营的两州机构管理。" }
+    },
+    {
+      "label": { "en": "National Road, Cumberland to Wheeling", "zh": "国家路，坎伯兰至惠灵" },
+      "value": { "en": "About $13,000 a mile on average against an estimate of $6,000; about $9,745 a mile from Cumberland to Uniontown and about $16,000 from Uniontown to Wheeling", "zh": "平均每英里约 13,000 美元，原估 6,000 美元；坎伯兰至尤宁敦每英里约 9,745 美元，尤宁敦至惠灵每英里约 16,000 美元" },
+      "source": "Historic National Road in West Virginia interpretive marker, Valley Grove, West Virginia; Archer Butler Hulbert, Historic Highways of America, vol. 10"
+    },
+    {
+      "label": { "en": "Federal appropriations for the Cumberland Road", "zh": "联邦对坎伯兰路的拨款" },
+      "value": { "en": "About $7 million appropriated by Congress from 1806 to 1838; the Ohio History Connection gives nearly $6.8 million spent", "zh": "1806 至 1838 年国会拨款约 700 万美元；俄亥俄历史协会称实际支出近 680 万美元" },
+      "source": "FHWA, America's Highways 1776–1976, citing the Yearbook of the Department of Agriculture, 1899; Ohio History Connection, Ohio Memory"
+    },
+    {
+      "label": { "en": "Delaware Memorial Bridge", "zh": "特拉华纪念大桥" },
+      "value": { "en": "First span $44 million, opened 16 August 1951 with a 75-cent toll; twin span well over $60 million, opened 1968; ship collision protection $89 million, completed 2025, including a $22.25 million federal BUILD grant", "zh": "第一座桥 4,400 万美元，1951 年 8 月 16 日通车，收费 75 美分；孪生桥远超 6,000 万美元，1968 年通车；防船撞系统 8,900 万美元，2025 年完工，其中含 2,225 万美元联邦 BUILD 补助" },
+      "source": "Delaware River and Bay Authority, bridge history pages and release of August 2026"
+    },
+    {
+      "label": { "en": "Length", "zh": "全长" },
+      "value": { "en": "Reported at 2,285.74 miles, a measurement made with DeLorme Street Atlas USA 2007, as cited in English Wikipedia, U.S. Route 40; not checked against state route logs", "zh": "据报 2,285.74 英里，系用 DeLorme Street Atlas USA 2007 测得，引自英文维基百科“U.S. Route 40”条目；未与各州路线里程表核对" },
+      "source": "English Wikipedia, U.S. Route 40"
+    }
+  ],
+  "trafficFigures": [
+    {
+      "label": { "en": "Route-wide traffic volume", "zh": "全线交通量" },
+      "why": { "en": "Twelve state agencies count US 40 separately, and over long stretches its traffic is counted as I-70, I-68 or I-95 traffic because the routes share pavement. No combined figure is published.", "zh": "12 个州的机构分别统计 US 40；在很长的路段上，它与 I-70、I-68 或 I-95 共用路面，车流被计入这些州际公路。并无合并数字发布。" }
+    }
+  ],
+  "timeline": [
+    { "year": 1806, "en": "Thomas Jefferson signs the act creating the National Road from the Potomac to the Ohio.", "zh": "托马斯·杰斐逊签署法案，修建自波托马克河至俄亥俄河的国家路。" },
+    { "year": 1811, "en": "The first contracts are let for the ten miles west of Cumberland, Maryland.", "zh": "坎伯兰以西十英里的首批合同签订。" },
+    { "year": 1818, "en": "Mail coaches run between Washington and Wheeling on the completed road.", "zh": "国家路建成，邮政马车往来于华盛顿与惠灵之间。" },
+    { "year": 1838, "en": "Congress makes its last appropriation for the National Road.", "zh": "国会对国家路作出最后一次拨款。" },
+    { "year": 1926, "en": "US 40 is numbered from San Francisco to Atlantic City, split into US 40N and US 40S between Manhattan, Kansas, and Limon, Colorado.", "zh": "US 40 编定，自旧金山至大西洋城；在堪萨斯州曼哈顿与科罗拉多州利蒙之间分为 US 40N 与 US 40S。" },
+    { "year": 1951, "en": "The Delaware Memorial Bridge opens on 16 August and replaces the Delaware River ferry.", "zh": "8 月 16 日特拉华纪念大桥通车，取代特拉华河渡轮。" },
+    { "year": 1964, "en": "California drops US 40 in its statewide renumbering; I-80 takes over.", "zh": "加利福尼亚全州重新编号，取消 US 40，由 I-80 接替。" },
+    { "year": 1975, "en": "The western end is cut back to Silver Creek Junction, Utah.", "zh": "西端截至犹他州银溪枢纽。" },
+    { "year": 2008, "en": "AASHTO approves moving US 40 in Kansas City, Kansas, onto K-7 and I-70; the change takes effect on 1 December.", "zh": "AASHTO 批准将堪萨斯州堪萨斯城段的 US 40 改走 K-7 与 I-70，12 月 1 日生效。" },
+    { "year": 2025, "en": "The $89 million ship collision protection system at the Delaware Memorial Bridge reaches substantial completion.", "zh": "特拉华纪念大桥 8,900 万美元的防船撞系统基本完工。" }
+  ]
+}

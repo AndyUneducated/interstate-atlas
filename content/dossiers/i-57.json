@@ -45,8 +45,8 @@
       ],
       "zh": [
         "I-57 从未汇总出总造价。留下记录的，是一长串各自公布的单个项目——这也正是绝大多数州际公路支出的实际记载方式：1970 年代的开罗大桥及其接线工程，此后是长达四十年的拓宽。",
-        "近年较大的项目，是埃芬厄姆 I-57 与 I-70 共线路面的改建，以及南端马里恩一带的六车道拓宽；后者还为伊利诺伊南部带来了第一座「分离式菱形立交」。",
-        "在阿肯色，这个编号本身已成为争取资金的理由。国会于 2016 年沿 US 67 设立「未来 I-57」，AASHTO 于 2017 年批准；此后阿肯色凭借该走廊终将北接密苏里的前景，已为既有高速公路以北的绕城段争得联邦拨款。"
+        "近年较大的项目，是埃芬厄姆 I-57 与 I-70 共线路面的改建，以及南端马里恩一带的六车道拓宽；后者还为伊利诺伊南部带来了第一座“分离式菱形立交”。",
+        "在阿肯色，这个编号本身已成为争取资金的理由。国会于 2016 年沿 US 67 设立“未来 I-57”，AASHTO 于 2017 年批准；此后阿肯色凭借该走廊终将北接密苏里的前景，已为既有高速公路以北的绕城段争得联邦拨款。"
       ]
     }
   ],
@@ -77,7 +77,7 @@
     },
     {
       "label": { "en": "Arkansas Corning Bypass grant", "zh": "阿肯色科宁绕城线拨款" },
-      "value": { "en": "$24.9 million federal RAISE grant awarded to ARDOT on 3 February 2025 for a four-mile bypass on the Future I-57 corridor", "zh": "2025 年 2 月 3 日，阿肯色州交通部获 2,490 万美元联邦 RAISE 拨款，用于「未来 I-57」走廊上四英里的绕城线" },
+      "value": { "en": "$24.9 million federal RAISE grant awarded to ARDOT on 3 February 2025 for a four-mile bypass on the Future I-57 corridor", "zh": "2025 年 2 月 3 日，阿肯色州交通部获 2,490 万美元联邦 RAISE 拨款，用于“未来 I-57”走廊上四英里的绕城线" },
       "source": "Arkansas Department of Transportation press release, 3 February 2025"
     }
   ],
@@ -95,7 +95,7 @@
   "conditionFigures": [
     {
       "label": { "en": "Cairo bridge structure", "zh": "开罗大桥结构" },
-      "value": { "en": "4,090 feet long with an 821-foot main span, built 1978, rated in fair overall condition with a superstructure rating of 5 and a stable, low scour risk", "zh": "全长 4,090 英尺，主跨 821 英尺，1978 年建成；整体状况评为「一般」，上部结构评级 5，冲刷风险稳定且较低" },
+      "value": { "en": "4,090 feet long with an 821-foot main span, built 1978, rated in fair overall condition with a superstructure rating of 5 and a stable, low scour risk", "zh": "全长 4,090 英尺，主跨 821 英尺，1978 年建成；整体状况评为“一般”，上部结构评级 5，冲刷风险稳定且较低" },
       "source": "National Bridge Inventory, 2024"
     }
   ],
@@ -105,7 +105,7 @@
     { "year": 1969, "en": "Illinois opens segments at Ullin, Mattoon, Arcola, Tuscola, Salem, Onarga and Rantoul in a single year.", "zh": "伊利诺伊在一年之内于乌林、马通、阿科拉、塔斯科拉、塞勒姆、奥纳加和兰图尔开通多个路段。" },
     { "year": 1970, "en": "The last of the Chicago urban segments opens, completing I-57 within the city.", "zh": "芝加哥市区最后一段通车，I-57 在市内全部建成。" },
     { "year": 1978, "en": "The Mississippi River bridge at Cairo is dedicated on 23 June, joining the Missouri and Illinois halves and completing the corridor.", "zh": "6 月 23 日，开罗跨密西西比河大桥落成，接通密苏里段与伊利诺伊段，整条走廊贯通。" },
-    { "year": 2017, "en": "AASHTO approves Future I-57 along the US 67 freeway in Arkansas on 24 September, a year after Congress created the designation.", "zh": "9 月 24 日，AASHTO 批准阿肯色境内沿 US 67 高速公路设立「未来 I-57」，此前一年国会已设定该编号。" },
+    { "year": 2017, "en": "AASHTO approves Future I-57 along the US 67 freeway in Arkansas on 24 September, a year after Congress created the designation.", "zh": "9 月 24 日，AASHTO 批准阿肯色境内沿 US 67 高速公路设立“未来 I-57”，此前一年国会已设定该编号。" },
     { "year": 2025, "en": "ARDOT posts the first of more than 1,400 I-57 signs along US 67 on 17 March.", "zh": "3 月 17 日，阿肯色州交通部沿 US 67 竖起 1,400 余块 I-57 标牌中的第一块。" }
   ]
 }

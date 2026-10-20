@@ -30,7 +30,7 @@
       ],
       "zh": [
         "这条路于 1938 年被提出，而它最早建成的一段挂的是别的编号：2A 号公路，一条自士嘉堡至奥沙瓦的四车道分隔式道路，1938 年开工，战时停建，1947 年 12 月完工。1952 年，三条已有的独立道路——部分建成的多伦多绕城线、2A 号公路，以及加纳诺奎至布罗克维尔之间的风景公路——被重新编号为 401，此后该省按各地拥堵的严重程度，依次把它们连接起来。",
-        "到 1964 年，自温莎至魁北克省界已可全程通行；1965 年获名「麦克唐纳—卡蒂埃高速公路」；1968 年年末，最后一处平面交叉被取消，全线达到高速公路标准。",
+        "到 1964 年，自温莎至魁北克省界已可全程通行；1965 年获名“麦克唐纳—卡蒂埃高速公路”；1968 年年末，最后一处平面交叉被取消，全线达到高速公路标准。",
         "而那时，多伦多段早已不堪重负。绕城线的设计通行能力上限为每日 48,000 辆，到 1959 年实际车流已达 85,000 辆。把它改建为十二车道的快速—集散系统，动用了二十四份主体合同与二十座大型立交，自 1963 年起分九年实施——这是世界上最早采用关键路径法编制计划的公路工程之一。"
       ]
     },
@@ -42,8 +42,8 @@
         "None of it is tolled."
       ],
       "zh": [
-        "自特伦顿的 Glen Miller Road 至多伦多唐河谷公园大道之间的 172 公里，同时也是「英雄之路」，于 2007 年 9 月命名。这个名字标记的是遗体迎归车队走过的路线——加拿大军人遗体自特伦顿空军基地运往多伦多验尸官办公室，沿途民众伫立在天桥上目送。",
-        "温莎境内最西端的十一公里为「尊敬的赫布·格雷公园大道」，2012 年以该市长期任职的联邦议员命名，2015 年完工。这段延伸本身也是铺垫：2026 年 7 月 27 日，戈迪·豪国际大桥通车，401 号公路首次实现与 75 号州际公路的高速对高速直连。通车首日通行车辆近 8,000 辆。",
+        "自特伦顿的 Glen Miller Road 至多伦多唐河谷公园大道之间的 172 公里，同时也是“英雄之路”，于 2007 年 9 月命名。这个名字标记的是遗体迎归车队走过的路线——加拿大军人遗体自特伦顿空军基地运往多伦多验尸官办公室，沿途民众伫立在天桥上目送。",
+        "温莎境内最西端的十一公里为“尊敬的赫布·格雷公园大道”，2012 年以该市长期任职的联邦议员命名，2015 年完工。这段延伸本身也是铺垫：2026 年 7 月 27 日，戈迪·豪国际大桥通车，401 号公路首次实现与 75 号州际公路的高速对高速直连。通车首日通行车辆近 8,000 辆。",
         "全线不收费。"
       ]
     }
@@ -56,7 +56,7 @@
     },
     {
       "label": { "en": "Busiest in North America", "zh": "北美最繁忙" },
-      "value": { "en": "The claim holds on a like-for-like test. FHWA's ranking of the 25 most travelled route locations in the United States for 2024 tops out at 405,000 — I-75 in Atlanta — against Highway 401's 511,400 in the same year. Mexico is in neither dataset, and Ontario's figure is a short reporting section while FHWA's is a route location.", "zh": "在同口径比较下，这一说法成立。美国联邦公路管理局 2024 年「全美流量最高的 25 个路段」榜首为亚特兰大的 75 号州际公路，405,000 辆；同年 401 号公路为 511,400 辆。两套数据均不含墨西哥；此外安大略的数值取自一小段统计区间，而联邦公路管理局的是一个「路段位置」。" },
+      "value": { "en": "The claim holds on a like-for-like test. FHWA's ranking of the 25 most travelled route locations in the United States for 2024 tops out at 405,000 — I-75 in Atlanta — against Highway 401's 511,400 in the same year. Mexico is in neither dataset, and Ontario's figure is a short reporting section while FHWA's is a route location.", "zh": "在同口径比较下，这一说法成立。美国联邦公路管理局 2024 年“全美流量最高的 25 个路段”榜首为亚特兰大的 75 号州际公路，405,000 辆；同年 401 号公路为 511,400 辆。两套数据均不含墨西哥；此外安大略的数值取自一小段统计区间，而联邦公路管理局的是一个“路段位置”。" },
       "source": "FHWA, 25 Most Traveled Route Locations by AADT, Highway Performance Monitoring System 2024; Ontario MTO, Provincial Highways Traffic Volumes 2024"
     },
     {
@@ -66,7 +66,7 @@
     },
     {
       "label": { "en": "Widest point", "zh": "最宽处" },
-      "value": { "en": "Eighteen lanes near Pearson Airport. The US Federal Highway Administration records that some segments have “seven, eight, and even nine lanes in each direction”.", "zh": "皮尔逊机场附近达十八车道。美国联邦公路管理局记载，部分路段「每个方向有七条、八条乃至九条车道」。" },
+      "value": { "en": "Eighteen lanes near Pearson Airport. The US Federal Highway Administration records that some segments have “seven, eight, and even nine lanes in each direction”.", "zh": "皮尔逊机场附近达十八车道。美国联邦公路管理局记载，部分路段“每个方向有七条、八条乃至九条车道”。" },
       "source": "Hanna Maier, Long-Life Concrete Pavements in Europe and Canada, FHWA PL-07-027, 2007"
     },
     {
@@ -90,10 +90,10 @@
     { "year": 1956, "en": "The final section of the Toronto Bypass opens on 24 August.", "zh": "8 月 24 日，多伦多绕城线最后一段通车。" },
     { "year": 1963, "en": "The Department of Highways begins rebuilding the Toronto Bypass into a collector-express system — 24 main contracts and 20 interchanges over nine years.", "zh": "公路厅着手把多伦多绕城线改建为快速—集散系统：二十四份主体合同、二十座立交，历时九年。" },
     { "year": 1964, "en": "The route becomes driveable from Windsor to the Quebec border.", "zh": "自温莎至魁北克省界全程可通行。" },
-    { "year": 1965, "en": "The road is named the Macdonald–Cartier Freeway.", "zh": "该路获名「麦克唐纳—卡蒂埃高速公路」。" },
+    { "year": 1965, "en": "The road is named the Macdonald–Cartier Freeway.", "zh": "该路获名“麦克唐纳—卡蒂埃高速公路”。" },
     { "year": 1968, "en": "The last at-grade intersection is removed at the end of the year, making the route continuously freeway-standard.", "zh": "年末最后一处平面交叉被取消，全线达到高速公路标准。" },
-    { "year": 2007, "en": "The Trenton–Toronto section is dedicated the Highway of Heroes in September.", "zh": "9 月，特伦顿至多伦多路段被命名为「英雄之路」。" },
-    { "year": 2015, "en": "The Rt. Hon. Herb Gray Parkway is completed, extending the freeway west through Windsor.", "zh": "「尊敬的赫布·格雷公园大道」竣工，将高速公路向西延伸穿过温莎。" },
+    { "year": 2007, "en": "The Trenton–Toronto section is dedicated the Highway of Heroes in September.", "zh": "9 月，特伦顿至多伦多路段被命名为“英雄之路”。" },
+    { "year": 2015, "en": "The Rt. Hon. Herb Gray Parkway is completed, extending the freeway west through Windsor.", "zh": "“尊敬的赫布·格雷公园大道”竣工，将高速公路向西延伸穿过温莎。" },
     { "year": 2026, "en": "The Gordie Howe International Bridge opens on 27 July, connecting Highway 401 directly to Interstate 75; nearly 8,000 vehicles cross on the first day.", "zh": "7 月 27 日，戈迪·豪国际大桥通车，401 号公路与 75 号州际公路直接连通，首日通行车辆近 8,000 辆。" }
   ]
 }

@@ -31,7 +31,7 @@
         "There are four junctions: the Taipei end at km 0, Wanfang at 3.6, Muzha at 5.1 and the Shenkeng end, signed as exit 6. Muzha is a diamond and works as a system interchange with no surface road of its own; the eastbound exit at Wanfang leads only to the southbound Xinyi Expressway. U-turns are banned at the road junction by the Muzha interchange."
       ],
       "zh": [
-        "全线双向各两车道。两座隧道为台北 2 号隧道（211 米）与台北 1 号隧道（790 米），2023 年 6 月更名前称「台北Ⅱ隧道」与「台北Ⅰ隧道」；高速公路局将它们计入国道三号计划的隧道之列。",
+        "全线双向各两车道。两座隧道为台北 2 号隧道（211 米）与台北 1 号隧道（790 米），2023 年 6 月更名前称“台北Ⅱ隧道”与“台北Ⅰ隧道”；高速公路局将它们计入国道三号计划的隧道之列。",
         "全线有四处交流道：0 公里的台北端、3.6 公里的万芳、5.1 公里的木柵，以及标示为 6 号出口的深坑端。木柵交流道为钻石型，功能上属系统交流道，并无直接连接的平面道路；万芳交流道的东行出口只能接信义快速道路南下。木柵交流道路口处禁止回转。"
       ]
     },
@@ -79,12 +79,12 @@
     {
       "label": { "en": "Funding", "zh": "出资方" },
       "value": { "en": "Central government, through the Executive Yuan's North Second Freeway budget", "zh": "中央政府出资，列入行政院核定的北二高计划预算" },
-      "source": "鄭文隆, 「國道三號高速公路全線完工十周年回顧」, 現代營建 no. 421 (arch.net.tw)"
+      "source": "鄭文隆, “國道三號高速公路全線完工十周年回顧”, 現代營建 no. 421 (arch.net.tw)"
     },
     {
       "label": { "en": "North Second Freeway budget", "zh": "北二高计划预算" },
       "value": { "en": "NT$170.81 billion as approved by the Executive Yuan, for the whole plan, not this line alone", "zh": "行政院核准 1,708.1 亿元，为整个计划的预算，并非本线单独金额" },
-      "source": "鄭文隆, 「國道三號高速公路全線完工十周年回顧」, 現代營建 no. 421 (arch.net.tw)"
+      "source": "鄭文隆, “國道三號高速公路全線完工十周年回顧”, 現代營建 no. 421 (arch.net.tw)"
     },
     {
       "label": { "en": "Length", "zh": "长度" },

@@ -42,9 +42,9 @@
         "The number came in January 2005, with the national expressway network plan known as '7918' — seven radials from Beijing, nine north–south and eighteen east–west lines. Radials take single digits, counted clockwise from due north, so the road to the north-east is G1. The 2013 plan, which became the '71118' network with eleven north–south lines, and the 2022 plan both kept the seven radials and their numbers."
       ],
       "zh": [
-        "这条路由 1990 年代各省分别修建的路段拼接而成。G1 今与沈阳绕城高速共线的沈阳过境段于 1995 年 9 月通车；长春至四平段 1996 年 9 月通车；沈阳至四平段 1998 年 8 月通车。在 1992 年的「五纵七横」国道主干线规划中，北京至沈阳属丹东—拉萨线（G025），沈阳至哈尔滨属同江—三亚线（G010）；北京至沈阳还是国家确定优先建成的「三个重要路段」之一。",
-        "京沈高速 1999 年 9 月分段通车——宝坻至山海关、北京至香河、山海关至锦州及天津段——2000 年 9 月 15 日锦州至沈阳段通车，全线贯通。辽宁境内 361 公里自 1997 年 6 月动工，历时三年零三个月。它是「两纵两横三个重要路段」中第一个全线贯通的。2001 年 9 月 28 日，72 公里的哈双高速通车，全线最后一段缺口打通。",
-        "G1 这个编号来自 2005 年 1 月公布的《国家高速公路网规划》，即「7918 网」——7 条首都放射线、9 条南北纵线、18 条东西横线。放射线取一位数，自正北起按顺时针方向编号，通往东北的这一条便是 G1。2013 年规划调整为 11 条纵线的「71118 网」，2022 年规划再次修订，7 条放射线及其编号均保持不变。"
+        "这条路由 1990 年代各省分别修建的路段拼接而成。G1 今与沈阳绕城高速共线的沈阳过境段于 1995 年 9 月通车；长春至四平段 1996 年 9 月通车；沈阳至四平段 1998 年 8 月通车。在 1992 年的“五纵七横”国道主干线规划中，北京至沈阳属丹东—拉萨线（G025），沈阳至哈尔滨属同江—三亚线（G010）；北京至沈阳还是国家确定优先建成的“三个重要路段”之一。",
+        "京沈高速 1999 年 9 月分段通车——宝坻至山海关、北京至香河、山海关至锦州及天津段——2000 年 9 月 15 日锦州至沈阳段通车，全线贯通。辽宁境内 361 公里自 1997 年 6 月动工，历时三年零三个月。它是“两纵两横三个重要路段”中第一个全线贯通的。2001 年 9 月 28 日，72 公里的哈双高速通车，全线最后一段缺口打通。",
+        "G1 这个编号来自 2005 年 1 月公布的《国家高速公路网规划》，即“7918 网”——7 条首都放射线、9 条南北纵线、18 条东西横线。放射线取一位数，自正北起按顺时针方向编号，通往东北的这一条便是 G1。2013 年规划调整为 11 条纵线的“71118 网”，2022 年规划再次修订，7 条放射线及其编号均保持不变。"
       ]
     },
     {
@@ -100,14 +100,14 @@
     }
   ],
   "timeline": [
-    { "year": 1992, "en": "The 'five verticals and seven horizontals' trunk plan puts Beijing–Shenyang on the Dandong–Lhasa line and Shenyang–Harbin on the Tongjiang–Sanya line.", "zh": "「五纵七横」国道主干线规划将北京至沈阳列入丹拉线、沈阳至哈尔滨列入同三线。" },
+    { "year": 1992, "en": "The 'five verticals and seven horizontals' trunk plan puts Beijing–Shenyang on the Dandong–Lhasa line and Shenyang–Harbin on the Tongjiang–Sanya line.", "zh": "“五纵七横”国道主干线规划将北京至沈阳列入丹拉线、沈阳至哈尔滨列入同三线。" },
     { "year": 1995, "en": "The Shenyang bypass section opens in September.", "zh": "9 月，沈阳过境段（今沈阳绕城高速共线段）建成通车。" },
     { "year": 1996, "en": "Changchun–Siping opens in September.", "zh": "9 月，长春至四平段通车。" },
     { "year": 1998, "en": "Shenyang–Siping opens in August.", "zh": "8 月，沈阳至四平段通车。" },
     { "year": 1999, "en": "Beijing–Shenyang opens in stages through September, as far as Jinzhou.", "zh": "9 月，京沈高速北京至锦州各段相继通车。" },
     { "year": 2000, "en": "Jinzhou–Shenyang opens on 15 September, completing Beijing–Shenyang.", "zh": "9 月 15 日，锦州至沈阳段通车，京沈高速全线贯通。" },
     { "year": 2001, "en": "The Harbin–Shuangcheng expressway opens on 28 September, closing the last gap to Harbin.", "zh": "9 月 28 日，哈双高速通车，通往哈尔滨的最后缺口打通。" },
-    { "year": 2005, "en": "The '7918' national expressway plan numbers the route G1.", "zh": "「7918 网」国家高速公路网规划公布，该线编为 G1。" },
+    { "year": 2005, "en": "The '7918' national expressway plan numbers the route G1.", "zh": "“7918 网”国家高速公路网规划公布，该线编为 G1。" },
     { "year": 2021, "en": "The Heilongjiang section reopens on 30 October, widened to eight lanes.", "zh": "10 月 30 日，黑龙江段四改八工程交工通车。" },
     { "year": 2022, "en": "The section inside Beijing's Sixth Ring Road becomes toll-free on 10 June.", "zh": "6 月 10 日起，北京六环路以内路段免费通行。" }
   ]

@@ -1,0 +1,107 @@
+{
+  "id": "cn-g3011",
+  "route": { "sys": "cn-expressway", "num": "G3011" },
+  "name": { "en": "Liuyuan–Golmud Expressway", "zh": "柳园—格尔木高速公路" },
+  "aka": [
+    { "en": "Liuge Expressway", "zh": "柳格高速" },
+    { "en": "Guazhou–Dunhuang, Dunhuang–Dangjin Pass, Dangjin Pass–Da Qaidam and Da Qaidam–Golmud sections", "zh": "瓜敦段、敦当段、当大段、大格段" }
+  ],
+  "tagline": { "en": "A desert spur of the Lianyungang–Khorgas expressway, from the Hexi Corridor past Dunhuang, through the Altun Mountains and across the Qaidam basin to Golmud", "zh": "连霍高速的一条荒漠联络线，自河西走廊经敦煌，穿越阿尔金山，横跨柴达木盆地抵达格尔木" },
+  "termini": {
+    "start": { "at": [95.89, 40.52], "en": "Junction with the Lianyungang–Khorgas expressway, G30, at kilometre 2656 near Guazhou, Gansu; the route is named for Liuyuan, further west on G30", "zh": "甘肃瓜州附近与连霍高速 G30 相接（K2656 处）；路线以 G30 上更西的柳园命名" },
+    "end": { "en": "Golmud, Qinghai, on the Beijing–Lhasa expressway, G6", "zh": "青海格尔木，接京藏高速 G6" }
+  },
+  "sections": [
+    {
+      "key": "character",
+      "en": [
+        "G3011 leaves the Lianyungang–Khorgas expressway near Guazhou in western Gansu, runs south-west to Dunhuang, climbs through the Altun Mountains at the Dangjin Pass into Qinghai, and crosses the Qaidam basin by Da Qaidam and the Qarhan salt lake to Golmud. Much of it runs through desert, gobi and salt flat, with few towns between Dunhuang and Golmud.",
+        "It was built in pieces by the two provinces over more than a decade, and the pieces are not all of one standard. Chinese Wikipedia, without a citation, says the Dangjin Pass–Da Qaidam stretch is not fully controlled-access and still has level crossings; that has not been checked against an official source."
+      ],
+      "zh": [
+        "G3011 在甘肃西部瓜州附近离开连霍高速，向西南至敦煌，经当金山口穿越阿尔金山进入青海，再经大柴旦、察尔汗盐湖横跨柴达木盆地，抵达格尔木。大部分路段穿行于荒漠、戈壁和盐沼，敦煌至格尔木之间城镇稀少。",
+        "它由甘青两省用十余年分段建成，各段标准并不完全一致。中文维基百科（未注明出处）称，当金山至大柴旦段并非全封闭，仍有平交道口；此说未经官方来源核实。"
+      ]
+    },
+    {
+      "key": "engineering",
+      "en": [
+        "The hardest part is the Dunhuang–Dangjin Pass section, which climbs from the Dunhuang oasis into the Altun Mountains. Its Altun tunnel, about 7.5 km long at more than 3,300 metres, was described as the highest extra-long tunnel on any expressway in Gansu. The Qarhan–Golmud section was Qinghai's first expressway built on salt-crusted ground, across the Qarhan salt lake area."
+      ],
+      "zh": [
+        "最难的是敦煌至当金山口段，自敦煌绿洲攀入阿尔金山。段内阿尔金山隧道长约 7.5 公里，海拔 3300 米以上，被称为甘肃海拔最高的高速公路特长隧道。察尔汗至格尔木段是青海第一条在盐渍土地区修建的高速公路，穿越察尔汗盐湖地区。"
+      ]
+    },
+    {
+      "key": "history",
+      "en": [
+        "Qinghai built first. On the Qarhan–Golmud section, work began at the end of 2008 by Xinhua's account or in June 2009 by others', and it opened on 3 December 2011. The two sections north of it, Dangjin Pass–Da Qaidam and Da Qaidam–Qarhan, were built up in phases from 2006: Dangjin Pass–Da Qaidam opened to traffic on 1 January 2010, largely to class I standard, and a second phase on both, begun on 29 September 2009, passed handover acceptance in January 2012.",
+        "Gansu followed. The 145 km from G30 to Dunhuang, with a branch to the Mogao caves, was begun in July 2013 and opened on 1 December 2014. The Dunhuang–Dangjin Pass section, 196 km, was Gansu's first national expressway built as a public–private partnership. Accounts of when work began differ, April 2016 or December 2018; 150 km of it opened on 20 November 2020, and the whole section opened on 29 April 2022, after which all of the Gansu part was open."
+      ],
+      "zh": [
+        "青海先建。察尔汗至格尔木段，据新华社报道于 2008 年底开工，另有报道称 2009 年 6 月开工，2011 年 12 月 3 日建成通车。其北的当金山至大柴旦、大柴旦至察尔汗两段自 2006 年起分期建设：当大段于 2010 年 1 月 1 日通车，大部分为一级公路标准；两段的二期工程于 2009 年 9 月 29 日开工，2012 年 1 月通过交工验收。",
+        "甘肃随后。自 G30 至敦煌的 145 公里（含莫高窟支线）于 2013 年 7 月开工，2014 年 12 月 1 日建成通车。敦煌至当金山口段长 196 公里，是甘肃首个采用 PPP 模式建设的国家高速公路项目。其开工时间说法不一，有 2016 年 4 月和 2018 年 12 月两说；2020 年 11 月 20 日其中 150 公里通车，2022 年 4 月 29 日全段建成通车，此后路线甘肃境内各段均已通车。"
+      ]
+    },
+    {
+      "key": "money",
+      "en": [
+        "Like other national expressways, G3011 was costed section by section, and no figure for the whole route has been published. The mountain section costs most: Dunhuang–Dangjin Pass alone, at 12.18 billion yuan, is more than all the sourced Qinghai figures together, although those cover second phases built on earlier works. Its PPP project company may collect tolls for 30 years."
+      ],
+      "zh": [
+        "与其他国家高速公路一样，G3011 按路段分别核算，未公布全线总造价。山区路段造价最高：仅敦煌至当金山口段就达 121.78 亿元，超过青海各段有来源数字的总和，不过青海的数字是在前期工程基础上建设的二期工程。该段 PPP 项目公司可收费 30 年。"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "label": { "en": "Construction cost", "zh": "造价" },
+      "why": { "en": "No route-wide figure is published. The route was built from 2006 to 2022 in sections by Gansu and Qinghai, each costed on its own; the sourced section figures are listed separately below.", "zh": "未公布全线总造价。路线于 2006 至 2022 年间由甘青两省分段建成，各段分别核算；有来源的分段数字另列如下。" }
+    },
+    {
+      "label": { "en": "Guazhou–Dunhuang (145.235 km incl. Mogao branch, 2013–2014)", "zh": "瓜州至敦煌段（含莫高窟支线 145.235 公里，2013—2014）" },
+      "value": { "en": "4.17 billion yuan budgeted total investment", "zh": "概算总投资 41.7 亿元" },
+      "source": "China News Service, 30 November 2014; China National Radio, Gansu"
+    },
+    {
+      "label": { "en": "Dunhuang–Dangjin Pass (196.355 km, opened 2020–2022)", "zh": "敦煌至当金山口段（196.355 公里，2020—2022 年通车）" },
+      "value": { "en": "12.178 billion yuan total investment", "zh": "总投资 121.78 亿元" },
+      "source": "Xinhua via gov.cn, 29 April 2022; Gansu Daily"
+    },
+    {
+      "label": { "en": "Dangjin Pass–Da Qaidam (178.99 km, second phase 2009–2012)", "zh": "当金山至大柴旦段（178.99 公里，二期 2009—2012）" },
+      "value": { "en": "1.124 billion yuan", "zh": "11.2365 亿元" },
+      "source": "Qinghai Provincial People's Government, 19 January 2012 (archived)"
+    },
+    {
+      "label": { "en": "Da Qaidam–Qarhan (146.8 km, second phase 2009–2012)", "zh": "大柴旦至察尔汗段（146.8 公里，二期 2009—2012）" },
+      "value": { "en": "1.661 billion yuan", "zh": "16.61 亿元" },
+      "source": "Qinghai Provincial People's Government, 19 January 2012 (archived)"
+    },
+    {
+      "label": { "en": "Qarhan–Golmud (about 75–80 km, 2008–2011)", "zh": "察尔汗至格尔木段（约 75—80 公里，2008—2011）" },
+      "value": { "en": "Reported at 1.702 billion yuan estimated (Xinhua, 2008) and 1.996 billion budgeted (another report); not checked against a final account", "zh": "据报道概算 17.02 亿元（新华社，2008 年），另有报道称概算 19.96 亿元；未经竣工决算核实" },
+      "source": "Xinhua, December 2008; 56885.net"
+    },
+    {
+      "label": { "en": "Funding", "zh": "出资方" },
+      "why": { "en": "Each section was financed separately. The Dunhuang–Dangjin Pass section was a public–private partnership, with a project company under Gansu Highway Traffic Construction Group and a 30-year toll period; no breakdown was found for the other sections.", "zh": "各段分别融资。敦煌至当金山口段采用 PPP 模式，项目公司隶属甘肃省公路交通建设集团，收费期 30 年；其他各段未找到出资构成。" }
+    },
+    {
+      "label": { "en": "Altun tunnel", "zh": "阿尔金山隧道" },
+      "value": { "en": "About 7.5 km, at more than 3,300 m; the highest extra-long expressway tunnel in Gansu", "zh": "长约 7.5 公里，海拔 3300 米以上；甘肃海拔最高的高速公路特长隧道" },
+      "source": "Xinhua via gov.cn, 29 April 2022"
+    }
+  ],
+  "timeline": [
+    { "year": 2008, "en": "Work on Qarhan–Golmud begins at the end of the year, by Xinhua's account.", "zh": "据新华社报道，年底察尔汗至格尔木段开工。" },
+    { "year": 2009, "en": "The second phase of Dangjin Pass–Da Qaidam and Da Qaidam–Qarhan begins on 29 September.", "zh": "9 月 29 日，当金山至大柴旦段和大柴旦至察尔汗段二期工程开工。" },
+    { "year": 2010, "en": "Dangjin Pass–Da Qaidam opens to traffic on 1 January.", "zh": "1 月 1 日，当金山至大柴旦段通车。" },
+    { "year": 2011, "en": "Qarhan–Golmud, Qinghai's first expressway on salt-crusted ground, opens on 3 December.", "zh": "12 月 3 日，青海首条盐渍土地区高速公路察尔汗至格尔木段通车。" },
+    { "year": 2012, "en": "The two Qinghai sections pass handover acceptance in January.", "zh": "1 月，青海两段工程通过交工验收。" },
+    { "year": 2013, "en": "Work on Guazhou–Dunhuang begins in July.", "zh": "7 月，瓜州至敦煌段开工。" },
+    { "year": 2014, "en": "Guazhou–Dunhuang opens on 1 December.", "zh": "12 月 1 日，瓜州至敦煌段通车。" },
+    { "year": 2020, "en": "150 km of Dunhuang–Dangjin Pass opens on 20 November.", "zh": "11 月 20 日，敦煌至当金山口段 150 公里通车。" },
+    { "year": 2022, "en": "The whole Dunhuang–Dangjin Pass section opens on 29 April.", "zh": "4 月 29 日，敦煌至当金山口段全线通车。" }
+  ]
+}

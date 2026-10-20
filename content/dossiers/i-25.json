@@ -31,7 +31,7 @@
       ],
       "zh": [
         "I-25 沿落基山东麓纵贯南北，从拉斯克鲁塞斯的奇瓦瓦沙漠一直到怀俄明州北部的粉河盆地。它把前岭地区所有主要城市串在一起——阿尔伯克基、圣菲、普韦布洛、科罗拉多斯普林斯、丹佛、柯林斯堡、夏延、卡斯珀——而城市之间的路段常常空旷得让只熟悉丹佛段的人意外。",
-        "它承接了 US 85 与 US 87 的线位，而后者又承接了更古老的道路。在圣菲与拉顿山口之间，它大致沿循圣菲古道；通往拉顿山口的爬坡段大体建在旧干线的路基上，而那条旧路又沿着十九世纪的伍顿收费路修筑。这条路线并非始终南北走向：出圣菲后，「北行」的 I-25 实际上向东南延伸约 45 英里，穿过圣菲国家森林、越过格洛列塔山口，之后才重新转向北。",
+        "它承接了 US 85 与 US 87 的线位，而后者又承接了更古老的道路。在圣菲与拉顿山口之间，它大致沿循圣菲古道；通往拉顿山口的爬坡段大体建在旧干线的路基上，而那条旧路又沿着十九世纪的伍顿收费路修筑。这条路线并非始终南北走向：出圣菲后，“北行”的 I-25 实际上向东南延伸约 45 英里，穿过圣菲国家森林、越过格洛列塔山口，之后才重新转向北。",
         "山口决定了驾驶体验。新墨西哥—科罗拉多州界上的拉顿山口与新墨西哥境内的格洛列塔山口海拔均在 7,500 英尺上下；科罗拉多斯普林斯与丹佛之间的纪念碑山则高到需要设置装链站和货车爬坡车道。过夏延以北，道路进入高平原，最终止于布法罗的 I-90——在最后三百英里里，它未曾经过任何有规模的城市。"
       ]
     },
@@ -57,7 +57,7 @@
       ],
       "zh": [
         "数十年来，薄弱环节是城堡岩与纪念碑镇之间的十八英里——这是丹佛与科罗拉多斯普林斯（科罗拉多两大城市）之间唯一的四车道路段。它双向各两车道，路肩窄到无法把事故车辆拖出行车道，因此一起事故就能堵死整条走廊。",
-        "科罗拉多州交通部于 2018 年 9 月至 2022 年 11 月间将其重建，采用「施工管理／总承包」模式；该部门认为此模式比其惯用的设计—招标—施工流程节省了约两年时间。工程加宽了道路，双向各增设一条快速车道，重建五座桥梁，新建四处野生动物通道，在纪念碑山增设南行货车爬坡车道及拉克斯珀装链站，并取消了一处左侧合流。",
+        "科罗拉多州交通部于 2018 年 9 月至 2022 年 11 月间将其重建，采用“施工管理／总承包”模式；该部门认为此模式比其惯用的设计—招标—施工流程节省了约两年时间。工程加宽了道路，双向各增设一条快速车道，重建五座桥梁，新建四处野生动物通道，在纪念碑山增设南行货车爬坡车道及拉克斯珀装链站，并取消了一处左侧合流。",
         "新快速车道自 2024 年 1 月起收费，每个方向划分两个计价区段；持有转发器的拼车车辆、摩托车与公交车免费通行，重型货车则须缴纳固定附加费。"
       ]
     }
@@ -121,7 +121,7 @@
     {
       "label": {
         "en": "I-25 South Gap reconstruction",
-        "zh": "I-25 南段「缺口」改建"
+        "zh": "I-25 南段“缺口”改建"
       },
       "value": {
         "en": "$419 million for 18 miles, up from an original $350 million budget after the County Line Road bridge and other work were added; funded by Douglas and El Paso counties, the Pikes Peak Rural Transportation Authority and a federal INFRA grant",
@@ -134,7 +134,7 @@
     {
       "label": {
         "en": "The Gap, Castle Rock to Monument",
-        "zh": "「缺口」段：城堡岩至纪念碑镇"
+        "zh": "“缺口”段：城堡岩至纪念碑镇"
       },
       "value": {
         "en": "About 79,000 vehicles a day when CDOT wrote the environmental assessment, and 80,000 a day in 2018, of which 6.5 percent were commercial vehicles; projected to exceed 120,000 a day by 2040",
@@ -157,7 +157,7 @@
     {
       "label": {
         "en": "Wildlife measures in the Gap rebuild",
-        "zh": "「缺口」改建中的野生动物措施"
+        "zh": "“缺口”改建中的野生动物措施"
       },
       "value": {
         "en": "Four new wildlife crossings plus deer guards along the corridor, built to reduce wildlife–vehicle collisions",
@@ -211,17 +211,17 @@
     {
       "year": 2018,
       "en": "Reconstruction of the Castle Rock–Monument Gap begins in September.",
-      "zh": "城堡岩至纪念碑镇「缺口」段改建于 9 月动工。"
+      "zh": "城堡岩至纪念碑镇“缺口”段改建于 9 月动工。"
     },
     {
       "year": 2022,
       "en": "The Gap project is completed in November.",
-      "zh": "「缺口」工程于 11 月完工。"
+      "zh": "“缺口”工程于 11 月完工。"
     },
     {
       "year": 2024,
       "en": "Tolling of the Gap express lanes begins in January.",
-      "zh": "「缺口」快速车道于 1 月开始收费。"
+      "zh": "“缺口”快速车道于 1 月开始收费。"
     }
   ]
 }
