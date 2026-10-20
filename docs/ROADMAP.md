@@ -60,8 +60,14 @@ These are *source* rows in [ACCURACY.md §6](ACCURACY.md#6-known-gaps).
 
 - Hong Kong census road names are traditional (they are OSM's local names); the rest of the zh UI
   is simplified. Kept on purpose, like the sign labels (3號幹線).
-- Dossier figures marked "reported, not checked" are kept by choice; a later pass could check them
-  against primary sources.
+- Dossier figures marked "reported, not checked": the 23 in the dossiers written before
+  2026-10-19's second round were checked against primary sources that day. 13 were confirmed
+  and now cite them; four of those were corrected (G1 Heilongjiang 6.332 billion, not 5.864;
+  G219 Shiquanhe–Rutog paved 2007, not 2006; G3 Langfang's earlier estimate 5.057 billion;
+  G7 Baigeda–Mingshui 6.21 billion). Nine have no primary source and keep the mark (G10, G3012
+  Xiaocaohu–Hoxud, G331, G42 Wanzhou–Yunyang, G50, MEX-45, MEX-200, PH 7, Freeway 6), and the
+  Freeway 10 figure now gives the outturn beside the 2010 report. The 48 new dossiers' marked
+  figures have not had this pass.
 
 ## Working notes
 

@@ -52,11 +52,11 @@
     {
       "key": "money",
       "en": [
-        "No total has been published. G3012 was built as about nine separately approved projects over fifteen years, and their costs differ widely. At the cheap end, the Xiaocaohu–Hoxud rebuild was reported at ¥596 million for 235.68 km. Hoxud–Korla cost ¥2.43 billion, Korla–Kuqa ¥4.105 billion and Kuqa–Aksu ¥6.491 billion by its approved estimate. Aksu–Kashgar, the longest single project, cost ¥12.3 billion. On the Kashgar–Hotan side, Kashgar–Yecheng (2012) cost ¥3.64 billion, the Kashgar–Shule bypass was estimated at ¥2.439 billion, Moyu–Hotan cost ¥2.87 billion, and the Kashgar–Yecheng–Moyu rebuild was reported at ¥8.5 billion. The Aksu prefecture transport bureau put the three sections across its territory, Korla to Kashgar, at ¥22.9 billion together.",
+        "No total has been published. G3012 was built as about nine separately approved projects over fifteen years, and their costs differ widely. At the cheap end, the Xiaocaohu–Hoxud rebuild was reported at ¥596 million for 235.68 km. Hoxud–Korla cost ¥2.43 billion, Korla–Kuqa ¥4.105 billion and Kuqa–Aksu ¥6.491 billion by its approved estimate. Aksu–Kashgar, the longest single project, cost ¥12.3 billion. On the Kashgar–Hotan side, Kashgar–Yecheng (2012) cost ¥3.64 billion, the Kashgar–Shule bypass was estimated at ¥2.439 billion, Moyu–Hotan cost ¥2.87 billion, and the Kashgar–Yecheng–Moyu rebuild was approved at ¥8.512 billion. The Aksu prefecture transport bureau put the three sections across its territory, Korla to Kashgar, at ¥22.9 billion together.",
         "The one approval that sets out who paid is for the Kashgar–Shule bypass. The National Development and Reform Commission allotted ¥1.25 billion from the central special construction fund (vehicle purchase tax) as the project's capital, about 51 per cent, with the rest borrowed from domestic banks. Chinese Wikipedia's junction list marks several stretches as toll-free, among them Xiaocaohu to Hoxud."
       ],
       "zh": [
-        "全线没有公开的总造价。G3012 在十五年间分约九个项目分别审批建设，各段造价相差悬殊。最便宜的是小草湖至和硕段改建，报道称 235.68 公里总投资 5.96 亿元；和硕至库尔勒段 24.3 亿元，库尔勒至库车段 41.05 亿元，库车至阿克苏段概算 64.91 亿元；单个项目中最长的阿克苏至喀什段 123 亿元。喀什至和田一侧，2012 年的喀什至叶城段 36.4 亿元，喀什至疏勒绕城段估算 24.39 亿元，墨玉至和田段 28.7 亿元，喀叶墨改建工程报道为 85 亿元。阿克苏地区交通运输局称，境内库尔勒至喀什的三段合计总投资 229 亿元。",
+        "全线没有公开的总造价。G3012 在十五年间分约九个项目分别审批建设，各段造价相差悬殊。最便宜的是小草湖至和硕段改建，报道称 235.68 公里总投资 5.96 亿元；和硕至库尔勒段 24.3 亿元，库尔勒至库车段 41.05 亿元，库车至阿克苏段概算 64.91 亿元；单个项目中最长的阿克苏至喀什段 123 亿元。喀什至和田一侧，2012 年的喀什至叶城段 36.4 亿元，喀什至疏勒绕城段估算 24.39 亿元，墨玉至和田段 28.7 亿元，喀叶墨改建工程批复总投资 85.12 亿元。阿克苏地区交通运输局称，境内库尔勒至喀什的三段合计总投资 229 亿元。",
         "唯一公开了资金构成的批复是喀什至疏勒段：国家发展和改革委员会安排中央专项建设基金（车购税）12.5 亿元作为项目资本金，约占总投资的 51%，其余利用国内银行贷款解决。中文维基百科的互通列表把若干路段标为免费路段，其中包括小草湖至和硕段。"
       ]
     },
@@ -109,8 +109,8 @@
     },
     {
       "label": { "en": "Kashgar–Yecheng–Moyu phase two (434.314 km, opened 2019)", "zh": "喀叶墨高速公路二期（434.314 公里，2019 年通车）" },
-      "value": { "en": "Reported at ¥8.5 billion; a trade-press figure, not checked against the Xinjiang transport department's own", "zh": "据报道投资总额 85 亿元；该数字出自行业媒体，未与新疆交通运输厅公布的数字核对" },
-      "source": "China Road Machinery Net (lmjx.net), 20 August 2019"
+      "value": { "en": "¥8.512 billion, as fixed by the Xinjiang Development and Reform Commission's approval of the feasibility study, for 433.185 km planned", "zh": "总投资 85.1158 亿元，为新疆维吾尔自治区发展和改革委员会批复的可行性研究报告所定，规划主线 433.185 公里" },
+      "source": "Xinjiang Department of Transport, project summary for the 2018 regional toll-road special bonds, August 2018"
     },
     {
       "label": { "en": "Moyu–Hotan (74 km, opened 2018)", "zh": "墨玉至和田段（74 公里，2018 年通车）" },

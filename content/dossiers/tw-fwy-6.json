@@ -65,8 +65,8 @@
   "figures": [
     {
       "label": { "en": "Construction cost", "zh": "造价" },
-      "value": { "en": "About NT$35 billion as reported when the plan was approved in 2003. Not checked against an official outturn; an unofficial site gives NT$37.5 billion.", "zh": "2003 年计划核定时报道总工程经费约 350 亿元；尚未与官方决算核对，另有非官方网站称 375 亿元。" },
-      "source": "“二十分鐘的代價｜穿山越水的國道六號”, Our Island (我們的島), Public Television Service, 13 October 2003"
+      "value": { "en": "About NT$35 billion as reported when the plan was approved in 2003. Not checked against an official outturn; a 2011 report attributed to the transport ministry gives NT$36.649 billion for the whole plan, and an unofficial site NT$37.5 billion.", "zh": "2003 年计划核定时报道总工程经费约 350 亿元；尚未与官方决算核对；2011 年一篇引述交通部的报道称计划总建设经费约 366.49 亿元，另有非官方网站称 375 亿元。" },
+      "source": "“二十分鐘的代價｜穿山越水的國道六號”, Our Island (我們的島), Public Television Service, 13 October 2003; MyGoNews, 2011"
     },
     {
       "label": { "en": "Funding", "zh": "出资方" },

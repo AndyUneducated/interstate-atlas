@@ -54,11 +54,11 @@
     {
       "key": "money",
       "en": [
-        "Yicai reported in 2017 that a total investment for G7 could not yet be calculated, and none has been published since. The three sections opened that July were costed separately: Linhe–Baigeda at ¥37 billion, Baigeda–Mingshui at about ¥6.13 billion and Mingshui–Hami at about ¥5.2 billion. Linhe–Baigeda was reported at the time as the largest single highway project, by length and by investment, ever built in one go in China.",
+        "Yicai reported in 2017 that a total investment for G7 could not yet be calculated, and none has been published since. The three sections opened that July were costed separately: Linhe–Baigeda at ¥37 billion, Baigeda–Mingshui at ¥6.21 billion by the Gansu transport department's figure, and Mingshui–Hami at about ¥5.2 billion. Linhe–Baigeda was reported at the time as the largest single highway project, by length and by investment, ever built in one go in China.",
         "Its construction was let in lots to the big state contractors. China Railway's lot through Alxa — 352 km of main line and 62 km of link roads — was worth ¥8.691 billion, and was let on an 'equity investment plus general contracting' basis: the company took a stake in the project as well as the contract, the first such arrangement between China Railway and the Inner Mongolia transport department. China Communications Construction built the 358 km lot through the Badain Jaran."
       ],
       "zh": [
-        "第一财经 2017 年报道，京新高速的总投资“目前还无法测算”，此后也未见公布。当年 7 月通车的三段分别核算：临河至白疙瘩段总投资 370 亿元，白疙瘩至明水段约 61.3 亿元，明水至哈密段约 52 亿元。临白段在当时被报道为我国一次性建设里程最长、投资规模最大的单体高速公路工程。",
+        "第一财经 2017 年报道，京新高速的总投资“目前还无法测算”，此后也未见公布。当年 7 月通车的三段分别核算：临河至白疙瘩段总投资 370 亿元，白疙瘩至明水段据甘肃省交通运输厅为 62.1 亿元，明水至哈密段约 52 亿元。临白段在当时被报道为我国一次性建设里程最长、投资规模最大的单体高速公路工程。",
         "临白段分标段由大型央企承建。中国中铁承建的阿拉善境内二标段，主线 352 公里、连接线 62 公里，合同总价值 86.91 亿元，采用“股权投资＋施工总承包”模式——中铁既入股项目也承包施工，这是中国中铁与内蒙古自治区交通厅以此模式合作的首期工程。中国交建承建了穿越巴丹吉林沙漠的三标段，共 358 公里。"
       ]
     }
@@ -80,8 +80,8 @@
     },
     {
       "label": { "en": "Baigeda–Mingshui (Gansu) and Mingshui–Hami (Xinjiang) sections, opened 2017", "zh": "白疙瘩至明水段（甘肃）、明水至哈密段（新疆），2017 年通车" },
-      "value": { "en": "About ¥6.13 billion and about ¥5.2 billion. Single press report; not checked against the provincial approvals.", "zh": "分别约 61.3 亿元、约 52 亿元。仅见一家媒体报道，未与省级批复核对。" },
-      "source": "Yicai (第一财经), 15 July 2017"
+      "value": { "en": "¥6.21 billion for Baigeda–Mingshui (134.4 km), as the Gansu transport department gave it; ¥5.2 billion for Mingshui–Hami, as stated by the project's commander.", "zh": "白疙瘩至明水段（134.4 公里）总投资 62.1 亿元，据甘肃省交通运输厅；明水至哈密段总投资 52 亿元，据项目指挥长。" },
+      "source": "China National Radio Gansu, citing the Gansu transport department, 16 July 2017; Xinjiang Department of Culture and Tourism, 18 July 2017"
     },
     {
       "label": { "en": "Desert section, temporary works", "zh": "沙漠段临时配套工程" },

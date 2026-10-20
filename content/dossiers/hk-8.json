@@ -93,8 +93,8 @@
     },
     {
       "label": { "en": "Stonecutters Bridge", "zh": "昂船洲大桥" },
-      "value": { "en": "HK$2.76 billion, reported as over budget. A press figure; not checked against the Highways Department's contract account.", "zh": "27.6 亿港元，据报超支。该数字出自新闻报道，未与路政署合约账目核对。" },
-      "source": "“A Bridge too Near?”, Asia Sentinel, 2 July 2010, as cited in English Wikipedia, Stonecutters Bridge"
+      "value": { "en": "HK$2.76 billion construction contract, awarded in May 2004. Asia Sentinel reported the bridge over budget in 2010; the Audit Commission's 2014 report on Route 8 does not cover the bridge contract, and no final cost is given here.", "zh": "建造合约 27.6 亿港元，2004 年 5 月批出。Asia Sentinel 2010 年报道该桥超支；审计署 2014 年关于 8 号干线的报告不涵盖该桥合约，此处不给最终造价。" },
+      "source": "GovHK press release, Contract awarded for Stonecutters Bridge, 11 May 2004; “A Bridge too Near?”, Asia Sentinel, 2 July 2010"
     },
     {
       "label": { "en": "Cheung Sha Wan – Sha Tin section", "zh": "长沙湾至沙田段" },

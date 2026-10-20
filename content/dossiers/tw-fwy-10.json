@@ -54,11 +54,11 @@
       "key": "money",
       "en": [
         "No cost for the branch on its own has been found. It was built within the Second Freeway follow-on programme, budgeted by the Executive Yuan at NT$525.1 billion for the main line from Hsiangshan to Linbian and all its branches; the bureau's former director says the programme was let for far less, NT$254.2 billion being saved in all.",
-        "Later works are costed separately. The Dingjin ramp cost about NT$690 million, paid by the Freeway Bureau and built for it by Kaohsiung city's new-works office; the Ligang gravel-lorry road was reported in 2010 at NT$1.4 billion of central money."
+        "Later works are costed separately. The Dingjin ramp cost about NT$690 million, paid by the Freeway Bureau and built for it by Kaohsiung city's new-works office; the Ligang gravel-lorry road was reported in 2010 at NT$1.4 billion and finished in 2014 for about NT$950 million in works."
       ],
       "zh": [
         "目前查不到高雄支线单独的造价。它包含在第二高速公路后续计划之中，该计划经行政院核定的预算为 5,251 亿元，涵盖香山至林边主线及全部环支线；据前国工局长回忆，计划发包金额远低于预算，共节约 2,542 亿元。",
-        "后来的工程则另行计价。鼎金系统交流道新增匝道约 6.9 亿元，由高速公路局编列经费，委托高雄市政府新建工程处施工；里港砂石车专用道据 2010 年报道获中央同意补助 14 亿元。"
+        "后来的工程则另行计价。鼎金系统交流道新增匝道约 6.9 亿元，由高速公路局编列经费，委托高雄市政府新建工程处施工；里港砂石车专用道 2010 年报道约 14 亿元，2014 年完工，工程经费约 9.5 亿元。"
       ]
     },
     {
@@ -88,8 +88,8 @@
     },
     {
       "label": { "en": "Ligang gravel-lorry road", "zh": "里港砂石车专用道" },
-      "value": { "en": "Reported at NT$1.4 billion when approved in 2010; known here only from the headline as cited in Wikipedia, not checked against the outturn", "zh": "2010 年核定时报道为 14 亿元；此处仅据维基百科所引报道标题，未与决算核对" },
-      "source": "侯千絹, “14億闢里港砂石車專用道 中央點頭”, Liberty Times, 2 July 2010, as cited in Chinese Wikipedia, 國道十號 (中華民國)"
+      "value": { "en": "About NT$1.4 billion as reported in 2010, the county's revised figure, then awaiting the Council for Economic Planning and Development's approval; completed on 2 September 2014 for about NT$950 million in works", "zh": "2010 年报道约 14 亿元，为县府修正后的数字，当时尚待经建会核定；2014 年 9 月 2 日完工，工程经费约 9.5 亿元" },
+      "source": "侯千絹, “14億闢里港砂石車專用道 中央點頭”, Liberty Times, 2 July 2010 (archived); Freeway Bureau, 國道視窗, November 2014"
     },
     {
       "label": { "en": "Length", "zh": "长度" },
