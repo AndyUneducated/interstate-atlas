@@ -306,8 +306,8 @@ export function stitchComponents(parts, snapDeg = 0.0025, bridgeKm = 0, opts = {
 
     const best = farthestPair(adj, nodeCoord);
     if (best && best.a !== best.b) {
-      best.b = pastTheEnd(adj, best.a, best.b, nodeCoord);
-      best.a = pastTheEnd(adj, best.b, best.a, nodeCoord);
+      best.b = pastTheEnd(adj, best.a, best.b, nodeCoord, 1.6, opts.endTailKm ?? 0);
+      best.a = pastTheEnd(adj, best.b, best.a, nodeCoord, 1.6, opts.endTailKm ?? 0);
     }
 
     let pieces = [];
@@ -509,12 +509,19 @@ function extremities(nodes, nodeCoord) {
  * end lies next to the path; without that test a divided highway measures
  * out and back, ending where it began.
  */
-function pastTheEnd(adj, from, end, nodeCoord, minGainKm = 1.6) {
+function pastTheEnd(adj, from, end, nodeCoord, minGainKm = 1.6, tailKm = 0) {
   const { dist, prev } = dijkstra(adj, from);
   const base = dist.get(end);
   if (base == null) return end;
   const walked = [from];
-  for (let m = end; m !== from; m = prev.get(m).from) walked.push(m);
+  // With a tail, the road may go on from any node of the last `tailKm` of the
+  // path and not only from its end: an end chosen across the map can be the
+  // tip of a ramp at the bend of a U, which the road beyond never passes.
+  const tail = new Set([end]);
+  for (let m = end; m !== from; m = prev.get(m).from) {
+    walked.push(m);
+    if (base - dist.get(m) <= tailKm) tail.add(m);
+  }
   // Dead ends beyond the chosen end, farthest first. The farthest is often
   // the far carriageway's, back beside the start, so it is not enough to
   // test only that one.
@@ -522,8 +529,8 @@ function pastTheEnd(adj, from, end, nodeCoord, minGainKm = 1.6) {
     .sort((x, y) => y[1] - x[1]).slice(0, 24);
   for (const [far, farD] of ends) {
     let n = far;
-    for (; n !== end && n !== from; n = prev.get(n).from) if (prev.get(n).e.bridge) break;
-    if (n !== end) continue;
+    for (; !tail.has(n) && n !== from; n = prev.get(n).from) if (prev.get(n).e.bridge) break;
+    if (!tail.has(n)) continue;
     const clear = Math.min(...walked.map((m) => haversineKm(nodeCoord[far], nodeCoord[m])));
     // A hook may end close to its own start - I-295's Pennsylvania end is 8 km
     // across the Delaware from its New Jersey miles - so the margin is small.
@@ -743,7 +750,7 @@ function assemblePath(steps) {
  */
 export function stitchRoute(parts, {
   snapDeg = 0.0025, bridgeKm = 60, minComponentKm = 1.2,
-  dedupe = false, dedupeTolKm = 0.08, bridgeFromExtremities = false,
+  dedupe = false, dedupeTolKm = 0.08, bridgeFromExtremities = false, endTailKm = 0,
 } = {}) {
   const first = stitchComponents(parts, snapDeg, 0);
   const keep = new Set();
@@ -753,7 +760,7 @@ export function stitchRoute(parts, {
   }
   const alone = !keep.size;
   const survivors = alone ? parts : parts.filter((_, i) => keep.has(i));
-  const comps = stitchComponents(survivors, snapDeg, bridgeKm, { bridgeFromExtremities })
+  const comps = stitchComponents(survivors, snapDeg, bridgeKm, { bridgeFromExtremities, endTailKm })
     .filter((c) => (alone ? c.km > 0 : c.km >= minComponentKm));
   return dedupe ? withoutOppositeCarriageways(comps, dedupeTolKm) : comps;
 }

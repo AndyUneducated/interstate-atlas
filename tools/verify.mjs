@@ -326,7 +326,7 @@ await step('numbering explainer', async () => {
   await page.waitForTimeout(700);
   const lines = await page.locator('.nb-route[data-id]').count();
   if (lines < 8) throw new Error(`only ${lines} grid lines drawn`);
-  if (await page.locator('.nb-cc').count() !== 5) throw new Error('the numbering page does not offer all five countries');
+  if (await page.locator('.nb-cc').count() !== 6) throw new Error('the numbering page does not offer all six countries');
   if (await page.locator('.nb-cc.on').getAttribute('data-cc') !== 'us') throw new Error('over the US the page did not open on the US');
 });
 await shot('03-numbering.png');
@@ -357,6 +357,13 @@ await step('numbering covers China, Taiwan and Hong Kong, drawn from the data', 
   const tw = await page.$$eval('.nb-fit', (els) => els.map((e) => e.textContent.trim()).filter(Boolean));
   if (!tw.some((f) => /southward, ρ = 1\.00/.test(f))) throw new Error(`Taiwan's east–west expressways are not strictly north to south: ${tw.join(' | ')}`);
   await shot('03b-numbering-tw.png');
+  await page.click('.nb-cc[data-cc="mx"]');
+  await page.waitForSelector('.nb-plate .nb-geo', { timeout: 15000 });
+  await page.waitForTimeout(300);
+  const mx = await page.$$eval('.nb-fit', (els) => els.map((e) => e.textContent.trim()).filter(Boolean));
+  if (!mx.some((f) => /eastward/.test(f)) || !mx.some((f) => /southward/.test(f))) throw new Error(`Mexico's numbers do not climb east and south: ${mx.join(' | ')}`);
+  if (!/Wikipedia/.test(await page.textContent('.nb-src'))) throw new Error('the Mexican rule is not attributed');
+  await shot('03c-numbering-mx.png');
   await page.click('.nb-cc[data-cc="us"]');
 });
 
@@ -929,6 +936,11 @@ await step('a route in a publishing province carries traffic', async () => {
   // unstated, and dropping that caveat is the quiet failure worth catching.
   if (!/licence|Ministry of Transportation/i.test(text)) {
     throw new Error('traffic figure shown without naming its source');
+  }
+  // The province's own length, summed from the same report's sections (D-87).
+  const all = await page.textContent('#detail');
+  if (!/Ontario MTO, sections in Provincial Highways Traffic Volumes \d{4}, summed/.test(all)) {
+    throw new Error('no provincial official length on Ontario 401');
   }
 });
 await shot('16-ontario-401-traffic.png');

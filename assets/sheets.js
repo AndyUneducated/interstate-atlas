@@ -224,12 +224,13 @@ function numberingDiagram(sys, opts = {}) {
 const NB_COUNTRIES = [
   { cc: 'us', tabs: ['us-interstate', 'us-numbered', 'aux'], sample: (r) => r.label === 'I-95' },
   { cc: 'ca', tabs: ['ca'], sample: (r) => r.sys === 'ca-tch' && r.num === '1' },
+  { cc: 'mx', tabs: ['mx-federal'], sample: (r) => r.id === 'mex-015' },
   { cc: 'cn', tabs: ['cn-expressway', 'cn-national', 'cn-provincial'], sample: (r) => r.id === 'cn-g4' },
   { cc: 'tw', tabs: ['tw-freeway', 'tw-provincial'], sample: (r) => r.id === 'tw-fwy-1' },
   { cc: 'hk', tabs: ['hk-route'], sample: (r) => r.id === 'hk-9' },
 ];
 const NB_TAB_KEY = { 'us-interstate': 'nb.tab.i', 'us-numbered': 'nb.tab.us', aux: 'nb.tab.aux', ca: 'nb.tab.ca' };
-const NB_CC_SYS = { us: 'us-interstate', ca: 'ca-tch', cn: 'cn-expressway', tw: 'tw-freeway', hk: 'hk-route' };
+const NB_CC_SYS = { us: 'us-interstate', ca: 'ca-tch', mx: 'mx-federal', cn: 'cn-expressway', tw: 'tw-freeway', hk: 'hk-route' };
 const regionOfCc = (cc) => (['cn', 'tw', 'hk'].includes(cc) ? 'ea' : 'na');
 
 // Rough boxes, enough to tell which country the middle of the view is over.
@@ -241,6 +242,7 @@ function nbCountryInView() {
     return 'cn';
   }
   if (c && ((c.lat > 49.2 && c.lng > -141) || (c.lat > 45.3 && c.lng > -80 && c.lng < -52))) return 'ca';
+  if (c && c.lat < 25.8 && c.lng > -118 && c.lng < -86.7) return 'mx';
   return 'us';
 }
 
@@ -572,6 +574,25 @@ const PLATES = {
         p: L('甲 乙 丙 丁 … in order, so Highway 9 has branches 9甲 to 9戊.', '依天干甲、乙、丙、丁……排序，例如台 9 线有甲线至戊线。') },
     ],
   },
+  'mx-federal': {
+    file: 'mx/federal.json',
+    note: L('The rule is as English Wikipedia (Mexican Federal Highway) and OpenStreetMap’s Mexico wiki give it; neither cites an SICT document, and none was found. The arrows and the share of each class that runs the way its number says are measured from the atlas’s own lines.',
+      '规则据英文维基百科“墨西哥联邦公路”条目与 OpenStreetMap 墨西哥维基所述；两者都未引用 SICT 文件，本站也未找到。箭头及各类中走向与编号相符的比例，均由本站自己的线形算出。'),
+    classes: [
+      { key: 'ns', colour: '#35e7ff', test: (p) => unsuffixed(p) && p.base % 2 === 1, arrow: 'x', orient: 'ns',
+        h: L('Odd: north–south', '奇数：南北向'),
+        p: L('Numbered from the north-west, so MEX-1 runs down Baja California and MEX-85 from Nuevo Laredo to Mexico City.',
+          '编号从西北起算：1 号纵贯下加利福尼亚半岛，85 号从新拉雷多通往墨西哥城。') },
+      { key: 'ew', colour: '#ffd166', test: (p) => unsuffixed(p) && p.base % 2 === 0, arrow: 'y', orient: 'ew',
+        h: L('Even: east–west', '偶数：东西向'),
+        p: L('MEX-2 follows the US border; the high numbers are in the south, where the coast roads MEX-180 and MEX-200 run more along the shore than across the country.',
+          '2 号沿美墨边境；大号在南部，沿海的 180 号与 200 号顺海岸延伸，与其说是东西向，不如说是沿岸走向。') },
+      { key: 'toll', colour: '#f06bff', test: () => true,
+        h: L('A D: the toll road beside it', '加 D：并行的收费公路'),
+        p: L('D, for directo, marks the toll road built beside a free one and numbered after it: MEX-15D runs beside MEX-15. The road file seldom writes the D, so most toll stretches are drawn under the plain number, their toll share given on the route.',
+          'D 即 directo（直达），表示与免费公路并行、沿用其编号的收费公路：15D 与 15 号并行。道路文件很少写出 D，所以多数收费路段画在不带字母的编号下，收费比例在路线页给出。') },
+    ],
+  },
   'hk-route': {
     file: 'hk/routes.json', perRoute: true,
     classes: [
@@ -632,6 +653,7 @@ function nbPlatePane(kind) {
       <h4>${t('nb.plate.h', { sys: t(`sys.${kind}`) })}</h4>
       <p class="nb-hint">${t('nb.plate.hint')}</p>
       <div class="nb-clss">${cards}</div>
+      ${spec.note ? `<p class="nb-src">${spec.note[zh ? 'zh' : 'en']}</p>` : ''}
     </div>
   </div>`;
 }
@@ -905,6 +927,10 @@ const ANATOMY = {
   ca: [
     ['A-440', [['A-', '#8fb4ff', L('Québec autoroute', '魁北克高速公路')], ['4', '#6ef7a5', L('even first digit: a bypass', '首位偶数：绕行线')], ['40', '#35e7ff', L('the parent: A-40', '母路：A-40')]]],
     ['A-720', [['A-', '#8fb4ff', L('Québec autoroute', '魁北克高速公路')], ['7', '#ffb545', L('odd first digit: a spur', '首位奇数：支线')], ['20', '#35e7ff', L('the parent: A-20', '母路：A-20')]]],
+  ],
+  'mx-federal': [
+    ['MEX-15D', [['MEX-', '#8fb4ff', L('federal highway', '联邦公路')], ['15', '#35e7ff', L('odd: north–south, from the west', '奇数：南北向，自西编起')], ['D', '#f06bff', L('directo: the toll road beside MEX-15', 'directo：与 15 号并行的收费公路')]]],
+    ['MEX-2', [['MEX-', '#8fb4ff', L('federal highway', '联邦公路')], ['2', '#ffd166', L('even: east–west, the northernmost', '偶数：东西向，最北的一条')]]],
   ],
   'cn-expressway': [
     ['G4', [['G', '#2fd37a', L('national (国家)', '国家级')], ['4', '#ff5a7a', L('one digit: the 4th radial out of Beijing', '一位数：第 4 条首都放射线')]]],

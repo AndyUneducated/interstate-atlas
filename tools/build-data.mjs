@@ -428,13 +428,13 @@ async function loadOfficial() {
       return null;
     }
   };
-  const [mileage, cost, hpms, caTraffic, mxTraffic, twTraffic, twIri, fixes] = await Promise.all([
+  const [mileage, cost, hpms, caTraffic, caLengths, mxTraffic, twTraffic, twIri, fixes] = await Promise.all([
     read('fhwa-mileage.json'), read('fhwa-cost.json'), read('hpms.json'),
-    read('ca-traffic.json'), read('mx-traffic.json'), read('tw-traffic.json'), read('tw-iri.json'),
+    read('ca-traffic.json'), read('ca-lengths.json'), read('mx-traffic.json'), read('tw-traffic.json'), read('tw-iri.json'),
     read('fhwa-corrections.json'),
   ]);
   if (mileage && fixes) correctMileage(mileage, fixes);
-  return mileage ? { mileage, cost, hpms, caTraffic, mxTraffic, twTraffic, twIri } : null;
+  return mileage ? { mileage, cost, hpms, caTraffic, caLengths, mxTraffic, twTraffic, twIri } : null;
 }
 
 /**
@@ -526,6 +526,7 @@ function attachOfficial(routes, ref) {
 
   attachHpms(routes, ref.hpms);
   attachCanadianTraffic(routes, ref.caTraffic);
+  attachCanadianLengths(routes, ref.caLengths);
   attachMexicanTraffic(routes, ref.mxTraffic);
   attachTaiwanTraffic(routes, ref.twTraffic);
   attachTaiwanIri(routes, ref.twIri);
@@ -1266,6 +1267,42 @@ const medianOf = (xs) => {
  * nearest piece of their number, within 5 km.
  */
 /**
+ * A province's own length for one of its highways: the sum of the sections it
+ * manages (ca-lengths.json). It goes on the longest piece the atlas draws of
+ * that number, as Taiwan's register does, and only where it lies within 20% of
+ * that piece (D-87). Beyond that the province's sections describe a different
+ * road from the one drawn - most of Ontario's Highway 2 was handed to the
+ * municipalities, and the 0.9 km the ministry still counts is not its length -
+ * and a headline "official" figure would be wrong rather than merely different.
+ */
+function attachCanadianLengths(routes, ca) {
+  if (!ca?.provinces) return;
+  const longest = new Map();
+  for (const r of routes) {
+    if (r.country !== 'ca' || r.states.length !== 1 || !r.number) continue;
+    const key = `${r.states[0].st}|${r.number}`;
+    const cur = longest.get(key);
+    if (!cur || r.mi > cur.mi) longest.set(key, r);
+  }
+  const tally = {};
+  for (const [st, p] of Object.entries(ca.provinces)) {
+    const t = (tally[st] = { shown: 0, apart: 0, unmatched: 0 });
+    for (const [number, km] of Object.entries(p.routes)) {
+      const r = longest.get(`${st}|${number}`);
+      if (!r) { t.unmatched++; continue; }
+      const mi = km / KM_PER_MI;
+      if (Math.abs(mi / r.mi - 1) > 0.2) { t.apart++; continue; }
+      r.offMi = mi;
+      r.offSrc = 'ca';
+      t.shown++;
+    }
+  }
+  ca.tally = tally;
+  console.log('  Canadian provincial lengths: '
+    + Object.entries(tally).map(([st, t]) => `${st} ${t.shown} (${t.apart} over 20% apart, ${t.unmatched} not drawn)`).join(', '));
+}
+
+/**
  * The Highway Bureau's one average roughness per provincial highway. It is a
  * figure for the whole route, so it goes on the piece that carries the
  * register's length and on no other piece of the same number.
@@ -1553,12 +1590,12 @@ async function buildEastAsia() {
     sources.tw = { edition: tw.edition, provisional: tw.provisional, register: register?.size ?? 0, freeways: chainage?.size ?? 0 };
     for (const grp of tw.groups.values()) {
       const freeway = grp.system === 'tw-freeway';
-      const first = stitchRoute(grp.parts, { snapDeg: US_SNAP, bridgeKm: freeway ? 30 : 20, minComponentKm: 0.8, dedupe: true, bridgeFromExtremities: true });
+      const first = stitchRoute(grp.parts, { snapDeg: US_SNAP, bridgeKm: freeway ? 30 : 20, minComponentKm: 0.8, dedupe: true, bridgeFromExtremities: true, endTailKm: 3 });
       if (!first.length) continue;
       let comps = first;
       if (first.length > 1) {
         const parts = first.flatMap((m) => m.edges.map((e) => ({ coords: e.coords, props: e.props })));
-        comps = stitchComponents(parts, US_SNAP, 40, { bridgeFromExtremities: true }).sort((a, b) => b.km - a.km);
+        comps = stitchComponents(parts, US_SNAP, 40, { bridgeFromExtremities: true, endTailKm: 3 }).sort((a, b) => b.km - a.km);
       }
       const before = routes.length;
       push(grp, comps, {
@@ -2086,6 +2123,12 @@ async function main() {
       ? Object.fromEntries(Object.entries(official.caTraffic.provinces).map(([st, p]) => [st, {
         name: p.name, source: p.source, url: p.url, licence: p.licence,
         measure: p.measure, method: p.method, note: p.note ?? null,
+      }]))
+      : null,
+    // Whose sections each province's official lengths are summed from (D-87).
+    caLengths: official?.caLengths
+      ? Object.fromEntries(Object.entries(official.caLengths.provinces).map(([st, p]) => [st, {
+        source: p.source, url: p.url, licence: p.licence, edition: p.edition, ...official.caLengths.tally?.[st],
       }]))
       : null,
     canada: canada.register?.inventory ?? null,

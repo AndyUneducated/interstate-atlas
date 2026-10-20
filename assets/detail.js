@@ -244,6 +244,13 @@ function hpmsFacts(p) {
  * block rather than a blank one - the About page is where the absence is
  * explained, because it is a fact about Canada and not about this road.
  */
+/** The province and edition a Canadian official length is summed from (D-87). */
+function caLengthSource(st) {
+  const src = app.stats?.caLengths?.[st];
+  if (!src) return null;
+  return t(`ca.len.${st}`, { ed: src.edition ?? '' });
+}
+
 function provincialTraffic(p) {
   const tr = p.traffic;
   const meta = app.stats?.caTraffic;
@@ -882,7 +889,8 @@ export async function renderDetail(id) {
   const officialSrc = dossier?.mileageSource || (planKm && dossier?.officialMi == null
     ? t(plan.km ? 'cn.listedSrc' : 'cn.builtSrc')
     : p.offMi == null ? null
-      : p.offSrc === 'thb' || p.offSrc === 'nfb' ? t(`src.${p.offSrc}`, { date: p.reg?.updated ?? '' }) : t('src.routelog'));
+      : p.offSrc === 'thb' || p.offSrc === 'nfb' ? t(`src.${p.offSrc}`, { date: p.reg?.updated ?? '' })
+        : p.offSrc === 'ca' ? caLengthSource(meta.st) : t('src.routelog'));
   const heroKind = planKm && dossier?.officialMi == null ? (plan.km ? 'Planned' : 'Built') : 'Official';
   const ea = p.cc === 'tw' || p.cc === 'hk' || p.cc === 'cn';
   const osm = ea ? (await loadOsmAttrs())?.routes?.[id] ?? null : null;
@@ -1112,7 +1120,8 @@ export async function renderDetail(id) {
       <span class="fig-k">${t('len.delta')}</span>
       <span class="fig-v">${delta > 0 ? '+' : ''}<b>${num(lenOf(delta))}</b> ${lenUnit()}
       <span class="src">${t(heroKind !== 'Official' ? 'cn.deltaWhy'
-    : dossier?.officialMi ? 'len.deltaWhy' : p.offSrc === 'thb' ? 'tw.deltaWhy' : p.offSrc === 'nfb' ? 'tw.fwyDeltaWhy' : 'len.deltaWhy')}</span></span></div>` : ''}
+    : dossier?.officialMi ? 'len.deltaWhy' : p.offSrc === 'thb' ? 'tw.deltaWhy' : p.offSrc === 'nfb' ? 'tw.fwyDeltaWhy'
+      : p.offSrc === 'ca' ? 'ca.deltaWhy' : 'len.deltaWhy')}</span></span></div>` : ''}
   </div>` : '';
 
   // Every page says where its numbers came from, and for a Canadian route
